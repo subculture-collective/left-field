@@ -72,6 +72,7 @@ export const missingReasonSchema = z.enum([
   "suppressed",
   "unmatched",
   "source_unavailable",
+  "license_unavailable",
   "not_defensibly_modeled",
 ]);
 export const factStatusSchema = z.enum([
@@ -315,7 +316,7 @@ export const acsObservationSchema = z.object({
   label: z.string().min(1),
   estimate: factValueSchema(z.number()),
   marginOfError: factValueSchema(z.number().nonnegative()),
-  unit: z.enum(["count", "percent", "usd"]),
+  unit: z.enum(["count", "percent", "usd", "years"]),
   surveyPeriod: z.string().min(1),
   universe: z.string().min(1),
   lineage: lineageSchema,
@@ -426,3 +427,76 @@ export const prototypeManifestSchema = z.object({
 }).strict();
 
 export type PrototypeManifest = z.infer<typeof prototypeManifestSchema>;
+
+export const coverageDomainSchema = z.enum(["identity", "geography", "member", "acs", "finance", "election_2020", "election_2022", "election_2024", "maps"]);
+export const coverageScopeSchema = z.discriminatedUnion("kind", [
+  z.strictObject({ kind: z.literal("release") }),
+  z.strictObject({ kind: z.literal("jurisdiction"), jurisdictionCode: usStateCodeSchema }),
+  z.strictObject({ kind: z.literal("seat_cycle"), seatCycleId: seatCycleIdSchema }),
+  z.strictObject({ kind: z.literal("acs_indicator"), variable: z.string().min(1), surveyPeriod: z.string().min(1) }),
+  z.strictObject({ kind: z.literal("election"), jurisdictionCode: usStateCodeSchema, electionYear: z.number().int() }),
+  z.strictObject({ kind: z.literal("funding"), seatCycleId: seatCycleIdSchema, fundingKind: z.enum(["summary", "category", "organization", "outside_spending"]) }),
+]);
+const coverageMissingReasonSchema = z.enum(["not_collected", "not_reported", "not_yet_reported", "suppressed", "unmatched", "source_unavailable", "license_unavailable", "not_defensibly_modeled"]);
+export const coverageRecordSchema = z.strictObject({
+  releaseId: releaseIdSchema, domain: coverageDomainSchema, scope: coverageScopeSchema,
+  status: z.enum(["complete", "partial", "not_collected", "unavailable"]),
+  expectedCount: z.number().int().nonnegative(), observedCount: z.number().int().nonnegative(),
+  missingByReason: z.array(z.strictObject({ reason: coverageMissingReasonSchema, count: z.number().int().positive() })).default([]),
+  quarantinedCount: z.number().int().nonnegative().default(0), incompatibleCount: z.number().int().nonnegative().default(0),
+  inputSnapshotIds: z.array(snapshotIdSchema).min(1),
+});
+export const personBiographicalFactSchema = z.strictObject({
+  releaseId: releaseIdSchema, personId: personIdSchema, fact: z.enum(["birth_date", "bioguide_id"]),
+  value: factValueSchema(z.string().min(1)), effectiveAt: isoDateSchema, provenance: z.array(provenanceReferenceSchema).min(1),
+});
+export const committeeAssignmentSchema = z.strictObject({
+  releaseId: releaseIdSchema, personId: personIdSchema, committeeId: committeeIdSchema,
+  role: z.string().min(1), effectiveFrom: isoDateSchema, effectiveTo: isoDateSchema.nullable(), provenance: z.array(provenanceReferenceSchema).min(1),
+});
+const acsVariableCommon = {
+  id: z.string().min(1), releaseId: releaseIdSchema, variable: z.string().min(1), label: z.string().min(1),
+  unit: z.enum(["count", "percent", "usd", "years"]), surveyPeriod: z.string().min(1), universe: z.string().min(1),
+  inputSnapshotIds: z.array(snapshotIdSchema).min(1),
+};
+const strictAcsVariableSchema = z.discriminatedUnion("definitionKind", [
+  z.strictObject({ ...acsVariableCommon, definitionKind: z.literal("source"), censusVariable: z.string().min(1), publishedMoeMethod: z.enum(["published", "not_published"]) }),
+  z.strictObject({ ...acsVariableCommon, unit: z.literal("percent"), definitionKind: z.literal("derived_ratio"), numeratorDefinitionId: z.string().min(1), denominatorDefinitionId: z.string().min(1), derivationFormulaVersion: z.string().min(1), moePropagationMethod: z.literal("delta_method") }),
+]);
+export const acsVariableSchema = strictAcsVariableSchema;
+export const financeCommitteeInputSchema = z.discriminatedUnion("kind", [
+  z.strictObject({ kind: z.literal("included"), committeeId: committeeIdSchema, filingId: fecFilingIdSchema }),
+  z.strictObject({ kind: z.literal("missing"), committeeId: committeeIdSchema, reason: missingReasonSchema }),
+]);
+const strictFinanceAggregateSchema = z.strictObject({
+  id: z.string().min(1), releaseId: releaseIdSchema, seatCycleId: seatCycleIdSchema, asOf: isoDateSchema, coverageThrough: isoDateSchema, reportingPeriodStart: isoDateSchema,
+  cashOnHand: factValueSchema(z.number().nonnegative()), receipts: factValueSchema(z.number().nonnegative()), disbursements: factValueSchema(z.number().nonnegative()),
+  methodologyVersion: z.string().min(1), committeeInputs: z.array(financeCommitteeInputSchema).min(1),
+});
+export const financeAggregateSchema = strictFinanceAggregateSchema;
+export const fundingCategoryAggregateSchema = z.strictObject({
+  releaseId: releaseIdSchema, seatCycleId: seatCycleIdSchema, category: z.string().min(1), amount: factValueSchema(z.number().nonnegative()),
+  coverageThrough: isoDateSchema, methodologyVersion: z.string().min(1), inputSnapshotIds: z.array(snapshotIdSchema).min(1),
+});
+/** Licensed organization-level funding is distinct from a reporting category. */
+export const fundingOrganizationAggregateSchema = z.strictObject({
+  id: z.string().min(1), releaseId: releaseIdSchema, seatCycleId: seatCycleIdSchema,
+  organizationName: z.string().min(1), organizationExternalId: z.string().min(1).nullable(),
+  amount: factValueSchema(z.number().nonnegative()), coverageThrough: isoDateSchema,
+  methodologyVersion: z.string().min(1), inputSnapshotIds: z.array(snapshotIdSchema).min(1),
+});
+export const outsideSpendingAggregateSchema = z.strictObject({
+  releaseId: releaseIdSchema, seatCycleId: seatCycleIdSchema, supportAmount: factValueSchema(z.number().nonnegative()), opposeAmount: factValueSchema(z.number().nonnegative()),
+  coverageThrough: isoDateSchema, methodologyVersion: z.string().min(1), inputSnapshotIds: z.array(snapshotIdSchema).min(1),
+});
+export const electionDecisionSchema = z.strictObject({
+  id: z.string().min(1), releaseId: releaseIdSchema, jurisdictionCode: usStateCodeSchema, electionYear: z.number().int(),
+  status: z.enum(["approved", "unavailable"]), inputSnapshotIds: z.array(snapshotIdSchema).min(1),
+});
+export const mapArtifactSchema = z.strictObject({
+  id: z.string().min(1), releaseId: releaseIdSchema, geographyVersionId: geographyVersionIdSchema,
+  artifactId: geometryArtifactIdSchema, inputSnapshotIds: z.array(snapshotIdSchema).min(1),
+});
+export const snapshotDerivationSchema = z.strictObject({
+  releaseId: releaseIdSchema, outputSnapshotId: snapshotIdSchema, inputSnapshotIds: z.array(snapshotIdSchema).min(1), methodologyVersion: z.string().min(1),
+});
