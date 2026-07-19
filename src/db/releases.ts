@@ -19,6 +19,8 @@ export async function promoteCandidateRelease(pool: Pool, releaseId: string, max
         "SELECT id FROM data_releases WHERE id = $1 AND status = 'candidate' FOR UPDATE", [releaseId],
       );
       if (candidate.rowCount !== 1) throw new Error(`Release ${releaseId} is not a candidate`);
+      const version = await client.query<{ schema_version: number }>("SELECT schema_version FROM release_manifests WHERE release_id=$1", [releaseId]);
+      if (version.rows[0]?.schema_version !== 1) throw new Error("Nationwide v2 publication is not enabled until Task 5");
       const manifest = await loadPrototypeManifest(client, releaseId);
       const semantic = validatePrototypeManifest(manifest);
       if (!semantic.success || manifest.profileSeatCycleIds.length < 10 || manifest.profileSeatCycleIds.length > 12) throw new Error(`Release ${releaseId} failed validation immediately before promotion`);

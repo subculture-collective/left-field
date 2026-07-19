@@ -110,6 +110,12 @@ describe("validatePrototypeManifest", () => {
     const finance = coherentManifest(); finance.financeSummaries[0] = { kind: "value", releaseId: "rel_1", seatCycleId: "seat_house_1", filingId: "fec_missing" } as never; expectIssue(finance, "Unknown finance filing");
   });
 
+  it("rejects district plans with duplicate persisted natural keys", () => {
+    const manifest = coherentManifest();
+    manifest.districtPlans.push({ ...manifest.districtPlans[0]!, id: "plan_duplicate" } as never);
+    expectIssue(manifest, "Duplicate district-plan natural key");
+  });
+
   it("rejects value finance summaries that reference another cycle or a superseded filing", () => {
     const anotherCycle = coherentManifest(); anotherCycle.committees.push({ id: "committee_1", releaseId: "rel_1", provenance, sourceCommitteeId: "C1", name: "Committee", committeeType: "principal" } as never); anotherCycle.committeeRelationships.push({ id: "committee_rel_1", releaseId: "rel_1", provenance, committeeId: "committee_1", candidacyId: "candidacy_2", relationship: "authorized", effectiveFrom: "2024-01-01", effectiveTo: null } as never); anotherCycle.fecFilingSummaries.push({ id: "fec_1", releaseId: "rel_1", seatCycleId: "seat_house_2", committeeId: "committee_1", sourceFilingId: "F1", reportType: "Q1", reportingPeriodStart: "2024-01-01", reportingPeriodEnd: "2024-03-31", filedAt: "2024-04-01T00:00:00.000Z", amendmentNumber: 0, amendmentStatus: "new", amendsFilingId: null, cashOnHand: { kind: "value", value: 1 }, totalReceipts: { kind: "value", value: 1 }, totalDisbursements: { kind: "value", value: 1 }, lineage } as never); anotherCycle.financeSummaries[0] = { kind: "value", releaseId: "rel_1", seatCycleId: "seat_house_1", filingId: "fec_1" } as never; expectIssue(anotherCycle, "Finance summary must reference the canonical filing for its seat cycle");
 

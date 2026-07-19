@@ -306,6 +306,14 @@ function validateManifestIntegrity(manifest: BaseManifest, validateProfile: bool
   for (const [name, records] of collections) {
     issues.push(...duplicateIssues(records, name, (record) => record.id));
   }
+  const districtPlanNaturalKeys = new Set<string>();
+  manifest.districtPlans.forEach((plan, index) => {
+    const key = [plan.jurisdictionStateCode, plan.congress, plan.name].join(":");
+    if (districtPlanNaturalKeys.has(key)) {
+      issues.push({ path: `districtPlans.${index}`, message: "Duplicate district-plan natural key" });
+    }
+    districtPlanNaturalKeys.add(key);
+  });
 
   const sources = new Set(manifest.sources.map((record) => record.id));
   const snapshots = new Set<SnapshotId>(manifest.snapshots.map((record) => record.id));

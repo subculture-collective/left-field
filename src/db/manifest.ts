@@ -3,7 +3,8 @@ import type { Pool, PoolClient, QueryResultRow } from "pg";
 
 import type { FactValue, GeographyVersionId, MissingReason, PrototypeManifest } from "@/domain/contracts";
 import { prototypeManifestSchema } from "@/domain/contracts";
-import { computeCanonicalDataChecksum, validatePrototypeManifest } from "@/domain/validate-manifest";
+import { nationwideManifestSchema, type NationwideManifest } from "@/domain/manifest";
+import { computeCanonicalDataChecksum, validatePrototypeManifest, validateReleaseManifest } from "@/domain/validate-manifest";
 
 type Queryable = Pick<PoolClient, "query">;
 
@@ -124,6 +125,14 @@ function validationError(prefix: string, issues: readonly { path: string; messag
 function factColumns(value: FactValue<number>): readonly [number | null, string | null] {
   return value.kind === "value" ? [value.value, null] : [null, value.reason];
 }
+function textFactColumns(value: FactValue<string>): readonly [string | null, string | null] {
+  return value.kind === "value" ? [value.value, null] : [null, value.reason];
+}
+
+type CoverageScope = NationwideManifest["coverageRecords"][number]["scope"];
+export function canonicalCoverageScopeKey(scope: CoverageScope): string {
+  return JSON.stringify({ kind: scope.kind, jurisdictionCode: scope.kind === "jurisdiction" || scope.kind === "election" ? scope.jurisdictionCode : null, seatCycleId: scope.kind === "seat_cycle" || scope.kind === "funding" ? scope.seatCycleId : null, variable: scope.kind === "acs_indicator" ? scope.variable : null, surveyPeriod: scope.kind === "acs_indicator" ? scope.surveyPeriod : null, electionYear: scope.kind === "election" ? scope.electionYear : null, fundingKind: scope.kind === "funding" ? scope.fundingKind : null });
+}
 
 async function insertProvenance(
   client: Queryable,
@@ -160,21 +169,15 @@ async function insertLineage(
 }
 
 /** Validates and atomically persists one complete candidate release. */
-export async function seedPrototypeManifest(
+async function seedNormalizedManifest(
   connection: Pool,
-  input: PrototypeManifest,
+  manifest: PrototypeManifest | NationwideManifest,
   bundle: BoundaryBundle,
+  catalogSeatCycleIds: readonly string[],
+  persistV2?: (client: Queryable, releaseId: string) => Promise<void>,
 ): Promise<void> {
-  const validation = validatePrototypeManifest(input);
-  if (!validation.success) throw validationError("Cannot seed invalid prototype manifest", validation.issues);
-  const manifest = validation.data;
-  if (manifest.release.status !== "candidate") throw new Error("Only candidate releases may be seeded");
-  if (computeCanonicalDataChecksum(manifest) !== manifest.canonicalDataChecksumSha256) {
-    throw new Error("Canonical data checksum does not exactly match manifest content");
-  }
-
   // Compile immediately before persistence; a pre-mapped geometry cannot attest raw artifact identity.
-  const boundaryByGeography = compileBoundaryBundle(manifest, bundle);
+  const boundaryByGeography = compileBoundaryBundle(manifest as PrototypeManifest, bundle);
 
   await inTransaction(connection, async (client) => {
     const release = manifest.release;
@@ -285,13 +288,48 @@ export async function seedPrototypeManifest(
       await client.query("INSERT INTO seat_finance_summaries (release_id,seat_cycle_id,filing_id,missing_reason,as_of) VALUES ($1,$2,$3,$4,$5)", row.kind === "value" ? [row.releaseId, row.seatCycleId, row.filingId, null, null] : [row.releaseId, row.seatCycleId, null, row.reason, row.asOf]);
       if (row.kind === "missing") await insertLineage(client, "seat_finance_summary_lineage", ["seat_cycle_id"], [row.seatCycleId], release.id, row.inputs);
     }
-    for (const [index, seatCycleId] of manifest.profileSeatCycleIds.entries()) {
+    for (const [index, seatCycleId] of catalogSeatCycleIds.entries()) {
       await client.query("INSERT INTO release_profile_seats (release_id,seat_cycle_id,position) VALUES ($1,$2,$3)", [release.id, seatCycleId, index + 1]);
     }
+    await persistV2?.(client, release.id);
     const geometryRows = await client.query<{ id: string; boundary_checksum_sha256: string }>("SELECT id,boundary_checksum_sha256 FROM geography_versions WHERE release_id=$1 ORDER BY id", [release.id]);
     const geometry = geometryChecksum(geometryRows.rows.map((row) => ({ id: row.id, checksum: row.boundary_checksum_sha256 })));
     await client.query("INSERT INTO release_manifests (release_id,schema_version,canonical_data_checksum_sha256,geometry_checksum_sha256,content_checksum_sha256) VALUES ($1,$2,$3,$4,$5)", [release.id, manifest.schemaVersion, manifest.canonicalDataChecksumSha256, geometry, contentChecksum(manifest.canonicalDataChecksumSha256, geometry)]);
   });
+}
+
+async function insertRows(client: Queryable, table: string, columns: readonly string[], values: unknown[]): Promise<void> {
+  const placeholders = columns.map((_, index) => `$${index + 1}`).join(",");
+  await client.query(`INSERT INTO ${table} (${columns.join(",")}) VALUES (${placeholders})`, values);
+}
+
+/** Validates and atomically persists the complete v2 nationwide projection. */
+export async function seedNationwideCandidateManifest(pool: Pool, input: NationwideManifest, boundaryBundle: BoundaryBundle): Promise<void> {
+  const validation = validateReleaseManifest(input);
+  if (!validation.success || validation.data.schemaVersion !== 2) throw validationError("Cannot seed invalid nationwide manifest", validation.success ? [] : validation.issues);
+  const manifest = validation.data;
+  if (manifest.release.status !== "candidate") throw new Error("Only candidate releases may be seeded");
+  if (computeCanonicalDataChecksum(manifest) !== manifest.canonicalDataChecksumSha256) throw new Error("Canonical data checksum does not exactly match manifest content");
+  await seedNormalizedManifest(pool, manifest, boundaryBundle, manifest.catalogSeatCycleIds, async (client, releaseId) => {
+    for (const r of manifest.jurisdictions) await insertRows(client,"jurisdictions",["release_id","jurisdiction_code","house_representation","senate_representation"],[releaseId,r.jurisdictionCode,r.houseRepresentation,r.senateRepresentation]);
+    for (const r of manifest.coverageRecords) { const s=r.scope, scopeKey=canonicalCoverageScopeKey(s); const key=[s.kind,s.kind==="jurisdiction"||s.kind==="election"?s.jurisdictionCode:null,s.kind==="seat_cycle"||s.kind==="funding"?s.seatCycleId:null,s.kind==="acs_indicator"?s.variable:null,s.kind==="acs_indicator"?s.surveyPeriod:null,s.kind==="election"?s.electionYear:null,s.kind==="funding"?s.fundingKind:null]; const cols=["release_id","domain","scope_key","scope_kind","jurisdiction_code","seat_cycle_id","variable","survey_period","election_year","funding_kind","status","expected_count","observed_count","quarantined_count","incompatible_count"]; const vals=[releaseId,r.domain,scopeKey,...key,r.status,r.expectedCount,r.observedCount,r.quarantinedCount,r.incompatibleCount]; await insertRows(client,"coverage_records",cols,vals); for(const m of r.missingByReason) await insertRows(client,"coverage_missing_reasons",["release_id","domain","scope_key","reason","count"],[releaseId,r.domain,scopeKey,m.reason,m.count]); for(const id of r.inputSnapshotIds) await insertRows(client,"coverage_input_snapshots",["release_id","domain","scope_key","snapshot_id"],[releaseId,r.domain,scopeKey,id]); }
+    for(const r of manifest.biographicalFacts){const v=textFactColumns(r.value);await insertRows(client,"biographical_facts",["release_id","person_id","fact","value","value_missing_reason","effective_at"],[releaseId,r.personId,r.fact,...v,r.effectiveAt]);for(const p of r.provenance)await insertRows(client,"biographical_fact_provenance",["release_id","person_id","fact","effective_at","snapshot_id","role"],[releaseId,r.personId,r.fact,r.effectiveAt,p.snapshotId,p.role]);}
+    for(const r of manifest.committeeAssignments){await insertRows(client,"committee_assignments",["release_id","person_id","committee_id","role","effective_from","effective_to"],[releaseId,r.personId,r.committeeId,r.role,r.effectiveFrom,r.effectiveTo]);for(const p of r.provenance)await insertRows(client,"committee_assignment_provenance",["release_id","person_id","committee_id","role_name","effective_from","snapshot_id","provenance_role"],[releaseId,r.personId,r.committeeId,r.role,r.effectiveFrom,p.snapshotId,p.role]);}
+    for(const r of manifest.acsVariables){await insertRows(client,"acs_variables",["release_id","id","variable","label","unit","survey_period","universe","definition_kind","census_variable","published_moe_method","derivation_formula_version","moe_propagation_method"],[releaseId,r.id,r.variable,r.label,r.unit,r.surveyPeriod,r.universe,r.definitionKind,r.definitionKind==="source"?r.censusVariable:null,r.definitionKind==="source"?r.publishedMoeMethod:null,r.definitionKind==="derived_ratio"?r.derivationFormulaVersion:null,r.definitionKind==="derived_ratio"?r.moePropagationMethod:null]);for(const id of r.inputSnapshotIds)await insertRows(client,"acs_variable_inputs",["release_id","acs_variable_id","snapshot_id"],[releaseId,r.id,id]);if(r.definitionKind==="derived_ratio")for(const [k,id] of [["numerator",r.numeratorDefinitionId],["denominator",r.denominatorDefinitionId]] as const)await insertRows(client,"acs_variable_dependencies",["release_id","acs_variable_id","dependency_kind","dependency_variable_id"],[releaseId,r.id,k,id]);}
+    for(const r of manifest.financeAggregates){const a=factColumns(r.cashOnHand),b=factColumns(r.receipts),c=factColumns(r.disbursements);await insertRows(client,"finance_aggregates",["release_id","id","seat_cycle_id","as_of","coverage_through","reporting_period_start","cash_on_hand","cash_on_hand_missing_reason","receipts","receipts_missing_reason","disbursements","disbursements_missing_reason","methodology_version"],[releaseId,r.id,r.seatCycleId,r.asOf,r.coverageThrough,r.reportingPeriodStart,...a,...b,...c,r.methodologyVersion]);for(const i of r.committeeInputs)await insertRows(client,"finance_aggregate_inputs",["release_id","finance_aggregate_id","committee_id","filing_id","missing_reason"],[releaseId,r.id,i.committeeId,i.kind==="included"?i.filingId:null,i.kind==="missing"?i.reason:null]);}
+    const funding = async (table:string, r:{ id?: string; seatCycleId: string; category?: string; coverageThrough: string; methodologyVersion: string }, columns:string[], values:unknown[], inputs:readonly string[])=>{await insertRows(client,table,columns,values);for(const id of inputs)await insertRows(client,table==="funding_category_aggregates"?"funding_category_input_snapshots":table==="funding_organization_aggregates"?"funding_organization_input_snapshots":"outside_spending_input_snapshots",table==="funding_category_aggregates"?["release_id","seat_cycle_id","category","coverage_through","methodology_version","snapshot_id"]:table==="funding_organization_aggregates"?["release_id","aggregate_id","snapshot_id"]:["release_id","seat_cycle_id","coverage_through","methodology_version","snapshot_id"],table==="funding_category_aggregates"?[releaseId,r.seatCycleId,r.category,r.coverageThrough,r.methodologyVersion,id]:table==="funding_organization_aggregates"?[releaseId,r.id,id]:[releaseId,r.seatCycleId,r.coverageThrough,r.methodologyVersion,id]);};
+    for(const r of manifest.fundingCategoryAggregates){const v=factColumns(r.amount);await funding("funding_category_aggregates",r,["release_id","seat_cycle_id","category","amount","amount_missing_reason","coverage_through","methodology_version"],[releaseId,r.seatCycleId,r.category,...v,r.coverageThrough,r.methodologyVersion],r.inputSnapshotIds);} for(const r of manifest.fundingOrganizationAggregates){const v=factColumns(r.amount);await funding("funding_organization_aggregates",r,["release_id","id","seat_cycle_id","organization_name","organization_external_id","amount","amount_missing_reason","coverage_through","methodology_version"],[releaseId,r.id,r.seatCycleId,r.organizationName,r.organizationExternalId,...v,r.coverageThrough,r.methodologyVersion],r.inputSnapshotIds);} for(const r of manifest.outsideSpendingAggregates){const a=factColumns(r.supportAmount),b=factColumns(r.opposeAmount);await funding("outside_spending_aggregates",r,["release_id","seat_cycle_id","support_amount","support_amount_missing_reason","oppose_amount","oppose_amount_missing_reason","coverage_through","methodology_version"],[releaseId,r.seatCycleId,...a,...b,r.coverageThrough,r.methodologyVersion],r.inputSnapshotIds);}
+    for(const r of manifest.electionDecisions){await insertRows(client,"election_decisions",["release_id","id","jurisdiction_code","election_year","status"],[releaseId,r.id,r.jurisdictionCode,r.electionYear,r.status]);for(const id of r.inputSnapshotIds)await insertRows(client,"election_decision_inputs",["release_id","election_decision_id","snapshot_id"],[releaseId,r.id,id]);} for(const r of manifest.mapArtifacts){await insertRows(client,"map_artifacts",["release_id","id","geography_version_id","artifact_id"],[releaseId,r.id,r.geographyVersionId,r.artifactId]);for(const id of r.inputSnapshotIds)await insertRows(client,"map_artifact_inputs",["release_id","map_artifact_id","snapshot_id"],[releaseId,r.id,id]);} for(const r of manifest.snapshotDerivations){await insertRows(client,"snapshot_derivations",["release_id","output_snapshot_id","methodology_version"],[releaseId,r.outputSnapshotId,r.methodologyVersion]);for(const id of r.inputSnapshotIds)await insertRows(client,"snapshot_derivation_inputs",["release_id","output_snapshot_id","input_snapshot_id"],[releaseId,r.outputSnapshotId,id]);}
+  });
+}
+
+/** Validates and atomically persists one complete v1 candidate release. */
+export async function seedPrototypeManifest(connection: Pool, input: PrototypeManifest, bundle: BoundaryBundle): Promise<void> {
+  const validation = validatePrototypeManifest(input);
+  if (!validation.success) throw validationError("Cannot seed invalid prototype manifest", validation.issues);
+  if (validation.data.release.status !== "candidate") throw new Error("Only candidate releases may be seeded");
+  if (computeCanonicalDataChecksum(validation.data) !== validation.data.canonicalDataChecksumSha256) throw new Error("Canonical data checksum does not exactly match manifest content");
+  await seedNormalizedManifest(connection, validation.data, bundle, validation.data.profileSeatCycleIds);
 }
 
 function isoTimestamp(value: unknown): string {
@@ -312,6 +350,9 @@ function fact(value: unknown, reason: unknown): FactValue<number> {
   return value === null
     ? { kind: "missing", reason: String(reason) as MissingReason }
     : { kind: "value", value: numberValue(value) };
+}
+function textFact(value: unknown, reason: unknown): FactValue<string> {
+  return value === null ? { kind: "missing", reason: String(reason) as MissingReason } : { kind: "value", value: String(value) };
 }
 
 function indexReferences(rows: readonly QueryResultRow[], key: (row: QueryResultRow) => string): Map<string, { snapshotId: string; role: string }[]> {
@@ -398,8 +439,13 @@ export async function loadPrototypeManifest(connection: Pool | PoolClient, relea
       financeSummaries: tables.seat_finance_summaries.map((row) => row.filing_id === null ? ({ kind: "missing", releaseId: row.release_id, seatCycleId: row.seat_cycle_id, reason: row.missing_reason, asOf: isoDate(row.as_of), inputs: financeLineage.get(String(row.seat_cycle_id)) ?? [] }) : ({ kind: "value", releaseId: row.release_id, seatCycleId: row.seat_cycle_id, filingId: row.filing_id })),
     };
 
-    const parsed = prototypeManifestSchema.safeParse(candidate);
+    // v2 reuses the inherited relational projection; parse that projection with
+    // the v1 shape only (its checksum/catalog policy is deliberately not applied).
+    const parsed = prototypeManifestSchema.safeParse(metadata.schema_version === 2
+      ? { ...candidate, schemaVersion: 1, profileSeatCycleIds: candidate.profileSeatCycleIds.slice(0, 12) }
+      : candidate);
     if (!parsed.success) throw new Error(`Stored release ${releaseId} cannot be parsed as a prototype manifest: ${parsed.error.message}`);
+    if (metadata.schema_version === 2) return parsed.data;
     const validation = validatePrototypeManifest(parsed.data);
     if (!validation.success) throw validationError(`Stored release ${releaseId} is not semantically valid`, validation.issues);
     const allowed = new Set(["district_plans", "geography_versions", "offices", "people", "office_terms", "memberships", "seat_cycles", "contests", "candidacies", "result_options", "committees", "committee_relationships"].flatMap((type) => {
@@ -412,6 +458,53 @@ export async function loadPrototypeManifest(connection: Pool | PoolClient, relea
     for (const key of financeLineage.keys()) if (!missingFinanceKeys.has(key)) throw new Error(`Stored release ${releaseId} has unconsumed finance summary lineage`);
     return validation.data;
   });
+}
+
+/** Reconstructs a v2 manifest, including every normalized edge, and revalidates it. */
+export async function loadNationwideManifest(connection: Pool | PoolClient, releaseId: string): Promise<NationwideManifest> {
+  const base = await loadPrototypeManifest(connection, releaseId);
+  const client = connection as Queryable;
+  const get = (table: string, order = "1") => rows(client, table, releaseId, order);
+  const metadata = (await client.query("SELECT * FROM release_manifests WHERE release_id=$1", [releaseId])).rows[0];
+  const catalog = await get("release_profile_seats", "position");
+  const jurisdictions = await get("jurisdictions", "jurisdiction_code");
+  const coverage = await get("coverage_records");
+  const coverageMissing = await get("coverage_missing_reasons");
+  const coverageInputs = await get("coverage_input_snapshots");
+  const bios = await get("biographical_facts");
+  const bioProv = await get("biographical_fact_provenance");
+  const assignments = await get("committee_assignments");
+  const assignmentProv = await get("committee_assignment_provenance");
+  const variables = await get("acs_variables", "id");
+  const variableInputs = await get("acs_variable_inputs");
+  const dependencies = await get("acs_variable_dependencies");
+  const finance = await get("finance_aggregates", "id");
+  const financeInputs = await get("finance_aggregate_inputs");
+  const categories = await get("funding_category_aggregates");
+  const categoryInputs = await get("funding_category_input_snapshots");
+  const organizations = await get("funding_organization_aggregates", "id");
+  const organizationInputs = await get("funding_organization_input_snapshots");
+  const outside = await get("outside_spending_aggregates");
+  const outsideInputs = await get("outside_spending_input_snapshots");
+  const decisions = await get("election_decisions", "id");
+  const decisionInputs = await get("election_decision_inputs");
+  const maps = await get("map_artifacts", "id");
+  const mapInputs = await get("map_artifact_inputs");
+  const derivations = await get("snapshot_derivations");
+  const derivationInputs = await get("snapshot_derivation_inputs");
+  if (!metadata || metadata.schema_version !== 2) throw new Error(`Release ${releaseId} is not a v2 manifest`);
+  const grouped = (rs: QueryResultRow[], key: (r: QueryResultRow) => string) => indexReferences(rs, key);
+  const biosBy = grouped(bioProv, r => `${r.person_id}:${r.fact}:${isoDate(r.effective_at)}`), assignmentsBy = grouped(assignmentProv.map(r => ({ ...r, role: r.provenance_role })), r => `${r.person_id}:${r.committee_id}:${r.role_name}:${isoDate(r.effective_from)}`);
+  const inputs = (rs: QueryResultRow[], key: (r: QueryResultRow) => string) => { const out = new Map<string,string[]>(); for(const r of rs){const k=key(r);out.set(k,[...(out.get(k)??[]),String(r.snapshot_id ?? r.input_snapshot_id)]);} return out; };
+  const cInputs=inputs(coverageInputs,r=>`${r.domain}:${r.scope_key}`), vInputs=inputs(variableInputs,r=>String(r.acs_variable_id)), catInputs=inputs(categoryInputs,r=>`${r.seat_cycle_id}:${r.category}:${isoDate(r.coverage_through)}:${r.methodology_version}`), orgInputs=inputs(organizationInputs,r=>String(r.aggregate_id)), outInputs=inputs(outsideInputs,r=>`${r.seat_cycle_id}:${isoDate(r.coverage_through)}:${r.methodology_version}`), decInputs=inputs(decisionInputs,r=>String(r.election_decision_id)), mapInputsBy=inputs(mapInputs,r=>String(r.map_artifact_id)), derivInputs=inputs(derivationInputs,r=>String(r.output_snapshot_id));
+  const coverageKey=(r:QueryResultRow)=>`${r.domain}:${r.scope_key}`;
+  delete (base as { profileSeatCycleIds?: unknown }).profileSeatCycleIds;
+  const scopeFromRow = (r: QueryResultRow): CoverageScope => (r.scope_kind === "release" ? { kind: "release" } : r.scope_kind === "jurisdiction" ? { kind: "jurisdiction", jurisdictionCode: r.jurisdiction_code } : r.scope_kind === "seat_cycle" ? { kind: "seat_cycle", seatCycleId: r.seat_cycle_id } : r.scope_kind === "acs_indicator" ? { kind: "acs_indicator", variable: r.variable, surveyPeriod: r.survey_period } : r.scope_kind === "election" ? { kind: "election", jurisdictionCode: r.jurisdiction_code, electionYear: r.election_year } : { kind: "funding", seatCycleId: r.seat_cycle_id, fundingKind: r.funding_kind }) as CoverageScope;
+  for (const row of coverage) if (row.scope_key !== canonicalCoverageScopeKey(scopeFromRow(row))) throw new Error(`Stored release ${releaseId} coverage scope key mismatch`);
+  const candidate: unknown = { ...base, schemaVersion: 2, canonicalDataChecksumSha256: metadata.canonical_data_checksum_sha256, catalogSeatCycleIds: catalog.map(r=>r.seat_cycle_id), jurisdictions: jurisdictions.map(r=>({jurisdictionCode:r.jurisdiction_code,houseRepresentation:r.house_representation,senateRepresentation:r.senate_representation})), coverageRecords: coverage.map(r=>{const k=coverageKey(r);const scope=r.scope_kind==="release"?{kind:"release"}:r.scope_kind==="jurisdiction"?{kind:"jurisdiction",jurisdictionCode:r.jurisdiction_code}:r.scope_kind==="seat_cycle"?{kind:"seat_cycle",seatCycleId:r.seat_cycle_id}:r.scope_kind==="acs_indicator"?{kind:"acs_indicator",variable:r.variable,surveyPeriod:r.survey_period}:r.scope_kind==="election"?{kind:"election",jurisdictionCode:r.jurisdiction_code,electionYear:r.election_year}:{kind:"funding",seatCycleId:r.seat_cycle_id,fundingKind:r.funding_kind};return {releaseId,domain:r.domain,scope,status:r.status,expectedCount:r.expected_count,observedCount:r.observed_count,quarantinedCount:r.quarantined_count,incompatibleCount:r.incompatible_count,missingByReason:coverageMissing.filter(x=>coverageKey(x)===k).map(x=>({reason:x.reason,count:x.count})),inputSnapshotIds:cInputs.get(k)??[]};}), biographicalFacts:bios.map(r=>({releaseId,personId:r.person_id,fact:r.fact,value:fact(r.value,r.value_missing_reason),effectiveAt:isoDate(r.effective_at),provenance:biosBy.get(`${r.person_id}:${r.fact}:${isoDate(r.effective_at)}`)??[]})), committeeAssignments:assignments.map(r=>({releaseId,personId:r.person_id,committeeId:r.committee_id,role:r.role,effectiveFrom:isoDate(r.effective_from),effectiveTo:isoDate(r.effective_to),provenance:assignmentsBy.get(`${r.person_id}:${r.committee_id}:${r.role}:${isoDate(r.effective_from)}`)??[]})), acsVariables:variables.map(r=>r.definition_kind==="source"?{id:r.id,releaseId,variable:r.variable,label:r.label,unit:r.unit,surveyPeriod:r.survey_period,universe:r.universe,inputSnapshotIds:vInputs.get(r.id)??[],definitionKind:"source",censusVariable:r.census_variable,publishedMoeMethod:r.published_moe_method}:{id:r.id,releaseId,variable:r.variable,label:r.label,unit:r.unit,surveyPeriod:r.survey_period,universe:r.universe,inputSnapshotIds:vInputs.get(r.id)??[],definitionKind:"derived_ratio",numeratorDefinitionId:dependencies.find(x=>x.acs_variable_id===r.id&&x.dependency_kind==="numerator")?.dependency_variable_id,denominatorDefinitionId:dependencies.find(x=>x.acs_variable_id===r.id&&x.dependency_kind==="denominator")?.dependency_variable_id,derivationFormulaVersion:r.derivation_formula_version,moePropagationMethod:r.moe_propagation_method}), financeAggregates:finance.map(r=>({id:r.id,releaseId,seatCycleId:r.seat_cycle_id,asOf:isoDate(r.as_of),coverageThrough:isoDate(r.coverage_through),reportingPeriodStart:isoDate(r.reporting_period_start),cashOnHand:fact(r.cash_on_hand,r.cash_on_hand_missing_reason),receipts:fact(r.receipts,r.receipts_missing_reason),disbursements:fact(r.disbursements,r.disbursements_missing_reason),methodologyVersion:r.methodology_version,committeeInputs:financeInputs.filter(x=>x.finance_aggregate_id===r.id).map(x=>x.filing_id===null?{kind:"missing",committeeId:x.committee_id,reason:x.missing_reason}:{kind:"included",committeeId:x.committee_id,filingId:x.filing_id})})), fundingCategoryAggregates:categories.map(r=>({releaseId,seatCycleId:r.seat_cycle_id,category:r.category,amount:fact(r.amount,r.amount_missing_reason),coverageThrough:isoDate(r.coverage_through),methodologyVersion:r.methodology_version,inputSnapshotIds:catInputs.get(`${r.seat_cycle_id}:${r.category}:${isoDate(r.coverage_through)}:${r.methodology_version}`)??[]})), fundingOrganizationAggregates:organizations.map(r=>({id:r.id,releaseId,seatCycleId:r.seat_cycle_id,organizationName:r.organization_name,organizationExternalId:r.organization_external_id,amount:fact(r.amount,r.amount_missing_reason),coverageThrough:isoDate(r.coverage_through),methodologyVersion:r.methodology_version,inputSnapshotIds:orgInputs.get(r.id)??[]})), outsideSpendingAggregates:outside.map(r=>({releaseId,seatCycleId:r.seat_cycle_id,supportAmount:fact(r.support_amount,r.support_amount_missing_reason),opposeAmount:fact(r.oppose_amount,r.oppose_amount_missing_reason),coverageThrough:isoDate(r.coverage_through),methodologyVersion:r.methodology_version,inputSnapshotIds:outInputs.get(`${r.seat_cycle_id}:${isoDate(r.coverage_through)}:${r.methodology_version}`)??[]})), electionDecisions:decisions.map(r=>({id:r.id,releaseId,jurisdictionCode:r.jurisdiction_code,electionYear:r.election_year,status:r.status,inputSnapshotIds:decInputs.get(r.id)??[]})), mapArtifacts:maps.map(r=>({id:r.id,releaseId,geographyVersionId:r.geography_version_id,artifactId:r.artifact_id,inputSnapshotIds:mapInputsBy.get(r.id)??[]})), snapshotDerivations:derivations.map(r=>({releaseId,outputSnapshotId:r.output_snapshot_id,methodologyVersion:r.methodology_version,inputSnapshotIds:derivInputs.get(r.output_snapshot_id)??[]})) };
+  const biographyRows = candidate as { biographicalFacts: Array<{ value: FactValue<string> }> };
+  biographyRows.biographicalFacts.forEach((row, index) => { row.value = textFact(bios[index]!.value, bios[index]!.value_missing_reason); });
+  const parsed = nationwideManifestSchema.safeParse(candidate); if(!parsed.success) throw new Error(`Stored release ${releaseId} cannot be parsed as a nationwide manifest: ${parsed.error.message}`); const validation=validateReleaseManifest(parsed.data); if(!validation.success) throw validationError(`Stored release ${releaseId} is not semantically valid`,validation.issues); if(computeCanonicalDataChecksum(validation.data)!==metadata.canonical_data_checksum_sha256) throw new Error(`Stored release ${releaseId} canonical data checksum mismatch`); return validation.data as NationwideManifest;
 }
 
 // Explicit candidate-oriented name for callers that prefer release lifecycle terminology.
