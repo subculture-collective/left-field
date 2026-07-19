@@ -309,6 +309,8 @@ npm run ingest -- --source tiger --release rel_... --cutoff 2026-07-01
 
 Reject missing source/release/cutoff, unknown sources, and production writes without `RAW_OBJECT_BUCKET` and `DATABASE_URL`.
 
+Task 3 freezes and tests the CLI parser, environment policy, and injected adapter registry. It must return a finite unavailable-adapter error without opening a pool when a concrete adapter has not shipped; do not add synthetic/no-op production adapters. Task 4 registers the real `identity` and `tiger` adapters after their pinned-source tests pass. ACS, FEC, and election commands remain recognized but unavailable until their corresponding tasks.
+
 - [ ] **Step 5: Run unit tests, typecheck, and lint**
 
 Run: `npm run test:run -- src/ingestion/core && npm run typecheck && npm run lint`
@@ -341,6 +343,8 @@ Cover voting districts, at-large `00 -> AL`, DC delegate, Puerto Rico resident c
 - [ ] **Step 2: Implement deterministic identity parsing**
 
 Use official House Clerk and Senate rosters as current membership authority, Bioguide IDs as stable person identifiers, dated terms/memberships, and no name-based fuzzy merging. Emit reviewable mapping errors for ambiguous/missing external IDs.
+
+Register the tested identity adapter in `scripts/ingest.ts`'s production registry only after this step passes. Register the TIGER adapter after Step 3 passes; before registration, the Task 3 CLI must continue returning its finite unavailable-adapter result.
 
 - [ ] **Step 3: Build nationwide TIGER artifacts hermetically**
 

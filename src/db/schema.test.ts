@@ -38,9 +38,11 @@ describe("database schema", () => {
     expect(migration).toContain("unsupported provenance entity type");
   });
 
-  it("pins the immutable v1 migration", () => {
+  it("pins the immutable v1 migrations", () => {
     const migration = readFileSync(resolve(process.cwd(), "drizzle/0000_phase_1.sql"));
     expect(createHash("sha256").update(migration).digest("hex")).toBe("f787611116580a526ee3d4990709b14fe11d0fca78f810409bd6b0b8b7da8164");
+    const nationwide = readFileSync(resolve(process.cwd(), "drizzle/0001_phase_1_nationwide.sql"));
+    expect(createHash("sha256").update(nationwide).digest("hex")).toBe("542dd1e1d2d922060d060a5fcef93167bdec1271626b78199d96008a7a2f7967");
   });
 
   it("accepts the explicit unavailable contest status", () => {
@@ -112,5 +114,14 @@ describe("database schema", () => {
       expect(table.checkConstraints).toBeDefined();
       expect(table.indexes).toBeDefined();
     }
+  });
+
+  it("records Task 3's final migration metadata and hand-owned guards", () => {
+    const migration = readFileSync(resolve(process.cwd(), "drizzle/0002_ingestion_integrity.sql"), "utf8");
+    const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0002_snapshot.json"), "utf8")) as { tables: Record<string, { columns: Record<string, unknown> }> };
+    const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity"]);
+    expect(snapshot.tables["public.ingest_runs"]?.columns).toEqual(expect.objectContaining({ snapshot_id: expect.anything(), lease_token: expect.anything(), failure_code: expect.anything() }));
+    for (const name of ["guard_ingest_run", "guard_ingest_publication", "data_releases_ingest_publication_guard", "ingest_runs_one_live_identity_uq"]) expect(migration).toContain(name);
   });
 });

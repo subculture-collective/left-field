@@ -15,7 +15,7 @@ import {
   recheckNationwideValidationGate,
   validateNationwideCandidateRelease,
 } from "./catalog-release";
-import { markFailed, markLoaded, markValidated, recordQuarantineBatch, recordStageBatch, startIngestRun } from "./ingestion";
+import { failExpiredRun, heartbeat, markFailed, markLoaded, markValidated, recordQuarantineBatch, recordStageBatch, startIngestRun } from "./ingestion";
 import { nationwideSkeleton } from "@/test/fixtures/nationwide-skeleton";
 import { PostgresSeatResearchRepository } from "@/repositories/postgres";
 import { InMemorySeatResearchRepository } from "@/repositories/in-memory";
@@ -23,13 +23,17 @@ import { assertSeatRepositoryContract } from "@/test/repository-contract";
 import { PostgresAddressResolver, PostgresSeatLocator } from "@/address/postgres-resolver";
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
-import { createHash } from "node:crypto";
+import { createHash, randomUUID } from "node:crypto";
+import type { PoolClient } from "pg";
+import { runSource } from "@/ingestion/core/run-source";
+import type { RawObject, SourceAdapter } from "@/ingestion/core/types";
 import { canonicalCoverageScopeKey, loadNationwideManifest, seedNationwideCandidateManifest, type BoundaryBundle } from "./manifest";
 
 const testDatabaseUrl = process.env.TEST_DATABASE_URL;
 const testDatabaseName = testDatabaseUrl ? new URL(testDatabaseUrl).pathname.slice(1) : "";
 if (testDatabaseUrl && !/(?:_test|_test_[a-z0-9_]+)$/i.test(testDatabaseName)) throw new Error("TEST_DATABASE_URL must name a disposable *_test database");
 const integration = testDatabaseUrl ? describe : describe.skip;
+const strictRun = (id: string, releaseId: string, sourceId: string, extractedCount: number, snapshotId = "snap_1", rawObjectSha256 = "a".repeat(64), upstreamRelease = "contract") => ({ id, releaseId, sourceId, snapshotId, adapterVersion: "contract", upstreamRelease, rawStoreKind: "local" as const, rawStoreLocator: "/tmp/contract", rawObjectKey: "contract/fixture.json", rawObjectSha256, rawObjectByteSize: 0, leaseToken: randomUUID(), leaseDurationMs: 60_000, extractedCount });
 
 function candidate(id: string, base: PrototypeManifest = coherentManifest()): PrototypeManifest {
   const manifest = structuredClone(base) as PrototypeManifest;
@@ -77,6 +81,19 @@ async function waitForPromotionToBlock(pool: Pool, timeoutMs = 1_000): Promise<v
 }
 
 integration("PostgreSQL integration", () => {
+  type IdentityRow = { key: string; entity: string; name?: string };
+  const task3Adapter = (raw: RawObject<null>, rows: readonly IdentityRow[], options: { quarantines?: boolean; issue?: boolean; stageError?: boolean; loadError?: boolean } = {}): SourceAdapter<null, IdentityRow> => ({
+    sourceName: "task3", adapterVersion: "task3-v1",
+    async *extract() { yield raw; },
+    async *parse() { for (const row of rows) yield options.quarantines ? { kind: "quarantine" as const, sourceNaturalKey: row.key, payloadChecksum: "b".repeat(64), errorCode: "opaque parser detail" } : { kind: "row" as const, row }; },
+    naturalKey: row => row.key,
+    async stage(client: PoolClient, runId, staged) { if (options.stageError) throw new Error("stage failure"); for (const row of staged) await client.query("INSERT INTO stg_identity(run_id,release_id,source_natural_key,snapshot_id,entity_id,source_entity_id,display_name) VALUES($1,$2,$3,$4,$5,$6,$7)", [runId, task3ReleaseId, row.key, raw.snapshot.id, row.entity, row.entity, row.name ?? "Fixture"]); },
+    async validateStaged() { return options.issue ? [{ code: "fixture_invalid", message: "fixture invalid" }] : []; },
+    async loadFromStage(client, runId, releaseId) { await client.query("INSERT INTO people(id,release_id,display_name) SELECT 'task3_' || entity_id,$2,display_name FROM stg_identity WHERE run_id=$1", [runId, releaseId]); if (options.loadError) throw new Error("load failure"); },
+  });
+  const task3ReleaseId = "rel_task3_ingestion";
+  const task3Raw = (snapshotId = "snap_task3", checksum = "a".repeat(64), count = 1): RawObject<null> => ({ value: null, expectedRecordCount: count, receipt: { storeKind: "local", storeLocator: "/tmp/task3", objectKey: "task3/fixture.json", sha256: checksum, byteSize: 0 }, snapshot: { id: snapshotId as never, sourceUrl: "https://example.test/task3", checksumSha256: checksum, upstreamRelease: "task3-release", publishedAt: null, license: "public", usageStatus: "approved" } });
+  const seedTask3 = async (pool: Pool): Promise<string> => { const manifest = candidate(task3ReleaseId); await seedPrototypeManifest(pool, manifest, boundariesFor(manifest)); return manifest.sources[0]!.id; };
   beforeEach(async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
     try { await pool.query("TRUNCATE data_releases CASCADE"); } finally { await pool.end(); }
@@ -308,11 +325,11 @@ integration("PostgreSQL integration", () => {
     } finally { await pool.end(); }
   });
 
-  it("has exact Task 2 snapshot catalog signatures after migration", async () => {
+  it("has exact final 0002 snapshot catalog signatures after migration", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
     const task2Tables = ["acs_variable_dependencies", "acs_variable_inputs", "acs_variables", "biographical_fact_provenance", "biographical_facts", "committee_assignment_provenance", "committee_assignments", "coverage_input_snapshots", "coverage_missing_reasons", "coverage_records", "election_decision_inputs", "election_decisions", "finance_aggregate_inputs", "finance_aggregates", "funding_category_aggregates", "funding_category_input_snapshots", "funding_organization_aggregates", "funding_organization_input_snapshots", "ingest_runs", "jurisdictions", "map_artifact_inputs", "map_artifacts", "nationwide_validation_gates", "outside_spending_aggregates", "outside_spending_input_snapshots", "quarantined_records", "release_content_digests", "snapshot_derivation_inputs", "snapshot_derivations", "stg_identity", "stg_tiger", "stg_acs", "stg_fec", "stg_elections", "seat_cycles", "people", "contests", "result_options", "election_results"];
     try {
-      const snapshot = JSON.parse(await readFile(resolve(process.cwd(), "drizzle/meta/0001_snapshot.json"), "utf8")) as { tables: Record<string, { columns: Record<string, { name: string; type: string; notNull: boolean; primaryKey: boolean }>; compositePrimaryKeys: Record<string, { columns: string[] }>; foreignKeys: Record<string, { columnsFrom: string[]; columnsTo: string[]; tableTo: string; onDelete: string; onUpdate: string }>; checkConstraints: Record<string, { value: string }>; indexes: Record<string, { isUnique: boolean; method: string; columns: Array<{ expression: string; asc: boolean; nulls: string }>; where?: string }> }> };
+      const snapshot = JSON.parse(await readFile(resolve(process.cwd(), "drizzle/meta/0002_snapshot.json"), "utf8")) as { tables: Record<string, { columns: Record<string, { name: string; type: string; notNull: boolean; primaryKey: boolean }>; compositePrimaryKeys: Record<string, { columns: string[] }>; foreignKeys: Record<string, { columnsFrom: string[]; columnsTo: string[]; tableTo: string; onDelete: string; onUpdate: string }>; checkConstraints: Record<string, { value: string }>; indexes: Record<string, { isUnique: boolean; method: string; columns: Array<{ expression: string; asc: boolean; nulls: string }>; where?: string }> }> };
       const normalize = (value: string) => {
         let normalized = value.toLowerCase().replace(/"/g, "").replace(/\s+/g, "").replace(/public\./g, "").replace(new RegExp(`(?:${task2Tables.join("|")})\\.`, "g"), "").replace(/::[a-z_]+/g, "").replace(/=any\(array\[/g, "in(").replace(/\]\)/g, ")").replace(/ondelete(?:noaction)?onupdate(?:noaction)?/g, "").replace(/(\w+)between(\w+)and(\w+)/g, "$1>=$2and$1<=$3").replace(/}$/, "");
         let simplified: string;
@@ -375,29 +392,33 @@ integration("PostgreSQL integration", () => {
       for (const status of ["validated", "loaded", "failed"]) await expect(pool.query(insertRun, [`run_direct_${status}`, releaseId, manifest.sources[0]!.id, status])).rejects.toMatchObject({ code: "23514" });
       await expect(pool.query("INSERT INTO ingest_runs(id,release_id,source_id,adapter_version,started_at,completed_at,status,extracted_count,staged_count,quarantined_count) VALUES($1,$2,$3,'contract',now(),NULL,'running',1,1,0)", ["run_direct_staged", releaseId, manifest.sources[0]!.id])).rejects.toMatchObject({ code: "23514" });
       await expect(pool.query("INSERT INTO ingest_runs(id,release_id,source_id,adapter_version,started_at,completed_at,status,extracted_count,staged_count,quarantined_count) VALUES($1,$2,$3,'contract',now(),NULL,'running',1,0,1)", ["run_direct_quarantined", releaseId, manifest.sources[0]!.id])).rejects.toMatchObject({ code: "23514" });
-      await expect(pool.query("INSERT INTO ingest_runs(id,release_id,source_id,adapter_version,started_at,completed_at,status,extracted_count,staged_count,quarantined_count) VALUES($1,$2,$3,'contract',now(),NULL,'running',1,0,0)", ["run_direct_running", releaseId, manifest.sources[0]!.id])).resolves.toBeDefined();
-      await startIngestRun(pool, { id: "run_contract", releaseId, sourceId: manifest.sources[0]!.id, adapterVersion: "contract", extractedCount: 3 });
+      await expect(pool.query("INSERT INTO ingest_runs(id,release_id,source_id,adapter_version,started_at,completed_at,status,extracted_count,staged_count,quarantined_count) VALUES($1,$2,$3,'contract',now(),NULL,'running',1,0,0)", ["run_direct_running", releaseId, manifest.sources[0]!.id])).rejects.toMatchObject({ code: "23514" });
+      const contractRun = strictRun("run_contract", releaseId, manifest.sources[0]!.id, 3);
+      await startIngestRun(pool, contractRun);
+      await expect(heartbeat(pool, "run_contract", contractRun.leaseToken, contractRun.leaseDurationMs)).resolves.toBeUndefined();
+      await expect(failExpiredRun(pool, "run_contract", contractRun.leaseToken)).rejects.toThrow();
       expect((await pool.query<{ staged_count: number; quarantined_count: number }>("SELECT staged_count,quarantined_count FROM ingest_runs WHERE id='run_contract'")).rows[0]).toEqual({ staged_count: 0, quarantined_count: 0 });
-      await recordStageBatch(pool, "run_contract", 2);
-      await recordQuarantineBatch(pool, "run_contract", 1);
-      await expect(recordStageBatch(pool, "run_contract", 1)).rejects.toThrow();
+      await recordStageBatch(pool, "run_contract", contractRun.leaseToken, 2, contractRun.leaseDurationMs);
+      await recordQuarantineBatch(pool, "run_contract", contractRun.leaseToken, 1, contractRun.leaseDurationMs);
+      await expect(recordStageBatch(pool, "run_contract", contractRun.leaseToken, 1, contractRun.leaseDurationMs)).rejects.toThrow();
       await expect(pool.query("UPDATE ingest_runs SET staged_count=1 WHERE id='run_contract'")).rejects.toMatchObject({ code: "23514" });
       await expect(pool.query("UPDATE ingest_runs SET extracted_count=2 WHERE id='run_contract'")).rejects.toMatchObject({ code: "23514" });
       await expect(pool.query("INSERT INTO quarantined_records(run_id,release_id,source_natural_key,snapshot_id,payload_checksum,parser_error_code,redacted_diagnostic) VALUES('run_contract',$1,'secret','snap_1',$2,'parse','contributor@example.test')", [releaseId, "b".repeat(64)])).rejects.toMatchObject({ code: "23514" });
       await expect(pool.query("INSERT INTO quarantined_records(run_id,release_id,source_natural_key,snapshot_id,payload_checksum,parser_error_code,redacted_diagnostic) VALUES('run_contract',$1,'address','snap_1',$2,'parse','street address omitted')", [releaseId, "c".repeat(64)])).rejects.toMatchObject({ code: "23514" });
-      await expect(markValidated(pool, "run_contract")).resolves.toBeUndefined();
-      await expect(markLoaded(pool, "run_contract")).resolves.toBeUndefined();
+      await expect(markValidated(pool, "run_contract", contractRun.leaseToken)).resolves.toBeUndefined();
+      await expect(markLoaded(pool, "run_contract", contractRun.leaseToken)).resolves.toBeUndefined();
       await expect(pool.query("INSERT INTO stg_identity(run_id,release_id,source_natural_key,snapshot_id,entity_id,source_entity_id,display_name) VALUES('run_contract',$1,'loaded-write','snap_1','entity','source','Name')", [releaseId])).rejects.toMatchObject({ code: "23514" });
       await expect(pool.query("INSERT INTO quarantined_records(run_id,release_id,source_natural_key,snapshot_id,payload_checksum,parser_error_code,redacted_diagnostic) VALUES('run_contract',$1,'loaded-write','snap_1',$2,'parse','redacted')", [releaseId, "e".repeat(64)])).rejects.toMatchObject({ code: "23514" });
-      await expect(markFailed(pool, "run_contract")).rejects.toThrow();
+      await expect(markFailed(pool, "run_contract", contractRun.leaseToken)).rejects.toThrow();
       await expect(pool.query("UPDATE ingest_runs SET status='loaded' WHERE id='run_contract'")).rejects.toMatchObject({ code: "23514" });
       await expect(pool.query("UPDATE ingest_runs SET source_id='rewritten' WHERE id='run_contract'")).rejects.toMatchObject({ code: "23514" });
-      await expect(startIngestRun(pool, { id: "run_wrong_source", releaseId, sourceId: "not_this_release", adapterVersion: "contract", extractedCount: 0 })).rejects.toThrow();
+      await expect(startIngestRun(pool, strictRun("run_wrong_source", releaseId, "not_this_release", 0))).rejects.toThrow();
 
-      await startIngestRun(pool, { id: "run_failed", releaseId, sourceId: manifest.sources[0]!.id, adapterVersion: "contract", extractedCount: 1 });
-      await expect(markFailed(pool, "run_failed")).resolves.toBeUndefined();
+      const failedRun = { ...strictRun("run_failed", releaseId, manifest.sources[0]!.id, 1), adapterVersion: "contract-failed" };
+      await startIngestRun(pool, failedRun);
+      await expect(markFailed(pool, "run_failed", failedRun.leaseToken)).resolves.toBeUndefined();
       await expect(pool.query("INSERT INTO stg_acs(run_id,release_id,source_natural_key,snapshot_id,geography,variable,survey_period,unit) VALUES('run_failed',$1,'failed-write','snap_1','geo','var','2024','count')", [releaseId])).rejects.toMatchObject({ code: "23514" });
-      await expect(recordQuarantineBatch(pool, "run_failed", 1)).rejects.toThrow();
+      await expect(recordQuarantineBatch(pool, "run_failed", failedRun.leaseToken, 1, failedRun.leaseDurationMs)).rejects.toThrow();
       await promoteCandidateRelease(pool, releaseId);
       await expect(pool.query("INSERT INTO stg_identity(run_id,release_id,source_natural_key,snapshot_id,entity_id,source_entity_id,display_name) VALUES('run_contract',$1,'published-write','snap_1','entity','source','Name')", [releaseId])).rejects.toMatchObject({ code: "23514" });
       await expect(pool.query("INSERT INTO quarantined_records(run_id,release_id,source_natural_key,snapshot_id,payload_checksum,parser_error_code,redacted_diagnostic) VALUES('run_contract',$1,'published-write','snap_1',$2,'parse','redacted')", [releaseId, "d".repeat(64)])).rejects.toMatchObject({ code: "23514" });
@@ -532,4 +553,120 @@ integration("PostgreSQL integration", () => {
       await expect(loadNationwideManifest(pool, manifest.release.id)).rejects.toThrow("coverage scope key mismatch");
     } finally { await pool.end(); }
   });
+
+  it("Task 3 persists successful staged facts and resumes a dry run", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    try {
+      const sourceId = await seedTask3(pool); const raw = task3Raw(); const adapter = task3Adapter(raw, [{ key: "identity-1", entity: "entity-1" }]);
+      const first = await runSource(adapter, { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z") });
+      expect(first.runIds).toHaveLength(1);
+      expect((await pool.query("SELECT status,staged_count,quarantined_count FROM ingest_runs WHERE id=$1", [first.runIds[0]])).rows[0]).toEqual({ status: "loaded", staged_count: 1, quarantined_count: 0 });
+      expect((await pool.query("SELECT entity_id FROM stg_identity WHERE run_id=$1", [first.runIds[0]])).rows).toEqual([{ entity_id: "entity-1" }]);
+      expect((await pool.query("SELECT id,display_name FROM people WHERE release_id=$1 AND id='task3_entity-1'", [task3ReleaseId])).rows).toEqual([{ id: "task3_entity-1", display_name: "Fixture" }]);
+    } finally { await pool.end(); }
+  });
+
+  it("Task 3 dry-run validates then real rerun resumes without parsing or staging", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    try {
+      const sourceId = await seedTask3(pool); const raw = task3Raw(); let parsed = 0; let staged = 0; const base = task3Adapter(raw, [{ key: "identity-1", entity: "entity-1" }]);
+      const adapter = { ...base, async *parse(value: RawObject<null>) { parsed += 1; yield* base.parse(value); }, async stage(client: PoolClient, id: string, rows: readonly IdentityRow[]) { staged += 1; await base.stage(client, id, rows); } };
+      const dry = await runSource(adapter, { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z"), dryRun: true });
+      expect((await pool.query("SELECT status FROM ingest_runs WHERE id=$1", [dry.runIds[0]])).rows[0]).toEqual({ status: "validated" });
+      await runSource(adapter, { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z") });
+      expect({ parsed, staged }).toEqual({ parsed: 1, staged: 1 });
+      expect((await pool.query("SELECT status FROM ingest_runs WHERE id=$1", [dry.runIds[0]])).rows[0]).toEqual({ status: "loaded" });
+    } finally { await pool.end(); }
+  });
+
+  it("Task 3 rolls back content and validation when loading fails", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    try {
+      const sourceId = await seedTask3(pool); const raw = task3Raw("snap_load_failure", "9".repeat(64));
+      await expect(runSource(task3Adapter(raw, [{ key: "identity-load", entity: "load" }], { loadError: true }), { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z") })).rejects.toThrow("Ingestion failed");
+      expect((await pool.query("SELECT status FROM ingest_runs")).rows).toEqual([{ status: "failed" }]);
+      expect((await pool.query("SELECT id FROM people WHERE release_id=$1 AND id='task3_load'", [task3ReleaseId])).rows).toEqual([]);
+    } finally { await pool.end(); }
+  });
+
+  it("Task 3 loaded reuse is read-only and rejects conflicting snapshots", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    try {
+      const sourceId = await seedTask3(pool); const raw = task3Raw(); const adapter = task3Adapter(raw, [{ key: "identity-1", entity: "entity-1" }]); const first = await runSource(adapter, { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z") });
+      const before = await pool.query("SELECT (SELECT count(*) FROM source_snapshots WHERE release_id=$1) snapshots,(SELECT count(*) FROM stg_identity WHERE run_id=$2) facts", [task3ReleaseId, first.runIds[0]]);
+      await expect(runSource(adapter, { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z") })).resolves.toEqual({ runIds: [], reusedRunIds: first.runIds });
+      expect(await pool.query("SELECT (SELECT count(*) FROM source_snapshots WHERE release_id=$1) snapshots,(SELECT count(*) FROM stg_identity WHERE run_id=$2) facts", [task3ReleaseId, first.runIds[0]])).toEqual(before);
+      const conflicting = { ...raw, snapshot: { ...raw.snapshot, license: "restricted" } };
+      await expect(runSource(task3Adapter(conflicting, [{ key: "identity-1", entity: "entity-1" }]), { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z") })).rejects.toThrow("SNAPSHOT_CONFLICT");
+    } finally { await pool.end(); }
+  });
+
+  it("Task 3 commits opaque quarantine evidence before a later parse failure", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    try {
+      const sourceId = await seedTask3(pool); const raw = task3Raw("snap_quarantine", "d".repeat(64), 2); const base = task3Adapter(raw, []);
+      const adapter = { ...base, async *parse() { yield { kind: "quarantine" as const, sourceNaturalKey: "opaque natural key", payloadChecksum: "e".repeat(64), errorCode: "parser text" }; throw new Error("parse failure"); } };
+      await expect(runSource(adapter, { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z"), maxBatchSize: 1 })).rejects.toThrow("Ingestion failed");
+      const evidence = await pool.query<{ source_natural_key: string; parser_error_code: string; redacted_diagnostic: string }>("SELECT q.source_natural_key,q.parser_error_code,q.redacted_diagnostic FROM quarantined_records q");
+      expect(evidence.rows[0]).toMatchObject({ source_natural_key: /^[a-f0-9]{64}$/, parser_error_code: /^parse_[a-f0-9]{16}$/, redacted_diagnostic: "parser failure" });
+      expect((await pool.query("SELECT status FROM ingest_runs")).rows[0]).toEqual({ status: "failed" });
+    } finally { await pool.end(); }
+  });
+
+  it("Task 3 fails duplicate cross-batch staging and real staged validation", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    try {
+      const sourceId = await seedTask3(pool); const duplicateRaw = task3Raw("snap_duplicate", "f".repeat(64), 2);
+      await expect(runSource(task3Adapter(duplicateRaw, [{ key: "same", entity: "one" }, { key: "same", entity: "two" }]), { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z"), maxBatchSize: 1 })).rejects.toThrow("Ingestion failed");
+      expect((await pool.query("SELECT status FROM ingest_runs")).rows[0]).toEqual({ status: "failed" });
+      const invalidRaw = task3Raw("snap_invalid", "1".repeat(64));
+      await expect(runSource(task3Adapter(invalidRaw, [{ key: "invalid", entity: "invalid" }], { issue: true }), { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z") })).rejects.toThrow("Staged validation failed");
+      expect((await pool.query("SELECT status FROM ingest_runs ORDER BY started_at DESC LIMIT 1")).rows[0]).toEqual({ status: "failed" });
+    } finally { await pool.end(); }
+  });
+
+  it("Task 3 failure with a max-one pool finishes and a loaded run is reused after a failed retry", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl, max: 1 });
+    try {
+      const sourceId = await seedTask3(pool); const raw = task3Raw();
+      await expect(runSource(task3Adapter(raw, [{ key: "bad", entity: "bad" }], { stageError: true }), { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z") })).rejects.toThrow("Ingestion failed");
+      const good = await runSource(task3Adapter(raw, [{ key: "good", entity: "good" }]), { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z") });
+      await expect(runSource(task3Adapter(raw, [{ key: "ignored", entity: "ignored" }]), { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z") })).resolves.toEqual({ runIds: [], reusedRunIds: good.runIds });
+    } finally { await pool.end(); }
+  }, 5_000);
+  it("Task 3 blocks publication while a lease runs and allows validated runs", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    try {
+      const sourceId = await seedTask3(pool); const run = strictRun("run_task3_publication", task3ReleaseId, sourceId, 0);
+      await startIngestRun(pool, run);
+      await expect(promoteCandidateRelease(pool, task3ReleaseId)).rejects.toThrow();
+      await markValidated(pool, run.id, run.leaseToken);
+      await expect(promoteCandidateRelease(pool, task3ReleaseId)).resolves.toBeUndefined();
+    } finally { await pool.end(); }
+  });
+
+  it("Task 3 fences expired owners, recovers the persisted receipt, and loads a distinct retry", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    try {
+      const sourceId = await seedTask3(pool); const raw = task3Raw("snap_expired", "7".repeat(64), 0);
+      await pool.query("INSERT INTO source_snapshots(id,release_id,source_id,source_url,published_at,retrieved_at,checksum_sha256,parser_version,license,usage_status) VALUES($1,$2,$3,$4,NULL,clock_timestamp(),$5,$6,'public','approved')", [raw.snapshot.id, task3ReleaseId, sourceId, raw.snapshot.sourceUrl, raw.snapshot.checksumSha256, "task3-v1"]);
+      const expired = { ...strictRun("run_task3_expired", task3ReleaseId, sourceId, 0, raw.snapshot.id, raw.receipt.sha256, raw.snapshot.upstreamRelease), adapterVersion: "task3-v1", rawStoreLocator: raw.receipt.storeLocator, rawObjectKey: raw.receipt.objectKey };
+      await pool.query("INSERT INTO ingest_runs(id,release_id,source_id,snapshot_id,adapter_version,upstream_release,raw_store_kind,raw_store_locator,raw_object_key,raw_object_sha256,raw_object_byte_size,lease_token,heartbeat_at,lease_expires_at,started_at,status,extracted_count,staged_count,quarantined_count) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,clock_timestamp()-interval '2 minutes',clock_timestamp()-interval '1 minute',clock_timestamp()-interval '2 minutes','running',$13,0,0)", [expired.id, expired.releaseId, expired.sourceId, expired.snapshotId, expired.adapterVersion, expired.upstreamRelease, expired.rawStoreKind, expired.rawStoreLocator, expired.rawObjectKey, expired.rawObjectSha256, expired.rawObjectByteSize, expired.leaseToken, expired.extractedCount]);
+      await expect(pool.query("UPDATE ingest_runs SET heartbeat_at=clock_timestamp(),lease_expires_at=clock_timestamp()+interval '1 minute' WHERE id=$1", [expired.id])).rejects.toMatchObject({ code: "23514" });
+      await expect(pool.query("UPDATE ingest_runs SET staged_count=staged_count WHERE id=$1", [expired.id])).rejects.toMatchObject({ code: "23514" });
+      await expect(pool.query("UPDATE ingest_runs SET status='validated',completed_at=clock_timestamp(),lease_expires_at=NULL WHERE id=$1", [expired.id])).rejects.toMatchObject({ code: "23514" });
+      await expect(pool.query("UPDATE ingest_runs SET status='failed',completed_at=clock_timestamp(),lease_expires_at=NULL,failure_code='ingest_error' WHERE id=$1", [expired.id])).rejects.toMatchObject({ code: "23514" });
+      const recovered = await runSource(task3Adapter(raw, []), { pool, releaseId: task3ReleaseId as never, sourceId: sourceId as never, cutoff: new Date("2025-01-01Z") });
+      expect(recovered.runIds).toHaveLength(1); expect(recovered.runIds[0]).not.toBe(expired.id);
+      expect((await pool.query("SELECT status,failure_code,lease_expires_at FROM ingest_runs WHERE id=$1", [expired.id])).rows[0]).toEqual({ status: "failed", failure_code: "lease_expired", lease_expires_at: null });
+      expect((await pool.query("SELECT status FROM ingest_runs WHERE id=$1", [recovered.runIds[0]])).rows[0]).toEqual({ status: "loaded" });
+      await expect(recordStageBatch(pool, expired.id, expired.leaseToken, 0, expired.leaseDurationMs)).rejects.toThrow();
+      await expect(recordQuarantineBatch(pool, expired.id, expired.leaseToken, 0, expired.leaseDurationMs)).rejects.toThrow();
+      await expect(heartbeat(pool, expired.id, expired.leaseToken, expired.leaseDurationMs)).rejects.toThrow();
+      await expect(markValidated(pool, expired.id, expired.leaseToken)).rejects.toThrow();
+      await expect(markFailed(pool, expired.id, expired.leaseToken)).rejects.toThrow();
+      await expect(failExpiredRun(pool, expired.id, expired.leaseToken)).rejects.toThrow();
+    } finally { await pool.end(); }
+  });
+
 });
