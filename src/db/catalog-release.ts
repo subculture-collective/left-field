@@ -145,23 +145,27 @@ async function computeAllDigests(client: PoolClient, releaseId: string): Promise
 }
 
 /** Recompute and bind the v2 content digests while the candidate is locked. */
+export async function validateNationwideCandidateReleaseWithClient(client: PoolClient, releaseId: string): Promise<void> {
+  const manifest = await lockV2Candidate(client, releaseId);
+  const loaded = await loadNationwideManifest(client, releaseId);
+  assertManifestChecksums(manifest, loaded.canonicalDataChecksumSha256);
+  const digests = await computeAllDigests(client, releaseId);
+
+  // Digest replacement must happen before the new gate exists, because content writes invalidate gates.
+  await client.query("DELETE FROM nationwide_validation_gates WHERE release_id=$1", [releaseId]);
+  await client.query("DELETE FROM release_content_digests WHERE release_id=$1", [releaseId]);
+  for (const digest of digests) {
+    await client.query("INSERT INTO release_content_digests(release_id,domain,row_count,sha256,validated_at) VALUES($1,$2,$3,$4,now())", [releaseId, digest.domain, digest.rowCount, digest.sha256]);
+  }
+  await client.query("INSERT INTO nationwide_validation_gates(release_id,schema_version,manifest_checksum_sha256,geometry_checksum_sha256,content_checksum_sha256,domain_count,domain_checksum_sha256,validated_at) VALUES($1,2,$2,$3,$4,$5,$6,now())", [releaseId, manifest.canonical_data_checksum_sha256, manifest.geometry_checksum_sha256, manifest.content_checksum_sha256, digests.length, domainSummary(digests)]);
+  await client.query("UPDATE release_manifests SET validated_at=now() WHERE release_id=$1", [releaseId]);
+}
+
 export async function validateNationwideCandidateRelease(pool: Pool, releaseId: string): Promise<void> {
   const client = await pool.connect();
   try {
     await client.query("BEGIN");
-    const manifest = await lockV2Candidate(client, releaseId);
-    const loaded = await loadNationwideManifest(client, releaseId);
-    assertManifestChecksums(manifest, loaded.canonicalDataChecksumSha256);
-    const digests = await computeAllDigests(client, releaseId);
-
-    // Digest replacement must happen before the new gate exists, because content writes invalidate gates.
-    await client.query("DELETE FROM nationwide_validation_gates WHERE release_id=$1", [releaseId]);
-    await client.query("DELETE FROM release_content_digests WHERE release_id=$1", [releaseId]);
-    for (const digest of digests) {
-      await client.query("INSERT INTO release_content_digests(release_id,domain,row_count,sha256,validated_at) VALUES($1,$2,$3,$4,now())", [releaseId, digest.domain, digest.rowCount, digest.sha256]);
-    }
-    await client.query("INSERT INTO nationwide_validation_gates(release_id,schema_version,manifest_checksum_sha256,geometry_checksum_sha256,content_checksum_sha256,domain_count,domain_checksum_sha256,validated_at) VALUES($1,2,$2,$3,$4,$5,$6,now())", [releaseId, manifest.canonical_data_checksum_sha256, manifest.geometry_checksum_sha256, manifest.content_checksum_sha256, digests.length, domainSummary(digests)]);
-    await client.query("UPDATE release_manifests SET validated_at=now() WHERE release_id=$1", [releaseId]);
+    await validateNationwideCandidateReleaseWithClient(client, releaseId);
     await client.query("COMMIT");
   } catch (error) {
     await client.query("ROLLBACK").catch(() => undefined);
@@ -192,7 +196,7 @@ async function recheckWithClient(client: PoolClient, releaseId: string): Promise
 
 /** Read-only, fail-closed verification of an already persisted nationwide validation gate. */
 export async function recheckNationwideValidationGate(connection: Pool | PoolClient, releaseId: string): Promise<void> {
-  if (typeof (connection as Pool).connect !== "function") return recheckWithClient(connection as PoolClient, releaseId);
+  if (typeof (connection as PoolClient).release === "function") return recheckWithClient(connection as PoolClient, releaseId);
   const client = await (connection as Pool).connect();
   try {
     await client.query("BEGIN");

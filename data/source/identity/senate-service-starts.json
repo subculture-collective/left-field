@@ -1,0 +1,1007 @@
+{
+  "schemaVersion": 1,
+  "chronologySource": "data/source/identity/senate-chronological-list.txt",
+  "chronologyDated": "2026-07-14",
+  "entries": {
+    "A000382": {
+      "state": "MD",
+      "senateClass": 1,
+      "displayName": "Angela D. Alsobrooks",
+      "initialServiceDate": "2025-01-03",
+      "evidence": {
+        "line": 3493,
+        "text": "January 3      Alsobrooks, Angela (D-MD)"
+      }
+    },
+    "A000383": {
+      "state": "OK",
+      "senateClass": 2,
+      "displayName": "Alan Armstrong",
+      "initialServiceDate": "2026-03-24",
+      "evidence": {
+        "line": 3507,
+        "text": "March 24       Armstrong, Alan (R-OK)"
+      }
+    },
+    "B001230": {
+      "state": "WI",
+      "senateClass": 1,
+      "displayName": "Tammy Baldwin",
+      "initialServiceDate": "2013-01-03",
+      "evidence": {
+        "line": 3348,
+        "text": "January 3        Baldwin, Tammy (D-WI)"
+      }
+    },
+    "B001236": {
+      "state": "AR",
+      "senateClass": 3,
+      "displayName": "John Boozman",
+      "initialServiceDate": "2011-01-03",
+      "evidence": {
+        "line": 3326,
+        "text": "                 Boozman, John (R-AR)"
+      }
+    },
+    "B001243": {
+      "state": "TN",
+      "senateClass": 1,
+      "displayName": "Marsha Blackburn",
+      "initialServiceDate": "2019-01-03",
+      "evidence": {
+        "line": 3431,
+        "text": "January 3      Blackburn, Marsha (R-TN)"
+      }
+    },
+    "B001261": {
+      "state": "WY",
+      "senateClass": 1,
+      "displayName": "John Barrasso",
+      "initialServiceDate": "2007-06-22",
+      "evidence": {
+        "line": 3258,
+        "text": "June 22        Barrasso, John 17 (R-WY)"
+      }
+    },
+    "B001267": {
+      "state": "CO",
+      "senateClass": 3,
+      "displayName": "Michael F. Bennet",
+      "initialServiceDate": "2009-01-21",
+      "evidence": {
+        "line": 3280,
+        "text": "January 21     Bennet, Michael 20 (D-CO)"
+      }
+    },
+    "B001277": {
+      "state": "CT",
+      "senateClass": 3,
+      "displayName": "Richard Blumenthal",
+      "initialServiceDate": "2011-01-03",
+      "evidence": {
+        "line": 3324,
+        "text": "                 Blumenthal, Richard (D-CT)"
+      }
+    },
+    "B001288": {
+      "state": "NJ",
+      "senateClass": 2,
+      "displayName": "Cory A. Booker",
+      "initialServiceDate": "2013-10-31",
+      "evidence": {
+        "line": 3375,
+        "text": "\fOctober 31       Booker, Cory (D-NJ)"
+      }
+    },
+    "B001299": {
+      "state": "IN",
+      "senateClass": 1,
+      "displayName": "Jim Banks",
+      "initialServiceDate": "2025-01-03",
+      "evidence": {
+        "line": 3494,
+        "text": "               Banks, James E. (R-IN)"
+      }
+    },
+    "B001303": {
+      "state": "DE",
+      "senateClass": 1,
+      "displayName": "Lisa Blunt Rochester",
+      "initialServiceDate": "2025-01-03",
+      "evidence": {
+        "line": 3495,
+        "text": "               Blunt Rochester, Lisa (D-DE)"
+      }
+    },
+    "B001305": {
+      "state": "NC",
+      "senateClass": 3,
+      "displayName": "Ted Budd",
+      "initialServiceDate": "2023-01-03",
+      "evidence": {
+        "line": 3464,
+        "text": "               Budd, Ted (R-NC)"
+      }
+    },
+    "B001319": {
+      "state": "AL",
+      "senateClass": 3,
+      "displayName": "Katie Boyd Britt",
+      "initialServiceDate": "2023-01-03",
+      "evidence": {
+        "line": 3463,
+        "text": "January 3      Britt, Katie (R-AL)"
+      }
+    },
+    "C000127": {
+      "state": "WA",
+      "senateClass": 1,
+      "displayName": "Maria Cantwell",
+      "initialServiceDate": "2001-01-03",
+      "evidence": {
+        "line": 3178,
+        "text": "               Cantwell, Maria (D-WA)"
+      }
+    },
+    "C000880": {
+      "state": "ID",
+      "senateClass": 3,
+      "displayName": "Mike Crapo",
+      "initialServiceDate": "1999-01-03",
+      "evidence": {
+        "line": 3158,
+        "text": "               Crapo, Mike (R-ID)"
+      }
+    },
+    "C001035": {
+      "state": "ME",
+      "senateClass": 2,
+      "displayName": "Susan M. Collins",
+      "initialServiceDate": "1997-01-03",
+      "evidence": {
+        "line": 3140,
+        "text": "               Collins, Susan (R-ME)"
+      }
+    },
+    "C001047": {
+      "state": "WV",
+      "senateClass": 2,
+      "displayName": "Shelley Moore Capito",
+      "initialServiceDate": "2015-01-03",
+      "evidence": {
+        "line": 3384,
+        "text": "January 3      Capito, Shelley Moore (R-WV)"
+      }
+    },
+    "C001056": {
+      "state": "TX",
+      "senateClass": 2,
+      "displayName": "John Cornyn",
+      "initialServiceDate": "2002-12-02",
+      "evidence": {
+        "line": 3192,
+        "text": "December 2 Cornyn, John 14 (R-TX)"
+      }
+    },
+    "C001075": {
+      "state": "LA",
+      "senateClass": 2,
+      "displayName": "Bill Cassidy",
+      "initialServiceDate": "2015-01-03",
+      "evidence": {
+        "line": 3385,
+        "text": "               Cassidy, Bill (R-LA)"
+      }
+    },
+    "C001088": {
+      "state": "DE",
+      "senateClass": 2,
+      "displayName": "Christopher A. Coons",
+      "initialServiceDate": "2010-11-15",
+      "evidence": {
+        "line": 3290,
+        "text": "November 15 Coons, Christopher (D-DE)"
+      }
+    },
+    "C001095": {
+      "state": "AR",
+      "senateClass": 2,
+      "displayName": "Tom Cotton",
+      "initialServiceDate": "2015-01-03",
+      "evidence": {
+        "line": 3386,
+        "text": "               Cotton, Tom (R-AR)"
+      }
+    },
+    "C001096": {
+      "state": "ND",
+      "senateClass": 1,
+      "displayName": "Kevin Cramer",
+      "initialServiceDate": "2019-01-03",
+      "evidence": {
+        "line": 3433,
+        "text": "               Cramer, Kevin (R-ND)"
+      }
+    },
+    "C001098": {
+      "state": "TX",
+      "senateClass": 1,
+      "displayName": "Ted Cruz",
+      "initialServiceDate": "2013-01-03",
+      "evidence": {
+        "line": 3349,
+        "text": "                 Cruz, Ted (R-TX)"
+      }
+    },
+    "C001113": {
+      "state": "NV",
+      "senateClass": 3,
+      "displayName": "Catherine Cortez Masto",
+      "initialServiceDate": "2017-01-03",
+      "evidence": {
+        "line": 3402,
+        "text": "January 3      Cortez Masto, Catherine (D-NV)"
+      }
+    },
+    "C001114": {
+      "state": "UT",
+      "senateClass": 1,
+      "displayName": "John R. Curtis",
+      "initialServiceDate": "2025-01-03",
+      "evidence": {
+        "line": 3496,
+        "text": "               Curtis, John R. (R-UT)"
+      }
+    },
+    "D000563": {
+      "state": "IL",
+      "senateClass": 2,
+      "displayName": "Richard J. Durbin",
+      "initialServiceDate": "1997-01-03",
+      "evidence": {
+        "line": 3141,
+        "text": "               Durbin, Richard (D-IL)"
+      }
+    },
+    "D000618": {
+      "state": "MT",
+      "senateClass": 2,
+      "displayName": "Steve Daines",
+      "initialServiceDate": "2015-01-03",
+      "evidence": {
+        "line": 3387,
+        "text": "               Daines, Steve (R-MT)"
+      }
+    },
+    "D000622": {
+      "state": "IL",
+      "senateClass": 3,
+      "displayName": "Tammy Duckworth",
+      "initialServiceDate": "2017-01-03",
+      "evidence": {
+        "line": 3403,
+        "text": "               Duckworth, Tammy (D-IL)"
+      }
+    },
+    "E000295": {
+      "state": "IA",
+      "senateClass": 2,
+      "displayName": "Joni Ernst",
+      "initialServiceDate": "2015-01-03",
+      "evidence": {
+        "line": 3388,
+        "text": "               Ernst, Joni (R-IA)"
+      }
+    },
+    "F000463": {
+      "state": "NE",
+      "senateClass": 1,
+      "displayName": "Deb Fischer",
+      "initialServiceDate": "2013-01-03",
+      "evidence": {
+        "line": 3351,
+        "text": "                 Fischer, Deb (R-NE)"
+      }
+    },
+    "F000479": {
+      "state": "PA",
+      "senateClass": 3,
+      "displayName": "John Fetterman",
+      "initialServiceDate": "2023-01-03",
+      "evidence": {
+        "line": 3475,
+        "text": "\f                 Fetterman, John (D-PA)"
+      }
+    },
+    "G000386": {
+      "state": "IA",
+      "senateClass": 3,
+      "displayName": "Chuck Grassley",
+      "initialServiceDate": "1981-01-03",
+      "evidence": {
+        "line": 2989,
+        "text": "               Grassley, Charles E. (R-IA)"
+      }
+    },
+    "G000555": {
+      "state": "NY",
+      "senateClass": 1,
+      "displayName": "Kirsten E. Gillibrand",
+      "initialServiceDate": "2009-01-26",
+      "evidence": {
+        "line": 3281,
+        "text": "January 26     Gillibrand, Kirsten 21 (D-NY)"
+      }
+    },
+    "G000574": {
+      "state": "AZ",
+      "senateClass": 1,
+      "displayName": "Ruben Gallego",
+      "initialServiceDate": "2025-01-03",
+      "evidence": {
+        "line": 3497,
+        "text": "               Gallego, Ruben (D-AZ)"
+      }
+    },
+    "G000608": {
+      "state": "SC",
+      "senateClass": 2,
+      "displayName": "Darline Graham",
+      "initialServiceDate": "2026-07-13",
+      "evidence": {
+        "line": 3508,
+        "text": "July 13        Graham, Darline (R-SC) 46"
+      }
+    },
+    "H000273": {
+      "state": "CO",
+      "senateClass": 2,
+      "displayName": "John W. Hickenlooper",
+      "initialServiceDate": "2021-01-03",
+      "evidence": {
+        "line": 3450,
+        "text": "               Hickenlooper, John W., Jr. (D-CO)"
+      }
+    },
+    "H000601": {
+      "state": "TN",
+      "senateClass": 2,
+      "displayName": "Bill Hagerty",
+      "initialServiceDate": "2021-01-03",
+      "evidence": {
+        "line": 3449,
+        "text": "January 3      Hagerty, William F. IV “Bill” (R-TN)"
+      }
+    },
+    "H001042": {
+      "state": "HI",
+      "senateClass": 1,
+      "displayName": "Mazie K. Hirono",
+      "initialServiceDate": "2013-01-03",
+      "evidence": {
+        "line": 3355,
+        "text": "                 Hirono, Mazie (D-HI)"
+      }
+    },
+    "H001046": {
+      "state": "NM",
+      "senateClass": 1,
+      "displayName": "Martin Heinrich",
+      "initialServiceDate": "2013-01-03",
+      "evidence": {
+        "line": 3354,
+        "text": "                 Heinrich, Martin (D-NM)"
+      }
+    },
+    "H001061": {
+      "state": "ND",
+      "senateClass": 3,
+      "displayName": "John Hoeven",
+      "initialServiceDate": "2011-01-03",
+      "evidence": {
+        "line": 3329,
+        "text": "                 Hoeven, John (R-ND)"
+      }
+    },
+    "H001076": {
+      "state": "NH",
+      "senateClass": 3,
+      "displayName": "Margaret Wood Hassan",
+      "initialServiceDate": "2017-01-03",
+      "evidence": {
+        "line": 3404,
+        "text": "               Hassan, Maggie (D-NH)"
+      }
+    },
+    "H001079": {
+      "state": "MS",
+      "senateClass": 2,
+      "displayName": "Cindy Hyde-Smith",
+      "initialServiceDate": "2018-04-02",
+      "evidence": {
+        "line": 3414,
+        "text": "April 2        Hyde-Smith, Cindy 34 (R-MS)"
+      }
+    },
+    "H001089": {
+      "state": "MO",
+      "senateClass": 1,
+      "displayName": "Josh Hawley",
+      "initialServiceDate": "2019-01-03",
+      "evidence": {
+        "line": 3434,
+        "text": "               Hawley, Josh (R-MO)"
+      }
+    },
+    "H001104": {
+      "state": "OH",
+      "senateClass": 3,
+      "displayName": "Jon Husted",
+      "initialServiceDate": "2025-01-18",
+      "evidence": {
+        "line": 3503,
+        "text": "January 18    Husted, Jon A. (R-OH) 45"
+      }
+    },
+    "J000293": {
+      "state": "WI",
+      "senateClass": 3,
+      "displayName": "Ron Johnson",
+      "initialServiceDate": "2011-01-03",
+      "evidence": {
+        "line": 3330,
+        "text": "                 Johnson, Ron (R-WI)"
+      }
+    },
+    "J000312": {
+      "state": "WV",
+      "senateClass": 1,
+      "displayName": "James C. Justice",
+      "initialServiceDate": "2025-01-14",
+      "evidence": {
+        "line": 3502,
+        "text": "January 14     Justice, James (R-WV) 44"
+      }
+    },
+    "K000367": {
+      "state": "MN",
+      "senateClass": 1,
+      "displayName": "Amy Klobuchar",
+      "initialServiceDate": "2007-01-03",
+      "evidence": {
+        "line": 3252,
+        "text": "               Klobuchar, Amy (D-MN)"
+      }
+    },
+    "K000377": {
+      "state": "AZ",
+      "senateClass": 3,
+      "displayName": "Mark Kelly",
+      "initialServiceDate": "2020-12-02",
+      "evidence": {
+        "line": 3443,
+        "text": "December 2 Kelly, Mark E. (D-AZ)"
+      }
+    },
+    "K000383": {
+      "state": "ME",
+      "senateClass": 1,
+      "displayName": "Angus S., Jr. King",
+      "initialServiceDate": "2013-01-03",
+      "evidence": {
+        "line": 3357,
+        "text": "                 King, Angus (I-ME)"
+      }
+    },
+    "K000384": {
+      "state": "VA",
+      "senateClass": 1,
+      "displayName": "Tim Kaine",
+      "initialServiceDate": "2013-01-03",
+      "evidence": {
+        "line": 3356,
+        "text": "                 Kaine, Tim (D-VA)"
+      }
+    },
+    "K000393": {
+      "state": "LA",
+      "senateClass": 3,
+      "displayName": "John Kennedy",
+      "initialServiceDate": "2017-01-03",
+      "evidence": {
+        "line": 3406,
+        "text": "               Kennedy, John (R-LA)"
+      }
+    },
+    "K000394": {
+      "state": "NJ",
+      "senateClass": 1,
+      "displayName": "Andy Kim",
+      "initialServiceDate": "2024-12-08",
+      "evidence": {
+        "line": 3486,
+        "text": "December 8 Kim, Andy (D-NJ) 42"
+      }
+    },
+    "L000570": {
+      "state": "NM",
+      "senateClass": 2,
+      "displayName": "Ben Ray Luján",
+      "initialServiceDate": "2021-01-03",
+      "evidence": {
+        "line": 3451,
+        "text": "              Luján, Ben Ray (D-NM)"
+      }
+    },
+    "L000571": {
+      "state": "WY",
+      "senateClass": 2,
+      "displayName": "Cynthia M. Lummis",
+      "initialServiceDate": "2021-01-03",
+      "evidence": {
+        "line": 3452,
+        "text": "              Lummis, Cynthia M. (R-WY)"
+      }
+    },
+    "L000575": {
+      "state": "OK",
+      "senateClass": 3,
+      "displayName": "James Lankford",
+      "initialServiceDate": "2015-01-03",
+      "evidence": {
+        "line": 3390,
+        "text": "               Lankford, James (R-OK)"
+      }
+    },
+    "L000577": {
+      "state": "UT",
+      "senateClass": 3,
+      "displayName": "Mike Lee",
+      "initialServiceDate": "2011-01-03",
+      "evidence": {
+        "line": 3331,
+        "text": "                 Lee, Mike (R-UT)"
+      }
+    },
+    "M000133": {
+      "state": "MA",
+      "senateClass": 2,
+      "displayName": "Edward J. Markey",
+      "initialServiceDate": "2013-07-16",
+      "evidence": {
+        "line": 3362,
+        "text": "July 16          Markey, Edward J. (D-MA)"
+      }
+    },
+    "M000355": {
+      "state": "KY",
+      "senateClass": 2,
+      "displayName": "Mitch McConnell",
+      "initialServiceDate": "1985-01-03",
+      "evidence": {
+        "line": 3023,
+        "text": "               McConnell, Mitch (R-KY)"
+      }
+    },
+    "M000934": {
+      "state": "KS",
+      "senateClass": 3,
+      "displayName": "Jerry Moran",
+      "initialServiceDate": "2011-01-03",
+      "evidence": {
+        "line": 3332,
+        "text": "                 Moran, Jerry (R-KS)"
+      }
+    },
+    "M001111": {
+      "state": "WA",
+      "senateClass": 3,
+      "displayName": "Patty Murray",
+      "initialServiceDate": "1993-01-03",
+      "evidence": {
+        "line": 3107,
+        "text": "              Murray, Patty (D-WA)"
+      }
+    },
+    "M001153": {
+      "state": "AK",
+      "senateClass": 3,
+      "displayName": "Lisa Murkowski",
+      "initialServiceDate": "2002-12-20",
+      "evidence": {
+        "line": 3193,
+        "text": "December 20 Murkowski, Lisa 15 (R-AK)"
+      }
+    },
+    "M001169": {
+      "state": "CT",
+      "senateClass": 1,
+      "displayName": "Christopher Murphy",
+      "initialServiceDate": "2013-01-03",
+      "evidence": {
+        "line": 3358,
+        "text": "                 Murphy, Chris (D-CT)"
+      }
+    },
+    "M001176": {
+      "state": "OR",
+      "senateClass": 2,
+      "displayName": "Jeff Merkley",
+      "initialServiceDate": "2009-01-03",
+      "evidence": {
+        "line": 3272,
+        "text": "               Merkley, Jeff (D-OR)"
+      }
+    },
+    "M001198": {
+      "state": "KS",
+      "senateClass": 2,
+      "displayName": "Roger Marshall",
+      "initialServiceDate": "2021-01-03",
+      "evidence": {
+        "line": 3453,
+        "text": "              Marshall, Roger W. (R-KS)"
+      }
+    },
+    "M001242": {
+      "state": "OH",
+      "senateClass": 1,
+      "displayName": "Bernie Moreno",
+      "initialServiceDate": "2025-01-03",
+      "evidence": {
+        "line": 3499,
+        "text": "               Moreno, Bernie (R-OH)"
+      }
+    },
+    "M001243": {
+      "state": "PA",
+      "senateClass": 1,
+      "displayName": "David McCormick",
+      "initialServiceDate": "2025-01-03",
+      "evidence": {
+        "line": 3498,
+        "text": "               McCormick, David (R-PA)"
+      }
+    },
+    "M001244": {
+      "state": "FL",
+      "senateClass": 3,
+      "displayName": "Ashley Moody",
+      "initialServiceDate": "2025-01-21",
+      "evidence": {
+        "line": 3504,
+        "text": "January 21     Moody, Ashley B. (R-FL)"
+      }
+    },
+    "O000174": {
+      "state": "GA",
+      "senateClass": 2,
+      "displayName": "Jon Ossoff",
+      "initialServiceDate": "2021-01-20",
+      "evidence": {
+        "line": 3456,
+        "text": "January 20    Ossoff, Jon (D-GA)"
+      }
+    },
+    "P000145": {
+      "state": "CA",
+      "senateClass": 3,
+      "displayName": "Alex Padilla",
+      "initialServiceDate": "2021-01-18",
+      "evidence": {
+        "line": 3455,
+        "text": "January 18     Padilla, Alex 38 (D-CA)"
+      }
+    },
+    "P000595": {
+      "state": "MI",
+      "senateClass": 2,
+      "displayName": "Gary C. Peters",
+      "initialServiceDate": "2015-01-03",
+      "evidence": {
+        "line": 3392,
+        "text": "               Peters, Gary (D-MI)"
+      }
+    },
+    "P000603": {
+      "state": "KY",
+      "senateClass": 3,
+      "displayName": "Rand Paul",
+      "initialServiceDate": "2011-01-03",
+      "evidence": {
+        "line": 3333,
+        "text": "                 Paul, Rand (R-KY)"
+      }
+    },
+    "R000122": {
+      "state": "RI",
+      "senateClass": 2,
+      "displayName": "Jack Reed",
+      "initialServiceDate": "1997-01-03",
+      "evidence": {
+        "line": 3147,
+        "text": "               Reed, Jack (D-RI)"
+      }
+    },
+    "R000584": {
+      "state": "ID",
+      "senateClass": 2,
+      "displayName": "James E. Risch",
+      "initialServiceDate": "2009-01-03",
+      "evidence": {
+        "line": 3273,
+        "text": "               Risch, Jim (R-ID)"
+      }
+    },
+    "R000605": {
+      "state": "SD",
+      "senateClass": 2,
+      "displayName": "Mike Rounds",
+      "initialServiceDate": "2015-01-03",
+      "evidence": {
+        "line": 3393,
+        "text": "               Rounds, Mike (R-SD)"
+      }
+    },
+    "R000608": {
+      "state": "NV",
+      "senateClass": 1,
+      "displayName": "Jacky Rosen",
+      "initialServiceDate": "2019-01-03",
+      "evidence": {
+        "line": 3437,
+        "text": "               Rosen, Jacky (D-NV)"
+      }
+    },
+    "R000618": {
+      "state": "NE",
+      "senateClass": 2,
+      "displayName": "Pete Ricketts",
+      "initialServiceDate": "2023-01-12",
+      "evidence": {
+        "line": 3481,
+        "text": "January 12       Ricketts, John Peter “Pete” (R-NE) 39"
+      }
+    },
+    "S000033": {
+      "state": "VT",
+      "senateClass": 1,
+      "displayName": "Bernard Sanders",
+      "initialServiceDate": "2007-01-03",
+      "evidence": {
+        "line": 3254,
+        "text": "               Sanders, Bernie (I-VT)"
+      }
+    },
+    "S000148": {
+      "state": "NY",
+      "senateClass": 3,
+      "displayName": "Charles E. Schumer",
+      "initialServiceDate": "1999-01-03",
+      "evidence": {
+        "line": 3166,
+        "text": "                 Schumer, Charles (D-NY)"
+      }
+    },
+    "S001150": {
+      "state": "CA",
+      "senateClass": 1,
+      "displayName": "Adam B. Schiff",
+      "initialServiceDate": "2024-12-08",
+      "evidence": {
+        "line": 3487,
+        "text": "December 8 Schiff, Adam B. (D-CA) 43"
+      }
+    },
+    "S001181": {
+      "state": "NH",
+      "senateClass": 2,
+      "displayName": "Jeanne Shaheen",
+      "initialServiceDate": "2009-01-03",
+      "evidence": {
+        "line": 3274,
+        "text": "               Shaheen, Jeanne (D-NH)"
+      }
+    },
+    "S001184": {
+      "state": "SC",
+      "senateClass": 3,
+      "displayName": "Tim Scott",
+      "initialServiceDate": "2013-01-02",
+      "evidence": {
+        "line": 3343,
+        "text": "January 2      Scott, Tim 29 (R-SC)"
+      }
+    },
+    "S001194": {
+      "state": "HI",
+      "senateClass": 3,
+      "displayName": "Brian Schatz",
+      "initialServiceDate": "2012-12-26",
+      "evidence": {
+        "line": 3340,
+        "text": "December 26 Schatz, Brian E. 28 (D-HI)"
+      }
+    },
+    "S001198": {
+      "state": "AK",
+      "senateClass": 2,
+      "displayName": "Dan Sullivan",
+      "initialServiceDate": "2015-01-03",
+      "evidence": {
+        "line": 3395,
+        "text": "               Sullivan, Dan (R-AK)"
+      }
+    },
+    "S001203": {
+      "state": "MN",
+      "senateClass": 2,
+      "displayName": "Tina Smith",
+      "initialServiceDate": "2018-01-03",
+      "evidence": {
+        "line": 3413,
+        "text": "               Smith, Tina 33 (D-MN)"
+      }
+    },
+    "S001208": {
+      "state": "MI",
+      "senateClass": 1,
+      "displayName": "Elissa Slotkin",
+      "initialServiceDate": "2025-01-03",
+      "evidence": {
+        "line": 3501,
+        "text": "               Slotkin, Elissa (D-MI)"
+      }
+    },
+    "S001217": {
+      "state": "FL",
+      "senateClass": 1,
+      "displayName": "Rick Scott",
+      "initialServiceDate": "2019-01-08",
+      "evidence": {
+        "line": 3439,
+        "text": "January 8      Scott, Rick 37 (R-FL)"
+      }
+    },
+    "S001227": {
+      "state": "MO",
+      "senateClass": 3,
+      "displayName": "Eric Schmitt",
+      "initialServiceDate": "2023-01-03",
+      "evidence": {
+        "line": 3477,
+        "text": "                 Schmitt, Eric (R-MO)"
+      }
+    },
+    "S001232": {
+      "state": "MT",
+      "senateClass": 1,
+      "displayName": "Tim Sheehy",
+      "initialServiceDate": "2025-01-03",
+      "evidence": {
+        "line": 3500,
+        "text": "               Sheehy, Tim (R-MT)"
+      }
+    },
+    "T000250": {
+      "state": "SD",
+      "senateClass": 3,
+      "displayName": "John Thune",
+      "initialServiceDate": "2005-01-03",
+      "evidence": {
+        "line": 3238,
+        "text": "               Thune, John (R-SD)"
+      }
+    },
+    "T000278": {
+      "state": "AL",
+      "senateClass": 2,
+      "displayName": "Tommy Tuberville",
+      "initialServiceDate": "2021-01-03",
+      "evidence": {
+        "line": 3454,
+        "text": "               Tuberville, Thomas H. “Tommy” (R-AL)"
+      }
+    },
+    "T000476": {
+      "state": "NC",
+      "senateClass": 2,
+      "displayName": "Thom Tillis",
+      "initialServiceDate": "2015-01-03",
+      "evidence": {
+        "line": 3396,
+        "text": "               Tillis, Thom (R-NC)"
+      }
+    },
+    "V000128": {
+      "state": "MD",
+      "senateClass": 3,
+      "displayName": "Chris Van Hollen",
+      "initialServiceDate": "2017-01-03",
+      "evidence": {
+        "line": 3407,
+        "text": "               Van Hollen, Chris (D-MD)"
+      }
+    },
+    "W000437": {
+      "state": "MS",
+      "senateClass": 1,
+      "displayName": "Roger F. Wicker",
+      "initialServiceDate": "2007-12-31",
+      "evidence": {
+        "line": 3259,
+        "text": "December 31 Wicker, Roger F. (R-MS)"
+      }
+    },
+    "W000779": {
+      "state": "OR",
+      "senateClass": 3,
+      "displayName": "Ron Wyden",
+      "initialServiceDate": "1996-02-06",
+      "evidence": {
+        "line": 3130,
+        "text": "February 6     Wyden, Ron (D-OR)"
+      }
+    },
+    "W000790": {
+      "state": "GA",
+      "senateClass": 3,
+      "displayName": "Raphael G. Warnock",
+      "initialServiceDate": "2021-01-20",
+      "evidence": {
+        "line": 3457,
+        "text": "              Warnock, Raphael G. (D-GA)"
+      }
+    },
+    "W000800": {
+      "state": "VT",
+      "senateClass": 3,
+      "displayName": "Peter Welch",
+      "initialServiceDate": "2023-01-03",
+      "evidence": {
+        "line": 3479,
+        "text": "                 Welch, Peter (D-VT)"
+      }
+    },
+    "W000802": {
+      "state": "RI",
+      "senateClass": 1,
+      "displayName": "Sheldon Whitehouse",
+      "initialServiceDate": "2007-01-03",
+      "evidence": {
+        "line": 3257,
+        "text": "               Whitehouse, Sheldon (D-RI)"
+      }
+    },
+    "W000805": {
+      "state": "VA",
+      "senateClass": 2,
+      "displayName": "Mark R. Warner",
+      "initialServiceDate": "2009-01-03",
+      "evidence": {
+        "line": 3277,
+        "text": "               Warner, Mark (D-VA)"
+      }
+    },
+    "W000817": {
+      "state": "MA",
+      "senateClass": 1,
+      "displayName": "Elizabeth Warren",
+      "initialServiceDate": "2013-01-03",
+      "evidence": {
+        "line": 3359,
+        "text": "                 Warren, Elizabeth (D-MA)"
+      }
+    },
+    "Y000064": {
+      "state": "IN",
+      "senateClass": 3,
+      "displayName": "Todd Young",
+      "initialServiceDate": "2017-01-03",
+      "evidence": {
+        "line": 3408,
+        "text": "               Young, Todd (R-IN)"
+      }
+    }
+  }
+}

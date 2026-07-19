@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { executeIngest, parseIngestArguments } from "./ingest";
+import { executeIngest, main, parseIngestArguments } from "./ingest";
 
 describe("ingest CLI", () => {
   it("parses every supported source and rejects duplicate or unknown flags", () => {
@@ -7,12 +7,31 @@ describe("ingest CLI", () => {
     expect(() => parseIngestArguments(["--source", "identity", "--source", "identity", "--release", "rel_a", "--cutoff", "2025-01-01"])).toThrow();
     expect(() => parseIngestArguments(["--wat"])).toThrow();
   });
-  it("uses injected dependencies, does not create a pool for unavailable adapters, and only enforces configuration for production writes", async () => {
-    const runner = vi.fn(); const getPool = vi.fn(() => ({}));
+  it("uses injected dependencies, requires staging mode, and does not create a pool for unavailable sources", async () => {
+    const runner = vi.fn().mockResolvedValue({ runIds: ["run_new"], reusedRunIds: [] }); const getPool = vi.fn(() => ({}));
     await executeIngest(["--source", "identity", "--release", "rel_a", "--cutoff", "2025-01-01", "--dry-run"], { env: {} as NodeJS.ProcessEnv, getPool: getPool as never, registry: { identity: runner } });
     expect(runner).toHaveBeenCalled();
-    await expect(executeIngest(["--source", "identity", "--release", "rel_a", "--cutoff", "2025-01-01"], { env: { NODE_ENV: "production" }, getPool: getPool as never })).rejects.toThrow("Production ingestion");
-    await expect(executeIngest(["--source", "tiger", "--release", "rel_a", "--cutoff", "2025-01-01"], { env: { NODE_ENV: "development" }, getPool: getPool as never })).rejects.toThrow("Adapter not implemented");
+    await expect(executeIngest(["--source", "identity", "--release", "rel_a", "--cutoff", "2025-01-01"], { env: { NODE_ENV: "production" }, getPool: getPool as never, registry: { identity: runner } })).rejects.toThrow("only stages");
+    await expect(executeIngest(["--source", "identity", "--release", "rel_a", "--cutoff", "2025-01-01", "--dry-run"], { env: { NODE_ENV: "production", RAW_OBJECT_BUCKET: "raw", DATABASE_URL: "postgres://secret" }, getPool: getPool as never, registry: { identity: runner } })).rejects.toThrow("SOURCE_LOCK_SHA256");
+    await expect(executeIngest(["--source", "acs", "--release", "rel_a", "--cutoff", "2025-01-01", "--dry-run"], { env: { NODE_ENV: "development" }, getPool: getPool as never })).rejects.toThrow("unavailable");
     expect(getPool).toHaveBeenCalledTimes(1);
+  });
+  it("returns and writes stable handoff JSON including reused validated runs", async () => {
+    const runner = vi.fn().mockResolvedValue({ runIds: ["run_new"], reusedRunIds: ["run_reused"] });
+    const result = await executeIngest(["--source", "identity", "--release", "rel_a", "--cutoff", "2025-01-01", "--dry-run"], { env: {} as NodeJS.ProcessEnv, getPool: (() => ({})) as never, registry: { identity: runner } });
+    expect(result).toEqual({ source: "identity", release: "rel_a", runIds: ["run_new"], reusedRunIds: ["run_reused"], finalizationRunIds: ["run_new", "run_reused"] });
+    const write = vi.spyOn(process.stdout, "write").mockImplementation(() => true);
+    await main(["--source", "identity", "--release", "rel_a", "--cutoff", "2025-01-01", "--dry-run"], {} as NodeJS.ProcessEnv, { getPool: (() => ({})) as never, registry: { identity: runner } });
+    expect(write).toHaveBeenCalledWith('{"source":"identity","release":"rel_a","runIds":["run_new"],"reusedRunIds":["run_reused"],"finalizationRunIds":["run_new","run_reused"]}\n');
+    write.mockRestore();
+  });
+  it("does not expose environment secrets in configuration errors", async () => {
+    await expect(executeIngest(["--source", "identity", "--release", "rel_a", "--cutoff", "2025-01-01", "--dry-run"], { env: { NODE_ENV: "production", DATABASE_URL: "postgres://secret" }, getPool: (() => ({})) as never, registry: { identity: vi.fn() } })).rejects.not.toThrow("postgres://secret");
+  });
+  it("writes nothing and creates no pool when an adapter is unavailable", async () => {
+    const getPool = vi.fn(() => ({})); const write = vi.spyOn(process.stdout, "write").mockImplementation(() => true);
+    await expect(main(["--source", "acs", "--release", "rel_a", "--cutoff", "2025-01-01", "--dry-run"], {} as NodeJS.ProcessEnv, { getPool: getPool as never })).rejects.toThrow("unavailable");
+    expect(getPool).not.toHaveBeenCalled(); expect(write).not.toHaveBeenCalled();
+    write.mockRestore();
   });
 });

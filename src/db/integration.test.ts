@@ -14,6 +14,7 @@ import {
   contentDomains,
   recheckNationwideValidationGate,
   validateNationwideCandidateRelease,
+  validateNationwideCandidateReleaseWithClient,
 } from "./catalog-release";
 import { failExpiredRun, heartbeat, markFailed, markLoaded, markValidated, recordQuarantineBatch, recordStageBatch, startIngestRun } from "./ingestion";
 import { nationwideSkeleton } from "@/test/fixtures/nationwide-skeleton";
@@ -21,13 +22,20 @@ import { PostgresSeatResearchRepository } from "@/repositories/postgres";
 import { InMemorySeatResearchRepository } from "@/repositories/in-memory";
 import { assertSeatRepositoryContract } from "@/test/repository-contract";
 import { PostgresAddressResolver, PostgresSeatLocator } from "@/address/postgres-resolver";
-import { readFile } from "node:fs/promises";
+import { readFile, rm } from "node:fs/promises";
 import { resolve } from "node:path";
 import { createHash, randomUUID } from "node:crypto";
 import type { PoolClient } from "pg";
 import { runSource } from "@/ingestion/core/run-source";
 import type { RawObject, SourceAdapter } from "@/ingestion/core/types";
 import { canonicalCoverageScopeKey, loadNationwideManifest, seedNationwideCandidateManifest, type BoundaryBundle } from "./manifest";
+import { LocalRawObjectStore } from "@/ingestion/core/raw-object-store";
+import { createIdentityAdapter } from "@/ingestion/identity/adapter";
+import type { HouseSeat } from "@/ingestion/identity/house";
+import { parseSenateRoster, parseSenateServiceStartsArtifact, type SenateSeat } from "@/ingestion/identity/senate";
+import { createTigerAdapter } from "@/ingestion/tiger/adapter";
+import type { NationalTigerArtifactManifest } from "@/ingestion/tiger/national";
+import { finalizeNationwideCandidate, locateNationwideCandidatePoint } from "@/ingestion/catalog/finalize-nationwide";
 
 const testDatabaseUrl = process.env.TEST_DATABASE_URL;
 const testDatabaseName = testDatabaseUrl ? new URL(testDatabaseUrl).pathname.slice(1) : "";
@@ -477,7 +485,15 @@ integration("PostgreSQL integration", () => {
       const { manifest, bundle } = persistedNationwideSkeleton();
       await seedNationwideCandidateManifest(pool, manifest, bundle);
       expect((await loadNationwideManifest(pool, manifest.release.id)).biographicalFacts[0]!.value).toEqual({ kind: "value", value: "1970-01-02" });
-      await validateNationwideCandidateRelease(pool, manifest.release.id);
+      const client = await pool.connect();
+      try {
+        await client.query("BEGIN");
+        await validateNationwideCandidateReleaseWithClient(client, manifest.release.id);
+        await client.query("COMMIT");
+      } catch (error) {
+        await client.query("ROLLBACK").catch(() => undefined);
+        throw error;
+      } finally { client.release(); }
       const before = await pool.query("SELECT row_to_json(g) gate, (SELECT jsonb_agg(row_to_json(d) ORDER BY d.domain) FROM release_content_digests d WHERE d.release_id=$1) digests FROM nationwide_validation_gates g WHERE g.release_id=$1", [manifest.release.id]);
       await expect(recheckNationwideValidationGate(pool, manifest.release.id)).resolves.toBeUndefined();
       const after = await pool.query("SELECT row_to_json(g) gate, (SELECT jsonb_agg(row_to_json(d) ORDER BY d.domain) FROM release_content_digests d WHERE d.release_id=$1) digests FROM nationwide_validation_gates g WHERE g.release_id=$1", [manifest.release.id]);
@@ -668,5 +684,79 @@ integration("PostgreSQL integration", () => {
       await expect(failExpiredRun(pool, expired.id, expired.leaseToken)).rejects.toThrow();
     } finally { await pool.end(); }
   });
+
+  it("Task 4 finalizes retained nationwide identity and TIGER runs atomically", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    const releaseId = "rel_task4_nationwide";
+    const rawRoot = resolve(process.cwd(), ".test-raw-task4-nationwide");
+    const sourceIds = { identity: "src_task4_identity", tiger: "src_task4_tiger" };
+    try {
+      await rm(rawRoot, { recursive: true, force: true });
+      await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,'Task 4 nationwide candidate','candidate',$2,$2,NULL,NULL)", [releaseId, "2026-07-18T00:00:00.000Z"]);
+      await pool.query("INSERT INTO sources(id,release_id,name,authority,homepage_url) VALUES($1,$2,'identity','derived','https://clerk.house.gov/'),($3,$2,'tiger','derived','https://www.census.gov/')", [sourceIds.identity, releaseId, sourceIds.tiger]);
+
+      const identityRoot = resolve(process.cwd(), "data/source/identity");
+      const geometryRoot = resolve(process.cwd(), "data/geometry/versions/9a5e76fc39867c92b0c816e4b23ca9c467d070c1eafbef6d0988b24e480c4871");
+      const [house, senate, senateServiceStarts, cd119, states, tigerManifestBytes] = await Promise.all([
+        readFile(resolve(identityRoot, "house-member-data.xml")), readFile(resolve(identityRoot, "senate-members.xml")), readFile(resolve(identityRoot, "senate-service-starts.json")),
+        readFile(resolve(geometryRoot, "tiger2025-national-cd119.geojson")), readFile(resolve(geometryRoot, "tiger2025-national-states.geojson")), readFile(resolve(geometryRoot, "tiger2025-national-manifest.json")),
+      ]);
+      const checksum = (bytes: Uint8Array) => createHash("sha256").update(bytes).digest("hex");
+      const sourceLockSha256 = checksum(await readFile(resolve(process.cwd(), "data/source-lock.json")));
+      const houseCounts: Record<string, number> = { AL: 7, AK: 1, AZ: 9, AR: 4, CA: 52, CO: 8, CT: 5, DE: 1, FL: 28, GA: 14, HI: 2, ID: 2, IL: 17, IN: 9, IA: 4, KS: 4, KY: 6, LA: 6, ME: 2, MD: 8, MA: 9, MI: 13, MN: 8, MS: 4, MO: 8, MT: 2, NE: 3, NV: 4, NH: 2, NJ: 12, NM: 3, NY: 26, NC: 14, ND: 1, OH: 15, OK: 5, OR: 6, PA: 17, RI: 2, SC: 7, SD: 1, TN: 9, TX: 38, UT: 4, VT: 1, VA: 11, WA: 10, WV: 2, WI: 8, WY: 1 };
+      const houseUniverse: HouseSeat[] = [...Object.entries(houseCounts).flatMap(([stateCode, count]) => Array.from({ length: count }, (_, index) => ({ stateCode, districtCode: (count === 1 ? "AL" : String(index + 1).padStart(2, "0")) as HouseSeat["districtCode"], kind: "representative" as const, termStartsAt: "2025-01-03", termEndsAt: "2027-01-03" }))), ...(["DC", "AS", "GU", "MP", "VI"] as const).map(stateCode => ({ stateCode, districtCode: "AL" as const, kind: "delegate" as const, termStartsAt: "2025-01-03", termEndsAt: "2027-01-03" })), { stateCode: "PR", districtCode: "AL", kind: "resident_commissioner", termStartsAt: "2025-01-03", termEndsAt: "2029-01-03" }];
+      const senateUniverse: SenateSeat[] = parseSenateRoster(senate.toString(), parseSenateServiceStartsArtifact(senateServiceStarts.toString())).records.map(row => ({ stateCode: row.office.stateCode, senateClass: row.office.senateClass!, ...(row.office.senateClass === 1 ? { termStartsAt: "2025-01-03", termEndsAt: "2031-01-03" } : row.office.senateClass === 2 ? { termStartsAt: "2021-01-03", termEndsAt: "2027-01-03" } : { termStartsAt: "2023-01-03", termEndsAt: "2029-01-03" }) }));
+      const rawStore = new LocalRawObjectStore(rawRoot);
+      const identity = createIdentityAdapter({ rawStore, snapshotId: "snap_task4_identity" as never, upstreamRelease: "2025", parserVersion: "identity-v1", releaseCutoff: "2026-07-18", sourceLockSha256, house: { bytes: house, url: "https://clerk.house.gov/xml/lists/MemberData.xml", checksumSha256: checksum(house), lockId: "house-xml" }, senate: { bytes: senate, url: "https://www.senate.gov/general/contact_information/senators_cfm.xml", checksumSha256: checksum(senate), lockId: "senate-xml" }, senateServiceStarts: { bytes: senateServiceStarts, url: "urn:dsa-seats:senate-service-starts:v1", checksumSha256: checksum(senateServiceStarts), lockId: "senate-service-starts" }, houseUniverse, senateUniverse, senatePolicy: { noSenateJurisdictions: new Set(["DC", "PR", "AS", "GU", "MP", "VI"]) } });
+      const tiger = createTigerAdapter({ rawStore, snapshotId: "snap_task4_tiger" as never, upstreamRelease: "2025", parserVersion: "tiger-v1", sourceLockSha256, lockIds: { cd119: "geo-national-cd119", states: "geo-national-states", manifest: "geo-national-manifest", bundle: "geo-national-bundle" }, manifest: JSON.parse(tigerManifestBytes.toString()) as NationalTigerArtifactManifest, cd119Bytes: cd119, statesBytes: states, sourceUrl: "urn:dsa-seats:tiger2025:national-manifest" });
+      const identityRun = await runSource(identity, { pool, releaseId: releaseId as never, sourceId: sourceIds.identity as never, cutoff: new Date("2026-07-18T00:00:00.000Z"), dryRun: true });
+      const tigerRun = await runSource(tiger, { pool, releaseId: releaseId as never, sourceId: sourceIds.tiger as never, cutoff: new Date("2026-07-18T00:00:00.000Z"), dryRun: true });
+      expect(identityRun.runIds).toHaveLength(1); expect(tigerRun.runIds).toHaveLength(1);
+      await expect(finalizeNationwideCandidate({ pool, rawStore, releaseId, identityRunId: identityRun.runIds[0]!, tigerRunId: tigerRun.runIds[0]!, sourceLockSha256: "0".repeat(64) })).rejects.toThrow("NATIONWIDE_FINALIZE_SOURCE_LOCK_MISMATCH");
+      await expect(finalizeNationwideCandidate({ pool, rawStore, releaseId, identityRunId: identityRun.runIds[0]!, tigerRunId: "run_task4_missing", sourceLockSha256 })).rejects.toThrow("NATIONWIDE_FINALIZE_CANDIDATE_INVALID");
+      expect((await pool.query("SELECT status FROM ingest_runs WHERE id = ANY($1) ORDER BY source_id", [[identityRun.runIds[0], tigerRun.runIds[0]]])).rows).toEqual([{ status: "validated" }, { status: "validated" }]);
+      expect((await pool.query("SELECT 1 FROM release_manifests WHERE release_id=$1", [releaseId])).rowCount).toBe(0);
+      for (const table of contentTableRegistry.filter(({ name }) => name !== "sources" && name !== "source_snapshots")) expect((await pool.query(`SELECT 1 FROM ${table.name} WHERE release_id=$1 LIMIT 1`, [releaseId])).rowCount).toBe(0);
+
+      await finalizeNationwideCandidate({ pool, rawStore, releaseId, identityRunId: identityRun.runIds[0]!, tigerRunId: tigerRun.runIds[0]!, sourceLockSha256 });
+      expect((await pool.query("SELECT status,published_at FROM data_releases WHERE id=$1", [releaseId])).rows).toEqual([{ status: "candidate", published_at: null }]);
+      expect((await pool.query("SELECT status FROM ingest_runs WHERE id = ANY($1) ORDER BY source_id", [[identityRun.runIds[0], tigerRun.runIds[0]]])).rows).toEqual([{ status: "loaded" }, { status: "loaded" }]);
+      expect((await pool.query("SELECT 1 FROM nationwide_validation_gates WHERE release_id=$1", [releaseId])).rowCount).toBe(1);
+      await expect(recheckNationwideValidationGate(pool, releaseId)).resolves.toBeUndefined();
+      const contentCounts = async () => Object.fromEntries(await Promise.all(contentTableRegistry.map(async ({ name }) => [name, (await pool.query<{ count: number }>(`SELECT count(*)::int AS count FROM ${name} WHERE release_id=$1`, [releaseId])).rows[0]!.count])));
+      const beforeRetryContentCounts = await contentCounts();
+      await expect(finalizeNationwideCandidate({ pool, rawStore, releaseId, identityRunId: identityRun.runIds[0]!, tigerRunId: tigerRun.runIds[0]!, sourceLockSha256 })).resolves.toBeUndefined();
+      expect(await contentCounts()).toEqual(beforeRetryContentCounts);
+      await expect(recheckNationwideValidationGate(pool, releaseId)).resolves.toBeUndefined();
+      const loaded = await loadNationwideManifest(pool, releaseId);
+      expect(computeCanonicalDataChecksum(loaded)).toBe(loaded.canonicalDataChecksumSha256);
+      expect(loaded.sources).toEqual([{ id: sourceIds.identity, releaseId, name: "identity", authority: "derived", homepageUrl: "https://clerk.house.gov/" }, { id: sourceIds.tiger, releaseId, name: "tiger", authority: "derived", homepageUrl: "https://www.census.gov/" }]);
+      expect(loaded.snapshots.map(snapshot => ({ id: snapshot.id, sourceId: snapshot.sourceId, sourceUrl: snapshot.sourceUrl, parserVersion: snapshot.parserVersion, usageStatus: snapshot.usageStatus }))).toEqual([{ id: "snap_task4_identity", sourceId: sourceIds.identity, sourceUrl: "identity-envelope:https://clerk.house.gov/xml/lists/MemberData.xml|https://www.senate.gov/general/contact_information/senators_cfm.xml|urn:dsa-seats:senate-service-starts:v1", parserVersion: "identity-v1", usageStatus: "approved" }, { id: "snap_task4_tiger", sourceId: sourceIds.tiger, sourceUrl: "urn:dsa-seats:tiger2025:national-manifest", parserVersion: "tiger-v1", usageStatus: "approved" }]);
+      expect({ house: loaded.offices.filter(row => row.chamber === "house").length, senate: loaded.offices.filter(row => row.chamber === "senate").length, cycles: loaded.seatCycles.length, geographies: loaded.geographyVersions.length, memberships: loaded.memberships.length, vacantHouseCycles: loaded.seatCycles.filter(row => row.occupancy.status === "vacant" && loaded.offices.find(office => office.id === row.officeId)?.chamber === "house").length, jurisdictions: loaded.jurisdictions.length }).toEqual({ house: 441, senate: 100, cycles: 541, geographies: 497, memberships: 537, vacantHouseCycles: 4, jurisdictions: 56 });
+      expect(loaded.seatCycles.filter(row => row.occupancy.status === "vacant").every(row => !loaded.memberships.some(membership => membership.officeTermId === row.officeTermId))).toBe(true);
+      const prOffice = loaded.offices.find(row => row.kind === "resident_commissioner")!;
+      const prTerm = loaded.officeTerms.find(row => row.officeId === prOffice.id)!;
+      expect(prTerm).toMatchObject({ id: "term_house_pr_al_2029_01_03", startsAt: "2025-01-03", endsAt: "2029-01-03" });
+      expect(loaded.memberships.find(row => row.officeTermId === prTerm.id)).toMatchObject({ startsAt: "2025-01-03", endsAt: "2029-01-03" });
+      const alRepresentativeTerm = loaded.officeTerms.find(row => row.officeId === loaded.offices.find(office => office.stateCode === "AL" && office.kind === "house_voting")!.id)!;
+      expect(alRepresentativeTerm).toMatchObject({ startsAt: "2025-01-03", endsAt: "2027-01-03" });
+      expect(loaded.memberships.find(row => row.officeTermId === alRepresentativeTerm.id)).toMatchObject({ startsAt: "2025-01-03", endsAt: "2027-01-03" });
+      const boundaries = await pool.query<{ srid: number; type: string; nonempty: boolean; valid: boolean }>("SELECT ST_SRID(boundary) srid,ST_GeometryType(boundary) type,NOT ST_IsEmpty(boundary) nonempty,ST_IsValid(boundary) valid FROM geography_versions WHERE release_id=$1", [releaseId]);
+      expect(boundaries.rows).toHaveLength(loaded.geographyVersions.length);
+      expect(boundaries.rows.every(boundary => boundary.srid === 4326 && boundary.type === "ST_MultiPolygon" && boundary.nonempty && boundary.valid)).toBe(true);
+      expect(JSON.stringify(loaded)).not.toContain("original_publisher");
+      expect({ contests: loaded.contests, acs: loaded.acsObservations, finance: [loaded.financeSummaries, loaded.financeAggregates, loaded.fundingCategoryAggregates, loaded.fundingOrganizationAggregates, loaded.outsideSpendingAggregates], maps: loaded.mapArtifacts }).toEqual({ contests: [], acs: [], finance: [[], [], [], [], []], maps: [] });
+      const client = await pool.connect();
+      try {
+        const point = async (stateCode: string) => (await client.query<{ longitude: number; latitude: number }>("SELECT ST_X(ST_PointOnSurface(boundary)) longitude,ST_Y(ST_PointOnSurface(boundary)) latitude FROM geography_versions WHERE release_id=$1 AND kind='house_district' AND state_code=$2 ORDER BY district_code LIMIT 1", [releaseId, stateCode])).rows[0]!;
+        const zeroSenatePoints = await client.query<{ state_code: string; longitude: number; latitude: number }>("SELECT state_code,ST_X(ST_PointOnSurface(boundary)) longitude,ST_Y(ST_PointOnSurface(boundary)) latitude FROM geography_versions WHERE release_id=$1 AND kind='house_district' AND state_code = ANY($2) ORDER BY state_code", [releaseId, ["DC", "PR", "AS", "GU", "MP", "VI"]]);
+        const zeroSenateHouseCycles = { AS: "seat_house_as_al_current", DC: "seat_house_dc_al_current", GU: "seat_house_gu_al_current", MP: "seat_house_mp_al_current", PR: "seat_house_pr_al_current", VI: "seat_house_vi_al_current" };
+        expect(zeroSenatePoints.rows).toHaveLength(6);
+        for (const { state_code, longitude, latitude } of zeroSenatePoints.rows) await expect(locateNationwideCandidatePoint(client, releaseId, longitude, latitude)).resolves.toEqual({ kind: "matched", houseSeatCycleId: zeroSenateHouseCycles[state_code as keyof typeof zeroSenateHouseCycles], senateSeatCycleIds: [] });
+        const al = await point("AL");
+        await expect(locateNationwideCandidatePoint(client, releaseId, al.longitude, al.latitude)).resolves.toEqual({ kind: "matched", houseSeatCycleId: "seat_house_al_01_current", senateSeatCycleIds: ["seat_senate_al_2_current", "seat_senate_al_3_current"] });
+      } finally { client.release(); }
+    } finally { await pool.end(); await rm(rawRoot, { recursive: true, force: true }); }
+  }, 300_000);
 
 });

@@ -168,32 +168,90 @@ async function insertLineage(
   }
 }
 
+type NormalizedSeedMode = "create" | "adopt-existing-candidate";
+
+function sameJson(left: unknown, right: unknown): boolean {
+  return JSON.stringify(left) === JSON.stringify(right);
+}
+
+async function verifyAdoptableCandidate(client: Queryable, manifest: NationwideManifest): Promise<void> {
+  const release = await client.query("SELECT id,label,status,source_cutoff,created_at,published_at,previous_release_id FROM data_releases WHERE id=$1 FOR UPDATE", [manifest.release.id]);
+  if (release.rowCount !== 1) throw new Error("Adoption requires an existing candidate release");
+  await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [manifest.release.id]);
+  const row = release.rows[0]!;
+  const expectedRelease = {
+    ...manifest.release,
+    sourceCutoff: isoTimestamp(manifest.release.sourceCutoff), createdAt: isoTimestamp(manifest.release.createdAt),
+    publishedAt: manifest.release.publishedAt === null ? null : isoTimestamp(manifest.release.publishedAt),
+  };
+  const actualRelease = {
+    id: row.id, label: row.label, status: row.status,
+    sourceCutoff: isoTimestamp(row.source_cutoff), createdAt: isoTimestamp(row.created_at),
+    publishedAt: row.published_at === null ? null : isoTimestamp(row.published_at), previousReleaseId: row.previous_release_id,
+  };
+  if (!sameJson(actualRelease, expectedRelease) || row.status !== "candidate") throw new Error("Existing candidate release does not exactly match manifest");
+
+  const sources = await client.query("SELECT id,release_id,name,authority,homepage_url FROM sources WHERE release_id=$1 ORDER BY id", [manifest.release.id]);
+  const expectedSources = [...manifest.sources].map(({ id, releaseId, name, authority, homepageUrl }) => ({ id, releaseId, name, authority, homepageUrl })).sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+  const actualSources = sources.rows.map((source) => ({ id: source.id, releaseId: source.release_id, name: source.name, authority: source.authority, homepageUrl: source.homepage_url }));
+  if (!sameJson(actualSources, expectedSources)) throw new Error("Existing candidate sources do not exactly match manifest");
+
+  const snapshots = await client.query("SELECT id,release_id,source_id,source_url,published_at,retrieved_at,checksum_sha256,parser_version,license,usage_status FROM source_snapshots WHERE release_id=$1 ORDER BY id", [manifest.release.id]);
+  const expectedSnapshots = [...manifest.snapshots].map((snapshot) => ({
+    ...snapshot,
+    publishedAt: snapshot.publishedAt === null ? null : isoTimestamp(snapshot.publishedAt),
+    retrievedAt: isoTimestamp(snapshot.retrievedAt),
+  })).sort((a, b) => a.id < b.id ? -1 : a.id > b.id ? 1 : 0);
+  const actualSnapshots = snapshots.rows.map((snapshot) => ({
+    id: snapshot.id, releaseId: snapshot.release_id, sourceId: snapshot.source_id, sourceUrl: snapshot.source_url,
+    publishedAt: snapshot.published_at === null ? null : isoTimestamp(snapshot.published_at), retrievedAt: isoTimestamp(snapshot.retrieved_at),
+    checksumSha256: snapshot.checksum_sha256, parserVersion: snapshot.parser_version, license: snapshot.license, usageStatus: snapshot.usage_status,
+  }));
+  if (!sameJson(actualSnapshots, expectedSnapshots)) throw new Error("Existing candidate source snapshots do not exactly match manifest");
+
+  // The candidate shell may contain only preregistered source inventory and
+  // operational ingestion evidence. Publishable release content must be empty.
+  const operationalTables = ["data_releases", "sources", "source_snapshots", "ingest_runs", "stg_identity", "stg_tiger", "stg_acs", "stg_fec", "stg_elections", "quarantined_records"];
+  const residueTables = await client.query<{ table_name: string }>("SELECT DISTINCT table_name FROM information_schema.columns WHERE table_schema=current_schema() AND column_name='release_id' AND NOT (table_name = ANY($1::text[]))", [operationalTables]);
+  for (const { table_name } of residueTables.rows) {
+    if (!/^[a-z_][a-z0-9_]*$/.test(table_name)) throw new Error("Unsafe release-scoped table name");
+    const residue = await client.query(`SELECT 1 FROM \"${table_name}\" WHERE release_id=$1 LIMIT 1`, [manifest.release.id]);
+    if (residue.rowCount) throw new Error(`Adoption requires no prior catalog/content residue (${table_name})`);
+  }
+}
+
 /** Validates and atomically persists one complete candidate release. */
 async function seedNormalizedManifest(
-  connection: Pool,
+  connection: Pool | PoolClient,
   manifest: PrototypeManifest | NationwideManifest,
   bundle: BoundaryBundle,
   catalogSeatCycleIds: readonly string[],
   persistV2?: (client: Queryable, releaseId: string) => Promise<void>,
+  mode: NormalizedSeedMode = "create",
 ): Promise<void> {
   // Compile immediately before persistence; a pre-mapped geometry cannot attest raw artifact identity.
   const boundaryByGeography = compileBoundaryBundle(manifest as PrototypeManifest, bundle);
 
   await inTransaction(connection, async (client) => {
     const release = manifest.release;
-    await client.query(
-      "INSERT INTO data_releases (id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES ($1,$2,$3,$4,$5,$6,$7)",
-      [release.id, release.label, release.status, release.sourceCutoff, release.createdAt, release.publishedAt, release.previousReleaseId],
-    );
-    await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [release.id]);
+    if (mode === "adopt-existing-candidate") await verifyAdoptableCandidate(client, manifest as NationwideManifest);
+    else {
+      await client.query(
+        "INSERT INTO data_releases (id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES ($1,$2,$3,$4,$5,$6,$7)",
+        [release.id, release.label, release.status, release.sourceCutoff, release.createdAt, release.publishedAt, release.previousReleaseId],
+      );
+      await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [release.id]);
+    }
     // Geometry identity is derived only from PostGIS's normalized EWKB, never
     // from caller supplied geometry or hashes.
 
-    for (const row of manifest.sources) {
-      await client.query("INSERT INTO sources (release_id,id,name,authority,homepage_url) VALUES ($1,$2,$3,$4,$5)", [row.releaseId, row.id, row.name, row.authority, row.homepageUrl]);
-    }
-    for (const row of manifest.snapshots) {
-      await client.query("INSERT INTO source_snapshots (release_id,id,source_id,source_url,published_at,retrieved_at,checksum_sha256,parser_version,license,usage_status) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)", [row.releaseId, row.id, row.sourceId, row.sourceUrl, row.publishedAt, row.retrievedAt, row.checksumSha256, row.parserVersion, row.license, row.usageStatus]);
+    if (mode === "create") {
+      for (const row of manifest.sources) {
+        await client.query("INSERT INTO sources (release_id,id,name,authority,homepage_url) VALUES ($1,$2,$3,$4,$5)", [row.releaseId, row.id, row.name, row.authority, row.homepageUrl]);
+      }
+      for (const row of manifest.snapshots) {
+        await client.query("INSERT INTO source_snapshots (release_id,id,source_id,source_url,published_at,retrieved_at,checksum_sha256,parser_version,license,usage_status) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)", [row.releaseId, row.id, row.sourceId, row.sourceUrl, row.publishedAt, row.retrievedAt, row.checksumSha256, row.parserVersion, row.license, row.usageStatus]);
+      }
     }
     for (const row of manifest.districtPlans) {
       await client.query("INSERT INTO district_plans (release_id,id,name,congress,enacted_at,effective_from,effective_to,jurisdiction_state_code) VALUES ($1,$2,$3,$4,$5,$6,$7,$8)", [row.releaseId, row.id, row.name, row.congress, row.enactedAt, row.effectiveFrom, row.effectiveTo, row.jurisdictionStateCode]);
@@ -304,13 +362,13 @@ async function insertRows(client: Queryable, table: string, columns: readonly st
 }
 
 /** Validates and atomically persists the complete v2 nationwide projection. */
-export async function seedNationwideCandidateManifest(pool: Pool, input: NationwideManifest, boundaryBundle: BoundaryBundle): Promise<void> {
+async function seedNationwideCandidateManifestWithMode(connection: Pool | PoolClient, input: NationwideManifest, boundaryBundle: BoundaryBundle, mode: NormalizedSeedMode): Promise<void> {
   const validation = validateReleaseManifest(input);
   if (!validation.success || validation.data.schemaVersion !== 2) throw validationError("Cannot seed invalid nationwide manifest", validation.success ? [] : validation.issues);
   const manifest = validation.data;
   if (manifest.release.status !== "candidate") throw new Error("Only candidate releases may be seeded");
   if (computeCanonicalDataChecksum(manifest) !== manifest.canonicalDataChecksumSha256) throw new Error("Canonical data checksum does not exactly match manifest content");
-  await seedNormalizedManifest(pool, manifest, boundaryBundle, manifest.catalogSeatCycleIds, async (client, releaseId) => {
+  await seedNormalizedManifest(connection, manifest, boundaryBundle, manifest.catalogSeatCycleIds, async (client, releaseId) => {
     for (const r of manifest.jurisdictions) await insertRows(client,"jurisdictions",["release_id","jurisdiction_code","house_representation","senate_representation"],[releaseId,r.jurisdictionCode,r.houseRepresentation,r.senateRepresentation]);
     for (const r of manifest.coverageRecords) { const s=r.scope, scopeKey=canonicalCoverageScopeKey(s); const key=[s.kind,s.kind==="jurisdiction"||s.kind==="election"?s.jurisdictionCode:null,s.kind==="seat_cycle"||s.kind==="funding"?s.seatCycleId:null,s.kind==="acs_indicator"?s.variable:null,s.kind==="acs_indicator"?s.surveyPeriod:null,s.kind==="election"?s.electionYear:null,s.kind==="funding"?s.fundingKind:null]; const cols=["release_id","domain","scope_key","scope_kind","jurisdiction_code","seat_cycle_id","variable","survey_period","election_year","funding_kind","status","expected_count","observed_count","quarantined_count","incompatible_count"]; const vals=[releaseId,r.domain,scopeKey,...key,r.status,r.expectedCount,r.observedCount,r.quarantinedCount,r.incompatibleCount]; await insertRows(client,"coverage_records",cols,vals); for(const m of r.missingByReason) await insertRows(client,"coverage_missing_reasons",["release_id","domain","scope_key","reason","count"],[releaseId,r.domain,scopeKey,m.reason,m.count]); for(const id of r.inputSnapshotIds) await insertRows(client,"coverage_input_snapshots",["release_id","domain","scope_key","snapshot_id"],[releaseId,r.domain,scopeKey,id]); }
     for(const r of manifest.biographicalFacts){const v=textFactColumns(r.value);await insertRows(client,"biographical_facts",["release_id","person_id","fact","value","value_missing_reason","effective_at"],[releaseId,r.personId,r.fact,...v,r.effectiveAt]);for(const p of r.provenance)await insertRows(client,"biographical_fact_provenance",["release_id","person_id","fact","effective_at","snapshot_id","role"],[releaseId,r.personId,r.fact,r.effectiveAt,p.snapshotId,p.role]);}
@@ -320,7 +378,17 @@ export async function seedNationwideCandidateManifest(pool: Pool, input: Nationw
     const funding = async (table:string, r:{ id?: string; seatCycleId: string; category?: string; coverageThrough: string; methodologyVersion: string }, columns:string[], values:unknown[], inputs:readonly string[])=>{await insertRows(client,table,columns,values);for(const id of inputs)await insertRows(client,table==="funding_category_aggregates"?"funding_category_input_snapshots":table==="funding_organization_aggregates"?"funding_organization_input_snapshots":"outside_spending_input_snapshots",table==="funding_category_aggregates"?["release_id","seat_cycle_id","category","coverage_through","methodology_version","snapshot_id"]:table==="funding_organization_aggregates"?["release_id","aggregate_id","snapshot_id"]:["release_id","seat_cycle_id","coverage_through","methodology_version","snapshot_id"],table==="funding_category_aggregates"?[releaseId,r.seatCycleId,r.category,r.coverageThrough,r.methodologyVersion,id]:table==="funding_organization_aggregates"?[releaseId,r.id,id]:[releaseId,r.seatCycleId,r.coverageThrough,r.methodologyVersion,id]);};
     for(const r of manifest.fundingCategoryAggregates){const v=factColumns(r.amount);await funding("funding_category_aggregates",r,["release_id","seat_cycle_id","category","amount","amount_missing_reason","coverage_through","methodology_version"],[releaseId,r.seatCycleId,r.category,...v,r.coverageThrough,r.methodologyVersion],r.inputSnapshotIds);} for(const r of manifest.fundingOrganizationAggregates){const v=factColumns(r.amount);await funding("funding_organization_aggregates",r,["release_id","id","seat_cycle_id","organization_name","organization_external_id","amount","amount_missing_reason","coverage_through","methodology_version"],[releaseId,r.id,r.seatCycleId,r.organizationName,r.organizationExternalId,...v,r.coverageThrough,r.methodologyVersion],r.inputSnapshotIds);} for(const r of manifest.outsideSpendingAggregates){const a=factColumns(r.supportAmount),b=factColumns(r.opposeAmount);await funding("outside_spending_aggregates",r,["release_id","seat_cycle_id","support_amount","support_amount_missing_reason","oppose_amount","oppose_amount_missing_reason","coverage_through","methodology_version"],[releaseId,r.seatCycleId,...a,...b,r.coverageThrough,r.methodologyVersion],r.inputSnapshotIds);}
     for(const r of manifest.electionDecisions){await insertRows(client,"election_decisions",["release_id","id","jurisdiction_code","election_year","status"],[releaseId,r.id,r.jurisdictionCode,r.electionYear,r.status]);for(const id of r.inputSnapshotIds)await insertRows(client,"election_decision_inputs",["release_id","election_decision_id","snapshot_id"],[releaseId,r.id,id]);} for(const r of manifest.mapArtifacts){await insertRows(client,"map_artifacts",["release_id","id","geography_version_id","artifact_id"],[releaseId,r.id,r.geographyVersionId,r.artifactId]);for(const id of r.inputSnapshotIds)await insertRows(client,"map_artifact_inputs",["release_id","map_artifact_id","snapshot_id"],[releaseId,r.id,id]);} for(const r of manifest.snapshotDerivations){await insertRows(client,"snapshot_derivations",["release_id","output_snapshot_id","methodology_version"],[releaseId,r.outputSnapshotId,r.methodologyVersion]);for(const id of r.inputSnapshotIds)await insertRows(client,"snapshot_derivation_inputs",["release_id","output_snapshot_id","input_snapshot_id"],[releaseId,r.outputSnapshotId,id]);}
-  });
+  }, mode);
+}
+
+/** Validates and atomically persists the complete v2 nationwide projection. */
+export async function seedNationwideCandidateManifest(pool: Pool, input: NationwideManifest, boundaryBundle: BoundaryBundle): Promise<void> {
+  await seedNationwideCandidateManifestWithMode(pool, input, boundaryBundle, "create");
+}
+
+/** Persists a v2 manifest into a caller-owned transaction and preregistered candidate release. */
+export async function adoptNationwideCandidateManifest(client: PoolClient, input: NationwideManifest, boundaryBundle: BoundaryBundle): Promise<void> {
+  await seedNationwideCandidateManifestWithMode(client, input, boundaryBundle, "adopt-existing-candidate");
 }
 
 /** Validates and atomically persists one complete v1 candidate release. */

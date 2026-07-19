@@ -1,6 +1,8 @@
 import { getPool, closeDb } from "@/db/client";
 import { isoDateSchema, releaseIdSchema } from "@/domain/contracts";
 import type { Pool } from "pg";
+import { assertProductionIngestionEnv, createRawObjectStore, runConfiguredSource, verifyConfiguredSourceLock } from "./ingestion-config";
+import type { RunSourceResult } from "@/ingestion/core/run-source";
 
 export type IngestSource = "identity" | "tiger" | "acs" | "fec" | "elections";
 export interface IngestArguments { readonly source: IngestSource; readonly release: string; readonly cutoff: string; readonly dryRun: boolean; }
@@ -17,13 +19,21 @@ export function parseIngestArguments(argv: readonly string[]): IngestArguments {
   if (!(["identity", "tiger", "acs", "fec", "elections"] as const).includes(source as IngestSource)) throw new Error("Unknown ingestion source");
   return { source: source as IngestSource, release, cutoff, dryRun };
 }
-export interface IngestCliDependencies { readonly env: NodeJS.ProcessEnv; readonly getPool: () => Pool; readonly registry?: Partial<Record<IngestSource, (args: IngestArguments, pool: Pool) => Promise<void>>>; }
-export async function executeIngest(argv: readonly string[], dependencies: IngestCliDependencies): Promise<void> {
-  const args = parseIngestArguments(argv);
-  if (dependencies.env.NODE_ENV === "production" && (!dependencies.env.RAW_OBJECT_BUCKET || !dependencies.env.DATABASE_URL)) throw new Error("Production ingestion requires RAW_OBJECT_BUCKET and DATABASE_URL");
-  const runner = dependencies.registry?.[args.source];
-  if (!runner) throw new Error(`Adapter not implemented in this task: ${args.source}`);
-  await runner(args, dependencies.getPool());
+type IngestRunner = (args: IngestArguments, pool: Pool) => Promise<RunSourceResult>;
+export interface IngestCliDependencies { readonly env: NodeJS.ProcessEnv; readonly getPool: () => Pool; readonly registry?: Partial<Record<IngestSource, IngestRunner>>; }
+export interface IngestExecutionResult { readonly source: IngestSource; readonly release: string; readonly runIds: readonly string[]; readonly reusedRunIds: readonly string[]; readonly finalizationRunIds: readonly string[]; }
+export function defaultRegistry(env: NodeJS.ProcessEnv): Partial<Record<IngestSource, IngestRunner>> {
+  return { identity: async (args, pool) => runConfiguredSource("identity", args, pool, createRawObjectStore(env), env), tiger: async (args, pool) => runConfiguredSource("tiger", args, pool, createRawObjectStore(env), env) };
 }
-export async function main(argv = process.argv.slice(2), env = process.env): Promise<void> { await executeIngest(argv, { env, getPool }); }
+export async function executeIngest(argv: readonly string[], dependencies: IngestCliDependencies): Promise<IngestExecutionResult> {
+  const args = parseIngestArguments(argv);
+  const runner = dependencies.registry?.[args.source];
+  if (!runner) throw new Error(`Ingestion source is unavailable: ${args.source}`);
+  if (!args.dryRun) throw new Error("Identity and TIGER ingestion only stages with --dry-run; use finalize:nationwide for atomic finalization");
+  assertProductionIngestionEnv(dependencies.env);
+  if (dependencies.env.NODE_ENV === "production") await verifyConfiguredSourceLock(dependencies.env);
+  const result = await runner(args, dependencies.getPool());
+  return { source: args.source, release: args.release, runIds: result.runIds, reusedRunIds: result.reusedRunIds, finalizationRunIds: [...result.runIds, ...result.reusedRunIds] };
+}
+export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<IngestCliDependencies, "env"> = { getPool, registry: defaultRegistry(env) }): Promise<IngestExecutionResult> { const result = await executeIngest(argv, { env, ...dependencies }); process.stdout.write(`${JSON.stringify(result)}\n`); return result; }
 if (require.main === module) main().catch(error => { process.stderr.write(`${error instanceof Error ? error.message : "Ingestion failed"}\n`); process.exitCode = 1; }).finally(closeDb);
