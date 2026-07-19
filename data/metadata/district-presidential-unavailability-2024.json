@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-07-01",
+  "rule": "The Clerk of the U.S. House of Representatives supplies certified statewide election inputs. This product derives a refusal to allocate those state totals to congressional-district geometry unless an audited district-level return or defensible allocation is available.",
+  "unavailableDistrictPresidentialJudgments": [
+    { "seatCycleId": "seat_house_al_02_2024_regular", "contestId": "contest_president_al_02" },
+    { "seatCycleId": "seat_house_al_05_2024_regular", "contestId": "contest_president_al_05" },
+    { "seatCycleId": "seat_house_al_07_2024_regular", "contestId": "contest_president_al_07" },
+    { "seatCycleId": "seat_house_az_01_2024_regular", "contestId": "contest_president_az_01" },
+    { "seatCycleId": "seat_house_az_06_2024_regular", "contestId": "contest_president_az_06" },
+    { "seatCycleId": "seat_house_az_07_2024_regular", "contestId": "contest_president_az_07" },
+    { "seatCycleId": "seat_house_fl_06_2024_regular", "contestId": "contest_president_fl_06" },
+    { "seatCycleId": "seat_house_fl_12_2024_regular", "contestId": "contest_president_fl_12" },
+    { "seatCycleId": "seat_house_fl_26_2024_regular", "contestId": "contest_president_fl_26" }
+  ]
+}

@@ -1,0 +1,4061 @@
+{
+  "id": "9d6e2f68-757b-4cbe-9ce2-921973c79984",
+  "prevId": "00000000-0000-0000-0000-000000000000",
+  "version": "7",
+  "dialect": "postgresql",
+  "tables": {
+    "public.acs_observation_lineage": {
+      "name": "acs_observation_lineage",
+      "schema": "",
+      "columns": {
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "snapshot_id": {
+          "name": "snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "provenance_role",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "geography_version_id": {
+          "name": "geography_version_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "variable": {
+          "name": "variable",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "survey_period": {
+          "name": "survey_period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "acs_observation_lineage_release_id_data_releases_id_fk": {
+          "name": "acs_observation_lineage_release_id_data_releases_id_fk",
+          "tableFrom": "acs_observation_lineage",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "acs_observation_lineage_release_id_geography_version_id_variable_survey_period_acs_observations_release_id_geography_version_id_variable_survey_period_fk": {
+          "name": "acs_observation_lineage_release_id_geography_version_id_variable_survey_period_acs_observations_release_id_geography_version_id_variable_survey_period_fk",
+          "tableFrom": "acs_observation_lineage",
+          "tableTo": "acs_observations",
+          "columnsFrom": [
+            "release_id",
+            "geography_version_id",
+            "variable",
+            "survey_period"
+          ],
+          "columnsTo": [
+            "release_id",
+            "geography_version_id",
+            "variable",
+            "survey_period"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "acs_observation_lineage_release_id_snapshot_id_source_snapshots_release_id_id_fk": {
+          "name": "acs_observation_lineage_release_id_snapshot_id_source_snapshots_release_id_id_fk",
+          "tableFrom": "acs_observation_lineage",
+          "tableTo": "source_snapshots",
+          "columnsFrom": [
+            "release_id",
+            "snapshot_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "acs_observation_lineage_release_id_geography_version_id_variable_survey_period_snapshot_id_role_pk": {
+          "name": "acs_observation_lineage_release_id_geography_version_id_variable_survey_period_snapshot_id_role_pk",
+          "columns": [
+            "release_id",
+            "geography_version_id",
+            "variable",
+            "survey_period",
+            "snapshot_id",
+            "role"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.acs_observations": {
+      "name": "acs_observations",
+      "schema": "",
+      "columns": {
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "geography_version_id": {
+          "name": "geography_version_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "variable": {
+          "name": "variable",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "label": {
+          "name": "label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "estimate": {
+          "name": "estimate",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "estimate_missing_reason": {
+          "name": "estimate_missing_reason",
+          "type": "missing_reason",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "margin_of_error": {
+          "name": "margin_of_error",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "margin_of_error_missing_reason": {
+          "name": "margin_of_error_missing_reason",
+          "type": "missing_reason",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "unit": {
+          "name": "unit",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "survey_period": {
+          "name": "survey_period",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "universe": {
+          "name": "universe",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lineage_as_of": {
+          "name": "lineage_as_of",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lineage_methodology": {
+          "name": "lineage_methodology",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lineage_status": {
+          "name": "lineage_status",
+          "type": "fact_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "acs_observations_geography_fk_idx": {
+          "name": "acs_observations_geography_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "geography_version_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "acs_observations_release_id_data_releases_id_fk": {
+          "name": "acs_observations_release_id_data_releases_id_fk",
+          "tableFrom": "acs_observations",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "acs_observations_release_id_geography_version_id_geography_versions_release_id_id_fk": {
+          "name": "acs_observations_release_id_geography_version_id_geography_versions_release_id_id_fk",
+          "tableFrom": "acs_observations",
+          "tableTo": "geography_versions",
+          "columnsFrom": [
+            "release_id",
+            "geography_version_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "acs_observations_release_id_geography_version_id_variable_survey_period_pk": {
+          "name": "acs_observations_release_id_geography_version_id_variable_survey_period_pk",
+          "columns": [
+            "release_id",
+            "geography_version_id",
+            "variable",
+            "survey_period"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "acs_estimate_ck": {
+          "name": "acs_estimate_ck",
+          "value": "(\"acs_observations\".\"estimate\" IS NULL) <> (\"acs_observations\".\"estimate_missing_reason\" IS NULL)"
+        },
+        "acs_moe_ck": {
+          "name": "acs_moe_ck",
+          "value": "(\"acs_observations\".\"margin_of_error\" IS NULL) <> (\"acs_observations\".\"margin_of_error_missing_reason\" IS NULL)"
+        },
+        "acs_moe_nonnegative_ck": {
+          "name": "acs_moe_nonnegative_ck",
+          "value": "\"acs_observations\".\"margin_of_error\" IS NULL OR \"acs_observations\".\"margin_of_error\" >= 0"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.candidacies": {
+      "name": "candidacies",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "contest_id": {
+          "name": "contest_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "person_id": {
+          "name": "person_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "party": {
+          "name": "party",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "candidacies_id_contest_uq": {
+          "name": "candidacies_id_contest_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "contest_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "candidacies_contest_fk_idx": {
+          "name": "candidacies_contest_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "contest_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "candidacies_person_fk_idx": {
+          "name": "candidacies_person_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "person_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "candidacies_release_id_data_releases_id_fk": {
+          "name": "candidacies_release_id_data_releases_id_fk",
+          "tableFrom": "candidacies",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "candidacies_release_id_contest_id_contests_release_id_id_fk": {
+          "name": "candidacies_release_id_contest_id_contests_release_id_id_fk",
+          "tableFrom": "candidacies",
+          "tableTo": "contests",
+          "columnsFrom": [
+            "release_id",
+            "contest_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "candidacies_release_id_person_id_people_release_id_id_fk": {
+          "name": "candidacies_release_id_person_id_people_release_id_id_fk",
+          "tableFrom": "candidacies",
+          "tableTo": "people",
+          "columnsFrom": [
+            "release_id",
+            "person_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "candidacies_release_id_id_pk": {
+          "name": "candidacies_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.committee_relationships": {
+      "name": "committee_relationships",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "committee_id": {
+          "name": "committee_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "candidacy_id": {
+          "name": "candidacy_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "relationship": {
+          "name": "relationship",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "effective_from": {
+          "name": "effective_from",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "effective_to": {
+          "name": "effective_to",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "committee_relationships_committee_fk_idx": {
+          "name": "committee_relationships_committee_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "committee_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "committee_relationships_candidacy_fk_idx": {
+          "name": "committee_relationships_candidacy_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "candidacy_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "committee_relationships_release_id_data_releases_id_fk": {
+          "name": "committee_relationships_release_id_data_releases_id_fk",
+          "tableFrom": "committee_relationships",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "committee_relationships_release_id_committee_id_committees_release_id_id_fk": {
+          "name": "committee_relationships_release_id_committee_id_committees_release_id_id_fk",
+          "tableFrom": "committee_relationships",
+          "tableTo": "committees",
+          "columnsFrom": [
+            "release_id",
+            "committee_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "committee_relationships_release_id_candidacy_id_candidacies_release_id_id_fk": {
+          "name": "committee_relationships_release_id_candidacy_id_candidacies_release_id_id_fk",
+          "tableFrom": "committee_relationships",
+          "tableTo": "candidacies",
+          "columnsFrom": [
+            "release_id",
+            "candidacy_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "committee_relationships_release_id_id_pk": {
+          "name": "committee_relationships_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "committee_relationships_dates_ck": {
+          "name": "committee_relationships_dates_ck",
+          "value": "\"committee_relationships\".\"effective_to\" IS NULL OR \"committee_relationships\".\"effective_to\" > \"committee_relationships\".\"effective_from\""
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.committees": {
+      "name": "committees",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_committee_id": {
+          "name": "source_committee_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "committee_type": {
+          "name": "committee_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "committees_source_uq": {
+          "name": "committees_source_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "source_committee_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "committees_release_id_data_releases_id_fk": {
+          "name": "committees_release_id_data_releases_id_fk",
+          "tableFrom": "committees",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "committees_release_id_id_pk": {
+          "name": "committees_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.contest_lineage": {
+      "name": "contest_lineage",
+      "schema": "",
+      "columns": {
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "snapshot_id": {
+          "name": "snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "provenance_role",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "contest_id": {
+          "name": "contest_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "contest_lineage_release_id_data_releases_id_fk": {
+          "name": "contest_lineage_release_id_data_releases_id_fk",
+          "tableFrom": "contest_lineage",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "contest_lineage_release_id_contest_id_contests_release_id_id_fk": {
+          "name": "contest_lineage_release_id_contest_id_contests_release_id_id_fk",
+          "tableFrom": "contest_lineage",
+          "tableTo": "contests",
+          "columnsFrom": [
+            "release_id",
+            "contest_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "contest_lineage_release_id_snapshot_id_source_snapshots_release_id_id_fk": {
+          "name": "contest_lineage_release_id_snapshot_id_source_snapshots_release_id_id_fk",
+          "tableFrom": "contest_lineage",
+          "tableTo": "source_snapshots",
+          "columnsFrom": [
+            "release_id",
+            "snapshot_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "contest_lineage_release_id_contest_id_snapshot_id_role_pk": {
+          "name": "contest_lineage_release_id_contest_id_snapshot_id_role_pk",
+          "columns": [
+            "release_id",
+            "contest_id",
+            "snapshot_id",
+            "role"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.contests": {
+      "name": "contests",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "seat_cycle_id": {
+          "name": "seat_cycle_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "round": {
+          "name": "round",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "election_date": {
+          "name": "election_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "geography_version_id": {
+          "name": "geography_version_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "certification_status": {
+          "name": "certification_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reporting_completeness_percent": {
+          "name": "reporting_completeness_percent",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "denominator_votes": {
+          "name": "denominator_votes",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "denominator_missing_reason": {
+          "name": "denominator_missing_reason",
+          "type": "missing_reason",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reporting_unit": {
+          "name": "reporting_unit",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "allocation_method": {
+          "name": "allocation_method",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "allocation_coverage_percent": {
+          "name": "allocation_coverage_percent",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "allocation_coverage_missing_reason": {
+          "name": "allocation_coverage_missing_reason",
+          "type": "missing_reason",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lineage_as_of": {
+          "name": "lineage_as_of",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lineage_methodology": {
+          "name": "lineage_methodology",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lineage_status": {
+          "name": "lineage_status",
+          "type": "fact_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "contests_natural_uq": {
+          "name": "contests_natural_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "seat_cycle_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "kind",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "round",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "election_date",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "contests_seat_fk_idx": {
+          "name": "contests_seat_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "seat_cycle_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "contests_geography_fk_idx": {
+          "name": "contests_geography_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "geography_version_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "contests_release_id_data_releases_id_fk": {
+          "name": "contests_release_id_data_releases_id_fk",
+          "tableFrom": "contests",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "contests_release_id_seat_cycle_id_seat_cycles_release_id_id_fk": {
+          "name": "contests_release_id_seat_cycle_id_seat_cycles_release_id_id_fk",
+          "tableFrom": "contests",
+          "tableTo": "seat_cycles",
+          "columnsFrom": [
+            "release_id",
+            "seat_cycle_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "contests_release_id_geography_version_id_geography_versions_release_id_id_fk": {
+          "name": "contests_release_id_geography_version_id_geography_versions_release_id_id_fk",
+          "tableFrom": "contests",
+          "tableTo": "geography_versions",
+          "columnsFrom": [
+            "release_id",
+            "geography_version_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "contests_release_id_id_pk": {
+          "name": "contests_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "contests_denominator_ck": {
+          "name": "contests_denominator_ck",
+          "value": "(\"contests\".\"denominator_votes\" IS NULL) <> (\"contests\".\"denominator_missing_reason\" IS NULL)"
+        },
+        "contests_denominator_whole_nonnegative_ck": {
+          "name": "contests_denominator_whole_nonnegative_ck",
+          "value": "\"contests\".\"denominator_votes\" IS NULL OR (\"contests\".\"denominator_votes\" >= 0 AND \"contests\".\"denominator_votes\" = trunc(\"contests\".\"denominator_votes\"))}"
+        },
+        "contests_reporting_percent_ck": {
+          "name": "contests_reporting_percent_ck",
+          "value": "\"contests\".\"reporting_completeness_percent\" BETWEEN 0 AND 100"
+        },
+        "contests_allocation_ck": {
+          "name": "contests_allocation_ck",
+          "value": "(\"contests\".\"allocation_coverage_percent\" IS NULL) <> (\"contests\".\"allocation_coverage_missing_reason\" IS NULL)"
+        },
+        "contests_allocation_percent_ck": {
+          "name": "contests_allocation_percent_ck",
+          "value": "\"contests\".\"allocation_coverage_percent\" IS NULL OR \"contests\".\"allocation_coverage_percent\" BETWEEN 0 AND 100"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.data_releases": {
+      "name": "data_releases",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "label": {
+          "name": "label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "release_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_cutoff": {
+          "name": "source_cutoff",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "published_at": {
+          "name": "published_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "previous_release_id": {
+          "name": "previous_release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "one_published_release": {
+          "name": "one_published_release",
+          "columns": [
+            {
+              "expression": "status",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "where": "\"data_releases\".\"status\" = 'published'",
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "data_releases_previous_release_fk_idx": {
+          "name": "data_releases_previous_release_fk_idx",
+          "columns": [
+            {
+              "expression": "previous_release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "data_releases_previous_release_id_data_releases_id_fk": {
+          "name": "data_releases_previous_release_id_data_releases_id_fk",
+          "tableFrom": "data_releases",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "previous_release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "data_releases_status_published_ck": {
+          "name": "data_releases_status_published_ck",
+          "value": "(\"data_releases\".\"status\" = 'candidate' AND \"data_releases\".\"published_at\" IS NULL) OR (\"data_releases\".\"status\" IN ('published', 'retired') AND \"data_releases\".\"published_at\" IS NOT NULL)"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.district_plans": {
+      "name": "district_plans",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "congress": {
+          "name": "congress",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "enacted_at": {
+          "name": "enacted_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "effective_from": {
+          "name": "effective_from",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "effective_to": {
+          "name": "effective_to",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "jurisdiction_state_code": {
+          "name": "jurisdiction_state_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "district_plans_natural_uq": {
+          "name": "district_plans_natural_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "jurisdiction_state_code",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "congress",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "name",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "district_plans_release_id_data_releases_id_fk": {
+          "name": "district_plans_release_id_data_releases_id_fk",
+          "tableFrom": "district_plans",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "district_plans_release_id_id_pk": {
+          "name": "district_plans_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.election_result_lineage": {
+      "name": "election_result_lineage",
+      "schema": "",
+      "columns": {
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "snapshot_id": {
+          "name": "snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "provenance_role",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "contest_id": {
+          "name": "contest_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "result_option_id": {
+          "name": "result_option_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "election_result_lineage_release_id_data_releases_id_fk": {
+          "name": "election_result_lineage_release_id_data_releases_id_fk",
+          "tableFrom": "election_result_lineage",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "election_result_lineage_release_id_contest_id_result_option_id_election_results_release_id_contest_id_result_option_id_fk": {
+          "name": "election_result_lineage_release_id_contest_id_result_option_id_election_results_release_id_contest_id_result_option_id_fk",
+          "tableFrom": "election_result_lineage",
+          "tableTo": "election_results",
+          "columnsFrom": [
+            "release_id",
+            "contest_id",
+            "result_option_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "contest_id",
+            "result_option_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "election_result_lineage_release_id_snapshot_id_source_snapshots_release_id_id_fk": {
+          "name": "election_result_lineage_release_id_snapshot_id_source_snapshots_release_id_id_fk",
+          "tableFrom": "election_result_lineage",
+          "tableTo": "source_snapshots",
+          "columnsFrom": [
+            "release_id",
+            "snapshot_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "election_result_lineage_release_id_contest_id_result_option_id_snapshot_id_role_pk": {
+          "name": "election_result_lineage_release_id_contest_id_result_option_id_snapshot_id_role_pk",
+          "columns": [
+            "release_id",
+            "contest_id",
+            "result_option_id",
+            "snapshot_id",
+            "role"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.election_results": {
+      "name": "election_results",
+      "schema": "",
+      "columns": {
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "contest_id": {
+          "name": "contest_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "result_option_id": {
+          "name": "result_option_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "votes": {
+          "name": "votes",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "votes_missing_reason": {
+          "name": "votes_missing_reason",
+          "type": "missing_reason",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lineage_as_of": {
+          "name": "lineage_as_of",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lineage_methodology": {
+          "name": "lineage_methodology",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lineage_status": {
+          "name": "lineage_status",
+          "type": "fact_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "election_results_contest_fk_idx": {
+          "name": "election_results_contest_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "contest_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "election_results_option_fk_idx": {
+          "name": "election_results_option_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "result_option_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "election_results_release_id_data_releases_id_fk": {
+          "name": "election_results_release_id_data_releases_id_fk",
+          "tableFrom": "election_results",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "election_results_release_id_contest_id_contests_release_id_id_fk": {
+          "name": "election_results_release_id_contest_id_contests_release_id_id_fk",
+          "tableFrom": "election_results",
+          "tableTo": "contests",
+          "columnsFrom": [
+            "release_id",
+            "contest_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "election_results_release_id_result_option_id_contest_id_result_options_release_id_id_contest_id_fk": {
+          "name": "election_results_release_id_result_option_id_contest_id_result_options_release_id_id_contest_id_fk",
+          "tableFrom": "election_results",
+          "tableTo": "result_options",
+          "columnsFrom": [
+            "release_id",
+            "result_option_id",
+            "contest_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id",
+            "contest_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "election_results_release_id_contest_id_result_option_id_pk": {
+          "name": "election_results_release_id_contest_id_result_option_id_pk",
+          "columns": [
+            "release_id",
+            "contest_id",
+            "result_option_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "election_results_votes_ck": {
+          "name": "election_results_votes_ck",
+          "value": "(\"election_results\".\"votes\" IS NULL) <> (\"election_results\".\"votes_missing_reason\" IS NULL)"
+        },
+        "election_results_votes_whole_nonnegative_ck": {
+          "name": "election_results_votes_whole_nonnegative_ck",
+          "value": "\"election_results\".\"votes\" IS NULL OR (\"election_results\".\"votes\" >= 0 AND \"election_results\".\"votes\" = trunc(\"election_results\".\"votes\"))}"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.fec_filing_lineage": {
+      "name": "fec_filing_lineage",
+      "schema": "",
+      "columns": {
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "snapshot_id": {
+          "name": "snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "provenance_role",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "filing_id": {
+          "name": "filing_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "fec_filing_lineage_release_id_data_releases_id_fk": {
+          "name": "fec_filing_lineage_release_id_data_releases_id_fk",
+          "tableFrom": "fec_filing_lineage",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "fec_filing_lineage_release_id_filing_id_fec_filing_summaries_release_id_id_fk": {
+          "name": "fec_filing_lineage_release_id_filing_id_fec_filing_summaries_release_id_id_fk",
+          "tableFrom": "fec_filing_lineage",
+          "tableTo": "fec_filing_summaries",
+          "columnsFrom": [
+            "release_id",
+            "filing_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "fec_filing_lineage_release_id_snapshot_id_source_snapshots_release_id_id_fk": {
+          "name": "fec_filing_lineage_release_id_snapshot_id_source_snapshots_release_id_id_fk",
+          "tableFrom": "fec_filing_lineage",
+          "tableTo": "source_snapshots",
+          "columnsFrom": [
+            "release_id",
+            "snapshot_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fec_filing_lineage_release_id_filing_id_snapshot_id_role_pk": {
+          "name": "fec_filing_lineage_release_id_filing_id_snapshot_id_role_pk",
+          "columns": [
+            "release_id",
+            "filing_id",
+            "snapshot_id",
+            "role"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.fec_filing_summaries": {
+      "name": "fec_filing_summaries",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "seat_cycle_id": {
+          "name": "seat_cycle_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "committee_id": {
+          "name": "committee_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_filing_id": {
+          "name": "source_filing_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "report_type": {
+          "name": "report_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reporting_period_start": {
+          "name": "reporting_period_start",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reporting_period_end": {
+          "name": "reporting_period_end",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "filed_at": {
+          "name": "filed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amendment_number": {
+          "name": "amendment_number",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amendment_status": {
+          "name": "amendment_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "amends_filing_id": {
+          "name": "amends_filing_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cash_on_hand": {
+          "name": "cash_on_hand",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "cash_on_hand_missing_reason": {
+          "name": "cash_on_hand_missing_reason",
+          "type": "missing_reason",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_receipts": {
+          "name": "total_receipts",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_receipts_missing_reason": {
+          "name": "total_receipts_missing_reason",
+          "type": "missing_reason",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_disbursements": {
+          "name": "total_disbursements",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "total_disbursements_missing_reason": {
+          "name": "total_disbursements_missing_reason",
+          "type": "missing_reason",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "lineage_as_of": {
+          "name": "lineage_as_of",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lineage_methodology": {
+          "name": "lineage_methodology",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "lineage_status": {
+          "name": "lineage_status",
+          "type": "fact_status",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "fec_filings_source_uq": {
+          "name": "fec_filings_source_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "source_filing_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "fec_filings_id_seat_uq": {
+          "name": "fec_filings_id_seat_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "seat_cycle_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "fec_filings_natural_uq": {
+          "name": "fec_filings_natural_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "seat_cycle_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "committee_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "report_type",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "reporting_period_start",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "reporting_period_end",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "amendment_number",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "fec_filings_seat_fk_idx": {
+          "name": "fec_filings_seat_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "seat_cycle_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "fec_filings_committee_fk_idx": {
+          "name": "fec_filings_committee_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "committee_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "fec_filings_amends_fk_idx": {
+          "name": "fec_filings_amends_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "amends_filing_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "fec_filing_summaries_release_id_data_releases_id_fk": {
+          "name": "fec_filing_summaries_release_id_data_releases_id_fk",
+          "tableFrom": "fec_filing_summaries",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "fec_filing_summaries_release_id_seat_cycle_id_seat_cycles_release_id_id_fk": {
+          "name": "fec_filing_summaries_release_id_seat_cycle_id_seat_cycles_release_id_id_fk",
+          "tableFrom": "fec_filing_summaries",
+          "tableTo": "seat_cycles",
+          "columnsFrom": [
+            "release_id",
+            "seat_cycle_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "fec_filing_summaries_release_id_committee_id_committees_release_id_id_fk": {
+          "name": "fec_filing_summaries_release_id_committee_id_committees_release_id_id_fk",
+          "tableFrom": "fec_filing_summaries",
+          "tableTo": "committees",
+          "columnsFrom": [
+            "release_id",
+            "committee_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "fec_filing_summaries_release_id_amends_filing_id_fec_filing_summaries_release_id_id_fk": {
+          "name": "fec_filing_summaries_release_id_amends_filing_id_fec_filing_summaries_release_id_id_fk",
+          "tableFrom": "fec_filing_summaries",
+          "tableTo": "fec_filing_summaries",
+          "columnsFrom": [
+            "release_id",
+            "amends_filing_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "fec_filing_summaries_release_id_id_pk": {
+          "name": "fec_filing_summaries_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "fec_period_ck": {
+          "name": "fec_period_ck",
+          "value": "\"fec_filing_summaries\".\"reporting_period_end\" >= \"fec_filing_summaries\".\"reporting_period_start\""
+        },
+        "fec_amendment_number_ck": {
+          "name": "fec_amendment_number_ck",
+          "value": "\"fec_filing_summaries\".\"amendment_number\" >= 0"
+        },
+        "fec_amends_status_ck": {
+          "name": "fec_amends_status_ck",
+          "value": "\"fec_filing_summaries\".\"amends_filing_id\" IS NULL OR \"fec_filing_summaries\".\"amendment_status\" = 'amended'"
+        },
+        "fec_cash_ck": {
+          "name": "fec_cash_ck",
+          "value": "(\"fec_filing_summaries\".\"cash_on_hand\" IS NULL) <> (\"fec_filing_summaries\".\"cash_on_hand_missing_reason\" IS NULL)"
+        },
+        "fec_receipts_ck": {
+          "name": "fec_receipts_ck",
+          "value": "(\"fec_filing_summaries\".\"total_receipts\" IS NULL) <> (\"fec_filing_summaries\".\"total_receipts_missing_reason\" IS NULL)"
+        },
+        "fec_disbursements_ck": {
+          "name": "fec_disbursements_ck",
+          "value": "(\"fec_filing_summaries\".\"total_disbursements\" IS NULL) <> (\"fec_filing_summaries\".\"total_disbursements_missing_reason\" IS NULL)"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.geography_versions": {
+      "name": "geography_versions",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kind": {
+          "name": "kind",
+          "type": "geography_kind",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "district_plan_id": {
+          "name": "district_plan_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "geometry_artifact_id": {
+          "name": "geometry_artifact_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_geoid": {
+          "name": "source_geoid",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "label": {
+          "name": "label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "vintage": {
+          "name": "vintage",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "state_code": {
+          "name": "state_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "district_code": {
+          "name": "district_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "boundary": {
+          "name": "boundary",
+          "type": "geometry(MultiPolygon,4326)",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "boundary_checksum_sha256": {
+          "name": "boundary_checksum_sha256",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "geographies_natural_uq": {
+          "name": "geographies_natural_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "kind",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "source_geoid",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "vintage",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "geography_versions_plan_fk_idx": {
+          "name": "geography_versions_plan_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "district_plan_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "geography_versions_artifact_fk_idx": {
+          "name": "geography_versions_artifact_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "geometry_artifact_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "geography_versions_release_id_data_releases_id_fk": {
+          "name": "geography_versions_release_id_data_releases_id_fk",
+          "tableFrom": "geography_versions",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "geography_versions_release_id_district_plan_id_district_plans_release_id_id_fk": {
+          "name": "geography_versions_release_id_district_plan_id_district_plans_release_id_id_fk",
+          "tableFrom": "geography_versions",
+          "tableTo": "district_plans",
+          "columnsFrom": [
+            "release_id",
+            "district_plan_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "geography_versions_release_id_geometry_artifact_id_geometry_artifacts_release_id_id_fk": {
+          "name": "geography_versions_release_id_geometry_artifact_id_geometry_artifacts_release_id_id_fk",
+          "tableFrom": "geography_versions",
+          "tableTo": "geometry_artifacts",
+          "columnsFrom": [
+            "release_id",
+            "geometry_artifact_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "geography_versions_release_id_id_pk": {
+          "name": "geography_versions_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "geography_versions_kind_fields_ck": {
+          "name": "geography_versions_kind_fields_ck",
+          "value": "(\"geography_versions\".\"kind\" = 'house_district' AND \"geography_versions\".\"district_plan_id\" IS NOT NULL AND \"geography_versions\".\"district_code\" ~ '^(AL|[0-9]{2})$') OR (\"geography_versions\".\"kind\" = 'state' AND \"geography_versions\".\"district_plan_id\" IS NULL AND \"geography_versions\".\"district_code\" IS NULL)"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.geometry_artifacts": {
+      "name": "geometry_artifacts",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "snapshot_id": {
+          "name": "snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "object_key": {
+          "name": "object_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "format": {
+          "name": "format",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "srid": {
+          "name": "srid",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "checksum_sha256": {
+          "name": "checksum_sha256",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "geometry_artifacts_object_uq": {
+          "name": "geometry_artifacts_object_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "object_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "geometry_artifacts_snapshot_fk_idx": {
+          "name": "geometry_artifacts_snapshot_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "snapshot_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "geometry_artifacts_release_id_data_releases_id_fk": {
+          "name": "geometry_artifacts_release_id_data_releases_id_fk",
+          "tableFrom": "geometry_artifacts",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "geometry_artifacts_release_id_snapshot_id_source_snapshots_release_id_id_fk": {
+          "name": "geometry_artifacts_release_id_snapshot_id_source_snapshots_release_id_id_fk",
+          "tableFrom": "geometry_artifacts",
+          "tableTo": "source_snapshots",
+          "columnsFrom": [
+            "release_id",
+            "snapshot_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "geometry_artifacts_release_id_id_pk": {
+          "name": "geometry_artifacts_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.memberships": {
+      "name": "memberships",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "office_term_id": {
+          "name": "office_term_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "person_id": {
+          "name": "person_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "party": {
+          "name": "party",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "starts_at": {
+          "name": "starts_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ends_at": {
+          "name": "ends_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "memberships_term_fk_idx": {
+          "name": "memberships_term_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "office_term_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "memberships_person_fk_idx": {
+          "name": "memberships_person_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "person_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "memberships_release_id_data_releases_id_fk": {
+          "name": "memberships_release_id_data_releases_id_fk",
+          "tableFrom": "memberships",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "memberships_release_id_office_term_id_office_terms_release_id_id_fk": {
+          "name": "memberships_release_id_office_term_id_office_terms_release_id_id_fk",
+          "tableFrom": "memberships",
+          "tableTo": "office_terms",
+          "columnsFrom": [
+            "release_id",
+            "office_term_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "memberships_release_id_person_id_people_release_id_id_fk": {
+          "name": "memberships_release_id_person_id_people_release_id_id_fk",
+          "tableFrom": "memberships",
+          "tableTo": "people",
+          "columnsFrom": [
+            "release_id",
+            "person_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "memberships_release_id_id_pk": {
+          "name": "memberships_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "memberships_dates_ck": {
+          "name": "memberships_dates_ck",
+          "value": "\"memberships\".\"ends_at\" IS NULL OR \"memberships\".\"ends_at\" > \"memberships\".\"starts_at\""
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.office_terms": {
+      "name": "office_terms",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "office_id": {
+          "name": "office_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "starts_at": {
+          "name": "starts_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "ends_at": {
+          "name": "ends_at",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "office_terms_natural_uq": {
+          "name": "office_terms_natural_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "office_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "starts_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "ends_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "office_terms_office_fk_idx": {
+          "name": "office_terms_office_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "office_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "office_terms_release_id_data_releases_id_fk": {
+          "name": "office_terms_release_id_data_releases_id_fk",
+          "tableFrom": "office_terms",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "office_terms_release_id_office_id_offices_release_id_id_fk": {
+          "name": "office_terms_release_id_office_id_offices_release_id_id_fk",
+          "tableFrom": "office_terms",
+          "tableTo": "offices",
+          "columnsFrom": [
+            "release_id",
+            "office_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "office_terms_release_id_id_pk": {
+          "name": "office_terms_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "office_terms_dates_ck": {
+          "name": "office_terms_dates_ck",
+          "value": "\"office_terms\".\"ends_at\" > \"office_terms\".\"starts_at\""
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.offices": {
+      "name": "offices",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "chamber": {
+          "name": "chamber",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "state_code": {
+          "name": "state_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "district_code": {
+          "name": "district_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "senate_class": {
+          "name": "senate_class",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "offices_release_id_data_releases_id_fk": {
+          "name": "offices_release_id_data_releases_id_fk",
+          "tableFrom": "offices",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "offices_release_id_id_pk": {
+          "name": "offices_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "offices_kind_compatibility_ck": {
+          "name": "offices_kind_compatibility_ck",
+          "value": "(\"offices\".\"chamber\" = 'senate' AND \"offices\".\"kind\" = 'senate' AND \"offices\".\"district_code\" IS NULL AND \"offices\".\"senate_class\" BETWEEN 1 AND 3) OR (\"offices\".\"chamber\" = 'house' AND \"offices\".\"kind\" IN ('house_voting', 'house_delegate', 'resident_commissioner') AND \"offices\".\"district_code\" ~ '^(AL|[0-9]{2})$' AND \"offices\".\"senate_class\" IS NULL)"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.people": {
+      "name": "people",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "display_name": {
+          "name": "display_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "birth_date": {
+          "name": "birth_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "bioguide_id": {
+          "name": "bioguide_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "people_bioguide_uq": {
+          "name": "people_bioguide_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "bioguide_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "where": "\"people\".\"bioguide_id\" IS NOT NULL",
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "people_release_id_data_releases_id_fk": {
+          "name": "people_release_id_data_releases_id_fk",
+          "tableFrom": "people",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "people_release_id_id_pk": {
+          "name": "people_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.provenance": {
+      "name": "provenance",
+      "schema": "",
+      "columns": {
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_type": {
+          "name": "entity_type",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "entity_id": {
+          "name": "entity_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "snapshot_id": {
+          "name": "snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "provenance_role",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "provenance_snapshot_fk_idx": {
+          "name": "provenance_snapshot_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "snapshot_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "provenance_release_id_data_releases_id_fk": {
+          "name": "provenance_release_id_data_releases_id_fk",
+          "tableFrom": "provenance",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "provenance_release_id_snapshot_id_source_snapshots_release_id_id_fk": {
+          "name": "provenance_release_id_snapshot_id_source_snapshots_release_id_id_fk",
+          "tableFrom": "provenance",
+          "tableTo": "source_snapshots",
+          "columnsFrom": [
+            "release_id",
+            "snapshot_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "provenance_release_id_entity_type_entity_id_snapshot_id_role_pk": {
+          "name": "provenance_release_id_entity_type_entity_id_snapshot_id_role_pk",
+          "columns": [
+            "release_id",
+            "entity_type",
+            "entity_id",
+            "snapshot_id",
+            "role"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "provenance_simple_entity_type_ck": {
+          "name": "provenance_simple_entity_type_ck",
+          "value": "\"provenance\".\"entity_type\" IN ('district_plans','geography_versions','offices','people','office_terms','memberships','seat_cycles','contests','candidacies','result_options','committees','committee_relationships')"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.release_manifests": {
+      "name": "release_manifests",
+      "schema": "",
+      "columns": {
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "schema_version": {
+          "name": "schema_version",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "canonical_data_checksum_sha256": {
+          "name": "canonical_data_checksum_sha256",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "geometry_checksum_sha256": {
+          "name": "geometry_checksum_sha256",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "content_checksum_sha256": {
+          "name": "content_checksum_sha256",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "validated_at": {
+          "name": "validated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "release_manifests_release_id_data_releases_id_fk": {
+          "name": "release_manifests_release_id_data_releases_id_fk",
+          "tableFrom": "release_manifests",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "release_manifests_schema_version_ck": {
+          "name": "release_manifests_schema_version_ck",
+          "value": "\"release_manifests\".\"schema_version\" = 1"
+        },
+        "release_manifests_checksum_ck": {
+          "name": "release_manifests_checksum_ck",
+          "value": "\"release_manifests\".\"canonical_data_checksum_sha256\" ~ '^[a-f0-9]{64}$'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.release_profile_seats": {
+      "name": "release_profile_seats",
+      "schema": "",
+      "columns": {
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "seat_cycle_id": {
+          "name": "seat_cycle_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "position": {
+          "name": "position",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "release_profile_seats_position_uq": {
+          "name": "release_profile_seats_position_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "position",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "release_profile_seats_release_id_data_releases_id_fk": {
+          "name": "release_profile_seats_release_id_data_releases_id_fk",
+          "tableFrom": "release_profile_seats",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "release_profile_seats_release_id_seat_cycle_id_seat_cycles_release_id_id_fk": {
+          "name": "release_profile_seats_release_id_seat_cycle_id_seat_cycles_release_id_id_fk",
+          "tableFrom": "release_profile_seats",
+          "tableTo": "seat_cycles",
+          "columnsFrom": [
+            "release_id",
+            "seat_cycle_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "release_profile_seats_release_id_seat_cycle_id_pk": {
+          "name": "release_profile_seats_release_id_seat_cycle_id_pk",
+          "columns": [
+            "release_id",
+            "seat_cycle_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "release_profile_seats_position_ck": {
+          "name": "release_profile_seats_position_ck",
+          "value": "\"release_profile_seats\".\"position\" BETWEEN 1 AND 12"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "public.result_options": {
+      "name": "result_options",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "contest_id": {
+          "name": "contest_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "candidacy_id": {
+          "name": "candidacy_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "label": {
+          "name": "label",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "party": {
+          "name": "party",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "option_kind": {
+          "name": "option_kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "result_options_contest_id_uq": {
+          "name": "result_options_contest_id_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "contest_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "result_options_contest_fk_idx": {
+          "name": "result_options_contest_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "contest_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "result_options_candidacy_fk_idx": {
+          "name": "result_options_candidacy_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "candidacy_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "result_options_release_id_data_releases_id_fk": {
+          "name": "result_options_release_id_data_releases_id_fk",
+          "tableFrom": "result_options",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "result_options_release_id_contest_id_contests_release_id_id_fk": {
+          "name": "result_options_release_id_contest_id_contests_release_id_id_fk",
+          "tableFrom": "result_options",
+          "tableTo": "contests",
+          "columnsFrom": [
+            "release_id",
+            "contest_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "result_options_release_id_candidacy_id_contest_id_candidacies_release_id_id_contest_id_fk": {
+          "name": "result_options_release_id_candidacy_id_contest_id_candidacies_release_id_id_contest_id_fk",
+          "tableFrom": "result_options",
+          "tableTo": "candidacies",
+          "columnsFrom": [
+            "release_id",
+            "candidacy_id",
+            "contest_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id",
+            "contest_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "result_options_release_id_id_pk": {
+          "name": "result_options_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.seat_cycles": {
+      "name": "seat_cycles",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "office_id": {
+          "name": "office_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "office_term_id": {
+          "name": "office_term_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "geography_version_id": {
+          "name": "geography_version_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "cycle_year": {
+          "name": "cycle_year",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "election_date": {
+          "name": "election_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "election_kind": {
+          "name": "election_kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "incumbency_status": {
+          "name": "incumbency_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "occupancy_status": {
+          "name": "occupancy_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "occupancy_as_of": {
+          "name": "occupancy_as_of",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "seat_cycles_natural_uq": {
+          "name": "seat_cycles_natural_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "office_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "cycle_year",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "election_kind",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "seat_cycles_office_fk_idx": {
+          "name": "seat_cycles_office_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "office_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "seat_cycles_term_fk_idx": {
+          "name": "seat_cycles_term_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "office_term_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "seat_cycles_geography_fk_idx": {
+          "name": "seat_cycles_geography_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "geography_version_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "seat_cycles_release_id_data_releases_id_fk": {
+          "name": "seat_cycles_release_id_data_releases_id_fk",
+          "tableFrom": "seat_cycles",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "seat_cycles_release_id_office_id_offices_release_id_id_fk": {
+          "name": "seat_cycles_release_id_office_id_offices_release_id_id_fk",
+          "tableFrom": "seat_cycles",
+          "tableTo": "offices",
+          "columnsFrom": [
+            "release_id",
+            "office_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "seat_cycles_release_id_office_term_id_office_terms_release_id_id_fk": {
+          "name": "seat_cycles_release_id_office_term_id_office_terms_release_id_id_fk",
+          "tableFrom": "seat_cycles",
+          "tableTo": "office_terms",
+          "columnsFrom": [
+            "release_id",
+            "office_term_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "seat_cycles_release_id_geography_version_id_geography_versions_release_id_id_fk": {
+          "name": "seat_cycles_release_id_geography_version_id_geography_versions_release_id_id_fk",
+          "tableFrom": "seat_cycles",
+          "tableTo": "geography_versions",
+          "columnsFrom": [
+            "release_id",
+            "geography_version_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "seat_cycles_release_id_id_pk": {
+          "name": "seat_cycles_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.seat_finance_summaries": {
+      "name": "seat_finance_summaries",
+      "schema": "",
+      "columns": {
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "seat_cycle_id": {
+          "name": "seat_cycle_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "filing_id": {
+          "name": "filing_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "missing_reason": {
+          "name": "missing_reason",
+          "type": "missing_reason",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "as_of": {
+          "name": "as_of",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "seat_finance_filing_fk_idx": {
+          "name": "seat_finance_filing_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "filing_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "seat_finance_summaries_release_id_data_releases_id_fk": {
+          "name": "seat_finance_summaries_release_id_data_releases_id_fk",
+          "tableFrom": "seat_finance_summaries",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "seat_finance_summaries_release_id_filing_id_seat_cycle_id_fec_filing_summaries_release_id_id_seat_cycle_id_fk": {
+          "name": "seat_finance_summaries_release_id_filing_id_seat_cycle_id_fec_filing_summaries_release_id_id_seat_cycle_id_fk",
+          "tableFrom": "seat_finance_summaries",
+          "tableTo": "fec_filing_summaries",
+          "columnsFrom": [
+            "release_id",
+            "filing_id",
+            "seat_cycle_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id",
+            "seat_cycle_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "seat_finance_summaries_release_id_seat_cycle_id_pk": {
+          "name": "seat_finance_summaries_release_id_seat_cycle_id_pk",
+          "columns": [
+            "release_id",
+            "seat_cycle_id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.seat_finance_summary_lineage": {
+      "name": "seat_finance_summary_lineage",
+      "schema": "",
+      "columns": {
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "snapshot_id": {
+          "name": "snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "role": {
+          "name": "role",
+          "type": "provenance_role",
+          "typeSchema": "public",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "seat_cycle_id": {
+          "name": "seat_cycle_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "seat_finance_summary_lineage_release_id_data_releases_id_fk": {
+          "name": "seat_finance_summary_lineage_release_id_data_releases_id_fk",
+          "tableFrom": "seat_finance_summary_lineage",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "seat_finance_summary_lineage_release_id_seat_cycle_id_seat_finance_summaries_release_id_seat_cycle_id_fk": {
+          "name": "seat_finance_summary_lineage_release_id_seat_cycle_id_seat_finance_summaries_release_id_seat_cycle_id_fk",
+          "tableFrom": "seat_finance_summary_lineage",
+          "tableTo": "seat_finance_summaries",
+          "columnsFrom": [
+            "release_id",
+            "seat_cycle_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "seat_cycle_id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "seat_finance_summary_lineage_release_id_snapshot_id_source_snapshots_release_id_id_fk": {
+          "name": "seat_finance_summary_lineage_release_id_snapshot_id_source_snapshots_release_id_id_fk",
+          "tableFrom": "seat_finance_summary_lineage",
+          "tableTo": "source_snapshots",
+          "columnsFrom": [
+            "release_id",
+            "snapshot_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "seat_finance_summary_lineage_release_id_seat_cycle_id_snapshot_id_role_pk": {
+          "name": "seat_finance_summary_lineage_release_id_seat_cycle_id_snapshot_id_role_pk",
+          "columns": [
+            "release_id",
+            "seat_cycle_id",
+            "snapshot_id",
+            "role"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.source_snapshots": {
+      "name": "source_snapshots",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_id": {
+          "name": "source_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_url": {
+          "name": "source_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "published_at": {
+          "name": "published_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "retrieved_at": {
+          "name": "retrieved_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "checksum_sha256": {
+          "name": "checksum_sha256",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "parser_version": {
+          "name": "parser_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "license": {
+          "name": "license",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "usage_status": {
+          "name": "usage_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "source_snapshots_source_fk_idx": {
+          "name": "source_snapshots_source_fk_idx",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "source_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "source_snapshots_release_id_data_releases_id_fk": {
+          "name": "source_snapshots_release_id_data_releases_id_fk",
+          "tableFrom": "source_snapshots",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "source_snapshots_release_id_source_id_sources_release_id_id_fk": {
+          "name": "source_snapshots_release_id_source_id_sources_release_id_id_fk",
+          "tableFrom": "source_snapshots",
+          "tableTo": "sources",
+          "columnsFrom": [
+            "release_id",
+            "source_id"
+          ],
+          "columnsTo": [
+            "release_id",
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "source_snapshots_release_id_id_pk": {
+          "name": "source_snapshots_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    },
+    "public.sources": {
+      "name": "sources",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "release_id": {
+          "name": "release_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "name": {
+          "name": "name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "authority": {
+          "name": "authority",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "homepage_url": {
+          "name": "homepage_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "sources_release_name_uq": {
+          "name": "sources_release_name_uq",
+          "columns": [
+            {
+              "expression": "release_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "name",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "sources_release_id_data_releases_id_fk": {
+          "name": "sources_release_id_data_releases_id_fk",
+          "tableFrom": "sources",
+          "tableTo": "data_releases",
+          "columnsFrom": [
+            "release_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {
+        "sources_release_id_id_pk": {
+          "name": "sources_release_id_id_pk",
+          "columns": [
+            "release_id",
+            "id"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {},
+      "isRLSEnabled": false
+    }
+  },
+  "enums": {
+    "public.fact_status": {
+      "name": "fact_status",
+      "schema": "public",
+      "values": [
+        "certified",
+        "official",
+        "reported",
+        "modeled",
+        "estimated",
+        "superseded"
+      ]
+    },
+    "public.geography_kind": {
+      "name": "geography_kind",
+      "schema": "public",
+      "values": [
+        "house_district",
+        "state"
+      ]
+    },
+    "public.missing_reason": {
+      "name": "missing_reason",
+      "schema": "public",
+      "values": [
+        "not_applicable",
+        "not_collected",
+        "not_reported",
+        "not_yet_reported",
+        "suppressed",
+        "unmatched",
+        "source_unavailable",
+        "not_defensibly_modeled"
+      ]
+    },
+    "public.provenance_role": {
+      "name": "provenance_role",
+      "schema": "public",
+      "values": [
+        "original_publisher",
+        "intermediary",
+        "geometry_source",
+        "derived_input"
+      ]
+    },
+    "public.release_status": {
+      "name": "release_status",
+      "schema": "public",
+      "values": [
+        "candidate",
+        "published",
+        "retired"
+      ]
+    }
+  },
+  "schemas": {},
+  "sequences": {},
+  "roles": {},
+  "policies": {},
+  "views": {},
+  "_meta": {
+    "columns": {},
+    "schemas": {},
+    "tables": {}
+  }
+}

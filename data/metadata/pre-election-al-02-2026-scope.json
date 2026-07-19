@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-07-01",
+  "scope": "Pre-election 2026 Alabama Congressional District 02",
+  "seatCycle": {
+    "id": "seat_house_al_02_2026_regular",
+    "year": 2026,
+    "electionKind": "regular"
+  },
+  "targetOfficeTerm": {
+    "id": "term_house_al_02_2027",
+    "startsAt": "2027-01-03",
+    "endsAt": "2029-01-03"
+  },
+  "plannedGeneralContest": {
+    "id": "contest_house_al_02_2026_general",
+    "date": "2026-11-03"
+  },
+  "sourceCutoff": "2026-07-01T00:00:00Z",
+  "provenanceStatement": "The future House term, 2026 seat cycle, and planned general-contest schedule are product modeling and derived scheduling context. They are not facts established by the current House roster or by an FEC filing.",
+  "fecDerivedInputs": {
+    "snapshotIds": [
+      "snap_fec_1920279",
+      "snap_fec_1922049",
+      "snap_fec_1946508",
+      "snap_fec_1973409"
+    ],
+    "purpose": "FEC filing snapshots are derived inputs only for candidacy, committee, and filing-report context."
+  }
+}
