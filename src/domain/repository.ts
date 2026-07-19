@@ -34,7 +34,7 @@ import {
   sourceSnapshotSchema,
   usStateCodeSchema,
 } from "@/domain/contracts";
-import type { DataRelease, ReleaseId, SeatCycleId, Source } from "@/domain/contracts";
+import type { DataRelease, ReleaseId, SeatCycleId, Source, SourceSnapshot } from "@/domain/contracts";
 
 export const seatSortKeySchema = z.enum([
   "state",
@@ -66,7 +66,15 @@ export const IDENTITY_SEARCH_FIELDS = [
 export type SeatQuery = z.infer<typeof seatQuerySchema>;
 export type SeatSortKey = z.infer<typeof seatSortKeySchema>;
 
-export const electionMetricSummarySchema = z.object({
+export const seatFacetsSchema = z.object({
+  states: z.array(usStateCodeSchema),
+  parties: z.array(partySchema),
+  incumbencyStatuses: z.array(incumbencyStatusSchema),
+  electionYears: z.array(z.number().int().min(1788).max(2200)),
+}).strict();
+export type SeatFacets = z.infer<typeof seatFacetsSchema>;
+
+const electionMetricSummaryV1Schema = z.object({
   value: factValueSchema(z.number()),
   geographyVersionId: geographyVersionIdSchema,
   status: factStatusSchema,
@@ -74,6 +82,21 @@ export const electionMetricSummarySchema = z.object({
   methodology: z.string().min(1),
   inputSnapshotIds: z.array(snapshotIdSchema).min(1),
 }).strict();
+
+/** V2 makes a release-level coverage absence explicit without changing v1 DTOs. */
+const electionCoverageMissingSummarySchema = z.object({
+  kind: z.literal("coverage_missing"),
+  value: z.object({ kind: z.literal("missing"), reason: missingReasonSchema }).strict(),
+  reason: missingReasonSchema,
+  asOf: isoDateSchema,
+  methodology: z.literal("coverage_missing"),
+  inputSnapshotIds: z.array(snapshotIdSchema).min(1),
+  geographyVersionId: geographyVersionIdSchema.nullable(),
+  // Coverage itself is reported even though the metric is unavailable.
+  status: z.literal("reported"),
+}).strict();
+
+export const electionMetricSummarySchema = z.union([electionMetricSummaryV1Schema, electionCoverageMissingSummarySchema]);
 
 export const financeMetricSummarySchema = z.discriminatedUnion("kind", [
   z.object({
@@ -90,6 +113,17 @@ export const financeMetricSummarySchema = z.discriminatedUnion("kind", [
     reason: missingReasonSchema,
     asOf: isoDateSchema,
     inputSnapshotIds: z.array(snapshotIdSchema).min(1),
+  }).strict(),
+  z.object({
+    kind: z.literal("aggregate"),
+    value: z.number().nonnegative(),
+    aggregateId: z.string().min(1),
+    asOf: isoDateSchema,
+    coverageThrough: isoDateSchema,
+    methodologyVersion: z.string().min(1),
+    inputSnapshotIds: z.array(snapshotIdSchema).min(1),
+    // A kind label, not a fabricated filing or missing-data claim.
+    reason: z.literal("aggregate"),
   }).strict(),
 ]);
 
@@ -134,12 +168,29 @@ export type FinanceMetricSummary = z.infer<typeof financeMetricSummarySchema>;
 export type SeatListItem = z.infer<typeof seatListItemSchema>;
 export type SeatProfile = z.infer<typeof seatProfileSchema>;
 
+export const seatPageRequestSchema = seatQuerySchema.extend({
+  limit: z.number().int().min(1).max(100).default(50),
+  cursor: z.string().max(500).optional(),
+}).strict();
+export const seatPageSchema = z.object({
+  releaseId: releaseIdSchema,
+  items: z.array(seatListItemSchema),
+  nextCursor: z.string().max(500).nullable(),
+  total: z.number().int().nonnegative(),
+}).strict();
+export type SeatPageRequest = z.infer<typeof seatPageRequestSchema>;
+export type SeatPage = z.infer<typeof seatPageSchema>;
+
 export interface SeatResearchRepository {
   getActiveRelease(): Promise<DataRelease>;
   getRelease(id: ReleaseId): Promise<DataRelease | null>;
   listSeats(releaseId: ReleaseId, query: SeatQuery): Promise<readonly SeatListItem[]>;
+  listSeatPage(releaseId: ReleaseId, request: SeatPageRequest): Promise<SeatPage>;
+  getSeatListItem(releaseId: ReleaseId, id: SeatCycleId): Promise<SeatListItem | null>;
   getSeatProfile(releaseId: ReleaseId, id: SeatCycleId): Promise<SeatProfile | null>;
+  getSeatFacets(releaseId: ReleaseId): Promise<SeatFacets>;
   listSources(releaseId: ReleaseId): Promise<readonly Source[]>;
+  listSourceSnapshots(releaseId: ReleaseId): Promise<readonly SourceSnapshot[]>;
 }
 
 export const seatRouteParamsSchema = z.object({

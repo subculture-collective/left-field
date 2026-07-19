@@ -131,10 +131,14 @@ function assertManifestChecksums(manifest: ManifestRow, loadedChecksum: string):
 }
 
 async function lockV2Candidate(client: PoolClient, releaseId: string): Promise<ManifestRow> {
+  return lockV2Release(client, releaseId, ["candidate"], "Nationwide validation requires a v2 candidate");
+}
+
+async function lockV2Release(client: PoolClient, releaseId: string, statuses: readonly string[], errorMessage: string): Promise<ManifestRow> {
   await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [releaseId]);
-  const release = await client.query("SELECT 1 FROM data_releases WHERE id=$1 AND status='candidate' FOR UPDATE", [releaseId]);
+  const release = await client.query("SELECT 1 FROM data_releases WHERE id=$1 AND status=ANY($2) FOR UPDATE", [releaseId, statuses]);
   const manifest = await client.query<ManifestRow>("SELECT schema_version,canonical_data_checksum_sha256,geometry_checksum_sha256,content_checksum_sha256 FROM release_manifests WHERE release_id=$1 FOR UPDATE", [releaseId]);
-  if (release.rowCount !== 1 || manifest.rowCount !== 1 || manifest.rows[0]!.schema_version !== 2) throw new Error("Nationwide validation requires a v2 candidate");
+  if (release.rowCount !== 1 || manifest.rowCount !== 1 || manifest.rows[0]!.schema_version !== 2) throw new Error(errorMessage);
   return manifest.rows[0]!;
 }
 
@@ -176,7 +180,7 @@ export async function validateNationwideCandidateRelease(pool: Pool, releaseId: 
 }
 
 async function recheckWithClient(client: PoolClient, releaseId: string): Promise<void> {
-  const manifest = await lockV2Candidate(client, releaseId);
+  const manifest = await lockV2Release(client, releaseId, ["candidate", "retired", "published"], "Nationwide recheck requires a v2 candidate, retired, or published release");
   const loaded = await loadNationwideManifest(client, releaseId);
   assertManifestChecksums(manifest, loaded.canonicalDataChecksumSha256);
   const gateResult = await client.query<ValidationGate>("SELECT schema_version,manifest_checksum_sha256,geometry_checksum_sha256,content_checksum_sha256,domain_count,domain_checksum_sha256 FROM nationwide_validation_gates WHERE release_id=$1 FOR SHARE", [releaseId]);

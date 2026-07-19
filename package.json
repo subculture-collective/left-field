@@ -14,6 +14,7 @@
     "data:verify": "node scripts/verify-source-lock.mjs",
     "ingest": "tsx scripts/ingest.ts",
     "finalize:nationwide": "tsx scripts/finalize-nationwide.ts",
+    "measure:task5-queries": "tsx scripts/measure-task5-queries.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio"

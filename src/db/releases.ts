@@ -1,8 +1,26 @@
 import type { Pool } from "pg";
 import { validatePrototypeManifest } from "@/domain/validate-manifest";
 import { loadPrototypeManifest } from "./manifest";
+import { recheckNationwideValidationGate } from "./catalog-release";
 
 const SERIALIZATION_FAILURE = "40001";
+
+async function validateReleaseForPublication(client: Parameters<typeof loadPrototypeManifest>[0], releaseId: string): Promise<void> {
+  const version = await client.query<{ schema_version: number }>("SELECT schema_version FROM release_manifests WHERE release_id=$1", [releaseId]);
+  switch (version.rows[0]?.schema_version) {
+    case 1: {
+      const manifest = await loadPrototypeManifest(client, releaseId);
+      const semantic = validatePrototypeManifest(manifest);
+      if (!semantic.success || manifest.profileSeatCycleIds.length < 10 || manifest.profileSeatCycleIds.length > 12) throw new Error(`Release ${releaseId} failed validation immediately before promotion`);
+      return;
+    }
+    case 2:
+      await recheckNationwideValidationGate(client, releaseId);
+      return;
+    default:
+      throw new Error(`Release ${releaseId} has an unsupported manifest schema version`);
+  }
+}
 
 /** Atomically makes a candidate the sole published release after the content lock exposes its latest committed state. */
 export async function promoteCandidateRelease(pool: Pool, releaseId: string, maxAttempts = 3): Promise<void> {
@@ -19,11 +37,7 @@ export async function promoteCandidateRelease(pool: Pool, releaseId: string, max
         "SELECT id FROM data_releases WHERE id = $1 AND status = 'candidate' FOR UPDATE", [releaseId],
       );
       if (candidate.rowCount !== 1) throw new Error(`Release ${releaseId} is not a candidate`);
-      const version = await client.query<{ schema_version: number }>("SELECT schema_version FROM release_manifests WHERE release_id=$1", [releaseId]);
-      if (version.rows[0]?.schema_version !== 1) throw new Error("Nationwide v2 publication is not enabled until Task 5");
-      const manifest = await loadPrototypeManifest(client, releaseId);
-      const semantic = validatePrototypeManifest(manifest);
-      if (!semantic.success || manifest.profileSeatCycleIds.length < 10 || manifest.profileSeatCycleIds.length > 12) throw new Error(`Release ${releaseId} failed validation immediately before promotion`);
+      await validateReleaseForPublication(client, releaseId);
       const published = await client.query<{ id: string }>(
         "SELECT id FROM data_releases WHERE status = 'published' FOR UPDATE",
       );
@@ -40,6 +54,36 @@ export async function promoteCandidateRelease(pool: Pool, releaseId: string, max
       throw error;
     } finally { client.release(); }
   }
+}
+
+/** Republishes the direct retired successor of the current release after revalidating immutable content. */
+export async function rollForwardRetiredRelease(pool: Pool, releaseId: string, maxAttempts = 3): Promise<{ publishedReleaseId: string; retiredReleaseId: string }> {
+  for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    const client = await pool.connect();
+    try {
+      await client.query("BEGIN ISOLATION LEVEL SERIALIZABLE");
+      await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release_promotion'))");
+      await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [releaseId]);
+      const published = await client.query<{ id: string }>("SELECT id FROM data_releases WHERE status = 'published' FOR UPDATE");
+      if (published.rowCount !== 1) throw new Error("Expected exactly one published release to roll forward");
+      const current = published.rows[0]!;
+      if (current.id === releaseId) throw new Error(`Release ${releaseId} is already published`);
+      await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [current.id]);
+      const target = await client.query<{ id: string }>("SELECT id FROM data_releases WHERE id=$1 AND status='retired' AND previous_release_id=$2 FOR UPDATE", [releaseId, current.id]);
+      if (target.rowCount !== 1) throw new Error(`Retired release ${releaseId} is not the direct successor of published release ${current.id}`);
+      await validateReleaseForPublication(client, releaseId);
+      await client.query("UPDATE data_releases SET status = 'retired' WHERE id = $1", [current.id]);
+      // Keep the target's original published_at and previous_release_id as historical facts.
+      await client.query("UPDATE data_releases SET status = 'published' WHERE id = $1", [releaseId]);
+      await client.query("COMMIT");
+      return { publishedReleaseId: releaseId, retiredReleaseId: current.id };
+    } catch (error: unknown) {
+      await client.query("ROLLBACK").catch(() => undefined);
+      if ((error as { code?: string }).code === SERIALIZATION_FAILURE && attempt < maxAttempts) continue;
+      throw error;
+    } finally { client.release(); }
+  }
+  throw new Error("Roll-forward attempts exhausted");
 }
 
 /** Restores the retired predecessor of the sole published release, retrying complete serializable attempts. */

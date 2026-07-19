@@ -6,7 +6,7 @@ import { adversarialRepositoryManifest, coherentBoundaryBundle, coherentManifest
 import type { PrototypeManifest } from "@/domain/contracts";
 import { computeCanonicalDataChecksum } from "@/domain/validate-manifest";
 import { compileBoundaryBundle, loadPrototypeManifest, seedPrototypeManifest } from "./manifest";
-import { promoteCandidateRelease, rollbackPublishedRelease } from "./releases";
+import { promoteCandidateRelease, rollbackPublishedRelease, rollForwardRetiredRelease } from "./releases";
 import {
   baselineCandidateRelease,
   computeReleaseDigest,
@@ -63,6 +63,13 @@ function boundariesFor(manifest: PrototypeManifest) { return coherentBoundaryBun
 
 function persistedNationwideSkeleton() {
   const manifest = structuredClone(nationwideSkeleton());
+  // Keep the synthetic release structurally nationwide while exercising the
+  // repository's vacant-seat path.  The selection is derived from its own
+  // house universe rather than from production seat ids.
+  const houseOfficeIds = new Set(manifest.offices.filter((office) => office.chamber === "house").slice(0, 4).map((office) => office.id));
+  const vacantTerms = new Set(manifest.seatCycles.filter((cycle) => houseOfficeIds.has(cycle.officeId)).map((cycle) => cycle.officeTermId));
+  manifest.seatCycles = manifest.seatCycles.map((cycle) => vacantTerms.has(cycle.officeTermId) ? { ...cycle, occupancy: { ...cycle.occupancy, status: "vacant" } } : cycle);
+  manifest.memberships = manifest.memberships.filter((membership) => !vacantTerms.has(membership.officeTermId));
   const featureCollection = {
     type: "FeatureCollection",
     features: manifest.geographyVersions.map((geography, index) => ({
@@ -213,6 +220,19 @@ integration("PostgreSQL integration", () => {
       const loaded = await loadPrototypeManifest(pool, manifest.release.id); const postgres = new PostgresSeatResearchRepository(pool); const memory = new InMemorySeatResearchRepository(loaded);
       await assertSeatRepositoryContract(postgres, loaded); await assertSeatRepositoryContract(memory, loaded);
       expect(await postgres.listSeats(loaded.release.id, { sort: "cash_on_hand", direction: "asc" })).toEqual(await memory.listSeats(loaded.release.id, { sort: "cash_on_hand", direction: "asc" }));
+       const firstPage = await postgres.listSeatPage(loaded.release.id, { limit: 2, sort: "cash_on_hand", direction: "asc" });
+       expect(firstPage.nextCursor).not.toBeNull();
+       expect(firstPage.items.filter((seat) => seat.cashOnHand.kind === "value" || seat.cashOnHand.kind === "aggregate")).toHaveLength(2);
+       const secondPage = await postgres.listSeatPage(loaded.release.id, { limit: 2, sort: "cash_on_hand", direction: "asc", cursor: firstPage.nextCursor! });
+       const pageIds = [...firstPage.items, ...secondPage.items].map((seat) => seat.id);
+       expect(new Set(pageIds).size).toBe(pageIds.length);
+       const cashSeatIds = [...firstPage.items, ...secondPage.items]
+         .filter((seat) => seat.cashOnHand.kind === "value" || seat.cashOnHand.kind === "aggregate")
+         .map((seat) => seat.id);
+       const expectedCashSeatIds = (await memory.listSeats(loaded.release.id, { sort: "cash_on_hand", direction: "asc" }))
+         .filter((seat) => seat.cashOnHand.kind === "value" || seat.cashOnHand.kind === "aggregate")
+         .map((seat) => seat.id);
+       expect(cashSeatIds).toEqual(expectedCashSeatIds);
     } finally { await pool.end(); }
   });
 
@@ -516,6 +536,109 @@ integration("PostgreSQL integration", () => {
       await pool.query("UPDATE sources SET name='semantic corruption' WHERE release_id=$1", [manifest.release.id]);
       await expect(recheckNationwideValidationGate(pool, manifest.release.id)).rejects.toThrow();
       await expect(promoteCandidateRelease(pool, manifest.release.id)).rejects.toThrow();
+    } finally { await pool.end(); }
+  }, 60_000);
+
+  it("publishes, rolls back, and rolls forward a validated nationwide release through the repository page", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    try {
+      const v1 = candidate("rel_task5_v1");
+      const { manifest: v2, bundle } = persistedNationwideSkeleton();
+      await seedPrototypeManifest(pool, v1, boundariesFor(v1));
+      await promoteCandidateRelease(pool, v1.release.id);
+      await seedNationwideCandidateManifest(pool, v2, bundle);
+      await expect(promoteCandidateRelease(pool, v2.release.id)).rejects.toThrow();
+      await validateNationwideCandidateRelease(pool, v2.release.id);
+      await promoteCandidateRelease(pool, v2.release.id);
+
+      const repository = new PostgresSeatResearchRepository(pool);
+      expect(await repository.getActiveRelease()).toMatchObject({ id: v2.release.id, status: "published" });
+      const expectedSeatIds = new Set(v2.seatCycles.map((cycle) => cycle.id));
+      const expectedVacancies = v2.seatCycles.filter((cycle) => cycle.occupancy.status === "vacant");
+      expect(expectedSeatIds.size).toBe(541);
+      expect(expectedVacancies).toHaveLength(4);
+
+      // A non-dividing page size makes both the final page and each keyset hand-off
+      // observable against the real nationwide SQL projection.
+      const pageAll = async (sort: "state" | "cash_on_hand" | "presidential_margin_2024", direction: "asc" | "desc", request: Record<string, unknown> = {}) => {
+        const items = []; let cursor: string | undefined;
+        for (;;) {
+          const page = await repository.listSeatPage(v2.release.id, { sort, direction, limit: 100, ...request, ...(cursor ? { cursor } : {}) } as never);
+          expect(page).toMatchObject({ releaseId: v2.release.id, total: expectedSeatIds.size });
+          items.push(...page.items);
+          if (page.nextCursor === null) return items;
+          cursor = page.nextCursor;
+        }
+      };
+      const stateItems = await pageAll("state", "asc");
+      expect(stateItems).toHaveLength(expectedSeatIds.size);
+      expect(new Set(stateItems.map((item) => item.id))).toEqual(expectedSeatIds);
+      expect(stateItems.filter((item) => expectedVacancies.some((cycle) => cycle.id === item.id)).every((item) => item.incumbentName === null && item.incumbentParty === null)).toBe(true);
+
+      // There are no presidential data rows in this manifest and no usable cash
+      // values.  Every null sort key must retain the bytewise ascending seat-id tie
+      // regardless of direction.
+      for (const sort of ["presidential_margin_2024", "cash_on_hand"] as const) for (const direction of ["asc", "desc"] as const) {
+        const items = await pageAll(sort, direction);
+        expect(items.map((item) => item.id)).toEqual([...items.map((item) => item.id)].sort());
+      }
+      for (const item of stateItems) {
+        expect(item.presidentialMargin2024).toMatchObject({ kind: "coverage_missing", value: { kind: "missing", reason: "not_collected" }, reason: "not_collected", methodology: "coverage_missing", status: "reported" });
+        expect(item.cashOnHand.kind).toBe("missing");
+        if (item.cashOnHand.kind === "missing") expect(item.cashOnHand.reason).toBe("not_collected");
+      }
+
+      const delegate = v2.seatCycles.find((cycle) => v2.offices.find((office) => office.id === cycle.officeId)?.kind === "house_delegate")!;
+      const residentCommissioner = v2.seatCycles.find((cycle) => v2.offices.find((office) => office.id === cycle.officeId)?.kind === "resident_commissioner")!;
+      const senate = v2.seatCycles.find((cycle) => v2.offices.find((office) => office.id === cycle.officeId)?.chamber === "senate")!;
+      const identity = stateItems.find((item) => item.id === delegate.id)!;
+      for (const [field, value] of [["identitySearch", identity.label], ["identitySearch", identity.stateCode], ["identitySearch", identity.districtCode], ["identitySearch", identity.incumbentName]] as const) {
+        const page = await repository.listSeatPage(v2.release.id, { sort: "state", direction: "asc", limit: 100, [field]: value! });
+        expect(page.items.map((item) => item.id)).toContain(delegate.id);
+      }
+      const expectedFilterTotals = [
+        [{ chamber: "house" }, v2.offices.filter((office) => office.chamber === "house").length],
+        [{ chamber: "senate" }, v2.offices.filter((office) => office.chamber === "senate").length],
+        [{ stateCode: identity.stateCode }, v2.offices.filter((office) => office.stateCode === identity.stateCode).length],
+        [{ party: "other" }, v2.memberships.length],
+        [{ incumbencyStatus: "unknown" }, v2.seatCycles.filter((cycle) => cycle.incumbencyStatus === "unknown").length],
+        [{ electionYear: 2024 }, v2.seatCycles.filter((cycle) => cycle.cycleYear === 2024).length],
+      ] as const;
+      for (const [request, total] of expectedFilterTotals) expect((await repository.listSeatPage(v2.release.id, { sort: "state", direction: "asc", limit: 100, ...request })).total).toBe(total);
+      expect((await repository.listSeatPage(v2.release.id, { sort: "state", direction: "asc", limit: 100, identitySearch: "synthetic demographic only" })).total).toBe(0);
+      expect(stateItems.map((item) => item.id)).toContain(senate.id);
+      expect(stateItems.map((item) => item.id)).toContain(residentCommissioner.id);
+
+      expect(await repository.getSeatListItem(v2.release.id, delegate.id)).toMatchObject({ id: delegate.id, chamber: "house" });
+      expect(await repository.getSeatListItem(v2.release.id, "seat_missing" as never)).toBeNull();
+      const delegateProfile = await repository.getSeatProfile(v2.release.id, delegate.id);
+      const vacancyProfile = await repository.getSeatProfile(v2.release.id, expectedVacancies[0]!.id);
+      const expectedClosure = [...new Set([...(delegate.provenance ?? []).map((ref) => ref.snapshotId), ...(v2.offices.find((office) => office.id === delegate.officeId)!.provenance ?? []).map((ref) => ref.snapshotId), ...v2.coverageRecords.filter((record) => record.domain === "election_2024" || (record.domain === "finance" && record.scope.kind === "funding" && record.scope.seatCycleId === delegate.id)).flatMap((record) => record.inputSnapshotIds)])].sort();
+      expect(delegateProfile).toMatchObject({ office: { id: delegate.officeId, kind: "house_delegate" }, seatCycle: { id: delegate.id }, contests: [], demographics: [], finance: [] });
+      expect(delegateProfile?.snapshots.map((snapshot) => snapshot.id)).toEqual(expectedClosure);
+      expect(delegateProfile?.sources).toEqual(v2.sources);
+      const vacancy = expectedVacancies[0]!;
+      // Vacancy suppresses only the incumbent identity. Its independently sourced
+      // contest and finance facts remain visible, exactly as in the manifest projection.
+      expect(vacancyProfile).toMatchObject({ membership: null, incumbent: null, contests: v2.contests.filter((contest) => contest.seatCycleId === vacancy.id), demographics: v2.acsObservations.filter((observation) => observation.geographyVersionId === vacancy.geographyVersionId), finance: v2.fecFilingSummaries.filter((summary) => summary.seatCycleId === vacancy.id) });
+      expect(await repository.listSources(v2.release.id)).toEqual(v2.sources);
+      expect(await repository.listSourceSnapshots(v2.release.id)).toEqual([...v2.snapshots].sort((left, right) => left.id < right.id ? -1 : left.id > right.id ? 1 : 0));
+      expect(await repository.getSeatFacets(v2.release.id)).toEqual({ states: [...new Set(v2.offices.map((office) => office.stateCode))].sort(), parties: ["other"], incumbencyStatuses: ["unknown"], electionYears: [2024] });
+
+      const first = await repository.listSeatPage(v2.release.id, { sort: "state", direction: "asc", limit: 37 });
+      await expect(repository.listSeatPage(v1.release.id, { sort: "state", direction: "asc", limit: 37, cursor: first.nextCursor! })).rejects.toThrow("does not match");
+      await expect(repository.listSeatPage(v2.release.id, { sort: "state", direction: "desc", limit: 37, cursor: first.nextCursor! })).rejects.toThrow("does not match");
+      await expect(repository.listSeatPage(v2.release.id, { sort: "state", direction: "asc", limit: 37, cursor: "not-a-cursor" })).rejects.toThrow();
+      expect(await repository.listSeatPage("rel_missing" as never, { sort: "state", direction: "asc", limit: 37 })).toMatchObject({ total: 0, items: [], nextCursor: null });
+      await expect(rollbackPublishedRelease(pool)).resolves.toEqual({ publishedReleaseId: v1.release.id, retiredReleaseId: v2.release.id });
+      await expect(rollForwardRetiredRelease(pool, v2.release.id)).resolves.toEqual({ publishedReleaseId: v2.release.id, retiredReleaseId: v1.release.id });
+      expect(await repository.getActiveRelease()).toMatchObject({ id: v2.release.id, status: "published" });
+      expect((await repository.listSeatPage(v2.release.id, { sort: "state", direction: "asc", limit: 25 })).total).toBe(541);
+
+      const unrelated = candidate("rel_task5_unrelated");
+      await seedPrototypeManifest(pool, unrelated, boundariesFor(unrelated));
+      await promoteCandidateRelease(pool, unrelated.release.id);
+      await expect(rollForwardRetiredRelease(pool, v1.release.id)).rejects.toThrow(/direct successor/);
     } finally { await pool.end(); }
   }, 60_000);
 

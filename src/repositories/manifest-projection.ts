@@ -1,7 +1,7 @@
 import type { PrototypeManifest, SeatCycleId } from "@/domain/contracts";
-import { sourceSchema } from "@/domain/contracts";
-import { electionMetricSummarySchema, financeMetricSummarySchema, seatListItemSchema, seatProfileSchema, seatQuerySchema } from "@/domain/repository";
-import type { ElectionMetricSummary, FinanceMetricSummary, SeatListItem, SeatProfile, SeatQuery } from "@/domain/repository";
+import { sourceSchema, sourceSnapshotSchema } from "@/domain/contracts";
+import { electionMetricSummarySchema, financeMetricSummarySchema, seatFacetsSchema, seatListItemSchema, seatProfileSchema, seatQuerySchema } from "@/domain/repository";
+import type { ElectionMetricSummary, FinanceMetricSummary, SeatFacets, SeatListItem, SeatProfile, SeatQuery } from "@/domain/repository";
 
 const byteCompare = (left: string, right: string): number => left < right ? -1 : left > right ? 1 : 0;
 const asciiLower = (value: string): string => value.replace(/[A-Z]/g, (letter) => String.fromCharCode(letter.charCodeAt(0) + 32));
@@ -59,6 +59,7 @@ export function createManifestSeatProjection(manifest: PrototypeManifest) {
     const metric = (item: SeatListItem): string | number | null => ({ state: item.stateCode, district: item.districtCode === "AL" ? "00" : item.districtCode, incumbent_name: item.incumbentName, election_year: item.electionYear, cash_on_hand: item.cashOnHand.kind === "value" ? item.cashOnHand.value : null, presidential_margin_2024: item.presidentialMargin2024.value.kind === "value" ? item.presidentialMargin2024.value.value : null })[query.sort];
     return manifest.profileSeatCycleIds.map((id) => itemFor(String(id))).filter((item) => !query.chamber || item.chamber === query.chamber).filter((item) => !query.stateCode || item.stateCode === query.stateCode).filter((item) => !query.party || item.incumbentParty === query.party).filter((item) => !query.incumbencyStatus || item.incumbencyStatus === query.incumbencyStatus).filter((item) => !query.electionYear || item.electionYear === query.electionYear).filter((item) => !normalized || [item.label, item.stateCode, item.districtCode, item.incumbentName].some((value) => value !== null && asciiLower(value).includes(normalized))).sort((a, b) => { const left = metric(a); const right = metric(b); if (left === null) return right === null ? byteCompare(String(a.id), String(b.id)) : 1; if (right === null) return -1; const order = typeof left === "number" && typeof right === "number" ? left - right : byteCompare(String(left), String(right)); return order === 0 ? byteCompare(String(a.id), String(b.id)) : query.direction === "asc" ? order : -order; });
   };
+  const item = (id: SeatCycleId): SeatListItem | null => manifest.profileSeatCycleIds.some((profileId) => profileId === id) ? itemFor(String(id)) : null;
   const profile = (id: SeatCycleId): SeatProfile | null => {
     if (!manifest.profileSeatCycleIds.some((profileId) => profileId === id)) return null;
     const cycle = cycles.get(String(id)); if (!cycle) return null; const office = offices.get(String(cycle.officeId)); const geography = geographies.get(String(cycle.geographyVersionId)); const term = terms.get(String(cycle.officeTermId)); if (!office || !geography || !term) return null;
@@ -81,5 +82,16 @@ export function createManifestSeatProjection(manifest: PrototypeManifest) {
       snapshots,
     });
   };
-  return { list, profile, sources: () => sortedBy(manifest.sources, (source) => [String(source.id)]).map((source) => sourceSchema.parse(source)) };
+  const profileCycles = () => manifest.profileSeatCycleIds.map((id) => cycles.get(String(id))!).filter(Boolean);
+  const facets = (): SeatFacets => seatFacetsSchema.parse({
+    states: uniqueSorted(profileCycles().map((cycle) => offices.get(String(cycle.officeId))!.stateCode)),
+    parties: uniqueSorted(profileCycles().flatMap((cycle) => membershipFor(cycle)?.party ?? [])),
+    incumbencyStatuses: uniqueSorted(profileCycles().map((cycle) => cycle.incumbencyStatus)),
+    electionYears: [...new Set(profileCycles().map((cycle) => cycle.cycleYear))].sort((left, right) => left - right),
+  });
+  return {
+    list, item, profile, facets,
+    sources: () => sortedBy(manifest.sources, (source) => [String(source.id)]).map((source) => sourceSchema.parse(source)),
+    snapshots: () => sortedBy(manifest.snapshots, (snapshot) => [String(snapshot.id)]).map((snapshot) => sourceSnapshotSchema.parse(snapshot)),
+  };
 }

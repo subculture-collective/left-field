@@ -1,7 +1,8 @@
 import { expect } from "vitest";
 import type { PrototypeManifest } from "@/domain/contracts";
-import { seatListItemSchema, seatProfileSchema, seatQuerySchema } from "@/domain/repository";
+import { seatListItemSchema, seatPageSchema, seatPageRequestSchema, seatProfileSchema, seatQuerySchema } from "@/domain/repository";
 import type { SeatListItem, SeatResearchRepository } from "@/domain/repository";
+import { decodeSeatCursor, normalizedSeatQuery } from "@/repositories/pagination";
 
 const byteCompare = (left: string, right: string): number => left < right ? -1 : left > right ? 1 : 0;
 const snapshotIdsFor = (rows: readonly unknown[]): string[] => [...new Set(rows.flatMap((row) => {
@@ -23,6 +24,38 @@ export async function assertSeatRepositoryContract(repository: SeatResearchRepos
   const all = await repository.listSeats(releaseId, seatQuerySchema.parse({}));
   expect(all.map((seat) => seat.id)).toEqual(expectedIds(() => true));
   all.forEach((seat) => seatListItemSchema.parse(seat));
+
+  expect(repository.listSeatPage).toBeTypeOf("function"); expect(repository.getSeatListItem).toBeTypeOf("function");
+  if (!repository.listSeatPage || !repository.getSeatListItem) throw new Error("Repository lacks the required paged v2 methods");
+  const first = await repository.listSeatPage(releaseId, seatPageRequestSchema.parse({ limit: 2 }));
+  seatPageSchema.parse(first); expect(first.total).toBe(all.length); expect(first.items.map((seat) => seat.id)).toEqual(all.slice(0, 2).map((seat) => seat.id));
+  const pagedIds = [...first.items.map((seat) => seat.id)]; let cursor = first.nextCursor;
+  while (cursor) { const next = await repository.listSeatPage(releaseId, seatPageRequestSchema.parse({ limit: 2, cursor })); pagedIds.push(...next.items.map((seat) => seat.id)); cursor = next.nextCursor; }
+  expect(pagedIds).toEqual(all.map((seat) => seat.id));
+  await expect(repository.listSeatPage(releaseId, seatPageRequestSchema.parse({ limit: 2, cursor: "not-a-cursor" }))).rejects.toThrow();
+  if (first.nextCursor) {
+    expect(() => decodeSeatCursor(first.nextCursor!, "rel_missing" as never, normalizedSeatQuery(seatPageRequestSchema.parse({ limit: 2 })))).toThrow();
+    await expect(repository.listSeatPage("rel_missing" as never, seatPageRequestSchema.parse({ limit: 2, cursor: first.nextCursor }))).rejects.toThrow();
+    await expect(repository.listSeatPage(releaseId, seatPageRequestSchema.parse({ limit: 2, stateCode: "CA", cursor: first.nextCursor }))).rejects.toThrow();
+  }
+  for (const query of [{ chamber: "house" }, { stateCode: "CA" }, { party: "democratic" }, { incumbencyStatus: "open" }, { electionYear: 2024 }, { identitySearch: "CA" }, ...(["state", "district", "incumbent_name", "election_year", "cash_on_hand", "presidential_margin_2024"] as const).flatMap((sort) => [{ sort, direction: "asc" as const }, { sort, direction: "desc" as const }])]) {
+    const expectedPage = await repository.listSeats(releaseId, seatQuerySchema.parse(query));
+    const page = await repository.listSeatPage(releaseId, seatPageRequestSchema.parse({ ...query, limit: 100 }));
+    expect(page.items.map((seat) => seat.id)).toEqual(expectedPage.map((seat) => seat.id));
+  }
+  expect(await repository.getSeatListItem(releaseId, manifest.profileSeatCycleIds[0]!)).toEqual(all.find((seat) => seat.id === manifest.profileSeatCycleIds[0])!);
+  expect(await repository.getSeatListItem("rel_missing" as never, manifest.profileSeatCycleIds[0]!)).toBeNull();
+  const facets = await repository.getSeatFacets(releaseId);
+  const facetCycles = manifest.profileSeatCycleIds.map((id) => cycles.get(String(id))!);
+  expect(facets).toEqual({
+    states: [...new Set(facetCycles.map((cycle) => offices.get(String(cycle.officeId))!.stateCode))].sort(byteCompare),
+    parties: [...new Set(facetCycles.flatMap((cycle) => membershipFor(String(cycle.id))?.party ?? []))].sort(byteCompare),
+    incumbencyStatuses: [...new Set(facetCycles.map((cycle) => cycle.incumbencyStatus))].sort(byteCompare),
+    electionYears: [...new Set(facetCycles.map((cycle) => cycle.cycleYear))].sort((left, right) => left - right),
+  });
+  expect(await repository.getSeatFacets("rel_missing" as never)).toEqual({ states: [], parties: [], incumbencyStatuses: [], electionYears: [] });
+  expect((await repository.listSourceSnapshots(releaseId)).map((snapshot) => snapshot.id)).toEqual([...manifest.snapshots.map((snapshot) => String(snapshot.id))].sort(byteCompare));
+  expect(await repository.listSourceSnapshots("rel_missing" as never)).toEqual([]);
 
   const filterCases = [
     ["chamber", "house", (row: ReturnType<typeof expected>) => row.office.chamber === "house"], ["chamber", "senate", (row: ReturnType<typeof expected>) => row.office.chamber === "senate"],

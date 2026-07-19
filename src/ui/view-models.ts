@@ -1,5 +1,5 @@
 import type { AcsObservation, Contest, DataRelease, ElectionResult, FecFilingSummary, ResultOption, Source, SourceSnapshot } from "@/domain/contracts";
-import type { SeatListItem, SeatProfile, SeatQuery } from "@/domain/repository";
+import type { SeatFacets, SeatListItem, SeatPage, SeatProfile, SeatQuery } from "@/domain/repository";
 
 type Immutable<T> = T extends (...args: never[]) => unknown ? T : T extends readonly (infer Item)[] ? readonly Immutable<Item>[] : T extends object ? { readonly [Key in keyof T]: Immutable<T[Key]> } : T;
 export type ReleaseViewModel = Immutable<Pick<DataRelease, "id" | "label" | "status" | "sourceCutoff" | "publishedAt">>;
@@ -9,6 +9,8 @@ export type BrowsePageViewModel = Readonly<{
   disclosure: Readonly<{ coverage: string; rankings: string; demographicFilters: string }>;
   appliedQuery: Readonly<SeatQuery>;
   rows: readonly BrowseRowViewModel[];
+  total: number;
+  nextCursor: string | null;
   available: Readonly<{ states: readonly string[]; parties: readonly string[]; incumbencyStatuses: readonly string[]; electionYears: readonly number[] }>;
 }>;
 export type ElectionContextViewModel = Immutable<Pick<Contest, "id" | "kind" | "round" | "electionDate" | "certificationStatus" | "reportingCompletenessPercent" | "reportingUnit" | "allocationMethod" | "allocationCoveragePercent" | "denominatorVotes" | "lineage">>;
@@ -34,8 +36,8 @@ const byteCompare = (left: string, right: string): number => left < right ? -1 :
 const sameSnapshot = (left: SourceSnapshot, right: SourceSnapshot): boolean => left.id === right.id && left.releaseId === right.releaseId && left.sourceId === right.sourceId && left.sourceUrl === right.sourceUrl && left.publishedAt === right.publishedAt && left.retrievedAt === right.retrievedAt && left.checksumSha256 === right.checksumSha256 && left.parserVersion === right.parserVersion && left.license === right.license && left.usageStatus === right.usageStatus;
 
 /** Pure UI compiler: it preserves sourced values and never creates a score. */
-export function compileBrowsePage(releaseValue: DataRelease, rows: readonly SeatListItem[], appliedQuery: SeatQuery, availableRows: readonly SeatListItem[] = rows): BrowsePageViewModel {
-  return { release: release(releaseValue), appliedQuery: { ...appliedQuery }, rows: rows.map((row) => ({ ...row })), available: { states: unique(availableRows.map((row) => row.stateCode)), parties: unique(availableRows.flatMap((row) => row.incumbentParty ? [row.incumbentParty] : [])), incumbencyStatuses: unique(availableRows.map((row) => row.incumbencyStatus)), electionYears: unique(availableRows.map((row) => row.electionYear)) }, disclosure: { coverage: "Coverage is limited to the active release; missing values retain their stated reason.", rankings: "No rankings or scores are published in this release.", demographicFilters: "Demographics are display-only and cannot filter, order, subset, or rank seats." } };
+export function compileBrowsePage(releaseValue: DataRelease, page: SeatPage, appliedQuery: SeatQuery, facets: SeatFacets): BrowsePageViewModel {
+  return { release: release(releaseValue), appliedQuery: { ...appliedQuery }, rows: page.items.map((row) => ({ ...row })), total: page.total, nextCursor: page.nextCursor, available: { states: unique(facets.states), parties: unique(facets.parties), incumbencyStatuses: unique(facets.incumbencyStatuses), electionYears: unique(facets.electionYears) }, disclosure: { coverage: "Coverage is limited to the active release; missing values retain their stated reason.", rankings: "No rankings or scores are published in this release.", demographicFilters: "Demographics are display-only and cannot filter, order, subset, or rank seats." } };
 }
 
 export function compileProfilePage(profile: SeatProfile, seat: SeatListItem): ProfilePageViewModel {
@@ -53,7 +55,7 @@ export function compileSourcesPage(releaseValue: DataRelease, sources: readonly 
     snapshotsById.set(snapshot.id, snapshot);
   }
   const uniqueSnapshots = [...snapshotsById.values()].sort((left, right) => byteCompare(left.id, right.id));
-  return { release: release(releaseValue), snapshotScope: "Snapshots are the union used by displayed profile records, not the full release snapshot inventory; a source can have zero snapshots in this page closure.", sources: [...sources].sort((left, right) => byteCompare(left.id, right.id)).map((source) => ({ source, snapshots: uniqueSnapshots.filter((snapshot) => snapshot.sourceId === source.id) })) };
+  return { release: release(releaseValue), snapshotScope: "Snapshots are the full active-release snapshot inventory; a source can have zero snapshots in this inventory.", sources: [...sources].sort((left, right) => byteCompare(left.id, right.id)).map((source) => ({ source, snapshots: uniqueSnapshots.filter((snapshot) => snapshot.sourceId === source.id) })) };
 }
 
 export function compileMethodologyPage(releaseValue: DataRelease): MethodologyPageViewModel {
