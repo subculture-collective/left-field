@@ -20,6 +20,12 @@ describe("UI data boundary", () => {
     expect(model.elections.some((election) => election.certificationStatus === "unavailable")).toBe(true);
     expect(model.sourceClosure.snapshots.length).toBeGreaterThan(0); expect(model.sourceClosure.sources.length).toBeGreaterThan(0);
   });
+  it("preserves the explicit ACS incompatible-geography state without changing display-only data", () => {
+    const profile = projection.profile(canonicalManifest.profileSeatCycleIds[0]!); const seat = projection.list(seatQuerySchema.parse({})).find((row) => row.id === profile?.seatCycle.id); if (!profile || !seat) throw new Error("fixture missing");
+    const model = compileProfilePage({ ...profile, demographics: [], acsAvailability: { kind: "incompatible_geography" }, acsCoverage: [] }, seat);
+    expect(model.acsAvailability).toEqual({ kind: "incompatible_geography" });
+    expect(Object.keys(model)).not.toContain("demographicFilters");
+  });
   it("keeps v1 biography finite and makes no committee, age, or tenure claim", () => {
     const profile = projection.profile(canonicalManifest.profileSeatCycleIds[0]!); const seat = projection.list(seatQuerySchema.parse({})).find((row) => row.id === profile?.seatCycle.id); if (!profile || !seat) throw new Error("fixture missing"); const model = compileProfilePage(profile, seat);
     expect(model.biography).toMatchObject({ bioguideId: null, birthDate: null, facts: [], memberCoverage: null });

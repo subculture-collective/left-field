@@ -25,20 +25,25 @@ import { PostgresSeatResearchRepository } from "@/repositories/postgres";
 import { InMemorySeatResearchRepository } from "@/repositories/in-memory";
 import { assertSeatRepositoryContract } from "@/test/repository-contract";
 import { PostgresAddressResolver, PostgresSeatLocator } from "@/address/postgres-resolver";
-import { readFile, rm } from "node:fs/promises";
-import { resolve } from "node:path";
+import { mkdtemp, readFile, rm } from "node:fs/promises";
+import { tmpdir } from "node:os";
+import { join, resolve } from "node:path";
 import { createHash, randomUUID } from "node:crypto";
 import type { PoolClient } from "pg";
 import { runSource } from "@/ingestion/core/run-source";
 import type { RawObject, SourceAdapter } from "@/ingestion/core/types";
 import { canonicalCoverageScopeKey, loadNationwideManifest, seedNationwideCandidateManifest, type BoundaryBundle } from "./manifest";
-import { LocalRawObjectStore } from "@/ingestion/core/raw-object-store";
+import { LocalRawObjectStore, type RawObjectStore } from "@/ingestion/core/raw-object-store";
 import { createIdentityAdapter } from "@/ingestion/identity/adapter";
 import type { HouseSeat } from "@/ingestion/identity/house";
 import { parseSenateRoster, parseSenateServiceStartsArtifact, type SenateSeat } from "@/ingestion/identity/senate";
 import { createTigerAdapter } from "@/ingestion/tiger/adapter";
 import type { NationalTigerArtifactManifest } from "@/ingestion/tiger/national";
+import { TIGER_2025_JURISDICTIONS } from "@/ingestion/tiger/national";
 import { finalizeNationwideCandidate, locateNationwideCandidatePoint } from "@/ingestion/catalog/finalize-nationwide";
+import { ACS_ADAPTER_VERSION, createAcsAdapter } from "@/ingestion/acs/adapter";
+import { ACS_INDICATOR_DICTIONARY } from "@/ingestion/acs/indicator-dictionary";
+import { assertPersistedTask7AcsInvariant, finalizeCandidateAcs, verifyPersistedTask7AcsCandidate } from "@/ingestion/acs/finalize-acs";
 
 const testDatabaseUrl = process.env.TEST_DATABASE_URL;
 const testDatabaseName = testDatabaseUrl ? new URL(testDatabaseUrl).pathname.slice(1) : "";
@@ -737,6 +742,160 @@ integration("PostgreSQL integration", () => {
       expect((await pool.query("SELECT 1 FROM sources WHERE release_id='rel_member_enrichment_bad' LIMIT 1")).rowCount).toBe(0);
     } finally { await pool.end(); }
   }, 60_000);
+
+  it("finalizes the three official ACS tables as candidate-only display data", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    const rawRoot = await mkdtemp(join(tmpdir(), "acs-task7-integration-"));
+    try {
+      const { manifest, bundle } = persistedNationwideSkeleton();
+      const fipsByState = new Map<string, string>(Object.entries(TIGER_2025_JURISDICTIONS).map(([fips, state]) => [state, fips]));
+      const nonVotingJurisdictions = new Set(["DC", "AS", "GU", "MP", "PR", "VI"]);
+      const houseGeoidChanges = new Map<string, string>();
+      for (const geography of manifest.geographyVersions.filter((value) => value.kind === "house_district")) {
+        const stateFips = fipsByState.get(geography.stateCode);
+        if (!stateFips) throw new Error(`Missing TIGER FIPS for ${geography.stateCode}`);
+        const sourceDistrictCode = nonVotingJurisdictions.has(geography.stateCode) ? "98" : geography.districtCode === "AL" ? "00" : geography.districtCode!.padStart(2, "0");
+        houseGeoidChanges.set(geography.sourceGeoid!, `${stateFips}${sourceDistrictCode}`);
+        Object.assign(geography, { sourceGeoid: `${stateFips}${sourceDistrictCode}`, vintage: "2025" });
+      }
+      expect(houseGeoidChanges).toHaveLength(441);
+      const featureCollection = JSON.parse(bundle[0]!.bytes) as { features: Array<{ properties: { sourceGeoid: string } }> };
+      let changedFeatureCount = 0;
+      for (const feature of featureCollection.features) {
+        const sourceGeoid = houseGeoidChanges.get(feature.properties.sourceGeoid);
+        if (sourceGeoid) {
+          feature.properties.sourceGeoid = sourceGeoid;
+          changedFeatureCount++;
+        }
+      }
+      expect(changedFeatureCount).toBe(441);
+      const bytes = JSON.stringify(featureCollection);
+      bundle[0]!.bytes = bytes;
+      manifest.geometryArtifacts[0]!.checksumSha256 = createHash("sha256").update(bytes).digest("hex");
+      // This is the same R1/R2 setup as Task 6: R1 is published without member
+      // facts and R2 receives the locked, atomically copied member surface.
+      manifest.biographicalFacts = [];
+      manifest.committeeAssignments = [];
+      manifest.acsVariables = [];
+      const acsPlaceholder = manifest.coverageRecords.find((record) => record.domain === "acs")!;
+      Object.assign(acsPlaceholder, { scope: { kind: "release" }, expectedCount: 1, observedCount: 0, missingByReason: [{ reason: "not_collected", count: 1 }] });
+      Object.assign(manifest.coverageRecords.find((record) => record.domain === "member")!, { status: "not_collected", expectedCount: 537, observedCount: 0, missingByReason: [{ reason: "not_collected", count: 537 }] });
+      manifest.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(manifest);
+      await seedNationwideCandidateManifest(pool, manifest, bundle);
+      await validateNationwideCandidateRelease(pool, manifest.release.id);
+      await promoteCandidateRelease(pool, manifest.release.id);
+      const r2 = "rel_task7_acs_candidate";
+      await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,'Task 7 ACS','candidate',$2,$3,NULL,$4)", [r2, manifest.release.sourceCutoff, "2024-01-03T00:00:00.000Z", manifest.release.id]);
+      await enrichCandidateMembersFromBaseline(pool, manifest.release.id, r2);
+      await expect(verifyPersistedTask6MemberCandidate(pool, r2, manifest.release.id)).resolves.toMatchObject({ observed: 537 });
+
+      const repository = new PostgresSeatResearchRepository(pool);
+      const listBefore = await repository.listSeatPage(r2 as never, { sort: "state", direction: "asc", limit: 25 });
+      expect(listBefore.nextCursor).not.toBeNull();
+      const continuationBefore = await repository.listSeatPage(r2 as never, { sort: "state", direction: "asc", limit: 25, cursor: listBefore.nextCursor! });
+      const facetsBefore = await repository.getSeatFacets(r2 as never);
+      const house = (await loadNationwideManifest(pool, r2)).seatCycles.find((cycle) => {
+        const office = manifest.offices.find((value) => value.id === cycle.officeId);
+        return office?.chamber === "house" && cycle.geographyVersionId !== undefined;
+      })!;
+      expect((await repository.getSeatProfile(r2 as never, house.id))!.demographics).toEqual([]);
+      const r1Before = await loadNationwideManifest(pool, manifest.release.id);
+
+      const excluded = new Set(["6098", "6698", "6998", "7898"]);
+      const geoids = manifest.geographyVersions.filter((geo) => geo.kind === "house_district").map((geo) => geo.sourceGeoid!).filter((geoid) => !excluded.has(geoid)).sort();
+      expect(geoids).toHaveLength(437);
+      const sourceLockSha256 = createHash("sha256").update(JSON.stringify(ACS_INDICATOR_DICTIONARY.map((definition) => [definition.lockId, definition.sourceUrl, definition.estimateColumn, definition.marginOfErrorColumn]))).digest("hex");
+      const rawStore = new LocalRawObjectStore(rawRoot);
+      const tables = ACS_INDICATOR_DICTIONARY.map((definition, definitionIndex) => {
+        const lines = [
+          `GEO_ID|${definition.sourceColumns.join("|")}`,
+          ...geoids.map((geoid, index) => {
+            const estimate = definitionIndex === 0 && index === 0 ? "-888888888" : String((definitionIndex + 1) * 1000 + index);
+            const moe = definitionIndex === 0 && index === 0 ? "-555555555" : String((index % 19) + 1);
+            return `5001900US${geoid}|${definition.sourceColumns.map((column) => column === definition.estimateColumn ? estimate : column === definition.marginOfErrorColumn ? moe : "0").join("|")}`;
+          }),
+        ];
+        const bytes = new TextEncoder().encode(lines.join("\n"));
+        return { definition, bytes, sha256: createHash("sha256").update(bytes).digest("hex") };
+      });
+      const sourceLockEntries = tables.map(({ definition, bytes, sha256 }) => ({ id: definition.lockId, url: definition.sourceUrl, sha256, byteSize: bytes.byteLength }));
+      await pool.query("INSERT INTO sources(release_id,id,name,authority,homepage_url) VALUES($1,'src_acs_2024','acs','official','https://www.census.gov/programs-surveys/acs.html')", [r2]);
+      const staged = [];
+      for (const { definition, bytes, sha256 } of tables) staged.push(await runSource(createAcsAdapter({
+        rawStore, sourceLockSha256, definition, lockId: definition.lockId, sourceBytes: bytes,
+        sourceUrl: definition.sourceUrl, sourceChecksumSha256: sha256, sourceByteSize: bytes.byteLength,
+        snapshotId: `snap_acs_v2_acs_2024_5yr_${definition.lockId}_${sha256.slice(0, 48)}` as never, parserVersion: ACS_ADAPTER_VERSION, upstreamRelease: "acs-2024-5yr",
+      }), { pool, releaseId: r2 as never, sourceId: "src_acs_2024" as never, cutoff: new Date(manifest.release.sourceCutoff), dryRun: true }));
+      const runIds = staged.map((result) => result.runIds[0]!);
+      expect(runIds).toHaveLength(3);
+      expect((await pool.query("SELECT status,extracted_count,staged_count,quarantined_count FROM ingest_runs WHERE id=ANY($1) ORDER BY id", [runIds])).rows).toEqual(expect.arrayContaining(Array.from({ length: 3 }, () => ({ status: "validated", extracted_count: 437, staged_count: 437, quarantined_count: 0 }))));
+      const gateBefore = (await pool.query<{ checksum: string; validated_at: Date | null }>("SELECT content_checksum_sha256 checksum,validated_at FROM release_manifests WHERE release_id=$1", [r2])).rows[0]!;
+
+      // Validated staging is immutable. A replay receipt mismatch must reject
+      // before any ACS content or validation-gate mutation escapes the finalizer.
+      await expect(pool.query("UPDATE stg_acs SET estimate=999999 WHERE run_id=$1", [runIds[0]])).rejects.toMatchObject({ code: "23514" });
+      const options = { pool, rawStore, candidateReleaseId: r2, sourceReleaseId: manifest.release.id, runIds: runIds as [string, string, string], sourceLockSha256, sourceLockEntries };
+      const mismatchedRawStore: RawObjectStore = {
+        put: (input) => rawStore.put(input),
+        read: async (receipt, signal) => { const bytes = await rawStore.read(receipt, signal); const tampered = bytes.slice(); tampered[0] = tampered[0]! ^ 1; return tampered; },
+      };
+      await expect(finalizeCandidateAcs({ ...options, rawStore: mismatchedRawStore })).rejects.toThrow("ACS_FINALIZE_RAW_MISMATCH");
+      for (const malformed of [
+        { ...sourceLockEntries[0]!, sha256: "f".repeat(64) },
+        { ...sourceLockEntries[0]!, byteSize: sourceLockEntries[0]!.byteSize + 1 },
+      ]) {
+        await expect(finalizeCandidateAcs({ ...options, sourceLockEntries: [malformed, ...sourceLockEntries.slice(1)] })).rejects.toThrow("ACS_FINALIZE_RUN_INVALID");
+      }
+      expect((await pool.query("SELECT 1 FROM acs_variables WHERE release_id=$1", [r2])).rowCount).toBe(0);
+      expect((await pool.query("SELECT 1 FROM acs_observations WHERE release_id=$1", [r2])).rowCount).toBe(0);
+      expect((await pool.query("SELECT status FROM ingest_runs WHERE id=ANY($1)", [runIds])).rows.map((row) => row.status)).toEqual(["validated", "validated", "validated"]);
+      expect((await pool.query("SELECT content_checksum_sha256 checksum,validated_at FROM release_manifests WHERE release_id=$1", [r2])).rows[0]).toEqual(gateBefore);
+      await finalizeCandidateAcs(options);
+      await finalizeCandidateAcs(options); // restart-idempotent once runs are loaded
+      await expect(assertPersistedTask7AcsInvariant(pool, r2, manifest.release.id)).resolves.toBeUndefined();
+      await expect(verifyPersistedTask7AcsCandidate(options)).resolves.toBeUndefined();
+      // Both verifiers retain shared advisory/row locks throughout their replay.
+      // This is a real PostgreSQL overlap check: neither may escalate to the
+      // exclusive lock used by the strict gate recheck.
+      await expect(Promise.all([verifyPersistedTask7AcsCandidate(options), verifyPersistedTask7AcsCandidate(options)])).resolves.toEqual([undefined, undefined]);
+      await expect(recheckNationwideValidationGate(pool, r2)).resolves.toBeUndefined();
+      expect((await pool.query("SELECT count(*)::int count FROM acs_observations WHERE release_id=$1", [r2])).rows[0]).toEqual({ count: 1311 });
+      expect((await pool.query("SELECT expected_count,observed_count,incompatible_count FROM coverage_records WHERE release_id=$1 AND domain='acs'", [r2])).rows).toEqual(Array.from({ length: 3 }, () => ({ expected_count: 441, observed_count: 437, incompatible_count: 4 })));
+      expect((await pool.query("SELECT status FROM ingest_runs WHERE id=ANY($1)", [runIds])).rows.map((row) => row.status)).toEqual(["loaded", "loaded", "loaded"]);
+      expect((await loadNationwideManifest(pool, manifest.release.id)).acsObservations).toEqual(r1Before.acsObservations);
+      expect((await loadNationwideManifest(pool, manifest.release.id)).biographicalFacts).toEqual(r1Before.biographicalFacts);
+
+      const profile = await repository.getSeatProfile(r2 as never, house.id);
+      const finalized = await loadNationwideManifest(pool, r2);
+      const incompatibleHouse = finalized.seatCycles.find((cycle) => {
+        const office = finalized.offices.find((value) => value.id === cycle.officeId);
+        const geography = finalized.geographyVersions.find((value) => value.id === cycle.geographyVersionId);
+        return office?.chamber === "house" && geography?.sourceGeoid !== undefined && excluded.has(geography.sourceGeoid);
+      });
+      expect(incompatibleHouse).toBeDefined();
+      const incompatibleProfile = await repository.getSeatProfile(r2 as never, incompatibleHouse!.id);
+      expect(incompatibleProfile!.demographics).toEqual([]);
+      expect(incompatibleProfile!.acsAvailability).toEqual({ kind: "incompatible_geography" });
+      expect(incompatibleProfile!.acsCoverage).toHaveLength(3);
+      expect(incompatibleProfile!.acsCoverage).toEqual(Array.from({ length: 3 }, () => expect.objectContaining({
+        domain: "acs", scope: expect.objectContaining({ kind: "acs_indicator" }), expectedCount: 441, observedCount: 437, quarantinedCount: 0, incompatibleCount: 4,
+      })));
+      const incompatibleAcsSnapshots = incompatibleProfile!.snapshots.filter((snapshot) => snapshot.sourceId === "src_acs_2024");
+      expect(incompatibleAcsSnapshots).toHaveLength(3);
+      expect(incompatibleAcsSnapshots).toEqual(expect.arrayContaining(tables.map(({ definition, sha256 }) => expect.objectContaining({ id: `snap_acs_v2_acs_2024_5yr_${definition.lockId}_${sha256.slice(0, 48)}`, sourceUrl: definition.sourceUrl }))));
+      expect(profile!.demographics).toHaveLength(3);
+      expect(profile!.sources.filter((source) => source.id === "src_acs_2024")).toEqual([expect.objectContaining({ name: "acs", authority: "official", homepageUrl: "https://www.census.gov/programs-surveys/acs.html" })]);
+      const acsSnapshots = profile!.snapshots.filter((snapshot) => snapshot.sourceId === "src_acs_2024");
+      expect(acsSnapshots).toHaveLength(3);
+      expect(acsSnapshots).toEqual(expect.arrayContaining(tables.map(({ definition, sha256 }) => expect.objectContaining({ id: `snap_acs_v2_acs_2024_5yr_${definition.lockId}_${sha256.slice(0, 48)}`, sourceUrl: definition.sourceUrl }))));
+      expect(await repository.listSeatPage(r2 as never, { sort: "state", direction: "asc", limit: 25 })).toEqual(listBefore);
+      expect(await repository.listSeatPage(r2 as never, { sort: "state", direction: "asc", limit: 25, cursor: listBefore.nextCursor! })).toEqual(continuationBefore);
+      expect(await repository.getSeatFacets(r2 as never)).toEqual(facetsBefore);
+    } finally {
+      await pool.end();
+      await rm(rawRoot, { recursive: true, force: true });
+    }
+  }, 300_000);
 
   it("rejects a nationwide baseline with a different cutoff before copying content", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });

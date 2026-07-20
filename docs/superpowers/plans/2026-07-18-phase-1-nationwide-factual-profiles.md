@@ -474,7 +474,7 @@ Clone R1 with `baselineCandidateRelease`, load member facts into the candidate, 
 
 Show biography/committee facts only when sourced. Missing age or assignment data must display its missing reason and source cutoff.
 
-- [ ] **Step 6: Verify and commit**
+- [x] **Step 6: Verify and commit**
 
 Run: `npm run test:run -- src/ingestion/identity src/ui && npm run typecheck && npm run lint`
 
@@ -491,25 +491,25 @@ git commit -m "feat: add sourced member facts"
 - Create: `src/ingestion/acs/adapter.test.ts`
 - Create: `docs/data/indicator-dictionary.md`
 
-- [ ] **Step 1: Freeze the public indicator dictionary in tests**
+- [x] **Step 1: Freeze the bounded public indicator dictionary in tests**
 
-Include population, median age, age bands, bachelor's-or-higher attainment, median household income, race/ethnicity, housing tenure, and urbanicity only when the exact ACS table/universe/geography and MOE treatment are defined. Each definition contains variable IDs, unit (`count`, `percent`, `usd`, or `years`), numerator/denominator where derived, survey period, and MOE formula.
+Publish only the three direct 2024 ACS 5-year table-based summary-file indicators already source-locked: total population (`B01003_001E/M`), median age (`B01002_001E/M`), and median household income (`B19013_001E/M`). Each definition contains exact estimate/MOE columns, unit (`count`, `years`, or `usd`), universe, survey period, and published-MOE method. Defer age bands, bachelor's attainment, race/ethnicity, housing tenure, and urbanicity; the current contract/source lock cannot publish those with defensible MOE and geography semantics.
 
-- [ ] **Step 2: Verify the frozen ACS contracts**
+- [x] **Step 2: Verify the frozen ACS contracts**
 
-Verify Task 1 added `years` to the unit enum and Task 2 created `acs_variables`. Derived percentages must link numerator/denominator observations and record the Census-recommended MOE propagation method; otherwise publish the source counts rather than a percentage.
+Verify Task 1 added `years` to the unit enum and Task 2 created `acs_variables`. Do not create derived percentages in Task 7; the generic `delta_method` contract cannot distinguish all Census subset-proportion and multi-cell MOE cases.
 
-- [ ] **Step 3: Implement state-wildcard extraction and sentinel handling**
+- [x] **Step 3: Implement source-locked summary-file extraction and sentinel handling**
 
-Use `https://api.census.gov/data/2024/acs/acs5` with optional `CENSUS_API_KEY`, falling back only to checksum-pinned official summary files. Fetch each state/jurisdiction once per table, filter expected CD119 GEOIDs locally, decode Census sentinel values explicitly, quarantine unknown sentinels, and reject geography releases that do not match the product district plan.
+Use only the three exact checksum-pinned official table-based summary files recorded in `data/source-lock.json`. Persist each exact raw receipt and a strict envelope containing the full source-lock SHA, exact lock ID, estimate/MOE columns, and sentinel outcomes. Force ACS ingestion into validated-only staging; ordinary per-run loading must fail. Decode known Census sentinel values explicitly, quarantine unknown sentinels, map only expected CD119 House GEOIDs locally, and reject state geometries or mismatched district plans.
 
-- [ ] **Step 4: Enforce demographic product restrictions**
+- [x] **Step 4: Enforce demographic product restrictions**
 
 Extend repository/UI tests proving every ACS mutation leaves list filtering, ordering, pagination, search, and export behavior unchanged.
 
-- [ ] **Step 5: Continue the R2 candidate and verify coverage accounting**
+- [x] **Step 5: Atomically continue the R2 candidate and verify coverage accounting**
 
-Load into the existing R2 candidate from Task 6. Require one coverage report per indicator: expected geographies, values, missing reasons, quarantined rows, and incompatible geographies. Recompute the `acs` digest. Observation gaps do not block enrichment publication but are visible.
+Use one Task-4-style finalizer transaction over the existing R2 member candidate and all three validated ACS runs. Under the same locks, assert the Task 6 invariant, replay exact receipts, compare typed staging, enforce exact 441 House/CD119 closure and explicit non-ACS jurisdiction treatment, replace the ACS placeholder with exactly three definitions and coverage records, write observations/lineage, transition all runs loaded, recompute canonical/content checksums and all seven digests/gate, and leave R2 candidate-only. The query-only restart verifier must replay the same receipts under read-compatible share locks and check Task 6/7 invariants plus the gate in one transaction.
 
 - [ ] **Step 6: Verify and commit**
 

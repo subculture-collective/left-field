@@ -51,4 +51,12 @@ describe("ingestion runtime configuration", () => {
     await expect(sourceId(pool as never, "rel_a", "identity")).rejects.toThrow("exactly one preregistered identity");
     pool.query.mockResolvedValue({ rowCount: 1, rows: [{ id: "src_identity" }] }); await expect(sourceId(pool as never, "rel_a", "identity")).resolves.toBe("src_identity");
   });
+  it("atomically creates or verifies the exact ACS candidate source", async () => {
+    const query = vi.fn(async (sql: string) => sql.includes("SELECT status") ? { rowCount: 1, rows: [{ status: "candidate" }] } : sql.includes("SELECT id,name") ? { rowCount: 0, rows: [] } : { rowCount: 1, rows: [] });
+    const client = { query, release: vi.fn() }, pool = { connect: vi.fn().mockResolvedValue(client) };
+    await expect(sourceId(pool as never, "rel_a", "acs")).resolves.toBe("src_acs_2024");
+    expect(query).toHaveBeenCalledWith(expect.stringContaining("INSERT INTO sources"), ["rel_a"]);
+    const mismatch = { query: vi.fn(async (sql: string) => sql.includes("SELECT status") ? { rowCount: 1, rows: [{ status: "published" }] } : { rowCount: 0, rows: [] }), release: vi.fn() };
+    await expect(sourceId({ connect: vi.fn().mockResolvedValue(mismatch) } as never, "rel_a", "acs")).rejects.toThrow("ACS_SOURCE_RELEASE_NOT_CANDIDATE");
+  });
 });

@@ -23,13 +23,13 @@ type IngestRunner = (args: IngestArguments, pool: Pool) => Promise<RunSourceResu
 export interface IngestCliDependencies { readonly env: NodeJS.ProcessEnv; readonly getPool: () => Pool; readonly registry?: Partial<Record<IngestSource, IngestRunner>>; }
 export interface IngestExecutionResult { readonly source: IngestSource; readonly release: string; readonly runIds: readonly string[]; readonly reusedRunIds: readonly string[]; readonly finalizationRunIds: readonly string[]; }
 export function defaultRegistry(env: NodeJS.ProcessEnv): Partial<Record<IngestSource, IngestRunner>> {
-  return { identity: async (args, pool) => runConfiguredSource("identity", args, pool, createRawObjectStore(env), env), tiger: async (args, pool) => runConfiguredSource("tiger", args, pool, createRawObjectStore(env), env) };
+  return { identity: async (args, pool) => runConfiguredSource("identity", args, pool, createRawObjectStore(env), env), tiger: async (args, pool) => runConfiguredSource("tiger", args, pool, createRawObjectStore(env), env), acs: async (args, pool) => runConfiguredSource("acs", args, pool, createRawObjectStore(env), env) };
 }
 export async function executeIngest(argv: readonly string[], dependencies: IngestCliDependencies): Promise<IngestExecutionResult> {
   const args = parseIngestArguments(argv);
   const runner = dependencies.registry?.[args.source];
   if (!runner) throw new Error(`Ingestion source is unavailable: ${args.source}`);
-  if (!args.dryRun) throw new Error("Identity and TIGER ingestion only stages with --dry-run; use finalize:nationwide for atomic finalization");
+  if (!args.dryRun) throw new Error("Configured ingestion only stages with --dry-run; use the source-specific finalization command to finalize a candidate");
   assertProductionIngestionEnv(dependencies.env);
   if (dependencies.env.NODE_ENV === "production") await verifyConfiguredSourceLock(dependencies.env);
   const result = await runner(args, dependencies.getPool());

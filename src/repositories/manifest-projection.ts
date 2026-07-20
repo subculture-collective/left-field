@@ -70,7 +70,7 @@ export function createManifestSeatProjection(manifest: PrototypeManifest) {
     const sourceIds = new Set(snapshots.map((row) => row.sourceId));
     return seatProfileSchema.parse({
       release: manifest.release, office, seatCycle: cycle, geography, officeTerm: term, membership, incumbent,
-      biographicalFacts: [], memberCoverage: null,
+      biographicalFacts: [], memberCoverage: null, acsAvailability: demographics.length > 0 ? { kind: "observations" } : { kind: "no_observations" }, acsCoverage: [],
       contests: sortedBy(contests, (row) => [String(row.id)]),
       candidacies: sortedBy(candidacies, (row) => [String(row.id)]),
       resultOptions: sortedBy(resultOptions, (row) => [String(row.id)]),

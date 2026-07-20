@@ -154,6 +154,14 @@ const profileBiographicalFactsSchema = z.array(personBiographicalFactSchema).sup
   });
 });
 
+const ACS_PROFILE_INDICATORS = new Set(["B01003_001E", "B01002_001E", "B19013_001E"]);
+const profileAcsCoverageSchema = coverageRecordSchema.refine((coverage) => coverage.domain === "acs" && coverage.scope.kind === "acs_indicator" && ACS_PROFILE_INDICATORS.has(coverage.scope.variable) && coverage.scope.surveyPeriod === "2020-2024", "Expected an authorized 2020-2024 ACS indicator coverage record");
+export const profileAcsAvailabilitySchema = z.discriminatedUnion("kind", [
+  z.object({ kind: z.literal("observations") }).strict(),
+  z.object({ kind: z.literal("no_observations") }).strict(),
+  z.object({ kind: z.literal("incompatible_geography") }).strict(),
+]);
+
 export const seatProfileSchema = z.object({
   release: dataReleaseSchema,
   office: officeSchema,
@@ -164,6 +172,9 @@ export const seatProfileSchema = z.object({
   incumbent: personSchema.nullable(),
   biographicalFacts: profileBiographicalFactsSchema,
   memberCoverage: coverageRecordSchema.refine((coverage) => coverage.domain === "member" && coverage.scope.kind === "release", "Expected release-scope member coverage").nullable(),
+  // Defaults keep v1 DTOs safe: an omitted field never implies compatibility.
+  acsAvailability: profileAcsAvailabilitySchema.default({ kind: "no_observations" }),
+  acsCoverage: z.array(profileAcsCoverageSchema).default([]),
   contests: z.array(contestSchema),
   candidacies: z.array(candidacySchema),
   resultOptions: z.array(resultOptionSchema),
@@ -174,7 +185,39 @@ export const seatProfileSchema = z.object({
   committeeRelationships: z.array(committeeRelationshipSchema),
   sources: z.array(sourceSchema),
   snapshots: z.array(sourceSnapshotSchema),
-}).strict();
+}).strict().superRefine((profile, context) => {
+  const addIssue = (path: (string | number)[], message: string): void => context.addIssue({ code: "custom", path, message });
+  const coverageVariables = new Set(profile.acsCoverage.flatMap((coverage) => coverage.scope.kind === "acs_indicator" ? [coverage.scope.variable] : []));
+  if (profile.acsAvailability.kind === "incompatible_geography") {
+    if (profile.demographics.length !== 0) addIssue(["demographics"], "Incompatible geography profiles cannot include ACS observations");
+    if (profile.acsCoverage.length !== 3 || coverageVariables.size !== 3 || [...ACS_PROFILE_INDICATORS].some((variable) => !coverageVariables.has(variable))) addIssue(["acsCoverage"], "Incompatible geography profiles require exactly the three authorized ACS coverage records");
+  } else if (profile.acsAvailability.kind === "observations") {
+    if (profile.demographics.length === 0) addIssue(["demographics"], "Observed ACS availability requires observations");
+    if (profile.acsCoverage.length !== 0) addIssue(["acsCoverage"], "Observed ACS availability cannot include incompatible-geography coverage");
+  } else {
+    if (profile.demographics.length !== 0) addIssue(["demographics"], "No-observations availability cannot include ACS observations");
+    if (profile.acsCoverage.length !== 0) addIssue(["acsCoverage"], "No-observations availability cannot include ACS coverage");
+  }
+
+  const snapshotIds = new Set(profile.snapshots.map((snapshot) => String(snapshot.id)));
+  const sourceIds = new Set(profile.sources.map((source) => String(source.id)));
+  profile.snapshots.forEach((snapshot, index) => {
+    if (!sourceIds.has(String(snapshot.sourceId))) addIssue(["snapshots", index, "sourceId"], "Profile snapshot references a source outside the profile closure");
+  });
+  const visitReferences = (value: unknown, path: (string | number)[]): void => {
+    if (Array.isArray(value)) { value.forEach((item, index) => visitReferences(item, [...path, index])); return; }
+    if (value === null || typeof value !== "object") return;
+    const record = value as Record<string, unknown>;
+    if (typeof record.snapshotId === "string" && !snapshotIds.has(record.snapshotId)) addIssue([...path, "snapshotId"], "Profile references a snapshot outside the profile closure");
+    if (Array.isArray(record.inputSnapshotIds)) record.inputSnapshotIds.forEach((id, index) => {
+      if (typeof id === "string" && !snapshotIds.has(id)) addIssue([...path, "inputSnapshotIds", index], "Profile references a snapshot outside the profile closure");
+    });
+    Object.entries(record).forEach(([key, item]) => {
+      if (key !== "snapshotId" && key !== "inputSnapshotIds") visitReferences(item, [...path, key]);
+    });
+  };
+  visitReferences(profile, []);
+});
 
 export type ElectionMetricSummary = z.infer<typeof electionMetricSummarySchema>;
 export type FinanceMetricSummary = z.infer<typeof financeMetricSummarySchema>;

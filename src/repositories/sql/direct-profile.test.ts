@@ -25,6 +25,11 @@ describe("direct SQL profile modules", () => {
     expect(__sql.CLOSURE_SQL).toContain("output_snapshot_id AS from_id, input_snapshot_id AS to_id");
     expect(__sql.PROFILE_SQL).toContain("EXISTS (SELECT 1 FROM fec_filing_summaries ff");
     expect(__sql.PROFILE_SQL).not.toContain("loadPrototypeManifest");
+    expect(__sql.ACS_PROFILE_COVERAGE_SQL).toContain("g.source_geoid IN ('6098','6698','6998','7898')");
+    expect(__sql.ACS_PROFILE_COVERAGE_SQL).toContain("cr.domain='acs' AND cr.scope_kind='acs_indicator'");
+    expect(__sql.ACS_PROFILE_COVERAGE_SQL).toContain("cr.survey_period='2020-2024'");
+    expect(__sql.ACS_PROFILE_COVERAGE_SQL).toContain("B01002_001E");
+    expect(__sql.ACS_PROFILE_COVERAGE_SQL).toContain("expectedCount',cr.expected_count");
   });
 
   it("accepts v2-style empty factual arrays and drops unrelated closure rows", async () => {
@@ -46,6 +51,19 @@ describe("direct SQL profile modules", () => {
     expect(value?.snapshots.map((row) => row.id)).toEqual(["snap_1", "snap_2"]);
     expect(value?.sources).toHaveLength(1);
     expect(value?.snapshots[0]?.publishedAt).toBe("2024-01-01T00:00:00.000Z");
+  });
+
+  it("attaches the three ACS coverage records and their snapshots only for an incompatible profile", async () => {
+    const manifest = coherentManifest(); const cycle = manifest.seatCycles[0]!;
+    const profile = { release: manifest.release, office: manifest.offices[0], seatCycle: cycle, geography: manifest.geographyVersions[0], officeTerm: manifest.officeTerms[0], membership: null, incumbent: null, contests: [], candidacies: [], resultOptions: [], electionResults: [], demographics: [], finance: [], committees: [], biographicalFacts: [], memberCoverage: null, committeeRelationships: [], sources: [], snapshots: [] };
+    const snapshot = { id: "snap_1", releaseId: "rel_1", sourceId: "src_1", sourceUrl: "https://example.com/data", publishedAt: "2024-01-01T00:00:00.000Z", retrievedAt: "2024-01-01T00:00:00.000Z", checksumSha256: "a".repeat(64), parserVersion: "1", license: "public", usageStatus: "approved", source_id: "src_1", source_release_id: "rel_1", name: "Source", authority: "official", homepage_url: "https://example.com" };
+    const coverage = ["B01003_001E", "B01002_001E", "B19013_001E"].map((variable) => ({ releaseId: "rel_1", domain: "acs", scope: { kind: "acs_indicator", variable, surveyPeriod: "2020-2024" }, status: "partial", expectedCount: 441, observedCount: 437, missingByReason: [], quarantinedCount: 0, incompatibleCount: 4, inputSnapshotIds: ["snap_1"] }));
+    let calls = 0; const pool = { query: async () => { calls++; return calls === 1 ? { rowCount: 1, rows: [{ profile }] } : calls === 2 ? { rows: [{ availability: { coverage, snapshotIds: ["snap_1"] } }] } : calls === 3 ? { rows: [] } : { rows: [snapshot] }; } };
+    const value = await getSeatProfile(pool as never, "rel_1" as never, cycle.id);
+    expect(value?.acsAvailability).toEqual({ kind: "incompatible_geography" });
+    expect(value?.acsCoverage).toHaveLength(3);
+    expect(value?.acsCoverage.every((record) => record.expectedCount === 441 && record.observedCount === 437 && record.quarantinedCount === 0 && record.incompatibleCount === 4)).toBe(true);
+    expect(value?.snapshots.map((row) => row.id)).toEqual(["snap_1"]);
   });
 
   it("excludes an unrelated committee relationship and its provenance from a profile candidacy", () => {

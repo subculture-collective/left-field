@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { executeIngest, main, parseIngestArguments } from "./ingest";
+import { defaultRegistry, executeIngest, main, parseIngestArguments } from "./ingest";
 
 describe("ingest CLI", () => {
   it("parses every supported source and rejects duplicate or unknown flags", () => {
@@ -7,13 +7,17 @@ describe("ingest CLI", () => {
     expect(() => parseIngestArguments(["--source", "identity", "--source", "identity", "--release", "rel_a", "--cutoff", "2025-01-01"])).toThrow();
     expect(() => parseIngestArguments(["--wat"])).toThrow();
   });
+  it("registers ACS while leaving FEC and elections unavailable", () => {
+    const registry = defaultRegistry({ NODE_ENV: "test" } as NodeJS.ProcessEnv);
+    expect(registry.acs).toBeTypeOf("function"); expect(registry.fec).toBeUndefined(); expect(registry.elections).toBeUndefined();
+  });
   it("uses injected dependencies, requires staging mode, and does not create a pool for unavailable sources", async () => {
     const runner = vi.fn().mockResolvedValue({ runIds: ["run_new"], reusedRunIds: [] }); const getPool = vi.fn(() => ({}));
     await executeIngest(["--source", "identity", "--release", "rel_a", "--cutoff", "2025-01-01", "--dry-run"], { env: {} as NodeJS.ProcessEnv, getPool: getPool as never, registry: { identity: runner } });
     expect(runner).toHaveBeenCalled();
     await expect(executeIngest(["--source", "identity", "--release", "rel_a", "--cutoff", "2025-01-01"], { env: { NODE_ENV: "production" }, getPool: getPool as never, registry: { identity: runner } })).rejects.toThrow("only stages");
     await expect(executeIngest(["--source", "identity", "--release", "rel_a", "--cutoff", "2025-01-01", "--dry-run"], { env: { NODE_ENV: "production", RAW_OBJECT_BUCKET: "raw", DATABASE_URL: "postgres://secret" }, getPool: getPool as never, registry: { identity: runner } })).rejects.toThrow("SOURCE_LOCK_SHA256");
-    await expect(executeIngest(["--source", "acs", "--release", "rel_a", "--cutoff", "2025-01-01", "--dry-run"], { env: { NODE_ENV: "development" }, getPool: getPool as never })).rejects.toThrow("unavailable");
+    for (const source of ["fec", "elections"] as const) await expect(executeIngest(["--source", source, "--release", "rel_a", "--cutoff", "2025-01-01", "--dry-run"], { env: { NODE_ENV: "development" }, getPool: getPool as never })).rejects.toThrow("unavailable");
     expect(getPool).toHaveBeenCalledTimes(1);
   });
   it("returns and writes stable handoff JSON including reused validated runs", async () => {

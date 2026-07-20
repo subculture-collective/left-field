@@ -311,6 +311,28 @@ async function recheckWithClient(client: PoolClient, releaseId: string): Promise
   if (gate.schema_version !== 2 || gate.manifest_checksum_sha256 !== manifest.canonical_data_checksum_sha256 || gate.geometry_checksum_sha256 !== manifest.geometry_checksum_sha256 || gate.content_checksum_sha256 !== manifest.content_checksum_sha256 || gate.domain_count !== nationwideDomains.length || gate.domain_checksum_sha256 !== domainSummary(current)) throw new Error("Nationwide validation gate is stale or forged");
 }
 
+/**
+ * Recheck a v2 gate inside a caller-owned shared advisory/read-lock transaction.
+ * Unlike the strict path, this deliberately takes neither an exclusive advisory
+ * lock nor FOR UPDATE locks, so concurrent persisted-read verifiers can overlap.
+ */
+export async function recheckNationwideValidationGateShared(client: PoolClient, releaseId: string): Promise<void> {
+  const release = await client.query("SELECT 1 FROM data_releases WHERE id=$1 AND status=ANY($2) FOR SHARE", [releaseId, ["candidate", "retired", "published"]]);
+  const manifest = await client.query<ManifestRow>("SELECT schema_version,canonical_data_checksum_sha256,geometry_checksum_sha256,content_checksum_sha256 FROM release_manifests WHERE release_id=$1 FOR SHARE", [releaseId]);
+  if (release.rowCount !== 1 || manifest.rowCount !== 1 || manifest.rows[0]!.schema_version !== 2) throw new Error("Nationwide recheck requires a v2 candidate, retired, or published release");
+  const loaded = await loadNationwideManifest(client, releaseId);
+  assertManifestChecksums(manifest.rows[0]!, loaded.canonicalDataChecksumSha256);
+  const gateResult = await client.query<ValidationGate>("SELECT schema_version,manifest_checksum_sha256,geometry_checksum_sha256,content_checksum_sha256,domain_count,domain_checksum_sha256 FROM nationwide_validation_gates WHERE release_id=$1 FOR SHARE", [releaseId]);
+  const digestResult = await client.query<StoredDigest>("SELECT domain,row_count,sha256 FROM release_content_digests WHERE release_id=$1 FOR SHARE", [releaseId]);
+  if (gateResult.rowCount !== 1 || digestResult.rowCount !== nationwideDomains.length) throw new Error("Nationwide validation gate or digests are missing");
+  const stored = new Map(digestResult.rows.map((digest) => [digest.domain, digest]));
+  if (stored.size !== nationwideDomains.length || nationwideDomains.some((domain) => !stored.has(domain))) throw new Error("Nationwide validation digests have an invalid domain set");
+  const current = await computeAllDigests(client, releaseId);
+  for (const digest of current) { const saved = stored.get(digest.domain)!; if (Number(saved.row_count) !== digest.rowCount || saved.sha256 !== digest.sha256) throw new Error(`Nationwide validation digest is stale for ${digest.domain}`); }
+  const gate = gateResult.rows[0]!;
+  if (gate.schema_version !== 2 || gate.manifest_checksum_sha256 !== manifest.rows[0]!.canonical_data_checksum_sha256 || gate.geometry_checksum_sha256 !== manifest.rows[0]!.geometry_checksum_sha256 || gate.content_checksum_sha256 !== manifest.rows[0]!.content_checksum_sha256 || gate.domain_count !== nationwideDomains.length || gate.domain_checksum_sha256 !== domainSummary(current)) throw new Error("Nationwide validation gate is stale or forged");
+}
+
 /** Read-only, fail-closed verification of an already persisted nationwide validation gate. */
 export async function recheckNationwideValidationGate(connection: Pool | PoolClient, releaseId: string): Promise<void> {
   if (typeof (connection as PoolClient).release === "function") return recheckWithClient(connection as PoolClient, releaseId);

@@ -66,6 +66,11 @@ LEFT JOIN people person ON person.release_id=$1 AND person.id=m.person_id
 LEFT JOIN p po ON po.entity_type='offices' AND po.entity_id=o.id LEFT JOIN p ps ON ps.entity_type='seat_cycles' AND ps.entity_id=root.seat_id LEFT JOIN p pg ON pg.entity_type='geography_versions' AND pg.entity_id=g.id LEFT JOIN p pt ON pt.entity_type='office_terms' AND pt.entity_id=t.id LEFT JOIN p pm ON pm.entity_type='memberships' AND pm.entity_id=m.id LEFT JOIN p pp ON pp.entity_type='people' AND pp.entity_id=person.id JOIN facts ON facts.seat_id=root.seat_id`;
 
 
+const ACS_PROFILE_COVERAGE_SQL = `
+SELECT jsonb_build_object('coverage',COALESCE(jsonb_agg(jsonb_build_object('releaseId',$1::text,'domain',cr.domain,'scope',jsonb_build_object('kind','acs_indicator','variable',cr.variable,'surveyPeriod',cr.survey_period),'status',cr.status,'expectedCount',cr.expected_count,'observedCount',cr.observed_count,'missingByReason','[]'::jsonb,'quarantinedCount',cr.quarantined_count,'incompatibleCount',cr.incompatible_count,'inputSnapshotIds',COALESCE((SELECT jsonb_agg(cis.snapshot_id ORDER BY cis.snapshot_id COLLATE "C") FROM coverage_input_snapshots cis WHERE cis.release_id=cr.release_id AND cis.domain=cr.domain AND cis.scope_key=cr.scope_key),'[]'::jsonb)) ORDER BY cr.variable COLLATE "C",cr.survey_period COLLATE "C"),'[]'::jsonb),'snapshotIds',COALESCE((SELECT jsonb_agg(DISTINCT (cis.snapshot_id COLLATE "C") ORDER BY cis.snapshot_id COLLATE "C") FROM coverage_records cr JOIN coverage_input_snapshots cis ON cis.release_id=cr.release_id AND cis.domain=cr.domain AND cis.scope_key=cr.scope_key WHERE cr.release_id=$1 AND cr.domain='acs' AND cr.scope_kind='acs_indicator' AND cr.survey_period='2020-2024' AND cr.variable IN ('B01003_001E','B01002_001E','B19013_001E')),'[]'::jsonb)) AS availability
+FROM seat_cycles sc JOIN geography_versions g ON g.release_id=sc.release_id AND g.id=sc.geography_version_id CROSS JOIN coverage_records cr
+WHERE sc.release_id=$1 AND sc.id=$2 AND g.source_geoid IN ('6098','6698','6998','7898') AND cr.release_id=$1 AND cr.domain='acs' AND cr.scope_kind='acs_indicator' AND cr.survey_period='2020-2024' AND cr.variable IN ('B01003_001E','B01002_001E','B19013_001E')`;
+
 // One release-scoped closure query starts from profile facts,
 // then includes derivation inputs recursively; unrelated release snapshots cannot enter.
 const CLOSURE_SQL = `WITH RECURSIVE target AS (
@@ -120,14 +125,25 @@ function normalizeReleaseTimestamps(value: Record<string, unknown>): Record<stri
 export async function getSeatProfile(pool: Queryable, releaseId: ReleaseId, seatCycleId: SeatCycleId): Promise<SeatProfile | null> {
   const profile = await pool.query<{ profile: unknown }>(PROFILE_SQL, [releaseId, seatCycleId]);
   if (profile.rowCount === 0) return null;
+  const acs = await pool.query<{ availability: { coverage: unknown[]; snapshotIds: string[] } }>(ACS_PROFILE_COVERAGE_SQL, [releaseId, seatCycleId]);
   const closure = await pool.query(CLOSURE_SQL, [releaseId, seatCycleId]);
   const value = profile.rows[0]!.profile as Record<string, unknown>;
+  const availability = acs.rows[0]?.availability;
+  if (availability?.coverage.length === 3) {
+    value.acsAvailability = { kind: "incompatible_geography" };
+    value.acsCoverage = availability.coverage;
+  } else {
+    value.acsAvailability = Array.isArray(value.demographics) && value.demographics.length > 0 ? { kind: "observations" } : { kind: "no_observations" };
+    value.acsCoverage = [];
+  }
   // The SQL predicate is authoritative; this defensive filter also prevents a mocked
   // or misbehaving driver result from leaking another release into the strict DTO.
-  const rows = closure.rows.filter((row) => row.releaseId === releaseId && row.source_release_id === releaseId).map(normalizeDates) as Record<string, unknown>[];
-  const snapshots = rows.map((row) => ({ id: row.id, releaseId: row.releaseId, sourceId: row.sourceId, sourceUrl: row.sourceUrl, publishedAt: row.publishedAt, retrievedAt: row.retrievedAt, checksumSha256: row.checksumSha256, parserVersion: row.parserVersion, license: row.license, usageStatus: row.usageStatus }));
+  const coverageSnapshotIds = new Set(availability?.coverage.length === 3 ? availability.snapshotIds : []);
+  const coverageRows = coverageSnapshotIds.size === 0 ? [] : (await pool.query(`SELECT ss.id,ss.release_id AS "releaseId",ss.source_id AS "sourceId",ss.source_url AS "sourceUrl",ss.published_at AS "publishedAt",ss.retrieved_at AS "retrievedAt",ss.checksum_sha256 AS "checksumSha256",ss.parser_version AS "parserVersion",ss.license,ss.usage_status AS "usageStatus",s.id AS source_id,s.release_id AS source_release_id,s.name,s.authority,s.homepage_url AS homepage_url FROM source_snapshots ss JOIN sources s ON s.release_id=ss.release_id AND s.id=ss.source_id WHERE ss.release_id=$1 AND ss.id = ANY($2::text[]) ORDER BY ss.id COLLATE "C"`, [releaseId, [...coverageSnapshotIds]])).rows;
+  const rows = [...closure.rows, ...coverageRows].filter((row) => row.releaseId === releaseId && row.source_release_id === releaseId).map(normalizeDates) as Record<string, unknown>[];
+  const snapshots = [...new Map(rows.map((row) => [String(row.id), { id: row.id, releaseId: row.releaseId, sourceId: row.sourceId, sourceUrl: row.sourceUrl, publishedAt: row.publishedAt, retrievedAt: row.retrievedAt, checksumSha256: row.checksumSha256, parserVersion: row.parserVersion, license: row.license, usageStatus: row.usageStatus }])).values()];
   const sources = [...new Map(rows.map((row) => [String(row.source_id), { id: row.source_id, releaseId: row.source_release_id, name: row.name, authority: row.authority, homepageUrl: row.homepage_url }])).values()].sort((left, right) => String(left.id) < String(right.id) ? -1 : String(left.id) > String(right.id) ? 1 : 0);
   return seatProfileSchema.parse({ ...normalizeReleaseTimestamps(value), snapshots, sources });
 }
 
-export const __sql = { PROFILE_SQL, CLOSURE_SQL };
+export const __sql = { PROFILE_SQL, ACS_PROFILE_COVERAGE_SQL, CLOSURE_SQL };

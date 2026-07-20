@@ -143,5 +143,16 @@ describe("persisted schemas and runtime DTOs", () => {
     expect(seatProfileSchema.safeParse({ ...profile, unexpected: true }).success).toBe(false);
     expect(seatProfileSchema.safeParse({ ...profile, biographicalFacts: [{}] }).success).toBe(false);
     expect(seatProfileSchema.safeParse({ ...profile, memberCoverage: {} }).success).toBe(false);
+    const acsCoverage = ["B01003_001E", "B01002_001E", "B19013_001E"].map((variable) => ({ releaseId: "rel_1", domain: "acs", scope: { kind: "acs_indicator" as const, variable, surveyPeriod: "2020-2024" }, status: "partial" as const, expectedCount: 441, observedCount: 437, missingByReason: [], quarantinedCount: 0, incompatibleCount: 4, inputSnapshotIds: ["snap_1"] }));
+    expect(seatProfileSchema.parse({ ...profile, acsAvailability: { kind: "incompatible_geography" }, acsCoverage }).acsAvailability).toEqual({ kind: "incompatible_geography" });
+    expect(seatProfileSchema.safeParse({ ...profile, acsAvailability: { kind: "incompatible_geography" }, acsCoverage: acsCoverage.slice(0, 2) }).success).toBe(false);
+    expect(seatProfileSchema.safeParse({ ...profile, acsAvailability: { kind: "incompatible_geography" }, acsCoverage, demographics: [{ releaseId: "rel_1", geographyVersionId: "geo_1", variable: "B01003_001E", label: "Population", estimate: { kind: "value", value: 1 }, marginOfError: { kind: "value", value: 0 }, unit: "count", surveyPeriod: "2020-2024", universe: "total population", lineage }] }).success).toBe(false);
+    expect(seatProfileSchema.safeParse({ ...profile, acsAvailability: { kind: "observations" }, acsCoverage }).success).toBe(false);
+    expect(seatProfileSchema.safeParse({ ...profile, acsAvailability: { kind: "observations" } }).success).toBe(false);
+    expect(seatProfileSchema.safeParse({ ...profile, acsAvailability: { kind: "no_observations" }, acsCoverage }).success).toBe(false);
+    expect(seatProfileSchema.safeParse({ ...profile, acsAvailability: { kind: "incompatible_geography" }, acsCoverage: [{ ...acsCoverage[0]!, scope: { kind: "acs_indicator", variable: "B01003_001E", surveyPeriod: "2023" } }, ...acsCoverage.slice(1)] }).success).toBe(false);
+    expect(seatProfileSchema.safeParse({ ...profile, acsAvailability: { kind: "incompatible_geography" }, acsCoverage: acsCoverage.map((coverage) => ({ ...coverage, inputSnapshotIds: ["snap_missing"] })) }).success).toBe(false);
+    expect(seatProfileSchema.safeParse({ ...profile, snapshots: [] }).success).toBe(false);
+    expect(seatProfileSchema.safeParse({ ...profile, sources: [] }).success).toBe(false);
   });
 });
