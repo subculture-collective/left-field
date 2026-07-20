@@ -44,6 +44,9 @@ import { finalizeNationwideCandidate, locateNationwideCandidatePoint } from "@/i
 import { ACS_ADAPTER_VERSION, createAcsAdapter } from "@/ingestion/acs/adapter";
 import { ACS_INDICATOR_DICTIONARY } from "@/ingestion/acs/indicator-dictionary";
 import { assertPersistedTask7AcsInvariant, finalizeCandidateAcs, verifyPersistedTask7AcsCandidate } from "@/ingestion/acs/finalize-acs";
+import { finalizeCandidateFec, verifyPersistedTask8FecCandidate } from "@/ingestion/fec/finalize-fec";
+import { encodeFecSanitizedEnvelope, fecEnvelopeSha256, fecPageRequestSha256 } from "@/ingestion/fec/envelope";
+import { fecEnvelopeFixture } from "@/ingestion/fec/fec-test-fixture";
 
 const testDatabaseUrl = process.env.TEST_DATABASE_URL;
 const testDatabaseName = testDatabaseUrl ? new URL(testDatabaseUrl).pathname.slice(1) : "";
@@ -743,7 +746,7 @@ integration("PostgreSQL integration", () => {
     } finally { await pool.end(); }
   }, 60_000);
 
-  it("finalizes the three official ACS tables as candidate-only display data", async () => {
+  it("finalizes Task 7 ACS and guarded synthetic Task 8 FEC candidate-only data", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
     const rawRoot = await mkdtemp(join(tmpdir(), "acs-task7-integration-"));
     try {
@@ -777,6 +780,10 @@ integration("PostgreSQL integration", () => {
       manifest.biographicalFacts = [];
       manifest.committeeAssignments = [];
       manifest.acsVariables = [];
+      manifest.fecFilingSummaries = [];
+      manifest.financeAggregates = [];
+      const targetFinanceCoverage = manifest.coverageRecords.find((record) => record.domain === "finance" && record.scope.kind === "funding" && record.scope.seatCycleId === "seat_0" && record.scope.fundingKind === "summary")!;
+      Object.assign(targetFinanceCoverage, { status: "not_collected", expectedCount: 1, observedCount: 0, missingByReason: [{ reason: "not_collected", count: 1 }] });
       const acsPlaceholder = manifest.coverageRecords.find((record) => record.domain === "acs")!;
       Object.assign(acsPlaceholder, { scope: { kind: "release" }, expectedCount: 1, observedCount: 0, missingByReason: [{ reason: "not_collected", count: 1 }] });
       Object.assign(manifest.coverageRecords.find((record) => record.domain === "member")!, { status: "not_collected", expectedCount: 537, observedCount: 0, missingByReason: [{ reason: "not_collected", count: 537 }] });
@@ -891,6 +898,33 @@ integration("PostgreSQL integration", () => {
       expect(await repository.listSeatPage(r2 as never, { sort: "state", direction: "asc", limit: 25 })).toEqual(listBefore);
       expect(await repository.listSeatPage(r2 as never, { sort: "state", direction: "asc", limit: 25, cursor: listBefore.nextCursor! })).toEqual(continuationBefore);
       expect(await repository.getSeatFacets(r2 as never)).toEqual(facetsBefore);
+       // Task 8 FEC finalization reuses the baseline's approved mapping evidence.
+       const mappingSource = { id: "src_synthetic", name: "Synthetic", authority: "derived", homepageUrl: "https://example.com" };
+       const fecSource = { id: "src_task8_fec", name: "fec" as const, authority: "official" as const, homepageUrl: "urn:test:task8:fec" };
+       const mappingSnapshot = { id: "snap_input", sourceId: mappingSource.id, sourceUrl: "https://example.com/input", checksumSha256: "a".repeat(64), publishedAt: null, retrievedAt: "2024-01-01T00:00:00.000Z", parserVersion: "synthetic", license: "test", usageStatus: "approved" as const };
+       const target = { id: "candidacy_synthetic", seatCycleId: "seat_0" };
+       await pool.query("INSERT INTO sources(release_id,id,name,authority,homepage_url) VALUES($1,$2,$3,$4,$5)", [r2, fecSource.id, fecSource.name, fecSource.authority, fecSource.homepageUrl]);
+       const baseEnvelope = fecEnvelopeFixture();
+       const financeScope = { ...baseEnvelope.financeScope, coverageEndDate: "2024-01-01", asOf: "2024-01-01", cutoff: "2024-01-01" };
+       const reports = [{ ...baseEnvelope.reports[0]!, committeeId: "C00000001", coverageEndDate: "2024-01-01", receiptDate: "2024-01-01", cashOnHandEndPeriod: "123.45", totalReceiptsYtd: "456.78", totalDisbursementsYtd: "12.34" }];
+       const envelope = { ...baseEnvelope, releaseCutoff: "2024-01-01", financeScope, mapping: { candidateId: "H00000001", electionCycle: 2024, candidacyId: target.id, seatCycleId: target.seatCycleId, snapshotId: mappingSnapshot.id, committees: [{ committeeId: "C00000001", relationshipType: "authorized" as const, effectiveFrom: "2024-01-01", effectiveTo: null }] }, committees: baseEnvelope.committees.map((committee) => ({ ...committee, committeeId: "C00000001" })), reports, pageReceipts: baseEnvelope.pageReceipts.map((page) => page.endpoint === "committee_reports" ? { ...page, query: page.query.map((query) => query.key === "committee_id" ? { ...query, value: "C00000001" } : query.key === "max_receipt_date" ? { ...query, value: "2024-01-01" } : query), requestSha256: fecPageRequestSha256(page.path, page.query.map((query) => query.key === "committee_id" ? { ...query, value: "C00000001" } : query.key === "max_receipt_date" ? { ...query, value: "2024-01-01" } : query)), reportedCount: 1, reportedPages: 1, resultCount: page.page === 1 ? 1 : 0 } : page) };
+       const fecBytes = encodeFecSanitizedEnvelope(envelope); const checksum = fecEnvelopeSha256(fecBytes);
+       const fecSnapshot = { id: "snap_task8_fec", sourceId: fecSource.id, sourceUrl: "urn:test:task8:fec-envelope", checksumSha256: checksum, publishedAt: null, retrievedAt: "2024-12-31T00:00:00.000Z", parserVersion: "openfec-sanitized-v1" as const, license: "synthetic", usageStatus: "approved" as const };
+       await pool.query("INSERT INTO source_snapshots(release_id,id,source_id,source_url,published_at,retrieved_at,checksum_sha256,parser_version,license,usage_status) VALUES($1,$2,$3,$4,NULL,$5,$6,$7,$8,$9)", [r2, fecSnapshot.id, fecSource.id, fecSnapshot.sourceUrl, fecSnapshot.retrievedAt, checksum, fecSnapshot.parserVersion, fecSnapshot.license, fecSnapshot.usageStatus]);
+       const receipt = await rawStore.put({ objectKey: "task8/synthetic-envelope.json", body: (async function* () { yield Buffer.from(fecBytes); })(), expectedSha256: checksum });
+       const run = { ...strictRun("run_task8_fec", r2, fecSource.id, 1, fecSnapshot.id, checksum, "openfec-v1"), adapterVersion: "openfec-sanitized-v1", rawStoreLocator: receipt.storeLocator, rawObjectKey: receipt.objectKey, rawObjectByteSize: receipt.byteSize };
+       await startIngestRun(pool, run);
+       for (const report of envelope.reports) await pool.query("INSERT INTO stg_fec(run_id,release_id,source_natural_key,snapshot_id,committee_id,filing_id,report_type,reporting_period_start,reporting_period_end,filed_at,amendment_number,cash_on_hand,total_receipts,total_disbursements,redacted_extras) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,$13,$14,$15)", [run.id, r2, `fec:C00000001:${report.fileNumber}`, fecSnapshot.id, report.committeeId, String(report.fileNumber), report.reportType, report.coverageStartDate, report.coverageEndDate, `${report.receiptDate}T00:00:00.000Z`, report.fileNumber - 1, report.cashOnHandEndPeriod, report.totalReceiptsYtd, report.totalDisbursementsYtd, JSON.stringify({ schemaVersion: 1, envelopeChecksumSha256: checksum, candidateId: "H00000001", electionCycle: 2024, electionKey: envelope.electionKey, amendmentIndicator: report.amendmentIndicator, amendmentChain: report.amendmentChain, mostRecent: report.mostRecent, mostRecentFileNumber: report.mostRecentFileNumber, missingReasons: { cashOnHand: null, totalReceipts: null, totalDisbursements: null } })]);
+       await recordStageBatch(pool, run.id, run.leaseToken, 1, run.leaseDurationMs); await markValidated(pool, run.id, run.leaseToken);
+       const task8 = { pool, rawStore, candidateReleaseId: r2, sourceReleaseId: manifest.release.id, runIds: [run.id], sourceLockSha256: envelope.sourceLockSha256, source: fecSource, snapshot: fecSnapshot, mappingSource, mappingSnapshot, mapping: envelope.mapping, financeScope: envelope.financeScope };
+       const gateBeforeTask8 = (await pool.query("SELECT content_checksum_sha256,validated_at FROM release_manifests WHERE release_id=$1", [r2])).rows[0];
+       await expect(finalizeCandidateFec({ ...task8, rawStore: { put: rawStore.put.bind(rawStore), read: async value => { const valueBytes = await rawStore.read(value); valueBytes[0] ^= 1; return valueBytes; } } })).rejects.toThrow("FEC_FINALIZE_RAW_MISMATCH");
+       expect((await pool.query("SELECT status FROM ingest_runs WHERE id=$1", [run.id])).rows[0]).toEqual({ status: "validated" }); expect((await pool.query("SELECT 1 FROM finance_aggregates WHERE release_id=$1 AND seat_cycle_id=$2", [r2, target.seatCycleId])).rowCount).toBe(0); expect((await pool.query("SELECT content_checksum_sha256,validated_at FROM release_manifests WHERE release_id=$1", [r2])).rows[0]).toEqual(gateBeforeTask8);
+       await finalizeCandidateFec(task8); await finalizeCandidateFec(task8);
+       await expect(Promise.all([verifyPersistedTask8FecCandidate(task8), verifyPersistedTask8FecCandidate(task8)])).resolves.toEqual([undefined, undefined]);
+       await expect(assertPersistedTask7AcsInvariant(pool, r2, manifest.release.id)).resolves.toBeUndefined(); await expect(recheckNationwideValidationGate(pool, r2)).resolves.toBeUndefined();
+       const task8Profile = await repository.getSeatProfile(r2 as never, target.seatCycleId as never);
+       expect(task8Profile!.financeAggregates).toHaveLength(1); expect(task8Profile!.financeCoverage).toMatchObject({ status: "complete", inputSnapshotIds: [mappingSnapshot.id, fecSnapshot.id] }); expect(task8Profile!.snapshots.map((snapshot) => snapshot.id)).toEqual(expect.arrayContaining([mappingSnapshot.id, fecSnapshot.id]));
     } finally {
       await pool.end();
       await rm(rawRoot, { recursive: true, force: true });

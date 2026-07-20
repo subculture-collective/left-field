@@ -14,6 +14,7 @@ import {
   factValueSchema,
   fecFilingIdSchema,
   fecFilingSummarySchema,
+  financeAggregateSchema,
   geographyVersionIdSchema,
   geographyVersionSchema,
   incumbencyStatusSchema,
@@ -156,6 +157,7 @@ const profileBiographicalFactsSchema = z.array(personBiographicalFactSchema).sup
 
 const ACS_PROFILE_INDICATORS = new Set(["B01003_001E", "B01002_001E", "B19013_001E"]);
 const profileAcsCoverageSchema = coverageRecordSchema.refine((coverage) => coverage.domain === "acs" && coverage.scope.kind === "acs_indicator" && ACS_PROFILE_INDICATORS.has(coverage.scope.variable) && coverage.scope.surveyPeriod === "2020-2024", "Expected an authorized 2020-2024 ACS indicator coverage record");
+const profileFinanceCoverageSchema = coverageRecordSchema.refine((coverage) => coverage.domain === "finance" && coverage.scope.kind === "funding" && coverage.scope.fundingKind === "summary", "Expected seat-scoped finance summary coverage");
 export const profileAcsAvailabilitySchema = z.discriminatedUnion("kind", [
   z.object({ kind: z.literal("observations") }).strict(),
   z.object({ kind: z.literal("no_observations") }).strict(),
@@ -172,6 +174,9 @@ export const seatProfileSchema = z.object({
   incumbent: personSchema.nullable(),
   biographicalFacts: profileBiographicalFactsSchema,
   memberCoverage: coverageRecordSchema.refine((coverage) => coverage.domain === "member" && coverage.scope.kind === "release", "Expected release-scope member coverage").nullable(),
+  // Defaults keep v1 DTOs safe: missing coverage never implies observed finance.
+  financeCoverage: profileFinanceCoverageSchema.nullable().default(null),
+  financeAggregates: z.array(financeAggregateSchema).default([]),
   // Defaults keep v1 DTOs safe: an omitted field never implies compatibility.
   acsAvailability: profileAcsAvailabilitySchema.default({ kind: "no_observations" }),
   acsCoverage: z.array(profileAcsCoverageSchema).default([]),
@@ -198,6 +203,19 @@ export const seatProfileSchema = z.object({
     if (profile.demographics.length !== 0) addIssue(["demographics"], "No-observations availability cannot include ACS observations");
     if (profile.acsCoverage.length !== 0) addIssue(["acsCoverage"], "No-observations availability cannot include ACS coverage");
   }
+  const aggregatePresent = profile.financeAggregates.length > 0;
+  if (profile.financeCoverage && (aggregatePresent || profile.finance.length > 0) && (!["complete", "partial"].includes(profile.financeCoverage.status) || profile.financeCoverage.observedCount === 0)) addIssue(["financeCoverage"], "Finance coverage must agree with aggregate presence");
+  profile.financeAggregates.forEach((aggregate, aggregateIndex) => {
+    const missingInput = aggregate.committeeInputs.some((input) => input.kind === "missing");
+    if (aggregate.releaseId !== profile.release.id || aggregate.seatCycleId !== profile.seatCycle.id || new Set(aggregate.committeeInputs.map((input) => String(input.committeeId))).size !== aggregate.committeeInputs.length || (missingInput && [aggregate.cashOnHand, aggregate.receipts, aggregate.disbursements].some((value) => value.kind === "value"))) addIssue(["financeAggregates", aggregateIndex], "Invalid aggregate finance closure");
+    aggregate.committeeInputs.forEach((input, inputIndex) => {
+      const relationship = profile.committeeRelationships.some((candidate) => candidate.committeeId === input.committeeId && profile.candidacies.some((candidacy) => candidacy.id === candidate.candidacyId && profile.contests.some((contest) => contest.id === candidacy.contestId && contest.seatCycleId === profile.seatCycle.id)) && candidate.effectiveFrom <= aggregate.coverageThrough && (candidate.effectiveTo === null || aggregate.reportingPeriodStart < candidate.effectiveTo));
+      if (!profile.committees.some((committee) => committee.id === input.committeeId) || !relationship) addIssue(["financeAggregates", aggregateIndex, "committeeInputs", inputIndex], "Aggregate input committee must be exposed with an effective relationship for this seat");
+      if (input.kind === "missing") return;
+      const filing = profile.finance.find((candidate) => candidate.id === input.filingId);
+      if (!filing || filing.committeeId !== input.committeeId || filing.seatCycleId !== aggregate.seatCycleId || filing.reportingPeriodStart !== aggregate.reportingPeriodStart || filing.reportingPeriodEnd !== aggregate.coverageThrough || filing.amendmentStatus === "superseded" || profile.finance.some((candidate) => candidate.amendsFilingId === filing.id) || filing.filedAt.slice(0, 10) > aggregate.asOf) addIssue(["financeAggregates", aggregateIndex, "committeeInputs", inputIndex], "Included aggregate input must reference an exposed non-superseded leaf filing in scope");
+    });
+  });
 
   const snapshotIds = new Set(profile.snapshots.map((snapshot) => String(snapshot.id)));
   const sourceIds = new Set(profile.sources.map((source) => String(source.id)));

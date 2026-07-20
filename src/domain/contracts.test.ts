@@ -154,5 +154,8 @@ describe("persisted schemas and runtime DTOs", () => {
     expect(seatProfileSchema.safeParse({ ...profile, acsAvailability: { kind: "incompatible_geography" }, acsCoverage: acsCoverage.map((coverage) => ({ ...coverage, inputSnapshotIds: ["snap_missing"] })) }).success).toBe(false);
     expect(seatProfileSchema.safeParse({ ...profile, snapshots: [] }).success).toBe(false);
     expect(seatProfileSchema.safeParse({ ...profile, sources: [] }).success).toBe(false);
+    const financeCoverage = { releaseId: "rel_1", domain: "finance" as const, scope: { kind: "funding" as const, seatCycleId: "seat_1", fundingKind: "summary" as const }, status: "complete" as const, expectedCount: 1, observedCount: 1, missingByReason: [], quarantinedCount: 0, incompatibleCount: 0, inputSnapshotIds: ["snap_1"] };
+    expect(seatProfileSchema.parse({ ...profile, financeCoverage }).financeCoverage).toEqual(financeCoverage);
+    expect(seatProfileSchema.safeParse({ ...profile, financeCoverage: { ...financeCoverage, status: "not_collected", observedCount: 0, missingByReason: [{ reason: "not_collected", count: 1 }] } }).success).toBe(false);
   });
 });

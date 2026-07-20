@@ -17,6 +17,7 @@ export type ElectionContextViewModel = Immutable<Pick<Contest, "id" | "kind" | "
 export type ElectionResultRowViewModel = Immutable<Pick<ElectionResult, "contestId" | "resultOptionId" | "votes" | "lineage"> & Pick<Contest, "kind" | "round" | "electionDate" | "certificationStatus" | "reportingCompletenessPercent" | "reportingUnit" | "allocationMethod" | "allocationCoveragePercent" | "denominatorVotes"> & Pick<ResultOption, "candidacyId" | "label" | "party" | "optionKind" | "provenance"> & { candidacyParty: string | null }>;
 export type AcsObservationViewModel = Immutable<Pick<AcsObservation, "variable" | "label" | "estimate" | "marginOfError" | "unit" | "surveyPeriod" | "universe" | "lineage">>;
 export type FinanceSummaryViewModel = Immutable<Pick<FecFilingSummary, "id" | "committeeId" | "reportType" | "reportingPeriodStart" | "reportingPeriodEnd" | "filedAt" | "amendmentNumber" | "amendmentStatus" | "amendsFilingId" | "cashOnHand" | "totalReceipts" | "totalDisbursements" | "lineage">>;
+export type FinanceAggregateViewModel = Immutable<Pick<SeatProfile["financeAggregates"][number], "id" | "asOf" | "coverageThrough" | "cashOnHand" | "receipts" | "disbursements" | "methodologyVersion" | "committeeInputs"> & { includedCommitteeCount: number; missingCommitteeCount: number }>;
 export type BiographyViewModel = Immutable<Readonly<{ bioguideId: SeatProfile["biographicalFacts"][number]["value"] | null; birthDate: SeatProfile["biographicalFacts"][number]["value"] | null; facts: SeatProfile["biographicalFacts"]; memberCoverage: SeatProfile["memberCoverage"]; committeeAssignmentsNote: string }>>;
 export type ProfilePageViewModel = Readonly<{
   release: ReleaseViewModel;
@@ -26,6 +27,8 @@ export type ProfilePageViewModel = Readonly<{
   electionResults: readonly ElectionResultRowViewModel[];
   demographics: readonly AcsObservationViewModel[];
   acsAvailability: Immutable<SeatProfile["acsAvailability"]>;
+  financeCoverage: Immutable<SeatProfile["financeCoverage"]>;
+  financeAggregates: readonly FinanceAggregateViewModel[];
   finance: readonly FinanceSummaryViewModel[];
   biography: BiographyViewModel;
   sourceClosure: Readonly<{ sources: readonly Source[]; snapshots: readonly SourceSnapshot[] }>;
@@ -43,7 +46,7 @@ export function compileBrowsePage(releaseValue: DataRelease, page: SeatPage, app
   return { release: release(releaseValue), appliedQuery: { ...appliedQuery }, rows: page.items.map((row) => ({ ...row })), total: page.total, nextCursor: page.nextCursor, available: { states: unique(facets.states), parties: unique(facets.parties), incumbencyStatuses: unique(facets.incumbencyStatuses), electionYears: unique(facets.electionYears) }, disclosure: { coverage: "Coverage is limited to the active release; missing values retain their stated reason.", rankings: "No rankings or scores are published in this release.", demographicFilters: "Demographics are display-only and cannot filter, order, subset, or rank seats." } };
 }
 
-function compileProfilePageBase(profile: SeatProfile, seat: SeatListItem): Omit<ProfilePageViewModel, "biography" | "acsAvailability"> {
+function compileProfilePageBase(profile: SeatProfile, seat: SeatListItem): Omit<ProfilePageViewModel, "biography" | "acsAvailability" | "financeCoverage" | "financeAggregates"> {
   const contests = new Map(profile.contests.map((contest) => [contest.id, contest]));
   const options = new Map(profile.resultOptions.map((option) => [option.id, option]));
   const candidacies = new Map(profile.candidacies.map((candidacy) => [candidacy.id, candidacy]));
@@ -53,7 +56,7 @@ function compileProfilePageBase(profile: SeatProfile, seat: SeatListItem): Omit<
 export function compileProfilePage(profile: SeatProfile, seat: SeatListItem): ProfilePageViewModel {
   const base = compileProfilePageBase(profile, seat);
   const fact = (name: "birth_date" | "bioguide_id") => profile.biographicalFacts.find((row) => row.fact === name)?.value ?? null;
-  return { ...base, acsAvailability: profile.acsAvailability, biography: { bioguideId: fact("bioguide_id"), birthDate: fact("birth_date"), facts: profile.biographicalFacts, memberCoverage: profile.memberCoverage, committeeAssignmentsNote: "Committee assignments are not published because current official sources do not provide authoritative effective dates." } };
+  return { ...base, acsAvailability: profile.acsAvailability, financeCoverage: profile.financeCoverage, financeAggregates: profile.financeAggregates.map((aggregate) => ({ ...aggregate, includedCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "included").length, missingCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "missing").length })), biography: { bioguideId: fact("bioguide_id"), birthDate: fact("birth_date"), facts: profile.biographicalFacts, memberCoverage: profile.memberCoverage, committeeAssignmentsNote: "Committee assignments are not published because current official sources do not provide authoritative effective dates." } };
 }
 
 export function compileSourcesPage(releaseValue: DataRelease, sources: readonly Source[], snapshots: readonly SourceSnapshot[]): SourcesPageViewModel {

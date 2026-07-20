@@ -30,6 +30,11 @@ describe("direct SQL profile modules", () => {
     expect(__sql.ACS_PROFILE_COVERAGE_SQL).toContain("cr.survey_period='2020-2024'");
     expect(__sql.ACS_PROFILE_COVERAGE_SQL).toContain("B01002_001E");
     expect(__sql.ACS_PROFILE_COVERAGE_SQL).toContain("expectedCount',cr.expected_count");
+    expect(__sql.FINANCE_PROFILE_COVERAGE_SQL).toContain("cr.domain='finance' AND cr.scope_kind='funding'");
+    expect(__sql.FINANCE_PROFILE_COVERAGE_SQL).toContain("cr.funding_kind='summary'");
+    expect(__sql.FINANCE_PROFILE_COVERAGE_SQL).toContain("missingByReason");
+    expect(__sql.AGGREGATE_COMMITTEE_CLOSURE_SQL).toContain("finance_aggregate_inputs");
+    expect(__sql.AGGREGATE_COMMITTEE_CLOSURE_SQL).toContain("committeeRelationships");
   });
 
   it("accepts v2-style empty factual arrays and drops unrelated closure rows", async () => {
@@ -76,6 +81,7 @@ describe("direct SQL profile modules", () => {
     expect(__sql.PROFILE_SQL).toContain(`co.seat_cycle_id=root.seat_id AND EXISTS (SELECT 1 FROM fec_filing_summaries ff WHERE ${financeForProfileSeat})`);
     expect(__sql.CLOSURE_SQL).toContain(`${closureRelationship} JOIN candidacies ca`);
     expect(__sql.CLOSURE_SQL).toContain(`c.seat_cycle_id=$2 AND EXISTS (SELECT 1 FROM fec_filing_summaries ff WHERE ${financeForClosureSeat})`);
+    expect(__sql.CLOSURE_SQL).toContain("JOIN finance_aggregate_inputs fai");
   });
 
   it("selects incumbent biography facts and release member coverage into closure", () => {

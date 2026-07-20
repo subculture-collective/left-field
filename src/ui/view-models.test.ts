@@ -44,6 +44,13 @@ describe("UI data boundary", () => {
     expect(model.headlineFacts.presidentialMargin2024.value).toEqual({ kind: "missing", reason: "not_defensibly_modeled" });
     expect(model.headlineFacts.cashOnHand.kind).toBe("missing");
   });
+  it("carries explicit finance summary coverage without inventing finance values", () => {
+    const profile = projection.profile(canonicalManifest.profileSeatCycleIds[0]!); const seat = profile && projection.list(seatQuerySchema.parse({})).find((row) => row.id === profile.seatCycle.id); if (!profile || !seat) throw new Error("fixture missing");
+    const financeCoverage = { releaseId: profile.release.id, domain: "finance" as const, scope: { kind: "funding" as const, seatCycleId: profile.seatCycle.id, fundingKind: "summary" as const }, status: "not_collected" as const, expectedCount: 1, observedCount: 0, missingByReason: [{ reason: "not_collected" as const, count: 1 }], quarantinedCount: 0, incompatibleCount: 0, inputSnapshotIds: [profile.snapshots[0]!.id] };
+    const model = compileProfilePage({ ...profile, finance: [], financeCoverage }, seat);
+    expect(model.financeCoverage).toEqual(financeCoverage);
+    expect(model.finance).toEqual([]);
+  });
   it("associates source snapshots without inventing a source", () => {
     const model = compileSourcesPage(canonicalManifest.release, canonicalManifest.sources, projection.snapshots());
     expect(model.sources.every(({ source, snapshots }) => snapshots.every((snapshot) => snapshot.sourceId === source.id))).toBe(true);

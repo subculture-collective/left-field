@@ -446,6 +446,7 @@ export const coverageRecordSchema = z.strictObject({
   quarantinedCount: z.number().int().nonnegative().default(0), incompatibleCount: z.number().int().nonnegative().default(0),
   inputSnapshotIds: z.array(snapshotIdSchema).min(1),
 });
+export type CoverageRecord = z.infer<typeof coverageRecordSchema>;
 export const personBiographicalFactSchema = z.strictObject({
   releaseId: releaseIdSchema, personId: personIdSchema, fact: z.enum(["birth_date", "bioguide_id"]),
   value: factValueSchema(z.string().min(1)), effectiveAt: isoDateSchema, provenance: z.array(provenanceReferenceSchema).min(1),

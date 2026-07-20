@@ -101,6 +101,19 @@ describe("manifest seat projection", () => {
     expect(target(createManifestSeatProjection(manifest)).cashOnHand).toEqual(expect.objectContaining({ kind: "missing", reason: "not_reported", asOf: "2024-03-31" }));
   });
 
+  it("projects missing aggregate committees and their seat relationships into the profile closure", () => {
+    const manifest = structuredClone(coherentManifest()); const seatCycleId = manifest.profileSeatCycleIds[0]!; const candidacy = manifest.candidacies[0]!;
+    manifest.committees.push({ id: "committee_missing", releaseId: "rel_1", sourceCommitteeId: "missing", name: "Missing committee", committeeType: "authorized", provenance: [{ snapshotId: "snap_1", role: "original_publisher" }] } as never);
+    manifest.committeeRelationships.push({ id: "committee_rel_missing", releaseId: "rel_1", committeeId: "committee_missing", candidacyId: candidacy.id, relationship: "authorized", effectiveFrom: "2024-01-01", effectiveTo: null, provenance: [{ snapshotId: "snap_1", role: "original_publisher" }] } as never);
+    (manifest as unknown as { financeAggregates: unknown[] }).financeAggregates = [{ id: "aggregate_missing", releaseId: "rel_1", seatCycleId, asOf: "2024-04-01", reportingPeriodStart: "2024-01-01", coverageThrough: "2024-03-31", cashOnHand: { kind: "missing", reason: "not_reported" }, receipts: { kind: "missing", reason: "not_reported" }, disbursements: { kind: "missing", reason: "not_reported" }, methodologyVersion: "test", committeeInputs: [{ kind: "missing", committeeId: "committee_missing", reason: "not_reported" }] }];
+    const profile = createManifestSeatProjection(manifest).profile(seatCycleId)!;
+    expect(profile.committees.map((committee) => committee.id)).toContain("committee_missing");
+    expect(profile.committeeRelationships.map((relationship) => relationship.id)).toContain("committee_rel_missing");
+    expect(profile.snapshots.map((snapshot) => snapshot.id)).toContain("snap_1");
+    expect(() => seatProfileSchema.parse({ ...profile, committees: [] })).toThrow("Aggregate input committee must be exposed");
+    expect(() => seatProfileSchema.parse({ ...profile, committeeRelationships: [] })).toThrow("Aggregate input committee must be exposed");
+  });
+
   it("is invariant to demographic mutations for every supported query and sort", () => {
     const mutated = structuredClone(canonicalManifest);
     mutated.acsObservations.forEach((observation, index) => { observation.label = `Candidate ${index + 1}`; observation.estimate = { kind: "value", value: index + 100 }; observation.marginOfError = { kind: "value", value: index + 10 }; });
