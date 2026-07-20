@@ -1,9 +1,10 @@
 import { createHash } from "node:crypto";
 import type { Pool, PoolClient } from "pg";
-import { loadNationwideManifest, loadPrototypeManifest } from "./manifest";
+import { canonicalCoverageScopeKey, loadNationwideManifest, loadPrototypeManifest } from "./manifest";
 import { computeCanonicalDataChecksum, validateReleaseManifest } from "@/domain/validate-manifest";
 
 type Runner = Pool | PoolClient;
+export type Task6MemberSummary = { observed: number; expected: number; biographicalFactCount: number; committeeAssignmentCount: number };
 export type ContentDomain = "identity" | "geography" | "member" | "acs" | "finance" | "elections" | "maps";
 type TableSpec = Readonly<{ name: string; columns: readonly string[]; domains: readonly ContentDomain[] }>;
 
@@ -55,8 +56,8 @@ export async function computeReleaseDigest(db: Runner, releaseId: string, domain
   return { rowCount: lines.length, sha256: createHash("sha256").update(lines.join("\n")).digest("hex") };
 }
 async function copyTable(client: PoolClient, table: TableSpec, source: string, candidate: string): Promise<void> { const columns = table.columns.map(quote); await client.query(`INSERT INTO ${quote(table.name)}(release_id,${columns.join(",")}) SELECT $1,${columns.map(c => `t.${c}`).join(",")} FROM ${quote(table.name)} t WHERE t.release_id=$2`, [candidate, source]); }
-export async function baselineCandidateRelease(pool: Pool, sourceReleaseId: string, candidateReleaseId: string): Promise<void> {
-  const client = await pool.connect(); try { await client.query("BEGIN"); for (const id of [sourceReleaseId,candidateReleaseId].sort()) await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [id]);
+async function baselineCandidateReleaseWithClient(client: PoolClient, sourceReleaseId: string, candidateReleaseId: string): Promise<void> {
+    for (const id of [sourceReleaseId,candidateReleaseId].sort()) await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [id]);
     const releases = await client.query<{id:string;status:string;source_cutoff: Date}>("SELECT id,status,source_cutoff FROM data_releases WHERE id=ANY($1) FOR UPDATE", [[sourceReleaseId,candidateReleaseId]]);
     if (releases.rowCount !== 2 || !releases.rows.some(r => r.id===candidateReleaseId && r.status==="candidate")) throw new Error("Baseline requires a candidate destination");
     for (const table of contentTableRegistry) { const present=await client.query(`SELECT 1 FROM ${quote(table.name)} WHERE release_id=$1 LIMIT 1`,[candidateReleaseId]); if (present.rowCount) throw new Error("Baseline requires an empty candidate"); }
@@ -85,11 +86,14 @@ export async function baselineCandidateRelease(pool: Pool, sourceReleaseId: stri
     target.canonicalDataChecksumSha256 = canonical;
     const validation = validateReleaseManifest(target);
     if (!validation.success) throw new Error(`Baselined manifest is not semantically valid: ${validation.issues.map((issue) => `${issue.path}: ${issue.message}`).join("; ")}`);
-    const content = createHash("sha256").update(JSON.stringify({ data: canonical, geometry: m.geometry_checksum_sha256 })).digest("hex");
+    const content = expectedContentChecksum({ ...m, canonical_data_checksum_sha256: canonical });
     await client.query("INSERT INTO release_manifests(release_id,schema_version,canonical_data_checksum_sha256,geometry_checksum_sha256,content_checksum_sha256,validated_at) VALUES($1,$2,$3,$4,$5,NULL) ON CONFLICT(release_id) DO UPDATE SET schema_version=EXCLUDED.schema_version,canonical_data_checksum_sha256=EXCLUDED.canonical_data_checksum_sha256,geometry_checksum_sha256=EXCLUDED.geometry_checksum_sha256,content_checksum_sha256=EXCLUDED.content_checksum_sha256,validated_at=NULL",[candidateReleaseId,m.schema_version,canonical,m.geometry_checksum_sha256,content]);
     await client.query("DELETE FROM nationwide_validation_gates WHERE release_id=$1", [candidateReleaseId]);
     await client.query("DELETE FROM release_content_digests WHERE release_id=$1",[candidateReleaseId]);
-    for(const domain of Object.keys(contentDomains) as ContentDomain[]){const source=await computeReleaseDigest(client,sourceReleaseId,domain);const candidate=await computeReleaseDigest(client,candidateReleaseId,domain);if(source.rowCount!==candidate.rowCount||source.sha256!==candidate.sha256) throw new Error(`Baseline digest mismatch for ${domain}`);await client.query("INSERT INTO release_content_digests(release_id,domain,row_count,sha256,validated_at) VALUES($1,$2,$3,$4,now())",[candidateReleaseId,domain,candidate.rowCount,candidate.sha256]);} await client.query("COMMIT");
+    for(const domain of Object.keys(contentDomains) as ContentDomain[]){const source=await computeReleaseDigest(client,sourceReleaseId,domain);const candidate=await computeReleaseDigest(client,candidateReleaseId,domain);if(source.rowCount!==candidate.rowCount||source.sha256!==candidate.sha256) throw new Error(`Baseline digest mismatch for ${domain}`);await client.query("INSERT INTO release_content_digests(release_id,domain,row_count,sha256,validated_at) VALUES($1,$2,$3,$4,now())",[candidateReleaseId,domain,candidate.rowCount,candidate.sha256]);}
+}
+export async function baselineCandidateRelease(pool: Pool, sourceReleaseId: string, candidateReleaseId: string): Promise<void> {
+  const client = await pool.connect(); try { await client.query("BEGIN"); await baselineCandidateReleaseWithClient(client, sourceReleaseId, candidateReleaseId); await client.query("COMMIT");
   } catch(error){await client.query("ROLLBACK");throw error;} finally {client.release();}}
 
 type ManifestRow = {
@@ -118,7 +122,7 @@ function domainSummary(digests: readonly Digest[]): string {
   return createHash("sha256").update(lines.join("\n")).digest("hex");
 }
 
-function expectedContentChecksum(manifest: ManifestRow): string {
+export function expectedContentChecksum(manifest: ManifestRow): string {
   return createHash("sha256")
     .update(JSON.stringify({ data: manifest.canonical_data_checksum_sha256, geometry: manifest.geometry_checksum_sha256 }))
     .digest("hex");
@@ -179,6 +183,115 @@ export async function validateNationwideCandidateRelease(pool: Pool, releaseId: 
   }
 }
 
+/** Atomically baseline a same-cutoff v2 shell and enrich its current members from locked person identities. */
+export async function enrichCandidateMembersFromBaseline(pool: Pool, sourceReleaseId: string, candidateReleaseId: string): Promise<void> {
+  const client = await pool.connect();
+  try {
+    await client.query("BEGIN");
+    const source = await client.query<{ schema_version: number }>("SELECT schema_version FROM release_manifests WHERE release_id=$1 FOR SHARE", [sourceReleaseId]);
+    if (source.rowCount !== 1 || source.rows[0]!.schema_version !== 2) throw new Error("Member enrichment requires a v2 source");
+    const target = await client.query<{ previous_release_id: string | null }>("SELECT previous_release_id FROM data_releases WHERE id=$1 AND status='candidate' FOR UPDATE", [candidateReleaseId]);
+    if (target.rowCount !== 1 || target.rows[0]!.previous_release_id !== sourceReleaseId) throw new Error("Member enrichment candidate must identify its source release");
+    const sourceExtras = await client.query("SELECT EXISTS(SELECT 1 FROM biographical_facts WHERE release_id=$1) bios, EXISTS(SELECT 1 FROM committee_assignments WHERE release_id=$1) assignments", [sourceReleaseId]);
+    if (sourceExtras.rows[0]!.bios || sourceExtras.rows[0]!.assignments) throw new Error("Member enrichment requires a source without biography facts or assignments");
+    await baselineCandidateReleaseWithClient(client, sourceReleaseId, candidateReleaseId);
+    const targetManifest = await lockV2Candidate(client, candidateReleaseId);
+    const loaded = await loadNationwideManifest(client, candidateReleaseId);
+    const current = await client.query<{ id: string; bioguide_id: string | null }>("SELECT DISTINCT p.id,p.bioguide_id FROM people p JOIN memberships m ON m.release_id=p.release_id AND m.person_id=p.id JOIN data_releases r ON r.id=p.release_id WHERE p.release_id=$1 AND m.starts_at <= (r.source_cutoff AT TIME ZONE 'UTC')::date AND (m.ends_at IS NULL OR (r.source_cutoff AT TIME ZONE 'UTC')::date < m.ends_at)", [candidateReleaseId]);
+    if (current.rowCount === 0 || current.rows.some((row) => row.bioguide_id === null || !/^[A-Z][0-9]{6}$/.test(row.bioguide_id))) throw new Error("Member enrichment requires one well-formed Bioguide ID per current person");
+    if (new Set(current.rows.map((row) => row.bioguide_id)).size !== current.rowCount) throw new Error("Member enrichment requires unique Bioguide IDs");
+    const existing = await client.query("SELECT EXISTS(SELECT 1 FROM biographical_facts WHERE release_id=$1) bios, EXISTS(SELECT 1 FROM committee_assignments WHERE release_id=$1) assignments", [candidateReleaseId]);
+    if (existing.rows[0]!.bios || existing.rows[0]!.assignments) throw new Error("Member enrichment target already has facts or assignments");
+    const oldCoverage = await client.query<{ status: string; expected_count: number; observed_count: number }>("SELECT status,expected_count,observed_count FROM coverage_records WHERE release_id=$1 AND domain='member' AND scope_kind='release' FOR UPDATE", [candidateReleaseId]);
+    if (oldCoverage.rowCount !== 1 || oldCoverage.rows[0]!.status !== "not_collected" || Number(oldCoverage.rows[0]!.expected_count) !== current.rows.length || Number(oldCoverage.rows[0]!.observed_count) !== 0) throw new Error("Member enrichment requires an initial not-collected release member coverage state");
+    const cutoff = (await client.query<{ cutoff: string }>("SELECT (source_cutoff AT TIME ZONE 'UTC')::date::text cutoff FROM data_releases WHERE id=$1", [candidateReleaseId])).rows[0]!.cutoff;
+    const inputSnapshots = new Set<string>();
+    const factProvenance = new Map<string, { snapshot_id: string; role: string }[]>();
+    const currentCount = current.rows.length;
+    for (const person of current.rows) {
+      const provenance = await client.query<{ snapshot_id: string; role: string }>("SELECT p.snapshot_id,p.role FROM provenance p JOIN source_snapshots s ON s.release_id=p.release_id AND s.id=p.snapshot_id WHERE p.release_id=$1 AND p.entity_type='people' AND p.entity_id=$2 AND s.usage_status='approved'", [candidateReleaseId, person.id]);
+      if (provenance.rowCount === 0) throw new Error("Member enrichment requires approved person provenance");
+      factProvenance.set(person.id, provenance.rows);
+      for (const reference of provenance.rows) inputSnapshots.add(reference.snapshot_id);
+    }
+    const scopeKey = canonicalCoverageScopeKey({ kind: "release" });
+    const enriched = structuredClone(loaded);
+    enriched.biographicalFacts = current.rows.flatMap((person) => [
+      { releaseId: candidateReleaseId as never, personId: person.id as never, fact: "bioguide_id" as const, value: { kind: "value" as const, value: person.bioguide_id! }, effectiveAt: cutoff, provenance: factProvenance.get(person.id)!.map((reference) => ({ snapshotId: reference.snapshot_id as never, role: reference.role as never })) },
+      { releaseId: candidateReleaseId as never, personId: person.id as never, fact: "birth_date" as const, value: { kind: "missing" as const, reason: "not_collected" as const }, effectiveAt: cutoff, provenance: factProvenance.get(person.id)!.map((reference) => ({ snapshotId: reference.snapshot_id as never, role: reference.role as never })) },
+    ]) as typeof enriched.biographicalFacts;
+    enriched.coverageRecords = enriched.coverageRecords.map((record) => record.domain === "member" && record.scope.kind === "release" ? { ...record, status: "complete" as const, expectedCount: currentCount, observedCount: currentCount, missingByReason: [], quarantinedCount: 0, incompatibleCount: 0, inputSnapshotIds: [...inputSnapshots] as never } : record) as typeof enriched.coverageRecords;
+    enriched.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(enriched);
+    const validation = validateReleaseManifest(enriched);
+    if (!validation.success) throw new Error(`Enriched manifest is not semantically valid: ${validation.issues.map((issue) => issue.message).join("; ")}`);
+    const canonical = enriched.canonicalDataChecksumSha256;
+    const content = expectedContentChecksum({ ...targetManifest, canonical_data_checksum_sha256: canonical });
+    for (const person of current.rows) {
+      for (const fact of [["bioguide_id", person.bioguide_id, null], ["birth_date", null, "not_collected"]] as const) {
+        await client.query("INSERT INTO biographical_facts(release_id,person_id,fact,value,value_missing_reason,effective_at) VALUES($1,$2,$3,$4,$5,$6)", [candidateReleaseId, person.id, fact[0], fact[1], fact[2], cutoff]);
+        for (const reference of factProvenance.get(person.id)!) await client.query("INSERT INTO biographical_fact_provenance(release_id,person_id,fact,effective_at,snapshot_id,role) VALUES($1,$2,$3,$4,$5,$6)", [candidateReleaseId, person.id, fact[0], cutoff, reference.snapshot_id, reference.role]);
+      }
+    }
+    await client.query("DELETE FROM coverage_missing_reasons WHERE release_id=$1 AND domain='member' AND scope_key=$2", [candidateReleaseId, scopeKey]);
+    await client.query("DELETE FROM coverage_input_snapshots WHERE release_id=$1 AND domain='member' AND scope_key=$2", [candidateReleaseId, scopeKey]);
+    await client.query("DELETE FROM coverage_records WHERE release_id=$1 AND domain='member' AND scope_key=$2", [candidateReleaseId, scopeKey]);
+    await client.query("INSERT INTO coverage_records(release_id,domain,scope_key,scope_kind,status,expected_count,observed_count,quarantined_count,incompatible_count) VALUES($1,'member',$2,'release','complete',$3,$3,0,0)", [candidateReleaseId, scopeKey, currentCount]);
+    for (const snapshotId of inputSnapshots) await client.query("INSERT INTO coverage_input_snapshots(release_id,domain,scope_key,snapshot_id) VALUES($1,'member',$2,$3)", [candidateReleaseId, scopeKey, snapshotId]);
+    await client.query("UPDATE release_manifests SET canonical_data_checksum_sha256=$2,content_checksum_sha256=$3,validated_at=NULL WHERE release_id=$1", [candidateReleaseId, canonical, content]);
+    await validateNationwideCandidateReleaseWithClient(client, candidateReleaseId);
+    await assertPersistedTask6MemberInvariant(client, candidateReleaseId, sourceReleaseId);
+    await client.query("COMMIT");
+  } catch (error) { await client.query("ROLLBACK").catch(() => undefined); throw error; } finally { client.release(); }
+}
+
+async function assertPersistedTask6MemberInvariantWithClient(client: PoolClient, releaseId: string, expectedSourceId: string): Promise<Task6MemberSummary> {
+  const result = await client.query<{ observed: number | string; expected: number | string; biographical_fact_count: number | string; committee_assignment_count: number | string; valid: boolean }>(`
+    WITH release AS (
+      SELECT r.id, r.status, r.source_cutoff, r.previous_release_id, m.schema_version
+      FROM data_releases r JOIN release_manifests m ON m.release_id=r.id WHERE r.id=$1
+    ), source_release AS (SELECT r.id, r.source_cutoff FROM data_releases r WHERE r.id=$2), current_people AS (
+      SELECT DISTINCT p.id, p.bioguide_id FROM people p JOIN memberships m ON m.release_id=p.release_id AND m.person_id=p.id CROSS JOIN release r
+      WHERE p.release_id=$1 AND m.starts_at <= (r.source_cutoff AT TIME ZONE 'UTC')::date AND (m.ends_at IS NULL OR (r.source_cutoff AT TIME ZONE 'UTC')::date < m.ends_at)
+    ), source_current_people AS (
+      SELECT DISTINCT p.id,p.bioguide_id FROM people p JOIN memberships m ON m.release_id=p.release_id AND m.person_id=p.id CROSS JOIN source_release r WHERE p.release_id=$2 AND m.starts_at <= (r.source_cutoff AT TIME ZONE 'UTC')::date AND (m.ends_at IS NULL OR (r.source_cutoff AT TIME ZONE 'UTC')::date < m.ends_at)
+    ), facts AS (SELECT * FROM biographical_facts WHERE release_id=$1),
+    coverage AS (SELECT * FROM coverage_records WHERE release_id=$1 AND domain='member' AND scope_kind='release'),
+    summary AS (
+      SELECT (SELECT count(*) FROM current_people)::int observed, (SELECT count(*) FROM facts)::int biographical_fact_count,
+        (SELECT count(*) FROM committee_assignments WHERE release_id=$1)::int committee_assignment_count,
+        COALESCE((SELECT expected_count::int FROM coverage LIMIT 1), -1) expected
+    ), checks AS (
+      SELECT
+        EXISTS(SELECT 1 FROM release r JOIN data_releases s ON s.id=r.previous_release_id WHERE r.schema_version=2 AND r.status='candidate' AND r.id=$1 AND r.previous_release_id=$2 AND s.source_cutoff=r.source_cutoff) release_ok,
+        NOT EXISTS((SELECT id,bioguide_id FROM current_people EXCEPT SELECT id,bioguide_id FROM source_current_people) UNION ALL (SELECT id,bioguide_id FROM source_current_people EXCEPT SELECT id,bioguide_id FROM current_people)) people_ok,
+        NOT EXISTS(SELECT 1 FROM facts f LEFT JOIN current_people p ON p.id=f.person_id CROSS JOIN release r WHERE p.id IS NULL OR f.fact NOT IN ('bioguide_id','birth_date') OR f.effective_at <> (r.source_cutoff AT TIME ZONE 'UTC')::date OR (f.fact='bioguide_id' AND (f.value IS DISTINCT FROM p.bioguide_id OR f.value_missing_reason IS NOT NULL OR p.bioguide_id IS NULL OR p.bioguide_id !~ '^[A-Z][0-9]{6}$')) OR (f.fact='birth_date' AND (f.value IS NOT NULL OR f.value_missing_reason <> 'not_collected'))) facts_ok,
+        NOT EXISTS(SELECT 1 FROM current_people p LEFT JOIN facts f ON f.person_id=p.id GROUP BY p.id HAVING count(*) FILTER (WHERE f.fact='bioguide_id') <> 1 OR count(*) FILTER (WHERE f.fact='birth_date') <> 1) cardinality_ok,
+        NOT EXISTS(SELECT 1 FROM facts f WHERE NOT EXISTS(SELECT 1 FROM biographical_fact_provenance bp JOIN source_snapshots s ON s.release_id=bp.release_id AND s.id=bp.snapshot_id AND s.usage_status='approved' WHERE bp.release_id=f.release_id AND bp.person_id=f.person_id AND bp.fact=f.fact AND bp.effective_at=f.effective_at)) provenance_ok,
+        NOT EXISTS(SELECT 1 FROM facts f WHERE EXISTS((SELECT bp.snapshot_id,bp.role FROM biographical_fact_provenance bp WHERE bp.release_id=$1 AND bp.person_id=f.person_id AND bp.fact=f.fact AND bp.effective_at=f.effective_at) EXCEPT (SELECT p.snapshot_id,p.role FROM provenance p WHERE p.release_id=$2 AND p.entity_type='people' AND p.entity_id=f.person_id)) OR EXISTS((SELECT p.snapshot_id,p.role FROM provenance p WHERE p.release_id=$2 AND p.entity_type='people' AND p.entity_id=f.person_id) EXCEPT (SELECT bp.snapshot_id,bp.role FROM biographical_fact_provenance bp WHERE bp.release_id=$1 AND bp.person_id=f.person_id AND bp.fact=f.fact AND bp.effective_at=f.effective_at))) exact_provenance_ok,
+        NOT EXISTS((SELECT DISTINCT bp.snapshot_id FROM biographical_fact_provenance bp WHERE bp.release_id=$1) EXCEPT (SELECT cis.snapshot_id FROM coverage_input_snapshots cis JOIN coverage c ON c.release_id=cis.release_id AND c.domain=cis.domain AND c.scope_key=cis.scope_key WHERE cis.release_id=$1 AND cis.domain='member' AND c.scope_kind='release'))
+          AND NOT EXISTS((SELECT cis.snapshot_id FROM coverage_input_snapshots cis JOIN coverage c ON c.release_id=cis.release_id AND c.domain=cis.domain AND c.scope_key=cis.scope_key WHERE cis.release_id=$1 AND cis.domain='member' AND c.scope_kind='release') EXCEPT (SELECT DISTINCT bp.snapshot_id FROM biographical_fact_provenance bp WHERE bp.release_id=$1)) provenance_set_ok,
+        (SELECT count(*) FROM coverage)=1 AND EXISTS(SELECT 1 FROM coverage c CROSS JOIN summary x WHERE c.status='complete' AND c.expected_count=x.observed AND c.observed_count=x.observed AND x.observed>0 AND c.quarantined_count=0 AND c.incompatible_count=0) AND NOT EXISTS(SELECT 1 FROM coverage_missing_reasons cm JOIN coverage c ON c.release_id=cm.release_id AND c.domain=cm.domain AND c.scope_key=cm.scope_key WHERE cm.release_id=$1) coverage_ok
+    )
+    SELECT s.observed,s.expected,s.biographical_fact_count,s.committee_assignment_count,
+      (c.release_ok AND c.people_ok AND c.facts_ok AND c.cardinality_ok AND c.provenance_ok AND c.exact_provenance_ok AND c.provenance_set_ok AND c.coverage_ok AND s.biographical_fact_count=2*s.observed AND s.committee_assignment_count=0) valid
+    FROM summary s CROSS JOIN checks c`, [releaseId, expectedSourceId]);
+  const row = result.rows[0];
+  if (!row?.valid) throw new Error("Persisted Task 6 member invariant is invalid");
+  return { observed: Number(row.observed), expected: Number(row.expected), biographicalFactCount: Number(row.biographical_fact_count), committeeAssignmentCount: Number(row.committee_assignment_count) };
+}
+
+/** Read-only, exact persisted Task 6 validation using one connection snapshot. */
+export async function assertPersistedTask6MemberInvariant(connection: Runner, releaseId: string, expectedSourceId: string): Promise<Task6MemberSummary> {
+  if (typeof (connection as PoolClient).release === "function") return assertPersistedTask6MemberInvariantWithClient(connection as PoolClient, releaseId, expectedSourceId);
+  const client = await (connection as Pool).connect();
+  try {
+    await client.query("BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY");
+    const summary = await assertPersistedTask6MemberInvariantWithClient(client, releaseId, expectedSourceId);
+    await client.query("COMMIT");
+    return summary;
+  } catch (error) { await client.query("ROLLBACK").catch(() => undefined); throw error; } finally { client.release(); }
+}
+
 async function recheckWithClient(client: PoolClient, releaseId: string): Promise<void> {
   const manifest = await lockV2Release(client, releaseId, ["candidate", "retired", "published"], "Nationwide recheck requires a v2 candidate, retired, or published release");
   const loaded = await loadNationwideManifest(client, releaseId);
@@ -212,4 +325,20 @@ export async function recheckNationwideValidationGate(connection: Pool | PoolCli
   } finally {
     client.release();
   }
+}
+
+/** Recheck the nationwide gate and Task 6 facts under one locked transaction. */
+export async function verifyPersistedTask6MemberCandidate(pool: Pool, releaseId: string, sourceReleaseId: string): Promise<Task6MemberSummary> {
+  const client = await pool.connect();
+  try {
+    await client.query("BEGIN");
+    await client.query("SELECT 1 FROM data_releases WHERE id=$1 FOR SHARE", [sourceReleaseId]);
+    await recheckWithClient(client, releaseId);
+    const summary = await assertPersistedTask6MemberInvariantWithClient(client, releaseId, sourceReleaseId);
+    await client.query("COMMIT");
+    return summary;
+  } catch (error) {
+    await client.query("ROLLBACK").catch(() => undefined);
+    throw error;
+  } finally { client.release(); }
 }

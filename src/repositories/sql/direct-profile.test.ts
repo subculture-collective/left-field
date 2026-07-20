@@ -34,7 +34,7 @@ describe("direct SQL profile modules", () => {
       release: manifest.release, office: manifest.offices[0], seatCycle: cycle,
       geography: manifest.geographyVersions[0], officeTerm: manifest.officeTerms[0],
       membership: null, incumbent: null, contests: [], candidacies: [], resultOptions: [],
-      electionResults: [], demographics: [], finance: [], committees: [],
+      electionResults: [], demographics: [], finance: [], committees: [], biographicalFacts: [], memberCoverage: null,
       committeeRelationships: [], sources: [], snapshots: [],
     };
     const snapshot = { id: "snap_1", releaseId: "rel_1", sourceId: "src_1", sourceUrl: "https://example.com/data", publishedAt: new Date("2024-01-01T00:00:00.000Z"), retrievedAt: new Date("2024-01-01T00:00:00.000Z"), checksumSha256: "a".repeat(64), parserVersion: "1", license: "public", usageStatus: "approved", source_id: "src_1", source_release_id: "rel_1", name: "Source", authority: "official", homepage_url: "https://example.com" };
@@ -58,6 +58,13 @@ describe("direct SQL profile modules", () => {
     expect(__sql.PROFILE_SQL).toContain(`co.seat_cycle_id=root.seat_id AND EXISTS (SELECT 1 FROM fec_filing_summaries ff WHERE ${financeForProfileSeat})`);
     expect(__sql.CLOSURE_SQL).toContain(`${closureRelationship} JOIN candidacies ca`);
     expect(__sql.CLOSURE_SQL).toContain(`c.seat_cycle_id=$2 AND EXISTS (SELECT 1 FROM fec_filing_summaries ff WHERE ${financeForClosureSeat})`);
+  });
+
+  it("selects incumbent biography facts and release member coverage into closure", () => {
+    expect(__sql.PROFILE_SQL).toContain("FROM biographical_facts bf");
+    expect(__sql.PROFILE_SQL).toContain("bf.person_id=person.id");
+    expect(__sql.PROFILE_SQL).toContain("cr.domain='member' AND cr.scope_kind='release'");
+    expect(__sql.CLOSURE_SQL).toContain("FROM biographical_fact_provenance bfp");
   });
 
   it("lists only release-scoped sources in bytewise ID order", async () => {

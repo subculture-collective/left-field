@@ -20,6 +20,12 @@ describe("UI data boundary", () => {
     expect(model.elections.some((election) => election.certificationStatus === "unavailable")).toBe(true);
     expect(model.sourceClosure.snapshots.length).toBeGreaterThan(0); expect(model.sourceClosure.sources.length).toBeGreaterThan(0);
   });
+  it("keeps v1 biography finite and makes no committee, age, or tenure claim", () => {
+    const profile = projection.profile(canonicalManifest.profileSeatCycleIds[0]!); const seat = projection.list(seatQuerySchema.parse({})).find((row) => row.id === profile?.seatCycle.id); if (!profile || !seat) throw new Error("fixture missing"); const model = compileProfilePage(profile, seat);
+    expect(model.biography).toMatchObject({ bioguideId: null, birthDate: null, facts: [], memberCoverage: null });
+    expect(model.biography.committeeAssignmentsNote).toContain("authoritative effective dates");
+    expect(Object.keys(model.biography)).not.toContain("age"); expect(Object.keys(model.biography)).not.toContain("tenure");
+  });
   it("preserves result options, values, contest context, and exact lineages", () => {
     const profile = canonicalManifest.profileSeatCycleIds.map((id) => projection.profile(id)).find((item) => item?.resultOptions.some((option) => option.candidacyId !== null)); if (!profile) throw new Error("fixture missing"); const seat = projection.list(seatQuerySchema.parse({})).find((row) => row.id === profile.seatCycle.id); const result = profile.electionResults.find((item) => profile.resultOptions.find((option) => option.id === item.resultOptionId)?.candidacyId !== null); if (!seat || !result) throw new Error("fixture missing"); const option = profile.resultOptions.find((item) => item.id === result.resultOptionId)!; const candidacy = profile.candidacies.find((item) => item.id === option.candidacyId)!; const contest = profile.contests.find((item) => item.id === result.contestId)!; const model = compileProfilePage(profile, seat); const row = model.electionResults.find((item) => item.resultOptionId === option.id)!;
     expect(row).toMatchObject({ label: option.label, party: option.party, votes: result.votes, denominatorVotes: contest.denominatorVotes, certificationStatus: contest.certificationStatus, reportingCompletenessPercent: contest.reportingCompletenessPercent, allocationMethod: contest.allocationMethod, lineage: result.lineage });

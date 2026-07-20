@@ -190,6 +190,31 @@ describe("nationwide manifest v2", () => {
     expect(validateReleaseManifest(manifest).success).toBe(true);
   });
 
+  it("counts member coverage only for matching current-person Bioguide facts", () => {
+    const manifest = nationwideSkeleton();
+    expect(validateReleaseManifest(withChecksum(manifest)).success).toBe(true);
+    const conflicting = structuredClone(manifest); const id = conflicting.biographicalFacts.find((row) => row.fact === "bioguide_id")!; if (id.value.kind === "value") id.value.value = "B000000";
+    expectV2Issue(conflicting, "Invalid coverage record");
+  });
+
+  it("allows published current members to remain explicitly not collected", () => {
+    const manifest = nationwideSkeleton();
+    manifest.release.status = "published";
+    manifest.release.publishedAt = "2024-01-02T00:00:00.000Z";
+    manifest.biographicalFacts = [];
+    Object.assign(manifest.coverageRecords.find((record) => record.domain === "member")!, { status: "not_collected", expectedCount: 541, observedCount: 0, missingByReason: [{ reason: "not_collected", count: 541 }] });
+    expect(validateReleaseManifest(withChecksum(manifest)).success).toBe(true);
+  });
+
+  it("rejects malformed Bioguide and impossible or post-cutoff birth dates while allowing missing DOB", () => {
+    const malformed = nationwideSkeleton(); malformed.people[0]!.bioguideId = "bad"; expect(validateReleaseManifest(withChecksum(malformed)).success).toBe(false);
+    for (const value of ["2024-02-30", "2024-01-02"] as const) {
+      const manifest = nationwideSkeleton(); manifest.biographicalFacts.find((fact) => fact.fact === "birth_date")!.value = { kind: "value", value };
+      expectV2Issue(manifest, "Invalid biographical fact reference or cutoff");
+    }
+    expect(validateReleaseManifest(withChecksum(nationwideSkeleton())).success).toBe(true);
+  });
+
   it("rejects Senate offices in a jurisdiction without Senate representation", () => {
     const manifest = nationwideSkeleton();
     manifest.offices[0] = { ...manifest.offices[0]!, chamber: "senate", kind: "senate", stateCode: "DC", districtCode: null, senateClass: 1 };
@@ -250,7 +275,7 @@ describe("nationwide manifest v2", () => {
   it("rejects cross-release rows, dangling provenance, and duplicate new references", () => {
     const release = nationwideSkeleton(); release.biographicalFacts[0]!.releaseId = "rel_other" as never; expectV2Issue(release, "Invalid biographical fact reference or cutoff");
     const dangling = nationwideSkeleton(); dangling.biographicalFacts[0]!.provenance = [{ snapshotId: "snap_missing" as never, role: "original_publisher" }]; expectV2Issue(dangling, "Invalid biographical fact reference or cutoff");
-    const duplicate = nationwideSkeleton(); duplicate.committeeAssignments[0]!.provenance = [duplicate.committeeAssignments[0]!.provenance[0]!, duplicate.committeeAssignments[0]!.provenance[0]!]; expectV2Issue(duplicate, "Duplicate reference");
+    const duplicate = nationwideSkeleton(); duplicate.biographicalFacts[0]!.provenance = [duplicate.biographicalFacts[0]!.provenance[0]!, duplicate.biographicalFacts[0]!.provenance[0]!]; expectV2Issue(duplicate, "Duplicate reference");
   });
 
   it("enforces as-of, coverage, and cutoff dates for new finance facts", () => {

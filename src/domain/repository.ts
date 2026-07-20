@@ -25,6 +25,8 @@ import {
   officeTermSchema,
   partySchema,
   personSchema,
+  personBiographicalFactSchema,
+  coverageRecordSchema,
   releaseIdSchema,
   resultOptionSchema,
   seatCycleSchema,
@@ -143,6 +145,15 @@ export const seatListItemSchema = z.object({
   coverageLabel: z.string().min(1),
 }).strict();
 
+const profileBiographicalFactsSchema = z.array(personBiographicalFactSchema).superRefine((facts, context) => {
+  const keys = new Set<string>();
+  facts.forEach((fact, index) => {
+    const key = `${fact.personId}:${fact.fact}:${fact.effectiveAt}`;
+    if (keys.has(key)) context.addIssue({ code: "custom", path: [index], message: "Duplicate biographical fact" });
+    keys.add(key);
+  });
+});
+
 export const seatProfileSchema = z.object({
   release: dataReleaseSchema,
   office: officeSchema,
@@ -151,6 +162,8 @@ export const seatProfileSchema = z.object({
   officeTerm: officeTermSchema,
   membership: membershipSchema.nullable(),
   incumbent: personSchema.nullable(),
+  biographicalFacts: profileBiographicalFactsSchema,
+  memberCoverage: coverageRecordSchema.refine((coverage) => coverage.domain === "member" && coverage.scope.kind === "release", "Expected release-scope member coverage").nullable(),
   contests: z.array(contestSchema),
   candidacies: z.array(candidacySchema),
   resultOptions: z.array(resultOptionSchema),

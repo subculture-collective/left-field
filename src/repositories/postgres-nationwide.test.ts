@@ -54,7 +54,7 @@ describe("PostgresSeatResearchRepository nationwide reads", () => {
   });
 
   it("uses one read-only repeatable-read client transaction and releases it on success and failure", async () => {
-    const manifest = coherentManifest(); const profile = { release: manifest.release, office: manifest.offices[0], seatCycle: manifest.seatCycles[0], geography: manifest.geographyVersions[0], officeTerm: manifest.officeTerms[0], membership: null, incumbent: null, contests: [], candidacies: [], resultOptions: [], electionResults: [], demographics: [], finance: [], committees: [], committeeRelationships: [], sources: [], snapshots: [] };
+    const manifest = coherentManifest(); const profile = { release: manifest.release, office: manifest.offices[0], seatCycle: manifest.seatCycles[0], geography: manifest.geographyVersions[0], officeTerm: manifest.officeTerms[0], membership: null, incumbent: null, contests: [], candidacies: [], resultOptions: [], biographicalFacts: [], memberCoverage: null, electionResults: [], demographics: [], finance: [], committees: [], committeeRelationships: [], sources: [], snapshots: [] };
     const calls: string[] = []; let released = 0; let reads = 0; let fail = false;
     const client = { query: async (text: string) => { calls.push(text); if (!/^(BEGIN|COMMIT|ROLLBACK)/.test(text)) { if (fail) throw new Error("read failed"); return ++reads === 1 ? { rowCount: 1, rows: [{ profile }] } : { rowCount: 0, rows: [] }; } return { rowCount: 0, rows: [] }; }, release: () => { released += 1; } };
     const repository = new PostgresSeatResearchRepository({ connect: async () => client } as never);

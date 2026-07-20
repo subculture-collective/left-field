@@ -9,6 +9,9 @@ import { compileBoundaryBundle, loadPrototypeManifest, seedPrototypeManifest } f
 import { promoteCandidateRelease, rollbackPublishedRelease, rollForwardRetiredRelease } from "./releases";
 import {
   baselineCandidateRelease,
+  assertPersistedTask6MemberInvariant,
+  verifyPersistedTask6MemberCandidate,
+  enrichCandidateMembersFromBaseline,
   computeReleaseDigest,
   contentTableRegistry,
   contentDomains,
@@ -70,6 +73,10 @@ function persistedNationwideSkeleton() {
   const vacantTerms = new Set(manifest.seatCycles.filter((cycle) => houseOfficeIds.has(cycle.officeId)).map((cycle) => cycle.officeTermId));
   manifest.seatCycles = manifest.seatCycles.map((cycle) => vacantTerms.has(cycle.officeTermId) ? { ...cycle, occupancy: { ...cycle.occupancy, status: "vacant" } } : cycle);
   manifest.memberships = manifest.memberships.filter((membership) => !vacantTerms.has(membership.officeTermId));
+  const memberCoverage = manifest.coverageRecords.find((record) => record.domain === "member" && record.scope.kind === "release");
+  if (!memberCoverage) throw new Error("Synthetic nationwide fixture is missing release member coverage");
+  memberCoverage.expectedCount = manifest.memberships.length;
+  memberCoverage.observedCount = manifest.memberships.length;
   const featureCollection = {
     type: "FeatureCollection",
     features: manifest.geographyVersions.map((geography, index) => ({
@@ -80,7 +87,7 @@ function persistedNationwideSkeleton() {
   };
   const bytes = JSON.stringify(featureCollection);
   manifest.geometryArtifacts[0]!.checksumSha256 = createHash("sha256").update(bytes).digest("hex");
-  manifest.biographicalFacts[0]!.value = { kind: "value", value: "1970-01-02" };
+  manifest.biographicalFacts.find((fact) => fact.fact === "birth_date")!.value = { kind: "value", value: "1970-01-02" };
   manifest.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(manifest);
   return { manifest, bundle: [{ artifactId: manifest.geometryArtifacts[0]!.id, objectKey: manifest.geometryArtifacts[0]!.objectKey, bytes }] satisfies BoundaryBundle };
 }
@@ -504,7 +511,7 @@ integration("PostgreSQL integration", () => {
     try {
       const { manifest, bundle } = persistedNationwideSkeleton();
       await seedNationwideCandidateManifest(pool, manifest, bundle);
-      expect((await loadNationwideManifest(pool, manifest.release.id)).biographicalFacts[0]!.value).toEqual({ kind: "value", value: "1970-01-02" });
+      expect((await loadNationwideManifest(pool, manifest.release.id)).biographicalFacts.find((fact) => fact.fact === "birth_date")?.value).toEqual({ kind: "value", value: "1970-01-02" });
       const client = await pool.connect();
       try {
         await client.query("BEGIN");
@@ -653,11 +660,81 @@ integration("PostgreSQL integration", () => {
       await baselineCandidateRelease(pool, manifest.release.id, targetId);
       const loaded = await loadNationwideManifest(pool, targetId);
       expect(loaded.release).toMatchObject({ id: targetId, label: "Baselined nationwide candidate", status: "candidate", sourceCutoff: manifest.release.sourceCutoff, createdAt: "2024-01-03T00:00:00.000Z" });
-      expect(loaded.biographicalFacts[0]!.value).toEqual({ kind: "value", value: "1970-01-02" });
+      expect(loaded.biographicalFacts.find((fact) => fact.fact === "birth_date")!.value).toEqual({ kind: "value", value: "1970-01-02" });
       for (const domain of Object.keys(contentDomains) as Array<keyof typeof contentDomains>) expect(await computeReleaseDigest(pool, targetId, domain)).toEqual(await computeReleaseDigest(pool, manifest.release.id, domain));
       await expect(recheckNationwideValidationGate(pool, targetId)).rejects.toThrow();
       await validateNationwideCandidateRelease(pool, targetId);
       await expect(recheckNationwideValidationGate(pool, targetId)).resolves.toBeUndefined();
+    } finally { await pool.end(); }
+  }, 60_000);
+
+  it("atomically enriches a same-cutoff v2 baseline from locked member identities", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    try {
+      const { manifest, bundle } = persistedNationwideSkeleton();
+      manifest.biographicalFacts = [];
+      manifest.committeeAssignments = [];
+      Object.assign(manifest.coverageRecords.find((record) => record.domain === "member")!, { status: "not_collected", expectedCount: 537, observedCount: 0, missingByReason: [{ reason: "not_collected", count: 537 }] });
+      manifest.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(manifest);
+      await seedNationwideCandidateManifest(pool, manifest, bundle);
+      await validateNationwideCandidateRelease(pool, manifest.release.id);
+      await promoteCandidateRelease(pool, manifest.release.id);
+      const targetId = "rel_member_enrichment";
+      await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,'Member enrichment','candidate',$2,$3,NULL,$4)", [targetId, manifest.release.sourceCutoff, "2024-01-03T00:00:00.000Z", manifest.release.id]);
+      await enrichCandidateMembersFromBaseline(pool, manifest.release.id, targetId);
+      const loaded = await loadNationwideManifest(pool, targetId);
+      expect(loaded.release.status).toBe("candidate");
+      expect(loaded.biographicalFacts).toHaveLength(1074);
+      expect(loaded.committeeAssignments).toHaveLength(0);
+      expect(loaded.coverageRecords.find((record) => record.domain === "member" && record.scope.kind === "release")).toMatchObject({ status: "complete", expectedCount: 537, observedCount: 537, missingByReason: [], quarantinedCount: 0, incompatibleCount: 0 });
+      expect((await pool.query("SELECT domain FROM release_content_digests WHERE release_id=$1", [targetId])).rowCount).toBe(7);
+      await expect(recheckNationwideValidationGate(pool, targetId)).resolves.toBeUndefined();
+      expect((await loadNationwideManifest(pool, manifest.release.id)).biographicalFacts).toHaveLength(0);
+      await expect(verifyPersistedTask6MemberCandidate(pool, targetId, manifest.release.id)).resolves.toEqual({ observed: 537, expected: 537, biographicalFactCount: 1074, committeeAssignmentCount: 0 });
+      // Queue the verifier ahead of a writer on the release row.  Releasing the
+      // holder lets PostgreSQL grant the verifier's lock first; the writer cannot
+      // interleave between its gate recheck and invariant read.
+      const holder = await pool.connect();
+      await holder.query("BEGIN");
+      await holder.query("SELECT 1 FROM data_releases WHERE id=$1 FOR UPDATE", [targetId]);
+      let verified = false;
+      const verification = verifyPersistedTask6MemberCandidate(pool, targetId, manifest.release.id).then((value) => { verified = true; return value; });
+      const mutation = pool.query("UPDATE data_releases SET label=label WHERE id=$1", [targetId]);
+      await Promise.resolve();
+      expect(verified).toBe(false);
+      await holder.query("COMMIT");
+      holder.release();
+      await expect(verification).resolves.toMatchObject({ observed: 537 });
+      await expect(mutation).resolves.toMatchObject({ rowCount: 1 });
+      const tampered = async (id: string): Promise<void> => {
+        await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,$2,'candidate',$3,$4,NULL,$5)", [id, id, manifest.release.sourceCutoff, "2024-01-03T00:00:00.000Z", manifest.release.id]);
+        await enrichCandidateMembersFromBaseline(pool, manifest.release.id, id);
+      };
+      const exactDobId = "rel_member_enrichment_exact_dob";
+      await tampered(exactDobId);
+      await pool.query("UPDATE biographical_facts SET value='1970-01-02',value_missing_reason=NULL WHERE ctid IN (SELECT ctid FROM biographical_facts WHERE release_id=$1 AND fact='birth_date' LIMIT 1)", [exactDobId]);
+      await expect(assertPersistedTask6MemberInvariant(pool, exactDobId, manifest.release.id)).rejects.toThrow("Persisted Task 6");
+      const provenanceMismatchId = "rel_member_enrichment_provenance_mismatch";
+      await tampered(provenanceMismatchId);
+      await pool.query("DELETE FROM coverage_input_snapshots WHERE release_id=$1 AND domain='member'", [provenanceMismatchId]);
+      await expect(assertPersistedTask6MemberInvariant(pool, provenanceMismatchId, manifest.release.id)).rejects.toThrow("Persisted Task 6");
+      const unrelatedSnapshotId = "snap_task6_unrelated";
+      const unrelatedProvenanceId = "rel_member_enrichment_unrelated_provenance";
+      await tampered(unrelatedProvenanceId);
+      await pool.query("INSERT INTO source_snapshots(release_id,id,source_id,source_url,published_at,retrieved_at,checksum_sha256,parser_version,license,usage_status) SELECT $1,$2,source_id,source_url,published_at,retrieved_at,checksum_sha256,parser_version,license,'approved' FROM source_snapshots WHERE release_id=$1 LIMIT 1", [unrelatedProvenanceId, unrelatedSnapshotId]);
+      await pool.query("INSERT INTO biographical_fact_provenance(release_id,person_id,fact,effective_at,snapshot_id,role) SELECT release_id,person_id,fact,effective_at,$2,role FROM biographical_fact_provenance WHERE release_id=$1 LIMIT 1", [unrelatedProvenanceId, unrelatedSnapshotId]);
+      await pool.query("INSERT INTO coverage_input_snapshots(release_id,domain,scope_key,snapshot_id) SELECT release_id,domain,scope_key,$2 FROM coverage_records WHERE release_id=$1 AND domain='member' AND scope_kind='release'", [unrelatedProvenanceId, unrelatedSnapshotId]);
+      await expect(assertPersistedTask6MemberInvariant(pool, unrelatedProvenanceId, manifest.release.id)).rejects.toThrow("Persisted Task 6");
+      const bioguideMismatchId = "rel_member_enrichment_bioguide_mismatch";
+      await tampered(bioguideMismatchId);
+      const mismatchedPerson = (await pool.query<{ person_id: string }>("SELECT person_id FROM biographical_facts WHERE release_id=$1 AND fact='bioguide_id' LIMIT 1", [bioguideMismatchId])).rows[0]!.person_id;
+      await pool.query("UPDATE people SET bioguide_id='B999999' WHERE release_id=$1 AND id=$2", [bioguideMismatchId, mismatchedPerson]);
+      await pool.query("UPDATE biographical_facts SET value='B999999' WHERE release_id=$1 AND person_id=$2 AND fact='bioguide_id'", [bioguideMismatchId, mismatchedPerson]);
+      await expect(assertPersistedTask6MemberInvariant(pool, bioguideMismatchId, manifest.release.id)).rejects.toThrow("Persisted Task 6");
+      expect((await loadNationwideManifest(pool, manifest.release.id)).biographicalFacts).toHaveLength(0);
+      await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES('rel_member_enrichment_bad','Bad','candidate',$1,$2,NULL,NULL)", ["2024-01-02T00:00:00.000Z", "2024-01-03T00:00:00.000Z"]);
+      await expect(enrichCandidateMembersFromBaseline(pool, manifest.release.id, "rel_member_enrichment_bad")).rejects.toThrow();
+      expect((await pool.query("SELECT 1 FROM sources WHERE release_id='rel_member_enrichment_bad' LIMIT 1")).rowCount).toBe(0);
     } finally { await pool.end(); }
   }, 60_000);
 

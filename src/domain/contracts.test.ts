@@ -134,12 +134,14 @@ describe("persisted schemas and runtime DTOs", () => {
     const committee = { id: "committee_1", releaseId: "rel_1", provenance, sourceCommitteeId: "C00000001", name: "Committee", committeeType: "principal" };
     const profile = {
       release, office, seatCycle: cycle, geography, officeTerm: term, membership: null, incumbent: null,
-      contests: [contest], candidacies: [candidacy], resultOptions: [option],
+      contests: [contest], candidacies: [candidacy], resultOptions: [option], biographicalFacts: [], memberCoverage: null,
       electionResults: [{ releaseId: "rel_1", contestId: "contest_1", resultOptionId: "option_1", votes: { kind: "value", value: 1 }, lineage }],
       demographics: [], finance: [{ id: "fec_1", releaseId: "rel_1", seatCycleId: "seat_1", committeeId: "committee_1", sourceFilingId: "F1", reportType: "Q1", reportingPeriodStart: "2024-01-01", reportingPeriodEnd: "2024-03-31", filedAt: "2024-04-01T00:00:00.000Z", amendmentNumber: 0, amendmentStatus: "new", amendsFilingId: null, cashOnHand: { kind: "value", value: 1 }, totalReceipts: { kind: "value", value: 1 }, totalDisbursements: { kind: "value", value: 1 }, lineage }],
       committees: [committee], committeeRelationships: [{ id: "committee_rel_1", releaseId: "rel_1", provenance, committeeId: "committee_1", candidacyId: "candidacy_1", relationship: "principal_campaign_committee", effectiveFrom: "2024-01-01", effectiveTo: null }], sources: [source], snapshots: [snapshot],
     };
     expect(seatProfileSchema.safeParse(profile).success).toBe(true);
     expect(seatProfileSchema.safeParse({ ...profile, unexpected: true }).success).toBe(false);
+    expect(seatProfileSchema.safeParse({ ...profile, biographicalFacts: [{}] }).success).toBe(false);
+    expect(seatProfileSchema.safeParse({ ...profile, memberCoverage: {} }).success).toBe(false);
   });
 });
