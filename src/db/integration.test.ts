@@ -47,6 +47,9 @@ import { assertPersistedTask7AcsInvariant, finalizeCandidateAcs, verifyPersisted
 import { finalizeCandidateFec, verifyPersistedTask8FecCandidate } from "@/ingestion/fec/finalize-fec";
 import { encodeFecSanitizedEnvelope, fecEnvelopeSha256, fecPageRequestSha256 } from "@/ingestion/fec/envelope";
 import { fecEnvelopeFixture } from "@/ingestion/fec/fec-test-fixture";
+import { createElectionDecisionAdapter, ELECTION_DECISION_SOURCE, ELECTION_DECISION_UPSTREAM_RELEASE, electionDecisionSourceUrl } from "@/ingestion/elections/adapter";
+import { ELECTION_DECISION_ADAPTER_VERSION, electionDecisionEnvelopeSha256, encodeElectionDecisionEnvelope } from "@/ingestion/elections/decision-envelope";
+import { finalizeCandidateElectionDecisions, verifyPersistedTask9ElectionCandidate } from "@/ingestion/elections/finalize-elections";
 
 const testDatabaseUrl = process.env.TEST_DATABASE_URL;
 const testDatabaseName = testDatabaseUrl ? new URL(testDatabaseUrl).pathname.slice(1) : "";
@@ -746,7 +749,7 @@ integration("PostgreSQL integration", () => {
     } finally { await pool.end(); }
   }, 60_000);
 
-  it("finalizes Task 7 ACS and guarded synthetic Task 8 FEC candidate-only data", async () => {
+  it("finalizes Task 7 ACS, Task 8 FEC, and reviewed Task 9 election decisions atomically", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
     const rawRoot = await mkdtemp(join(tmpdir(), "acs-task7-integration-"));
     try {
@@ -925,6 +928,115 @@ integration("PostgreSQL integration", () => {
        await expect(assertPersistedTask7AcsInvariant(pool, r2, manifest.release.id)).resolves.toBeUndefined(); await expect(recheckNationwideValidationGate(pool, r2)).resolves.toBeUndefined();
        const task8Profile = await repository.getSeatProfile(r2 as never, target.seatCycleId as never);
        expect(task8Profile!.financeAggregates).toHaveLength(1); expect(task8Profile!.financeCoverage).toMatchObject({ status: "complete", inputSnapshotIds: [mappingSnapshot.id, fecSnapshot.id] }); expect(task8Profile!.snapshots.map((snapshot) => snapshot.id)).toEqual(expect.arrayContaining([mappingSnapshot.id, fecSnapshot.id]));
+
+       // Task 9 uses the production decision envelope, adapter, run lifecycle,
+       // finalizer, and verifier while reusing the baseline's exact approved
+       // synthetic evidence snapshot and source-lock receipt.
+       await pool.query("INSERT INTO sources(release_id,id,name,authority,homepage_url) VALUES($1,$2,$3,$4,$5)", [r2, ELECTION_DECISION_SOURCE.id, ELECTION_DECISION_SOURCE.name, ELECTION_DECISION_SOURCE.authority, ELECTION_DECISION_SOURCE.homepageUrl]);
+       const electionEvidenceLock = { id: "synthetic_input_v1", url: mappingSnapshot.sourceUrl, sha256: mappingSnapshot.checksumSha256, byteSize: 0 };
+       const electionSourceLockSha256 = createHash("sha256").update(JSON.stringify(electionEvidenceLock)).digest("hex");
+       const passedGate = (value: Record<string, unknown>) => ({ outcome: "passed" as const, evidenceSnapshotIds: [mappingSnapshot.id], value, failureReason: null });
+       const unassessedGate = { outcome: "unassessed" as const, evidenceSnapshotIds: [], value: null, failureReason: null };
+       const approvedGates = {
+         sourceAuthority: passedGate({ originalPublisher: { identity: "Synthetic election authority", role: "original_publisher", evidenceKind: "record" }, intermediaries: [] }),
+         license: passedGate({ assessment: "approved" }),
+         certification: passedGate({ value: "certified", scope: "statewide presidential results" }),
+         reportingUnitGeometry: passedGate({ release: "synthetic-2024", vintage: "2024" }),
+         nonGeographicPolicy: passedGate({ policy: "included in authority total" }),
+         allocation: passedGate({ method: "none", crosswalkMethodology: "not applicable", weightsMethodology: "not applicable" }),
+         reconciliation: passedGate({ delta: 0, authorityTotal: 1 }),
+         rounding: passedGate({ rule: "integer votes" }),
+         coverage: passedGate({ expectedCount: 1, actualCount: 1 }),
+       };
+       const unavailableGates = {
+         sourceAuthority: approvedGates.sourceAuthority,
+         license: { outcome: "failed" as const, evidenceSnapshotIds: [mappingSnapshot.id], value: { assessment: "unknown" }, failureReason: "license_unavailable" as const },
+         certification: unassessedGate, reportingUnitGeometry: unassessedGate, nonGeographicPolicy: unassessedGate,
+         allocation: unassessedGate, reconciliation: unassessedGate, rounding: unassessedGate, coverage: unassessedGate,
+       };
+       const decisionSpecs = [
+         { jurisdictionCode: "AL" as const, electionYear: 2020 as const, snapshotId: "snap_election_decision_v1_al_2020_review_20240101", gates: unavailableGates },
+         { jurisdictionCode: "AK" as const, electionYear: 2024 as const, snapshotId: "snap_election_decision_v1_ak_2024_review_20240101", gates: approvedGates },
+       ];
+       const electionRuns: string[] = [];
+       for (const spec of decisionSpecs) {
+         const envelope = {
+           schemaVersion: 1 as const, adapterVersion: ELECTION_DECISION_ADAPTER_VERSION as "election-decision-v1", sourceLockSha256: electionSourceLockSha256,
+           releaseCutoff: "2024-01-01", decisionSnapshotId: spec.snapshotId,
+           evidenceReceipts: [{ snapshotId: mappingSnapshot.id, lockEntryId: electionEvidenceLock.id, url: electionEvidenceLock.url, sha256: electionEvidenceLock.sha256, byteSize: electionEvidenceLock.byteSize }],
+           decision: { schemaVersion: 1 as const, jurisdictionCode: spec.jurisdictionCode, electionYear: spec.electionYear, reviewDate: "2024-01-01", methodology: "synthetic reviewed election decision v1", evidenceSnapshotIds: [mappingSnapshot.id], gates: spec.gates },
+         };
+         const envelopeBytes = encodeElectionDecisionEnvelope(envelope);
+         const envelopeChecksumSha256 = electionDecisionEnvelopeSha256(envelopeBytes);
+         const result = await runSource(createElectionDecisionAdapter({
+           envelopeBytes, envelopeChecksumSha256, envelopeByteSize: envelopeBytes.byteLength,
+           sourceLockSha256: electionSourceLockSha256, releaseCutoff: "2024-01-01", snapshotId: spec.snapshotId as never,
+           sourceUrl: electionDecisionSourceUrl(envelope, envelopeChecksumSha256), parserVersion: ELECTION_DECISION_ADAPTER_VERSION,
+           upstreamRelease: ELECTION_DECISION_UPSTREAM_RELEASE, rawStore, sourceLockEntries: [electionEvidenceLock],
+         }), { pool, releaseId: r2 as never, sourceId: ELECTION_DECISION_SOURCE.id as never, cutoff: new Date(manifest.release.sourceCutoff), dryRun: true });
+         electionRuns.push(result.runIds[0]!);
+       }
+       expect((await pool.query("SELECT count(*)::int count FROM sources WHERE release_id=$1 AND id=$2", [r2, ELECTION_DECISION_SOURCE.id])).rows[0]).toEqual({ count: 1 });
+       expect((await pool.query("SELECT status,extracted_count,staged_count,quarantined_count FROM ingest_runs WHERE id=ANY($1) ORDER BY id", [electionRuns])).rows).toEqual(Array.from({ length: 2 }, () => ({ status: "validated", extracted_count: 0, staged_count: 0, quarantined_count: 0 })));
+       const task9 = { pool, rawStore, candidateReleaseId: r2, sourceReleaseId: manifest.release.id, runIds: electionRuns, sourceLockSha256: electionSourceLockSha256, sourceLockEntries: [electionEvidenceLock] };
+       const gateBeforeTask9 = (await pool.query("SELECT content_checksum_sha256,validated_at FROM release_manifests WHERE release_id=$1", [r2])).rows[0];
+       const mismatchedElectionStore: RawObjectStore = { put: (input) => rawStore.put(input), read: async (value, signal) => { const valueBytes = (await rawStore.read(value, signal)).slice(); valueBytes[0] ^= 1; return valueBytes; } };
+       await expect(finalizeCandidateElectionDecisions({ ...task9, rawStore: mismatchedElectionStore })).rejects.toThrow("ELECTION_FINALIZE_RAW_MISMATCH");
+       expect((await pool.query("SELECT status FROM ingest_runs WHERE id=ANY($1) ORDER BY id", [electionRuns])).rows).toEqual([{ status: "validated" }, { status: "validated" }]);
+       expect((await pool.query("SELECT count(*)::int count FROM snapshot_derivations WHERE release_id=$1 AND output_snapshot_id=ANY($2)", [r2, decisionSpecs.map((value) => value.snapshotId)])).rows[0]).toEqual({ count: 0 });
+       expect((await pool.query("SELECT count(*)::int count FROM election_decision_inputs WHERE release_id=$1 AND election_decision_id=ANY($2)", [r2, ["decision_al_2020", "decision_ak_2024"]])).rows[0]).toEqual({ count: 0 });
+       expect((await pool.query("SELECT jurisdiction_code,election_year,status FROM election_decisions WHERE release_id=$1 AND (jurisdiction_code,election_year) IN (('AL',2020),('AK',2024)) ORDER BY jurisdiction_code,election_year", [r2])).rows).toEqual([{ jurisdiction_code: "AK", election_year: 2024, status: "unassessed" }, { jurisdiction_code: "AL", election_year: 2020, status: "unassessed" }]);
+       expect((await pool.query("SELECT content_checksum_sha256,validated_at FROM release_manifests WHERE release_id=$1", [r2])).rows[0]).toEqual(gateBeforeTask9);
+
+       await pool.query("UPDATE election_decisions SET id='decision_al_2020_tampered' WHERE release_id=$1 AND id='decision_al_2020'", [r2]);
+       await expect(finalizeCandidateElectionDecisions(task9)).rejects.toThrow("ELECTION_FINALIZE_DRIFT_INVALID");
+       await pool.query("UPDATE election_decisions SET id='decision_al_2020' WHERE release_id=$1 AND id='decision_al_2020_tampered'", [r2]);
+
+       await finalizeCandidateElectionDecisions(task9);
+       const gateAfterTask9 = (await pool.query("SELECT content_checksum_sha256,validated_at FROM release_manifests WHERE release_id=$1", [r2])).rows[0];
+       expect(gateAfterTask9.content_checksum_sha256).not.toBe(gateBeforeTask9.content_checksum_sha256);
+       expect(gateAfterTask9.validated_at).not.toBeNull();
+       await finalizeCandidateElectionDecisions(task9); // exact restart over loaded runs
+       await expect(Promise.all([verifyPersistedTask9ElectionCandidate(task9), verifyPersistedTask9ElectionCandidate(task9)])).resolves.toEqual([undefined, undefined]);
+       const task9Manifest = await loadNationwideManifest(pool, r2);
+       expect(task9Manifest.electionDecisions.filter((row) => (row.jurisdictionCode === "AL" && row.electionYear === 2020) || (row.jurisdictionCode === "AK" && row.electionYear === 2024)).sort((a, b) => a.id.localeCompare(b.id))).toEqual([
+         expect.objectContaining({ id: "decision_ak_2024", jurisdictionCode: "AK", electionYear: 2024, status: "approved", inputSnapshotIds: [decisionSpecs[1]!.snapshotId] }),
+         expect.objectContaining({ id: "decision_al_2020", jurisdictionCode: "AL", electionYear: 2020, status: "unavailable", inputSnapshotIds: [decisionSpecs[0]!.snapshotId] }),
+       ]);
+       expect(task9Manifest.coverageRecords.filter((row) => row.scope.kind === "election" && ((row.scope.jurisdictionCode === "AL" && row.scope.electionYear === 2020) || (row.scope.jurisdictionCode === "AK" && row.scope.electionYear === 2024))).sort((a, b) => a.domain.localeCompare(b.domain))).toEqual([
+         expect.objectContaining({ domain: "election_2020", status: "unavailable", expectedCount: 1, observedCount: 0, missingByReason: [{ reason: "not_defensibly_modeled", count: 1 }], inputSnapshotIds: [decisionSpecs[0]!.snapshotId] }),
+         expect.objectContaining({ domain: "election_2024", status: "complete", expectedCount: 1, observedCount: 1, missingByReason: [], inputSnapshotIds: [decisionSpecs[1]!.snapshotId] }),
+       ]);
+       expect(task9Manifest.snapshotDerivations.filter((row) => decisionSpecs.some((spec) => spec.snapshotId === row.outputSnapshotId)).sort((a, b) => a.outputSnapshotId.localeCompare(b.outputSnapshotId))).toEqual([
+         { releaseId: r2, outputSnapshotId: decisionSpecs[1]!.snapshotId, inputSnapshotIds: [mappingSnapshot.id], methodologyVersion: ELECTION_DECISION_ADAPTER_VERSION },
+         { releaseId: r2, outputSnapshotId: decisionSpecs[0]!.snapshotId, inputSnapshotIds: [mappingSnapshot.id], methodologyVersion: ELECTION_DECISION_ADAPTER_VERSION },
+       ]);
+       expect((await pool.query("SELECT status FROM ingest_runs WHERE id=ANY($1) ORDER BY id", [electionRuns])).rows).toEqual([{ status: "loaded" }, { status: "loaded" }]);
+
+       const alCycle = task9Manifest.seatCycles.find((cycle) => task9Manifest.offices.find((office) => office.id === cycle.officeId)?.stateCode === "AL")!;
+       const akCycle = task9Manifest.seatCycles.find((cycle) => task9Manifest.offices.find((office) => office.id === cycle.officeId)?.stateCode === "AK")!;
+       const alProfile = await repository.getSeatProfile(r2 as never, alCycle.id);
+       const akProfile = await repository.getSeatProfile(r2 as never, akCycle.id);
+       expect(alProfile!.electionDecisions.map((row) => [row.electionYear, row.status])).toEqual([[2020, "unavailable"], [2022, "unassessed"], [2024, "unassessed"]]);
+       expect(alProfile!.electionCoverage.map((row) => [row.scope.kind === "election" ? row.scope.electionYear : null, row.status])).toEqual([[2020, "unavailable"], [2022, "not_collected"], [2024, "not_collected"]]);
+       expect(akProfile!.electionDecisions.map((row) => [row.electionYear, row.status])).toEqual([[2020, "unassessed"], [2022, "unassessed"], [2024, "approved"]]);
+       expect(akProfile!.electionCoverage.map((row) => [row.scope.kind === "election" ? row.scope.electionYear : null, row.status])).toEqual([[2020, "not_collected"], [2022, "not_collected"], [2024, "complete"]]);
+       expect(alProfile!.snapshots.map((snapshot) => snapshot.id)).toEqual(expect.arrayContaining([mappingSnapshot.id, decisionSpecs[0]!.snapshotId]));
+       expect(akProfile!.snapshots.map((snapshot) => snapshot.id)).toEqual(expect.arrayContaining([mappingSnapshot.id, decisionSpecs[1]!.snapshotId]));
+       const task9FirstPage = await repository.listSeatPage(r2 as never, { sort: "state", direction: "asc", limit: 25 });
+       const task9Continuation = await repository.listSeatPage(r2 as never, { sort: "state", direction: "asc", limit: 25, cursor: listBefore.nextCursor! });
+       expect(task9FirstPage.items.map((row) => row.id)).toEqual(listBefore.items.map((row) => row.id));
+       expect(task9FirstPage.nextCursor).toBe(listBefore.nextCursor);
+       expect(task9Continuation.items.map((row) => row.id)).toEqual(continuationBefore.items.map((row) => row.id));
+       expect(task9Continuation.nextCursor).toBe(continuationBefore.nextCursor);
+       expect(await repository.getSeatFacets(r2 as never)).toEqual(facetsBefore);
+       await expect(assertPersistedTask7AcsInvariant(pool, r2, manifest.release.id)).resolves.toBeUndefined();
+       await expect(verifyPersistedTask8FecCandidate(task8)).resolves.toBeUndefined();
+       const preservedTask8Profile = await repository.getSeatProfile(r2 as never, target.seatCycleId as never);
+       expect(preservedTask8Profile!.financeAggregates).toEqual(task8Profile!.financeAggregates);
+       expect(preservedTask8Profile!.financeCoverage).toEqual(task8Profile!.financeCoverage);
+       await expect(promoteCandidateRelease(pool, r2)).rejects.toThrow(`Release ${r2} failed election publication readiness`);
+       expect((await pool.query("SELECT status FROM data_releases WHERE id=$1", [r2])).rows[0]).toEqual({ status: "candidate" });
     } finally {
       await pool.end();
       await rm(rawRoot, { recursive: true, force: true });

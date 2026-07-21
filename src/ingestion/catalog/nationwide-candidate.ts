@@ -7,7 +7,7 @@ import type { TigerEnvelopeV1 } from "@/ingestion/tiger/adapter";
 import { compiledFactsSha256, replayIdentityFacts, type IdentityEnvelopeV1 } from "@/ingestion/identity/adapter";
 import { sourceSchema, sourceSnapshotSchema } from "@/domain/contracts";
 import { nationwideManifestSchema, type NationwideManifest } from "@/domain/manifest";
-import { computeCanonicalDataChecksum, NATIONWIDE_SEAT_POLICY, validateReleaseManifest } from "@/domain/validate-manifest";
+import { computeCanonicalDataChecksum, validateReleaseManifest } from "@/domain/validate-manifest";
 
 const sha256 = (value: Uint8Array) => createHash("sha256").update(value).digest("hex");
 const text = (value: Uint8Array) => new TextDecoder("utf-8", { fatal: true }).decode(value);
@@ -83,7 +83,7 @@ export function compileNationwideCandidate(options: NationwideCandidateOptions):
   ) => coverageRecords.push({ releaseId, domain, scope, status, expectedCount, observedCount, missingByReason: missing ? [{ reason: "not_collected", count: missing }] : [], quarantinedCount: 0, incompatibleCount: 0, inputSnapshotIds });
   coverage("identity", { kind: "release" }, "complete", 541, 541, 0, identitySnapshotIds); coverage("geography", { kind: "release" }, "complete", 491, 491, 0, [tigerSnap]); coverage("member", { kind: "release" }, "not_collected", 537, 0, 537, identitySnapshotIds); coverage("acs", { kind: "release" }, "not_collected", 1, 0, 1, [tigerSnap]); coverage("maps", { kind: "release" }, "not_collected", 497, 0, 497, [tigerSnap]);
   for (const seatCycleId of catalogSeatCycleIds) for (const fundingKind of ["summary", "category", "organization", "outside_spending"] as const) coverage("finance", { kind: "funding", seatCycleId, fundingKind }, "not_collected", 1, 0, 1, identitySnapshotIds);
-  for (const state of Object.keys(NATIONWIDE_SEAT_POLICY)) for (const electionYear of [2020, 2022, 2024] as const) { electionDecisions.push({ id: stable("election_decision", `${state}_${electionYear}`), releaseId, jurisdictionCode: state, electionYear, status: "unavailable", inputSnapshotIds: identitySnapshotIds }); coverage(`election_${electionYear}`, { kind: "election", jurisdictionCode: state, electionYear }, "not_collected", 1, 0, 1, identitySnapshotIds); }
+  for (const electionYear of [2020, 2022, 2024] as const) for (const state of (electionYear === 2022 ? Object.keys(fipsByState) : Object.keys(fipsByState).filter(code => !["AS", "GU", "MP", "PR", "VI"].includes(code))) as State[]) { electionDecisions.push({ id: stable("election_decision", `${state}_${electionYear}`), releaseId, jurisdictionCode: state, electionYear, status: "unassessed", inputSnapshotIds: [] }); coverage(`election_${electionYear}`, { kind: "election", jurisdictionCode: state, electionYear }, "not_collected", 1, 0, 1, identitySnapshotIds); }
   const manifestDraft: NationwideManifestDraft = {
     schemaVersion: 2, catalogSeatCycleIds,
     release: { ...options.release, status: "candidate", publishedAt: null, previousReleaseId: null },

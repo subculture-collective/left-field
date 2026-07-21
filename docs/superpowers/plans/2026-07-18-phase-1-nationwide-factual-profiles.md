@@ -593,7 +593,7 @@ git add src/ingestion/fec src/repositories data/source-lock.json docs/reviews
 git commit -m "feat: add aggregate FEC summaries"
 ```
 
-## Task 9: Add state-gated 2020/2024 election context
+## Task 9: Add jurisdiction-gated 2020/2022/2024 election context
 
 **Files:**
 - Create: `src/ingestion/elections/gate.ts`
@@ -604,11 +604,11 @@ git commit -m "feat: add aggregate FEC summaries"
 - Modify: `data/metadata/election-result-feasibility-2020-2024.json`
 - Modify: `src/offline/feasibility-matrix.ts`
 
-- [ ] **Step 1: Write gate-transition tests**
+- [x] **Step 1: Write gate-transition tests**
 
-A state/year remains unavailable if any required source authority, license, reporting-unit geometry, non-geographic treatment, allocation, reconciliation, rounding, or coverage gate is unassessed. Test that an official landing page alone cannot upgrade the row.
+A jurisdiction/year is approved only when every required source authority, license, reporting-unit geometry, non-geographic treatment, allocation, reconciliation, rounding, and coverage gate passes. Scan gates in dependency order: if the first non-passed gate is unassessed, it and every later gate are unassessed; if it fails, the decision is unavailable and later gates may fail or remain unassessed, but never pass. Do not fabricate downstream failures. 2020/2024 close over the 50 states and DC; 2022 closes over those jurisdictions plus AS/GU/MP/PR/VI. Test that an official landing page alone cannot upgrade the row.
 
-- [ ] **Step 2: Add persisted decision records**
+- [x] **Step 2: Add persisted decision records**
 
 Baseline R2 into an R3 candidate. Each election import or unavailable record references a versioned state/year decision snapshot containing original publisher, intermediary, certification status, geometry release, non-geographic vote policy, allocation method, reconciliation delta, rounding, and expected/actual coverage.
 
@@ -616,11 +616,11 @@ Baseline R2 into an R3 candidate. Each election import or unavailable record ref
 
 Use checksum-pinned Clerk election-statistics publications plus original state authorities. Import 2020 and 2024 presidential records and the most recent 2020/2022/2024 House/Senate general contests available for each office; keep results attached to their election-time geography. Reconcile candidate totals and denominators to authority totals; quarantine unresolved discrepancies.
 
-- [ ] **Step 4: Implement overlays only for reviewed cohorts**
+- [x] **Step 4: Implement overlays only for reviewed cohorts**
 
 The minimum R3 cohort is the four prototype jurisdictions: Alaska, Alabama, Arizona, and Florida for both 2020 and 2024. Alaska may use direct statewide-at-large totals. AL/AZ/FL remain unavailable unless every gate passes. Use reporting-unit geometry and documented split weights. Never substitute Census VTDs without a proven election-unit crosswalk. A current-boundary metric must preserve every input snapshot and quality field.
 
-- [ ] **Step 5: Emit explicit unavailable facts elsewhere**
+- [x] **Step 5: Emit explicit unavailable facts elsewhere**
 
 Generate `unavailable—not defensibly modeled` records from the state/year gate, not from absence of rows. Sanders 2020 remains absent unless a separate primary/caucus-specific gate passes.
 

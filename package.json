@@ -17,6 +17,7 @@
     "finalize:nationwide": "tsx scripts/finalize-nationwide.ts",
     "finalize:acs": "tsx scripts/finalize-acs.ts",
     "finalize:fec": "tsx scripts/finalize-fec.ts",
+    "finalize:elections": "tsx scripts/finalize-elections.ts",
     "measure:task5-queries": "tsx scripts/measure-task5-queries.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",

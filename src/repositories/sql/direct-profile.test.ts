@@ -20,7 +20,8 @@ describe("direct SQL profile modules", () => {
     expect(__sql.CLOSURE_SQL).toContain("entity_type='result_options'");
     expect(__sql.CLOSURE_SQL).toContain("cr.domain='finance'");
     expect(__sql.CLOSURE_SQL).toContain("cr.scope_kind='funding'");
-    expect(__sql.CLOSURE_SQL).toContain("cr.domain='election_2024'");
+    expect(__sql.CLOSURE_SQL).toContain("cr.domain=concat('election_',cr.election_year)");
+    expect(__sql.CLOSURE_SQL).not.toContain("cr.domain='election_2024'");
     expect(__sql.CLOSURE_SQL).toContain("cr.scope_kind='election'");
     expect(__sql.CLOSURE_SQL).toContain("output_snapshot_id AS from_id, input_snapshot_id AS to_id");
     expect(__sql.PROFILE_SQL).toContain("EXISTS (SELECT 1 FROM fec_filing_summaries ff");

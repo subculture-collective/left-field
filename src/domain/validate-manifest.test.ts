@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { computeCanonicalDataChecksum, validatePrototypeManifest, validateReleaseManifest } from "./validate-manifest";
+import { computeCanonicalDataChecksum, electionDecisionCoverageIsCoherent, validatePrototypeManifest, validateReleaseManifest } from "./validate-manifest";
 import { parseReleaseManifest } from "./manifest";
 import { checksum, coherentManifest, lineage, provenance } from "@/test/fixtures/prototype-manifest";
 import { nationwideSkeleton } from "@/test/fixtures/nationwide-skeleton";
@@ -17,6 +17,20 @@ function expectIssue(input: ReturnType<typeof coherentManifest>, message: string
   expect(result.success).toBe(false);
   if (!result.success) expect(result.issues.some((issue) => issue.message === message)).toBe(true);
 }
+
+describe("election decision coverage contract", () => {
+  const record = (status: string, observedCount: number, reason: string, expectedCount = 1, quarantinedCount = 0, incompatibleCount = 0) => ({ status, expectedCount, observedCount, missingByReason: reason ? [{ reason, count: expectedCount }] : [], quarantinedCount, incompatibleCount });
+  it("derives the only valid coverage status for each decision", () => {
+    expect(electionDecisionCoverageIsCoherent("unassessed", record("not_collected", 0, "not_collected"))).toBe(true);
+    expect(electionDecisionCoverageIsCoherent("unavailable", record("unavailable", 0, "not_defensibly_modeled"))).toBe(true);
+    expect(electionDecisionCoverageIsCoherent("approved", record("complete", 1, ""))).toBe(true);
+    expect(electionDecisionCoverageIsCoherent("approved", record("not_collected", 0, "not_collected"))).toBe(false);
+    expect(electionDecisionCoverageIsCoherent("unavailable", record("unavailable", 0, "not_collected"))).toBe(false);
+    expect(electionDecisionCoverageIsCoherent("unassessed", record("not_collected", 0, "not_collected", 2))).toBe(false);
+    expect(electionDecisionCoverageIsCoherent("unavailable", record("unavailable", 0, "not_defensibly_modeled", 1, 1))).toBe(false);
+    expect(electionDecisionCoverageIsCoherent("approved", record("complete", 1, "", 1, 0, 1))).toBe(false);
+  });
+});
 
 describe("validatePrototypeManifest", () => {
   it("accepts a generated coherent manifest with ten House profiles and Senate pairs", () => {

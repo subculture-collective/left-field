@@ -9,6 +9,7 @@ import {
   committeeSchema,
   contestSchema,
   dataReleaseSchema,
+  electionDecisionSchema,
   electionResultSchema,
   factStatusSchema,
   factValueSchema,
@@ -158,6 +159,7 @@ const profileBiographicalFactsSchema = z.array(personBiographicalFactSchema).sup
 const ACS_PROFILE_INDICATORS = new Set(["B01003_001E", "B01002_001E", "B19013_001E"]);
 const profileAcsCoverageSchema = coverageRecordSchema.refine((coverage) => coverage.domain === "acs" && coverage.scope.kind === "acs_indicator" && ACS_PROFILE_INDICATORS.has(coverage.scope.variable) && coverage.scope.surveyPeriod === "2020-2024", "Expected an authorized 2020-2024 ACS indicator coverage record");
 const profileFinanceCoverageSchema = coverageRecordSchema.refine((coverage) => coverage.domain === "finance" && coverage.scope.kind === "funding" && coverage.scope.fundingKind === "summary", "Expected seat-scoped finance summary coverage");
+const profileElectionCoverageSchema = coverageRecordSchema.refine((coverage) => coverage.scope.kind === "election" && coverage.domain === `election_${coverage.scope.electionYear}`, "Expected matching election coverage");
 export const profileAcsAvailabilitySchema = z.discriminatedUnion("kind", [
   z.object({ kind: z.literal("observations") }).strict(),
   z.object({ kind: z.literal("no_observations") }).strict(),
@@ -180,6 +182,8 @@ export const seatProfileSchema = z.object({
   // Defaults keep v1 DTOs safe: an omitted field never implies compatibility.
   acsAvailability: profileAcsAvailabilitySchema.default({ kind: "no_observations" }),
   acsCoverage: z.array(profileAcsCoverageSchema).default([]),
+  electionDecisions: z.array(electionDecisionSchema).default([]),
+  electionCoverage: z.array(profileElectionCoverageSchema).default([]),
   contests: z.array(contestSchema),
   candidacies: z.array(candidacySchema),
   resultOptions: z.array(resultOptionSchema),
@@ -235,6 +239,18 @@ export const seatProfileSchema = z.object({
     });
   };
   visitReferences(profile, []);
+  const decisionYears = new Set(profile.electionDecisions.map((decision) => decision.electionYear));
+  const coverageYears = new Set(profile.electionCoverage.map((coverage) => coverage.scope.kind === "election" ? coverage.scope.electionYear : -1));
+  if (decisionYears.size !== profile.electionDecisions.length || coverageYears.size !== profile.electionCoverage.length || [...decisionYears].some((year) => !coverageYears.has(year)) || [...coverageYears].some((year) => !decisionYears.has(year))) addIssue(["electionCoverage"], "Election decisions and coverage must close over the same years");
+  profile.electionDecisions.forEach((decision, index) => {
+    const coverage = profile.electionCoverage.find((candidate) => candidate.scope.kind === "election" && candidate.scope.electionYear === decision.electionYear);
+    if (decision.jurisdictionCode !== profile.office.stateCode || !coverage || coverage.scope.kind !== "election" || coverage.scope.jurisdictionCode !== decision.jurisdictionCode) addIssue(["electionDecisions", index], "Election decision and coverage must match the office jurisdiction");
+    else {
+      const onlyReason = (reason: string): boolean => coverage.missingByReason.length === 1 && coverage.missingByReason[0]?.reason === reason && coverage.missingByReason[0]?.count === 1;
+      const coherent = decision.status === "unassessed" ? coverage.status === "not_collected" && coverage.expectedCount === 1 && coverage.observedCount === 0 && coverage.quarantinedCount === 0 && coverage.incompatibleCount === 0 && onlyReason("not_collected") : decision.status === "unavailable" ? coverage.status === "unavailable" && coverage.expectedCount === 1 && coverage.observedCount === 0 && coverage.quarantinedCount === 0 && coverage.incompatibleCount === 0 && onlyReason("not_defensibly_modeled") : coverage.status === "complete" && coverage.expectedCount === 1 && coverage.observedCount === 1 && coverage.quarantinedCount === 0 && coverage.incompatibleCount === 0 && coverage.missingByReason.length === 0;
+      if (!coherent) addIssue(["electionCoverage"], "Election coverage must agree with the decision status");
+    }
+  });
 });
 
 export type ElectionMetricSummary = z.infer<typeof electionMetricSummarySchema>;

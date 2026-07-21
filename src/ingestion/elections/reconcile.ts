@@ -1,0 +1,3 @@
+export class ElectionReconciliationError extends Error { constructor(readonly code: string) { super(`Election reconciliation rejected: ${code}`); this.name = "ElectionReconciliationError"; } }
+/** Exact denominators only: discrepancy is an error/quarantine signal, never a correction. */
+export function reconcileElectionTotals(authoritySubtotal: number, optionSubtotal: number, denominator: number): void { if (![authoritySubtotal, optionSubtotal, denominator].every(v => Number.isSafeInteger(v) && v >= 0)) throw new ElectionReconciliationError("INVALID_TOTAL"); if (authoritySubtotal !== optionSubtotal || authoritySubtotal !== denominator) throw new ElectionReconciliationError("TOTAL_MISMATCH"); }

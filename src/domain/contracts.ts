@@ -492,8 +492,8 @@ export const outsideSpendingAggregateSchema = z.strictObject({
 });
 export const electionDecisionSchema = z.strictObject({
   id: z.string().min(1), releaseId: releaseIdSchema, jurisdictionCode: usStateCodeSchema, electionYear: z.number().int(),
-  status: z.enum(["approved", "unavailable"]), inputSnapshotIds: z.array(snapshotIdSchema).min(1),
-});
+  status: z.enum(["unassessed", "approved", "unavailable"]), inputSnapshotIds: z.array(snapshotIdSchema),
+}).superRefine((value, context) => { if (value.status === "unassessed" && value.inputSnapshotIds.length !== 0) context.addIssue({ code: "custom", path: ["inputSnapshotIds"], message: "Unassessed decisions have no input snapshots" }); if (value.status !== "unassessed" && value.inputSnapshotIds.length !== 1) context.addIssue({ code: "custom", path: ["inputSnapshotIds"], message: "Reviewed decisions require exactly one decision snapshot" }); });
 export const mapArtifactSchema = z.strictObject({
   id: z.string().min(1), releaseId: releaseIdSchema, geographyVersionId: geographyVersionIdSchema,
   artifactId: geometryArtifactIdSchema, inputSnapshotIds: z.array(snapshotIdSchema).min(1),

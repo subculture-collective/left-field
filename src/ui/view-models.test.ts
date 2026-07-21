@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { canonicalManifest } from "@/data/canonical-manifest";
-import { seatQuerySchema } from "@/domain/repository";
+import { seatProfileSchema, seatQuerySchema } from "@/domain/repository";
 import type { SeatResearchRepository } from "@/domain/repository";
 import { InMemorySeatResearchRepository } from "@/repositories/in-memory";
 import { createManifestSeatProjection } from "@/repositories/manifest-projection";
@@ -50,6 +50,15 @@ describe("UI data boundary", () => {
     const model = compileProfilePage({ ...profile, finance: [], financeCoverage }, seat);
     expect(model.financeCoverage).toEqual(financeCoverage);
     expect(model.finance).toEqual([]);
+  });
+  it("preserves jurisdiction election decisions and distinguishes their stated statuses", () => {
+    const profile = projection.profile(canonicalManifest.profileSeatCycleIds[0]!); const seat = profile && projection.list(seatQuerySchema.parse({})).find((row) => row.id === profile.seatCycle.id); if (!profile || !seat) throw new Error("fixture missing");
+    const snapshotId = profile.snapshots[0]!.id;
+    const coverage = (year: 2020 | 2022 | 2024, status: "not_collected" | "unavailable" | "complete", reason: "not_collected" | "not_defensibly_modeled" | null) => ({ releaseId: profile.release.id, domain: `election_${year}` as const, scope: { kind: "election" as const, jurisdictionCode: profile.office.stateCode, electionYear: year }, status, expectedCount: 1, observedCount: status === "complete" ? 1 : 0, missingByReason: reason ? [{ reason, count: 1 }] : [], quarantinedCount: 0, incompatibleCount: 0, inputSnapshotIds: [snapshotId] });
+    const enriched = { ...profile, electionDecisions: [{ id: "decision_2020", releaseId: profile.release.id, jurisdictionCode: profile.office.stateCode, electionYear: 2020, status: "unassessed" as const, inputSnapshotIds: [] }, { id: "decision_2022", releaseId: profile.release.id, jurisdictionCode: profile.office.stateCode, electionYear: 2022, status: "unavailable" as const, inputSnapshotIds: [snapshotId] }, { id: "decision_2024", releaseId: profile.release.id, jurisdictionCode: profile.office.stateCode, electionYear: 2024, status: "approved" as const, inputSnapshotIds: [snapshotId] }], electionCoverage: [coverage(2020, "not_collected", "not_collected"), coverage(2022, "unavailable", "not_defensibly_modeled"), coverage(2024, "complete", null)] };
+    const model = compileProfilePage(seatProfileSchema.parse(enriched), seat);
+    expect(model.electionDecisions.map((item) => item.status)).toEqual(["unassessed", "unavailable", "approved"]);
+    expect(() => seatProfileSchema.parse({ ...enriched, electionCoverage: enriched.electionCoverage.slice(1) })).toThrow(/close over the same years/);
   });
   it("associates source snapshots without inventing a source", () => {
     const model = compileSourcesPage(canonicalManifest.release, canonicalManifest.sources, projection.snapshots());
