@@ -3,13 +3,14 @@ import { addressAnonymousSubjectHash, type AddressAdmissionRepository } from "@/
 import { parseAddressConfig, type AddressConfig } from "@/address/config";
 import { createAddressRuntime } from "@/address/runtime";
 import { canaryAuthorizationLooksValid, canonicalIp, digest, issueAddressCsrf, verifyAddressCsrf, verifyCanary } from "@/address/security";
+import { boundedDuration, emitOperationalSignal, signalTimestamp, type OperationalSignalSink } from "@/operations/signals";
 
 export const runtime = "nodejs";
 const headers = { "Cache-Control": "no-store", "Content-Type": "application/json; charset=utf-8" };
 const json = (status: number, body: object, extra?: HeadersInit) => Response.json(body, { status, headers: { ...headers, ...extra } });
 const retry = (n: number | null) => String(Math.max(1, Math.min(86400, Math.floor(n ?? 1))));
 type Repository = Pick<AddressAdmissionRepository, "consumeMetadataAttempt" | "consumeEnabledLookup" | "consumeCanary">;
-export interface AddressHandlerDependencies { getConfig?: () => AddressConfig; createRuntime?: (config: AddressConfig) => { repository: Repository; resolver: AddressResolver }; now?: () => Date; }
+export interface AddressHandlerDependencies { getConfig?: () => AddressConfig; createRuntime?: (config: AddressConfig) => { repository: Repository; resolver: AddressResolver }; now?: () => Date; signalSink?: OperationalSignalSink; }
 async function body(request: Request): Promise<Uint8Array> {
   const reader = request.body?.getReader(); if (!reader) throw new Error("malformed"); let size = 0; const chunks: Uint8Array[] = []; let timer: ReturnType<typeof setTimeout> | undefined;
   let onAbort: (() => void) | undefined;
@@ -19,7 +20,7 @@ async function body(request: Request): Promise<Uint8Array> {
   finally { if (timer) clearTimeout(timer); if (onAbort) request.signal.removeEventListener("abort", onAbort); reader.releaseLock(); }
   const out = new Uint8Array(size); let at = 0; for (const c of chunks) { out.set(c, at); at += c.length; } return out;
 }
-function disabled() { return json(503, { status: "disabled", errorCode: "LOOKUP_DISABLED" }); }
+function disabled() { return json(503, { status: "disabled", errorCode: "LOOKUP_DISABLED" }, { "X-Address-Resolve-Outcome": "disabled" }); }
 function methodNotAllowed() { return json(405, { status: "method_not_allowed" }); }
 function exactPath(request: Request) { const url = new URL(request.url); return url.pathname === "/api/address/resolve" && !url.search; }
 function enabledHeaders(request: Request, config: AddressConfig, at: number): string | undefined {
@@ -28,7 +29,7 @@ function enabledHeaders(request: Request, config: AddressConfig, at: number): st
 }
 export function createAddressHandler(deps: AddressHandlerDependencies = {}) {
   const getConfig = deps.getConfig ?? (() => parseAddressConfig(process.env)); const createRuntime = deps.createRuntime ?? createAddressRuntime; const now = deps.now ?? (() => new Date());
-  return {
+  const handler = {
     async GET(request: Request): Promise<Response> { let config: AddressConfig; try { config = getConfig(); } catch { return json(503, { status: "unavailable" }); } if (config.mode !== "enabled") return disabled(); if (!exactPath(request)) return json(404, { status: "not_found" }); try { const csrf = issueAddressCsrf(config, now().getTime()); return json(200, { csrfToken: csrf.token }, { "Set-Cookie": csrf.cookie }); } catch { return json(503, { status: "unavailable" }); } },
     async POST(request: Request): Promise<Response> {
       let config: AddressConfig; try { config = getConfig(); } catch { return json(503, { status: "unavailable" }); }
@@ -48,7 +49,7 @@ export function createAddressHandler(deps: AddressHandlerDependencies = {}) {
       }
       let input; try { input = addressInputSchema.parse(JSON.parse(new TextDecoder("utf-8", { fatal: true }).decode(bytes))); } catch { return json(400, { status: "malformed" }); }
       if (config.mode === "enabled") try { const lookupSubject = addressAnonymousSubjectHash(config.subjectHmacSecret!, enabledIp!, config.subjectGeneration!, "lookup", now()); const allowed = await repository.consumeEnabledLookup(lookupSubject, request.signal); if (!allowed.allowed) return json(429, { status: "rate_limited" }, { "Retry-After": retry(allowed.retryAfter) }); } catch { return json(503, { status: "unavailable" }); }
-      try { return json(200, await resolver.resolve(input, request.signal)); } catch { return json(503, { status: "unavailable" }); }
+      try { const resolution = await resolver.resolve(input, request.signal); return json(200, resolution, { "X-Address-Resolve-Outcome": resolution.status }); } catch { return json(503, { status: "unavailable" }); }
     },
     async HEAD(): Promise<Response> { return methodNotAllowed(); },
     async OPTIONS(): Promise<Response> { return methodNotAllowed(); },
@@ -56,6 +57,17 @@ export function createAddressHandler(deps: AddressHandlerDependencies = {}) {
     async PATCH(): Promise<Response> { return methodNotAllowed(); },
     async DELETE(): Promise<Response> { return methodNotAllowed(); },
   };
+  return { ...handler, POST: async (request: Request): Promise<Response> => {
+    const startedAt = performance.now();
+    try {
+      const response = await handler.POST(request);
+      const resolvedOutcome = response.headers.get("X-Address-Resolve-Outcome");
+      response.headers.delete("X-Address-Resolve-Outcome");
+      const outcome = resolvedOutcome ?? (response.status === 503 ? "unavailable" : response.status === 429 ? "rate_limited" : response.status === 413 ? "too_large" : response.status === 400 ? "malformed" : "forbidden");
+      emitOperationalSignal(deps.signalSink, { version: 1, timestamp: signalTimestamp(), kind: "address_resolve", route: "/api/address/resolve", outcome, durationMs: boundedDuration(startedAt) });
+      return response;
+    } catch (error) { emitOperationalSignal(deps.signalSink, { version: 1, timestamp: signalTimestamp(), kind: "address_resolve", route: "/api/address/resolve", outcome: "unavailable", durationMs: boundedDuration(startedAt) }); throw error; }
+  } };
 }
 const handler = createAddressHandler();
 export const GET = handler.GET; export const POST = handler.POST; export const HEAD = handler.HEAD; export const OPTIONS = handler.OPTIONS; export const PUT = handler.PUT; export const PATCH = handler.PATCH; export const DELETE = handler.DELETE;

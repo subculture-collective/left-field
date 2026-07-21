@@ -12,18 +12,11 @@ describe("direct SQL profile modules", () => {
     expect(moduleSource).not.toMatch(/\blet\s+(PROFILE_SQL|CLOSURE_SQL)\b/);
     expect(__sql.PROFILE_SQL).toContain("release_profile_seats");
     expect(__sql.PROFILE_SQL).toContain("ps.release_id = $1 AND ps.seat_cycle_id = $2");
-    expect(__sql.CLOSURE_SQL).toContain("WITH RECURSIVE target");
+    expect(__sql.CLOSURE_SQL).toContain("WITH RECURSIVE seed(id) AS (SELECT DISTINCT unnest($2::text[]))");
     expect(__sql.CLOSURE_SQL).toContain("snapshot_derivation_inputs");
     expect(__sql.CLOSURE_SQL).not.toContain("input_snapshot_id, output_snapshot_id");
-    expect(__sql.CLOSURE_SQL).toContain("entity_type='contests'");
-    expect(__sql.CLOSURE_SQL).toContain("entity_type='candidacies'");
-    expect(__sql.CLOSURE_SQL).toContain("entity_type='result_options'");
-    expect(__sql.CLOSURE_SQL).toContain("cr.domain='finance'");
-    expect(__sql.CLOSURE_SQL).toContain("cr.scope_kind='funding'");
-    expect(__sql.CLOSURE_SQL).toContain("cr.domain=concat('election_',cr.election_year)");
-    expect(__sql.CLOSURE_SQL).not.toContain("cr.domain='election_2024'");
-    expect(__sql.CLOSURE_SQL).toContain("cr.scope_kind='election'");
-    expect(__sql.CLOSURE_SQL).toContain("output_snapshot_id AS from_id, input_snapshot_id AS to_id");
+    expect(__sql.CLOSURE_SQL).not.toMatch(/\b(provenance|contests|coverage_records|seat_cycles)\b/);
+    expect(__sql.CLOSURE_SQL).toContain("SELECT id FROM seed UNION SELECT sdi.input_snapshot_id");
     expect(__sql.PROFILE_SQL).toContain("EXISTS (SELECT 1 FROM fec_filing_summaries ff");
     expect(__sql.PROFILE_SQL).not.toContain("loadPrototypeManifest");
     expect(__sql.ACS_PROFILE_COVERAGE_SQL).toContain("g.source_geoid IN ('6098','6698','6998','7898')");
@@ -41,13 +34,7 @@ describe("direct SQL profile modules", () => {
     expect(__sql.MAP_PROFILE_SQL).toContain("ma.geography_version_id=sc.geography_version_id");
     expect(__sql.MAP_PROFILE_SQL).toContain("/maps/");
     expect(__sql.MAP_PROFILE_SQL).toContain("r.status='published'");
-    expect(__sql.MAP_CLOSURE_SQL).toContain("map_artifact_inputs");
-    expect(__sql.MAP_CLOSURE_SQL).toContain("r.status='published'");
-    expect(__sql.MAP_CLOSURE_SQL).toContain("sdi.input_snapshot_id");
-    expect(__sql.MAP_CLOSURE_SQL).toContain("ga.snapshot_id");
-    expect(__sql.MAP_DERIVATION_CLOSURE_SQL).toContain("WITH RECURSIVE wanted");
-    expect(__sql.MAP_DERIVATION_CLOSURE_SQL).toContain("snapshot_derivation_inputs");
-    expect(__sql.MAP_DERIVATION_CLOSURE_SQL).toContain("r.status='published'");
+    expect(__sql.FINANCE_SUMMARY_LINEAGE_SQL).toContain("seat_finance_summary_lineage");
   });
 
   it("accepts v2-style empty factual arrays and drops unrelated closure rows", async () => {
@@ -61,9 +48,8 @@ describe("direct SQL profile modules", () => {
       committeeRelationships: [], sources: [], snapshots: [],
     };
     const snapshot = { id: "snap_1", releaseId: "rel_1", sourceId: "src_1", sourceUrl: "https://example.com/data", publishedAt: new Date("2024-01-01T00:00:00.000Z"), retrievedAt: new Date("2024-01-01T00:00:00.000Z"), checksumSha256: "a".repeat(64), parserVersion: "1", license: "public", usageStatus: "approved", source_id: "src_1", source_release_id: "rel_1", name: "Source", authority: "official", homepage_url: "https://example.com" };
-    const pool: { query: (text: string) => Promise<unknown> } = { query: async (_text: string) => ({ rowCount: 1, rows: [{ profile }, { ...snapshot, id: "snap_other", releaseId: "rel_other", source_release_id: "rel_other" }] }) };
     // First query sees only profile; the second sees the two closure rows.
-    let calls = 0; pool.query = async (text: string) => (++calls === 1 ? { rowCount: 1, rows: [{ profile }] } : text.includes("JOIN release_manifests rm") ? { rowCount: 1, rows: [{ schemaVersion: 2, policy: { jurisdictionCode: "CA", houseRepresentation: "voting", senateRepresentation: "two_seats", source: "persisted" } }] } : { rowCount: 3, rows: [snapshot, { ...snapshot, id: "snap_2" }, { ...snapshot, id: "snap_other", releaseId: "rel_other", source_release_id: "rel_other" }] });
+    let calls = 0; const pool = { query: async (text: string) => (++calls === 1 ? { rowCount: 1, rows: [{ profile }] } : text.includes("JOIN release_manifests rm") ? { rowCount: 1, rows: [{ schemaVersion: 2, policy: { jurisdictionCode: "CA", houseRepresentation: "voting", senateRepresentation: "two_seats", source: "persisted" } }] } : { rowCount: 3, rows: [snapshot, { ...snapshot, id: "snap_2" }, { ...snapshot, id: "snap_other", releaseId: "rel_other", source_release_id: "rel_other" }] }) };
     const value = await getSeatProfile(pool as never, "rel_1" as never, cycle.id);
     expect(value?.contests).toEqual([]);
     expect(value?.snapshots.map((row) => row.id)).toEqual(["snap_1", "snap_2"]);
@@ -88,20 +74,16 @@ describe("direct SQL profile modules", () => {
     const profileRelationship = "pr.entity_type='committee_relationships' AND pr.entity_id=cr.id";
     const closureRelationship = "p.entity_type='committee_relationships' AND p.entity_id=cr.id";
     const financeForProfileSeat = "ff.release_id=cr.release_id AND ff.committee_id=cr.committee_id AND ff.seat_cycle_id=root.seat_id";
-    const financeForClosureSeat = "ff.release_id=cr.release_id AND ff.committee_id=cr.committee_id AND ff.seat_cycle_id=$2";
-
     expect(__sql.PROFILE_SQL).toContain(`${profileRelationship} WHERE cr.release_id=$1`);
     expect(__sql.PROFILE_SQL).toContain(`co.seat_cycle_id=root.seat_id AND EXISTS (SELECT 1 FROM fec_filing_summaries ff WHERE ${financeForProfileSeat})`);
-    expect(__sql.CLOSURE_SQL).toContain(`${closureRelationship} JOIN candidacies ca`);
-    expect(__sql.CLOSURE_SQL).toContain(`c.seat_cycle_id=$2 AND EXISTS (SELECT 1 FROM fec_filing_summaries ff WHERE ${financeForClosureSeat})`);
-    expect(__sql.CLOSURE_SQL).toContain("JOIN finance_aggregate_inputs fai");
+    expect(__sql.CLOSURE_SQL).not.toContain(closureRelationship);
   });
 
   it("selects incumbent biography facts and release member coverage into closure", () => {
     expect(__sql.PROFILE_SQL).toContain("FROM biographical_facts bf");
     expect(__sql.PROFILE_SQL).toContain("bf.person_id=person.id");
     expect(__sql.PROFILE_SQL).toContain("cr.domain='member' AND cr.scope_kind='release'");
-    expect(__sql.CLOSURE_SQL).toContain("FROM biographical_fact_provenance bfp");
+    expect(__sql.CLOSURE_SQL).not.toContain("biographical_fact_provenance");
   });
 
   it("lists only release-scoped sources in bytewise ID order", async () => {

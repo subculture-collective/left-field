@@ -58,7 +58,7 @@ describe("PostgresSeatResearchRepository nationwide reads", () => {
     const profile = { release: manifest.release, office: manifest.offices[0], seatCycle: manifest.seatCycles[0], geography: manifest.geographyVersions[0], officeTerm: manifest.officeTerms[0], membership: null, incumbent: null, contests: [], candidacies: [], resultOptions: [], biographicalFacts: [], memberCoverage: null, electionResults: [], demographics: [], finance: [], committees: [], committeeRelationships: [], sources: [source], snapshots: [snapshot] };
     const closureRow = { ...snapshot, source_id: source.id, source_release_id: source.releaseId, name: source.name, authority: source.authority, homepage_url: source.homepageUrl };
     const calls: string[] = []; let released = 0; let reads = 0; let fail = false;
-    const client = { query: async (text: string) => { calls.push(text); if (!/^(BEGIN|COMMIT|ROLLBACK)/.test(text)) { if (fail) throw new Error("read failed"); reads += 1; return reads === 1 ? { rowCount: 1, rows: [{ profile }] } : text.includes("JOIN release_manifests rm") ? { rowCount: 1, rows: [{ schemaVersion: 2, policy: { jurisdictionCode: "NY", houseRepresentation: "voting", senateRepresentation: "two_seats", source: "persisted" } }] } : text.includes("WITH RECURSIVE target") ? { rowCount: 1, rows: [closureRow] } : { rowCount: 0, rows: [] }; } return { rowCount: 0, rows: [] }; }, release: () => { released += 1; } };
+    const client = { query: async (text: string) => { calls.push(text); if (!/^(BEGIN|COMMIT|ROLLBACK)/.test(text)) { if (fail) throw new Error("read failed"); reads += 1; return reads === 1 ? { rowCount: 1, rows: [{ profile }] } : text.includes("JOIN release_manifests rm") ? { rowCount: 1, rows: [{ schemaVersion: 2, policy: { jurisdictionCode: "NY", houseRepresentation: "voting", senateRepresentation: "two_seats", source: "persisted" } }] } : text.includes("WITH RECURSIVE seed") ? { rowCount: 1, rows: [closureRow] } : { rowCount: 0, rows: [] }; } return { rowCount: 0, rows: [] }; }, release: () => { released += 1; } };
     const repository = new PostgresSeatResearchRepository({ connect: async () => client } as never);
     await expect(repository.getSeatProfile("rel_1" as never, manifest.seatCycles[0]!.id)).resolves.not.toBeNull();
     expect(calls).toEqual(expect.arrayContaining(["BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY", "COMMIT"])); expect(released).toBe(1);
@@ -67,11 +67,10 @@ describe("PostgresSeatResearchRepository nationwide reads", () => {
     expect(calls).toContain("ROLLBACK"); expect(released).toBe(2);
   });
 
-  it("keeps legacy listSeats paged and rejects a non-advancing cursor", async () => {
-    const repository = new PostgresSeatResearchRepository({} as never);
-    let pages = 0; const requests: unknown[] = [];
-    (repository as { listSeatPage: typeof repository.listSeatPage }).listSeatPage = async (_releaseId, request) => { requests.push(request); return { releaseId, items: [], total: 0, nextCursor: pages++ === 0 ? "same" : "same" }; };
-    await expect(repository.listSeats(releaseId, { sort: "state", direction: "asc" })).rejects.toThrow("did not advance");
-    expect(pages).toBe(2); expect(requests).toEqual(expect.arrayContaining([expect.objectContaining({ limit: 100 })]));
+  it("keeps legacy listSeats paged without observing each lower-level page", async () => {
+    const signals: unknown[] = []; const pool = { query: async () => ({ rows: [] }) };
+    const repository = new PostgresSeatResearchRepository(pool as never, { emit: signal => { signals.push(signal); } });
+    await expect(repository.listSeats(releaseId, { sort: "state", direction: "asc" })).resolves.toEqual([]);
+    expect(signals).toEqual([expect.objectContaining({ operation: "list_seats", outcome: "success" })]);
   });
 });

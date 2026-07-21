@@ -58,10 +58,12 @@ export async function computeReleaseDigest(db: Runner, releaseId: string, domain
 async function copyTable(client: PoolClient, table: TableSpec, source: string, candidate: string): Promise<void> { const columns = table.columns.map(quote); await client.query(`INSERT INTO ${quote(table.name)}(release_id,${columns.join(",")}) SELECT $1,${columns.map(c => `t.${c}`).join(",")} FROM ${quote(table.name)} t WHERE t.release_id=$2`, [candidate, source]); }
 async function baselineCandidateReleaseWithClient(client: PoolClient, sourceReleaseId: string, candidateReleaseId: string): Promise<void> {
     for (const id of [sourceReleaseId,candidateReleaseId].sort()) await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [id]);
-    const releases = await client.query<{id:string;status:string;source_cutoff: Date}>("SELECT id,status,source_cutoff FROM data_releases WHERE id=ANY($1) FOR UPDATE", [[sourceReleaseId,candidateReleaseId]]);
+    // Deterministic release advisory locks above serialize lifecycle and
+    // candidate writers without granting the ingest principal lifecycle UPDATE.
+    const releases = await client.query<{id:string;status:string;source_cutoff: Date}>("SELECT id,status,source_cutoff FROM data_releases WHERE id=ANY($1)", [[sourceReleaseId,candidateReleaseId]]);
     if (releases.rowCount !== 2 || !releases.rows.some(r => r.id===candidateReleaseId && r.status==="candidate")) throw new Error("Baseline requires a candidate destination");
     for (const table of contentTableRegistry) { const present=await client.query(`SELECT 1 FROM ${quote(table.name)} WHERE release_id=$1 LIMIT 1`,[candidateReleaseId]); if (present.rowCount) throw new Error("Baseline requires an empty candidate"); }
-    const manifest=await client.query<{schema_version:number;canonical_data_checksum_sha256:string;geometry_checksum_sha256:string;content_checksum_sha256:string}>("SELECT schema_version,canonical_data_checksum_sha256,geometry_checksum_sha256,content_checksum_sha256 FROM release_manifests WHERE release_id=$1 FOR SHARE",[sourceReleaseId]); if(manifest.rowCount!==1) throw new Error("Source release has no manifest metadata");
+    const manifest=await client.query<{schema_version:number;canonical_data_checksum_sha256:string;geometry_checksum_sha256:string;content_checksum_sha256:string}>("SELECT schema_version,canonical_data_checksum_sha256,geometry_checksum_sha256,content_checksum_sha256 FROM release_manifests WHERE release_id=$1",[sourceReleaseId]); if(manifest.rowCount!==1) throw new Error("Source release has no manifest metadata");
     const existing=await client.query<{schema_version:number}>("SELECT schema_version FROM release_manifests WHERE release_id=$1 FOR UPDATE",[candidateReleaseId]); if(existing.rowCount && existing.rows[0]!.schema_version!==manifest.rows[0]!.schema_version) throw new Error("Candidate/source manifest versions differ");
     const m=manifest.rows[0]!;
     const sourceStatus = releases.rows.find((release) => release.id === sourceReleaseId)!.status;
@@ -142,7 +144,10 @@ async function lockV2Candidate(client: PoolClient, releaseId: string): Promise<M
 
 async function lockV2Release(client: PoolClient, releaseId: string, statuses: readonly string[], errorMessage: string): Promise<ManifestRow> {
   await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [releaseId]);
-  const release = await client.query("SELECT 1 FROM data_releases WHERE id=$1 AND status=ANY($2) FOR UPDATE", [releaseId, statuses]);
+  // The release advisory lock serializes lifecycle and content writers. A row
+  // lock here would additionally require the candidate-only ingest principal
+  // to hold lifecycle UPDATE privilege, defeating the split-role boundary.
+  const release = await client.query("SELECT 1 FROM data_releases WHERE id=$1 AND status=ANY($2)", [releaseId, statuses]);
   const manifest = await client.query<ManifestRow>("SELECT schema_version,canonical_data_checksum_sha256,geometry_checksum_sha256,content_checksum_sha256 FROM release_manifests WHERE release_id=$1 FOR UPDATE", [releaseId]);
   if (release.rowCount !== 1 || manifest.rowCount !== 1 || manifest.rows[0]!.schema_version !== 2) throw new Error(errorMessage);
   return manifest.rows[0]!;

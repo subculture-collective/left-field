@@ -72,6 +72,26 @@ export const IDENTITY_SEARCH_FIELDS = [
 export type SeatQuery = z.infer<typeof seatQuerySchema>;
 export type SeatSortKey = z.infer<typeof seatSortKeySchema>;
 
+/** The only snapshot-reference vocabulary carried by profile facts. */
+export function collectProfileSnapshotSeedIds(value: unknown): string[] {
+  const ids = new Set<string>();
+  const compare = (left: string, right: string): number => {
+    const a = new TextEncoder().encode(left); const b = new TextEncoder().encode(right);
+    for (let i = 0; i < Math.min(a.length, b.length); i += 1) if (a[i] !== b[i]) return a[i]! - b[i]!;
+    return a.length - b.length;
+  };
+  const visit = (item: unknown): void => {
+    if (Array.isArray(item)) { item.forEach(visit); return; }
+    if (item === null || typeof item !== "object") return;
+    const record = item as Record<string, unknown>;
+    for (const key of ["snapshotId", "artifactSnapshotId"] as const) if (typeof record[key] === "string") ids.add(record[key]);
+    for (const key of ["inputSnapshotIds", "derivationInputSnapshotIds"] as const) if (Array.isArray(record[key])) record[key].forEach((id) => { if (typeof id === "string") ids.add(id); });
+    Object.values(record).forEach(visit);
+  };
+  visit(value);
+  return [...ids].sort(compare);
+}
+
 export const seatFacetsSchema = z.object({
   states: z.array(usStateCodeSchema),
   parties: z.array(partySchema),
@@ -269,19 +289,9 @@ export const seatProfileSchema = z.object({
   profile.snapshots.forEach((snapshot, index) => {
     if (!sourceIds.has(String(snapshot.sourceId))) addIssue(["snapshots", index, "sourceId"], "Profile snapshot references a source outside the profile closure");
   });
-  const visitReferences = (value: unknown, path: (string | number)[]): void => {
-    if (Array.isArray(value)) { value.forEach((item, index) => visitReferences(item, [...path, index])); return; }
-    if (value === null || typeof value !== "object") return;
-    const record = value as Record<string, unknown>;
-    if (typeof record.snapshotId === "string" && !snapshotIds.has(record.snapshotId)) addIssue([...path, "snapshotId"], "Profile references a snapshot outside the profile closure");
-    for (const key of ["inputSnapshotIds", "derivationInputSnapshotIds"] as const) if (Array.isArray(record[key])) record[key].forEach((id, index) => {
-      if (typeof id === "string" && !snapshotIds.has(id)) addIssue([...path, key, index], "Profile references a snapshot outside the profile closure");
-    });
-    Object.entries(record).forEach(([key, item]) => {
-      if (key !== "snapshotId" && key !== "inputSnapshotIds" && key !== "derivationInputSnapshotIds") visitReferences(item, [...path, key]);
-    });
-  };
-  visitReferences(profile, []);
+  collectProfileSnapshotSeedIds(profile).forEach((id) => {
+    if (!snapshotIds.has(id)) addIssue([], "Profile references a snapshot outside the profile closure");
+  });
   if (profile.map) {
     if (profile.release.status !== "published") addIssue(["map"], "Map descriptor is available only for the current published release");
     if (profile.map.releaseId !== profile.release.id || profile.map.geographyVersionId !== profile.geography.id || profile.map.url !== `/maps/${profile.release.id}/${profile.geography.id}`) addIssue(["map"], "Map descriptor must be pinned to this profile geography and release");

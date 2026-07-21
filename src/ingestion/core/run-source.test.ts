@@ -10,13 +10,13 @@ import type { RawObject, SourceAdapter } from "./types";
 
 type Row = { id: string };
 const raw = (count: number): RawObject<null> => ({ value: null, receipt: { storeKind: "local", storeLocator: "/fixtures", objectKey: "fixture", sha256: "a".repeat(64), byteSize: 0 }, expectedRecordCount: count, snapshot: { id: "snap_fixture" as never, sourceUrl: "https://example.test/feed", checksumSha256: "a".repeat(64), upstreamRelease: "fixture-1", publishedAt: null, license: "public", usageStatus: "approved" } });
-interface FakeRun { id: string; status: "running" | "validated" | "failed" | "loaded"; }
+interface FakeRun { id: string; status: "running" | "validated" | "failed" | "loaded"; extractedCount?: number; stagedCount?: number; quarantinedCount?: number; }
 const statefulPool = (state: { runs?: FakeRun[]; snapshot?: Record<string, unknown>; writes?: string[] } = {}): Pool => {
   const runs = state.runs ?? []; const writes = state.writes ?? [];
   const client = {
     query: async <T,>(sql: string, values: readonly unknown[] = []): Promise<{ rowCount: number; rows: T[] }> => {
       if (sql.startsWith("SELECT pg_try_advisory_lock")) return { rowCount: 1, rows: [{ acquired: true }] as T[] };
-      if (sql.startsWith("SELECT id,status")) return { rowCount: runs.length, rows: [...runs].reverse().map(run => ({ ...run, lease_token: "11111111-1111-4111-8111-111111111111", lease_expires_at: run.status === "running" ? new Date("2999-01-01") : new Date(0), snapshot_id: "snap_fixture", raw_store_kind: "local", raw_store_locator: "/fixtures", raw_object_key: "fixture", raw_object_sha256: "a".repeat(64), raw_object_byte_size: 0, raw_object_version_id: null, raw_object_etag: null })) as T[] };
+      if (sql.startsWith("SELECT id,status")) return { rowCount: runs.length, rows: [...runs].reverse().map(run => ({ ...run, lease_token: "11111111-1111-4111-8111-111111111111", lease_expires_at: run.status === "running" ? new Date("2999-01-01") : new Date(0), snapshot_id: "snap_fixture", raw_store_kind: "local", raw_store_locator: "/fixtures", raw_object_key: "fixture", raw_object_sha256: "a".repeat(64), raw_object_byte_size: 0, raw_object_version_id: null, raw_object_etag: null, extracted_count: run.extractedCount ?? 1, staged_count: run.stagedCount ?? 0, quarantined_count: run.quarantinedCount ?? 0 })) as T[] };
       if (sql.startsWith("SELECT source_id,source_url")) return { rowCount: state.snapshot ? 1 : 0, rows: state.snapshot ? [state.snapshot as T] : [] };
       if (sql.startsWith("INSERT INTO source_snapshots")) { writes.push("snapshot"); state.snapshot = { source_id: values[2], source_url: values[3], published_at: values[4] === null ? null : new Date(values[4] as string), checksum_sha256: values[5], parser_version: values[6], license: values[7], usage_status: values[8] }; return { rowCount: 1, rows: [] }; }
       if (sql.startsWith("INSERT INTO ingest_runs")) { writes.push("run"); runs.push({ id: values[0] as string, status: "running" }); return { rowCount: 1, rows: [] }; }
@@ -178,5 +178,23 @@ describe("runSource", () => {
       naturalKey: () => "same",
     };
     await expect(runSource(duplicate, { pool: pool(), releaseId: "rel_fixture" as never, sourceId: "src_fixture" as never, cutoff: new Date("2025-01-01Z") })).rejects.toThrow("DUPLICATE_BATCH_KEY");
+  });
+  it("emits exact aggregate counters and one terminal signal even when the sink throws", async () => {
+    const signals: unknown[] = []; const sink = { emit: vi.fn((signal) => { signals.push(signal); throw new Error("sink failure"); }) };
+    const mixed = { ...adapter(3, { peak: 0, staged: 0, loaded: 0 }), async *parse() { yield { kind: "row" as const, row: { id: "one" } }; yield { kind: "quarantine" as const, sourceNaturalKey: "two", payloadChecksum: "b".repeat(64), errorCode: "bad" }; yield { kind: "row" as const, row: { id: "three" } }; } };
+    await expect(runSource(mixed, { pool: pool(), releaseId: "rel_fixture" as never, sourceId: "src_fixture" as never, cutoff: new Date("2025-01-01Z"), signalSink: sink })).resolves.toBeDefined();
+    expect(signals).toHaveLength(1); expect(signals[0]).toMatchObject({ outcome: "success", extractedCount: 3, stagedCount: 2, quarantinedCount: 1 });
+  });
+  it("uses persisted, exactly matching counts when a run is reused", async () => {
+    const signals: unknown[] = []; const matchingSnapshot = { source_id: "src_fixture", source_url: "https://example.test/feed", published_at: null, checksum_sha256: "a".repeat(64), parser_version: "test", license: "public", usage_status: "approved" };
+    await runSource(adapter(1, { peak: 0, staged: 0, loaded: 0 }), { pool: statefulPool({ runs: [{ id: "run_prior", status: "loaded", extractedCount: 1, stagedCount: 1, quarantinedCount: 0 }], snapshot: matchingSnapshot }), releaseId: "rel_fixture" as never, sourceId: "src_fixture" as never, cutoff: new Date("2025-01-01Z"), signalSink: { emit: signal => { signals.push(signal); } } });
+    expect(signals).toEqual([expect.objectContaining({ outcome: "success", extractedCount: 1, stagedCount: 1, quarantinedCount: 0 })]);
+    await expect(runSource(adapter(1, { peak: 0, staged: 0, loaded: 0 }), { pool: statefulPool({ runs: [{ id: "run_bad", status: "loaded", extractedCount: 2 }], snapshot: matchingSnapshot }), releaseId: "rel_fixture" as never, sourceId: "src_fixture" as never, cutoff: new Date("2025-01-01Z") })).rejects.toThrow("RAW_RECEIPT_MISMATCH");
+  });
+  it("emits one sanitized failure terminal signal without leaking raw errors", async () => {
+    const signals: unknown[] = []; const secret = "postgres://user:secret@example.test";
+    const failing = { ...adapter(0, { peak: 0, staged: 0, loaded: 0 }), async *extract() { throw new Error(secret); } };
+    await expect(runSource(failing, { pool: pool(), releaseId: "rel_fixture" as never, sourceId: "src_fixture" as never, cutoff: new Date("2025-01-01Z"), signalSink: { emit: signal => { signals.push(signal); } } })).rejects.toThrow(secret);
+    expect(signals).toEqual([expect.objectContaining({ outcome: "failure", failureCode: "INGESTION_FAILED", extractedCount: 0, stagedCount: 0, quarantinedCount: 0 })]); expect(JSON.stringify(signals)).not.toContain(secret);
   });
 });

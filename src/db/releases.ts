@@ -6,13 +6,14 @@ import { recheckNationwideValidationGateShared } from "./catalog-release";
 import { createHash, randomUUID } from "node:crypto";
 import type { MapArtifactReceipt, MapArtifactStore } from "@/maps/map-artifact-store";
 import { isCanonicalDistrictGeoJson } from "@/maps/public-map";
+import { boundedDuration, boundedFailureCode, emitOperationalSignal, signalTimestamp, type OperationalSignalSink } from "@/operations/signals";
 
 const SERIALIZATION_FAILURE = "40001";
 export type ElectionPublicationProof = Omit<FinalizeCandidateElectionDecisionsOptions, "pool" | "candidateReleaseId">;
 /** Required out-of-database evidence before a map-bearing release can be public. */
 export interface MapPublicationProof { readonly store: MapArtifactStore; }
 /** Separate least-privilege connections for capability issuance and consumption. */
-export interface ReleaseLifecyclePools { readonly preflightPool?: Pool; readonly operatorPool?: Pool; }
+export interface ReleaseLifecyclePools { readonly preflightPool?: Pool; readonly operatorPool?: Pool; readonly signalSink?: OperationalSignalSink; }
 
 async function issuePreflight(client: PoolClient, operation: "promote" | "roll_forward", releaseId: string, currentId: string | null, predecessorId: string | null, runIds?: readonly string[]): Promise<string> {
   const proofId = randomUUID();
@@ -194,7 +195,7 @@ async function validateReleaseForPublication(client: Parameters<typeof loadProto
 }
 
 /** Atomically makes a candidate the sole published release after the content lock exposes its latest committed state. */
-export async function promoteCandidateRelease(pool: Pool, releaseId: string, maxAttempts = 3, electionProof?: ElectionPublicationProof, mapProof?: MapPublicationProof, lifecyclePools: ReleaseLifecyclePools = {}): Promise<void> {
+async function promoteCandidateReleaseImpl(pool: Pool, releaseId: string, maxAttempts = 3, electionProof?: ElectionPublicationProof, mapProof?: MapPublicationProof, lifecyclePools: ReleaseLifecyclePools = {}): Promise<void> {
   if (lifecyclePools.preflightPool && !lifecyclePools.operatorPool) throw new Error("A separate preflight pool requires a separate operator pool");
   const validationPool = lifecyclePools.preflightPool ?? pool;
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
@@ -238,7 +239,7 @@ export async function promoteCandidateRelease(pool: Pool, releaseId: string, max
 }
 
 /** Republishes the direct retired successor of the current release after revalidating immutable content. */
-export async function rollForwardRetiredRelease(pool: Pool, releaseId: string, maxAttempts = 3, electionProof?: ElectionPublicationProof, mapProof?: MapPublicationProof, lifecyclePools: ReleaseLifecyclePools = {}): Promise<{ publishedReleaseId: string; retiredReleaseId: string }> {
+async function rollForwardRetiredReleaseImpl(pool: Pool, releaseId: string, maxAttempts = 3, electionProof?: ElectionPublicationProof, mapProof?: MapPublicationProof, lifecyclePools: ReleaseLifecyclePools = {}): Promise<{ publishedReleaseId: string; retiredReleaseId: string }> {
   if (lifecyclePools.preflightPool && !lifecyclePools.operatorPool) throw new Error("A separate preflight pool requires a separate operator pool");
   const validationPool = lifecyclePools.preflightPool ?? pool;
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
@@ -276,7 +277,7 @@ export async function rollForwardRetiredRelease(pool: Pool, releaseId: string, m
 }
 
 /** Restores the retired predecessor of the sole published release, retrying complete serializable attempts. */
-export async function rollbackPublishedRelease(pool: Pool, maxAttempts = 3, lifecyclePools: ReleaseLifecyclePools = {}): Promise<{ publishedReleaseId: string; retiredReleaseId: string }> {
+async function rollbackPublishedReleaseImpl(pool: Pool, maxAttempts = 3, lifecyclePools: ReleaseLifecyclePools = {}): Promise<{ publishedReleaseId: string; retiredReleaseId: string }> {
   if (lifecyclePools.preflightPool && !lifecyclePools.operatorPool) throw new Error("A separate preflight pool requires a separate operator pool");
   const validationPool = lifecyclePools.preflightPool ?? pool;
   const operatorPool = lifecyclePools.operatorPool ?? pool;
@@ -308,3 +309,12 @@ export async function rollbackPublishedRelease(pool: Pool, maxAttempts = 3, life
   }
   throw new Error("Rollback attempts exhausted");
 }
+
+async function observeLifecycle<T>(sink: OperationalSignalSink | undefined, operation: "promote" | "rollback" | "roll_forward", releaseId: string | undefined, work: () => Promise<T>): Promise<T> {
+  const startedAt = performance.now();
+  try { const result = await work(); emitOperationalSignal(sink, { version: 1, timestamp: signalTimestamp(), kind: "lifecycle", operation, ...(releaseId ? { releaseId } : {}), outcome: "success", durationMs: boundedDuration(startedAt) }); return result; }
+  catch (error) { emitOperationalSignal(sink, { version: 1, timestamp: signalTimestamp(), kind: "lifecycle", operation, ...(releaseId ? { releaseId } : {}), outcome: "failure", failureCode: boundedFailureCode("lifecycle"), durationMs: boundedDuration(startedAt) }); throw error; }
+}
+export const promoteCandidateRelease = (pool: Pool, releaseId: string, maxAttempts = 3, electionProof?: ElectionPublicationProof, mapProof?: MapPublicationProof, lifecyclePools: ReleaseLifecyclePools = {}): Promise<void> => observeLifecycle(lifecyclePools.signalSink, "promote", releaseId, () => promoteCandidateReleaseImpl(pool, releaseId, maxAttempts, electionProof, mapProof, lifecyclePools));
+export const rollForwardRetiredRelease = (pool: Pool, releaseId: string, maxAttempts = 3, electionProof?: ElectionPublicationProof, mapProof?: MapPublicationProof, lifecyclePools: ReleaseLifecyclePools = {}): Promise<{ publishedReleaseId: string; retiredReleaseId: string }> => observeLifecycle(lifecyclePools.signalSink, "roll_forward", releaseId, () => rollForwardRetiredReleaseImpl(pool, releaseId, maxAttempts, electionProof, mapProof, lifecyclePools));
+export const rollbackPublishedRelease = (pool: Pool, maxAttempts = 3, lifecyclePools: ReleaseLifecyclePools = {}): Promise<{ publishedReleaseId: string; retiredReleaseId: string }> => observeLifecycle(lifecyclePools.signalSink, "rollback", undefined, () => rollbackPublishedReleaseImpl(pool, maxAttempts, lifecyclePools));

@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 
 import { canonicalManifest } from "@/data/canonical-manifest";
-import { seatListItemSchema, seatQuerySchema, seatProfileSchema } from "@/domain/repository";
+import { collectProfileSnapshotSeedIds, seatListItemSchema, seatQuerySchema, seatProfileSchema } from "@/domain/repository";
 import { InMemorySeatResearchRepository } from "@/repositories/in-memory";
 import { createManifestSeatProjection } from "@/repositories/manifest-projection";
 import { assertSeatRepositoryContract } from "@/test/repository-contract";
@@ -10,6 +10,10 @@ import { adversarialRepositoryManifest, coherentManifest } from "@/test/fixtures
 describe("manifest seat projection", () => {
   const repository = new InMemorySeatResearchRepository(canonicalManifest);
   const releaseId = canonicalManifest.release.id;
+
+  it("collects only allowlisted snapshot evidence in byte order", () => {
+    expect(collectProfileSnapshotSeedIds({ snapshotId: "z", artifactSnapshotId: "a", inputSnapshotIds: ["b", "a", 1], derivationInputSnapshotIds: ["c"], snapshotIds: ["ignored"], filingId: "ignored", nested: [{ snapshotId: "b" }, { arbitrary: "snap_no" }] })).toEqual(["a", "b", "c", "z"]);
+  });
 
   it("satisfies the reusable repository contract", async () => {
     await assertSeatRepositoryContract(repository, canonicalManifest);

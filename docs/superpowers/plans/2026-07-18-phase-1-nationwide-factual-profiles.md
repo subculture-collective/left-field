@@ -840,27 +840,27 @@ git commit -m "feat: add nationwide factual profile UI"
 - Create: `src/operations/release-health.test.ts`
 - Modify: `src/db/releases.ts`
 
-- [ ] **Step 1: Define release gates as executable checks**
+- [x] **Step 1: Define release gates as executable checks**
 
 Require exact universe coverage, geometry validity, source/quarantine counts, ACS/FEC/election coverage reports, provenance closure, public-query smoke tests, and no unresolved blocking review issues.
 
-- [ ] **Step 2: Audit the bounded publication transaction**
+- [x] **Step 2: Audit the bounded publication transaction**
 
 Verify Task 2 runs expensive candidate validation before promotion, persists results bound to every release content/geometry digest, rechecks hashes and gate status under the existing release lock, and keeps the pointer transition short. Add concurrency regressions for writes to each new v2 domain and prove each invalidates the stored gate.
 
-- [ ] **Step 3: Emit non-sensitive operational signals**
+- [x] **Step 3: Emit non-sensitive operational signals**
 
 Record ingestion duration/counts, quarantine reasons, release validation state, promotion/rollback result, query latency, and address status counts. Never log addresses, coordinates, contributor identities, correction text, or database bind values.
 
-- [ ] **Step 4: Write the runbook**
+- [x] **Step 4: Write the runbook**
 
 Document candidate creation, source jobs, state-cohort retries, quarantine review, validation, preview, promotion, rollback, canary checks, incident disablement, and data-retention responsibilities with exact commands.
 
-- [ ] **Step 5: Run a rollback drill**
+- [x] **Step 5: Run a rollback drill**
 
 Promote R1, enrich to R2/R3, force a failed candidate, confirm readers remain on the prior release, promote the valid candidate, then roll back while preserving source and audit history.
 
-- [ ] **Step 6: Commit operations**
+- [x] **Step 6: Commit operations**
 
 ```bash
 git add docs/operations docs/data src/operations src/db/releases.ts

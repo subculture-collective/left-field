@@ -23,6 +23,8 @@
     "finalize:elections": "tsx scripts/finalize-elections.ts",
     "finalize:maps": "tsx scripts/finalize-maps.ts",
     "seed:task10-map-e2e": "tsx scripts/seed-task10-map-e2e.ts",
+    "release:drill": "tsx scripts/release-drill.ts",
+    "release:health": "tsx scripts/release-health.ts",
     "measure:task5-queries": "tsx scripts/measure-task5-queries.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",

@@ -57,6 +57,8 @@ import { CorrectionMaintenanceRepository, CorrectionRepository, CorrectionReview
 import { correctionParityVectors, correctionSubmissionSchema, parseCorrectionSubmission } from "@/domain/corrections";
 import { AddressAdmissionMaintenanceRepository, AddressAdmissionRepository } from "@/address/admission";
 import { CallerAbortError } from "@/address/census-geocoder";
+import { runSyntheticReleaseDrill } from "@/operations/release-drill";
+import { inspectReleaseHealth } from "@/operations/release-health";
 
 const testDatabaseUrl = process.env.TEST_DATABASE_URL;
 const testDatabaseName = testDatabaseUrl ? new URL(testDatabaseUrl).pathname.slice(1) : "";
@@ -284,6 +286,31 @@ integration("PostgreSQL integration", () => {
       await ownerPool.end();
     }
   });
+
+  it("runs the guarded synthetic release drill with five disposable LOGIN principals", async () => {
+    const bootstrap = new Pool({ connectionString: testDatabaseUrl });
+    const suffix = randomUUID().replace(/-/g, ""); const password = randomUUID();
+    const principals = { owner: "dsa_drill_owner_", ingest: "dsa_drill_ingest_", preflight: "dsa_drill_preflight_", operator: "dsa_drill_operator_", web: "dsa_drill_web_" } as const;
+    const names = Object.fromEntries(Object.entries(principals).map(([key, prefix]) => [key, `${prefix}${suffix}`])) as Record<keyof typeof principals, string>;
+    const memberships = { owner: "dsa_seats_migration_owner", ingest: "dsa_seats_ingest", preflight: "dsa_seats_release_preflight", operator: "dsa_seats_release_operator", web: "dsa_seats_web" } as const;
+    const url = (name: string) => { const value = new URL(testDatabaseUrl!); value.username = name; value.password = password; return value.toString(); };
+    try {
+      for (const key of Object.keys(names) as (keyof typeof names)[]) { await bootstrap.query(`CREATE ROLE "${names[key]}" LOGIN INHERIT PASSWORD '${password}'`); await bootstrap.query(`GRANT ${memberships[key]} TO "${names[key]}"`); }
+      const result = await runSyntheticReleaseDrill({ owner: url(names.owner), ingest: url(names.ingest), preflight: url(names.preflight), operator: url(names.operator), web: url(names.web) }, 120_000);
+      expect(result).toMatchObject({ evidenceClass: "local-synthetic", evidenceVersion: 2, verified: true, completedAt: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T/), publishedReleaseId: expect.stringMatching(/^rel_drill_r3_/), publicSmokes: 3, operationalSignals: 21, checks: { roleAttestations: true, stalePromotionRejected: true, writerFreezeRejected: true, expiredProofRejected: true, domainInvalidations: ["member", "acs", "finance", "elections", "maps"], immutableFingerprintPreserved: true, rollbackPreserved: true, rollForwardPreserved: true, rollbackPublicSmoke: true, rollForwardPublicSmoke: true, operationalSignalsObserved: true, digestRows: 21, ingestHistoryRows: 1 } });
+       const preflightPool = new Pool({ connectionString: url(names.preflight) });
+       try {
+         const report = await inspectReleaseHealth(preflightPool, result.publishedReleaseId, { rollbackDrill: result });
+         expect(report.repositoryStatus).toBe("pass");
+         expect(report.productionReadinessStatus).not.toBe("pass");
+         expect(report.status).not.toBe("pass");
+         expect(report.databaseClass).toBe("test");
+         for (const name of ["preflight_access", "validation_gate", "repository_smokes", "rollback_drill"] as const) expect(report.checks.find((check) => check.name === name)?.status).toBe("pass");
+         expect(report.checks.find((check) => check.name === "production_telemetry")).toMatchObject({ status: "not_run", evidence: { status: "not_observed" } });
+         expect(JSON.stringify(report)).not.toMatch(/password|session_user|membership|rolname|locator|raw_object/i);
+       } finally { await preflightPool.end(); }
+    } finally { await bootstrap.query("TRUNCATE data_releases CASCADE"); for (const name of Object.values(names)) await bootstrap.query(`DROP ROLE IF EXISTS "${name}"`).catch(() => undefined); await bootstrap.end(); }
+  }, 420_000);
 
   it("round-trips the canonical candidate with artifact and geometry identity", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
