@@ -808,23 +808,23 @@ git commit -m "docs: approve privacy-gated address lookup"
 - Modify: `package.json`
 - Modify: `package-lock.json`
 
-- [ ] **Step 1: Write nationwide view-model tests**
+- [x] **Step 1: Write nationwide view-model tests**
 
 Cover pagination, delegates, resident commissioner, territories without Senate, vacancies, source coverage, certified/modeled/unavailable election labels, multiple finance inputs, ACS units/MOEs, maps, and correction links. Retain demographic-query rejection tests.
 
-- [ ] **Step 2: Compile bounded route models**
+- [x] **Step 2: Compile bounded route models**
 
 Each route performs a bounded number of repository calls. `/sources` uses release-level grouped source/coverage queries instead of loading every profile. Every displayed value carries source cutoff, geography/methodology status, and missingness.
 
-- [ ] **Step 3: Delegate responsive nationwide UI changes to `@designer`**
+- [x] **Step 3: Delegate responsive nationwide UI changes to `@designer`**
 
 Preserve the approved editorial data-desk design. Add pagination and coverage displays without introducing rank-like ordering, generic dashboards, or demographic controls.
 
-- [ ] **Step 4: Install and configure durable browser/accessibility checks**
+- [x] **Step 4: Install and configure durable browser/accessibility checks**
 
 Install `@playwright/test` and `@axe-core/playwright`; add `test:e2e` and `test:a11y` scripts. The Playwright suite starts the app on a configured free port and tests Chromium at 390px and desktop widths. Test keyboard navigation, screen-reader labels, focus, contrast, table alternatives, empty pages, error states, and zero console/network failures. Run axe against browse, profile, sources, methodology, corrections, maps, and approved lookup states.
 
-- [ ] **Step 5: Commit UI changes**
+- [x] **Step 5: Commit UI changes**
 
 ```bash
 git add src/ui src/app src/components tests/e2e playwright.config.ts package.json package-lock.json

@@ -19,13 +19,15 @@ export default async function SeatProfile({ params }: Props) {
     <div className="identity">
       <div>
         <h1>{page.identity.geographyLabel}</h1>
-        <p>{words(page.identity.chamber)} · {page.identity.stateCode}{page.identity.districtCode ? `-${page.identity.districtCode}` : ""} · {words(page.identity.incumbencyStatus)}</p>
+        <p>{officeLabel(page.identity.officeKind)} · {page.identity.stateCode}{page.identity.districtCode ? `-${page.identity.districtCode}` : ""} · {words(page.identity.incumbencyStatus)}</p>
       </div>
       <dl>
         <dt>Current holder</dt>
         <dd>{page.identity.currentHolder ?? "No current holder recorded"}{page.identity.currentHolderParty ? ` · ${words(page.identity.currentHolderParty)}` : ""}</dd>
         <dt>Occupancy</dt>
-        <dd>{words(page.identity.occupancyStatus)} as of {fmtDate(page.identity.occupancyAsOf)}</dd>
+        <dd>{page.identity.occupancyStatus === "vacant" ? "Vacant" : words(page.identity.occupancyStatus)} as of {fmtDate(page.identity.occupancyAsOf)}</dd>
+        <dt>Senate representation</dt>
+        <dd>{page.identity.jurisdictionPolicy.senateRepresentation === "none" ? "No Senate representation from this jurisdiction policy." : "Two Senate seats in this jurisdiction policy."}{page.identity.jurisdictionPolicy.source === "legacy_fallback" && " Legacy compatibility policy."}</dd>
       </dl>
     </div>
 
@@ -80,3 +82,5 @@ export default async function SeatProfile({ params }: Props) {
     <section className="record-section correction-callout" aria-labelledby="correction-heading"><p className="eyebrow">RECORD REVIEW</p><h2 id="correction-heading">See something to correct?</h2><p>Submit a correction for this release. The cited release remains immutable; reviewed changes may appear only in a later release.</p><a className="button" href={`/corrections?release=${encodeURIComponent(String(page.release.id))}&seat=${encodeURIComponent(page.identity.id)}`}>Submit a correction</a></section>
   </main></Shell>;
 }
+
+function officeLabel(kind: "house_voting" | "house_delegate" | "resident_commissioner" | "senate") { return ({ house_voting: "Voting member", house_delegate: "Delegate", resident_commissioner: "Resident Commissioner", senate: "Senator" })[kind]; }

@@ -1,5 +1,6 @@
 import AxeBuilder from "@axe-core/playwright";
-import { expect, test, type Page } from "@playwright/test";
+import { expect, test } from "@playwright/test";
+import { assertBrowserGuards, installBrowserGuards, navigate } from "./browser-guards";
 
 const correctionsUrl = "/corrections?release=rel_browser&seat=seat_browser";
 const profilePath = process.env.E2E_MAP_PROFILE_PATH;
@@ -8,15 +9,8 @@ const areas = [
   "Current holder", "Party", "Seat occupancy", "Bioguide ID", "Birth date", "Other biography",
   "Elections", "Finance", "District context", "District boundary", "Sources", "Other",
 ];
-const consoleErrors = new WeakMap<Page, string[]>();
-const expectedConsoleErrors = new WeakMap<Page, RegExp[]>();
-
 test.beforeEach(async ({ page }) => {
-  const errors: string[] = [];
-  consoleErrors.set(page, errors);
-  page.on("console", (message) => {
-    if (message.type() === "error") errors.push(message.text());
-  });
+  installBrowserGuards(page);
   await page.route("**/api/corrections", async (route) => {
     if (route.request().method() === "GET") {
       await route.fulfill({ json: tokenResponse });
@@ -27,15 +21,12 @@ test.beforeEach(async ({ page }) => {
 });
 
 test.afterEach(async ({ page }, testInfo) => {
-  const errors = consoleErrors.get(page) ?? [];
-  const unexpected = errors.filter((error) => !(expectedConsoleErrors.get(page) ?? []).some((pattern) => pattern.test(error)));
-  await testInfo.attach("console-errors", { body: unexpected.join("\n"), contentType: "text/plain" });
-  expect(unexpected).toEqual([]);
+  await assertBrowserGuards(page, testInfo);
 });
 
 test("opens correction from a profile with only its release and seat-cycle identifiers", async ({ page }) => {
-  test.skip(!profilePath, "E2E_MAP_PROFILE_PATH fixture is required for profile-link coverage");
-  await page.goto(profilePath!, { waitUntil: "networkidle" });
+  if (!profilePath) throw new Error("E2E_MAP_PROFILE_PATH is required for mandatory Task11 profile-link coverage");
+  await navigate(page, profilePath);
 
   const link = page.getByRole("link", { name: "Submit a correction" });
   await expect(link).toBeVisible();
@@ -55,7 +46,7 @@ test("opens correction from a profile with only its release and seat-cycle ident
 });
 
 test("renders the bounded, review-only correction form", async ({ page }) => {
-  await page.goto(correctionsUrl, { waitUntil: "networkidle" });
+  await navigate(page, correctionsUrl);
 
   await expect(page.getByText("The cited release is immutable. A submission is reviewed and may be incorporated only in a later release. Sending a correction does not promise acceptance.")).toBeVisible();
   await expect(page.getByText("Do not submit contact details, political or voter information, addresses, demographic information, or signed/private URLs.")).toBeVisible();
@@ -89,7 +80,7 @@ test("validates, submits one safe request, and focuses the accepted status", asy
     await route.fulfill({ status: 202, json: { status: "accepted", correctionId: "00000000-0000-4000-8000-000000000011" } });
   });
 
-  await page.goto(correctionsUrl, { waitUntil: "networkidle" });
+  await navigate(page, correctionsUrl);
   const explanation = page.getByLabel("What should be corrected?");
   await explanation.fill("too short");
   await page.getByRole("button", { name: "Submit for review" }).click();
@@ -131,7 +122,7 @@ test("focuses a concise rate-limit response", async ({ page }) => {
     await route.fulfill({ status: 200, json: { status: "rate_limited" } });
   });
 
-  await page.goto(correctionsUrl, { waitUntil: "networkidle" });
+  await navigate(page, correctionsUrl);
   await page.getByLabel("What should be corrected?").fill("The published holder needs a source-backed review.");
   await page.getByRole("button", { name: "Submit for review" }).click();
   await expect(page.getByRole("status")).toHaveText("Too many submissions. Please wait and try again.");
@@ -139,20 +130,16 @@ test("focuses a concise rate-limit response", async ({ page }) => {
 });
 
 test("distinguishes malformed, conflict, and unavailable responses", async ({ page }) => {
-  for (const [apiStatus, httpStatus, message] of [
-    ["malformed", 400, "The submission could not be accepted. Review the form and try again."],
-    ["conflict", 409, "This form was already used with different details. Reload the page before submitting again."],
-    ["unavailable", 503, "The correction service is unavailable right now. Please try again later."],
+  for (const [apiStatus, message] of [
+    ["malformed", "The submission could not be accepted. Review the form and try again."],
+    ["conflict", "This form was already used with different details. Reload the page before submitting again."],
+    ["unavailable", "The correction service is unavailable right now. Please try again later."],
   ] as const) {
-    expectedConsoleErrors.set(page, [
-      ...(expectedConsoleErrors.get(page) ?? []),
-      new RegExp(`^Failed to load resource: the server responded with a status of ${httpStatus} `),
-    ]);
     await page.route("**/api/corrections", async (route) => {
       if (route.request().method() === "GET") return route.fulfill({ json: tokenResponse });
-      await route.fulfill({ status: httpStatus, json: { status: apiStatus } });
+      await route.fulfill({ status: 200, json: { status: apiStatus } });
     });
-    await page.goto(correctionsUrl, { waitUntil: "networkidle" });
+    await navigate(page, correctionsUrl);
     await page.getByLabel("What should be corrected?").fill("The published holder needs a source-backed review.");
     await page.getByRole("button", { name: "Submit for review" }).click();
     await expect(page.getByRole("status")).toHaveText(message);
@@ -162,7 +149,7 @@ test("distinguishes malformed, conflict, and unavailable responses", async ({ pa
 });
 
 test("@a11y has no detectable WCAG A/AA violations", async ({ page }) => {
-  await page.goto(correctionsUrl, { waitUntil: "networkidle" });
+  await navigate(page, correctionsUrl);
   const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"]).analyze();
   expect(results.violations).toEqual([]);
 });

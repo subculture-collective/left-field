@@ -55,7 +55,7 @@ function queryText(sort: keyof typeof sortExpressions, direction: "asc" | "desc"
   return `
 WITH cursor_input AS (SELECT $8::${cursorType} AS sort_value, $9::text AS seat_id, $10::boolean AS missing), rooted AS (
  SELECT rps.seat_cycle_id AS seat_id, sc.cycle_year AS election_year, sc.incumbency_status,
-   sc.occupancy_status, sc.occupancy_as_of, o.chamber, o.state_code, o.district_code,
+   sc.occupancy_status, sc.occupancy_as_of, o.chamber, o.kind AS office_kind, o.state_code, o.district_code,
    g.id AS geography_id, g.label AS coverage_label, (r.source_cutoff AT TIME ZONE 'UTC')::date AS cutoff,
    rm.schema_version
  FROM release_profile_seats rps
@@ -129,7 +129,7 @@ WITH cursor_input AS (SELECT $8::${cursorType} AS sort_value, $9::text AS seat_i
  WHERE ($2::text IS NULL OR chamber=$2) AND ($3::text IS NULL OR state_code=$3) AND ($4::text IS NULL OR incumbent_party=$4) AND ($5::text IS NULL OR incumbency_status=$5) AND ($6::int IS NULL OR election_year=$6)
  AND ($7::text IS NULL OR translate(label,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz') LIKE $7 ESCAPE '\\' OR translate(state_code,'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz') LIKE $7 ESCAPE '\\' OR translate(coalesce(district_code,''),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz') LIKE $7 ESCAPE '\\' OR translate(coalesce(incumbent_name,''),'ABCDEFGHIJKLMNOPQRSTUVWXYZ','abcdefghijklmnopqrstuvwxyz') LIKE $7 ESCAPE '\\')
 ), total AS (SELECT count(*) AS total FROM filtered), paged AS (SELECT * FROM filtered WHERE ${cursorPredicate} ORDER BY ${order} LIMIT $11)
-SELECT CASE WHEN paged.seat_id IS NULL THEN NULL ELSE jsonb_build_object('id',seat_id,'releaseId',$1,'chamber',chamber,'stateCode',state_code,'districtCode',district_code,'label',label,'incumbentName',incumbent_name,'incumbentParty',incumbent_party,'incumbencyStatus',incumbency_status,'electionYear',election_year,'presidentialMargin2024',presidential_metric,'cashOnHand',finance_metric,'coverageLabel',coverage_label) END AS item, paged.sort_value, total.total FROM total LEFT JOIN paged ON true`;
+SELECT CASE WHEN paged.seat_id IS NULL THEN NULL ELSE jsonb_build_object('id',seat_id,'releaseId',$1,'chamber',chamber,'officeKind',office_kind,'stateCode',state_code,'districtCode',district_code,'label',label,'incumbentName',incumbent_name,'incumbentParty',incumbent_party,'incumbencyStatus',incumbency_status,'electionYear',election_year,'presidentialMargin2024',presidential_metric,'cashOnHand',finance_metric,'coverageLabel',coverage_label) END AS item, paged.sort_value, total.total FROM total LEFT JOIN paged ON true`;
 }
 
 export interface SqlStatement { readonly text: string; readonly values: readonly unknown[]; }
@@ -146,7 +146,8 @@ export function buildSeatListStatement(releaseId: ReleaseId, request: SeatPageRe
   const seatId = 'seat_id COLLATE "C"';
   const cursorId = '$9::text COLLATE "C"';
   const predicate = cursor === null ? `($8::${cursorType} IS NULL AND $9::text IS NULL AND $10::boolean = false)` : cursor.missing ? `(sort_value IS NULL AND ${seatId} > ${cursorId})` : `(sort_value IS NULL OR ${sortValue} ${op} ${cursorValue} OR (${sortValue} = ${cursorValue} AND ${seatId} > ${cursorId}))`;
-  return { text: queryText(sort, query.direction, predicate), values: [releaseId, query.chamber ?? null, query.stateCode ?? null, query.party ?? null, query.incumbencyStatus ?? null, query.electionYear ?? null, query.identitySearch ? likeLiteral(query.identitySearch) : null, cursor?.sortValue ?? null, cursor?.id ?? null, cursor?.missing ?? false, request.limit + 1] };
+  const text = queryText(sort, query.direction, predicate);
+  return { text, values: [releaseId, query.chamber ?? null, query.stateCode ?? null, query.party ?? null, query.incumbencyStatus ?? null, query.electionYear ?? null, query.identitySearch ? likeLiteral(query.identitySearch) : null, cursor?.sortValue ?? null, cursor?.id ?? null, cursor?.missing ?? false, request.limit + 1] };
 }
 
 export async function listSeatPage(client: SeatListSqlClient, releaseId: ReleaseId, request: SeatPageRequest): Promise<SeatPage> {

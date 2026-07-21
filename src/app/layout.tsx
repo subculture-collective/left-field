@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: { default: "Seat / Record", template: "%s | Seat / Record" },
-  description: "A private, limited-coverage federal seat research prototype.",
+  description: "Factual federal seat records with release-specific source context and coverage.",
 };
 
 export default function RootLayout({

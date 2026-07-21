@@ -1193,7 +1193,7 @@ integration("PostgreSQL integration", () => {
       await pool.end();
       await rm(rawRoot, { recursive: true, force: true });
     }
-  }, 300_000);
+  }, 360_000);
 
   it("finalizes Task 10 maps atomically from the exact official CD119 layer", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });

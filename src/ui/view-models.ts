@@ -1,5 +1,5 @@
 import type { AcsObservation, Contest, DataRelease, ElectionResult, FecFilingSummary, ResultOption, Source, SourceSnapshot } from "@/domain/contracts";
-import type { SeatFacets, SeatListItem, SeatPage, SeatProfile, SeatQuery } from "@/domain/repository";
+import type { ReleaseCoverageAggregate, SeatFacets, SeatListItem, SeatPage, SeatProfile, SeatQuery } from "@/domain/repository";
 
 type Immutable<T> = T extends (...args: never[]) => unknown ? T : T extends readonly (infer Item)[] ? readonly Immutable<Item>[] : T extends object ? { readonly [Key in keyof T]: Immutable<T[Key]> } : T;
 export type ReleaseViewModel = Immutable<Pick<DataRelease, "id" | "label" | "status" | "sourceCutoff" | "publishedAt">>;
@@ -22,7 +22,7 @@ export type ElectionDecisionViewModel = Immutable<Pick<SeatProfile["electionDeci
 export type BiographyViewModel = Immutable<Readonly<{ bioguideId: SeatProfile["biographicalFacts"][number]["value"] | null; birthDate: SeatProfile["biographicalFacts"][number]["value"] | null; facts: SeatProfile["biographicalFacts"]; memberCoverage: SeatProfile["memberCoverage"]; committeeAssignmentsNote: string }>>;
 export type ProfilePageViewModel = Readonly<{
   release: ReleaseViewModel;
-  identity: Readonly<{ id: string; chamber: string; stateCode: string; districtCode: string | null; geographyLabel: string; geographyVintage: string; currentHolder: string | null; currentHolderParty: string | null; occupancyStatus: string; occupancyAsOf: string; incumbencyStatus: string }>;
+  identity: Readonly<{ id: string; chamber: string; stateCode: string; districtCode: string | null; geographyLabel: string; geographyVintage: string; currentHolder: string | null; currentHolderParty: string | null; occupancyStatus: string; occupancyAsOf: string; incumbencyStatus: string; officeKind: "house_voting" | "house_delegate" | "resident_commissioner" | "senate"; jurisdictionPolicy: Readonly<{ senateRepresentation: "two_seats" | "none"; source: "persisted" | "legacy_fallback" }> }>;
   map: Immutable<SeatProfile["map"]>;
   headlineFacts: Immutable<Pick<SeatListItem, "presidentialMargin2024" | "cashOnHand">>;
   elections: readonly ElectionContextViewModel[];
@@ -36,7 +36,7 @@ export type ProfilePageViewModel = Readonly<{
   biography: BiographyViewModel;
   sourceClosure: Readonly<{ sources: readonly Source[]; snapshots: readonly SourceSnapshot[] }>;
 }>;
-export type SourcesPageViewModel = Readonly<{ release: ReleaseViewModel; snapshotScope: string; sources: readonly Readonly<{ source: Immutable<Source>; snapshots: readonly Immutable<SourceSnapshot>[] }>[] }>;
+export type SourcesPageViewModel = Readonly<{ release: ReleaseViewModel; snapshotScope: string; coverage: readonly Immutable<ReleaseCoverageAggregate>[]; sources: readonly Readonly<{ source: Immutable<Source>; snapshots: readonly Immutable<SourceSnapshot>[] }>[] }>;
 export type MethodologyPageViewModel = Readonly<{ release: ReleaseViewModel; sections: readonly Readonly<{ topic: string; explanation: string }>[] }>;
 
 const release = (value: DataRelease): ReleaseViewModel => ({ id: value.id, label: value.label, status: value.status, sourceCutoff: value.sourceCutoff, publishedAt: value.publishedAt });
@@ -49,7 +49,7 @@ export function compileBrowsePage(releaseValue: DataRelease, page: SeatPage, app
   return { release: release(releaseValue), appliedQuery: { ...appliedQuery }, rows: page.items.map((row) => ({ ...row })), total: page.total, nextCursor: page.nextCursor, available: { states: unique(facets.states), parties: unique(facets.parties), incumbencyStatuses: unique(facets.incumbencyStatuses), electionYears: unique(facets.electionYears) }, disclosure: { coverage: "Coverage is limited to the active release; missing values retain their stated reason.", rankings: "No rankings or scores are published in this release.", demographicFilters: "Demographics are display-only and cannot filter, order, subset, or rank seats." } };
 }
 
-function compileProfilePageBase(profile: SeatProfile, seat: SeatListItem): Omit<ProfilePageViewModel, "biography" | "acsAvailability" | "financeCoverage" | "financeAggregates" | "electionDecisions" | "map"> {
+function compileProfilePageBase(profile: SeatProfile, seat: SeatListItem): Omit<ProfilePageViewModel, "identity" | "biography" | "acsAvailability" | "financeCoverage" | "financeAggregates" | "electionDecisions" | "map"> & { identity: Omit<ProfilePageViewModel["identity"], "officeKind" | "jurisdictionPolicy"> } {
   const contests = new Map(profile.contests.map((contest) => [contest.id, contest]));
   const options = new Map(profile.resultOptions.map((option) => [option.id, option]));
   const candidacies = new Map(profile.candidacies.map((candidacy) => [candidacy.id, candidacy]));
@@ -59,10 +59,11 @@ function compileProfilePageBase(profile: SeatProfile, seat: SeatListItem): Omit<
 export function compileProfilePage(profile: SeatProfile, seat: SeatListItem): ProfilePageViewModel {
   const base = compileProfilePageBase(profile, seat);
   const fact = (name: "birth_date" | "bioguide_id") => profile.biographicalFacts.find((row) => row.fact === name)?.value ?? null;
-  return { ...base, map: profile.map, electionDecisions: profile.electionDecisions.map((decision) => ({ electionYear: decision.electionYear, status: decision.status, inputSnapshotIds: decision.inputSnapshotIds, coverage: profile.electionCoverage.find((coverage) => coverage.scope.kind === "election" && coverage.scope.electionYear === decision.electionYear) ?? null })), acsAvailability: profile.acsAvailability, financeCoverage: profile.financeCoverage, financeAggregates: profile.financeAggregates.map((aggregate) => ({ ...aggregate, includedCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "included").length, missingCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "missing").length })), biography: { bioguideId: fact("bioguide_id"), birthDate: fact("birth_date"), facts: profile.biographicalFacts, memberCoverage: profile.memberCoverage, committeeAssignmentsNote: "Committee assignments are not published because current official sources do not provide authoritative effective dates." } };
+  const jurisdictionPolicy = { senateRepresentation: profile.jurisdiction.senateRepresentation, source: profile.jurisdiction.source };
+  return { ...base, identity: { ...base.identity, officeKind: profile.office.kind, jurisdictionPolicy }, map: profile.map, electionDecisions: profile.electionDecisions.map((decision) => ({ electionYear: decision.electionYear, status: decision.status, inputSnapshotIds: decision.inputSnapshotIds, coverage: profile.electionCoverage.find((coverage) => coverage.scope.kind === "election" && coverage.scope.electionYear === decision.electionYear) ?? null })), acsAvailability: profile.acsAvailability, financeCoverage: profile.financeCoverage, financeAggregates: profile.financeAggregates.map((aggregate) => ({ ...aggregate, includedCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "included").length, missingCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "missing").length })), biography: { bioguideId: fact("bioguide_id"), birthDate: fact("birth_date"), facts: profile.biographicalFacts, memberCoverage: profile.memberCoverage, committeeAssignmentsNote: "Committee assignments are not published because current official sources do not provide authoritative effective dates." } };
 }
 
-export function compileSourcesPage(releaseValue: DataRelease, sources: readonly Source[], snapshots: readonly SourceSnapshot[]): SourcesPageViewModel {
+export function compileSourcesPage(releaseValue: DataRelease, sources: readonly Source[], snapshots: readonly SourceSnapshot[], coverage: readonly ReleaseCoverageAggregate[] = []): SourcesPageViewModel {
   const snapshotsById = new Map<string, SourceSnapshot>();
   for (const snapshot of snapshots) {
     const existing = snapshotsById.get(snapshot.id);
@@ -70,7 +71,7 @@ export function compileSourcesPage(releaseValue: DataRelease, sources: readonly 
     snapshotsById.set(snapshot.id, snapshot);
   }
   const uniqueSnapshots = [...snapshotsById.values()].sort((left, right) => byteCompare(left.id, right.id));
-  return { release: release(releaseValue), snapshotScope: "Snapshots are the full active-release snapshot inventory; a source can have zero snapshots in this inventory.", sources: [...sources].sort((left, right) => byteCompare(left.id, right.id)).map((source) => ({ source, snapshots: uniqueSnapshots.filter((snapshot) => snapshot.sourceId === source.id) })) };
+  return { release: release(releaseValue), snapshotScope: "Snapshots are the full active-release snapshot inventory; a source can have zero snapshots in this inventory.", coverage: [...coverage], sources: [...sources].sort((left, right) => byteCompare(left.id, right.id)).map((source) => ({ source, snapshots: uniqueSnapshots.filter((snapshot) => snapshot.sourceId === source.id) })) };
 }
 
 export function compileMethodologyPage(releaseValue: DataRelease): MethodologyPageViewModel {

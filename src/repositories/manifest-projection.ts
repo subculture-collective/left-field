@@ -1,11 +1,18 @@
 import type { CoverageRecord, PrototypeManifest, SeatCycleId } from "@/domain/contracts";
 import { sourceSchema, sourceSnapshotSchema } from "@/domain/contracts";
-import { electionMetricSummarySchema, financeMetricSummarySchema, seatFacetsSchema, seatListItemSchema, seatProfileSchema, seatQuerySchema } from "@/domain/repository";
-import type { ElectionMetricSummary, FinanceMetricSummary, SeatFacets, SeatListItem, SeatProfile, SeatQuery } from "@/domain/repository";
+import { electionMetricSummarySchema, financeMetricSummarySchema, releaseCoverageAggregateSchema, seatFacetsSchema, seatListItemSchema, seatProfileSchema, seatQuerySchema } from "@/domain/repository";
+import type { ElectionMetricSummary, FinanceMetricSummary, ReleaseCoverageAggregate, SeatFacets, SeatListItem, SeatProfile, SeatQuery } from "@/domain/repository";
 
 const byteCompare = (left: string, right: string): number => left < right ? -1 : left > right ? 1 : 0;
 const asciiLower = (value: string): string => value.replace(/[A-Z]/g, (letter) => String.fromCharCode(letter.charCodeAt(0) + 32));
 const uniqueSorted = (ids: Iterable<string>): string[] => [...new Set(ids)].sort(byteCompare);
+const aggregateScope = (record: CoverageRecord): ReleaseCoverageAggregate["scope"] => {
+  const { scope } = record;
+  if (scope.kind === "release" || scope.kind === "jurisdiction" || scope.kind === "seat_cycle") return { kind: scope.kind };
+  if (scope.kind === "acs_indicator") return { kind: scope.kind, variable: scope.variable, surveyPeriod: scope.surveyPeriod };
+  if (scope.kind === "election") return { kind: scope.kind, electionYear: scope.electionYear };
+  return { kind: scope.kind, fundingKind: scope.fundingKind };
+};
 const sortedBy = <T>(rows: readonly T[], key: (row: T) => readonly string[]): T[] => [...rows].sort((left, right) => {
   const leftKey = key(left); const rightKey = key(right);
   for (let index = 0; index < Math.min(leftKey.length, rightKey.length); index += 1) {
@@ -53,7 +60,7 @@ export function createManifestSeatProjection(manifest: PrototypeManifest) {
     const office = offices.get(String(cycle.officeId)); const geography = geographies.get(String(cycle.geographyVersionId));
     if (!office || !geography) throw new Error(`Profile seat ${cycleId} lacks office or geography`);
     const membership = membershipFor(cycle); const incumbent = membership ? people.get(String(membership.personId)) ?? null : null;
-    return seatListItemSchema.parse({ id: cycle.id, releaseId: manifest.release.id, chamber: office.chamber, stateCode: office.stateCode, districtCode: office.districtCode, label: `${office.stateCode}-${office.districtCode ?? "Senate"}`, incumbentName: incumbent?.displayName ?? null, incumbentParty: membership?.party ?? null, incumbencyStatus: cycle.incumbencyStatus, electionYear: cycle.cycleYear, presidentialMargin2024: presidentMetric(cycleId), cashOnHand: financeMetric(cycleId), coverageLabel: geography.label });
+    return seatListItemSchema.parse({ id: cycle.id, releaseId: manifest.release.id, chamber: office.chamber, officeKind: office.kind, stateCode: office.stateCode, districtCode: office.districtCode, label: `${office.stateCode}-${office.districtCode ?? "Senate"}`, incumbentName: incumbent?.displayName ?? null, incumbentParty: membership?.party ?? null, incumbencyStatus: cycle.incumbencyStatus, electionYear: cycle.cycleYear, presidentialMargin2024: presidentMetric(cycleId), cashOnHand: financeMetric(cycleId), coverageLabel: geography.label });
   };
   const list = (input: SeatQuery): readonly SeatListItem[] => {
     const query = seatQuerySchema.parse(input); const normalized = query.identitySearch && asciiLower(query.identitySearch);
@@ -82,8 +89,16 @@ export function createManifestSeatProjection(manifest: PrototypeManifest) {
     }
     const snapshots = sortedBy(manifest.snapshots.filter((row) => snapshotIds.has(row.id)), (row) => [String(row.id)]);
     const sourceIds = new Set(snapshots.map((row) => row.sourceId));
+    const v2Policy = (manifest as PrototypeManifest & { schemaVersion?: number; jurisdictions?: readonly { jurisdictionCode: string; houseRepresentation: "voting" | "delegate" | "resident_commissioner"; senateRepresentation: "two_seats" | "none" }[] }).jurisdictions?.find((row) => row.jurisdictionCode === office.stateCode);
+    // v1 has no persisted jurisdiction relation. This compatibility branch is never used for v2.
+    if (!v2Policy && (manifest as { schemaVersion?: number }).schemaVersion === 2) throw new Error(`V2 profile ${id} lacks jurisdiction policy`);
+    const jurisdiction = v2Policy
+      ? { ...v2Policy, source: "persisted" as const }
+      : (office.kind === "house_delegate" || office.kind === "resident_commissioner"
+        ? { jurisdictionCode: office.stateCode, houseRepresentation: office.kind === "resident_commissioner" ? "resident_commissioner" as const : "delegate" as const, senateRepresentation: "none" as const, source: "legacy_fallback" as const }
+        : { jurisdictionCode: office.stateCode, houseRepresentation: "voting" as const, senateRepresentation: "two_seats" as const, source: "legacy_fallback" as const });
     return seatProfileSchema.parse({
-      release: manifest.release, office, seatCycle: cycle, geography, officeTerm: term, membership, incumbent, map,
+      release: manifest.release, office, jurisdiction, seatCycle: cycle, geography, officeTerm: term, membership, incumbent, map,
       biographicalFacts: [], memberCoverage: null, financeCoverage, financeAggregates: sortedBy(financeAggregates, (row) => [row.asOf, String(row.id)]), acsAvailability: demographics.length > 0 ? { kind: "observations" } : { kind: "no_observations" }, acsCoverage: [], electionDecisions: sortedBy(electionDecisions, (row) => [String(row.electionYear)]), electionCoverage: sortedBy(electionCoverage, (row) => [String(row.scope.kind === "election" ? row.scope.electionYear : 0)]),
       contests: sortedBy(contests, (row) => [String(row.id)]),
       candidacies: sortedBy(candidacies, (row) => [String(row.id)]),
@@ -98,6 +113,20 @@ export function createManifestSeatProjection(manifest: PrototypeManifest) {
     });
   };
   const profileCycles = () => manifest.profileSeatCycleIds.map((id) => cycles.get(String(id))!).filter(Boolean);
+  const coverage = (): readonly ReleaseCoverageAggregate[] => {
+    const groups = new Map<string, { domain: CoverageRecord["domain"]; scope: ReleaseCoverageAggregate["scope"]; status: CoverageRecord["status"]; records: CoverageRecord[] }>();
+    for (const record of coverageRecords) {
+      const scope = aggregateScope(record);
+      const key = `${record.domain}|${JSON.stringify(scope)}|${record.status}`;
+      const group = groups.get(key) ?? { domain: record.domain, scope, status: record.status, records: [] }; group.records.push(record); groups.set(key, group);
+    }
+    return [...groups.values()].map(({ domain, scope, status, records }) => releaseCoverageAggregateSchema.parse({
+      releaseId: manifest.release.id, domain, scope, status, recordCount: records.length,
+      expectedCount: records.reduce((sum, row) => sum + row.expectedCount, 0), observedCount: records.reduce((sum, row) => sum + row.observedCount, 0), quarantinedCount: records.reduce((sum, row) => sum + row.quarantinedCount, 0), incompatibleCount: records.reduce((sum, row) => sum + row.incompatibleCount, 0),
+      missingByReason: [...records.flatMap((row) => row.missingByReason).reduce((counts, row) => counts.set(row.reason, (counts.get(row.reason) ?? 0) + row.count), new Map<string, number>())].sort(([a], [b]) => byteCompare(a, b)).map(([reason, count]) => ({ reason, count })),
+      inputSnapshotCount: new Set(records.flatMap((row) => row.inputSnapshotIds)).size,
+    })).sort((a, b) => byteCompare(`${a.domain}|${JSON.stringify(a.scope)}|${a.status}`, `${b.domain}|${JSON.stringify(b.scope)}|${b.status}`));
+  };
   const facets = (): SeatFacets => seatFacetsSchema.parse({
     states: uniqueSorted(profileCycles().map((cycle) => offices.get(String(cycle.officeId))!.stateCode)),
     parties: uniqueSorted(profileCycles().flatMap((cycle) => membershipFor(cycle)?.party ?? [])),
@@ -107,6 +136,6 @@ export function createManifestSeatProjection(manifest: PrototypeManifest) {
   return {
     list, item, profile, facets,
     sources: () => sortedBy(manifest.sources, (source) => [String(source.id)]).map((source) => sourceSchema.parse(source)),
-    snapshots: () => sortedBy(manifest.snapshots, (snapshot) => [String(snapshot.id)]).map((snapshot) => sourceSnapshotSchema.parse(snapshot)),
+    snapshots: () => sortedBy(manifest.snapshots, (snapshot) => [String(snapshot.id)]).map((snapshot) => sourceSnapshotSchema.parse(snapshot)), coverage,
   };
 }

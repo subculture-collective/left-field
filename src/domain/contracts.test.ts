@@ -117,7 +117,7 @@ describe("persisted schemas and runtime DTOs", () => {
 
   it("strictly validates the SeatListItem runtime DTO", () => {
     const item = {
-      id: "seat_1", releaseId: "rel_1", chamber: "house", stateCode: "CA", districtCode: "01", label: "CA-01",
+      id: "seat_1", releaseId: "rel_1", chamber: "house", officeKind: "house_voting", stateCode: "CA", districtCode: "01", label: "CA-01",
       incumbentName: null, incumbentParty: null, incumbencyStatus: "open", electionYear: 2024,
       presidentialMargin2024: { value: { kind: "value", value: 1 }, geographyVersionId: "geo_1", status: "certified", asOf: "2024-11-05", methodology: "reported", inputSnapshotIds: ["snap_1"] },
       cashOnHand: { kind: "value", value: 1, filingId: "fec_1", committeeId: "committee_1", coverageThrough: "2024-03-31", filedAt: "2024-04-01T00:00:00.000Z", inputSnapshotIds: ["snap_1"] }, coverageLabel: "Reported",
@@ -139,7 +139,7 @@ describe("persisted schemas and runtime DTOs", () => {
     const option = { id: "option_1", releaseId: "rel_1", provenance, contestId: "contest_1", candidacyId: "candidacy_1", label: "Candidate", party: "democratic", optionKind: "candidate" };
     const committee = { id: "committee_1", releaseId: "rel_1", provenance, sourceCommitteeId: "C00000001", name: "Committee", committeeType: "principal" };
     const profile = {
-      release, office, seatCycle: cycle, geography, officeTerm: term, membership: null, incumbent: null,
+      release, office, jurisdiction: { jurisdictionCode: "CA", houseRepresentation: "voting", senateRepresentation: "two_seats", source: "legacy_fallback" }, seatCycle: cycle, geography, officeTerm: term, membership: null, incumbent: null,
       contests: [contest], candidacies: [candidacy], resultOptions: [option], biographicalFacts: [], memberCoverage: null,
       electionResults: [{ releaseId: "rel_1", contestId: "contest_1", resultOptionId: "option_1", votes: { kind: "value", value: 1 }, lineage }],
       demographics: [], finance: [{ id: "fec_1", releaseId: "rel_1", seatCycleId: "seat_1", committeeId: "committee_1", sourceFilingId: "F1", reportType: "Q1", reportingPeriodStart: "2024-01-01", reportingPeriodEnd: "2024-03-31", filedAt: "2024-04-01T00:00:00.000Z", amendmentNumber: 0, amendmentStatus: "new", amendsFilingId: null, cashOnHand: { kind: "value", value: 1 }, totalReceipts: { kind: "value", value: 1 }, totalDisbursements: { kind: "value", value: 1 }, lineage }],
@@ -147,6 +147,10 @@ describe("persisted schemas and runtime DTOs", () => {
     };
     expect(seatProfileSchema.safeParse(profile).success).toBe(true);
     expect(seatProfileSchema.safeParse({ ...profile, unexpected: true }).success).toBe(false);
+    expect(seatProfileSchema.safeParse({ ...profile, jurisdiction: { ...profile.jurisdiction, source: "guessed" } }).success).toBe(false);
+    const withoutJurisdiction = { ...profile };
+    delete (withoutJurisdiction as { jurisdiction?: unknown }).jurisdiction;
+    expect(seatProfileSchema.safeParse(withoutJurisdiction).success).toBe(false);
     expect(seatProfileSchema.safeParse({ ...profile, biographicalFacts: [{}] }).success).toBe(false);
     expect(seatProfileSchema.safeParse({ ...profile, memberCoverage: {} }).success).toBe(false);
     const acsCoverage = ["B01003_001E", "B01002_001E", "B19013_001E"].map((variable) => ({ releaseId: "rel_1", domain: "acs", scope: { kind: "acs_indicator" as const, variable, surveyPeriod: "2020-2024" }, status: "partial" as const, expectedCount: 441, observedCount: 437, missingByReason: [], quarantinedCount: 0, incompatibleCount: 4, inputSnapshotIds: ["snap_1"] }));

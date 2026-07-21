@@ -25,6 +25,7 @@ import {
   membershipSchema,
   missingReasonSchema,
   officeSchema,
+  officeKindSchema,
   officeTermSchema,
   partySchema,
   personSchema,
@@ -136,6 +137,7 @@ export const seatListItemSchema = z.object({
   id: seatCycleIdSchema,
   releaseId: releaseIdSchema,
   chamber: chamberSchema,
+  officeKind: officeKindSchema,
   stateCode: usStateCodeSchema,
   districtCode: z.string().regex(/^(AL|[0-9]{2})$/).nullable(),
   label: z.string().min(1),
@@ -146,6 +148,31 @@ export const seatListItemSchema = z.object({
   presidentialMargin2024: electionMetricSummarySchema,
   cashOnHand: financeMetricSummarySchema,
   coverageLabel: z.string().min(1),
+}).strict();
+
+export const jurisdictionPolicySchema = z.object({
+  jurisdictionCode: usStateCodeSchema,
+  houseRepresentation: z.enum(["voting", "delegate", "resident_commissioner"]),
+  senateRepresentation: z.enum(["two_seats", "none"]),
+  source: z.enum(["persisted", "legacy_fallback"]),
+}).strict();
+
+export const releaseCoverageAggregateSchema = z.object({
+  releaseId: releaseIdSchema,
+  domain: z.enum(["identity", "geography", "member", "acs", "finance", "election_2020", "election_2022", "election_2024", "maps"]),
+  scope: z.discriminatedUnion("kind", [
+    z.object({ kind: z.literal("release") }).strict(),
+    z.object({ kind: z.literal("jurisdiction") }).strict(),
+    z.object({ kind: z.literal("seat_cycle") }).strict(),
+    z.object({ kind: z.literal("acs_indicator"), variable: z.string().min(1), surveyPeriod: z.string().min(1) }).strict(),
+    z.object({ kind: z.literal("election"), electionYear: z.number().int() }).strict(),
+    z.object({ kind: z.literal("funding"), fundingKind: z.enum(["summary", "category", "organization", "outside_spending"]) }).strict(),
+  ]),
+  status: z.enum(["complete", "partial", "not_collected", "unavailable"]),
+  recordCount: z.number().int().positive(), expectedCount: z.number().int().nonnegative(), observedCount: z.number().int().nonnegative(),
+  quarantinedCount: z.number().int().nonnegative(), incompatibleCount: z.number().int().nonnegative(),
+  missingByReason: z.array(z.object({ reason: missingReasonSchema, count: z.number().int().positive() }).strict()),
+  inputSnapshotCount: z.number().int().nonnegative(),
 }).strict();
 
 const profileBiographicalFactsSchema = z.array(personBiographicalFactSchema).superRefine((facts, context) => {
@@ -182,6 +209,8 @@ export const profileMapSchema = z.object({
 export const seatProfileSchema = z.object({
   release: dataReleaseSchema,
   office: officeSchema,
+  // V2 projections persist this relation; v1 projections explicitly label their fallback.
+  jurisdiction: jurisdictionPolicySchema,
   seatCycle: seatCycleSchema,
   geography: geographyVersionSchema,
   officeTerm: officeTermSchema,
@@ -283,6 +312,7 @@ export type ElectionMetricSummary = z.infer<typeof electionMetricSummarySchema>;
 export type FinanceMetricSummary = z.infer<typeof financeMetricSummarySchema>;
 export type SeatListItem = z.infer<typeof seatListItemSchema>;
 export type SeatProfile = z.infer<typeof seatProfileSchema>;
+export type ReleaseCoverageAggregate = z.infer<typeof releaseCoverageAggregateSchema>;
 
 export const seatPageRequestSchema = seatQuerySchema.extend({
   limit: z.number().int().min(1).max(100).default(50),
@@ -307,6 +337,7 @@ export interface SeatResearchRepository {
   getSeatFacets(releaseId: ReleaseId): Promise<SeatFacets>;
   listSources(releaseId: ReleaseId): Promise<readonly Source[]>;
   listSourceSnapshots(releaseId: ReleaseId): Promise<readonly SourceSnapshot[]>;
+  listReleaseCoverage(releaseId: ReleaseId): Promise<readonly ReleaseCoverageAggregate[]>;
 }
 
 export const seatRouteParamsSchema = z.object({

@@ -5,7 +5,8 @@ import type { SeatResearchRepository } from "@/domain/repository";
 import { InMemorySeatResearchRepository } from "@/repositories/in-memory";
 import { createManifestSeatProjection } from "@/repositories/manifest-projection";
 import { encodeSeatCursor } from "@/repositories/pagination";
-import { classifyProfileLookup, classifyProfileRequest, loadBrowsePage, loadProfilePage, loadSourcesPage, parseBrowseQuery } from "./server-data";
+import { nationwideSkeleton } from "@/test/fixtures/nationwide-skeleton";
+import { classifyProfileLookup, classifyProfileRequest, loadBrowsePage, loadMethodologyPage, loadProfilePage, loadSourcesPage, parseBrowseQuery } from "./server-data";
 import { compileBrowsePage, compileMethodologyPage, compileProfilePage, compileSourcesPage } from "./view-models";
 
 describe("UI data boundary", () => {
@@ -31,6 +32,12 @@ describe("UI data boundary", () => {
     expect(model.biography).toMatchObject({ bioguideId: null, birthDate: null, facts: [], memberCoverage: null });
     expect(model.biography.committeeAssignmentsNote).toContain("authoritative effective dates");
     expect(Object.keys(model.biography)).not.toContain("age"); expect(Object.keys(model.biography)).not.toContain("tenure");
+  });
+  it("uses the persisted jurisdiction policy for Senate representation while retaining office kind", () => {
+    const profile = projection.profile(canonicalManifest.profileSeatCycleIds[0]!); const seat = profile && projection.list(seatQuerySchema.parse({})).find((row) => row.id === profile.seatCycle.id); if (!profile || !seat) throw new Error("fixture missing");
+    const model = compileProfilePage({ ...profile, office: { ...profile.office, kind: "resident_commissioner" }, jurisdiction: { jurisdictionCode: profile.office.stateCode, houseRepresentation: "resident_commissioner", senateRepresentation: "none", source: "persisted" } }, seat);
+    expect(model.identity.officeKind).toBe("resident_commissioner");
+    expect(model.identity.jurisdictionPolicy).toEqual({ senateRepresentation: "none", source: "persisted" });
   });
   it("preserves result options, values, contest context, and exact lineages", () => {
     const profile = canonicalManifest.profileSeatCycleIds.map((id) => projection.profile(id)).find((item) => item?.resultOptions.some((option) => option.candidacyId !== null)); if (!profile) throw new Error("fixture missing"); const seat = projection.list(seatQuerySchema.parse({})).find((row) => row.id === profile.seatCycle.id); const result = profile.electionResults.find((item) => profile.resultOptions.find((option) => option.id === item.resultOptionId)?.candidacyId !== null); if (!seat || !result) throw new Error("fixture missing"); const option = profile.resultOptions.find((item) => item.id === result.resultOptionId)!; const candidacy = profile.candidacies.find((item) => item.id === option.candidacyId)!; const contest = profile.contests.find((item) => item.id === result.contestId)!; const model = compileProfilePage(profile, seat); const row = model.electionResults.find((item) => item.resultOptionId === option.id)!;
@@ -65,6 +72,28 @@ describe("UI data boundary", () => {
     expect(model.sources.every(({ source, snapshots }) => snapshots.every((snapshot) => snapshot.sourceId === source.id))).toBe(true);
     expect(model.snapshotScope).toContain("full active-release snapshot inventory");
     expect(model.sources.flatMap(({ snapshots }) => snapshots)).toHaveLength(projection.snapshots().length);
+  });
+  it("exposes homogeneous release coverage groups without source fanout", () => {
+    const coverage = projection.coverage();
+    const model = compileSourcesPage(canonicalManifest.release, canonicalManifest.sources, projection.snapshots(), coverage);
+    expect(model.coverage).toEqual(coverage);
+    expect(model.coverage.every((group) => group.recordCount > 0 && group.inputSnapshotCount >= 0)).toBe(true);
+  });
+  it("aggregates coverage using only approved scope discriminators", () => {
+    const base = nationwideSkeleton();
+    const finance = base.coverageRecords.find((record) => record.domain === "finance" && record.scope.kind === "funding" && record.scope.fundingKind === "summary")!;
+    const election = base.coverageRecords.find((record) => record.scope.kind === "election")!;
+    if (election.scope.kind !== "election") throw new Error("fixture missing election coverage");
+    const electionYear = election.scope.electionYear;
+    const manifest = { ...base, coverageRecords: [...base.coverageRecords, { ...finance, scope: { ...finance.scope, seatCycleId: "seat_other" as never } }, { ...election, scope: { ...election.scope, jurisdictionCode: "AK" } }] };
+    const original = createManifestSeatProjection(base as never).coverage();
+    const coverage = createManifestSeatProjection(manifest as never).coverage();
+    const count = (rows: typeof coverage, predicate: (row: typeof coverage[number]) => boolean) => rows.find(predicate)?.recordCount;
+    const financeGroup = (row: typeof coverage[number]) => row.domain === "finance" && row.scope.kind === "funding" && row.scope.fundingKind === "summary" && row.status === finance.status;
+    const electionGroup = (row: typeof coverage[number]) => row.domain === election.domain && row.scope.kind === "election" && row.scope.electionYear === electionYear && row.status === election.status;
+    expect(count(coverage, financeGroup)).toBe(count(original, financeGroup)! + 1);
+    expect(count(coverage, electionGroup)).toBe(count(original, electionGroup)! + 1);
+    expect(coverage.every((row) => !("seatCycleId" in row.scope) && !("jurisdictionCode" in row.scope))).toBe(true);
   });
   it("deduplicates exact source snapshots and orders the sources closure bytewise", () => {
     const snapshots = projection.snapshots(); const snapshot = snapshots[0]!;
@@ -116,7 +145,12 @@ describe("UI data boundary", () => {
   it("loads the full active-release source snapshot inventory without seat fanout", async () => {
     const { repo, calls } = recordingRepository(); const result = await loadSourcesPage(repo);
     expect(result).toMatchObject({ ok: true, value: { snapshotScope: expect.stringContaining("full active-release snapshot inventory") } });
-    expect(calls).toEqual(["getActiveRelease", "listSources", "listSourceSnapshots"]);
+    expect(calls).toEqual(["getActiveRelease", "listSources", "listSourceSnapshots", "listReleaseCoverage"]);
+  });
+  it("loads methodology with only the active-release repository call", async () => {
+    const { repo, calls } = recordingRepository();
+    await expect(loadMethodologyPage(repo)).resolves.toMatchObject({ ok: true, value: { release: { id: canonicalManifest.release.id } } });
+    expect(calls).toEqual(["getActiveRelease"]);
   });
 });
 
@@ -132,6 +166,7 @@ function recordingRepository(): { repo: SeatResearchRepository; calls: string[] 
     getSeatFacets: async (id) => { calls.push("getSeatFacets"); return memory.getSeatFacets(id); },
     listSources: async (id) => { calls.push("listSources"); return memory.listSources(id); },
     listSourceSnapshots: async (id) => { calls.push("listSourceSnapshots"); return memory.listSourceSnapshots(id); },
+    listReleaseCoverage: async (id) => { calls.push("listReleaseCoverage"); return memory.listReleaseCoverage(id); },
   };
   return { repo, calls };
 }

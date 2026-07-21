@@ -1,18 +1,16 @@
 import AxeBuilder from "@axe-core/playwright";
 import { expect, test } from "@playwright/test";
+import { assertBrowserGuards, installBrowserGuards, navigate } from "./browser-guards";
 
 const profilePath = process.env.E2E_MAP_PROFILE_PATH;
 
-test.beforeEach(async ({ page }, testInfo) => {
-  if (!profilePath) throw new Error("E2E_MAP_PROFILE_PATH is required for the Task 10 browser gate");
-  const consoleErrors: string[] = [];
-  page.on("console", (message) => {
-    if (message.type() === "error") consoleErrors.push(message.text());
-  });
-  await page.goto(profilePath, { waitUntil: "networkidle" });
-  await testInfo.attach("console-errors", { body: consoleErrors.join("\n"), contentType: "text/plain" });
-  expect(consoleErrors).toEqual([]);
+test.beforeEach(async ({ page }) => {
+  if (!profilePath) throw new Error("E2E_MAP_PROFILE_PATH is required for mandatory Task10 coverage");
+  installBrowserGuards(page);
+  await navigate(page, profilePath);
 });
+
+test.afterEach(async ({ page }, testInfo) => assertBrowserGuards(page, testInfo));
 
 test("renders the release-pinned district boundary without interactive-map behavior", async ({ page }) => {
   const section = page.getByRole("region", { name: "District boundary" });

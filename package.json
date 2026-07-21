@@ -12,6 +12,7 @@
     "test:run": "vitest run",
     "test:integration": "vitest run src/db/integration.test.ts",
     "test:e2e": "playwright test",
+    "test:e2e:task13": "tsx scripts/test-e2e-task13.ts",
     "test:a11y": "playwright test --grep @a11y",
     "data:verify": "node scripts/verify-source-lock.mjs",
     "ingest": "tsx scripts/ingest.ts",

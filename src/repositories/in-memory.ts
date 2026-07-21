@@ -1,7 +1,7 @@
 import { dataReleaseSchema } from "@/domain/contracts";
 import type { DataRelease, PrototypeManifest, ReleaseId, SeatCycleId, Source, SourceSnapshot } from "@/domain/contracts";
 import { seatPageSchema } from "@/domain/repository";
-import type { SeatFacets, SeatListItem, SeatPage, SeatPageRequest, SeatProfile, SeatQuery, SeatResearchRepository } from "@/domain/repository";
+import type { ReleaseCoverageAggregate, SeatFacets, SeatListItem, SeatPage, SeatPageRequest, SeatProfile, SeatQuery, SeatResearchRepository } from "@/domain/repository";
 import { validatePrototypeManifest } from "@/domain/validate-manifest";
 import { createManifestSeatProjection } from "./manifest-projection";
 import { decodeSeatCursor, normalizedSeatQuery, pageSortedSeatItems } from "./pagination";
@@ -32,4 +32,5 @@ export class InMemorySeatResearchRepository implements SeatResearchRepository {
   async getSeatFacets(releaseId: ReleaseId): Promise<SeatFacets> { return releaseId === this.manifest.release.id ? this.projection.facets() : { states: [], parties: [], incumbencyStatuses: [], electionYears: [] }; }
   async listSources(releaseId: ReleaseId): Promise<readonly Source[]> { return releaseId === this.manifest.release.id ? this.projection.sources() : []; }
   async listSourceSnapshots(releaseId: ReleaseId): Promise<readonly SourceSnapshot[]> { return releaseId === this.manifest.release.id ? this.projection.snapshots() : []; }
+  async listReleaseCoverage(releaseId: ReleaseId): Promise<readonly ReleaseCoverageAggregate[]> { return releaseId === this.manifest.release.id ? this.projection.coverage() : []; }
 }

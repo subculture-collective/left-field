@@ -2,8 +2,8 @@ import type { Pool, PoolClient } from "pg";
 
 import { sourceSchema, sourceSnapshotSchema } from "@/domain/contracts";
 import type { ReleaseId, Source, SourceSnapshot } from "@/domain/contracts";
-import { seatFacetsSchema } from "@/domain/repository";
-import type { SeatFacets } from "@/domain/repository";
+import { releaseCoverageAggregateSchema, seatFacetsSchema } from "@/domain/repository";
+import type { ReleaseCoverageAggregate, SeatFacets } from "@/domain/repository";
 
 type Queryable = Pick<Pool, "query"> | Pick<PoolClient, "query">;
 
@@ -53,6 +53,17 @@ export async function getSeatFacets(pool: Queryable, releaseId: ReleaseId): Prom
     [releaseId],
   );
   return seatFacetsSchema.parse(result.rows[0] ?? { states: [], parties: [], incumbencyStatuses: [], electionYears: [] });
+}
+
+export async function listReleaseCoverage(pool: Queryable, releaseId: ReleaseId): Promise<readonly ReleaseCoverageAggregate[]> {
+  const result = await pool.query(`WITH coverage_groups AS (
+    SELECT cr.domain,cr.scope_kind,cr.variable,cr.survey_period,cr.election_year,cr.funding_kind,cr.status,count(*)::int AS record_count,sum(cr.expected_count)::int AS expected_count,sum(cr.observed_count)::int AS observed_count,sum(cr.quarantined_count)::int AS quarantined_count,sum(cr.incompatible_count)::int AS incompatible_count FROM coverage_records cr WHERE cr.release_id=$1 GROUP BY cr.domain,cr.scope_kind,cr.variable,cr.survey_period,cr.election_year,cr.funding_kind,cr.status
+  ), snapshot_groups AS (
+    SELECT cr.domain,cr.scope_kind,cr.variable,cr.survey_period,cr.election_year,cr.funding_kind,cr.status,count(DISTINCT cis.snapshot_id)::int AS input_snapshot_count FROM coverage_records cr LEFT JOIN coverage_input_snapshots cis ON cis.release_id=cr.release_id AND cis.domain=cr.domain AND cis.scope_key=cr.scope_key WHERE cr.release_id=$1 GROUP BY cr.domain,cr.scope_kind,cr.variable,cr.survey_period,cr.election_year,cr.funding_kind,cr.status
+  ), reasons AS (
+    SELECT cr.domain,cr.scope_kind,cr.variable,cr.survey_period,cr.election_year,cr.funding_kind,cr.status,cmr.reason::text AS reason,sum(cmr.count)::int AS count FROM coverage_records cr JOIN coverage_missing_reasons cmr ON cmr.release_id=cr.release_id AND cmr.domain=cr.domain AND cmr.scope_key=cr.scope_key WHERE cr.release_id=$1 GROUP BY cr.domain,cr.scope_kind,cr.variable,cr.survey_period,cr.election_year,cr.funding_kind,cr.status,cmr.reason::text
+  ) SELECT jsonb_build_object('releaseId',$1,'domain',g.domain,'scope',CASE g.scope_kind WHEN 'release' THEN jsonb_build_object('kind','release') WHEN 'jurisdiction' THEN jsonb_build_object('kind','jurisdiction') WHEN 'seat_cycle' THEN jsonb_build_object('kind','seat_cycle') WHEN 'acs_indicator' THEN jsonb_build_object('kind','acs_indicator','variable',g.variable,'surveyPeriod',g.survey_period) WHEN 'election' THEN jsonb_build_object('kind','election','electionYear',g.election_year) ELSE jsonb_build_object('kind','funding','fundingKind',g.funding_kind) END,'status',g.status,'recordCount',g.record_count,'expectedCount',g.expected_count,'observedCount',g.observed_count,'quarantinedCount',g.quarantined_count,'incompatibleCount',g.incompatible_count,'missingByReason',COALESCE((SELECT jsonb_agg(jsonb_build_object('reason',r.reason,'count',r.count) ORDER BY r.reason COLLATE "C") FROM reasons r WHERE r.domain=g.domain AND r.scope_kind=g.scope_kind AND r.variable IS NOT DISTINCT FROM g.variable AND r.survey_period IS NOT DISTINCT FROM g.survey_period AND r.election_year IS NOT DISTINCT FROM g.election_year AND r.funding_kind IS NOT DISTINCT FROM g.funding_kind AND r.status=g.status),'[]'::jsonb),'inputSnapshotCount',s.input_snapshot_count) coverage FROM coverage_groups g JOIN snapshot_groups s ON s.domain=g.domain AND s.scope_kind=g.scope_kind AND s.variable IS NOT DISTINCT FROM g.variable AND s.survey_period IS NOT DISTINCT FROM g.survey_period AND s.election_year IS NOT DISTINCT FROM g.election_year AND s.funding_kind IS NOT DISTINCT FROM g.funding_kind AND s.status=g.status ORDER BY g.domain COLLATE "C",g.scope_kind COLLATE "C",g.variable COLLATE "C",g.survey_period COLLATE "C",g.election_year,g.funding_kind COLLATE "C",g.status COLLATE "C"`, [releaseId]);
+  return result.rows.map((row) => releaseCoverageAggregateSchema.parse(row.coverage));
 }
 
 function normalizeDates(value: unknown): unknown {

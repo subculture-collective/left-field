@@ -1,10 +1,10 @@
 import type { Pool } from "pg";
 import { dataReleaseSchema } from "@/domain/contracts";
 import type { DataRelease, ReleaseId, SeatCycleId, Source, SourceSnapshot } from "@/domain/contracts";
-import type { SeatFacets, SeatListItem, SeatPage, SeatPageRequest, SeatProfile, SeatQuery, SeatResearchRepository } from "@/domain/repository";
+import type { ReleaseCoverageAggregate, SeatFacets, SeatListItem, SeatPage, SeatPageRequest, SeatProfile, SeatQuery, SeatResearchRepository } from "@/domain/repository";
 import { getSeatProfile } from "./sql/get-seat-profile";
 import { getSeatListItem, listSeatPage } from "./sql/list-seats";
-import { getSeatFacets, listSourceSnapshots, listSources } from "./sql/list-sources";
+import { getSeatFacets, listReleaseCoverage, listSourceSnapshots, listSources } from "./sql/list-sources";
 
 const releaseSql = `SELECT id, label, status, source_cutoff AS "sourceCutoff", created_at AS "createdAt",
   published_at AS "publishedAt", previous_release_id AS "previousReleaseId" FROM data_releases`;
@@ -57,4 +57,5 @@ export class PostgresSeatResearchRepository implements SeatResearchRepository {
   async getSeatFacets(releaseId: ReleaseId): Promise<SeatFacets> { return getSeatFacets(this.pool, releaseId); }
   async listSources(releaseId: ReleaseId): Promise<readonly Source[]> { return listSources(this.pool, releaseId); }
   async listSourceSnapshots(releaseId: ReleaseId): Promise<readonly SourceSnapshot[]> { return listSourceSnapshots(this.pool, releaseId); }
+  async listReleaseCoverage(releaseId: ReleaseId): Promise<readonly ReleaseCoverageAggregate[]> { return listReleaseCoverage(this.pool, releaseId); }
 }

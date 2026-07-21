@@ -6,7 +6,7 @@ import { buildSeatListStatement, listSeatPage } from "./list-seats";
 const releaseId = "rel_sql_list" as never;
 const request = { limit: 1, sort: "state" as const, direction: "asc" as const };
 const item = {
-  id: "seat_sql_list", releaseId, chamber: "house", stateCode: "NY", districtCode: "01", label: "NY-01",
+  id: "seat_sql_list", releaseId, chamber: "house", officeKind: "house_voting", stateCode: "NY", districtCode: "01", label: "NY-01",
   incumbentName: null, incumbentParty: null, incumbencyStatus: "open", electionYear: 2026, coverageLabel: "New York 1",
   presidentialMargin2024: { kind: "coverage_missing", value: { kind: "missing", reason: "not_collected" }, reason: "not_collected", asOf: "2026-01-01", methodology: "coverage_missing", inputSnapshotIds: ["snap_identity"], geographyVersionId: "geo_sql_list", status: "reported" },
   cashOnHand: { kind: "missing", reason: "source_unavailable", asOf: "2026-01-01", inputSnapshotIds: ["snap_identity"] },
@@ -101,5 +101,11 @@ describe("direct SQL seat list", () => {
     expect(incumbentName.text).toContain('incumbent_name COLLATE "C"');
     expect(statement.text).toContain("(r.source_cutoff AT TIME ZONE 'UTC')::date AS cutoff");
     expect(statement.text).not.toContain("r.source_cutoff::date");
+  });
+
+  it("projects the canonical office kind required by the list DTO", () => {
+    const statement = buildSeatListStatement(releaseId, request);
+    expect(statement.text).toContain("o.kind AS office_kind");
+    expect(statement.text).toContain("'officeKind',office_kind");
   });
 });
