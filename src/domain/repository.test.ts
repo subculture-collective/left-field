@@ -45,6 +45,40 @@ describe("manifest seat projection", () => {
     expect(await repository.getSeatProfile("rel_missing" as never, canonicalManifest.profileSeatCycleIds[0]!)).toBeNull();
   });
 
+  it("defaults v1 profiles to no map and rejects map provenance contradictions", () => {
+    const profile = createManifestSeatProjection(coherentManifest()).profile("seat_house_1" as never)!;
+    expect(profile.map).toBeNull();
+    const artifactSnapshot = { ...profile.snapshots[0]!, checksumSha256: "a".repeat(64), usageStatus: "approved" as const };
+    const derivationSnapshot = { ...artifactSnapshot, id: "snap_original" as never };
+    const artifactSource = { ...profile.sources.find((source) => source.id === artifactSnapshot.sourceId)!, authority: "derived" as const };
+    const closedProfile = { ...profile, snapshots: [...profile.snapshots.map((snapshot) => snapshot.id === artifactSnapshot.id ? artifactSnapshot : snapshot), derivationSnapshot], sources: profile.sources.map((source) => source.id === artifactSource.id ? artifactSource : source) };
+    const map = { releaseId: profile.release.id, geographyVersionId: profile.geography.id, artifactId: "artifact_1", artifactSnapshotId: artifactSnapshot.id, artifactChecksumSha256: "a".repeat(64), url: `/maps/${profile.release.id}/${profile.geography.id}`, inputSnapshotIds: [artifactSnapshot.id], derivationInputSnapshotIds: [derivationSnapshot.id] };
+    expect(seatProfileSchema.parse({ ...closedProfile, map }).map).toEqual(map);
+    expect(() => seatProfileSchema.parse({ ...closedProfile, map: { ...map, geographyVersionId: "geo_other" } })).toThrow(/pinned/);
+    expect(() => seatProfileSchema.parse({ ...closedProfile, map: { ...map, inputSnapshotIds: ["snap_missing"] } })).toThrow(/sole output snapshot/);
+    expect(() => seatProfileSchema.parse({ ...closedProfile, map: { ...map, derivationInputSnapshotIds: [artifactSnapshot.id] } })).toThrow(/original derivation input/);
+    expect(() => seatProfileSchema.parse({ ...closedProfile, map: { ...map, derivationInputSnapshotIds: [derivationSnapshot.id, artifactSnapshot.id] } })).toThrow(/original derivation input/);
+    for (const status of ["candidate", "retired"] as const) expect(() => seatProfileSchema.parse({ ...closedProfile, release: { ...profile.release, status, publishedAt: status === "candidate" ? null : profile.release.publishedAt }, map })).toThrow(/current published release/);
+  });
+
+  it("suppresses map-bearing candidate and retired manifest profiles", () => {
+    const mapBearingManifest = () => {
+      const manifest = structuredClone(coherentManifest());
+      manifest.sources.push({ id: "src_derived", releaseId: manifest.release.id, name: "Derived", authority: "derived", homepageUrl: "https://example.com/derived" } as never);
+      manifest.snapshots.push({ ...manifest.snapshots[0]!, id: "snap_map", sourceId: "src_derived" } as never);
+      manifest.geometryArtifacts[0]!.snapshotId = "snap_map" as never;
+      (manifest as unknown as { mapArtifacts: unknown[]; snapshotDerivations: unknown[] }).mapArtifacts = [{ id: "map_1", releaseId: manifest.release.id, geographyVersionId: manifest.seatCycles[0]!.geographyVersionId, artifactId: manifest.geometryArtifacts[0]!.id, inputSnapshotIds: ["snap_map"] }];
+      (manifest as unknown as { snapshotDerivations: unknown[] }).snapshotDerivations = [{ outputSnapshotId: "snap_map", inputSnapshotIds: ["snap_1"] }];
+      return manifest;
+    };
+    expect(createManifestSeatProjection(mapBearingManifest()).profile("seat_house_1" as never)?.map).toMatchObject({ artifactSnapshotId: "snap_map" });
+    for (const status of ["candidate", "retired"] as const) {
+      const manifest = mapBearingManifest();
+      manifest.release = { ...manifest.release, status, publishedAt: status === "candidate" ? null : manifest.release.publishedAt } as never;
+      expect(createManifestSeatProjection(manifest).profile(manifest.profileSeatCycleIds[0]!)?.map).toBeNull();
+    }
+  });
+
   it("rejects arbitrary and demographic query fields", () => {
     expect(() => seatQuerySchema.parse({ medianHouseholdIncome: 1 })).toThrow();
     expect(() => seatQuerySchema.parse({ arbitrary: "x" })).toThrow();

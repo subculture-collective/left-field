@@ -36,6 +36,18 @@ describe("direct SQL profile modules", () => {
     expect(__sql.FINANCE_PROFILE_COVERAGE_SQL).toContain("missingByReason");
     expect(__sql.AGGREGATE_COMMITTEE_CLOSURE_SQL).toContain("finance_aggregate_inputs");
     expect(__sql.AGGREGATE_COMMITTEE_CLOSURE_SQL).toContain("committeeRelationships");
+    expect(__sql.MAP_PROFILE_SQL).toContain("map_artifacts");
+    expect(__sql.MAP_PROFILE_SQL).toContain("derivationInputSnapshotIds");
+    expect(__sql.MAP_PROFILE_SQL).toContain("ma.geography_version_id=sc.geography_version_id");
+    expect(__sql.MAP_PROFILE_SQL).toContain("/maps/");
+    expect(__sql.MAP_PROFILE_SQL).toContain("r.status='published'");
+    expect(__sql.MAP_CLOSURE_SQL).toContain("map_artifact_inputs");
+    expect(__sql.MAP_CLOSURE_SQL).toContain("r.status='published'");
+    expect(__sql.MAP_CLOSURE_SQL).toContain("sdi.input_snapshot_id");
+    expect(__sql.MAP_CLOSURE_SQL).toContain("ga.snapshot_id");
+    expect(__sql.MAP_DERIVATION_CLOSURE_SQL).toContain("WITH RECURSIVE wanted");
+    expect(__sql.MAP_DERIVATION_CLOSURE_SQL).toContain("snapshot_derivation_inputs");
+    expect(__sql.MAP_DERIVATION_CLOSURE_SQL).toContain("r.status='published'");
   });
 
   it("accepts v2-style empty factual arrays and drops unrelated closure rows", async () => {

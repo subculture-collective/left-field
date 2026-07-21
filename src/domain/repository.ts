@@ -17,6 +17,7 @@ import {
   fecFilingSummarySchema,
   financeAggregateSchema,
   geographyVersionIdSchema,
+  geometryArtifactIdSchema,
   geographyVersionSchema,
   incumbencyStatusSchema,
   isoDateSchema,
@@ -166,6 +167,18 @@ export const profileAcsAvailabilitySchema = z.discriminatedUnion("kind", [
   z.object({ kind: z.literal("incompatible_geography") }).strict(),
 ]);
 
+export const profileMapSchema = z.object({
+  releaseId: releaseIdSchema,
+  geographyVersionId: geographyVersionIdSchema,
+  artifactId: geometryArtifactIdSchema,
+  artifactSnapshotId: snapshotIdSchema,
+  artifactChecksumSha256: z.string().regex(/^[a-f0-9]{64}$/),
+  url: z.string().regex(/^\/maps\/[A-Za-z0-9][A-Za-z0-9_-]{0,127}\/[A-Za-z0-9][A-Za-z0-9_-]{0,127}$/),
+  /** The original TIGER snapshot used to derive this published artifact. */
+  derivationInputSnapshotIds: z.array(snapshotIdSchema).min(1),
+  inputSnapshotIds: z.array(snapshotIdSchema).min(1),
+}).strict();
+
 export const seatProfileSchema = z.object({
   release: dataReleaseSchema,
   office: officeSchema,
@@ -184,6 +197,7 @@ export const seatProfileSchema = z.object({
   acsCoverage: z.array(profileAcsCoverageSchema).default([]),
   electionDecisions: z.array(electionDecisionSchema).default([]),
   electionCoverage: z.array(profileElectionCoverageSchema).default([]),
+  map: profileMapSchema.nullable().default(null),
   contests: z.array(contestSchema),
   candidacies: z.array(candidacySchema),
   resultOptions: z.array(resultOptionSchema),
@@ -231,14 +245,26 @@ export const seatProfileSchema = z.object({
     if (value === null || typeof value !== "object") return;
     const record = value as Record<string, unknown>;
     if (typeof record.snapshotId === "string" && !snapshotIds.has(record.snapshotId)) addIssue([...path, "snapshotId"], "Profile references a snapshot outside the profile closure");
-    if (Array.isArray(record.inputSnapshotIds)) record.inputSnapshotIds.forEach((id, index) => {
-      if (typeof id === "string" && !snapshotIds.has(id)) addIssue([...path, "inputSnapshotIds", index], "Profile references a snapshot outside the profile closure");
+    for (const key of ["inputSnapshotIds", "derivationInputSnapshotIds"] as const) if (Array.isArray(record[key])) record[key].forEach((id, index) => {
+      if (typeof id === "string" && !snapshotIds.has(id)) addIssue([...path, key, index], "Profile references a snapshot outside the profile closure");
     });
     Object.entries(record).forEach(([key, item]) => {
-      if (key !== "snapshotId" && key !== "inputSnapshotIds") visitReferences(item, [...path, key]);
+      if (key !== "snapshotId" && key !== "inputSnapshotIds" && key !== "derivationInputSnapshotIds") visitReferences(item, [...path, key]);
     });
   };
   visitReferences(profile, []);
+  if (profile.map) {
+    if (profile.release.status !== "published") addIssue(["map"], "Map descriptor is available only for the current published release");
+    if (profile.map.releaseId !== profile.release.id || profile.map.geographyVersionId !== profile.geography.id || profile.map.url !== `/maps/${profile.release.id}/${profile.geography.id}`) addIssue(["map"], "Map descriptor must be pinned to this profile geography and release");
+    if (profile.map.inputSnapshotIds.length !== 1 || profile.map.inputSnapshotIds[0] !== profile.map.artifactSnapshotId) addIssue(["map", "inputSnapshotIds"], "Map artifact requires its sole output snapshot input");
+    if (profile.map.derivationInputSnapshotIds.length !== 1 || profile.map.derivationInputSnapshotIds[0] === profile.map.artifactSnapshotId) addIssue(["map", "derivationInputSnapshotIds"], "Map artifact requires exactly one original derivation input distinct from its output");
+    const artifactSnapshot = profile.snapshots.find((snapshot) => snapshot.id === profile.map!.artifactSnapshotId);
+    const artifactSource = artifactSnapshot && profile.sources.find((source) => source.id === artifactSnapshot.sourceId);
+    if (!artifactSnapshot || artifactSnapshot.checksumSha256 !== profile.map.artifactChecksumSha256 || artifactSnapshot.usageStatus !== "approved" || artifactSource?.authority !== "derived") addIssue(["map", "artifactSnapshotId"], "Map artifact snapshot must close to the approved derived artifact checksum");
+    const derivationSnapshot = profile.snapshots.find((snapshot) => snapshot.id === profile.map!.derivationInputSnapshotIds[0]);
+    const derivationSource = derivationSnapshot && profile.sources.find((source) => source.id === derivationSnapshot.sourceId);
+    if (!derivationSnapshot || derivationSnapshot.usageStatus !== "approved" || !derivationSource) addIssue(["map", "derivationInputSnapshotIds"], "Map derivation input must close to an approved source snapshot");
+  }
   const decisionYears = new Set(profile.electionDecisions.map((decision) => decision.electionYear));
   const coverageYears = new Set(profile.electionCoverage.map((coverage) => coverage.scope.kind === "election" ? coverage.scope.electionYear : -1));
   if (decisionYears.size !== profile.electionDecisions.length || coverageYears.size !== profile.electionCoverage.length || [...decisionYears].some((year) => !coverageYears.has(year)) || [...coverageYears].some((year) => !decisionYears.has(year))) addIssue(["electionCoverage"], "Election decisions and coverage must close over the same years");

@@ -71,6 +71,13 @@ async function locked(root: string, lock: SourceLock, id: string, override?: str
   if (bytes.byteLength !== selected.byteSize || sha(bytes) !== selected.sha256) fail("SOURCE_LOCK_ARTIFACT_MISMATCH");
   return { bytes, url: selected.url, sha256: selected.sha256, target, entry: selected };
 }
+
+/** Read one named retained object only after validating its lock entry and bytes. */
+export async function loadLockedArtifact(env: NodeJS.ProcessEnv, id: string, projectRoot = process.cwd()): Promise<{ readonly bytes: Uint8Array; readonly sha256: string }> {
+  const { root, lock } = await verifyConfiguredSourceLock(env, projectRoot);
+  const artifact = await locked(root, lock, id);
+  return { bytes: artifact.bytes, sha256: artifact.sha256 };
+}
 async function verifyTigerBundle(root: string, lock: SourceLock, env: NodeJS.ProcessEnv): Promise<readonly [LockedArtifact, LockedArtifact, LockedArtifact, LockedArtifact]> {
   const [cd119, states, manifest, bundle] = await Promise.all([locked(root, lock, "geo-national-cd119", env.TIGER_CD119_PATH), locked(root, lock, "geo-national-states", env.TIGER_STATES_PATH), locked(root, lock, "geo-national-manifest", env.TIGER_MANIFEST_PATH), locked(root, lock, "geo-national-bundle", env.TIGER_BUNDLE_PATH)]);
   const directory = await realpath(resolve(bundle.target, ".."));

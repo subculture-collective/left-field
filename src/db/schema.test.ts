@@ -11,7 +11,7 @@ describe("database schema", () => {
       "dataReleases", "sources", "sourceSnapshots", "districtPlans", "geometryArtifacts",
       "geographyVersions", "offices", "people", "officeTerms", "memberships", "seatCycles",
       "contests", "candidacies", "resultOptions", "electionResults", "acsObservations",
-      "committees", "committeeRelationships", "fecFilingSummaries", "seatFinanceSummaries",
+      "committees", "committeeRelationships", "fecFilingSummaries", "seatFinanceSummaries", "mapArtifactReceipts",
     ]));
   });
 
@@ -97,8 +97,8 @@ describe("database schema", () => {
     const migration = readFileSync(resolve(process.cwd(), "drizzle/0001_phase_1_nationwide.sql"), "utf8");
     for (const fn of ["guard_nationwide_content", "guard_nationwide_operational", "guard_nationwide_validation", "guard_ingest_run"]) expect(migration).toContain(`CREATE FUNCTION ${fn}`);
     for (const table of ["ingest_runs", "stg_identity", "stg_tiger", "stg_acs", "stg_fec", "stg_elections", "quarantined_records"]) expect(migration).toContain(`${table}_operational`);
-    expect(contentTableRegistry).toHaveLength(51);
-    for (const { name, domains } of contentTableRegistry) expect(migration).toContain(`['${name}','${domains.join(",")}']`);
+    expect(contentTableRegistry).toHaveLength(52);
+    for (const { name, domains } of contentTableRegistry.filter((entry) => entry.name !== "map_artifact_receipts")) expect(migration).toContain(`['${name}','${domains.join(",")}']`);
     for (const index of ["release_profile_seats_position_idx", "offices_state_chamber_idx", "memberships_term_party_dates_idx", "seat_cycles_year_kind_status_idx", "contests_date_kind_status_idx", "acs_observations_variable_geography_idx", "finance_aggregates_seat_coverage_idx", "funding_category_aggregates_seat_coverage_idx", "funding_organization_aggregates_seat_coverage_idx", "outside_spending_aggregates_seat_coverage_idx", "election_decisions_jurisdiction_year_idx", "map_artifacts_geography_artifact_idx", "ingest_runs_release_source_status_idx", "quarantined_records_run_snapshot_idx", "stg_identity_run_snapshot_idx", "stg_tiger_run_snapshot_idx", "stg_acs_run_snapshot_idx", "stg_fec_run_snapshot_idx", "stg_elections_run_snapshot_idx", "coverage_input_snapshots_snapshot_fk_idx", "biographical_fact_provenance_snapshot_fk_idx", "committee_assignment_provenance_snapshot_fk_idx", "acs_variable_inputs_snapshot_fk_idx", "acs_variable_dependencies_dependency_fk_idx", "finance_aggregate_inputs_committee_fk_idx", "finance_aggregate_inputs_filing_fk_idx", "election_decision_inputs_snapshot_fk_idx", "map_artifact_inputs_snapshot_fk_idx", "snapshot_derivation_inputs_snapshot_fk_idx"]) expect(migration).toContain(index);
   });
 
@@ -120,8 +120,66 @@ describe("database schema", () => {
     const migration = readFileSync(resolve(process.cwd(), "drizzle/0002_ingestion_integrity.sql"), "utf8");
     const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0002_snapshot.json"), "utf8")) as { tables: Record<string, { columns: Record<string, unknown> }> };
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt"]);
     expect(snapshot.tables["public.ingest_runs"]?.columns).toEqual(expect.objectContaining({ snapshot_id: expect.anything(), lease_token: expect.anything(), failure_code: expect.anything() }));
     for (const name of ["guard_ingest_run", "guard_ingest_publication", "data_releases_ingest_publication_guard", "ingest_runs_one_live_identity_uq"]) expect(migration).toContain(name);
+  });
+
+  it("records Task 10 receipt, ACL, and lifecycle foundations", () => {
+    const migration = readFileSync(resolve(process.cwd(), "drizzle/0003_steep_kid_colt.sql"), "utf8");
+    const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0003_snapshot.json"), "utf8")) as { tables: Record<string, unknown> };
+    expect(snapshot.tables["public.map_artifact_receipts"]).toBeDefined();
+    expect(snapshot.tables["public.release_preflight_proofs"]).toBeDefined();
+    for (const text of ["maps/{releaseId}/{geographyId}.geojson", "map_artifacts_release_artifact_uq", "dsa_seats_web", "dsa_seats_ingest", "dsa_seats_release_preflight", "dsa_seats_release_operator", "release_preflight_proofs", "SECURITY DEFINER", "issue_release_preflight", "consume_release_preflight", "lifecycle_promote_candidate", "lifecycle_roll_forward", "lifecycle_rollback", "REVOKE CREATE ON SCHEMA public", "SET search_path = pg_catalog, public"]) expect(migration).toContain(text);
+    expect(contentTableRegistry).toHaveLength(52);
+    expect(contentTableRegistry.findIndex((entry) => entry.name === "map_artifact_receipts")).toBe(contentTableRegistry.findIndex((entry) => entry.name === "map_artifacts") + 1);
+    expect(migration).toContain("REVOKE ALL ON ALL TABLES IN SCHEMA public FROM dsa_seats_web,dsa_seats_ingest,dsa_seats_release_operator,dsa_seats_release_preflight");
+    expect(migration).toContain("CREATE OR REPLACE VIEW public.public_map_artifacts WITH(security_barrier=true)");
+    expect(migration).toContain("GRANT SELECT ON public.public_map_artifacts TO dsa_seats_web");
+    expect(migration).toContain("map_artifact_receipts");
+    expect(migration).toContain("GRANT SELECT,INSERT,UPDATE,DELETE ON ALL TABLES IN SCHEMA public TO dsa_seats_migration_owner");
+    expect(migration).not.toContain("GRANT dsa_seats_migration_owner TO CURRENT_USER");
+  });
+
+  it("statically pins Task 10 publication closure and least-privilege predicates", () => {
+    const migration = readFileSync(resolve(process.cwd(), "drizzle/0003_steep_kid_colt.sql"), "utf8");
+    expect(migration).not.toContain("position('/' in NEW.release_id)=0");
+    for (const text of [
+      "^[A-Za-z0-9_-]{1,128}$",
+      "maps must exactly cover 441 cutoff-active House geographies",
+      "assert_task9_publication_ready", "release lacks exact Task 9 publication closure",
+      "GRANT INSERT,UPDATE,DELETE ON public.%I TO dsa_seats_ingest", "c.column_name='release_id'", "c.table_name NOT IN('release_preflight_proofs','data_releases')",
+      "GRANT USAGE ON SCHEMA public TO dsa_seats_migration_owner,dsa_seats_web,dsa_seats_ingest,dsa_seats_release_preflight,dsa_seats_release_operator",
+      "REVOKE ALL ON FUNCTION public.guard_map_artifact_receipt()", "same-status release history is immutable",
+      "ALTER FUNCTION public.guard_candidate_release_content() SECURITY DEFINER",
+      "pg_advisory_xact_lock(hashtext('dsa_seats_release:'||r))",
+      "target lacks required v2 manifest, gate, or all-seven stored digests", "cardinality(p_run_ids)<>158",
+      "REVOKE CREATE ON SCHEMA public FROM PUBLIC", "guard_ingest_publication() RETURNS trigger LANGUAGE plpgsql SET search_path = pg_catalog, public, pg_temp",
+      "pg_advisory_xact_lock(hashtext('dsa_seats_release_promotion'))", "assert_preflight_branch",
+      "a live preflight proof already exists for this lifecycle state", "candidate content is frozen while a live preflight proof exists",
+      "UPDATE public.release_preflight_proofs SET consumed_at=clock_timestamp() WHERE consumed_at IS NULL",
+    ]) expect(migration).toContain(text);
+  });
+
+  it("installs one hardened lifecycle API and keeps operational reads private", () => {
+    const migration = readFileSync(resolve(process.cwd(), "drizzle/0003_steep_kid_colt.sql"), "utf8");
+    for (const name of ["assert_task9_publication_ready"]) {
+      expect(migration.match(new RegExp(`CREATE OR REPLACE FUNCTION public\\.${name}\\(`, "g"))).toHaveLength(1);
+    }
+    expect(migration.match(/CREATE OR REPLACE FUNCTION public\.assert_lifecycle_ready\(/g)).toHaveLength(1);
+    expect(migration.match(/CREATE OR REPLACE FUNCTION public\.lifecycle_rollback\(/g)).toHaveLength(1);
+    expect(migration).toContain("lifecycle_promote_candidate(text,text,text,text,text[])");
+    expect(migration).toContain("lifecycle_roll_forward(text,text,text,text,text[])");
+    expect(migration).toContain("lifecycle_rollback(text,text)");
+    expect(migration).toContain("CREATE TABLE public.release_preflight_proofs");
+    expect(migration).toContain("expires_at<=issued_at+interval '5 minutes'");
+    expect(migration).toContain("consumed_at=clock_timestamp()");
+    expect(migration).toContain("REVOKE ALL ON FUNCTION public.guard_map_artifact_receipt()");
+  });
+
+  it("keeps Task 10 in migration 0003 only", () => {
+    const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt"]);
+    expect(() => readFileSync(resolve(process.cwd(), "drizzle/0004_task10_oracle_hardening.sql"))).toThrow();
   });
 });

@@ -70,10 +70,20 @@ export function createManifestSeatProjection(manifest: PrototypeManifest) {
     const electionDecisions = ((manifest as PrototypeManifest & { electionDecisions?: readonly SeatProfile["electionDecisions"][number][] }).electionDecisions ?? []).filter((decision) => decision.jurisdictionCode === office.stateCode);
     const electionCoverage = coverageRecords.filter((record) => record.scope.kind === "election" && record.scope.jurisdictionCode === office.stateCode && electionDecisions.some((decision) => decision.electionYear === (record.scope.kind === "election" ? record.scope.electionYear : -1)));
     collect([cycle, office, geography, term, ...(membership ? [membership] : []), ...(incumbent ? [incumbent] : []), ...contests, ...candidacies, ...resultOptions, ...electionResults, ...demographics, ...finance, ...committees, ...committeeRelationships]); manifest.financeSummaries.forEach((summary) => { if (summary.seatCycleId === id && summary.kind === "missing") summary.inputs.forEach((input) => snapshotIds.add(input.snapshotId)); }); financeCoverage?.inputSnapshotIds.forEach((snapshotId) => snapshotIds.add(snapshotId)); electionDecisions.forEach((decision) => decision.inputSnapshotIds.forEach((snapshotId) => snapshotIds.add(snapshotId))); electionCoverage.forEach((coverage) => coverage.inputSnapshotIds.forEach((snapshotId) => snapshotIds.add(snapshotId)));
+    const mapArtifact = ((manifest as PrototypeManifest & { mapArtifacts?: readonly { geographyVersionId: string; artifactId: string; inputSnapshotIds: readonly string[] }[] }).mapArtifacts ?? []).find((row) => row.geographyVersionId === cycle.geographyVersionId) ?? null;
+    const geometryArtifact = mapArtifact ? manifest.geometryArtifacts.find((row) => row.id === mapArtifact.artifactId) ?? null : null;
+    const derivations = (manifest as PrototypeManifest & { snapshotDerivations?: readonly { outputSnapshotId: string; inputSnapshotIds: readonly string[] }[] }).snapshotDerivations ?? [];
+    const derivationInputs = geometryArtifact ? uniqueSorted(derivations.filter((row) => row.outputSnapshotId === geometryArtifact.snapshotId).flatMap((row) => row.inputSnapshotIds)) : [];
+    const map = manifest.release.status === "published" && mapArtifact && geometryArtifact ? { releaseId: manifest.release.id, geographyVersionId: geography.id, artifactId: geometryArtifact.id, artifactSnapshotId: geometryArtifact.snapshotId, artifactChecksumSha256: geometryArtifact.checksumSha256, url: `/maps/${manifest.release.id}/${geography.id}`, inputSnapshotIds: uniqueSorted(mapArtifact.inputSnapshotIds.map(String)), derivationInputSnapshotIds: derivationInputs } : null;
+    if (map && geometryArtifact) {
+      map.inputSnapshotIds.forEach((snapshotId) => snapshotIds.add(snapshotId)); snapshotIds.add(String(geometryArtifact.snapshotId));
+      const closeDerivation = (outputId: string): void => derivations.filter((row) => row.outputSnapshotId === outputId).forEach((row) => row.inputSnapshotIds.forEach((inputId) => { if (!snapshotIds.has(inputId)) { snapshotIds.add(inputId); closeDerivation(inputId); } }));
+      closeDerivation(String(geometryArtifact.snapshotId));
+    }
     const snapshots = sortedBy(manifest.snapshots.filter((row) => snapshotIds.has(row.id)), (row) => [String(row.id)]);
     const sourceIds = new Set(snapshots.map((row) => row.sourceId));
     return seatProfileSchema.parse({
-      release: manifest.release, office, seatCycle: cycle, geography, officeTerm: term, membership, incumbent,
+      release: manifest.release, office, seatCycle: cycle, geography, officeTerm: term, membership, incumbent, map,
       biographicalFacts: [], memberCoverage: null, financeCoverage, financeAggregates: sortedBy(financeAggregates, (row) => [row.asOf, String(row.id)]), acsAvailability: demographics.length > 0 ? { kind: "observations" } : { kind: "no_observations" }, acsCoverage: [], electionDecisions: sortedBy(electionDecisions, (row) => [String(row.electionYear)]), electionCoverage: sortedBy(electionCoverage, (row) => [String(row.scope.kind === "election" ? row.scope.electionYear : 0)]),
       contests: sortedBy(contests, (row) => [String(row.id)]),
       candidacies: sortedBy(candidacies, (row) => [String(row.id)]),

@@ -444,7 +444,9 @@ export const coverageRecordSchema = z.strictObject({
   expectedCount: z.number().int().nonnegative(), observedCount: z.number().int().nonnegative(),
   missingByReason: z.array(z.strictObject({ reason: coverageMissingReasonSchema, count: z.number().int().positive() })).default([]),
   quarantinedCount: z.number().int().nonnegative().default(0), incompatibleCount: z.number().int().nonnegative().default(0),
-  inputSnapshotIds: z.array(snapshotIdSchema).min(1),
+  // A mapless legacy release has an explicit zero-observed maps record and no
+  // invented source receipt. Domain validation restricts this exception.
+  inputSnapshotIds: z.array(snapshotIdSchema),
 });
 export type CoverageRecord = z.infer<typeof coverageRecordSchema>;
 export const personBiographicalFactSchema = z.strictObject({

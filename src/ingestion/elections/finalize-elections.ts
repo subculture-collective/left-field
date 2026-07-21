@@ -36,7 +36,7 @@ export interface FinalizeCandidateElectionDecisionsOptions {
   readonly signal?: AbortSignal;
 }
 
-type LockMode = "FOR UPDATE" | "FOR SHARE";
+type LockMode = "FOR UPDATE" | "FOR SHARE" | "";
 type Run = QueryResultRow & {
   id: string; source_id: string; snapshot_id: string; adapter_version: string; upstream_release: string;
   raw_store_kind: "local" | "s3"; raw_store_locator: string; raw_object_key: string; raw_object_sha256: string;
@@ -76,7 +76,7 @@ function assertInput(options: FinalizeCandidateElectionDecisionsOptions): void {
   if (!options.candidateReleaseId || !options.sourceReleaseId || options.candidateReleaseId === options.sourceReleaseId || options.runIds.length < 1 || options.runIds.length > 158 || options.runIds.some((id) => !id) || new Set(options.runIds).size !== options.runIds.length || !/^[a-f0-9]{64}$/.test(options.sourceLockSha256) || options.sourceLockEntries.length < 1 || options.sourceLockEntries.length > 1024 || options.sourceLockEntries.some((entry) => !validEntry(entry)) || new Set(options.sourceLockEntries.map((entry) => entry.id)).size !== options.sourceLockEntries.length) fail("ELECTION_FINALIZE_INPUT_INVALID");
 }
 
-async function assertReleaseLineage(client: PoolClient, options: FinalizeCandidateElectionDecisionsOptions, lock: LockMode, statuses: readonly ("candidate" | "retired")[]): Promise<void> {
+async function assertReleaseLineage(client: PoolClient, options: FinalizeCandidateElectionDecisionsOptions, lock: LockMode, statuses: readonly ("candidate" | "retired" | "published")[]): Promise<void> {
   const result = await client.query(`SELECT 1 FROM data_releases r JOIN data_releases p ON p.id=r.previous_release_id JOIN release_manifests m ON m.release_id=r.id WHERE r.id=$1 AND r.status=ANY($3) AND r.previous_release_id=$2 AND p.status IN ('published','retired') AND r.source_cutoff=p.source_cutoff AND m.schema_version=2 ${lock}`, [options.candidateReleaseId, options.sourceReleaseId, statuses]);
   if (result.rowCount !== 1) fail("ELECTION_FINALIZE_CANDIDATE_INVALID");
 }
@@ -266,11 +266,13 @@ export async function verifyPersistedTask9ElectionCandidate(options: FinalizeCan
 export async function verifyPersistedTask9ElectionWithClient(
   client: PoolClient,
   options: FinalizeCandidateElectionDecisionsOptions,
-  statuses: readonly ("candidate" | "retired")[] = ["candidate"],
+  statuses: readonly ("candidate" | "retired" | "published")[] = ["candidate"],
 ): Promise<void> {
   assertInput(options);
-  await assertReleaseLineage(client, options, "FOR SHARE", statuses);
-  const runs = await loadRuns(client, options, "FOR SHARE");
+  // Promotion preflight is intentionally SELECT-only.  Its caller holds the
+  // deterministic release advisory locks that stabilize this evidence.
+  await assertReleaseLineage(client, options, "", statuses);
+  const runs = await loadRuns(client, options, "");
   if (runs.some((run) => run.status !== "loaded")) fail("ELECTION_FINALIZE_MIXED_STATUS");
   const replayed = await Promise.all(runs.map((run) => replayRun(client, options, run)));
   const usedLockEntries = new Set(replayed.flatMap((item) => item.envelope.evidenceReceipts.map((receipt) => receipt.lockEntryId)));

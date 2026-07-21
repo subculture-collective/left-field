@@ -11,6 +11,8 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:integration": "vitest run src/db/integration.test.ts",
+    "test:e2e": "playwright test",
+    "test:a11y": "playwright test --grep @a11y",
     "data:verify": "node scripts/verify-source-lock.mjs",
     "ingest": "tsx scripts/ingest.ts",
     "enrich:members": "tsx scripts/enrich-member-facts.ts",
@@ -18,6 +20,8 @@
     "finalize:acs": "tsx scripts/finalize-acs.ts",
     "finalize:fec": "tsx scripts/finalize-fec.ts",
     "finalize:elections": "tsx scripts/finalize-elections.ts",
+    "finalize:maps": "tsx scripts/finalize-maps.ts",
+    "seed:task10-map-e2e": "tsx scripts/seed-task10-map-e2e.ts",
     "measure:task5-queries": "tsx scripts/measure-task5-queries.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
@@ -36,6 +40,8 @@
     "zod": "^4.1.12"
   },
   "devDependencies": {
+    "@axe-core/playwright": "^4.12.1",
+    "@playwright/test": "^1.61.1",
     "@tailwindcss/postcss": "^4.1.18",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",

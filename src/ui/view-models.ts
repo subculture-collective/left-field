@@ -23,6 +23,7 @@ export type BiographyViewModel = Immutable<Readonly<{ bioguideId: SeatProfile["b
 export type ProfilePageViewModel = Readonly<{
   release: ReleaseViewModel;
   identity: Readonly<{ id: string; chamber: string; stateCode: string; districtCode: string | null; geographyLabel: string; geographyVintage: string; currentHolder: string | null; currentHolderParty: string | null; occupancyStatus: string; occupancyAsOf: string; incumbencyStatus: string }>;
+  map: Immutable<SeatProfile["map"]>;
   headlineFacts: Immutable<Pick<SeatListItem, "presidentialMargin2024" | "cashOnHand">>;
   elections: readonly ElectionContextViewModel[];
   electionDecisions: readonly ElectionDecisionViewModel[];
@@ -48,7 +49,7 @@ export function compileBrowsePage(releaseValue: DataRelease, page: SeatPage, app
   return { release: release(releaseValue), appliedQuery: { ...appliedQuery }, rows: page.items.map((row) => ({ ...row })), total: page.total, nextCursor: page.nextCursor, available: { states: unique(facets.states), parties: unique(facets.parties), incumbencyStatuses: unique(facets.incumbencyStatuses), electionYears: unique(facets.electionYears) }, disclosure: { coverage: "Coverage is limited to the active release; missing values retain their stated reason.", rankings: "No rankings or scores are published in this release.", demographicFilters: "Demographics are display-only and cannot filter, order, subset, or rank seats." } };
 }
 
-function compileProfilePageBase(profile: SeatProfile, seat: SeatListItem): Omit<ProfilePageViewModel, "biography" | "acsAvailability" | "financeCoverage" | "financeAggregates" | "electionDecisions"> {
+function compileProfilePageBase(profile: SeatProfile, seat: SeatListItem): Omit<ProfilePageViewModel, "biography" | "acsAvailability" | "financeCoverage" | "financeAggregates" | "electionDecisions" | "map"> {
   const contests = new Map(profile.contests.map((contest) => [contest.id, contest]));
   const options = new Map(profile.resultOptions.map((option) => [option.id, option]));
   const candidacies = new Map(profile.candidacies.map((candidacy) => [candidacy.id, candidacy]));
@@ -58,7 +59,7 @@ function compileProfilePageBase(profile: SeatProfile, seat: SeatListItem): Omit<
 export function compileProfilePage(profile: SeatProfile, seat: SeatListItem): ProfilePageViewModel {
   const base = compileProfilePageBase(profile, seat);
   const fact = (name: "birth_date" | "bioguide_id") => profile.biographicalFacts.find((row) => row.fact === name)?.value ?? null;
-  return { ...base, electionDecisions: profile.electionDecisions.map((decision) => ({ electionYear: decision.electionYear, status: decision.status, inputSnapshotIds: decision.inputSnapshotIds, coverage: profile.electionCoverage.find((coverage) => coverage.scope.kind === "election" && coverage.scope.electionYear === decision.electionYear) ?? null })), acsAvailability: profile.acsAvailability, financeCoverage: profile.financeCoverage, financeAggregates: profile.financeAggregates.map((aggregate) => ({ ...aggregate, includedCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "included").length, missingCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "missing").length })), biography: { bioguideId: fact("bioguide_id"), birthDate: fact("birth_date"), facts: profile.biographicalFacts, memberCoverage: profile.memberCoverage, committeeAssignmentsNote: "Committee assignments are not published because current official sources do not provide authoritative effective dates." } };
+  return { ...base, map: profile.map, electionDecisions: profile.electionDecisions.map((decision) => ({ electionYear: decision.electionYear, status: decision.status, inputSnapshotIds: decision.inputSnapshotIds, coverage: profile.electionCoverage.find((coverage) => coverage.scope.kind === "election" && coverage.scope.electionYear === decision.electionYear) ?? null })), acsAvailability: profile.acsAvailability, financeCoverage: profile.financeCoverage, financeAggregates: profile.financeAggregates.map((aggregate) => ({ ...aggregate, includedCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "included").length, missingCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "missing").length })), biography: { bioguideId: fact("bioguide_id"), birthDate: fact("birth_date"), facts: profile.biographicalFacts, memberCoverage: profile.memberCoverage, committeeAssignmentsNote: "Committee assignments are not published because current official sources do not provide authoritative effective dates." } };
 }
 
 export function compileSourcesPage(releaseValue: DataRelease, sources: readonly Source[], snapshots: readonly SourceSnapshot[]): SourcesPageViewModel {

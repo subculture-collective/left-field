@@ -276,7 +276,7 @@ describe("nationwide manifest v2", () => {
   it("requires exact ACS definitions and map references", () => {
     const missing = nationwideSkeleton(); missing.acsObservations.push({ releaseId: missing.release.id, geographyVersionId: missing.seatCycles[0]!.geographyVersionId, variable: "synthetic", label: "Synthetic", estimate: { kind: "missing", reason: "not_collected" }, marginOfError: { kind: "missing", reason: "not_collected" }, unit: "count", surveyPeriod: "synthetic", universe: "synthetic", lineage: { inputs: [{ snapshotId: "snap_input", role: "original_publisher" }], asOf: "2024-01-01", methodology: "synthetic", status: "reported" } } as never); missing.acsVariables = []; expectV2Issue(missing, "ACS observation must resolve to exactly one variable definition");
     const mismatched = nationwideSkeleton(); mismatched.acsObservations.push({ ...missing.acsObservations[0]!, releaseId: mismatched.release.id, label: "Other" }); expectV2Issue(mismatched, "ACS observation must resolve to exactly one variable definition");
-    const map = nationwideSkeleton(); map.mapArtifacts[0]!.artifactId = "artifact_missing" as never; expectV2Issue(map, "Invalid map artifact reference");
+    const map = nationwideSkeleton(); map.mapArtifacts.push({ id: "map_synthetic", releaseId: map.release.id, geographyVersionId: map.seatCycles[0]!.geographyVersionId, artifactId: "artifact_missing", inputSnapshotIds: ["snap_input"] } as never); expectV2Issue(map, "Invalid map artifact reference");
   });
 
   it("validates snapshot derivation ownership, references, uniqueness, and cycles", () => {

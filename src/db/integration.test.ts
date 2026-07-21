@@ -50,6 +50,9 @@ import { fecEnvelopeFixture } from "@/ingestion/fec/fec-test-fixture";
 import { createElectionDecisionAdapter, ELECTION_DECISION_SOURCE, ELECTION_DECISION_UPSTREAM_RELEASE, electionDecisionSourceUrl } from "@/ingestion/elections/adapter";
 import { ELECTION_DECISION_ADAPTER_VERSION, electionDecisionEnvelopeSha256, encodeElectionDecisionEnvelope } from "@/ingestion/elections/decision-envelope";
 import { finalizeCandidateElectionDecisions, verifyPersistedTask9ElectionCandidate } from "@/ingestion/elections/finalize-elections";
+import { finalizeCandidateMaps, verifyPersistedCandidateMaps } from "@/ingestion/tiger/finalize-maps";
+import { simplifyNationalTigerDistrictLayer } from "@/ingestion/tiger/simplify";
+import { LocalMapArtifactStore, type MapArtifactStore } from "@/maps/map-artifact-store";
 
 const testDatabaseUrl = process.env.TEST_DATABASE_URL;
 const testDatabaseName = testDatabaseUrl ? new URL(testDatabaseUrl).pathname.slice(1) : "";
@@ -113,6 +116,16 @@ async function waitForPromotionToBlock(pool: Pool, timeoutMs = 1_000): Promise<v
   throw new Error("Promotion did not block on the candidate content lock");
 }
 
+async function waitForWriterToBlockOnAdvisoryLock(pool: Pool, writerPid: number, timeoutMs = 1_000): Promise<void> {
+  const deadline = Date.now() + timeoutMs;
+  while (Date.now() < deadline) {
+    const waiting = await pool.query<{ waiting: boolean }>("SELECT EXISTS (SELECT 1 FROM pg_locks WHERE locktype='advisory' AND pid=$1 AND NOT granted) AS waiting", [writerPid]);
+    if (waiting.rows[0]?.waiting) return;
+    await new Promise<void>((resolve) => setTimeout(resolve, 5));
+  }
+  throw new Error("Candidate content writer did not block on its release advisory lock");
+}
+
 integration("PostgreSQL integration", () => {
   type IdentityRow = { key: string; entity: string; name?: string };
   const task3Adapter = (raw: RawObject<null>, rows: readonly IdentityRow[], options: { quarantines?: boolean; issue?: boolean; stageError?: boolean; loadError?: boolean } = {}): SourceAdapter<null, IdentityRow> => ({
@@ -135,6 +148,129 @@ integration("PostgreSQL integration", () => {
   afterEach(async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
     try { await pool.query("TRUNCATE data_releases CASCADE"); } finally { await pool.end(); }
+  });
+
+  it("uses split Task10 LOGIN principals for lifecycle capabilities and RLS", async () => {
+    const ownerPool = new Pool({ connectionString: testDatabaseUrl });
+    const suffix = randomUUID().replace(/-/g, "");
+    const principals = {
+      web: { name: `dsa_task10_web_${suffix}`, role: "dsa_seats_web" },
+      ingest: { name: `dsa_task10_ingest_${suffix}`, role: "dsa_seats_ingest" },
+      preflight: { name: `dsa_task10_preflight_${suffix}`, role: "dsa_seats_release_preflight" },
+      operator: { name: `dsa_task10_operator_${suffix}`, role: "dsa_seats_release_operator" },
+    } as const;
+    const password = randomUUID();
+    const pools: Pool[] = [];
+    const loginUrl = (name: string): string => {
+      const url = new URL(testDatabaseUrl!);
+      url.username = name;
+      url.password = password;
+      return url.toString();
+    };
+    try {
+      const capability = await ownerPool.query<{ permitted: boolean }>("SELECT rolsuper OR rolcreaterole AS permitted FROM pg_roles WHERE rolname=current_user");
+      expect(capability.rows[0]?.permitted).toBe(true);
+      for (const principal of Object.values(principals)) {
+        await ownerPool.query(`CREATE ROLE "${principal.name}" LOGIN INHERIT PASSWORD '${password}'`);
+        await ownerPool.query(`GRANT ${principal.role} TO "${principal.name}"`);
+        const memberships = await ownerPool.query<{ role: string }>("SELECT granted.rolname AS role FROM pg_auth_members membership JOIN pg_roles member ON member.oid=membership.member JOIN pg_roles granted ON granted.oid=membership.roleid WHERE member.rolname=$1 ORDER BY granted.rolname", [principal.name]);
+        expect(memberships.rows.map((row) => row.role)).toEqual([principal.role]);
+      }
+      const webPool = new Pool({ connectionString: loginUrl(principals.web.name) });
+      const ingestPool = new Pool({ connectionString: loginUrl(principals.ingest.name) });
+      const preflightPool = new Pool({ connectionString: loginUrl(principals.preflight.name) });
+      const operatorPool = new Pool({ connectionString: loginUrl(principals.operator.name) });
+      pools.push(webPool, ingestPool, preflightPool, operatorPool);
+
+      const v1 = candidate(`rel_task10_v1_${suffix}`);
+      await seedPrototypeManifest(ownerPool, v1, boundariesFor(v1));
+      await promoteCandidateRelease(ownerPool, v1.release.id, 3, undefined, undefined, { preflightPool, operatorPool });
+
+      const v2 = candidate(`rel_task10_v2_${suffix}`);
+      v2.release = { ...v2.release, previousReleaseId: v1.release.id };
+      v2.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(v2);
+      await seedPrototypeManifest(ownerPool, v2, boundariesFor(v2));
+
+      expect((await webPool.query<{ id: string }>("SELECT id FROM data_releases ORDER BY id")).rows.map((row) => row.id)).toEqual([v1.release.id]);
+      await expect(webPool.query("SELECT * FROM map_artifact_receipts")).rejects.toMatchObject({ code: "42501" });
+      await expect(ingestPool.query("UPDATE sources SET name=name WHERE release_id=$1", [v2.release.id])).resolves.toMatchObject({ rowCount: 1 });
+      await expect(ingestPool.query("SELECT public.lifecycle_rollback('x','y')")).rejects.toMatchObject({ code: "42501" });
+      expect((await operatorPool.query<{ permitted: boolean }>("SELECT has_function_privilege(current_user,'public.lifecycle_promote_candidate(text,text,text,text,text[])','EXECUTE') AS permitted")).rows[0]?.permitted).toBe(true);
+      await expect(operatorPool.query("UPDATE data_releases SET label=label WHERE id=$1", [v1.release.id])).rejects.toMatchObject({ code: "42501" });
+
+      await promoteCandidateRelease(ownerPool, v2.release.id, 3, undefined, undefined, { preflightPool, operatorPool });
+      expect((await webPool.query<{ id: string }>("SELECT id FROM data_releases ORDER BY id")).rows.map((row) => row.id)).toEqual([v1.release.id, v2.release.id]);
+      const proof = await ownerPool.query<{ id: string; consumed_at: Date | null }>("SELECT id,consumed_at FROM release_preflight_proofs WHERE target_release_id=$1 AND operation='promote' ORDER BY issued_at DESC LIMIT 1", [v2.release.id]);
+      expect(proof.rows[0]?.consumed_at).not.toBeNull();
+
+      await expect(rollbackPublishedRelease(ownerPool, 3, { preflightPool, operatorPool })).resolves.toEqual({ publishedReleaseId: v1.release.id, retiredReleaseId: v2.release.id });
+      expect((await ownerPool.query<{ count: number }>("SELECT count(*)::int AS count FROM release_preflight_proofs WHERE consumed_at IS NULL")).rows[0]?.count).toBe(0);
+      await expect(operatorPool.query("SELECT public.lifecycle_promote_candidate($1,$2,$3,$3,NULL)", [proof.rows[0]!.id, v2.release.id, v1.release.id])).rejects.toBeDefined();
+      expect((await webPool.query<{ id: string }>("SELECT id FROM data_releases WHERE status='published'")).rows.map((row) => row.id)).toEqual([v1.release.id]);
+    } finally {
+      await Promise.all(pools.map((pool) => pool.end()));
+      for (const principal of Object.values(principals)) await ownerPool.query(`DROP ROLE IF EXISTS "${principal.name}"`).catch(() => undefined);
+      await ownerPool.end();
+    }
+  });
+
+  it("rejects a candidate writer unblocked after a committed Task10 preflight proof", async () => {
+    const ownerPool = new Pool({ connectionString: testDatabaseUrl });
+    const suffix = randomUUID().replace(/-/g, "");
+    const principals = {
+      ingest: { name: `dsa_task10_race_ingest_${suffix}`, role: "dsa_seats_ingest" },
+      preflight: { name: `dsa_task10_race_preflight_${suffix}`, role: "dsa_seats_release_preflight" },
+    } as const;
+    const password = randomUUID();
+    const loginUrl = (name: string): string => {
+      const url = new URL(testDatabaseUrl!);
+      url.username = name;
+      url.password = password;
+      return url.toString();
+    };
+    const pools: Pool[] = [];
+    let writer: PoolClient | undefined;
+    let preflight: PoolClient | undefined;
+    try {
+      const capability = await ownerPool.query<{ permitted: boolean }>("SELECT rolsuper OR rolcreaterole AS permitted FROM pg_roles WHERE rolname=current_user");
+      expect(capability.rows[0]?.permitted).toBe(true);
+      for (const principal of Object.values(principals)) {
+        await ownerPool.query(`CREATE ROLE "${principal.name}" LOGIN INHERIT PASSWORD '${password}'`);
+        await ownerPool.query(`GRANT ${principal.role} TO "${principal.name}"`);
+      }
+      const ingestPool = new Pool({ connectionString: loginUrl(principals.ingest.name) });
+      const preflightPool = new Pool({ connectionString: loginUrl(principals.preflight.name) });
+      pools.push(ingestPool, preflightPool);
+
+      const manifest = candidate(`rel_task10_race_${suffix}`);
+      await seedPrototypeManifest(ownerPool, manifest, boundariesFor(manifest));
+      const originalName = manifest.sources[0]!.name;
+
+      preflight = await preflightPool.connect();
+      await preflight.query("BEGIN");
+      await preflight.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [manifest.release.id]);
+
+      writer = await ingestPool.connect();
+      const writerPid = (await writer.query<{ pid: number }>("SELECT pg_backend_pid() AS pid")).rows[0]!.pid;
+      await writer.query("BEGIN");
+      const mutation = writer.query("UPDATE sources SET name='race mutation' WHERE release_id=$1", [manifest.release.id]);
+      await waitForWriterToBlockOnAdvisoryLock(ownerPool, writerPid);
+
+      await preflight.query("SELECT public.issue_release_preflight($1,'promote',$2,NULL,NULL,NULL,300)", [randomUUID(), manifest.release.id]);
+      await preflight.query("COMMIT");
+      await expect(mutation).rejects.toMatchObject({ code: "55000", message: expect.stringMatching(/candidate content is frozen while a live preflight proof exists/i) });
+      await writer.query("ROLLBACK");
+      expect((await ownerPool.query<{ name: string }>("SELECT name FROM sources WHERE release_id=$1", [manifest.release.id])).rows[0]?.name).toBe(originalName);
+      expect((await ownerPool.query<{ count: number }>("SELECT count(*)::int AS count FROM release_preflight_proofs WHERE target_release_id=$1 AND consumed_at IS NULL", [manifest.release.id])).rows[0]?.count).toBe(1);
+    } finally {
+      await writer?.query("ROLLBACK").catch(() => undefined);
+      writer?.release();
+      await preflight?.query("ROLLBACK").catch(() => undefined);
+      preflight?.release();
+      await Promise.all(pools.map((pool) => pool.end()));
+      for (const principal of Object.values(principals)) await ownerPool.query(`DROP ROLE IF EXISTS "${principal.name}"`).catch(() => undefined);
+      await ownerPool.end();
+    }
   });
 
   it("round-trips the canonical candidate with artifact and geometry identity", async () => {
@@ -271,6 +407,8 @@ integration("PostgreSQL integration", () => {
       expect(loaded.profileSeatCycleIds).toEqual(first.profileSeatCycleIds);
       await promoteCandidateRelease(pool, first.release.id);
       expect(computeCanonicalDataChecksum(await loadPrototypeManifest(pool, first.release.id))).toBe(first.canonicalDataChecksumSha256);
+      second.release = { ...second.release, previousReleaseId: first.release.id };
+      second.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(second);
       await seedPrototypeManifest(pool, second, boundariesFor(second));
       const checksums = await pool.query<{ release_id: string; content_checksum_sha256: string }>("SELECT release_id,content_checksum_sha256 FROM release_manifests WHERE release_id = ANY($1)", [[first.release.id, second.release.id]]);
       expect(new Set(checksums.rows.map((row) => row.content_checksum_sha256)).size).toBe(2);
@@ -287,14 +425,14 @@ integration("PostgreSQL integration", () => {
       expect(computeCanonicalDataChecksum(await loadPrototypeManifest(pool, second.release.id))).toBe(second.canonicalDataChecksumSha256);
       await expect(pool.query("UPDATE release_manifests SET validated_at=now() WHERE release_id=$1", [first.release.id])).rejects.toMatchObject({ code: "23514" });
       await expect(pool.query("UPDATE geography_versions SET label='mutated' WHERE release_id=$1", [first.release.id])).rejects.toMatchObject({ code: "23514" });
-      await expect(pool.query("UPDATE data_releases SET status='candidate', published_at=NULL WHERE id=$1", [first.release.id])).rejects.toMatchObject({ code: "23514" });
+      await expect(pool.query("UPDATE data_releases SET status='candidate', published_at=NULL WHERE id=$1", [first.release.id])).rejects.toMatchObject({ code: "42501" });
       await expect(pool.query("UPDATE data_releases SET label='rewritten' WHERE id=$1", [first.release.id])).rejects.toMatchObject({ code: "23514" });
       await expect(pool.query("UPDATE data_releases SET source_cutoff=source_cutoff + interval '1 day' WHERE id=$1", [first.release.id])).rejects.toMatchObject({ code: "23514" });
       await expect(pool.query("UPDATE data_releases SET created_at=created_at + interval '1 day' WHERE id=$1", [first.release.id])).rejects.toMatchObject({ code: "23514" });
 
       await expect(pool.query("UPDATE data_releases SET published_at=published_at + interval '1 day' WHERE id=$1", [first.release.id])).rejects.toMatchObject({ code: "23514" });
       await expect(pool.query("UPDATE data_releases SET previous_release_id=NULL WHERE id=$1", [second.release.id])).rejects.toMatchObject({ code: "23514" });
-      await expect(pool.query("UPDATE data_releases SET status='published', previous_release_id=NULL WHERE id=$1", [second.release.id])).rejects.toMatchObject({ code: "23514" });
+      await expect(pool.query("UPDATE data_releases SET status='published', previous_release_id=NULL WHERE id=$1", [second.release.id])).rejects.toMatchObject({ code: "42501" });
 
       await seedPrototypeManifest(pool, guarded, boundariesFor(guarded));
       // A candidate destination must not let a published row evade its source lock.
@@ -564,6 +702,8 @@ integration("PostgreSQL integration", () => {
       const { manifest: v2, bundle } = persistedNationwideSkeleton();
       await seedPrototypeManifest(pool, v1, boundariesFor(v1));
       await promoteCandidateRelease(pool, v1.release.id);
+      v2.release = { ...v2.release, previousReleaseId: v1.release.id };
+      v2.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(v2);
       await seedNationwideCandidateManifest(pool, v2, bundle);
       await expect(promoteCandidateRelease(pool, v2.release.id)).rejects.toThrow();
       await validateNationwideCandidateRelease(pool, v2.release.id);
@@ -655,7 +795,7 @@ integration("PostgreSQL integration", () => {
 
       const unrelated = candidate("rel_task5_unrelated");
       await seedPrototypeManifest(pool, unrelated, boundariesFor(unrelated));
-      await promoteCandidateRelease(pool, unrelated.release.id);
+      await expect(promoteCandidateRelease(pool, unrelated.release.id)).rejects.toThrow(/wrong promotion branch/);
       await expect(rollForwardRetiredRelease(pool, v1.release.id)).rejects.toThrow(/direct successor/);
     } finally { await pool.end(); }
   }, 60_000);
@@ -1040,6 +1180,118 @@ integration("PostgreSQL integration", () => {
     } finally {
       await pool.end();
       await rm(rawRoot, { recursive: true, force: true });
+    }
+  }, 300_000);
+
+  it("finalizes Task 10 maps atomically from the exact official CD119 layer", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    const root = await mkdtemp(join(tmpdir(), "maps-task10-integration-"));
+    try {
+      const { manifest, bundle } = persistedNationwideSkeleton();
+      const originalSnapshot = manifest.snapshots.find((snapshot) => snapshot.id === manifest.geometryArtifacts[0]!.snapshotId)!;
+      const originalSource = manifest.sources.find((source) => source.id === originalSnapshot.sourceId)!;
+      originalSnapshot.license = "public-domain";
+      originalSnapshot.usageStatus = "approved";
+      originalSource.authority = "derived";
+      const fipsByState = new Map<string, string>(Object.entries(TIGER_2025_JURISDICTIONS).map(([fips, state]) => [state, fips]));
+      const nonVoting = new Set(["DC", "AS", "GU", "MP", "PR", "VI"]);
+      const original = JSON.parse(bundle[0]!.bytes) as { features: Array<{ type: "Feature"; properties: { sourceGeoid: string; stateCode: string; districtCode: string | null }; geometry: unknown }> };
+      const bySyntheticGeoid = new Map(original.features.map((feature) => [feature.properties.sourceGeoid, feature]));
+      const districts = manifest.geographyVersions.filter((g) => g.kind === "house_district");
+      const states = manifest.geographyVersions.filter((g) => g.kind === "state");
+      const ring = (index: number) => {
+        const x = -179 + (index % 60) * 0.2, y = -80 + Math.floor(index / 60) * 0.2;
+        const edge = (ax: number, ay: number, bx: number, by: number) => Array.from({ length: 5 }, (_, n) => [ax + (bx - ax) * n / 4, ay + (by - ay) * n / 4]);
+        return [...edge(x, y, x + .1, y), ...edge(x + .1, y, x + .1, y + .1).slice(1), ...edge(x + .1, y + .1, x, y + .1).slice(1), ...edge(x, y + .1, x, y).slice(1)];
+      };
+      const districtFeatures = districts.map((geography, index) => {
+        const fips = fipsByState.get(geography.stateCode); if (!fips) throw new Error(`Missing TIGER FIPS for ${geography.stateCode}`);
+        const districtCode = nonVoting.has(geography.stateCode) ? "98" : geography.districtCode === "AL" ? "00" : geography.districtCode!.padStart(2, "0");
+        const geoid = `${fips}${districtCode}`;
+        Object.assign(geography, { sourceGeoid: geoid, vintage: "2025", geometryArtifactId: "artifact_task10_districts" as never });
+        return { type: "Feature", properties: { GEOID: geoid, sourceGeoid: geoid, stateCode: geography.stateCode, districtCode: geography.districtCode }, geometry: { type: "MultiPolygon", coordinates: [[ring(index)]] } };
+      }).sort((a, b) => a.properties.GEOID.localeCompare(b.properties.GEOID));
+      expect(districtFeatures).toHaveLength(441);
+      const stateFeatures = states.map((geography) => {
+        const feature = bySyntheticGeoid.get(geography.sourceGeoid); if (!feature) throw new Error("Missing synthetic state geometry");
+        Object.assign(geography, { geometryArtifactId: "artifact_task10_states" as never });
+        return feature;
+      });
+      const districtBytes = JSON.stringify({ type: "FeatureCollection", features: districtFeatures });
+      const stateBytes = JSON.stringify({ type: "FeatureCollection", features: stateFeatures });
+      manifest.geometryArtifacts = [
+        { ...manifest.geometryArtifacts[0]!, id: "artifact_task10_districts" as never, objectKey: "task10-districts.geojson", checksumSha256: createHash("sha256").update(districtBytes).digest("hex") },
+        { ...manifest.geometryArtifacts[0]!, id: "artifact_task10_states" as never, objectKey: "task10-states.geojson", checksumSha256: createHash("sha256").update(stateBytes).digest("hex") },
+      ];
+      manifest.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(manifest);
+      const exactBundle: BoundaryBundle = manifest.geometryArtifacts.map((artifact) => ({ artifactId: artifact.id, objectKey: artifact.objectKey, bytes: artifact.id === "artifact_task10_districts" ? districtBytes : stateBytes }));
+      await seedNationwideCandidateManifest(pool, manifest, exactBundle);
+      await validateNationwideCandidateRelease(pool, manifest.release.id);
+      await promoteCandidateRelease(pool, manifest.release.id);
+      await expect(recheckNationwideValidationGate(pool, manifest.release.id)).resolves.toBeUndefined();
+      const sourceBefore = await loadNationwideManifest(pool, manifest.release.id);
+      expect(sourceBefore.mapArtifacts).toEqual([]);
+
+      const candidateId = "rel_task10_maps_candidate";
+      await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,'Task 10 maps','candidate',$2,$3,NULL,$4)", [candidateId, manifest.release.sourceCutoff, "2024-01-03T00:00:00.000Z", manifest.release.id]);
+      await baselineCandidateRelease(pool, manifest.release.id, candidateId);
+      await expect(recheckNationwideValidationGate(pool, candidateId)).rejects.toThrow("Nationwide validation gate or digests are missing");
+      await expect(simplifyNationalTigerDistrictLayer(districtBytes, { expectedSourceSha256: "f".repeat(64) })).rejects.toThrow("source checksum mismatch");
+      const layer = await simplifyNationalTigerDistrictLayer(districtBytes, { expectedSourceSha256: manifest.geometryArtifacts[0]!.checksumSha256 });
+      expect(layer.metrics).toMatchObject({ featureCount: 441 });
+      expect(layer.metrics.vertexReduction).toBeGreaterThan(0);
+      const store = new LocalMapArtifactStore(root);
+      const task10 = { pool, store, candidateReleaseId: candidateId, sourceReleaseId: manifest.release.id, layer };
+      const beforeFailure = await pool.query("SELECT content_checksum_sha256,validated_at,(SELECT row_to_json(g) FROM nationwide_validation_gates g WHERE g.release_id=$1) gate FROM release_manifests WHERE release_id=$1", [candidateId]);
+      await expect(finalizeCandidateMaps({ ...task10, layer: { ...layer, metrics: { ...layer.metrics, outputSha256: "0".repeat(64) } } })).rejects.toThrow("MAP_FINALIZE_INPUT_INVALID");
+      expect((await pool.query("SELECT count(*)::int count FROM map_artifacts WHERE release_id=$1", [candidateId])).rows[0]).toEqual({ count: 0 });
+      expect((await pool.query("SELECT content_checksum_sha256,validated_at,(SELECT row_to_json(g) FROM nationwide_validation_gates g WHERE g.release_id=$1) gate FROM release_manifests WHERE release_id=$1", [candidateId])).rows).toEqual(beforeFailure.rows);
+      let puts = 0;
+      const failingStore: MapArtifactStore = { read: receipt => store.read(receipt), put: async input => { puts++; const receipt = await store.put(input); if (puts === 4) throw new Error("injected immutable-store failure"); return receipt; } };
+      await expect(finalizeCandidateMaps({ ...task10, store: failingStore })).rejects.toThrow("MAP_FINALIZE_FAILED");
+      for (const table of ["map_artifacts", "map_artifact_receipts"]) expect((await pool.query(`SELECT count(*)::int count FROM ${table} WHERE release_id=$1`, [candidateId])).rows[0]).toEqual({ count: 0 });
+      expect((await pool.query("SELECT count(*)::int count FROM snapshot_derivations WHERE release_id=$1 AND methodology_version='tiger-mapshaper-0.6.113-dp25m'", [candidateId])).rows[0]).toEqual({ count: 0 });
+      expect((await pool.query("SELECT count(*)::int count FROM geometry_artifacts WHERE release_id=$1 AND object_key LIKE 'maps/%'", [candidateId])).rows[0]).toEqual({ count: 0 });
+      expect((await pool.query("SELECT content_checksum_sha256,validated_at,(SELECT row_to_json(g) FROM nationwide_validation_gates g WHERE g.release_id=$1) gate FROM release_manifests WHERE release_id=$1", [candidateId])).rows).toEqual(beforeFailure.rows);
+      await finalizeCandidateMaps(task10); // adopts the exact immutable orphan bytes
+      await finalizeCandidateMaps(task10); // exact restart
+      await expect(verifyPersistedCandidateMaps(task10)).resolves.toBeUndefined();
+      await expect(Promise.all([verifyPersistedCandidateMaps(task10), verifyPersistedCandidateMaps(task10)])).resolves.toEqual([undefined, undefined]);
+      for (const table of ["map_artifacts", "map_artifact_receipts", "map_artifact_inputs"]) expect((await pool.query(`SELECT count(*)::int count FROM ${table} WHERE release_id=$1`, [candidateId])).rows[0]).toEqual({ count: 441 });
+      expect((await pool.query("SELECT count(*)::int count FROM snapshot_derivations WHERE release_id=$1 AND methodology_version='tiger-mapshaper-0.6.113-dp25m'", [candidateId])).rows[0]).toEqual({ count: 441 });
+      expect((await pool.query("SELECT count(*)::int count FROM geometry_artifacts WHERE release_id=$1 AND object_key LIKE 'maps/%'", [candidateId])).rows[0]).toEqual({ count: 441 });
+      expect((await pool.query("SELECT count(*)::int count FROM coverage_input_snapshots WHERE release_id=$1 AND domain='maps'", [candidateId])).rows[0]).toEqual({ count: 441 });
+      expect((await pool.query("SELECT ST_IsValid(boundary) valid FROM geography_versions WHERE release_id=$1 AND kind='house_district'", [candidateId])).rows.every((row) => row.valid)).toBe(true);
+      expect((await pool.query("SELECT count(*)::int count FROM release_content_digests WHERE release_id=$1", [candidateId])).rows[0]).toEqual({ count: 7 });
+      expect((await pool.query("SELECT status FROM data_releases WHERE id=$1", [candidateId])).rows[0]).toEqual({ status: "candidate" });
+      await expect(promoteCandidateRelease(pool, candidateId)).rejects.toThrow(/Task 9/);
+      expect((await pool.query("SELECT status FROM data_releases WHERE id=$1", [candidateId])).rows[0]).toEqual({ status: "candidate" });
+      const sourceAfter = await loadNationwideManifest(pool, manifest.release.id);
+      expect(sourceAfter.canonicalDataChecksumSha256).toBe(sourceBefore.canonicalDataChecksumSha256);
+      expect(computeCanonicalDataChecksum(sourceAfter)).toBe(computeCanonicalDataChecksum(sourceBefore));
+
+      const first = layer.districts[0]!;
+      const replacementFeature = JSON.parse(Buffer.from(first.bytes).toString("utf8")) as { geometry: { coordinates: number[][][][] } };
+      replacementFeature.geometry.coordinates[0]![0]![0]![0] += .000001;
+      replacementFeature.geometry.coordinates[0]![0]!.at(-1)![0] += .000001;
+      const replacementBytes = Buffer.from(JSON.stringify(replacementFeature) + "\n");
+      const replacementDistricts = [
+        { ...first, bytes: replacementBytes },
+        ...layer.districts.slice(1),
+      ];
+      const replacementJoined = Buffer.concat(replacementDistricts.flatMap(({ geoid, bytes }) => [Buffer.from(`${geoid}\n`), Buffer.from(bytes)]));
+      await expect(finalizeCandidateMaps({ ...task10, layer: { ...layer, districts: replacementDistricts, metrics: { ...layer.metrics, outputSha256: createHash("sha256").update(replacementJoined).digest("hex") } } })).rejects.toThrow("MAP_FINALIZE_REPLAY_MISMATCH");
+
+      const tamperedId = "rel_task10_maps_tampered";
+      await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,'Task 10 tamper','candidate',$2,$3,NULL,$4)", [tamperedId, manifest.release.sourceCutoff, "2024-01-04T00:00:00.000Z", manifest.release.id]);
+      await baselineCandidateRelease(pool, manifest.release.id, tamperedId);
+      const tampered = { ...task10, candidateReleaseId: tamperedId };
+      await finalizeCandidateMaps(tampered);
+      await pool.query("UPDATE source_snapshots SET source_url='urn:tampered' WHERE release_id=$1 AND source_id LIKE 'src_maps_%'", [tamperedId]);
+      await expect(verifyPersistedCandidateMaps(tampered)).rejects.toThrow("MAP_FINALIZE_PERSISTED_INVARIANT");
+    } finally {
+      await pool.end();
+      await rm(root, { recursive: true, force: true });
     }
   }, 300_000);
 
