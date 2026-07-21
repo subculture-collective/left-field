@@ -36,6 +36,13 @@
       "when": 1784615861891,
       "tag": "0004_large_johnny_storm",
       "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1784624094705,
+      "tag": "0005_petite_black_bolt",
+      "breakpoints": true
     }
   ]
 }

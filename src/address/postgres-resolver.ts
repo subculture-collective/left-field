@@ -1,13 +1,12 @@
 import { Client, type ClientConfig, type Pool, type PoolClient, type QueryResultRow } from "pg";
-import { addressInputSchema, addressResolutionSchema, type AddressResolver, type AddressInput, type AddressResolution } from "@/domain/address";
+import { addressInputSchema, assertBoundedAddressResolution, type AddressResolver, type AddressInput, type AddressResolution } from "@/domain/address";
 import { CallerAbortError, isCallerAbort, throwIfCallerAborted, type CensusGeocoder } from "./census-geocoder";
 
-export interface AddressRateLimiter { tryAcquire(): boolean }
 export interface HouseMatch { officeTermId: string; seatCycleId: string; geographyVersionId: string }
 export interface SenateMatch { senateClass: 1 | 2 | 3; officeTermId: string; seatCycleId: string }
-export type LocatorResult = { kind: "matched"; houseSeat: HouseMatch; senateSeats: SenateMatch[] } | { kind: "unsupported" | "vintage_mismatch" | "geography_ambiguous" | "resolver_failure" };
+export type LocatorResult = { kind: "matched"; senateRepresentation: "two_seats" | "none"; houseSeat: HouseMatch; senateSeats: SenateMatch[] } | { kind: "unsupported" | "vintage_mismatch" | "geography_ambiguous" | "resolver_failure" };
 export interface SeatLocator { preflight(releaseId: string, productVintage: string, signal?: AbortSignal): Promise<boolean>; locate(releaseId: string, productVintage: string, stateGeoid: string, districtGeoid: string, longitude: number, latitude: number, signal?: AbortSignal): Promise<LocatorResult> }
-export type BackendCanceller = (processID: number) => Promise<void>;
+export type BackendCanceller = (processID: number) => Promise<boolean | void>;
 
 const CANCEL_TIMEOUT_MS = 1_000;
 function dedicatedCancellationConfig(pool: Pool): ClientConfig {
@@ -17,19 +16,17 @@ function dedicatedCancellationConfig(pool: Pool): ClientConfig {
 function defaultBackendCanceller(pool: Pool): BackendCanceller {
   return async (processID) => {
     const client = new Client(dedicatedCancellationConfig(pool));
-    try { await client.connect(); await client.query("SELECT pg_cancel_backend($1)", [processID]); }
+    try { await client.connect(); return (await client.query<{ pg_cancel_backend: boolean }>("SELECT pg_cancel_backend($1)", [processID])).rows[0]?.pg_cancel_backend === true; }
     finally { await client.end().catch(() => undefined); }
   };
 }
 
 export class PostgresAddressResolver implements AddressResolver {
-  constructor(private readonly pinned: { releaseId: string; productVintage: string; enabled: boolean }, private readonly geocoder: CensusGeocoder, private readonly locator: SeatLocator, private readonly limiter: AddressRateLimiter) {}
+  constructor(private readonly pinned: { releaseId: string; productVintage: string }, private readonly geocoder: CensusGeocoder, private readonly locator: SeatLocator) {}
   async resolve(raw: AddressInput, signal?: AbortSignal): Promise<AddressResolution> {
     const input = addressInputSchema.parse(raw); const context = { releaseId: this.pinned.releaseId, productVintage: this.pinned.productVintage };
-    const output = (value: unknown) => addressResolutionSchema.parse(value);
+    const output = (value: unknown) => assertBoundedAddressResolution(value);
     throwIfCallerAborted(signal);
-    if (!this.pinned.enabled) return output({ ...context, status: "disabled", errorCode: "LOOKUP_DISABLED" });
-    if (!this.limiter.tryAcquire()) return output({ ...context, status: "rate_limited", errorCode: "RATE_LIMITED" });
     try { if (!await this.locator.preflight(context.releaseId, context.productVintage, signal)) return output({ ...context, status: "resolver_failure", errorCode: "RELEASE_INVARIANT_FAILURE" }); }
     catch (error) { if (isCallerAbort(error, signal)) throw new CallerAbortError(); return output({ ...context, status: "resolver_failure", errorCode: "RELEASE_INVARIANT_FAILURE" }); }
     let coded;
@@ -42,7 +39,7 @@ export class PostgresAddressResolver implements AddressResolver {
     if (candidate.congressionalDistrictGeoid!.slice(0, 2) !== candidate.stateGeoid) return output({ ...geo, matchQuality: "single_candidate", status: "vintage_mismatch", errorCode: "GEOGRAPHY_VINTAGE_MISMATCH" });
     try {
       const located = await this.locator.locate(context.releaseId, context.productVintage, candidate.stateGeoid!, candidate.congressionalDistrictGeoid!, candidate.longitude, candidate.latitude, signal);
-      if (located.kind === "matched") return output({ ...geo, matchQuality: "single_candidate", status: "matched", houseSeat: located.houseSeat, senateSeats: located.senateSeats });
+      if (located.kind === "matched") return output({ ...geo, matchQuality: "single_candidate", status: "matched", senateRepresentation: located.senateRepresentation, houseSeat: located.houseSeat, senateSeats: located.senateSeats });
       const map = { unsupported: ["unsupported_prototype_coverage", "OUTSIDE_PROTOTYPE_COVERAGE"], vintage_mismatch: ["vintage_mismatch", "GEOGRAPHY_VINTAGE_MISMATCH"], geography_ambiguous: ["geography_ambiguous", "GEOGRAPHY_AMBIGUOUS"] } as const;
       if (located.kind in map) { const [status, errorCode] = map[located.kind as keyof typeof map]; return output({ ...geo, matchQuality: "single_candidate", status, errorCode }); }
     } catch (error) { if (isCallerAbort(error, signal)) throw new CallerAbortError(); /* database failures are resolver failures, never Census failures */ }
@@ -53,20 +50,36 @@ export class PostgresAddressResolver implements AddressResolver {
 /** One bounded read transaction. Deployment must prevent bind/slow-query logs from retaining coordinates. */
 export class PostgresSeatLocator implements SeatLocator {
   private readonly statementTimeoutMs: number;
+  private readonly acquireTimeoutMs: number;
   private readonly cancelBackend: BackendCanceller;
-  constructor(private readonly pool: Pool, statementTimeoutMs = 5_000, cancelBackend?: BackendCanceller) { if (!Number.isSafeInteger(statementTimeoutMs) || statementTimeoutMs <= 0) throw new Error("Invalid statement timeout"); this.statementTimeoutMs = statementTimeoutMs; this.cancelBackend = cancelBackend ?? defaultBackendCanceller(pool); }
+  constructor(private readonly pool: Pool, statementTimeoutMs = 5_000, cancelBackend?: BackendCanceller, acquireTimeoutMs = 1_000) { if (!Number.isSafeInteger(statementTimeoutMs) || statementTimeoutMs <= 0 || !Number.isSafeInteger(acquireTimeoutMs) || acquireTimeoutMs <= 0) throw new Error("Invalid statement timeout"); this.statementTimeoutMs = statementTimeoutMs; this.acquireTimeoutMs = acquireTimeoutMs; this.cancelBackend = cancelBackend ?? defaultBackendCanceller(pool); }
+  private async acquire(signal?: AbortSignal): Promise<PoolClient> {
+    throwIfCallerAborted(signal);
+    let settled = false;
+    const checkout = this.pool.connect();
+    checkout.then((client) => { if (settled) client.release(true); }).catch(() => undefined);
+    return await new Promise<PoolClient>((resolve, reject) => {
+      const finish = (fn: () => void) => { if (settled) return; settled = true; clearTimeout(timer); signal?.removeEventListener("abort", onAbort); fn(); };
+      const onAbort = () => finish(() => reject(new CallerAbortError()));
+      const timer = setTimeout(() => finish(() => reject(new Error("Pool acquisition timeout"))), this.acquireTimeoutMs);
+      checkout.then((client) => finish(() => resolve(client)), (error: unknown) => finish(() => reject(error)));
+      signal?.addEventListener("abort", onAbort, { once: true });
+      if (signal?.aborted) onAbort();
+    });
+  }
   private async read<Row extends QueryResultRow>(query: string, values: readonly unknown[], signal?: AbortSignal) {
     throwIfCallerAborted(signal);
-    const client = await this.pool.connect(); let begun = false; let active = true; let cancellation: Promise<void> | undefined;
-    const cancel = () => { if (!active || cancellation) return; const processID = (client as PoolClient & { processID: number }).processID; cancellation = this.cancelBackend(processID).catch(() => undefined); };
+    const client = await this.acquire(signal); let begun = false; let active = true; let cancellation: Promise<boolean | void> | undefined; let destroy = false;
+    const cancel = () => { if (!active || cancellation) return; const processID = (client as PoolClient & { processID: number }).processID; cancellation = this.cancelBackend(processID); };
     signal?.addEventListener("abort", cancel, { once: true });
     try {
       throwIfCallerAborted(signal); await client.query("BEGIN"); begun = true;
       await client.query("SELECT set_config('statement_timeout',$1,true)", [String(this.statementTimeoutMs)]);
       throwIfCallerAborted(signal); const result = await client.query<Row>(query, values as unknown[]);
       await client.query("COMMIT"); begun = false; throwIfCallerAborted(signal); return result;
-    } catch (error) { if (begun) await client.query("ROLLBACK").catch(() => undefined); if (isCallerAbort(error, signal)) throw new CallerAbortError(); throw error; }
-    finally { active = false; signal?.removeEventListener("abort", cancel); await cancellation; client.release(); }
+    } catch (error) { if (begun) { destroy = true; await client.query("ROLLBACK").catch(() => undefined); } if (isCallerAbort(error, signal)) { destroy = true; throw new CallerAbortError(); } throw error; }
+    finally { active = false; signal?.removeEventListener("abort", cancel); if (cancellation) { try { if ((await cancellation) === false) destroy = true; } catch { destroy = true; } client.release(destroy); }
+      else client.release(destroy); }
   }
   async preflight(releaseId: string, productVintage: string, signal?: AbortSignal): Promise<boolean> {
     const result = await this.read("SELECT EXISTS(SELECT 1 FROM data_releases r JOIN geography_versions g ON g.release_id=r.id AND g.kind='state' AND g.vintage=$2 JOIN release_profile_seats ps ON ps.release_id=r.id JOIN seat_cycles sc ON sc.release_id=ps.release_id AND sc.id=ps.seat_cycle_id JOIN geography_versions hg ON hg.release_id=sc.release_id AND hg.id=sc.geography_version_id AND hg.kind='house_district' AND hg.vintage=$2 WHERE r.id=$1 AND r.status='published') AS ok", [releaseId, productVintage], signal);
@@ -80,6 +93,12 @@ export class PostgresSeatLocator implements SeatLocator {
         SELECT * FROM geography_versions g
         WHERE g.release_id = $1 AND g.kind = 'state' AND g.vintage = $2 AND g.source_geoid = $3
       ),
+      j AS (
+        SELECT COALESCE(j.senate_representation, 'two_seats') senate_representation
+        FROM s
+        LEFT JOIN jurisdictions j ON j.release_id=s.release_id AND j.jurisdiction_code=s.state_code
+        WHERE s.release_id=$1 AND (j.jurisdiction_code IS NOT NULL OR NOT EXISTS (SELECT 1 FROM jurisdictions all_j WHERE all_j.release_id=s.release_id))
+      ),
       h AS (
         SELECT g.id, g.state_code, g.boundary, sc.id seat_cycle_id, sc.office_term_id
         FROM geography_versions g
@@ -92,7 +111,7 @@ export class PostgresSeatLocator implements SeatLocator {
         FROM geography_versions g
         JOIN seat_cycles sc ON sc.release_id = g.release_id AND sc.geography_version_id = g.id
         JOIN release_profile_seats ps ON ps.release_id = sc.release_id AND ps.seat_cycle_id = sc.id, p
-        WHERE g.release_id = $1 AND g.kind = 'house_district' AND ST_Covers(g.boundary, p.point)
+        WHERE g.release_id = $1 AND g.kind = 'house_district' AND g.vintage = $2 AND ST_Covers(g.boundary, p.point)
       ),
       house AS (
         SELECT json_build_object('officeTermId', h.office_term_id, 'seatCycleId', h.seat_cycle_id, 'geographyVersionId', h.id) value
@@ -106,6 +125,7 @@ export class PostgresSeatLocator implements SeatLocator {
         JOIN seat_cycles sc ON sc.release_id = o.release_id AND sc.office_term_id = ot.id
         JOIN data_releases r ON r.id = o.release_id
         JOIN s ON s.release_id = o.release_id AND s.state_code = o.state_code
+        JOIN j ON j.senate_representation = 'two_seats'
         WHERE o.release_id = $1 AND o.chamber = 'senate'
           AND ot.starts_at <= (r.source_cutoff AT TIME ZONE 'UTC')::date
           AND ot.ends_at > (r.source_cutoff AT TIME ZONE 'UTC')::date
@@ -116,13 +136,17 @@ export class PostgresSeatLocator implements SeatLocator {
         (SELECT count(*)::int FROM s, p WHERE ST_Covers(s.boundary, p.point)) state_covers,
         (SELECT count(*)::int FROM h, p WHERE ST_Covers(h.boundary, p.point)) house_covers,
         (SELECT count(*)::int FROM allh) all_house_covers,
+        (SELECT count(*)::int FROM j) jurisdiction_loaded,
+        (SELECT senate_representation FROM j) senate_representation,
+        (SELECT count(*)::int FROM data_releases WHERE id=$1 AND status='published') release_published,
         (SELECT json_agg(value) FROM house) house,
         (SELECT value FROM senate) senate
     `;
     const row = (await this.read(q, [releaseId, productVintage, stateGeoid, districtGeoid, longitude, latitude], signal)).rows[0];
-    if (!row) return { kind: "resolver_failure" }; if (Number(row.state_loaded) !== 1 || Number(row.house_loaded) !== 1) return !row.state_loaded || !row.house_loaded ? { kind: "unsupported" } : { kind: "resolver_failure" }; if (Number(row.all_house_covers) > 1) return { kind: "geography_ambiguous" }; if (!row.state_covers || !row.house_covers) return { kind: "vintage_mismatch" };
+    if (!row) return { kind: "resolver_failure" }; if (Number(row.release_published) !== 1 || Number(row.state_loaded) !== 1 || Number(row.jurisdiction_loaded) !== 1 || Number(row.house_loaded) !== 1) return !row.state_loaded || !row.house_loaded ? { kind: "unsupported" } : { kind: "resolver_failure" }; if (Number(row.all_house_covers) > 1) return { kind: "geography_ambiguous" }; if (!row.state_covers || !row.house_covers) return { kind: "vintage_mismatch" };
     const house = Array.isArray(row.house) ? row.house : []; const senate = Array.isArray(row.senate) ? row.senate : [];
-    if (house.length !== 1 || senate.length !== 2 || !house[0] || senate.some((seat: unknown) => !seat || typeof seat !== "object")) return { kind: "resolver_failure" };
-    return { kind: "matched", houseSeat: house[0] as HouseMatch, senateSeats: senate as SenateMatch[] };
+    const policy = row.senate_representation;
+    if (house.length !== 1 || !house[0] || (policy !== "two_seats" && policy !== "none") || (policy === "two_seats" && (senate.length !== 2 || senate.some((seat: unknown) => !seat || typeof seat !== "object"))) || (policy === "none" && senate.length !== 0)) return { kind: "resolver_failure" };
+    return { kind: "matched", senateRepresentation: policy, houseSeat: house[0] as HouseMatch, senateSeats: senate as SenateMatch[] };
   }
 }

@@ -7,6 +7,14 @@ import {
   seatCycleIdSchema,
 } from "@/domain/contracts";
 
+export const ADDRESS_RESOLUTION_MAX_SERIALIZED_BYTES = 16 * 1024;
+const OUTPUT_IDENTIFIER_MAX_LENGTH = 128;
+const OUTPUT_METADATA_MAX_LENGTH = 128;
+const PRODUCT_VINTAGE_MAX_LENGTH = 64;
+
+const boundedIdentifier = (schema: z.ZodType<string, string>) =>
+  z.string().max(OUTPUT_IDENTIFIER_MAX_LENGTH).pipe(schema);
+
 export const addressInputSchema = z.object({
   address: z.string().trim().min(8).max(300),
 }).strict();
@@ -24,11 +32,14 @@ export const addressResolutionErrorCodeSchema = z.enum([
 ]);
 
 const requestContextSchema = z.object({
-  releaseId: releaseIdSchema,
-  productVintage: z.string().min(1),
+  releaseId: boundedIdentifier(releaseIdSchema),
+  productVintage: z.string().min(1).max(PRODUCT_VINTAGE_MAX_LENGTH),
 });
 
-const geocoderMetadataSchema = z.object({ id: z.string().min(1), name: z.string().min(1) }).strict();
+const geocoderMetadataSchema = z.object({
+  id: z.string().min(1).max(OUTPUT_METADATA_MAX_LENGTH),
+  name: z.string().min(1).max(OUTPUT_METADATA_MAX_LENGTH),
+}).strict();
 const geocoderContextSchema = requestContextSchema.extend({
   geocoderBenchmark: geocoderMetadataSchema,
   geocoderVintage: geocoderMetadataSchema,
@@ -36,21 +47,22 @@ const geocoderContextSchema = requestContextSchema.extend({
 
 const senateSeatSchema = z.object({
   senateClass: z.union([z.literal(1), z.literal(2), z.literal(3)]),
-  officeTermId: officeTermIdSchema,
-  seatCycleId: seatCycleIdSchema,
+  officeTermId: boundedIdentifier(officeTermIdSchema),
+  seatCycleId: boundedIdentifier(seatCycleIdSchema),
 }).strict();
 
 const oneCandidateContextSchema = geocoderContextSchema.extend({
   matchQuality: z.literal("single_candidate"),
 });
 
-export const addressResolutionSchema = z.discriminatedUnion("status", [
+export const addressResolutionSchema = z.union([
   oneCandidateContextSchema.extend({
     status: z.literal("matched"),
+    senateRepresentation: z.literal("two_seats"),
     houseSeat: z.object({
-      officeTermId: officeTermIdSchema,
-      seatCycleId: seatCycleIdSchema,
-      geographyVersionId: geographyVersionIdSchema,
+      officeTermId: boundedIdentifier(officeTermIdSchema),
+      seatCycleId: boundedIdentifier(seatCycleIdSchema),
+      geographyVersionId: boundedIdentifier(geographyVersionIdSchema),
     }).strict(),
     senateSeats: z.array(senateSeatSchema).length(2),
   }).strict().superRefine((value, context) => {
@@ -59,6 +71,16 @@ export const addressResolutionSchema = z.discriminatedUnion("status", [
     if (new Set(value.senateSeats.map((seat) => seat.officeTermId)).size !== 2) context.addIssue({ code: "custom", path: ["senateSeats"], message: "Senate office terms must be distinct" });
     if (new Set(value.senateSeats.map((seat) => seat.seatCycleId)).size !== 2) context.addIssue({ code: "custom", path: ["senateSeats"], message: "Senate seat cycles must be distinct" });
   }),
+  oneCandidateContextSchema.extend({
+    status: z.literal("matched"),
+    senateRepresentation: z.literal("none"),
+    houseSeat: z.object({
+      officeTermId: boundedIdentifier(officeTermIdSchema),
+      seatCycleId: boundedIdentifier(seatCycleIdSchema),
+      geographyVersionId: boundedIdentifier(geographyVersionIdSchema),
+    }).strict(),
+    senateSeats: z.array(senateSeatSchema).length(0),
+  }).strict(),
   geocoderContextSchema.extend({
     status: z.literal("ambiguous"),
     matchQuality: z.literal("ambiguous"),
@@ -101,6 +123,15 @@ export const addressResolutionSchema = z.discriminatedUnion("status", [
 
 export type AddressInput = z.infer<typeof addressInputSchema>;
 export type AddressResolution = z.infer<typeof addressResolutionSchema>;
+
+/** Parses route-independent output and rejects any unexpectedly oversized JSON payload. */
+export function assertBoundedAddressResolution(value: unknown): AddressResolution {
+  const resolution = addressResolutionSchema.parse(value);
+  if (new TextEncoder().encode(JSON.stringify(resolution)).byteLength > ADDRESS_RESOLUTION_MAX_SERIALIZED_BYTES) {
+    throw new Error("Address resolution exceeds serialized size limit");
+  }
+  return resolution;
+}
 
 export interface AddressResolver {
   resolve(input: AddressInput, signal?: AbortSignal): Promise<AddressResolution>;

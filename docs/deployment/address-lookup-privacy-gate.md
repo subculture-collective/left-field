@@ -2,7 +2,7 @@
 
 Status: **BLOCKED — shared lookup must remain disabled**
 
-This checklist is a release gate, not evidence that the controls already exist. The current prototype exposes no address form or lookup route. Do not add or enable one in a shared environment until every item below has an owner, review date, configuration evidence, and approval.
+This checklist is a release gate, not evidence that the controls already exist. A dark disabled route and an enabled-only form implementation are checked in, but neither may be deployed or activated in a shared environment until every item below has an owner, review date, configuration evidence, and approval. Merge of this implementation is separate from activation.
 
 ## Approval record
 
@@ -60,4 +60,4 @@ The Census single-record API necessarily transmits the address in an outbound HT
 
 ## Current prototype decision
 
-No deployment configuration evidence or shared lookup route is checked in. The `/lookup` page must therefore remain informational and must not collect an address.
+The dark disabled route and enabled-only form implementation are checked in; they must not be deployed or activated in a shared environment. The `/lookup` page must remain informational and must not collect an address. Every external checkbox in this gate remains unchecked until its required evidence and approval are recorded.

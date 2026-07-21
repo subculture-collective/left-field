@@ -55,6 +55,8 @@ import { simplifyNationalTigerDistrictLayer } from "@/ingestion/tiger/simplify";
 import { LocalMapArtifactStore, type MapArtifactStore } from "@/maps/map-artifact-store";
 import { CorrectionMaintenanceRepository, CorrectionRepository, CorrectionReviewerRepository } from "@/corrections/repository";
 import { correctionParityVectors, correctionSubmissionSchema, parseCorrectionSubmission } from "@/domain/corrections";
+import { AddressAdmissionMaintenanceRepository, AddressAdmissionRepository } from "@/address/admission";
+import { CallerAbortError } from "@/address/census-geocoder";
 
 const testDatabaseUrl = process.env.TEST_DATABASE_URL;
 const testDatabaseName = testDatabaseUrl ? new URL(testDatabaseUrl).pathname.slice(1) : "";
@@ -93,13 +95,21 @@ function persistedNationwideSkeleton() {
   if (!memberCoverage) throw new Error("Synthetic nationwide fixture is missing release member coverage");
   memberCoverage.expectedCount = manifest.memberships.length;
   memberCoverage.observedCount = manifest.memberships.length;
+  const stateIndex = new Map([...new Set(manifest.geographyVersions.map(geography => geography.stateCode))].map((state, index) => [state, index]));
+  const districtIndex = new Map<string, number>();
   const featureCollection = {
     type: "FeatureCollection",
-    features: manifest.geographyVersions.map((geography, index) => ({
+    features: manifest.geographyVersions.map((geography) => {
+      const x = -170 + stateIndex.get(geography.stateCode)! * 5;
+      const district = geography.kind === "house_district" ? (districtIndex.get(geography.stateCode) ?? 0) : 0;
+      districtIndex.set(geography.stateCode, district + (geography.kind === "house_district" ? 1 : 0));
+      const left = geography.kind === "house_district" ? x + district * .1 : x;
+      const right = geography.kind === "house_district" ? left + .09 : x + 4;
+      return ({
       type: "Feature",
       properties: { sourceGeoid: geography.sourceGeoid, stateCode: geography.stateCode, districtCode: geography.kind === "house_district" ? geography.districtCode : null },
-      geometry: { type: "MultiPolygon", coordinates: [[[[(-1800 + index % 3600) / 10, (-900 + Math.floor(index / 3600)) / 10], [(-1799 + index % 3600) / 10, (-900 + Math.floor(index / 3600)) / 10], [(-1799 + index % 3600) / 10, (-899 + Math.floor(index / 3600)) / 10], [(-1800 + index % 3600) / 10, (-899 + Math.floor(index / 3600)) / 10], [(-1800 + index % 3600) / 10, (-900 + Math.floor(index / 3600)) / 10]]]] },
-    })),
+      geometry: { type: "MultiPolygon", coordinates: [[[[left, 0], [right, 0], [right, 4], [left, 4], [left, 0]]]] },
+    }); }),
   };
   const bytes = JSON.stringify(featureCollection);
   manifest.geometryArtifacts[0]!.checksumSha256 = createHash("sha256").update(bytes).digest("hex");
@@ -331,10 +341,10 @@ integration("PostgreSQL integration", () => {
       const ak = await point("geo_house_ak_al"); const al = await point("geo_state_al");
       let census = { longitude: ak.longitude, latitude: ak.latitude, stateGeoid: "02", congressionalDistrictGeoid: "0200" };
       const geocoder = { geocode: vi.fn(async () => ({ benchmark: { id: "4", name: "Public_AR_Current" }, vintage: { id: "4", name: "Current_Current" }, candidates: [census] })) };
-      const resolver = new PostgresAddressResolver({ releaseId: canonicalManifest.release.id, productVintage: "2025", enabled: true }, geocoder, new PostgresSeatLocator(pool), { tryAcquire: () => true });
+      const resolver = new PostgresAddressResolver({ releaseId: canonicalManifest.release.id, productVintage: "2025" }, geocoder, new PostgresSeatLocator(pool));
       const result = await resolver.resolve({ address: "Fictional Plaza 7" });
       expect(result).toMatchObject({ status: "matched", houseSeat: { officeTermId: "term_house_ak_al_2025", seatCycleId: "seat_house_ak_al_2024_regular", geographyVersionId: "geo_house_ak_al" }, senateSeats: [{ senateClass: 2, officeTermId: "term_senate_ak_2", seatCycleId: "seat_senate_ak_2_current" }, { senateClass: 3, officeTermId: "term_senate_ak_3", seatCycleId: "seat_senate_ak_3_current" }] });
-      const wrong = new PostgresAddressResolver({ releaseId: canonicalManifest.release.id, productVintage: "wrong", enabled: true }, geocoder, new PostgresSeatLocator(pool), { tryAcquire: () => true });
+      const wrong = new PostgresAddressResolver({ releaseId: canonicalManifest.release.id, productVintage: "wrong" }, geocoder, new PostgresSeatLocator(pool));
       await expect(wrong.resolve({ address: "Fictional Plaza 7" })).resolves.toMatchObject({ status: "resolver_failure" }); expect(geocoder.geocode).toHaveBeenCalledTimes(1);
       census = { longitude: al.longitude, latitude: al.latitude, stateGeoid: "01", congressionalDistrictGeoid: "0101" };
       await expect(resolver.resolve({ address: "Fictional Plaza 7" })).resolves.toMatchObject({ status: "unsupported_prototype_coverage" });
@@ -1641,6 +1651,152 @@ integration("PostgreSQL integration", () => {
       expect((await owner.query("SELECT count(*)::int count FROM operations.correction_submissions")).rows[0].count).toBeGreaterThan(0);
       expect(await owner.query("SELECT (SELECT jsonb_agg(row_to_json(d) ORDER BY domain) FROM release_content_digests d WHERE d.release_id=$1) digests,(SELECT row_to_json(m) FROM release_manifests m WHERE m.release_id=$1) manifest,(SELECT row_to_json(g) FROM nationwide_validation_gates g WHERE g.release_id=$1) gate", [v2.release.id])).toEqual(before);
       expect((await owner.query("SELECT count(*)::int count FROM pg_trigger t JOIN pg_proc p ON p.oid=t.tgfoid WHERE t.tgrelid IN ('operations.correction_submissions'::regclass,'operations.correction_review_events'::regclass) AND p.proname IN ('guard_candidate_release_content','guard_nationwide_content','guard_release_preflight')")).rows[0]).toEqual({ count: 0 });
+    } finally {
+      await Promise.all(pools.map(pool => pool.end()));
+      for (const name of Object.values(principals)) await owner.query(`DROP ROLE IF EXISTS "${name}"`).catch(() => undefined);
+      await owner.end();
+    }
+  }, 180_000);
+
+  it("Task 12 isolates real address admission and resolves only the published nationwide release", async () => {
+    const owner = new Pool({ connectionString: testDatabaseUrl });
+    const suffix = randomUUID().replace(/-/g, "");
+    const password = randomUUID();
+    const principals = { lookup: `dsa_task12_lookup_${suffix}`, maintenance: `dsa_task12_maintenance_${suffix}` } as const;
+    const inherited = { lookup: "dsa_seats_address_lookup", maintenance: "dsa_seats_address_maintenance" } as const;
+    const pools: Pool[] = [];
+    const loginUrl = (name: string) => { const url = new URL(testDatabaseUrl!); url.username = name; url.password = password; return url.toString(); };
+    const hash = (value: string) => createHash("sha256").update(value).digest();
+    const snapshot = async (releaseId: string) => (await owner.query("SELECT row_to_json(m) manifest,(SELECT row_to_json(g) FROM nationwide_validation_gates g WHERE g.release_id=$1) gate,(SELECT jsonb_agg(row_to_json(d) ORDER BY domain) FROM release_content_digests d WHERE d.release_id=$1) digests FROM release_manifests m WHERE m.release_id=$1", [releaseId])).rows;
+    try {
+      expect((await owner.query<{ permitted: boolean }>("SELECT rolsuper OR rolcreaterole permitted FROM pg_roles WHERE rolname=current_user")).rows[0]?.permitted).toBe(true);
+      for (const [kind, name] of Object.entries(principals)) {
+        await owner.query(`CREATE ROLE "${name}" LOGIN INHERIT PASSWORD '${password}'`);
+        await owner.query(`GRANT ${inherited[kind as keyof typeof inherited]} TO "${name}"`);
+        expect((await owner.query<{ role: string }>("SELECT granted.rolname role FROM pg_auth_members m JOIN pg_roles member ON member.oid=m.member JOIN pg_roles granted ON granted.oid=m.roleid WHERE member.rolname=$1 ORDER BY role", [name])).rows).toEqual([{ role: inherited[kind as keyof typeof inherited] }]);
+      }
+      const lookupPool = new Pool({ connectionString: loginUrl(principals.lookup), max: 16 });
+      const maintenancePool = new Pool({ connectionString: loginUrl(principals.maintenance) });
+      pools.push(lookupPool, maintenancePool);
+      const lookup = new AddressAdmissionRepository(lookupPool);
+
+      // Load both contracts: legacy v1 remains unavailable to nationwide address lookup;
+      // v2 is validated before publication and retains the same locator decision shape.
+      const v1 = candidate(`rel_task12_v1_${suffix}`);
+      await seedPrototypeManifest(owner, v1, boundariesFor(v1)); await promoteCandidateRelease(owner, v1.release.id);
+      const { manifest: v2, bundle } = persistedNationwideSkeleton();
+      v2.release = { ...v2.release, previousReleaseId: v1.release.id };
+      v2.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(v2);
+      await seedNationwideCandidateManifest(owner, v2, bundle); await validateNationwideCandidateRelease(owner, v2.release.id); await promoteCandidateRelease(owner, v2.release.id);
+      const before = await snapshot(v2.release.id);
+      expect((before[0] as { digests: unknown[] }).digests).toHaveLength(7);
+
+      const locator = new PostgresSeatLocator(lookupPool);
+      expect(await locator.preflight(v1.release.id, "synthetic")).toBe(false);
+      expect(await locator.preflight(v2.release.id, "synthetic")).toBe(true);
+      const point = async (state: string) => (await owner.query<{ state_geoid: string; district_geoid: string; longitude: number; latitude: number }>("SELECT s.source_geoid state_geoid,h.source_geoid district_geoid,ST_X(ST_PointOnSurface(h.boundary)) longitude,ST_Y(ST_PointOnSurface(h.boundary)) latitude FROM geography_versions h JOIN geography_versions s ON s.release_id=h.release_id AND s.kind='state' AND s.state_code=h.state_code WHERE h.release_id=$1 AND h.kind='house_district' AND h.state_code=$2 ORDER BY h.district_code LIMIT 1", [v2.release.id, state])).rows[0]!;
+      const al = await point("AL");
+      await expect(locator.locate(v2.release.id, "synthetic", al.state_geoid!, al.district_geoid!, al.longitude, al.latitude)).resolves.toMatchObject({ kind: "matched", senateRepresentation: "two_seats", senateSeats: expect.arrayContaining([expect.any(Object), expect.any(Object)]) });
+      for (const state of ["DC", "PR", "GU", "VI", "AS", "MP"]) {
+        const p = await point(state);
+        await expect(locator.locate(v2.release.id, "synthetic", p.state_geoid!, p.district_geoid!, p.longitude, p.latitude)).resolves.toMatchObject({ kind: "matched", senateRepresentation: "none", senateSeats: [] });
+      }
+
+      await expect(lookupPool.query("SELECT * FROM operations.address_quota_buckets")).rejects.toMatchObject({ code: "42501" });
+      await expect(lookupPool.query("UPDATE geography_versions SET label=label")).rejects.toMatchObject({ code: "42501" });
+      await expect(maintenancePool.query("SELECT * FROM operations.address_canary_nonces")).rejects.toMatchObject({ code: "42501" });
+      await expect(maintenancePool.query("SELECT * FROM operations.consume_address_lookup_v1($1)", [hash("x")])).rejects.toMatchObject({ code: "42501" });
+      await owner.query(`GRANT dsa_seats_web TO "${principals.lookup}"`);
+      await expect(lookup.consumeMetadataAttempt(hash("mixed"))).rejects.toMatchObject({ code: "42501" });
+      await owner.query(`REVOKE dsa_seats_web FROM "${principals.lookup}"`);
+
+      await owner.query("DELETE FROM operations.address_quota_buckets; DELETE FROM operations.address_canary_nonces");
+      const queuedLookupPool = new Pool({ connectionString: loginUrl(principals.lookup), max: 1 });
+      pools.push(queuedLookupPool);
+      const heldLookupClient = await queuedLookupPool.connect();
+      const queuedAbort = new AbortController();
+      const queuedSubject = hash("task12-queued-abort");
+      const queuedAttempt = new AddressAdmissionRepository(queuedLookupPool).consumeMetadataAttempt(queuedSubject, queuedAbort.signal);
+      queuedAbort.abort();
+      await expect(queuedAttempt).rejects.toBeInstanceOf(CallerAbortError);
+      const lateCheckoutDestroyed = new Promise<void>(resolve => queuedLookupPool.once("remove", () => resolve()));
+      heldLookupClient.release();
+      await lateCheckoutDestroyed;
+      expect(queuedLookupPool.totalCount).toBe(0);
+      expect((await owner.query<{ count: number }>("SELECT count(*)::int count FROM operations.address_quota_buckets WHERE subject_hash=$1", [queuedSubject])).rows[0]).toEqual({ count: 0 });
+
+      const lockedLookupPool = new Pool({ connectionString: loginUrl(principals.lookup), max: 1 });
+      pools.push(lockedLookupPool);
+      const lockOwner = await owner.connect();
+      const activeSubject = hash("task12-active-abort");
+      try {
+        await lockOwner.query("BEGIN");
+        await lockOwner.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_address_admission'))");
+        const activeAbort = new AbortController();
+        const activeAttempt = new AddressAdmissionRepository(lockedLookupPool).consumeMetadataAttempt(activeSubject, activeAbort.signal);
+        const deadline = Date.now() + 1_000;
+        let waiting = false;
+        while (Date.now() < deadline && !waiting) {
+          const blocked = await owner.query<{ waiting: boolean }>("SELECT EXISTS (SELECT 1 FROM pg_stat_activity a JOIN pg_locks l ON l.pid=a.pid WHERE a.usename=$1 AND a.state='active' AND a.query LIKE '%consume_address_metadata_attempt_v1%' AND l.locktype='advisory' AND NOT l.granted) AS waiting", [principals.lookup]);
+          waiting = blocked.rows[0]?.waiting === true;
+          if (!waiting) await new Promise<void>(resolve => setTimeout(resolve, 5));
+        }
+        expect(waiting).toBe(true);
+        activeAbort.abort();
+        let cancellationTimer: ReturnType<typeof setTimeout> | undefined;
+        const boundedCancellation = Promise.race([
+          activeAttempt,
+          new Promise<never>((_, reject) => { cancellationTimer = setTimeout(() => reject(new Error("admission cancellation timeout")), 1_000); }),
+        ]);
+        try { await expect(boundedCancellation).rejects.toBeInstanceOf(CallerAbortError); }
+        finally { if (cancellationTimer) clearTimeout(cancellationTimer); }
+        await lockOwner.query("COMMIT");
+      } finally {
+        await lockOwner.query("ROLLBACK").catch(() => undefined);
+        lockOwner.release();
+      }
+      expect((await owner.query<{ count: number }>("SELECT count(*)::int count FROM operations.address_quota_buckets")).rows[0]).toEqual({ count: 0 });
+      expect((await owner.query<{ count: number }>("SELECT count(*)::int count FROM operations.address_canary_nonces")).rows[0]).toEqual({ count: 0 });
+
+      const futureSignatureTimestamp = new Date(Date.now() + 20_000);
+      await expect(lookup.consumeCanary({ subjectHash: hash("task12-future-canary-subject"), nonceHash: hash("task12-future-canary-nonce"), keyId: "task12-future", signatureTimestamp: futureSignatureTimestamp, expiresAt: new Date(futureSignatureTimestamp.getTime() + 10 * 60_000) })).resolves.toEqual({ allowed: true, retryAfter: null });
+      await owner.query("DELETE FROM operations.address_quota_buckets; DELETE FROM operations.address_canary_nonces");
+
+      const metadataSubject = hash("metadata-subject");
+      const metadata = await Promise.all(Array.from({ length: 21 }, () => lookup.consumeMetadataAttempt(metadataSubject)));
+      expect(metadata.filter(row => row.allowed)).toHaveLength(20); expect(metadata.find(row => !row.allowed)?.retryAfter).toBeGreaterThan(0);
+      expect((await owner.query("SELECT bucket_kind,count FROM operations.address_quota_buckets WHERE subject_hash=$1 ORDER BY bucket_kind", [metadataSubject])).rows).toEqual([{ bucket_kind: "metadata_subject_minute", count: 20 }]);
+      await owner.query("DELETE FROM operations.address_quota_buckets");
+      const globalMetadata = await Promise.all(Array.from({ length: 301 }, (_, n) => lookup.consumeMetadataAttempt(hash(`global-metadata-${n}`))));
+      expect(globalMetadata.filter(row => row.allowed)).toHaveLength(300);
+      expect((await owner.query("SELECT count FROM operations.address_quota_buckets WHERE bucket_kind='metadata_global_minute'")).rows[0]).toEqual({ count: 300 });
+      expect((await owner.query("SELECT count(*)::int count FROM operations.address_quota_buckets WHERE bucket_kind='metadata_subject_minute'")).rows[0]).toEqual({ count: 300 });
+
+      await owner.query("DELETE FROM operations.address_quota_buckets");
+      const enabledSubject = hash("enabled-subject");
+      const enabled = await Promise.all(Array.from({ length: 6 }, () => lookup.consumeEnabledLookup(enabledSubject)));
+      expect(enabled.filter(row => row.allowed)).toHaveLength(5); expect(enabled.find(row => !row.allowed)?.retryAfter).toBeGreaterThan(0);
+      expect((await owner.query("SELECT bucket_kind,count FROM operations.address_quota_buckets WHERE subject_hash=$1", [enabledSubject])).rows).toEqual([{ bucket_kind: "lookup_subject_hour", count: 5 }]);
+      await owner.query("DELETE FROM operations.address_quota_buckets");
+      const upstream = await Promise.all(Array.from({ length: 101 }, (_, n) => lookup.consumeEnabledLookup(hash(`upstream-${n}`))));
+      expect(upstream.filter(row => row.allowed)).toHaveLength(100);
+      expect((await owner.query("SELECT bucket_kind,count FROM operations.address_quota_buckets WHERE bucket_kind IN ('upstream_minute','upstream_day') ORDER BY bucket_kind")).rows).toEqual([{ bucket_kind: "upstream_day", count: 100 }, { bucket_kind: "upstream_minute", count: 100 }]);
+
+      await owner.query("DELETE FROM operations.address_quota_buckets; DELETE FROM operations.address_canary_nonces");
+      const canary = (n: number) => { const signatureTimestamp = new Date(Date.now() - 1_000); return lookup.consumeCanary({ subjectHash: hash("canary"), nonceHash: hash(`nonce-${n}`), keyId: "task12", signatureTimestamp, expiresAt: new Date(signatureTimestamp.getTime() + 10 * 60_000) }); };
+      const canaries = []; for (let n = 0; n < 6; n++) canaries.push(await canary(n));
+      expect(canaries.filter(row => row.allowed)).toHaveLength(5); expect(canaries[5]?.retryAfter).toBeGreaterThan(0);
+      expect((await owner.query("SELECT count(*)::int count FROM operations.address_canary_nonces")).rows[0]).toEqual({ count: 6 });
+      await expect(canary(5)).resolves.toMatchObject({ allowed: false, retryAfter: expect.any(Number) });
+      expect((await owner.query("SELECT bucket_kind,count FROM operations.address_quota_buckets ORDER BY bucket_kind")).rows).toEqual([{ bucket_kind: "canary_minute", count: 5 }, { bucket_kind: "upstream_day", count: 5 }, { bucket_kind: "upstream_minute", count: 5 }]);
+
+      await owner.query("INSERT INTO operations.address_quota_buckets VALUES('metadata_subject_minute',$1,clock_timestamp()-interval '3 minutes',1,clock_timestamp()-interval '1 minute'),('metadata_subject_minute',$2,clock_timestamp(),1,clock_timestamp()+interval '1 minute')", [hash("expired"), hash("live")]);
+      await owner.query("INSERT INTO operations.address_canary_nonces(nonce_hash,key_id,signature_timestamp,expires_at,consumed_at) SELECT $1,'expired',now_at-interval '11 minutes',now_at-interval '1 minute',now_at-interval '2 minutes' FROM (SELECT clock_timestamp() now_at) clock", [hash("expired-nonce")]);
+      const cleaned = await new AddressAdmissionMaintenanceRepository(maintenancePool).cleanup();
+      expect(cleaned.quotaBucketsDeleted).toBeGreaterThan(0); expect(cleaned.canaryNoncesDeleted).toBeGreaterThan(0);
+      expect((await owner.query("SELECT count(*)::int count FROM operations.address_quota_buckets WHERE expires_at>clock_timestamp()")).rows[0]?.count).toBeGreaterThan(0);
+      expect((await owner.query("SELECT count(*)::int count FROM pg_trigger t JOIN pg_proc p ON p.oid=t.tgfoid WHERE t.tgrelid IN ('operations.address_quota_buckets'::regclass,'operations.address_canary_nonces'::regclass) AND p.proname IN ('guard_candidate_release_content','guard_nationwide_content','guard_release_preflight')")).rows[0]).toEqual({ count: 0 });
+      expect(await snapshot(v2.release.id)).toEqual(before);
     } finally {
       await Promise.all(pools.map(pool => pool.end()));
       for (const name of Object.values(principals)) await owner.query(`DROP ROLE IF EXISTS "${name}"`).catch(() => undefined);

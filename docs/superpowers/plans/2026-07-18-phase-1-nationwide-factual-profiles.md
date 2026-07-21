@@ -738,23 +738,23 @@ git commit -m "feat: add correction intake"
 - Modify: `data/source-lock.json`
 - Modify: `docs/deployment/address-lookup-privacy-gate.md`
 
-- [ ] **Step 1: Generalize territory output contracts**
+- [x] **Step 1: Generalize territory output contracts**
 
 Replace the mandatory two-element Senate tuple with a jurisdiction-policy-constrained list: exactly two ordered classes for `two_seats`, exactly zero for `none`. Preserve strict no-coordinate/no-address output schemas.
 
-- [ ] **Step 2: Bound pool acquisition**
+- [x] **Step 2: Bound pool acquisition**
 
 Add an abort-aware acquisition deadline before any DB work. Keep existing statement timeout and ownership-safe backend cancellation. Test pool exhaustion plus caller abort without leaked work.
 
-- [ ] **Step 3: Version the nationwide decision corpus**
+- [x] **Step 3: Version the nationwide decision corpus**
 
 Create source-locked corpus v2 rather than rewriting v1. Retain all existing ordinary/boundary/ambiguity/failure cases and add DC, Puerto Rico, Guam, U.S. Virgin Islands, American Samoa, and Northern Mariana Islands. Territory successes expect House/delegate representation and zero Senate seats; unsupported is reserved for geography genuinely absent from the published release. Run the same resolver contract against v1 and v2 releases to prove version-specific behavior.
 
-- [ ] **Step 4: Write route privacy tests before route implementation**
+- [x] **Step 4: Write route privacy tests before route implementation**
 
 Assert POST-only, body-only input, `Cache-Control: no-store`, bounded body, finite response codes, signal propagation, disabled-by-default startup, no redirect, no response coordinates/address echo, and kill-switch behavior.
 
-- [ ] **Step 5: Implement a disabled-by-default route and controlled canary mode**
+- [x] **Step 5: Implement a disabled-by-default route and controlled canary mode**
 
 Use an explicit startup-validated mode:
 
@@ -765,7 +765,7 @@ const addressLookupMode = addressLookupModeSchema.parse(process.env.ADDRESS_LOOK
 
 `disabled` always returns the finite disabled result without reading the body. `canary` accepts only a security/operations-approved signed canary request and non-personal corpus vector; ordinary public requests remain disabled. `enabled` is unavailable until final approval. Delegate the complete form and status presentation to `@designer` now, but render the existing informational disabled state unless mode is enabled. The form never stores input client-side beyond the active submission and loads no analytics/session replay. Deploy this complete implementation with `disabled` mode first.
 
-- [ ] **Step 6: Commit the disabled-by-default artifact**
+- [x] **Step 6: Commit the disabled-by-default artifact**
 
 ```bash
 git add src/address src/domain/address.ts src/app/api/address src/app/lookup data/metadata/address-resolution-corpus-v2.json data/source-lock.json

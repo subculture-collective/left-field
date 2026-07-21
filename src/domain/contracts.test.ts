@@ -50,6 +50,7 @@ describe("addressResolutionSchema", () => {
   const oneCandidateContext = { ...geocoderContext, matchQuality: "single_candidate" as const };
   const matched = {
     ...oneCandidateContext, status: "matched" as const,
+    senateRepresentation: "two_seats" as const,
     houseSeat: { officeTermId: "term_house", seatCycleId: "seat_house", geographyVersionId: "geo_house" },
     senateSeats: [
       { senateClass: 1 as const, officeTermId: "term_senate_1", seatCycleId: "seat_senate_1" },
@@ -82,6 +83,11 @@ describe("addressResolutionSchema", () => {
     [matched.senateSeats[1], matched.senateSeats[0]],
   ])("rejects duplicate or unordered Senate pairings", (senateSeats) => {
     expect(addressResolutionSchema.safeParse({ ...matched, senateSeats }).success).toBe(false);
+  });
+
+  it("accepts no-Senate jurisdictions only with an empty Senate list", () => {
+    expect(addressResolutionSchema.safeParse({ ...matched, senateRepresentation: "none", senateSeats: [] }).success).toBe(true);
+    expect(addressResolutionSchema.safeParse({ ...matched, senateRepresentation: "none" }).success).toBe(false);
   });
 });
 

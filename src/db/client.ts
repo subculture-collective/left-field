@@ -8,6 +8,7 @@ let ingestPool: Pool | undefined;
 let releasePreflightPool: Pool | undefined;
 let releaseOperatorPool: Pool | undefined;
 let correctionPool: Pool | undefined;
+let addressPool: Pool | undefined;
 
 /** Returns one process-wide pool; DATABASE_URL is read only when first requested. */
 export function getDb(): NodePgDatabase<typeof schema> {
@@ -40,6 +41,12 @@ export const getReleasePreflightPool = (): Pool => configuredPool("RELEASE_PREFL
 export const getReleaseOperatorPool = (): Pool => configuredPool("RELEASE_OPERATOR_DATABASE_URL", "operator");
 /** Separate constrained connection for correction intake/review/maintenance roles. */
 export const getCorrectionPool = (): Pool => configuredPool("CORRECTION_DATABASE_URL", "correction");
+/** Separate, bounded runtime connection which only has the address lookup role. */
+export function getAddressPool(): Pool {
+  const connectionString = process.env.ADDRESS_DATABASE_URL;
+  if (!connectionString) throw new Error("ADDRESS_DATABASE_URL is required for address admission");
+  return addressPool ??= new Pool({ connectionString, max: 8, connectionTimeoutMillis: 5_000, statement_timeout: 5_000, lock_timeout: 1_000, query_timeout: 5_000, idleTimeoutMillis: 30_000 });
+}
 
 export async function closeDb(): Promise<void> {
   await pool?.end();
@@ -47,10 +54,12 @@ export async function closeDb(): Promise<void> {
   await releasePreflightPool?.end();
   await releaseOperatorPool?.end();
   await correctionPool?.end();
+  await addressPool?.end();
   pool = undefined;
   ingestPool = undefined;
   releasePreflightPool = undefined;
   releaseOperatorPool = undefined;
   correctionPool = undefined;
+  addressPool = undefined;
   database = undefined;
 }

@@ -120,7 +120,7 @@ describe("database schema", () => {
     const migration = readFileSync(resolve(process.cwd(), "drizzle/0002_ingestion_integrity.sql"), "utf8");
     const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0002_snapshot.json"), "utf8")) as { tables: Record<string, { columns: Record<string, unknown> }> };
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt"]);
     expect(snapshot.tables["public.ingest_runs"]?.columns).toEqual(expect.objectContaining({ snapshot_id: expect.anything(), lease_token: expect.anything(), failure_code: expect.anything() }));
     for (const name of ["guard_ingest_run", "guard_ingest_publication", "data_releases_ingest_publication_guard", "ingest_runs_one_live_identity_uq"]) expect(migration).toContain(name);
   });
@@ -179,7 +179,7 @@ describe("database schema", () => {
 
   it("keeps Task 10 in migration 0003 only", () => {
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt"]);
     expect(() => readFileSync(resolve(process.cwd(), "drizzle/0004_task10_oracle_hardening.sql"))).toThrow();
   });
 
@@ -188,7 +188,7 @@ describe("database schema", () => {
     const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0004_snapshot.json"), "utf8")) as { prevId: string; tables: Record<string, { isRLSEnabled?: boolean }> };
     const prior = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0003_snapshot.json"), "utf8")) as { id: string };
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt"]);
     for (const table of ["correction_submissions", "correction_review_events", "correction_idempotency_keys", "correction_rate_limit_buckets"]) expect(snapshot.tables[`operations.${table}`]).toBeDefined();
     expect(snapshot.prevId).toBe(prior.id);
     for (const table of ["correction_submissions", "correction_review_events", "correction_idempotency_keys", "correction_rate_limit_buckets"]) expect(snapshot.tables[`operations.${table}`]!.isRLSEnabled).toBe(true);
@@ -212,6 +212,16 @@ describe("database schema", () => {
     expect(migration).toContain("usage_status='approved'");
     expect(migration).toContain("p_candidate_release_id IS DISTINCT FROM latest.candidate_release_id");
     expect(migration).toContain("WHERE NOT r.id=ANY(l.path)");
+  });
+
+  it("isolates Task 12 address admission state and grants only current published reads", () => {
+    const migration = readFileSync(resolve(process.cwd(), "drizzle/0005_petite_black_bolt.sql"), "utf8");
+    const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0005_snapshot.json"), "utf8")) as { tables: Record<string, { isRLSEnabled?: boolean }> };
+    for (const table of ["address_quota_buckets", "address_canary_nonces"]) expect(snapshot.tables[`operations.${table}`]?.isRLSEnabled).toBe(true);
+    expect(Object.keys(schema)).toEqual(expect.arrayContaining(["addressQuotaBuckets", "addressCanaryNonces"]));
+    expect(contentTableRegistry.map((entry) => entry.name)).not.toEqual(expect.arrayContaining(["address_quota_buckets", "address_canary_nonces"]));
+    for (const text of ["dsa_seats_address_lookup", "dsa_seats_address_maintenance", "consume_address_metadata_attempt_v1", "consume_address_lookup_v1", "consume_address_canary_v1", "cleanup_address_admission_v1", "SECURITY DEFINER", "pg_advisory_xact_lock", "LIMIT 1000", "status='published'"]) expect(migration).toContain(text);
+    expect(migration).toContain("GRANT SELECT ON public.data_releases,public.geography_versions,public.release_profile_seats,public.seat_cycles,public.offices,public.office_terms,public.jurisdictions TO dsa_seats_address_lookup");
   });
 
   it("consolidates each Task 11 function definition exactly once", () => {
