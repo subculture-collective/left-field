@@ -120,7 +120,7 @@ describe("database schema", () => {
     const migration = readFileSync(resolve(process.cwd(), "drizzle/0002_ingestion_integrity.sql"), "utf8");
     const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0002_snapshot.json"), "utf8")) as { tables: Record<string, { columns: Record<string, unknown> }> };
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm"]);
     expect(snapshot.tables["public.ingest_runs"]?.columns).toEqual(expect.objectContaining({ snapshot_id: expect.anything(), lease_token: expect.anything(), failure_code: expect.anything() }));
     for (const name of ["guard_ingest_run", "guard_ingest_publication", "data_releases_ingest_publication_guard", "ingest_runs_one_live_identity_uq"]) expect(migration).toContain(name);
   });
@@ -179,7 +179,45 @@ describe("database schema", () => {
 
   it("keeps Task 10 in migration 0003 only", () => {
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm"]);
     expect(() => readFileSync(resolve(process.cwd(), "drizzle/0004_task10_oracle_hardening.sql"))).toThrow();
+  });
+
+  it("isolates Task 11 correction controls from immutable release content", () => {
+    const migration = readFileSync(resolve(process.cwd(), "drizzle/0004_large_johnny_storm.sql"), "utf8");
+    const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0004_snapshot.json"), "utf8")) as { prevId: string; tables: Record<string, { isRLSEnabled?: boolean }> };
+    const prior = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0003_snapshot.json"), "utf8")) as { id: string };
+    const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm"]);
+    for (const table of ["correction_submissions", "correction_review_events", "correction_idempotency_keys", "correction_rate_limit_buckets"]) expect(snapshot.tables[`operations.${table}`]).toBeDefined();
+    expect(snapshot.prevId).toBe(prior.id);
+    for (const table of ["correction_submissions", "correction_review_events", "correction_idempotency_keys", "correction_rate_limit_buckets"]) expect(snapshot.tables[`operations.${table}`]!.isRLSEnabled).toBe(true);
+    expect(Object.keys(schema)).toEqual(expect.arrayContaining(["operations", "correctionSubmissions", "correctionReviewEvents", "correctionIdempotencyKeys", "correctionRateLimitBuckets"]));
+    expect(contentTableRegistry.map((entry) => entry.name)).not.toEqual(expect.arrayContaining(["correction_submissions", "correction_review_events"]));
+    for (const text of ["operations.consume_correction_attempt_v1", "operations.submit_correction_v1", "operations.transition_correction_v1", "operations.cleanup_correction_controls_v1", "SECURITY DEFINER", "ENABLE ROW LEVEL SECURITY", "dsa_seats_correction_intake", "dsa_seats_correction_reviewer", "dsa_seats_correction_maintenance", "correction records are immutable", "target_unavailable", "idempotency_conflict"]) expect(migration).toContain(text);
+  });
+
+  it("hardens Task 11 correction functions and contracts", () => {
+    const migration = readFileSync(resolve(process.cwd(), "drizzle/0004_large_johnny_storm.sql"), "utf8");
+    const fields = "'identity.current_holder','identity.party','identity.occupancy','biography.bioguide_id','biography.birth_date','biography.other','elections','finance','demographics','district_boundary','sources','other'";
+    expect(migration).toContain(fields);
+    expect(migration).not.toContain("'seat_cycle','office','person','membership','contest','result','finance','acs','map'");
+    for (const fn of ["forbid_correction_mutation", "submit_correction_v1", "transition_correction_v1", "cleanup_correction_controls_v1"]) {
+      expect(migration).toMatch(new RegExp(`FUNCTION operations\\.${fn}[\\s\\S]*?search_path=pg_catalog,operations(?:,public)?,pg_temp`));
+    }
+    for (const role of ["dsa_seats_correction_intake", "dsa_seats_correction_reviewer", "dsa_seats_correction_maintenance"]) expect(migration).toContain(`pg_has_role(session_user,'${role}','member')`);
+    expect(migration).toContain("DELETE FROM operations.correction_idempotency_keys WHERE key_hash=p_key_hash AND expires_at<=now_at");
+    expect(migration).toContain("replace(p_explanation,E'\\r\\n',E'\\n')");
+    expect(migration).toContain("digest(jsonb_build_object");
+    expect(migration).toContain("usage_status='approved'");
+    expect(migration).toContain("p_candidate_release_id IS DISTINCT FROM latest.candidate_release_id");
+    expect(migration).toContain("WHERE NOT r.id=ANY(l.path)");
+  });
+
+  it("consolidates each Task 11 function definition exactly once", () => {
+    const migration = readFileSync(resolve(process.cwd(), "drizzle/0004_large_johnny_storm.sql"), "utf8");
+    for (const name of ["canonical_correction_source_url", "submit_correction_v1", "transition_correction_v1", "list_corrections_v1", "cleanup_correction_controls_v1", "forbid_correction_mutation"]) {
+      expect(migration.match(new RegExp(`CREATE OR REPLACE FUNCTION operations\\.${name}\\(`, "g"))).toHaveLength(1);
+    }
   });
 });

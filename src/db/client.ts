@@ -7,6 +7,7 @@ let database: NodePgDatabase<typeof schema> | undefined;
 let ingestPool: Pool | undefined;
 let releasePreflightPool: Pool | undefined;
 let releaseOperatorPool: Pool | undefined;
+let correctionPool: Pool | undefined;
 
 /** Returns one process-wide pool; DATABASE_URL is read only when first requested. */
 export function getDb(): NodePgDatabase<typeof schema> {
@@ -24,11 +25,12 @@ export function getPool(): Pool {
   return pool!;
 }
 
-function configuredPool(variable: "INGEST_DATABASE_URL" | "RELEASE_PREFLIGHT_DATABASE_URL" | "RELEASE_OPERATOR_DATABASE_URL", slot: "ingest" | "preflight" | "operator"): Pool {
+function configuredPool(variable: "INGEST_DATABASE_URL" | "RELEASE_PREFLIGHT_DATABASE_URL" | "RELEASE_OPERATOR_DATABASE_URL" | "CORRECTION_DATABASE_URL", slot: "ingest" | "preflight" | "operator" | "correction"): Pool {
   const connectionString = process.env[variable];
   if (!connectionString) throw new Error(`${variable} is required for this privileged database operation`);
   if (slot === "ingest") return ingestPool ??= new Pool({ connectionString });
   if (slot === "preflight") return releasePreflightPool ??= new Pool({ connectionString });
+  if (slot === "correction") return correctionPool ??= new Pool({ connectionString, connectionTimeoutMillis: 5_000, statement_timeout: 5_000, lock_timeout: 1_000, query_timeout: 5_000 });
   return releaseOperatorPool ??= new Pool({ connectionString });
 }
 
@@ -36,15 +38,19 @@ function configuredPool(variable: "INGEST_DATABASE_URL" | "RELEASE_PREFLIGHT_DAT
 export const getIngestPool = (): Pool => configuredPool("INGEST_DATABASE_URL", "ingest");
 export const getReleasePreflightPool = (): Pool => configuredPool("RELEASE_PREFLIGHT_DATABASE_URL", "preflight");
 export const getReleaseOperatorPool = (): Pool => configuredPool("RELEASE_OPERATOR_DATABASE_URL", "operator");
+/** Separate constrained connection for correction intake/review/maintenance roles. */
+export const getCorrectionPool = (): Pool => configuredPool("CORRECTION_DATABASE_URL", "correction");
 
 export async function closeDb(): Promise<void> {
   await pool?.end();
   await ingestPool?.end();
   await releasePreflightPool?.end();
   await releaseOperatorPool?.end();
+  await correctionPool?.end();
   pool = undefined;
   ingestPool = undefined;
   releasePreflightPool = undefined;
   releaseOperatorPool = undefined;
+  correctionPool = undefined;
   database = undefined;
 }

@@ -53,6 +53,8 @@ import { finalizeCandidateElectionDecisions, verifyPersistedTask9ElectionCandida
 import { finalizeCandidateMaps, verifyPersistedCandidateMaps } from "@/ingestion/tiger/finalize-maps";
 import { simplifyNationalTigerDistrictLayer } from "@/ingestion/tiger/simplify";
 import { LocalMapArtifactStore, type MapArtifactStore } from "@/maps/map-artifact-store";
+import { CorrectionMaintenanceRepository, CorrectionRepository, CorrectionReviewerRepository } from "@/corrections/repository";
+import { correctionParityVectors, correctionSubmissionSchema, parseCorrectionSubmission } from "@/domain/corrections";
 
 const testDatabaseUrl = process.env.TEST_DATABASE_URL;
 const testDatabaseName = testDatabaseUrl ? new URL(testDatabaseUrl).pathname.slice(1) : "";
@@ -1516,4 +1518,133 @@ integration("PostgreSQL integration", () => {
     } finally { await pool.end(); await rm(rawRoot, { recursive: true, force: true }); }
   }, 300_000);
 
+  it("Task 11 enforces correction intake, review, controls, and release isolation with real principals", async () => {
+    const owner = new Pool({ connectionString: testDatabaseUrl });
+    const suffix = randomUUID().replace(/-/g, "");
+    const password = randomUUID();
+    const principals = {
+      intake: `dsa_task11_intake_${suffix}`, reviewer: `dsa_task11_reviewer_${suffix}`,
+      maintenance: `dsa_task11_maintenance_${suffix}`, web: `dsa_task11_web_${suffix}`,
+    } as const;
+    const inherited = { intake: "dsa_seats_correction_intake", reviewer: "dsa_seats_correction_reviewer", maintenance: "dsa_seats_correction_maintenance", web: "dsa_seats_web" } as const;
+    const loginUrl = (name: string) => { const url = new URL(testDatabaseUrl!); url.username = name; url.password = password; return url.toString(); };
+    const pools: Pool[] = [];
+    const hash = (value: string) => createHash("sha256").update(value).digest();
+    try {
+      expect((await owner.query<{ permitted: boolean }>("SELECT rolsuper OR rolcreaterole AS permitted FROM pg_roles WHERE rolname=current_user")).rows[0]?.permitted).toBe(true);
+      for (const [kind, name] of Object.entries(principals)) {
+        await owner.query(`CREATE ROLE "${name}" LOGIN INHERIT PASSWORD '${password}'`);
+        await owner.query(`GRANT ${inherited[kind as keyof typeof inherited]} TO "${name}"`);
+        expect((await owner.query<{ role: string }>("SELECT granted.rolname role FROM pg_auth_members m JOIN pg_roles member ON member.oid=m.member JOIN pg_roles granted ON granted.oid=m.roleid WHERE member.rolname=$1", [name])).rows).toEqual([{ role: inherited[kind as keyof typeof inherited] }]);
+      }
+      const intakePool = new Pool({ connectionString: loginUrl(principals.intake), max: 12 });
+      const reviewerPool = new Pool({ connectionString: loginUrl(principals.reviewer), max: 4 });
+      const maintenancePool = new Pool({ connectionString: loginUrl(principals.maintenance) });
+      const webPool = new Pool({ connectionString: loginUrl(principals.web) });
+      pools.push(intakePool, reviewerPool, maintenancePool, webPool);
+
+      const v1 = candidate(`rel_task11_v1_${suffix}`); await seedPrototypeManifest(owner, v1, boundariesFor(v1)); await promoteCandidateRelease(owner, v1.release.id);
+      const { manifest: v2, bundle } = persistedNationwideSkeleton();
+      v2.release = { ...v2.release, previousReleaseId: v1.release.id };
+      v2.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(v2);
+      await seedNationwideCandidateManifest(owner, v2, bundle); await validateNationwideCandidateRelease(owner, v2.release.id); await promoteCandidateRelease(owner, v2.release.id);
+      const before = await owner.query("SELECT (SELECT jsonb_agg(row_to_json(d) ORDER BY domain) FROM release_content_digests d WHERE d.release_id=$1) digests,(SELECT row_to_json(m) FROM release_manifests m WHERE m.release_id=$1) manifest,(SELECT row_to_json(g) FROM nationwide_validation_gates g WHERE g.release_id=$1) gate", [v2.release.id]);
+      expect((before.rows[0] as { digests: unknown[] }).digests).toHaveLength(7);
+      const seat = v2.seatCycles[0]!.id;
+      const intake = new CorrectionRepository(intakePool); const reviewer = new CorrectionReviewerRepository(reviewerPool);
+      const submit = (key: string, subject: string, extra: Partial<{ releaseId: string; seatCycleId: string; fieldPath: string; explanation: string; sourceUrl: string }> = {}) => intake.submit({ keyHash: hash(key), subjectHash: hash(subject), releaseId: v2.release.id, seatCycleId: seat, fieldPath: "identity.party", explanation: "  Correct this published record please.\r\n", sourceUrl: "https://example.com/evidence", ...extra });
+      const first = await submit("first", "first");
+      expect(first).toMatchObject({ outcome: "accepted", created: true, retryAfter: null });
+      expect((await owner.query("SELECT release_id,seat_cycle_id,field_path,explanation,source_url FROM operations.correction_submissions WHERE id=$1", [first.correctionId])).rows[0]).toEqual({ release_id: v2.release.id, seat_cycle_id: seat, field_path: "identity.party", explanation: "Correct this published record please.", source_url: "https://example.com/evidence" });
+      expect((await owner.query("SELECT actor,to_status,sequence FROM operations.correction_review_events WHERE submission_id=$1", [first.correctionId])).rows[0]).toEqual({ actor: principals.intake, to_status: "submitted", sequence: 1 });
+
+      const raced = await Promise.all([submit("race", "race"), submit("race", "race")]);
+      expect(raced.map(row => row.created).sort()).toEqual([false, true]); expect(new Set(raced.map(row => row.correctionId)).size).toBe(1);
+      await expect(submit("race", "race", { explanation: "A different correction explanation." })).resolves.toMatchObject({ outcome: "idempotency_conflict" });
+      const unavailable = await submit("gone", "gone", { releaseId: "rel_missing" });
+      expect(unavailable.outcome).toBe("target_unavailable"); expect(await submit("gone", "gone", { releaseId: "rel_missing" })).toMatchObject({ outcome: "target_unavailable", created: false });
+      await expect(submit("gone", "gone", { releaseId: "rel_missing_2" })).resolves.toMatchObject({ outcome: "idempotency_conflict" });
+      await expect(submit("invalid", "invalid", { releaseId: "bad" })).resolves.toMatchObject({ outcome: "invalid_request" });
+      await expect(submit("missing-seat", "missing-seat", { seatCycleId: "seat_missing" })).resolves.toMatchObject({ outcome: "target_unavailable" });
+
+      await owner.query("DELETE FROM operations.correction_rate_limit_buckets");
+      const flood = await Promise.all(Array.from({ length: 105 }, (_, n) => submit(`flood-${n}`, `flood-${n}`)));
+      expect(flood.filter(row => row.outcome === "accepted")).toHaveLength(100);
+      expect((await owner.query("SELECT count(*)::int count FROM operations.correction_rate_limit_buckets WHERE bucket_kind='subject_hour'")).rows[0]).toEqual({ count: 100 });
+      await owner.query("DELETE FROM operations.correction_rate_limit_buckets");
+      const subjectSix = await Promise.all(Array.from({ length: 6 }, (_, n) => submit(`six-${n}`, "same-subject")));
+      expect(subjectSix.filter(row => row.outcome === "accepted")).toHaveLength(5); expect(subjectSix.some(row => row.outcome === "rate_limited" && row.retryAfter)).toBe(true);
+      expect((await owner.query("SELECT bucket_kind,count FROM operations.correction_rate_limit_buckets WHERE bucket_kind LIKE 'global_%' ORDER BY bucket_kind")).rows).toEqual([{ bucket_kind: "global_day", count: 5 }, { bucket_kind: "global_minute", count: 5 }]);
+
+      await expect(webPool.query("SELECT * FROM operations.correction_submissions")).rejects.toMatchObject({ code: "42501" });
+      await expect(intakePool.query("SELECT * FROM operations.correction_submissions")).rejects.toMatchObject({ code: "42501" });
+      await expect(intakePool.query("SELECT operations.transition_correction_v1($1,1,'submitted','in_review','triaged',NULL,NULL)", [first.correctionId])).rejects.toMatchObject({ code: "42501" });
+      await expect(reviewerPool.query("UPDATE operations.correction_submissions SET explanation='no' WHERE id=$1", [first.correctionId])).rejects.toMatchObject({ code: "42501" });
+      await expect(reviewerPool.query("SELECT * FROM operations.list_corrections_v1(NULL,NULL,101)")).rejects.toMatchObject({ code: "22023" });
+      await expect(maintenancePool.query("SELECT * FROM operations.correction_idempotency_keys")).rejects.toMatchObject({ code: "42501" });
+      await owner.query(`GRANT dsa_seats_correction_reviewer TO "${principals.intake}"`);
+      await expect(submit("mixed", "mixed")).rejects.toMatchObject({ code: "42501" });
+      await owner.query(`REVOKE dsa_seats_correction_reviewer FROM "${principals.intake}"`);
+      await owner.query(`GRANT dsa_seats_web TO "${principals.intake}"`);
+      await expect(intake.consumeAttempt(hash("mixed-web"))).rejects.toMatchObject({ code: "42501" });
+      await owner.query(`REVOKE dsa_seats_web FROM "${principals.intake}"`);
+      await owner.query(`GRANT dsa_seats_web TO "${principals.reviewer}"`);
+      await expect(reviewer.list({ limit: 1 })).rejects.toMatchObject({ code: "42501" });
+      await owner.query(`REVOKE dsa_seats_web FROM "${principals.reviewer}"`);
+
+      await owner.query("DELETE FROM operations.correction_rate_limit_buckets");
+      const reviewable = await submit("review", "review"); const id = reviewable.correctionId!;
+      const firstPage = await reviewer.list({ limit: 2 });
+      expect(firstPage).toHaveLength(2);
+      const last = firstPage.at(-1)!;
+      const secondPage = await reviewer.list({ after: { submittedAt: last.submittedAt, id: last.id }, limit: 2 });
+      expect(secondPage).toHaveLength(2);
+      expect(secondPage.map(row => row.id)).not.toEqual(expect.arrayContaining(firstPage.map(row => row.id)));
+      const concurrent = await Promise.all([reviewer.transition({ correctionId: id, expectedSequence: 1, expectedStatus: "submitted", toStatus: "in_review", reasonCode: "triaged" }), reviewer.transition({ correctionId: id, expectedSequence: 1, expectedStatus: "submitted", toStatus: "in_review", reasonCode: "triaged" })]);
+      expect(concurrent.map(row => row.outcome).sort()).toEqual(["conflict", "transitioned"]);
+      expect(await reviewer.transition({ correctionId: id, expectedSequence: 2, expectedStatus: "in_review", toStatus: "accepted", reasonCode: "approved" })).toMatchObject({ outcome: "transitioned", sequence: 3 });
+      const candidateId = `rel_task11_candidate_${suffix}`;
+      await owner.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) SELECT $1,'Task 11 candidate','candidate',source_cutoff,clock_timestamp(),NULL,id FROM data_releases WHERE id=$2", [candidateId, v2.release.id]);
+      await baselineCandidateRelease(owner, v2.release.id, candidateId);
+      const snapshot = (await owner.query<{ id: string; checksum_sha256: string }>("SELECT id,checksum_sha256 FROM source_snapshots WHERE release_id=$1 AND usage_status='approved' LIMIT 1", [candidateId])).rows[0]!;
+      expect(await reviewer.transition({ correctionId: id, expectedSequence: 3, expectedStatus: "accepted", toStatus: "queued", reasonCode: "needs_candidate", candidateReleaseId: candidateId })).toMatchObject({ outcome: "transitioned", sequence: 4 });
+      await expect(reviewer.transition({ correctionId: id, expectedSequence: 4, expectedStatus: "queued", toStatus: "incorporated", reasonCode: "incorporated", candidateReleaseId: candidateId, approvedSnapshotId: "missing" })).resolves.toMatchObject({ outcome: "invalid_transition" });
+      expect(await reviewer.transition({ correctionId: id, expectedSequence: 4, expectedStatus: "queued", toStatus: "incorporated", reasonCode: "incorporated", candidateReleaseId: candidateId, approvedSnapshotId: snapshot.id })).toMatchObject({ outcome: "transitioned", sequence: 5 });
+      expect((await owner.query("SELECT approved_snapshot_checksum FROM operations.correction_review_events WHERE submission_id=$1 AND sequence=5", [id])).rows[0]).toEqual({ approved_snapshot_checksum: snapshot.checksum_sha256 });
+      await expect(owner.query("UPDATE operations.correction_review_events SET reason_code='x' WHERE submission_id=$1", [id])).rejects.toMatchObject({ code: "55000" });
+
+      const domainAccepts = (input: Record<string, unknown>) => { try { parseCorrectionSubmission(input); return true; } catch { return false; } };
+      for (const vector of correctionParityVectors.ids) {
+        const domainValid = domainAccepts({ releaseId: vector.value, seatCycleId: seat, fieldPath: "identity.party", explanation: "Correct this published record please." });
+        expect((await submit(`id-${vector.value}`, `id-${vector.value}`, { releaseId: vector.value })).outcome === "invalid_request").toBe(!domainValid);
+      }
+      for (const vector of correctionParityVectors.sourceUrls) {
+        const parsed = correctionSubmissionSchema.safeParse({ releaseId: v2.release.id, seatCycleId: seat, fieldPath: "identity.party", explanation: "Correct this published record please.", sourceUrl: vector.value });
+        try {
+          const canonical = (await owner.query<{ canonical: string | null }>("SELECT operations.canonical_correction_source_url($1) canonical", [vector.value])).rows[0]!.canonical;
+          expect(canonical).toBe(parsed.success ? parsed.data.sourceUrl : null);
+        } catch (error) {
+          if (!(vector.value.includes("\0") && (error as { code?: string }).code === "22021")) throw error;
+          expect(parsed.success).toBe(false);
+        }
+        let databaseInvalid = false;
+        try {
+          databaseInvalid = (await submit(`url-${vector.value}`, `url-${vector.value}`, { sourceUrl: vector.value })).outcome === "invalid_request";
+        } catch (error) {
+          if (!(vector.value.includes("\0") && (error as { code?: string }).code === "22021")) throw error;
+          databaseInvalid = true;
+        }
+        expect(databaseInvalid).toBe(!parsed.success);
+      }
+      await owner.query("UPDATE operations.correction_idempotency_keys SET created_at=clock_timestamp()-interval '26 hours',expires_at=clock_timestamp()-interval '3 hours'; UPDATE operations.correction_rate_limit_buckets SET window_started_at=clock_timestamp()-interval '50 hours',expires_at=clock_timestamp()-interval '3 hours'");
+      expect(await new CorrectionMaintenanceRepository(maintenancePool).cleanup()).toMatchObject({ idempotencyDeleted: expect.any(Number), rateBucketsDeleted: expect.any(Number) });
+      expect((await owner.query("SELECT count(*)::int count FROM operations.correction_submissions")).rows[0].count).toBeGreaterThan(0);
+      expect(await owner.query("SELECT (SELECT jsonb_agg(row_to_json(d) ORDER BY domain) FROM release_content_digests d WHERE d.release_id=$1) digests,(SELECT row_to_json(m) FROM release_manifests m WHERE m.release_id=$1) manifest,(SELECT row_to_json(g) FROM nationwide_validation_gates g WHERE g.release_id=$1) gate", [v2.release.id])).toEqual(before);
+      expect((await owner.query("SELECT count(*)::int count FROM pg_trigger t JOIN pg_proc p ON p.oid=t.tgfoid WHERE t.tgrelid IN ('operations.correction_submissions'::regclass,'operations.correction_review_events'::regclass) AND p.proname IN ('guard_candidate_release_content','guard_nationwide_content','guard_release_preflight')")).rows[0]).toEqual({ count: 0 });
+    } finally {
+      await Promise.all(pools.map(pool => pool.end()));
+      for (const name of Object.values(principals)) await owner.query(`DROP ROLE IF EXISTS "${name}"`).catch(() => undefined);
+      await owner.end();
+    }
+  }, 180_000);
 });
