@@ -5,6 +5,7 @@ import type { ReleaseId, SeatCycleId } from "@/domain/contracts";
 import type { SeatPageRequest, SeatQuery, SeatResearchRepository } from "@/domain/repository";
 import { getPool } from "@/db/client";
 import { PostgresSeatResearchRepository } from "@/repositories/postgres";
+import { getRuntimeOperationalSignalSink } from "@/operations/runtime-signals";
 import { compileBrowsePage, compileMethodologyPage, compileProfilePage, compileSourcesPage } from "./view-models";
 import type { BrowsePageViewModel, MethodologyPageViewModel, ProfilePageViewModel, SourcesPageViewModel } from "./view-models";
 
@@ -34,12 +35,12 @@ export function classifyProfileLookup<T>(value: T | null | undefined): RouteData
 }
 
 async function repository(): Promise<SeatResearchRepository> {
-  if (process.env.DATABASE_URL) return new PostgresSeatResearchRepository(getPool());
+  if (process.env.WEB_DATABASE_URL || (process.env.NODE_ENV !== "production" && process.env.DATABASE_URL)) return new PostgresSeatResearchRepository(getPool(), getRuntimeOperationalSignalSink());
   if (process.env.NODE_ENV === "production") throw new RouteDataConfigurationError();
   const { InMemorySeatResearchRepository } = await import("@/repositories/in-memory");
   return new InMemorySeatResearchRepository(canonicalManifest);
 }
-class RouteDataConfigurationError extends Error { public constructor() { super("DATABASE_URL is required in production for route data"); } }
+class RouteDataConfigurationError extends Error { public constructor() { super("WEB_DATABASE_URL is required in production for route data"); } }
 async function safely<T>(load: () => Promise<T>): Promise<RouteDataResult<T>> { try { return { ok: true, value: await load() }; } catch (error) { return { ok: false, code: error instanceof RouteDataConfigurationError ? "configuration" : "unavailable" }; } }
 
 export async function loadBrowsePage(query: UrlQuery, repositoryOverride?: SeatResearchRepository): Promise<RouteDataResult<BrowsePageViewModel>> {

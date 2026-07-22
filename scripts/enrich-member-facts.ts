@@ -1,4 +1,4 @@
-import { closeDb, getPool } from "@/db/client";
+import { closeDb, getIngestPool } from "@/db/client";
 import { contentTableRegistry, enrichCandidateMembersFromBaseline, verifyPersistedTask6MemberCandidate } from "@/db/catalog-release";
 import { releaseIdSchema } from "@/domain/contracts";
 import type { Pool } from "pg";
@@ -61,5 +61,5 @@ export async function executeEnrichMembers(argv: readonly string[], dependencies
   } catch (error) { if (created) await cleanupNewShell(pool, args.candidateReleaseId); throw error; }
 }
 
-export async function main(argv = process.argv.slice(2), dependencies: EnrichMemberDependencies & { readonly stdout?: Pick<NodeJS.WriteStream, "write"> } = { getPool }): Promise<EnrichMemberResult> { const result = await executeEnrichMembers(argv, dependencies); (dependencies.stdout ?? process.stdout).write(`${JSON.stringify(result)}\n`); return result; }
+export async function main(argv = process.argv.slice(2), dependencies: EnrichMemberDependencies & { readonly stdout?: Pick<NodeJS.WriteStream, "write"> } = { getPool: getIngestPool }): Promise<EnrichMemberResult> { const result = await executeEnrichMembers(argv, dependencies); (dependencies.stdout ?? process.stdout).write(`${JSON.stringify(result)}\n`); return result; }
 if (require.main === module) main().catch((error: unknown) => { process.stderr.write(`${error instanceof Error ? error.message : "Member enrichment failed"}\n`); process.exitCode = 1; }).finally(closeDb);

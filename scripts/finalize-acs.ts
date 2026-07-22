@@ -1,4 +1,4 @@
-import { closeDb, getPool } from "@/db/client";
+import { closeDb, getIngestPool } from "@/db/client";
 import { releaseIdSchema } from "@/domain/contracts";
 import { finalizeCandidateAcs } from "@/ingestion/acs/finalize-acs";
 import { ACS_INDICATOR_DICTIONARY } from "@/ingestion/acs/indicator-dictionary";
@@ -19,7 +19,7 @@ export interface FinalizeAcsResult { readonly release: string; readonly sourceRe
 export interface FinalizeAcsDependencies { readonly env: NodeJS.ProcessEnv; readonly getPool: () => Pool; readonly rawStore?: RawObjectStore; readonly finalize?: typeof finalizeCandidateAcs; }
 export async function executeFinalizeAcs(argv: readonly string[], dependencies: FinalizeAcsDependencies): Promise<FinalizeAcsResult> {
   const args = parseFinalizeAcsArguments(argv);
-  if (dependencies.env.NODE_ENV === "production" && (!dependencies.env.RAW_OBJECT_BUCKET || !dependencies.env.DATABASE_URL || !dependencies.env.SOURCE_LOCK_SHA256)) throw new Error("Production finalization requires RAW_OBJECT_BUCKET, DATABASE_URL, and SOURCE_LOCK_SHA256");
+  if (dependencies.env.NODE_ENV === "production" && (!dependencies.env.RAW_OBJECT_BUCKET || !dependencies.env.INGEST_DATABASE_URL || !dependencies.env.SOURCE_LOCK_SHA256)) throw new Error("Production finalization requires RAW_OBJECT_BUCKET, INGEST_DATABASE_URL, and SOURCE_LOCK_SHA256");
   const rawStore = dependencies.rawStore ?? createRawObjectStore(dependencies.env);
   const { lock, sha256: sourceLockSha256 } = await verifyConfiguredSourceLock(dependencies.env);
   const sourceLockEntries = ACS_INDICATOR_DICTIONARY.map((definition) => {
@@ -31,5 +31,5 @@ export async function executeFinalizeAcs(argv: readonly string[], dependencies: 
   await (dependencies.finalize ?? finalizeCandidateAcs)({ pool: dependencies.getPool(), rawStore, candidateReleaseId: args.release, sourceReleaseId: args.sourceRelease, runIds, sourceLockSha256, sourceLockEntries });
   return { release: args.release, sourceReleaseId: args.sourceRelease, runIds, status: "validated_candidate" };
 }
-export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<FinalizeAcsDependencies, "env"> = { getPool }): Promise<FinalizeAcsResult> { const result = await executeFinalizeAcs(argv, { env, ...dependencies }); process.stdout.write(`${JSON.stringify(result)}\n`); return result; }
+export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<FinalizeAcsDependencies, "env"> = { getPool: getIngestPool }): Promise<FinalizeAcsResult> { const result = await executeFinalizeAcs(argv, { env, ...dependencies }); process.stdout.write(`${JSON.stringify(result)}\n`); return result; }
 if (require.main === module) main().catch(error => { process.stderr.write(`${error instanceof Error ? error.message : "ACS finalization failed"}\n`); process.exitCode = 1; }).finally(closeDb);

@@ -1,4 +1,4 @@
-import { closeDb, getPool } from "@/db/client";
+import { closeDb, getIngestPool } from "@/db/client";
 import { releaseIdSchema } from "@/domain/contracts";
 import { finalizeCandidateFec, type FecFinalizationSnapshot, type FecFinalizationSource, type FinalizationSource, type MappingFinalizationSnapshot } from "@/ingestion/fec/finalize-fec";
 import { canonicalizeFecFinanceScope } from "@/ingestion/fec/envelope";
@@ -35,5 +35,5 @@ export function parseFinalizeFecArguments(argv: readonly string[]): FinalizeFecA
   let financeScope: ReturnType<typeof canonicalizeFecFinanceScope>; try { financeScope = canonicalizeFecFinanceScope(json(singleton.get("--finance-scope"))); } catch { throw new Error(message); }
   return { release, sourceRelease, runIds: [runIds[0]!], source, snapshot, mappingSource, mappingSnapshot, mapping, financeScope };
 }
-export async function main(argv = process.argv.slice(2), env = process.env): Promise<void> { const args = parseFinalizeFecArguments(argv); const { sha256: sourceLockSha256 } = await verifyConfiguredSourceLock(env); await finalizeCandidateFec({ pool: getPool(), rawStore: createRawObjectStore(env), candidateReleaseId: args.release, sourceReleaseId: args.sourceRelease, runIds: args.runIds, sourceLockSha256, source: args.source, snapshot: args.snapshot, mappingSource: args.mappingSource, mappingSnapshot: args.mappingSnapshot, mapping: args.mapping, financeScope: args.financeScope }); process.stdout.write(`${JSON.stringify({ release: args.release, status: "validated_candidate" })}\n`); }
+export async function main(argv = process.argv.slice(2), env = process.env): Promise<void> { const args = parseFinalizeFecArguments(argv); const { sha256: sourceLockSha256 } = await verifyConfiguredSourceLock(env); await finalizeCandidateFec({ pool: getIngestPool(), rawStore: createRawObjectStore(env), candidateReleaseId: args.release, sourceReleaseId: args.sourceRelease, runIds: args.runIds, sourceLockSha256, source: args.source, snapshot: args.snapshot, mappingSource: args.mappingSource, mappingSnapshot: args.mappingSnapshot, mapping: args.mapping, financeScope: args.financeScope }); process.stdout.write(`${JSON.stringify({ release: args.release, status: "validated_candidate" })}\n`); }
 if (require.main === module) main().catch((error) => { process.stderr.write(`${error instanceof Error ? error.message : "FEC finalization failed"}\n`); process.exitCode = 1; }).finally(closeDb);

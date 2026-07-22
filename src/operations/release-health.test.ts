@@ -6,8 +6,8 @@ const verifiedDrill = { evidenceClass: "local-synthetic", evidenceVersion: 2, ve
 
 const passingRow = (sql: string) => {
   if (sql.includes("pg_auth_members")) return { restricted: true };
-  if (sql.includes("offices_house")) return { offices_house: 441, offices_senate: 100, seats: 541 };
-  if (sql.includes("geometries")) return { geometries: 497, invalid: 0 };
+  if (sql.includes("total_seats")) return { total_seats: 541, voting_house: 435, delegates: 5, resident_commissioner: 1, senate: 100, senate_class_1: 33, senate_class_2: 33, senate_class_3: 34, vacancies: 4, special_election_seats: 2, jurisdictions: 56, source_cutoff_present: 1 };
+  if (sql.includes("house_geometries")) return { geometries: 497, house_geometries: 441, jurisdiction_geometries: 56, invalid: 0 };
   if (sql.includes("review_required")) return { sources: 2, snapshots: 2, approved: 1, restricted: 1, review_required: 0 };
   if (sql.includes("coverage_records")) return { coverage_records: 7, quarantined: 0 };
   if (sql.includes("current_runs")) return { running: 0, failed: 0 };
@@ -47,6 +47,16 @@ describe("release health", () => {
     expect(ingestionSql).toContain("DISTINCT ON (source_id,snapshot_id)");
     expect(ingestionSql).toContain("started_at DESC,id DESC");
     expect(ingestionSql).toContain("snapshot_id IS NOT NULL");
+  });
+
+  it("records the complete nationwide universe and geometry without a Cartesian join", async () => {
+    const fixture = pool();
+    const report = await inspectReleaseHealth(fixture.pool as never, "rel_safe");
+    const universeSql = fixture.client.query.mock.calls.map(([statement]) => statement as string).find(sql => sql.includes("total_seats"))!;
+    expect(universeSql).not.toMatch(/CROSS\s+JOIN/i);
+    expect(universeSql).toContain("o.id=sc.office_id");
+    expect(report.checks.find(item => item.name === "universe")).toEqual(expect.objectContaining({ status: "pass", evidence: { totalSeats: 541, votingHouse: 435, delegates: 5, residentCommissioner: 1, senate: 100, senateClass1: 33, senateClass2: 33, senateClass3: 34, vacancies: 4, specialElectionSeats: 2, jurisdictions: 56, sourceCutoffPresent: 1 } }));
+    expect(report.checks.find(item => item.name === "geometry")).toEqual(expect.objectContaining({ status: "pass", evidence: { geometries: 497, houseGeometries: 441, jurisdictionGeometries: 56, invalid: 0 } }));
   });
 
   it("rejects forged, stale, and wrong-release rollback evidence", () => {

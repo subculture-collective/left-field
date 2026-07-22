@@ -1,0 +1,86 @@
+/** The acceptance gate consumes CI-provisioned disposable database lanes. */
+import { spawnSync } from "node:child_process";
+import { basename, isAbsolute, relative, resolve, sep } from "node:path";
+import { tmpdir } from "node:os";
+
+export interface AcceptanceEnvironment {
+  readonly integrationDatabaseUrl: string;
+  readonly queryDatabaseUrl: string;
+  readonly e2eDatabaseUrl: string;
+  readonly webDatabaseUrl: string;
+  readonly mapRoot: string;
+  readonly profilePath: string;
+}
+
+export type AcceptanceLane = "integration" | "query" | "browser" | "static";
+export interface AcceptanceCommand { readonly lane: AcceptanceLane; readonly command: string; readonly args: readonly string[]; }
+
+export function assertAcceptanceEnvironment(env: Readonly<Record<string, string | undefined>>): AcceptanceEnvironment {
+  if (env.ACCEPTANCE_TESTS !== "1") throw new Error("ACCEPTANCE_TESTS must equal exactly 1");
+  if (env.NODE_ENV?.toLowerCase() === "production") throw new Error("Acceptance harness refuses NODE_ENV=production");
+  const urls = ["DATABASE_URL", "TEST_DATABASE_URL", "QUERY_DATABASE_URL", "E2E_DATABASE_URL", "WEB_DATABASE_URL"] as const;
+  const parsed = urls.map(name => {
+    const value = env[name];
+    if (!value) throw new Error(`${name} is required`);
+    let url: URL;
+    try { url = new URL(value); } catch { throw new Error(`${name} must be a PostgreSQL URL`); }
+    if (!(["postgres:", "postgresql:"] as string[]).includes(url.protocol)) throw new Error(`${name} must be a PostgreSQL URL`);
+    if (!(["localhost", "127.0.0.1", "::1"] as string[]).includes(url.hostname.toLowerCase())) throw new Error(`${name} must use a loopback host`);
+    if (url.search || url.hash) throw new Error(`${name} must not include query parameters or fragments`);
+    if (!url.username) throw new Error(`${name} must include a LOGIN username`);
+    const database = decodeURIComponent(url.pathname).replace(/^\//, "");
+    if (!/_test$/i.test(database)) throw new Error(`${name} must name a database ending in _test`);
+    if (/(^|[._-])prod(uction)?([._-]|$)/i.test(`${url.hostname}/${database}`)) throw new Error("Acceptance harness refuses production");
+    return { value, url, database };
+  });
+  if (parsed[0]!.database !== parsed[1]!.database) throw new Error("DATABASE_URL and TEST_DATABASE_URL must name the same integration database");
+  if (parsed[3]!.database !== parsed[4]!.database) throw new Error("E2E_DATABASE_URL and WEB_DATABASE_URL must name the same browser database");
+  if (new Set([parsed[0]!.database, parsed[2]!.database, parsed[3]!.database]).size !== 3) throw new Error("integration, query, and browser databases must be pairwise distinct");
+  if (parsed[4]!.url.username === parsed[3]!.url.username) throw new Error("WEB_DATABASE_URL username must differ from the browser migration owner");
+  const configuredRoot = env.ACCEPTANCE_MAP_ARTIFACT_ROOT;
+  if (!configuredRoot || !isAbsolute(configuredRoot)) throw new Error("ACCEPTANCE_MAP_ARTIFACT_ROOT must be an absolute dedicated Task13 test directory");
+  const mapRoot = resolve(configuredRoot), temporary = resolve(tmpdir()), fromTemporary = relative(temporary, mapRoot);
+  const underTemporary = fromTemporary.length > 0 && fromTemporary !== ".." && !fromTemporary.startsWith(`..${sep}`) && !isAbsolute(fromTemporary);
+  if (!underTemporary || !/task13/i.test(mapRoot) || !/^task10(?:[-_][a-z0-9]+)*$/i.test(basename(mapRoot))) throw new Error("ACCEPTANCE_MAP_ARTIFACT_ROOT must be a dedicated Task13 Task10 root under the system temp directory");
+  const profilePath = env.E2E_MAP_PROFILE_PATH;
+  if (!profilePath || !/^\/seats\/[^/?#]+$/.test(profilePath)) throw new Error("E2E_MAP_PROFILE_PATH must name the seeded profile route");
+  return { integrationDatabaseUrl: parsed[0]!.value, queryDatabaseUrl: parsed[2]!.value, e2eDatabaseUrl: parsed[3]!.value, webDatabaseUrl: parsed[4]!.value, mapRoot, profilePath };
+}
+
+/** Keep this list as the CI aggregate contract; tests pin its order and lanes. */
+export const acceptanceCommands: readonly AcceptanceCommand[] = [
+  { lane: "integration", command: "npm", args: ["run", "db:migrate"] },
+  { lane: "integration", command: "npm", args: ["run", "test:integration"] },
+  { lane: "integration", command: "npm", args: ["run", "test:run", "--", "--exclude", "src/db/integration.test.ts"] },
+  { lane: "query", command: "npm", args: ["run", "db:migrate"] },
+  { lane: "query", command: "npm", args: ["run", "measure:task5-queries"] },
+  { lane: "browser", command: "npm", args: ["run", "test:e2e:task13"] },
+  ...(["typecheck", "lint", "build", "data:verify"] as const).map(script => ({ lane: "static" as const, command: "npm", args: ["run", script] })),
+  { lane: "static", command: "npm", args: ["audit", "--audit-level=low"] },
+  { lane: "static", command: "docker", args: ["compose", "config", "-q"] },
+  { lane: "static", command: "npm", args: ["run", "db:generate"] },
+  { lane: "static", command: "git", args: ["diff", "--exit-code", "--", "drizzle"] },
+];
+
+export function acceptanceCommandEnvironment(base: Readonly<Record<string, string | undefined>>, environment: AcceptanceEnvironment, lane: AcceptanceLane): NodeJS.ProcessEnv {
+  const databaseUrl = lane === "integration" ? environment.integrationDatabaseUrl : lane === "query" ? environment.queryDatabaseUrl : lane === "browser" ? environment.e2eDatabaseUrl : undefined;
+  return { ...base, DATABASE_URL: databaseUrl, TEST_DATABASE_URL: databaseUrl, QUERY_DATABASE_URL: lane === "query" ? environment.queryDatabaseUrl : undefined, E2E_DATABASE_URL: lane === "browser" ? environment.e2eDatabaseUrl : undefined, WEB_DATABASE_URL: lane === "browser" ? environment.webDatabaseUrl : undefined, QUERY_EVIDENCE_MODE: lane === "query" ? "verify" : undefined, MAP_ARTIFACT_ROOT: environment.mapRoot, E2E_MAP_PROFILE_PATH: environment.profilePath, E2E_BASE_URL: undefined, E2E_SERVER_COMMAND: undefined } as unknown as NodeJS.ProcessEnv;
+}
+
+export interface CommandResult { readonly status: number | null; readonly output: string; readonly error?: Error; }
+export type CommandRunner = (command: string, args: readonly string[], env: NodeJS.ProcessEnv) => CommandResult;
+export const spawnCommand: CommandRunner = (command, args, env) => { const result = spawnSync(command, args, { env, encoding: "utf8" }); return { status: result.status, output: `${result.stdout ?? ""}${result.stderr ?? ""}`, error: result.error }; };
+function isTestCommand(command: string, args: readonly string[]): boolean { return command === "npm" && args[0] === "run" && args[1]?.startsWith("test:"); }
+function hasSkippedOrPendingSummary(output: string): boolean { return /^(?:\s*(?:Test Files|Tests)\s+\d+\s+(?:skipped|pending)\b|\s*\d+\s+(?:skipped|pending)\b(?:\s*\(|\s*$))/im.test(output); }
+
+export function runAcceptance(env: Readonly<Record<string, string | undefined>> = process.env, runner: CommandRunner = spawnCommand): void {
+  const environment = assertAcceptanceEnvironment(env);
+  for (const { lane, command, args } of acceptanceCommands) {
+    const result = runner(command, args, acceptanceCommandEnvironment(env, environment, lane));
+    process.stdout.write(result.output);
+    if (result.error) throw result.error;
+    if (result.status !== 0) throw new Error(`${command} ${args.join(" ")} failed with status ${result.status}`);
+    if (isTestCommand(command, args) && hasSkippedOrPendingSummary(result.output)) throw new Error(`${command} ${args.join(" ")} reported skipped or pending work`);
+  }
+}
+if (process.argv[1]?.endsWith("test-acceptance.ts")) { try { runAcceptance(); } catch (error) { console.error(error); process.exitCode = 1; } }

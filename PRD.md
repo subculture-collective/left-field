@@ -71,7 +71,7 @@ The list supports:
 - Chamber, state, party, election year, and incumbent-status filters.
 - Sorting by factual components in the MVP; opportunity-score sorting appears only after the post-MVP methodology gate.
 - Visible data freshness and coverage indicators.
-- A compact explanation of why each seat received its score.
+- A compact score explanation appears only post-MVP, when opportunity scores are released.
 - Clear distinction between `unknown`, `not applicable`, and zero.
 
 Demographics are profile and side-by-side comparison fields only. They cannot filter, order, subset, or export a ranked seat list. Issue evidence is available only after its post-MVP editorial release and is not a ranking input.

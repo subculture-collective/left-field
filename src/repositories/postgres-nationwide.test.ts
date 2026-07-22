@@ -58,10 +58,13 @@ describe("PostgresSeatResearchRepository nationwide reads", () => {
     const profile = { release: manifest.release, office: manifest.offices[0], seatCycle: manifest.seatCycles[0], geography: manifest.geographyVersions[0], officeTerm: manifest.officeTerms[0], membership: null, incumbent: null, contests: [], candidacies: [], resultOptions: [], biographicalFacts: [], memberCoverage: null, electionResults: [], demographics: [], finance: [], committees: [], committeeRelationships: [], sources: [source], snapshots: [snapshot] };
     const closureRow = { ...snapshot, source_id: source.id, source_release_id: source.releaseId, name: source.name, authority: source.authority, homepage_url: source.homepageUrl };
     const calls: string[] = []; let released = 0; let reads = 0; let fail = false;
-    const client = { query: async (text: string) => { calls.push(text); if (!/^(BEGIN|COMMIT|ROLLBACK)/.test(text)) { if (fail) throw new Error("read failed"); reads += 1; return reads === 1 ? { rowCount: 1, rows: [{ profile }] } : text.includes("JOIN release_manifests rm") ? { rowCount: 1, rows: [{ schemaVersion: 2, policy: { jurisdictionCode: "NY", houseRepresentation: "voting", senateRepresentation: "two_seats", source: "persisted" } }] } : text.includes("WITH RECURSIVE seed") ? { rowCount: 1, rows: [closureRow] } : { rowCount: 0, rows: [] }; } return { rowCount: 0, rows: [] }; }, release: () => { released += 1; } };
+    const client = { query: async (text: string) => { calls.push(text); if (!/^(BEGIN|COMMIT|ROLLBACK|SET LOCAL)/.test(text)) { if (fail) throw new Error("read failed"); reads += 1; return reads === 1 ? { rowCount: 1, rows: [{ profile }] } : text.includes("JOIN release_manifests rm") ? { rowCount: 1, rows: [{ schemaVersion: 2, policy: { jurisdictionCode: "NY", houseRepresentation: "voting", senateRepresentation: "two_seats", source: "persisted" } }] } : text.includes("WITH RECURSIVE seed") ? { rowCount: 1, rows: [closureRow] } : { rowCount: 0, rows: [] }; } return { rowCount: 0, rows: [] }; }, release: () => { released += 1; } };
     const repository = new PostgresSeatResearchRepository({ connect: async () => client } as never);
     await expect(repository.getSeatProfile("rel_1" as never, manifest.seatCycles[0]!.id)).resolves.not.toBeNull();
-    expect(calls).toEqual(expect.arrayContaining(["BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY", "COMMIT"])); expect(released).toBe(1);
+    expect(calls).toEqual(expect.arrayContaining(["BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY", "SET LOCAL statement_timeout = '10s'", "SET LOCAL lock_timeout = '1s'", "COMMIT"]));
+    expect(calls.indexOf("BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY")).toBeLessThan(calls.indexOf("SET LOCAL statement_timeout = '10s'"));
+    expect(calls.indexOf("SET LOCAL statement_timeout = '10s'")).toBeLessThan(calls.findIndex((call) => call.includes("SELECT")));
+    expect(released).toBe(1);
     fail = true;
     await expect(repository.getSeatProfile("rel_1" as never, manifest.seatCycles[0]!.id)).rejects.toThrow("read failed");
     expect(calls).toContain("ROLLBACK"); expect(released).toBe(2);

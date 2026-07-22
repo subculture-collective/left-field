@@ -1,4 +1,4 @@
-import { getPool, closeDb } from "@/db/client";
+import { getIngestPool, closeDb } from "@/db/client";
 import { isoDateSchema, releaseIdSchema } from "@/domain/contracts";
 import type { Pool } from "pg";
 import { assertProductionIngestionEnv, createRawObjectStore, runConfiguredSource, verifyConfiguredSourceLock } from "./ingestion-config";
@@ -35,5 +35,5 @@ export async function executeIngest(argv: readonly string[], dependencies: Inges
   const result = await runner(args, dependencies.getPool());
   return { source: args.source, release: args.release, runIds: result.runIds, reusedRunIds: result.reusedRunIds, finalizationRunIds: [...result.runIds, ...result.reusedRunIds] };
 }
-export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<IngestCliDependencies, "env"> = { getPool, registry: defaultRegistry(env) }): Promise<IngestExecutionResult> { const result = await executeIngest(argv, { env, ...dependencies }); process.stdout.write(`${JSON.stringify(result)}\n`); return result; }
+export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<IngestCliDependencies, "env"> = { getPool: getIngestPool, registry: defaultRegistry(env) }): Promise<IngestExecutionResult> { const result = await executeIngest(argv, { env, ...dependencies }); process.stdout.write(`${JSON.stringify(result)}\n`); return result; }
 if (require.main === module) main().catch(error => { process.stderr.write(`${error instanceof Error ? error.message : "Ingestion failed"}\n`); process.exitCode = 1; }).finally(closeDb);

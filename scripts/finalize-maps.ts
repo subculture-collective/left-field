@@ -1,7 +1,7 @@
 import { S3Client } from "@aws-sdk/client-s3";
 import type { Pool } from "pg";
 
-import { closeDb, getPool } from "@/db/client";
+import { closeDb, getIngestPool } from "@/db/client";
 import { releaseIdSchema } from "@/domain/contracts";
 import { finalizeCandidateMaps } from "@/ingestion/tiger/finalize-maps";
 import { simplifyNationalTigerDistrictLayer } from "@/ingestion/tiger/simplify";
@@ -23,11 +23,11 @@ export function createMapStore(env: NodeJS.ProcessEnv): MapArtifactStore {
 }
 export async function executeFinalizeMaps(argv: readonly string[], dependencies: { env: NodeJS.ProcessEnv; getPool: () => Pool; store?: MapArtifactStore; finalize?: typeof finalizeCandidateMaps; loadSource?: typeof loadLockedArtifact }): Promise<{ readonly status: 'finalized'; readonly candidateRelease: string }> {
   const args = parseFinalizeMapsArguments(argv);
-  if (dependencies.env.NODE_ENV === 'production' && (!dependencies.env.DATABASE_URL || !dependencies.env.MAP_ARTIFACT_BUCKET)) throw new Error('Production map finalization requires DATABASE_URL and MAP_ARTIFACT_BUCKET');
+  if (dependencies.env.NODE_ENV === 'production' && (!dependencies.env.INGEST_DATABASE_URL || !dependencies.env.MAP_ARTIFACT_BUCKET)) throw new Error('Production map finalization requires INGEST_DATABASE_URL and MAP_ARTIFACT_BUCKET');
   const source = await (dependencies.loadSource ?? loadLockedArtifact)(dependencies.env, 'geo-national-cd119');
   const layer = await simplifyNationalTigerDistrictLayer(source.bytes, { expectedSourceSha256: source.sha256 });
   await (dependencies.finalize ?? finalizeCandidateMaps)({ pool: dependencies.getPool(), store: dependencies.store ?? createMapStore(dependencies.env), candidateReleaseId: args.candidateRelease, sourceReleaseId: args.sourceRelease, layer });
   return { status: 'finalized', candidateRelease: args.candidateRelease };
 }
-export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<Parameters<typeof executeFinalizeMaps>[1], 'env'> = { getPool }): Promise<void> { process.stdout.write(`${JSON.stringify(await executeFinalizeMaps(argv, { env, ...dependencies }))}\n`); }
+export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<Parameters<typeof executeFinalizeMaps>[1], 'env'> = { getPool: getIngestPool }): Promise<void> { process.stdout.write(`${JSON.stringify(await executeFinalizeMaps(argv, { env, ...dependencies }))}\n`); }
 if (require.main === module) main().catch(error => { process.stderr.write(`${error instanceof Error ? error.message : 'Map finalization failed'}\n`); process.exitCode = 1; }).finally(closeDb);

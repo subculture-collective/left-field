@@ -46,7 +46,23 @@ Before any external lifecycle action: verify the source lock; migrate; require `
 
 Stage only with the ingest role via the existing `npm run ingest` command. Finalize only through the matching existing command: `npm run finalize:nationwide`, `npm run enrich:members`, `npm run finalize:acs`, `npm run finalize:fec`, `npm run finalize:elections`, or `npm run finalize:maps`. Each parser requires its exact documented arguments, source receipts, source-lock binding, and finalizer-specific storage environment; do not guess arguments or use these commands to construct an unreviewed candidate. Finalization validates a candidate; it does not promote one.
 
-Do not invent or substitute candidate, promotion, rollback, or roll-forward shell commands. There is **no lifecycle CLI**: promotion, rollback, and roll-forward are API-only, restricted to the operator/preflight capability split.
+Lifecycle transitions use the audited CLI and never the migration owner:
+
+```bash
+# Mapless/all-unassessed promotion or roll-forward; SQL still fails closed if evidence is required.
+npm run release:lifecycle -- promote --release rel_...
+npm run release:lifecycle -- roll-forward --release rel_...
+
+# Reviewed-election proof: exactly 158 unique runs and the exact used lock-entry IDs.
+npm run release:lifecycle -- promote --release rel_... \
+  --election-source-release rel_... \
+  --task9-run run_... --election-lock-entry lock_... # repeat exactly as required
+
+# Emergency direct-predecessor rollback derives the current/predecessor under lock.
+npm run release:lifecycle -- rollback
+```
+
+The process requires `INGEST_DATABASE_URL`, `RELEASE_PREFLIGHT_DATABASE_URL`, and `RELEASE_OPERATOR_DATABASE_URL`; the ingest connection performs no lifecycle mutation. Map-bearing transitions additionally require configured exact map storage, and reviewed elections require the verified source lock/raw store. Missing or incomplete proof arguments fail before transition.
 
 For promotion, obtain a short-lived preflight proof through the authorized API while the candidate is locked, then consume it once through the authorized operator API. The proof is bound to target/predecessor and expires; an expired or consumed proof must fail. Direct-predecessor rollback has its defined proof-free path; roll-forward still uses the restricted API and applicable proof. On any conflict, expiry, stale digest, or failed smoke, leave the published pointer unchanged, disable further lifecycle attempts, and roll forward only after the root cause is corrected and a new valid proof is issued.
 

@@ -4,6 +4,7 @@ import { parseAddressConfig, type AddressConfig } from "@/address/config";
 import { createAddressRuntime } from "@/address/runtime";
 import { canaryAuthorizationLooksValid, canonicalIp, digest, issueAddressCsrf, verifyAddressCsrf, verifyCanary } from "@/address/security";
 import { boundedDuration, emitOperationalSignal, signalTimestamp, type OperationalSignalSink } from "@/operations/signals";
+import { getRuntimeOperationalSignalSink } from "@/operations/runtime-signals";
 
 export const runtime = "nodejs";
 const headers = { "Cache-Control": "no-store", "Content-Type": "application/json; charset=utf-8" };
@@ -28,7 +29,7 @@ function enabledHeaders(request: Request, config: AddressConfig, at: number): st
   return canonicalIp(request.headers.get(config.trustedIpHeader!));
 }
 export function createAddressHandler(deps: AddressHandlerDependencies = {}) {
-  const getConfig = deps.getConfig ?? (() => parseAddressConfig(process.env)); const createRuntime = deps.createRuntime ?? createAddressRuntime; const now = deps.now ?? (() => new Date());
+  const getConfig = deps.getConfig ?? (() => parseAddressConfig(process.env)); const createRuntime = deps.createRuntime ?? createAddressRuntime; const now = deps.now ?? (() => new Date()); const signalSink = deps.signalSink ?? getRuntimeOperationalSignalSink();
   const handler = {
     async GET(request: Request): Promise<Response> { let config: AddressConfig; try { config = getConfig(); } catch { return json(503, { status: "unavailable" }); } if (config.mode !== "enabled") return disabled(); if (!exactPath(request)) return json(404, { status: "not_found" }); try { const csrf = issueAddressCsrf(config, now().getTime()); return json(200, { csrfToken: csrf.token }, { "Set-Cookie": csrf.cookie }); } catch { return json(503, { status: "unavailable" }); } },
     async POST(request: Request): Promise<Response> {
@@ -64,9 +65,9 @@ export function createAddressHandler(deps: AddressHandlerDependencies = {}) {
       const resolvedOutcome = response.headers.get("X-Address-Resolve-Outcome");
       response.headers.delete("X-Address-Resolve-Outcome");
       const outcome = resolvedOutcome ?? (response.status === 503 ? "unavailable" : response.status === 429 ? "rate_limited" : response.status === 413 ? "too_large" : response.status === 400 ? "malformed" : "forbidden");
-      emitOperationalSignal(deps.signalSink, { version: 1, timestamp: signalTimestamp(), kind: "address_resolve", route: "/api/address/resolve", outcome, durationMs: boundedDuration(startedAt) });
+      emitOperationalSignal(signalSink, { version: 1, timestamp: signalTimestamp(), kind: "address_resolve", route: "/api/address/resolve", outcome, durationMs: boundedDuration(startedAt) });
       return response;
-    } catch (error) { emitOperationalSignal(deps.signalSink, { version: 1, timestamp: signalTimestamp(), kind: "address_resolve", route: "/api/address/resolve", outcome: "unavailable", durationMs: boundedDuration(startedAt) }); throw error; }
+    } catch (error) { emitOperationalSignal(signalSink, { version: 1, timestamp: signalTimestamp(), kind: "address_resolve", route: "/api/address/resolve", outcome: "unavailable", durationMs: boundedDuration(startedAt) }); throw error; }
   } };
 }
 const handler = createAddressHandler();

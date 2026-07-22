@@ -6,6 +6,7 @@ import { getSeatProfile } from "./sql/get-seat-profile";
 import { getSeatListItem, listSeatPage } from "./sql/list-seats";
 import { getSeatFacets, listReleaseCoverage, listSourceSnapshots, listSources } from "./sql/list-sources";
 import { boundedDuration, boundedFailureCode, emitOperationalSignal, signalTimestamp, type OperationalSignalSink } from "@/operations/signals";
+import { getRuntimeOperationalSignalSink } from "@/operations/runtime-signals";
 
 const releaseSql = `SELECT id, label, status, source_cutoff AS "sourceCutoff", created_at AS "createdAt",
   published_at AS "publishedAt", previous_release_id AS "previousReleaseId" FROM data_releases`;
@@ -18,7 +19,7 @@ function normalizeDates(value: unknown): unknown {
 }
 
 export class PostgresSeatResearchRepository implements SeatResearchRepository {
-  public constructor(private readonly pool: Pool, private readonly signalSink?: OperationalSignalSink) {}
+  public constructor(private readonly pool: Pool, private readonly signalSink: OperationalSignalSink = getRuntimeOperationalSignalSink()) {}
   private async observe<T>(operation: "get_active_release" | "get_release" | "list_seats" | "list_seat_page" | "get_seat_list_item" | "get_seat_profile" | "get_seat_facets" | "list_sources" | "list_source_snapshots" | "list_release_coverage", releaseId: ReleaseId | undefined, work: () => Promise<T>): Promise<T> {
     const startedAt = performance.now();
     try { const value = await work(); emitOperationalSignal(this.signalSink, { version: 1, timestamp: signalTimestamp(), kind: "repository", operation, ...(releaseId ? { releaseId } : {}), outcome: "success", durationMs: boundedDuration(startedAt) }); return value; }
@@ -51,6 +52,8 @@ export class PostgresSeatResearchRepository implements SeatResearchRepository {
     return this.observe("get_seat_profile", releaseId, async () => { const client = await this.pool.connect();
     try {
       await client.query("BEGIN TRANSACTION ISOLATION LEVEL REPEATABLE READ READ ONLY");
+      await client.query("SET LOCAL statement_timeout = '10s'");
+      await client.query("SET LOCAL lock_timeout = '1s'");
       const profile = await getSeatProfile(client, releaseId, id);
       await client.query("COMMIT");
       return profile;

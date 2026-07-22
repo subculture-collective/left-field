@@ -1,4 +1,4 @@
-import { closeDb, getPool } from "@/db/client";
+import { closeDb, getIngestPool } from "@/db/client";
 import { releaseIdSchema } from "@/domain/contracts";
 import { finalizeCandidateElectionDecisions } from "@/ingestion/elections/finalize-elections";
 import type { ElectionDecisionSourceLockEntry } from "@/ingestion/elections/adapter";
@@ -46,7 +46,7 @@ export interface FinalizeElectionDependencies {
 }
 export async function executeFinalizeElections(argv: readonly string[], dependencies: FinalizeElectionDependencies): Promise<{ release: string; status: "validated_candidate" }> {
   const args = parseFinalizeElectionArguments(argv);
-  if (dependencies.env.NODE_ENV === "production" && (!dependencies.env.RAW_OBJECT_BUCKET || !dependencies.env.DATABASE_URL || !dependencies.env.SOURCE_LOCK_SHA256)) throw new Error("Production finalization requires RAW_OBJECT_BUCKET, DATABASE_URL, and SOURCE_LOCK_SHA256");
+  if (dependencies.env.NODE_ENV === "production" && (!dependencies.env.RAW_OBJECT_BUCKET || !dependencies.env.INGEST_DATABASE_URL || !dependencies.env.SOURCE_LOCK_SHA256)) throw new Error("Production finalization requires RAW_OBJECT_BUCKET, INGEST_DATABASE_URL, and SOURCE_LOCK_SHA256");
   const { lock, sha256: sourceLockSha256 } = await verifyConfiguredSourceLock(dependencies.env);
   for (const expected of args.lockEntries) {
     const actual = lock.entries.find((entry) => entry.id === expected.id);
@@ -55,5 +55,5 @@ export async function executeFinalizeElections(argv: readonly string[], dependen
   await (dependencies.finalize ?? finalizeCandidateElectionDecisions)({ pool: dependencies.getPool(), rawStore: dependencies.rawStore ?? createRawObjectStore(dependencies.env), candidateReleaseId: args.release, sourceReleaseId: args.sourceRelease, runIds: args.runIds, sourceLockSha256, sourceLockEntries: args.lockEntries });
   return { release: args.release, status: "validated_candidate" };
 }
-export async function main(argv = process.argv.slice(2), env = process.env): Promise<void> { const result = await executeFinalizeElections(argv, { env, getPool }); process.stdout.write(`${JSON.stringify(result)}\n`); }
+export async function main(argv = process.argv.slice(2), env = process.env): Promise<void> { const result = await executeFinalizeElections(argv, { env, getPool: getIngestPool }); process.stdout.write(`${JSON.stringify(result)}\n`); }
 if (require.main === module) main().catch((error) => { process.stderr.write(`${error instanceof Error ? error.message : "Election finalization failed"}\n`); process.exitCode = 1; }).finally(closeDb);

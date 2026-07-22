@@ -10,17 +10,33 @@ let releaseOperatorPool: Pool | undefined;
 let correctionPool: Pool | undefined;
 let addressPool: Pool | undefined;
 
-/** Returns one process-wide pool; DATABASE_URL is read only when first requested. */
+const boundedPoolOptions = (connectionString: string) => ({
+  connectionString,
+  max: 10,
+  connectionTimeoutMillis: 5_000,
+  query_timeout: 15_000,
+  statement_timeout: 15_000,
+  lock_timeout: 1_000,
+  idleTimeoutMillis: 30_000,
+});
+
+function webDatabaseUrl(): string {
+  const configured = process.env.WEB_DATABASE_URL;
+  if (configured) return configured;
+  if (process.env.NODE_ENV !== "production" && process.env.DATABASE_URL) return process.env.DATABASE_URL;
+  throw new Error("WEB_DATABASE_URL is required to connect to PostgreSQL");
+}
+
+/** Returns the web-runtime database; WEB_DATABASE_URL is read only when first requested. */
 export function getDb(): NodePgDatabase<typeof schema> {
   if (!database) {
-    const connectionString = process.env.DATABASE_URL;
-    if (!connectionString) throw new Error("DATABASE_URL is required to connect to PostgreSQL");
-    pool ??= new Pool({ connectionString });
+    pool ??= new Pool(boundedPoolOptions(webDatabaseUrl()));
     database = drizzle(pool, { schema });
   }
   return database;
 }
 
+/** Web-runtime pool. DATABASE_URL is only a nonproduction compatibility fallback. */
 export function getPool(): Pool {
   getDb();
   return pool!;
@@ -29,7 +45,7 @@ export function getPool(): Pool {
 function configuredPool(variable: "INGEST_DATABASE_URL" | "RELEASE_PREFLIGHT_DATABASE_URL" | "RELEASE_OPERATOR_DATABASE_URL" | "CORRECTION_DATABASE_URL", slot: "ingest" | "preflight" | "operator" | "correction"): Pool {
   const connectionString = process.env[variable];
   if (!connectionString) throw new Error(`${variable} is required for this privileged database operation`);
-  if (slot === "ingest") return ingestPool ??= new Pool({ connectionString });
+  if (slot === "ingest") return ingestPool ??= new Pool(boundedPoolOptions(connectionString));
   if (slot === "preflight") return releasePreflightPool ??= new Pool({ connectionString });
   if (slot === "correction") return correctionPool ??= new Pool({ connectionString, connectionTimeoutMillis: 5_000, statement_timeout: 5_000, lock_timeout: 1_000, query_timeout: 5_000 });
   return releaseOperatorPool ??= new Pool({ connectionString });

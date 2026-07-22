@@ -42,8 +42,8 @@ describe("ingestion runtime configuration", () => {
   });
   it("requires an explicit local root and production lock hash without exposing credentials", () => {
     expect(() => createRawObjectStore({ NODE_ENV: "development" })).toThrow("RAW_OBJECT_ROOT");
-    expect(() => createRawObjectStore({ NODE_ENV: "production", RAW_OBJECT_BUCKET: "raw", DATABASE_URL: "postgres://secret", AWS_ACCESS_KEY_ID: "key", SOURCE_LOCK_SHA256: "a".repeat(64) })).toThrow("supplied together");
-    expect(() => createRawObjectStore({ NODE_ENV: "production", RAW_OBJECT_BUCKET: "raw", DATABASE_URL: "postgres://secret", AWS_ACCESS_KEY_ID: "secret-key", AWS_SECRET_ACCESS_KEY: "secret-value", SOURCE_LOCK_SHA256: "a".repeat(64) })).not.toThrow();
+    expect(() => createRawObjectStore({ NODE_ENV: "production", RAW_OBJECT_BUCKET: "raw", INGEST_DATABASE_URL: "postgres://secret", AWS_ACCESS_KEY_ID: "key", SOURCE_LOCK_SHA256: "a".repeat(64) })).toThrow("supplied together");
+    expect(() => createRawObjectStore({ NODE_ENV: "production", RAW_OBJECT_BUCKET: "raw", INGEST_DATABASE_URL: "postgres://secret", AWS_ACCESS_KEY_ID: "secret-key", AWS_SECRET_ACCESS_KEY: "secret-value", SOURCE_LOCK_SHA256: "a".repeat(64) })).not.toThrow();
     expect(() => createRawObjectStore({ NODE_ENV: "development", RAW_OBJECT_ROOT: ".raw" })).not.toThrow();
   });
   it("requires exactly one stable-name source row", async () => {

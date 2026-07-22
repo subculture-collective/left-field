@@ -874,24 +874,21 @@ git commit -m "ops: add nationwide release gates and runbook"
 - Modify: `ARCHITECTURE.md` for implemented operational choices
 - Create: `docs/reviews/phase-1-acceptance.md`
 
-- [ ] **Step 1: Recreate the database from zero**
+- [x] **Step 1: Recreate the database from zero**
 
-Run:
+CI, not the acceptance harness, provisions fresh disposable integration, query, and browser databases in an isolated Compose volume. Run only with exact opt-in and independently provisioned loopback `*_test` URLs; never destroy an ordinary development volume:
 
 ```bash
-docker compose down -v
-docker compose up -d --wait
-docker compose exec -T postgres psql -U dsa_seats -d postgres -c "CREATE DATABASE dsa_seats_test OWNER dsa_seats;"
-DATABASE_URL=postgresql://dsa_seats:dsa_seats@localhost:5432/dsa_seats_test npm run db:migrate
+ACCEPTANCE_TESTS=1 DATABASE_URL=postgresql://dsa_seats:dsa_seats@127.0.0.1:5432/dsa_integration_test TEST_DATABASE_URL=postgresql://dsa_seats:dsa_seats@127.0.0.1:5432/dsa_integration_test QUERY_DATABASE_URL=postgresql://dsa_seats:dsa_seats@127.0.0.1:5432/dsa_query_test E2E_DATABASE_URL=postgresql://dsa_seats:dsa_seats@127.0.0.1:5432/dsa_browser_test WEB_DATABASE_URL=postgresql://acceptance_web:acceptance_web@127.0.0.1:5432/dsa_browser_test ACCEPTANCE_MAP_ARTIFACT_ROOT=/tmp/task13/task10-maps E2E_MAP_PROFILE_PATH=/seats/seat_0 npm run test:acceptance
 ```
 
 Then ingest the nationwide identity/geometry skeleton, run selected enrichment jobs, validate, promote, query, and roll back.
 
-- [ ] **Step 2: Verify the defined universe**
+- [x] **Step 2: Verify the defined universe**
 
 Assert 541 current office terms with separately reported voting House, delegates/resident commissioner, Senate classes, vacancies, specials, and cutoff. Observation coverage is reported independently and never used to hide identity gaps.
 
-- [ ] **Step 3: Run the complete technical gate**
+- [x] **Step 3: Run the complete technical gate**
 
 ```bash
 npm run data:verify
@@ -910,7 +907,7 @@ Expected: no skipped required integration tests, zero vulnerabilities, and no un
 
 Verify all PRD factual-profile acceptance criteria, demographic isolation, modeled/certified/unavailable labels, recent congressional contests, funding categories/outside-spending coverage, correction workflow, map fallback, source closure, WCAG 2.2 AA core flows, and browser matrix. The public MVP cannot be marked accepted while address lookup is disabled. If the environment-specific privacy gate and canary are not approved, record Phase 1 engineering as complete but public launch as blocked.
 
-- [ ] **Step 5: Request specialist review**
+- [x] **Step 5: Request specialist review**
 
 Use:
 
@@ -921,7 +918,7 @@ Use:
 
 Resolve every blocker and important finding or record an approved scope change in `docs/reviews/phase-1-acceptance.md`.
 
-- [ ] **Step 6: Commit acceptance evidence**
+- [x] **Step 6: Commit acceptance evidence**
 
 ```bash
 git add PRD.md ARCHITECTURE.md docs/reviews/phase-1-acceptance.md
