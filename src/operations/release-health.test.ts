@@ -25,7 +25,7 @@ describe("release health", () => {
     const report = await inspectReleaseHealth(fixture.pool as never, "rel_safe", { rollbackDrill: verifiedDrill as never });
     const sql = fixture.client.query.mock.calls.map(([statement]) => statement as string);
     expect(sql[0]).toBe("BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY");
-    expect(sql[1]).toBe("SET LOCAL statement_timeout = '5000ms'");
+    expect(sql[1]).toBe("SET LOCAL statement_timeout = '60000ms'");
     expect(sql).toContain("COMMIT");
     expect(sql.join("\n")).not.toMatch(/\b(?:INSERT|UPDATE|DELETE|FOR\s+(?:UPDATE|SHARE))\b/i);
     expect(report.evidenceClass).toBe("local-postgres");

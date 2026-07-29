@@ -6,7 +6,7 @@ import { adversarialRepositoryManifest, coherentBoundaryBundle, coherentManifest
 import type { PrototypeManifest } from "@/domain/contracts";
 import { computeCanonicalDataChecksum } from "@/domain/validate-manifest";
 import { compileBoundaryBundle, loadPrototypeManifest, seedPrototypeManifest } from "./manifest";
-import { promoteCandidateRelease, rollbackPublishedRelease, rollForwardRetiredRelease } from "./releases";
+import { fecV2CombinedStageSha256, promoteCandidateRelease, rollbackPublishedRelease, rollForwardRetiredRelease } from "./releases";
 import {
   baselineCandidateRelease,
   assertPersistedTask6MemberInvariant,
@@ -18,6 +18,7 @@ import {
   recheckNationwideValidationGate,
   validateNationwideCandidateRelease,
   validateNationwideCandidateReleaseWithClient,
+  expectedContentChecksum,
 } from "./catalog-release";
 import { failExpiredRun, heartbeat, markFailed, markLoaded, markValidated, recordQuarantineBatch, recordStageBatch, startIngestRun } from "./ingestion";
 import { nationwideSkeleton } from "@/test/fixtures/nationwide-skeleton";
@@ -32,7 +33,7 @@ import { createHash, randomUUID } from "node:crypto";
 import type { PoolClient } from "pg";
 import { runSource } from "@/ingestion/core/run-source";
 import type { RawObject, SourceAdapter } from "@/ingestion/core/types";
-import { canonicalCoverageScopeKey, loadNationwideManifest, seedNationwideCandidateManifest, type BoundaryBundle } from "./manifest";
+import { canonicalCoverageScopeKey, loadNationwideManifest, loadNationwideManifestForFinalization, seedNationwideCandidateManifest, type BoundaryBundle } from "./manifest";
 import { LocalRawObjectStore, type RawObjectStore } from "@/ingestion/core/raw-object-store";
 import { createIdentityAdapter } from "@/ingestion/identity/adapter";
 import type { HouseSeat } from "@/ingestion/identity/house";
@@ -47,6 +48,7 @@ import { assertPersistedTask7AcsInvariant, finalizeCandidateAcs, verifyPersisted
 import { finalizeCandidateFec, verifyPersistedTask8FecCandidate } from "@/ingestion/fec/finalize-fec";
 import { encodeFecSanitizedEnvelope, fecEnvelopeSha256, fecPageRequestSha256 } from "@/ingestion/fec/envelope";
 import { fecEnvelopeFixture } from "@/ingestion/fec/fec-test-fixture";
+import { fecV2FailureSubjectSha256 } from "@/ingestion/fec/run-descriptor";
 import { createElectionDecisionAdapter, ELECTION_DECISION_SOURCE, ELECTION_DECISION_UPSTREAM_RELEASE, electionDecisionSourceUrl } from "@/ingestion/elections/adapter";
 import { ELECTION_DECISION_ADAPTER_VERSION, electionDecisionEnvelopeSha256, encodeElectionDecisionEnvelope } from "@/ingestion/elections/decision-envelope";
 import { finalizeCandidateElectionDecisions, verifyPersistedTask9ElectionCandidate } from "@/ingestion/elections/finalize-elections";
@@ -59,6 +61,7 @@ import { AddressAdmissionMaintenanceRepository, AddressAdmissionRepository } fro
 import { CallerAbortError } from "@/address/census-geocoder";
 import { runSyntheticReleaseDrill } from "@/operations/release-drill";
 import { inspectReleaseHealth } from "@/operations/release-health";
+import { addElectionEvidence, addFinanceEvidence, cloneLaunchRelease, fixtureResolver, fixtureStores, fixtureVerifier, seedLaunchR1 } from "@/test/fixtures/launch-lifecycle";
 
 const testDatabaseUrl = process.env.TEST_DATABASE_URL;
 const testDatabaseName = testDatabaseUrl ? new URL(testDatabaseUrl).pathname.slice(1) : "";
@@ -164,6 +167,143 @@ integration("PostgreSQL integration", () => {
     try { await pool.query("TRUNCATE data_releases CASCADE"); } finally { await pool.end(); }
   });
 
+  it("launch publication lifecycle", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    const suffix = randomUUID().replace(/-/g, "");
+    const preflightName = `dsa_launch_preflight_${suffix}`; const verifierName = `dsa_launch_verifier_${suffix}`; const password = randomUUID(); const verifierPassword = randomUUID();
+    const preflightUrl = new URL(testDatabaseUrl!); preflightUrl.username = preflightName; preflightUrl.password = password;
+    const verifierUrl = new URL(testDatabaseUrl!); verifierUrl.username = verifierName; verifierUrl.password = verifierPassword;
+    let restrictedPreflight: Pool | undefined; let restrictedVerifier: Pool | undefined;
+    const r1 = `rel_launch_r1_${suffix}`; const r2 = `rel_launch_r2_${suffix}`; const r3 = `rel_launch_r3_${suffix}`;
+    const published = async () => (await pool.query<{ id: string }>("SELECT id FROM data_releases WHERE status='published'")).rows[0]?.id;
+    try {
+      expect((await pool.query<{ table_name: string; column_name: string; is_nullable: string }>("SELECT table_name,column_name,is_nullable FROM information_schema.columns WHERE table_schema='public' AND (table_name,column_name) IN (('election_authority_artifacts','receipt_id'),('election_geometry_attestations','receipt_id')) ORDER BY table_name")).rows).toEqual([
+        { table_name: "election_authority_artifacts", column_name: "receipt_id", is_nullable: "NO" },
+        { table_name: "election_geometry_attestations", column_name: "receipt_id", is_nullable: "YES" },
+      ]);
+      await seedLaunchR1(pool, r1);
+      await promoteCandidateRelease(pool, r1);
+      await pool.query(`CREATE ROLE "${preflightName}" LOGIN INHERIT PASSWORD '${password}'`);
+      await pool.query(`GRANT dsa_seats_release_preflight TO "${preflightName}"`);
+      await pool.query(`CREATE ROLE "${verifierName}" LOGIN INHERIT PASSWORD '${verifierPassword}'`);
+      await pool.query(`GRANT dsa_seats_launch_verifier TO "${verifierName}"`);
+      restrictedPreflight = new Pool({ connectionString: preflightUrl.toString() });
+      restrictedVerifier = new Pool({ connectionString: verifierUrl.toString() });
+      await cloneLaunchRelease(pool, r1, r2);
+      const finance = await addFinanceEvidence(pool, r2);
+      await expect(promoteCandidateRelease(pool, r2)).rejects.toThrow(/exact finance proof/i);
+      expect(await published()).toBe(r1);
+      await expect(restrictedPreflight.query("SELECT public.issue_release_preflight($1,'promote',$2,$3,$3,NULL,300)", [randomUUID(), r2, r1])).rejects.toThrow(/verifier attestation/i);
+      await expect(restrictedPreflight.query("SELECT public.issue_launch_verifier_attestation($1,'promote',$2,$3,$3,'finance',$4,300)", [randomUUID(), r2, r1, "a".repeat(64)])).rejects.toMatchObject({ code: "42501" });
+      await expect(restrictedVerifier.query("SELECT public.issue_release_preflight($1,'promote',$2,$3,$3,NULL,300)", [randomUUID(), r2, r1])).rejects.toMatchObject({ code: "42501" });
+      const financePools = { launchVerifierPool: restrictedVerifier, preflightPool: restrictedPreflight, operatorPool: pool, launchEvidence: { kind: "finance" as const, proof: finance, resolver: fixtureResolver, verifier: fixtureVerifier, stores: fixtureStores } };
+      const manualAttestation = randomUUID(); const financeCanonical = (await pool.query<{ canonical_sha256: string }>("SELECT canonical_sha256 FROM finance_publication_proofs WHERE release_id=$1 AND id=$2", [r2, finance.proofId])).rows[0]!.canonical_sha256;
+      await restrictedVerifier.query("SELECT public.issue_launch_verifier_attestation($1,'promote',$2,$3,$3,'finance',$4,300)", [manualAttestation, r2, r1, financeCanonical]);
+      await expect(pool.query("UPDATE finance_coverage_closures SET status=status WHERE release_id=$1 AND seat_cycle_id=(SELECT min(seat_cycle_id) FROM finance_coverage_closures WHERE release_id=$1)", [r2])).rejects.toMatchObject({ code: "55000" });
+      expect(Object.values((await pool.query<Record<string, string>>("SELECT run_ids_fingerprint,map_receipts_fingerprint,manifest_fingerprint,gate_fingerprint,digest_fingerprint,operational_evidence_fingerprint FROM release_launch_verifier_attestations WHERE id=$1", [manualAttestation])).rows[0]!).every(value => /^[a-f0-9]{64}$/.test(value))).toBe(true);
+      await pool.query("UPDATE release_launch_verifier_attestations SET consumed_at=clock_timestamp() WHERE id=$1", [manualAttestation]);
+      const financeDigest = (await pool.query<{ sha256: string }>("SELECT sha256 FROM release_content_digests WHERE release_id=$1 AND domain='finance'", [r2])).rows[0]!.sha256;
+      await pool.query("UPDATE release_content_digests SET sha256=$2 WHERE release_id=$1 AND domain='finance'", [r2, "f".repeat(64)]);
+      await expect(promoteCandidateRelease(pool, r2, 3, undefined, undefined, financePools)).rejects.toBeDefined();
+      expect(await published()).toBe(r1);
+      await pool.query("UPDATE release_content_digests SET sha256=$2 WHERE release_id=$1 AND domain='finance'", [r2, financeDigest]);
+      await promoteCandidateRelease(pool, r2, 3, undefined, undefined, financePools);
+      expect(await published()).toBe(r2);
+      const issued = (await pool.query<{ operational_evidence_fingerprint: string; launch_attestation_id: string | null }>("SELECT operational_evidence_fingerprint,launch_attestation_id FROM release_preflight_proofs WHERE target_release_id=$1 ORDER BY issued_at DESC LIMIT 1", [r2])).rows[0];
+      expect(issued?.operational_evidence_fingerprint).not.toBe("0".repeat(64));
+      expect(issued?.launch_attestation_id).not.toBeNull();
+      expect((await pool.query<{ consumed_at: Date | null }>("SELECT consumed_at FROM release_launch_verifier_attestations WHERE id=$1", [issued!.launch_attestation_id])).rows[0]?.consumed_at).not.toBeNull();
+      const repeated = `rel_launch_repeated_finance_${suffix}`; await cloneLaunchRelease(pool, r2, repeated);
+      await pool.query("INSERT INTO reviewer_signatures(release_id,review_id,subject_type,subject_sha256,reviewer_id,signed_at,signature,key_id) VALUES($1,'repeated-publication','publication',$2,'approver',clock_timestamp(),'fixture-publication','release-key')", [repeated, "a".repeat(64)]);
+      await pool.query("INSERT INTO finance_publication_proofs(release_id,id,canonical_sha256,signed_review_id,created_at) VALUES($1,'repeated-proof',$2,'repeated-publication',clock_timestamp())", [repeated, "a".repeat(64)]);
+      await validateNationwideCandidateRelease(pool, repeated);
+      await expect(promoteCandidateRelease(pool, repeated, 3, undefined, undefined, { ...financePools, launchEvidence: { ...financePools.launchEvidence, proof: { ...finance, releaseId: repeated, proofId: "repeated-proof" } } })).rejects.toThrow(/proofless R1/i);
+      expect(await published()).toBe(r2);
+      await rollbackPublishedRelease(pool);
+      await rollForwardRetiredRelease(pool, r2, 3, undefined, undefined, financePools);
+
+      await cloneLaunchRelease(pool, r2, r3);
+      const election = await addElectionEvidence(pool, r3);
+      await expect(promoteCandidateRelease(pool, r3)).rejects.toThrow(/exact election proof/i);
+      expect(await published()).toBe(r2);
+      const electionPools = { launchVerifierPool: restrictedVerifier, preflightPool: restrictedPreflight, operatorPool: pool, launchEvidence: { kind: "election" as const, proof: election, resolver: fixtureResolver, verifier: fixtureVerifier, stores: fixtureStores } };
+      const inherited = (await pool.query<{ seat_cycle_id: string; kind: string; status: string }>("SELECT seat_cycle_id,kind,status FROM finance_coverage_closures WHERE release_id=$1 AND kind<>'summary' ORDER BY seat_cycle_id COLLATE \"C\",kind COLLATE \"C\" LIMIT 1", [r3])).rows[0]!;
+      await pool.query("UPDATE finance_coverage_closures SET status=CASE status WHEN 'complete' THEN 'not_collected' ELSE 'complete' END WHERE release_id=$1 AND seat_cycle_id=$2 AND kind=$3", [r3, inherited.seat_cycle_id, inherited.kind]);
+      await expect(promoteCandidateRelease(pool, r3, 3, undefined, undefined, electionPools)).rejects.toBeDefined();
+      expect(await published()).toBe(r2);
+      await pool.query("UPDATE finance_coverage_closures SET status=$4 WHERE release_id=$1 AND seat_cycle_id=$2 AND kind=$3", [r3, inherited.seat_cycle_id, inherited.kind, inherited.status]);
+      await validateNationwideCandidateRelease(pool, r3);
+      await promoteCandidateRelease(pool, r3, 3, undefined, undefined, electionPools);
+      expect(await published()).toBe(r3);
+      await rollbackPublishedRelease(pool);
+      await rollForwardRetiredRelease(pool, r3, 3, undefined, undefined, electionPools);
+
+      await expect(pool.query("UPDATE finance_publication_proofs SET created_at=created_at WHERE release_id=$1", [r2])).rejects.toMatchObject({ code: "55000" });
+      await expect(pool.query("DELETE FROM reviewer_signatures WHERE release_id=$1", [r3])).rejects.toMatchObject({ code: "55000" });
+    } finally { await restrictedPreflight?.end(); await restrictedVerifier?.end(); await pool.query(`DROP ROLE IF EXISTS "${preflightName}"`).catch(() => undefined); await pool.query(`DROP ROLE IF EXISTS "${verifierName}"`).catch(() => undefined); await pool.end(); }
+  }, 180_000);
+
+  it("publishes only the exact same-cutoff factual member successor before finance", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    const suffix = randomUUID().replace(/-/g, "");
+    const preflightName = `dsa_factual_preflight_${suffix}`;
+    const verifierName = `dsa_factual_verifier_${suffix}`;
+    const finalizerName = `dsa_factual_finalizer_${suffix}`;
+    const password = randomUUID();
+    const preflightUrl = new URL(testDatabaseUrl!);
+    preflightUrl.username = preflightName;
+    preflightUrl.password = password;
+    const verifierUrl = new URL(testDatabaseUrl!);
+    verifierUrl.username = verifierName;
+    verifierUrl.password = password;
+    const finalizerUrl = new URL(testDatabaseUrl!);
+    finalizerUrl.username = finalizerName;
+    finalizerUrl.password = password;
+    let preflight: Pool | undefined;
+    let verifier: Pool | undefined;
+    let finalizer: Pool | undefined;
+    const r1 = `rel_launch_factual_r1_${suffix}`;
+    const member = `rel_launch_member_${suffix}`;
+    const unchanged = `rel_launch_unchanged_${suffix}`;
+    try {
+      await seedLaunchR1(pool, r1, { memberFacts: false });
+      await promoteCandidateRelease(pool, r1);
+      await pool.query(`CREATE ROLE "${preflightName}" LOGIN INHERIT PASSWORD '${password}'`);
+      await pool.query(`GRANT dsa_seats_release_preflight TO "${preflightName}"`);
+      await pool.query(`CREATE ROLE "${verifierName}" LOGIN INHERIT PASSWORD '${password}'`);
+      await pool.query(`GRANT dsa_seats_launch_verifier TO "${verifierName}"`);
+      await pool.query(`CREATE ROLE "${finalizerName}" LOGIN INHERIT PASSWORD '${password}'`);
+      await pool.query(`GRANT dsa_seats_nationwide_finalizer TO "${finalizerName}"`);
+      preflight = new Pool({ connectionString: preflightUrl.toString() });
+      verifier = new Pool({ connectionString: verifierUrl.toString() });
+      finalizer = new Pool({ connectionString: finalizerUrl.toString() });
+      const factualPools = { launchVerifierPool: verifier, preflightPool: preflight, operatorPool: pool };
+      await finalizer.query(
+        "INSERT INTO data_releases(id,label,status,source_cutoff,created_at,previous_release_id) SELECT $1,'Factual member successor','candidate',source_cutoff,clock_timestamp(),id FROM data_releases WHERE id=$2",
+        [member, r1],
+      );
+      await enrichCandidateMembersFromBaseline(finalizer, r1, member);
+      await expect(finalizer.query("SELECT public.lifecycle_promote_candidate('x','y','z','z',NULL)")).rejects.toMatchObject({ code: "42501" });
+      await expect(promoteCandidateRelease(pool, member, 3, undefined, undefined, factualPools)).resolves.toBeUndefined();
+      expect((await pool.query<{ id: string }>("SELECT id FROM data_releases WHERE status='published'")).rows[0]?.id).toBe(member);
+      await expect(rollbackPublishedRelease(pool, 3, { preflightPool: preflight, operatorPool: pool })).resolves.toEqual({ publishedReleaseId: r1, retiredReleaseId: member });
+      await expect(rollForwardRetiredRelease(pool, member, 3, undefined, undefined, factualPools)).resolves.toEqual({ publishedReleaseId: member, retiredReleaseId: r1 });
+
+      await cloneLaunchRelease(pool, member, unchanged);
+      await validateNationwideCandidateRelease(pool, unchanged);
+      await expect(promoteCandidateRelease(pool, unchanged, 3, undefined, undefined, factualPools)).rejects.toThrow(/invalid or missing launch publication stage/);
+      expect((await pool.query<{ id: string }>("SELECT id FROM data_releases WHERE status='published'")).rows[0]?.id).toBe(member);
+    } finally {
+      await preflight?.end();
+      await verifier?.end();
+      await finalizer?.end();
+      await pool.query(`DROP ROLE IF EXISTS "${preflightName}"`).catch(() => undefined);
+      await pool.query(`DROP ROLE IF EXISTS "${verifierName}"`).catch(() => undefined);
+      await pool.query(`DROP ROLE IF EXISTS "${finalizerName}"`).catch(() => undefined);
+      await pool.end();
+    }
+  }, 120_000);
+
   it("uses split Task10 LOGIN principals for lifecycle capabilities and RLS", async () => {
     const ownerPool = new Pool({ connectionString: testDatabaseUrl });
     const suffix = randomUUID().replace(/-/g, "");
@@ -207,6 +347,8 @@ integration("PostgreSQL integration", () => {
 
       expect((await webPool.query<{ id: string }>("SELECT id FROM data_releases ORDER BY id")).rows.map((row) => row.id)).toEqual([v1.release.id]);
       await expect(webPool.query("SELECT * FROM map_artifact_receipts")).rejects.toMatchObject({ code: "42501" });
+      await expect(webPool.query("SELECT * FROM finance_launch_receipts")).rejects.toMatchObject({ code: "42501" });
+      await expect(preflightPool.query("SELECT * FROM finance_launch_receipts")).resolves.toMatchObject({ rows: [] });
       await expect(ingestPool.query("UPDATE sources SET name=name WHERE release_id=$1", [v2.release.id])).resolves.toMatchObject({ rowCount: 1 });
       await expect(ingestPool.query("SELECT public.lifecycle_rollback('x','y')")).rejects.toMatchObject({ code: "42501" });
       expect((await operatorPool.query<{ permitted: boolean }>("SELECT has_function_privilege(current_user,'public.lifecycle_promote_candidate(text,text,text,text,text[])','EXECUTE') AS permitted")).rows[0]?.permitted).toBe(true);
@@ -272,7 +414,7 @@ integration("PostgreSQL integration", () => {
 
       await preflight.query("SELECT public.issue_release_preflight($1,'promote',$2,NULL,NULL,NULL,300)", [randomUUID(), manifest.release.id]);
       await preflight.query("COMMIT");
-      await expect(mutation).rejects.toMatchObject({ code: "55000", message: expect.stringMatching(/candidate content is frozen while a live preflight proof exists/i) });
+      await expect(mutation).rejects.toMatchObject({ code: "55000", message: expect.stringMatching(/candidate content is frozen by live publication verification/i) });
       await writer.query("ROLLBACK");
       expect((await ownerPool.query<{ name: string }>("SELECT name FROM sources WHERE release_id=$1", [manifest.release.id])).rows[0]?.name).toBe(originalName);
       expect((await ownerPool.query<{ count: number }>("SELECT count(*)::int AS count FROM release_preflight_proofs WHERE target_release_id=$1 AND consumed_at IS NULL", [manifest.release.id])).rows[0]?.count).toBe(1);
@@ -311,6 +453,419 @@ integration("PostgreSQL integration", () => {
        } finally { await preflightPool.end(); }
     } finally { await bootstrap.query("TRUNCATE data_releases CASCADE"); for (const name of Object.values(names)) await bootstrap.query(`DROP ROLE IF EXISTS "${name}"`).catch(() => undefined); await bootstrap.end(); }
   }, 420_000);
+
+  it("enforces the structural FEC V2 publication capability boundary without claiming TS verifier completeness", async () => {
+    const owner = new Pool({ connectionString: testDatabaseUrl });
+    const suffix = randomUUID().replace(/-/g, "");
+    const password = randomUUID();
+    const roles = {
+      acquisition: "dsa_seats_fec_v2_acquisition",
+      publisher: "dsa_seats_fec_v2_publisher",
+      verifier: "dsa_seats_launch_verifier",
+      preflight: "dsa_seats_release_preflight",
+      operator: "dsa_seats_release_operator",
+    } as const;
+    const names = Object.fromEntries(Object.keys(roles).map(key => [key, `dsa_f2b_${key}_${suffix}`])) as Record<keyof typeof roles | "dual", string>;
+    names.dual = `dsa_f2b_dual_${suffix}`;
+    const loginUrl = (name: string) => { const url = new URL(testDatabaseUrl!); url.username = name; url.password = password; return url.toString(); };
+    const pools: Pool[] = [];
+    const r1 = `rel_f2b_r1_${suffix}`, r2 = `rel_f2b_r2_${suffix}`;
+    const sourceLock = "a".repeat(64), payloadHash = "b".repeat(64), fingerprint = "c".repeat(64), provisionalPlan = "d".repeat(64);
+    try {
+      await seedLaunchR1(owner, r1);
+      await promoteCandidateRelease(owner, r1);
+      await cloneLaunchRelease(owner, r1, r2);
+      // This test intentionally builds only the SQL-admissible publication
+      // shape. It does not assert that this minimal graph passes the exclusive
+      // TypeScript V2 verifier, which owns completeness before these APIs.
+      await owner.query("DELETE FROM map_artifacts WHERE release_id=$1", [r2]);
+      for (const [key, role] of Object.entries(roles)) {
+        await owner.query(`CREATE ROLE "${names[key as keyof typeof roles]}" LOGIN INHERIT PASSWORD '${password}'`);
+        await owner.query(`GRANT ${role} TO "${names[key as keyof typeof roles]}"`);
+      }
+      await owner.query(`CREATE ROLE "${names.dual}" LOGIN INHERIT PASSWORD '${password}'`);
+      await owner.query(`GRANT dsa_seats_fec_v2_publisher,dsa_seats_launch_verifier TO "${names.dual}"`);
+      // The public lifecycle entrypoint normally consumes this internally; grant
+      // this disposable operator the lower-level capability to exercise its
+      // exclusive-consumer guard directly.
+      await owner.query(`GRANT EXECUTE ON FUNCTION public.consume_release_preflight(text,text,text,text,text,text[]) TO "${names.operator}"`);
+      const loginPools = Object.fromEntries(Object.keys(names).map(key => [key, new Pool({ connectionString: loginUrl(names[key as keyof typeof names]) })])) as Record<keyof typeof names, Pool>;
+      pools.push(...Object.values(loginPools));
+
+      const seats = (await owner.query<{ id: string }>("SELECT seat_cycle_id AS id FROM release_profile_seats WHERE release_id=$1 ORDER BY seat_cycle_id COLLATE \"C\"", [r2])).rows;
+      expect(seats).toHaveLength(541);
+      await owner.query("INSERT INTO fec_v2_plans(release_id,plan_sha256,origin_release_id,receipt_cutoff,campaign_cycle,source_lock_sha256,target_universe_sha256,canonical_sha256) VALUES($1,$2,$1,'2026-07-18',2026,$3,$3,$3)", [r2, provisionalPlan, sourceLock]);
+      await owner.query("INSERT INTO fec_v2_plan_targets(release_id,plan_sha256,seat_cycle_id,kind,disposition,evidence_sha256) SELECT $1,$2,seat_cycle_id,'candidate_resolution_required',NULL,NULL FROM release_profile_seats WHERE release_id=$1", [r2, provisionalPlan]);
+      const targetHash = (await owner.query<{ sha256: string }>("SELECT encode(digest(convert_to(public.fec_v2_target_universe_bytes($1,$2),'UTF8'),'sha256'),'hex') AS sha256", [r2, provisionalPlan])).rows[0]!.sha256;
+      await owner.query("UPDATE fec_v2_plans SET target_universe_sha256=$3 WHERE release_id=$1 AND plan_sha256=$2", [r2, provisionalPlan, targetHash]);
+      const planHash = (await owner.query<{ sha256: string }>("SELECT encode(digest(convert_to(public.fec_v2_plan_bytes($1,$2),'UTF8'),'sha256'),'hex') AS sha256", [r2, provisionalPlan])).rows[0]!.sha256;
+      await owner.query("DELETE FROM fec_v2_plan_targets WHERE release_id=$1 AND plan_sha256=$2", [r2, provisionalPlan]);
+      await owner.query("UPDATE fec_v2_plans SET plan_sha256=$3,canonical_sha256=$3 WHERE release_id=$1 AND plan_sha256=$2", [r2, provisionalPlan, planHash]);
+      await owner.query("INSERT INTO fec_v2_plan_targets(release_id,plan_sha256,seat_cycle_id,kind,disposition,evidence_sha256) SELECT $1,$2,seat_cycle_id,'candidate_resolution_required',NULL,NULL FROM release_profile_seats WHERE release_id=$1", [r2, planHash]);
+      await owner.query("SELECT public.seal_fec_v2_plan($1,$2)", [r2, planHash]);
+      await owner.query("INSERT INTO finance_proof_routes(release_id,route,plan_sha256) VALUES($1,'fec_v2_exact_election',$2)", [r2, planHash]);
+      const signedAt = (await owner.query<{ at: Date }>("SELECT clock_timestamp() AS at")).rows[0]!.at;
+      await expect(loginPools.dual.query("SELECT public.import_fec_v2_publication_signature('dual',$1,$2,$3,'publisher','key',$4,$5,'signature')", [r2, planHash, payloadHash, fingerprint, signedAt])).rejects.toMatchObject({ code: "42501" });
+      await loginPools.publisher.query("SELECT public.import_fec_v2_publication_signature('publication',$1,$2,$3,'publisher','key',$4,$5,'signature')", [r2, planHash, payloadHash, fingerprint, signedAt]);
+      const proofAt = (await owner.query<{ at: Date }>("SELECT clock_timestamp() AS at")).rows[0]!.at;
+      await loginPools.publisher.query("SELECT public.import_fec_v2_publication_proof('proof',$1,'publication',$2,$3)", [r2, payloadHash, proofAt]);
+      await validateNationwideCandidateRelease(owner, r2);
+
+      const combinedHash = fecV2CombinedStageSha256(r2, "finance", payloadHash, null, null);
+      await expect(loginPools.dual.query("SELECT public.issue_launch_verifier_attestation($1,'promote',$2,$3,$3,'fec_v2_finance',$4,300)", [randomUUID(), r2, r1, combinedHash])).rejects.toMatchObject({ code: "42501" });
+      await expect(loginPools.verifier.query("SELECT public.issue_launch_verifier_attestation($1,'promote',$2,$3,$3,'fec_v2_finance',$4,300)", [randomUUID(), r2, r1, "e".repeat(64)])).rejects.toBeDefined();
+      await expect(loginPools.verifier.query("SELECT public.issue_launch_verifier_attestation($1,'promote',$2,$3,$3,'fec_v2_election',$4,300)", [randomUUID(), r2, r1, combinedHash])).rejects.toBeDefined();
+      const attestationId = randomUUID();
+      await loginPools.verifier.query("SELECT public.issue_launch_verifier_attestation($1,'promote',$2,$3,$3,'fec_v2_finance',$4,300)", [attestationId, r2, r1, combinedHash]);
+      await expect(owner.query("UPDATE fec_v2_plan_targets SET disposition='vacant' WHERE release_id=$1 AND plan_sha256=$2 AND seat_cycle_id=$3", [r2, planHash, seats[0]!.id])).rejects.toMatchObject({ code: "55000" });
+
+      const preflightId = randomUUID();
+      await loginPools.preflight.query("SELECT public.issue_release_preflight($1,'promote',$2,$3,$3,NULL,300)", [preflightId, r2, r1]);
+      await expect(owner.query("UPDATE fec_v2_publication_proofs SET created_at=created_at WHERE release_id=$1", [r2])).rejects.toMatchObject({ code: "55000" });
+      await loginPools.operator.query("SELECT public.consume_release_preflight($1,'promote',$2,$3,$3,NULL)", [preflightId, r2, r1]);
+      expect((await owner.query<{ attestation: Date | null; preflight: Date | null }>("SELECT a.consumed_at AS attestation,p.consumed_at AS preflight FROM release_launch_verifier_attestations a JOIN release_preflight_proofs p ON p.launch_attestation_id=a.id WHERE a.id=$1 AND p.id=$2", [attestationId, preflightId])).rows[0]).toMatchObject({ attestation: expect.any(Date), preflight: expect.any(Date) });
+    } finally {
+      await Promise.all(pools.map(pool => pool.end()));
+      for (const name of Object.values(names)) await owner.query(`DROP ROLE IF EXISTS "${name}"`).catch(() => undefined);
+      await owner.query("TRUNCATE data_releases CASCADE").catch(() => undefined);
+      await owner.end();
+    }
+  }, 180_000);
+
+  it("enforces the Phase 2A FEC-v2 seals, finalization, signer, route, and acquisition boundaries", async () => {
+    const owner = new Pool({ connectionString: testDatabaseUrl });
+    const suffix = randomUUID().replace(/-/g, "");
+    const password = randomUUID();
+    const roles = {
+      acquisition: "dsa_seats_fec_v2_acquisition",
+      reviewer: "dsa_seats_fec_v2_data_reviewer",
+      publisher: "dsa_seats_fec_v2_publisher",
+      preflight: "dsa_seats_release_preflight",
+    } as const;
+    const names = Object.fromEntries(Object.keys(roles).map(key => [key, `dsa_f2_${key}_${suffix}`])) as Record<keyof typeof roles, string>;
+    const loginUrl = (name: string) => { const url = new URL(testDatabaseUrl!); url.username = name; url.password = password; return url.toString(); };
+    const hash = "a".repeat(64);
+    const releaseId = `rel_f2_${suffix}`;
+    const plan0 = "b".repeat(64);
+    let acquisition: Pool | undefined; let reviewer: Pool | undefined; let publisher: Pool | undefined; let preflight: Pool | undefined; let publicLogin: Pool | undefined;
+    try {
+      const { manifest: fixture, bundle } = persistedNationwideSkeleton();
+      const fixtureReleaseId = fixture.release.id;
+      const rebindRelease = (value: unknown, targetReleaseId: string): void => {
+        if (Array.isArray(value)) value.forEach(item => rebindRelease(item, targetReleaseId));
+        else if (value && typeof value === "object") {
+          const record = value as Record<string, unknown>;
+          if (record.releaseId === fixtureReleaseId) record.releaseId = targetReleaseId;
+          Object.values(record).forEach(value => rebindRelease(value, targetReleaseId));
+        }
+      };
+      const predecessorId = `rel_f2_r1_${suffix}`;
+      const predecessor = structuredClone(fixture);
+      rebindRelease(predecessor, predecessorId);
+      predecessor.release = { ...predecessor.release, id: predecessorId as never, status: "candidate", publishedAt: null, previousReleaseId: null };
+      predecessor.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(predecessor);
+      await seedNationwideCandidateManifest(owner, predecessor, bundle);
+      await validateNationwideCandidateRelease(owner, predecessorId);
+      await owner.query("DELETE FROM map_artifacts WHERE release_id=$1", [predecessorId]);
+      await owner.query("UPDATE contests SET election_date='2019-01-01' WHERE release_id=$1", [predecessorId]);
+      await owner.query("DELETE FROM election_results WHERE release_id=$1", [predecessorId]);
+      await owner.query("DELETE FROM election_decisions WHERE release_id=$1", [predecessorId]);
+      await owner.query("DELETE FROM election_launch_receipts WHERE release_id=$1", [predecessorId]);
+      await owner.query("UPDATE finance_aggregates SET cash_on_hand=NULL,receipts=NULL,disbursements=NULL WHERE release_id=$1", [predecessorId]);
+      await owner.query("UPDATE seat_finance_summaries SET filing_id=NULL WHERE release_id=$1", [predecessorId]);
+      await owner.query("DELETE FROM fec_filing_lineage WHERE release_id=$1", [predecessorId]);
+      await owner.query("DELETE FROM finance_aggregate_inputs WHERE release_id=$1", [predecessorId]);
+      await owner.query("DELETE FROM fec_filing_summaries WHERE release_id=$1", [predecessorId]);
+      await owner.query("UPDATE funding_category_aggregates SET amount=NULL WHERE release_id=$1", [predecessorId]);
+      await owner.query("UPDATE funding_organization_aggregates SET amount=NULL WHERE release_id=$1", [predecessorId]);
+      await owner.query("UPDATE outside_spending_aggregates SET support_amount=NULL,oppose_amount=NULL WHERE release_id=$1", [predecessorId]);
+      await owner.query("ALTER TABLE data_releases DISABLE TRIGGER USER");
+      try { await owner.query("UPDATE data_releases SET status='published',published_at=clock_timestamp() WHERE id=$1", [predecessorId]); }
+      finally { await owner.query("ALTER TABLE data_releases ENABLE TRIGGER USER"); }
+      rebindRelease(fixture, releaseId);
+      fixture.release = { ...fixture.release, id: releaseId as never, status: "candidate", publishedAt: null, previousReleaseId: predecessorId as never };
+      fixture.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(fixture);
+      await seedNationwideCandidateManifest(owner, fixture, bundle);
+      await validateNationwideCandidateRelease(owner, releaseId);
+      await owner.query("DELETE FROM map_artifacts WHERE release_id=$1", [releaseId]);
+      await owner.query("UPDATE contests SET election_date='2019-01-01' WHERE release_id=$1", [releaseId]);
+      await owner.query("DELETE FROM election_results WHERE release_id=$1", [releaseId]);
+      await owner.query("DELETE FROM election_decisions WHERE release_id=$1", [releaseId]);
+      await owner.query("DELETE FROM election_launch_receipts WHERE release_id=$1", [releaseId]);
+      await owner.query("ALTER TABLE data_releases DISABLE TRIGGER USER");
+      try { await owner.query("UPDATE data_releases SET source_cutoff='2026-07-18T00:00:00Z' WHERE id=$1", [releaseId]); }
+      finally { await owner.query("ALTER TABLE data_releases ENABLE TRIGGER USER"); }
+      for (const [key, role] of Object.entries(roles)) { await owner.query(`CREATE ROLE "${names[key as keyof typeof roles]}" LOGIN INHERIT PASSWORD '${password}'`); await owner.query(`GRANT ${role} TO "${names[key as keyof typeof roles]}"`); }
+      // Fixture setup is migration-owner work; acquisition receives only the
+      // guarded run APIs below.
+      await owner.query("SET ROLE dsa_seats_migration_owner");
+      acquisition = new Pool({ connectionString: loginUrl(names.acquisition) }); reviewer = new Pool({ connectionString: loginUrl(names.reviewer) }); publisher = new Pool({ connectionString: loginUrl(names.publisher) }); preflight = new Pool({ connectionString: loginUrl(names.preflight) });
+      expect((await acquisition.query<{ can_update: boolean }>("SELECT has_table_privilege(current_user,'public.fec_v2_runs','UPDATE') AS can_update")).rows[0]?.can_update).toBe(false);
+
+      const publicLoginName = `dsa_f2_public_${suffix}`;
+      await owner.query(`CREATE ROLE "${publicLoginName}" LOGIN PASSWORD '${password}'`);
+      publicLogin = new Pool({ connectionString: loginUrl(publicLoginName) });
+      const seats = (await owner.query<{ id: string }>("SELECT seat_cycle_id AS id FROM release_profile_seats WHERE release_id=$1 ORDER BY seat_cycle_id", [releaseId])).rows;
+      expect(seats).toHaveLength(541);
+      const source = { id: `src_fec_v2_${suffix}` };
+      await owner.query("INSERT INTO sources(release_id,id,name,authority,homepage_url) VALUES($1,$2,'fec','official','https://api.open.fec.gov')", [releaseId, source.id]);
+      await owner.query("INSERT INTO fec_v2_plans(release_id,plan_sha256,origin_release_id,receipt_cutoff,campaign_cycle,source_lock_sha256,target_universe_sha256,canonical_sha256) VALUES($1,$2,$1,'2026-07-18',2026,$3,$3,$3)", [releaseId, plan0, hash]);
+      await owner.query("INSERT INTO fec_v2_plan_targets(release_id,plan_sha256,seat_cycle_id,kind,disposition,evidence_sha256) SELECT $1,$2,seat_cycle_id,CASE WHEN seat_cycle_id=$3 THEN 'terminal' ELSE 'candidate_resolution_required' END,CASE WHEN seat_cycle_id=$3 THEN 'vacant' ELSE NULL END,CASE WHEN seat_cycle_id=$3 THEN $4 ELSE NULL END FROM release_profile_seats WHERE release_id=$1", [releaseId, plan0, seats[1]!.id, hash]);
+      const universe = (await owner.query<{ digest: string }>("SELECT encode(digest(convert_to(public.fec_v2_target_universe_bytes($1,$2),'UTF8'),'sha256'),'hex') digest", [releaseId, plan0])).rows[0]!.digest;
+      await owner.query("UPDATE fec_v2_plans SET target_universe_sha256=$3 WHERE release_id=$1 AND plan_sha256=$2", [releaseId, plan0, universe]);
+      const canonical = (await owner.query<{ digest: string }>("SELECT encode(digest(convert_to(public.fec_v2_plan_bytes($1,$2),'UTF8'),'sha256'),'hex') digest", [releaseId, plan0])).rows[0]!;
+      await expect(publicLogin.query("SELECT public.fec_v2_target_universe_bytes($1,$2)", [releaseId, plan0])).rejects.toMatchObject({ code: "42501" });
+      await expect(publicLogin.query("SELECT public.fec_v2_plan_bytes($1,$2)", [releaseId, plan0])).rejects.toMatchObject({ code: "42501" });
+      await owner.query("DELETE FROM fec_v2_plan_targets WHERE release_id=$1 AND plan_sha256=$2", [releaseId, plan0]);
+      await owner.query("UPDATE fec_v2_plans SET plan_sha256=$3,canonical_sha256=$3 WHERE release_id=$1 AND plan_sha256=$2", [releaseId, plan0, canonical.digest]);
+      await owner.query("INSERT INTO fec_v2_plan_targets(release_id,plan_sha256,seat_cycle_id,kind,disposition,evidence_sha256) SELECT $1,$2,seat_cycle_id,CASE WHEN seat_cycle_id=$3 THEN 'terminal' ELSE 'candidate_resolution_required' END,CASE WHEN seat_cycle_id=$3 THEN 'vacant' ELSE NULL END,CASE WHEN seat_cycle_id=$3 THEN $4 ELSE NULL END FROM release_profile_seats WHERE release_id=$1", [releaseId, canonical.digest, seats[1]!.id, hash]);
+      await owner.query("SELECT public.seal_fec_v2_plan($1,$2)", [releaseId, canonical.digest]);
+      const token = "e".repeat(64), wrongToken = "f".repeat(64), run = `run_${suffix}`;
+      await expect(owner.query("INSERT INTO fec_v2_runs(run_id,release_id,plan_sha256,receipt_cutoff,started_at,status,owner_token_sha256,heartbeat_at,lease_expires_at,run_deadline_at) VALUES($3,$1,$2,'2026-07-18',clock_timestamp(),'running','a',clock_timestamp(),clock_timestamp()+interval '5 minutes',clock_timestamp()+interval '6 hours')", [releaseId, canonical.digest, `direct_running_${suffix}`])).rejects.toMatchObject({ code: "42501" });
+      await expect(owner.query("INSERT INTO fec_v2_runs(run_id,release_id,plan_sha256,receipt_cutoff,started_at,status,completed_at,run_deadline_at) VALUES($3,$1,$2,'2026-07-18',clock_timestamp(),'failed',clock_timestamp(),clock_timestamp()+interval '6 hours')", [releaseId, canonical.digest, `direct_terminal_${suffix}`])).rejects.toMatchObject({ code: "42501" });
+      await acquisition.query("SELECT * FROM public.claim_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, run, token]);
+      await expect(owner.query("UPDATE fec_v2_runs SET status='failed',completed_at=clock_timestamp(),owner_token_sha256=NULL,heartbeat_at=NULL,lease_expires_at=NULL WHERE release_id=$1 AND plan_sha256=$2 AND run_id=$3", [releaseId, canonical.digest, run])).rejects.toMatchObject({ code: "42501" });
+      await expect(acquisition.query("SELECT * FROM public.heartbeat_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, run, wrongToken])).rejects.toMatchObject({ code: "42501" });
+      await acquisition.query("SELECT * FROM public.heartbeat_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, run, token]);
+      const ledger = "a".repeat(64), identity = "b".repeat(64);
+      await acquisition.query("SELECT public.stage_fec_v2_artifact($1,$2,$3,$4,$5,'filing_ledger',1,clock_timestamp())", [releaseId, canonical.digest, run, token, ledger]);
+      await acquisition.query("SELECT public.stage_fec_v2_ledger_header($1,$2,$3,$4,$5,'filing_ledger',1,0,NULL)", [releaseId, canonical.digest, run, token, ledger]);
+      await acquisition.query("SELECT public.stage_fec_v2_ledger_entry($1,$2,$3,$4,$5,1,$6,'F3','F3','Q1',NULL,'2026-07-18',NULL,NULL,NULL,NULL,NULL,'electronic','available')", [releaseId, canonical.digest, run, token, ledger, identity]);
+      await expect(acquisition.query("SELECT public.stage_fec_v2_acquisition_outcome($1,$2,$3,$4,$5,1,$6,'accepted')", [releaseId, canonical.digest, run, wrongToken, "a".repeat(64), "b".repeat(64)])).rejects.toMatchObject({ code: "42501" });
+      await acquisition.query("SELECT public.stage_fec_v2_acquisition_outcome($1,$2,$3,$4,$5,1,$6,'source_unavailable')", [releaseId, canonical.digest, run, token, ledger, identity]);
+      await expect(acquisition.query("INSERT INTO stg_fec_v2_acquisition_outcomes VALUES($1,$2,$3,$4,2,$5,'accepted')", [releaseId, canonical.digest, run, "c".repeat(64), "d".repeat(64)])).rejects.toMatchObject({ code: "42501" });
+      await expect(acquisition.query("SELECT public.fec_v2_owner_token_sha256($1)", [token])).rejects.toMatchObject({ code: "42501" });
+      await acquisition.query("SELECT public.abort_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, run, token]);
+      const expired = `expired_${suffix}`, reaped = `reaped_${suffix}`;
+      await acquisition.query("SELECT * FROM public.claim_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, expired, token]);
+      await acquisition.query("SELECT * FROM public.heartbeat_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, expired, token]);
+      await expect(acquisition.query("SELECT public.reap_expired_fec_v2_run($1,$2,$3,$4,$5)", [releaseId, canonical.digest, expired, reaped, token])).rejects.toMatchObject({ code: "55000" });
+      // Synthetic expiry only: the owner disables the boundary briefly because
+      // production deadlines and leases are deliberately immutable.
+      await owner.query("ALTER TABLE fec_v2_runs DISABLE TRIGGER USER");
+      try { await owner.query("UPDATE fec_v2_runs SET run_deadline_at=clock_timestamp()-interval '1 second',lease_expires_at=clock_timestamp()-interval '1 second' WHERE release_id=$1 AND plan_sha256=$2 AND run_id=$3", [releaseId, canonical.digest, expired]); }
+      finally { await owner.query("ALTER TABLE fec_v2_runs ENABLE TRIGGER USER"); }
+      await acquisition.query("SELECT public.reap_expired_fec_v2_run($1,$2,$3,$4,$5)", [releaseId, canonical.digest, expired, reaped, token]);
+      await acquisition.query("SELECT public.reap_expired_fec_v2_run($1,$2,$3,$4,$5)", [releaseId, canonical.digest, expired, reaped, token]);
+      await expect(acquisition.query("SELECT public.reap_expired_fec_v2_run($1,$2,$3,$4,$5)", [releaseId, canonical.digest, expired, reaped, wrongToken])).rejects.toMatchObject({ code: "55000" });
+      await expect(acquisition.query("SELECT public.reap_expired_fec_v2_run($1,$2,$3,$4,$5)", [releaseId, canonical.digest, expired, `other_${suffix}`, token])).rejects.toMatchObject({ code: "55000" });
+      await owner.query(`GRANT dsa_seats_fec_v2_data_reviewer TO "${names.acquisition}"`);
+      await expect(acquisition.query("SELECT public.read_fec_v2_run_status($1,$2,$3)", [releaseId, canonical.digest, `reaped_${suffix}`])).rejects.toMatchObject({ code: "42501" });
+      await owner.query(`REVOKE dsa_seats_fec_v2_data_reviewer FROM "${names.acquisition}"`);
+      await expect(owner.query("UPDATE data_releases SET status='published',published_at=clock_timestamp() WHERE id=$1", [releaseId])).rejects.toThrow(/V2 route requires exactly one matching V2 publication proof/);
+      await expect(owner.query("UPDATE fec_v2_plans SET campaign_cycle=2025 WHERE release_id=$1 AND plan_sha256=$2", [releaseId, canonical.digest])).rejects.toMatchObject({ code: "55000" });
+      await expect(owner.query("UPDATE fec_v2_plan_targets SET kind='terminal' WHERE release_id=$1 AND plan_sha256=$2 AND seat_cycle_id=$3", [releaseId, canonical.digest, seats[0]!.id])).rejects.toMatchObject({ code: "55000" });
+
+      const snapshot = `snap_f2_${suffix}`; const artifact = "c".repeat(64);
+      await owner.query("SELECT public.create_fec_v2_source_snapshot($1,$2,$3,$4,'2026-07-18T00:00:00Z',$5)", [releaseId, snapshot, source.id, "https://www.fec.gov/data/f2", hash]);
+      expect((await owner.query<{ usage_status: string }>("SELECT usage_status FROM source_snapshots WHERE release_id=$1 AND id=$2", [releaseId, snapshot])).rows[0]?.usage_status).toBe("restricted");
+      await owner.query("UPDATE source_snapshots SET usage_status='approved' WHERE release_id=$1 AND id=$2", [releaseId, snapshot]);
+      await owner.query("INSERT INTO fec_v2_snapshot_metadata(release_id,snapshot_id,plan_sha256,origin_release_id,receipt_set_digest_sha256) VALUES($1,$2,$3,$1,$4)", [releaseId, snapshot, canonical.digest, hash]);
+      await expect(acquisition.query("SELECT public.seal_fec_v2_snapshot($1,$2,$3)", [releaseId, canonical.digest, snapshot])).rejects.toMatchObject({ code: "42501" });
+      await owner.query("INSERT INTO fec_v2_artifacts(release_id,plan_sha256,artifact_sha256,artifact_kind,canonical_byte_size,created_at) VALUES($1,$2,$3,'enumeration_page',1,clock_timestamp())", [releaseId, canonical.digest, artifact]);
+      await owner.query("INSERT INTO fec_v2_artifact_receipts(receipt_id,release_id,plan_sha256,artifact_sha256,artifact_kind,canonical_byte_size,upstream_entity_sha256,object_key,version_id,etag,byte_size,retrieved_at,snapshot_id) VALUES('receipt',$1,$2,$3,'enumeration_page',1,$4,$5,'v1','e1',1,'2026-07-18T00:00:00Z',$6)", [releaseId, canonical.digest, artifact, hash, `f2/${artifact}.json`, snapshot]);
+      const digest = (await owner.query<{ digest: string }>("SELECT encode(digest(convert_to('{\"schemaVersion\":2,\"acquisitionPlanSha256\":'||to_json($1::text)::text||',\"snapshotId\":'||to_json($2::text)::text||',\"receipts\":[{\"receiptId\":\"receipt\",\"artifactKind\":\"enumeration_page\",\"artifactSha256\":'||to_json($3::text)::text||',\"upstreamEntitySha256\":'||to_json($4::text)::text||',\"objectKey\":'||to_json($5::text)::text||',\"versionId\":\"v1\",\"etag\":\"e1\",\"byteSize\":\"1\",\"retrievedAt\":\"2026-07-18T00:00:00.000Z\"}]}\n','UTF8'),'sha256'),'hex') digest", [canonical.digest, snapshot, artifact, hash, `f2/${artifact}.json`])).rows[0]!.digest;
+      await owner.query("UPDATE fec_v2_snapshot_metadata SET receipt_set_digest_sha256=$3 WHERE release_id=$1 AND snapshot_id=$2", [releaseId, snapshot, digest]);
+      await expect(acquisition.query("UPDATE fec_v2_snapshot_metadata SET sealed_at=clock_timestamp() WHERE release_id=$1 AND snapshot_id=$2", [releaseId, snapshot])).rejects.toMatchObject({ code: "42501" });
+      await expect(acquisition.query("SELECT public.seal_fec_v2_snapshot($1,$2,$3)", [releaseId, canonical.digest, snapshot])).rejects.toMatchObject({ code: "42501" });
+      await owner.query("UPDATE source_snapshots SET checksum_sha256=$3 WHERE release_id=$1 AND id=$2", [releaseId, snapshot, digest]);
+      await owner.query("SELECT public.seal_fec_v2_snapshot($1,$2,$3)", [releaseId, canonical.digest, snapshot]);
+      await expect(owner.query("UPDATE fec_v2_artifact_receipts SET etag='e2' WHERE release_id=$1 AND receipt_id='receipt'", [releaseId])).rejects.toMatchObject({ code: "55000" });
+      await expect(owner.query("UPDATE source_snapshots SET checksum_sha256=$3 WHERE release_id=$1 AND id=$2", [releaseId, snapshot, hash])).rejects.toMatchObject({ code: "55000" });
+      await expect(owner.query("UPDATE source_snapshots SET parser_version='changed' WHERE release_id=$1 AND id=$2", [releaseId, snapshot])).rejects.toMatchObject({ code: "55000" });
+
+      const secondSnapshot = `snap_f2_second_${suffix}`; const secondArtifact = "d".repeat(64);
+      await expect(acquisition.query("SELECT public.create_fec_v2_source_snapshot($1,$2,$3,$4,'2026-07-18T00:00:00Z',$5)", [releaseId, secondSnapshot, source.id, "https://www.fec.gov/data/f2-second", hash])).rejects.toMatchObject({ code: "42501" });
+      await owner.query("SELECT public.create_fec_v2_source_snapshot($1,$2,$3,$4,'2026-07-18T00:00:00Z',$5)", [releaseId, secondSnapshot, source.id, "https://www.fec.gov/data/f2-second", hash]);
+      await owner.query("INSERT INTO fec_v2_snapshot_metadata(release_id,snapshot_id,plan_sha256,origin_release_id,receipt_set_digest_sha256) VALUES($1,$2,$3,$1,$4)", [releaseId, secondSnapshot, canonical.digest, hash]);
+      await expect(acquisition.query("INSERT INTO fec_v2_artifacts(release_id,plan_sha256,artifact_sha256,artifact_kind,canonical_byte_size,created_at) VALUES($1,$2,$3,'enumeration_page',1,clock_timestamp())", [releaseId, canonical.digest, secondArtifact])).rejects.toMatchObject({ code: "42501" });
+      await owner.query("INSERT INTO fec_v2_artifacts(release_id,plan_sha256,artifact_sha256,artifact_kind,canonical_byte_size,created_at) VALUES($1,$2,$3,'enumeration_page',1,clock_timestamp())", [releaseId, canonical.digest, secondArtifact]);
+      await owner.query("INSERT INTO fec_v2_artifact_receipts(receipt_id,release_id,plan_sha256,artifact_sha256,artifact_kind,canonical_byte_size,upstream_entity_sha256,object_key,version_id,etag,byte_size,retrieved_at,snapshot_id) VALUES('second-receipt',$1,$2,$3,'enumeration_page',1,$4,$5,'v1','e1',1,'2026-07-18T00:00:00Z',$6)", [releaseId, canonical.digest, secondArtifact, hash, `f2/${secondArtifact}.json`, secondSnapshot]);
+      await owner.query("INSERT INTO fec_v2_candidate_mappings(id,release_id,plan_sha256,seat_cycle_id,target_kind,outcome,evidence_sha256) VALUES('unresolved',$1,$2,$3,'candidate_resolution_required','unresolved',$4)", [releaseId, canonical.digest, seats[0]!.id, hash]);
+      await owner.query("INSERT INTO fec_v2_finance_closures(id,release_id,plan_sha256,seat_cycle_id,target_kind,subject_kind,subject_identity,status,subject_sha256) VALUES('terminal',$1,$2,$3,'terminal','terminal','terminal','finalized',$4)", [releaseId, canonical.digest, seats[1]!.id, hash]);
+      await owner.query("INSERT INTO fec_v2_seat_coverage(release_id,plan_sha256,seat_cycle_id,closure_id,subject_identity,outcome,support_cents,oppose_cents) VALUES($1,$2,$3,'terminal','terminal','complete_zero',0,0)", [releaseId, canonical.digest, seats[1]!.id]);
+      await owner.query("UPDATE fec_v2_finance_closures SET finalized_at=clock_timestamp() WHERE release_id=$1 AND plan_sha256=$2 AND id='terminal'", [releaseId, canonical.digest]);
+      await expect(owner.query("UPDATE fec_v2_seat_coverage SET outcome='source_unavailable',support_cents=NULL,oppose_cents=NULL WHERE release_id=$1 AND plan_sha256=$2 AND seat_cycle_id=$3", [releaseId, canonical.digest, seats[1]!.id])).rejects.toMatchObject({ code: "55000" });
+      await expect(owner.query("UPDATE fec_v2_seat_coverage SET release_id='rel_move_escape' WHERE release_id=$1 AND plan_sha256=$2 AND seat_cycle_id=$3", [releaseId, canonical.digest, seats[1]!.id])).rejects.toMatchObject({ code: "55000" });
+      await expect(owner.query("INSERT INTO fec_v2_candidate_mappings(id,release_id,plan_sha256,seat_cycle_id,target_kind,outcome,evidence_sha256) VALUES('unrelated',$1,$2,$3,'candidate_resolution_required','unresolved',$4)", [releaseId, canonical.digest, seats[2]!.id, hash])).resolves.toBeDefined();
+      await expect(publisher.query("SELECT public.finalize_fec_v2_exact_election_aggregate($1,$2,$3,'unresolved','missing-election','missing-closure',0,0)", [releaseId, canonical.digest, seats[0]!.id])).rejects.toThrow(/coherent complete finalized closure/i);
+      await expect(acquisition.query("INSERT INTO fec_v2_data_review_signatures(review_id,release_id,plan_sha256,origin_release_id,subject_type,subject_sha256,reviewer_id,key_id,public_key_fingerprint,signed_at,signature) VALUES('x',$1,$2,$1,'fec_mapping',$3,'x','k',$3,clock_timestamp(),'s')", [releaseId, canonical.digest, hash])).rejects.toMatchObject({ code: "42501" });
+      await reviewer.query("SELECT public.import_fec_v2_data_signature('data',$1,$2,$1,'fec_mapping',$3,'same','k',$3,clock_timestamp(),'s')", [releaseId, canonical.digest, hash]);
+      await expect(acquisition.query("INSERT INTO fec_v2_exact_election_aggregates(release_id,plan_sha256,seat_cycle_id,candidate_mapping_id,election_mapping_id,closure_id,support_cents,oppose_cents,methodology,coverage_through) VALUES($1,$2,$3,'x','x','x',0,0,'fec-receipt-cutoff-v2','2026-07-18')", [releaseId, canonical.digest, seats[0]!.id])).rejects.toMatchObject({ code: "42501" });
+      await owner.query("INSERT INTO finance_proof_routes(release_id,route,plan_sha256) VALUES($1,'fec_v2_exact_election',$2)", [releaseId, canonical.digest]);
+      const destinationHash = "d".repeat(64);
+      const fingerprintBeforePublication = (await owner.query<{ fingerprint: string }>("SELECT public.operational_evidence_fingerprint($1,NULL) AS fingerprint", [releaseId])).rows[0]!.fingerprint;
+      const reviewSignedAt = (await owner.query<{ signed_at: Date }>("SELECT signed_at FROM fec_v2_data_review_signatures WHERE release_id=$1 AND review_id='data'", [releaseId])).rows[0]!.signed_at;
+      const signatureAt = (await owner.query<{ signed_at: Date }>("SELECT clock_timestamp() AS signed_at")).rows[0]!.signed_at;
+      await expect(publisher.query("INSERT INTO fec_v2_publication_signatures(release_id,id,plan_sha256,canonical_sha256,reviewer_id,key_id,public_key_fingerprint,signed_at,signature) VALUES($1,'direct',$2,$3,'publisher','k2',$4,$5,'s')", [releaseId, canonical.digest, destinationHash, "e".repeat(64), signatureAt])).rejects.toMatchObject({ code: "42501" });
+      await expect(publisher.query("SELECT public.import_fec_v2_publication_signature('same-reviewer',$1,$2,$3,'same','k2',$4,$5,'s')", [releaseId, canonical.digest, destinationHash, "e".repeat(64), signatureAt])).rejects.toThrow(/already bound/);
+      await expect(publisher.query("SELECT public.import_fec_v2_publication_signature('same-fingerprint',$1,$2,$3,'publisher','k2',$4,$5,'s')", [releaseId, canonical.digest, destinationHash, hash, signatureAt])).rejects.toThrow(/already bound/);
+      await expect(publisher.query("SELECT public.import_fec_v2_publication_signature('invalid-timing',$1,$2,$3,'publisher','k2',$4,$5,'s')", [releaseId, canonical.digest, destinationHash, "e".repeat(64), reviewSignedAt])).rejects.toThrow(/must follow plan, finalizations, and reviews/);
+      await publisher.query("SELECT public.import_fec_v2_publication_signature('pub',$1,$2,$3,'publisher','k2',$4,$5,'s')", [releaseId, canonical.digest, destinationHash, "e".repeat(64), signatureAt]);
+      const storedSignature = (await owner.query<{ signed_at: Date }>("SELECT signed_at FROM fec_v2_publication_signatures WHERE release_id=$1 AND id='pub'", [releaseId])).rows[0]!.signed_at;
+      expect((await owner.query<{ ordered: boolean; not_future: boolean }>("SELECT s.signed_at>p.sealed_at AND s.signed_at>f.finalized_at AND s.signed_at>d.signed_at AS ordered,s.signed_at<=clock_timestamp() AS not_future FROM fec_v2_publication_signatures s JOIN fec_v2_plans p ON (p.release_id,p.plan_sha256)=(s.release_id,s.plan_sha256) JOIN fec_v2_finance_closures f ON (f.release_id,f.plan_sha256)=(s.release_id,s.plan_sha256) JOIN fec_v2_data_review_signatures d ON (d.release_id,d.plan_sha256)=(s.release_id,s.plan_sha256) WHERE s.release_id=$1 AND s.id='pub'", [releaseId])).rows[0]).toEqual({ ordered: true, not_future: true });
+      await expect(publisher.query("SELECT public.import_fec_v2_publication_signature('pub',$1,$2,$3,'publisher','k2',$4,$5,'s')", [releaseId, canonical.digest, destinationHash, "e".repeat(64), signatureAt])).rejects.toThrow(/already bound/);
+      await expect(publisher.query("SELECT public.import_fec_v2_publication_signature('extra',$1,$2,$3,'another','k3',$4,$5,'s')", [releaseId, canonical.digest, destinationHash, "f".repeat(64), signatureAt])).rejects.toThrow(/already bound/);
+      await expect(owner.query("UPDATE fec_v2_publication_signatures SET signature='changed' WHERE release_id=$1 AND id='pub'", [releaseId])).rejects.toMatchObject({ code: "55000" });
+      const proofAt = (await owner.query<{ created_at: Date }>("SELECT clock_timestamp() AS created_at")).rows[0]!.created_at;
+      await expect(publisher.query("INSERT INTO fec_v2_publication_proofs(release_id,id,signature_id,canonical_sha256,created_at) VALUES($1,'direct-proof','pub',$2,$3)", [releaseId, destinationHash, proofAt])).rejects.toMatchObject({ code: "42501" });
+      await expect(publisher.query("SELECT public.import_fec_v2_publication_proof('equal-proof',$1,'pub',$2,$3)", [releaseId, destinationHash, storedSignature])).rejects.toThrow(/must uniquely follow its signature/);
+      await publisher.query("SELECT public.import_fec_v2_publication_proof('proof',$1,'pub',$2,$3)", [releaseId, destinationHash, proofAt]);
+      await expect(publisher.query("SELECT public.import_fec_v2_publication_proof('extra-proof',$1,'pub',$2,$3)", [releaseId, destinationHash, proofAt])).rejects.toThrow(/must uniquely follow its signature/);
+      await expect(owner.query("DELETE FROM fec_v2_publication_proofs WHERE release_id=$1 AND id='proof'", [releaseId])).rejects.toMatchObject({ code: "55000" });
+      expect((await owner.query<{ count: number }>("SELECT count(*)::int AS count FROM fec_v2_publication_signatures WHERE release_id=$1", [releaseId])).rows[0]!.count).toBe(1);
+      expect((await owner.query<{ count: number }>("SELECT count(*)::int AS count FROM fec_v2_publication_proofs WHERE release_id=$1", [releaseId])).rows[0]!.count).toBe(1);
+      expect((await owner.query<{ fingerprint: string }>("SELECT public.operational_evidence_fingerprint($1,NULL) AS fingerprint", [releaseId])).rows[0]!.fingerprint).not.toBe(fingerprintBeforePublication);
+      await expect(preflight.query("SELECT public.assert_fec_v2_publication_route($1)", [releaseId])).resolves.toBeDefined();
+      await publicLogin.end();
+      publicLogin = undefined;
+      await owner.query(`DROP ROLE "${publicLoginName}"`);
+    } finally { await Promise.all([acquisition, reviewer, publisher, preflight].filter((pool): pool is Pool => !!pool).map(pool => pool.end())); await owner.query("RESET ROLE").catch(() => undefined); for (const name of Object.values(names)) await owner.query(`DROP ROLE IF EXISTS "${name}"`).catch(() => undefined); await owner.end(); }
+  }, 180_000);
+
+  it("clones a sealed coherent V2 source through baselineCandidateRelease", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    const suffix = randomUUID().replace(/-/g, "");
+    const sourceId = `rel_f2_clone_source_${suffix}`, candidateId = `rel_f2_clone_candidate_${suffix}`;
+    const hash = "a".repeat(64), artifact = "c".repeat(64), ledger = "d".repeat(64), snapshot = `snap_f2_clone_${suffix}`;
+    const finalizedAt = "2026-07-18T04:05:06.000Z";
+    const password = randomUUID();
+    const migrationLoginName = `dsa_f2_clone_owner_${suffix}`, publisherLoginName = `dsa_f2_clone_publisher_${suffix}`;
+    const loginUrl = (name: string) => { const url = new URL(testDatabaseUrl!); url.username = name; url.password = password; return url.toString(); };
+    let migrationPool: Pool | undefined; let publisherPool: Pool | undefined;
+    try {
+      const { manifest, bundle } = persistedNationwideSkeleton();
+      const oldId = manifest.release.id;
+      const rebind = (value: unknown): void => { if (Array.isArray(value)) value.forEach(rebind); else if (value && typeof value === "object") { const record = value as Record<string, unknown>; if (record.releaseId === oldId) record.releaseId = sourceId; Object.values(record).forEach(rebind); } };
+      rebind(manifest);
+      manifest.release = { ...manifest.release, id: sourceId as never, status: "candidate", publishedAt: null, previousReleaseId: null };
+      manifest.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(manifest);
+      await seedNationwideCandidateManifest(pool, manifest, bundle);
+      await validateNationwideCandidateRelease(pool, sourceId);
+      await pool.query("ALTER TABLE data_releases DISABLE TRIGGER USER");
+      try { await pool.query("UPDATE data_releases SET source_cutoff='2026-07-18T00:00:00Z' WHERE id=$1", [sourceId]); }
+      finally { await pool.query("ALTER TABLE data_releases ENABLE TRIGGER USER"); }
+      const source = `src_f2_clone_${suffix}`;
+      await pool.query("INSERT INTO sources(release_id,id,name,authority,homepage_url) VALUES($1,$2,'fec','official','https://api.open.fec.gov')", [sourceId, source]);
+      await pool.query("INSERT INTO fec_v2_plans(release_id,plan_sha256,origin_release_id,receipt_cutoff,campaign_cycle,source_lock_sha256,target_universe_sha256,canonical_sha256) VALUES($1,$2,$1,'2026-07-18',2026,$3,$3,$3)", [sourceId, "b".repeat(64), hash]);
+      const terminalSeat = (await pool.query<{ seat_cycle_id: string }>("SELECT seat_cycle_id FROM release_profile_seats WHERE release_id=$1 ORDER BY seat_cycle_id LIMIT 1", [sourceId])).rows[0]!.seat_cycle_id;
+      await pool.query("INSERT INTO fec_v2_plan_targets(release_id,plan_sha256,seat_cycle_id,kind,disposition,evidence_sha256) SELECT $1,$2,seat_cycle_id,CASE WHEN seat_cycle_id=$3 THEN 'terminal' ELSE 'candidate_resolution_required' END,CASE WHEN seat_cycle_id=$3 THEN 'vacant' ELSE NULL END,CASE WHEN seat_cycle_id=$3 THEN $4 ELSE NULL END FROM release_profile_seats WHERE release_id=$1", [sourceId, "b".repeat(64), terminalSeat, hash]);
+      const universe = (await pool.query<{ digest: string }>("SELECT encode(digest(convert_to(public.fec_v2_target_universe_bytes($1,$2),'UTF8'),'sha256'),'hex') digest", [sourceId, "b".repeat(64)])).rows[0]!.digest;
+      await pool.query("UPDATE fec_v2_plans SET target_universe_sha256=$3 WHERE release_id=$1 AND plan_sha256=$2", [sourceId, "b".repeat(64), universe]);
+      const plan = (await pool.query<{ digest: string }>("SELECT encode(digest(convert_to(public.fec_v2_plan_bytes($1,$2),'UTF8'),'sha256'),'hex') digest", [sourceId, "b".repeat(64)])).rows[0]!.digest;
+      await pool.query("DELETE FROM fec_v2_plan_targets WHERE release_id=$1", [sourceId]);
+      await pool.query("UPDATE fec_v2_plans SET plan_sha256=$2,canonical_sha256=$2 WHERE release_id=$1", [sourceId, plan]);
+      await pool.query("INSERT INTO fec_v2_plan_targets(release_id,plan_sha256,seat_cycle_id,kind,disposition,evidence_sha256) SELECT $1,$2,seat_cycle_id,CASE WHEN seat_cycle_id=$3 THEN 'terminal' ELSE 'candidate_resolution_required' END,CASE WHEN seat_cycle_id=$3 THEN 'vacant' ELSE NULL END,CASE WHEN seat_cycle_id=$3 THEN $4 ELSE NULL END FROM release_profile_seats WHERE release_id=$1", [sourceId, plan, terminalSeat, hash]);
+      await pool.query("SELECT public.seal_fec_v2_plan($1,$2)", [sourceId, plan]);
+      await pool.query("INSERT INTO finance_proof_routes(release_id,route,plan_sha256) VALUES($1,'fec_v2_exact_election',$2)", [sourceId, plan]);
+      await pool.query("INSERT INTO source_snapshots(release_id,id,source_id,source_url,retrieved_at,checksum_sha256,parser_version,license,usage_status) VALUES($1,$2,$3,'https://www.fec.gov/data/clone','2026-07-18T00:00:00Z',$4,'fec-receipt-cutoff-v2','public','approved')", [sourceId, snapshot, source, hash]);
+      await pool.query("INSERT INTO fec_v2_snapshot_metadata(release_id,snapshot_id,plan_sha256,origin_release_id,receipt_set_digest_sha256) VALUES($1,$2,$3,$1,$4)", [sourceId, snapshot, plan, hash]);
+      await pool.query("INSERT INTO fec_v2_artifacts(release_id,plan_sha256,artifact_sha256,artifact_kind,canonical_byte_size,created_at) VALUES($1,$2,$3,'enumeration_page',1,'2026-07-18T00:00:00Z')", [sourceId, plan, artifact]);
+      await pool.query("INSERT INTO fec_v2_artifact_receipts(receipt_id,release_id,plan_sha256,artifact_sha256,artifact_kind,canonical_byte_size,upstream_entity_sha256,object_key,version_id,etag,byte_size,retrieved_at,snapshot_id) VALUES('receipt',$1,$2,$3,'enumeration_page',1,$4,$5,'v1','e1',1,'2026-07-18T00:00:00Z',$6)", [sourceId, plan, artifact, hash, `clone/${artifact}`, snapshot]);
+      await pool.query("INSERT INTO fec_v2_artifacts(release_id,plan_sha256,artifact_sha256,artifact_kind,canonical_byte_size,created_at) VALUES($1,$2,$3,'filing_ledger',1,'2026-07-18T00:00:00Z')", [sourceId, plan, ledger]);
+      await pool.query("INSERT INTO fec_v2_artifact_receipts(receipt_id,release_id,plan_sha256,artifact_sha256,artifact_kind,canonical_byte_size,upstream_entity_sha256,object_key,version_id,etag,byte_size,retrieved_at,snapshot_id) VALUES('ledger-receipt',$1,$2,$3,'filing_ledger',1,NULL,$4,'v1','e1',1,'2026-07-18T00:00:00Z',$5)", [sourceId, plan, ledger, `clone/${ledger}`, snapshot]);
+      await pool.query("INSERT INTO fec_v2_filing_ledgers(release_id,plan_sha256,artifact_sha256,artifact_kind,stable,finalized_at) VALUES($1,$2,$3,'filing_ledger',1,$4)", [sourceId, plan, ledger, finalizedAt]);
+      await pool.query("INSERT INTO fec_v2_enumeration_pages(release_id,plan_sha256,artifact_sha256,artifact_kind,pass,form_type,receipt_date,requested_file_number,page_number,terminal) VALUES($1,$2,$3,'enumeration_page',1,'F3','2026-07-15',NULL,1,1)", [sourceId, plan, artifact]);
+      await pool.query("INSERT INTO fec_v2_filing_ledger_entries(release_id,plan_sha256,ledger_sha256,file_number,entry_identity_sha256,canonical_form_type,base_form_type,report_type,report_date,receipt_date,coverage_start,coverage_end,amendment_indicator,filer_id,committee_id,electronic_status,raw_source_availability) VALUES($1,$2,$3,123,$4,'F3','F3','Q2','2026-06-30','2026-07-15','2026-04-01','2026-06-30','N','C00000001','C00000001','electronic','available')", [sourceId, plan, ledger, "e".repeat(64)]);
+      await pool.query("INSERT INTO fec_v2_page_lineage(release_id,plan_sha256,ledger_sha256,file_number,page_sha256,pass,occurrence_index) VALUES($1,$2,$3,123,$4,1,1)", [sourceId, plan, ledger, artifact]);
+      await pool.query("INSERT INTO fec_v2_runs(run_id,release_id,plan_sha256,receipt_cutoff,started_at,status) VALUES('failed-run',$1,$2,'2026-07-18','2026-07-18T00:00:00Z','running')", [sourceId, plan]);
+      await pool.query("INSERT INTO fec_v2_run_snapshots(release_id,plan_sha256,run_id,snapshot_id) VALUES($1,$2,'failed-run',$3)", [sourceId, plan, snapshot]);
+      await pool.query("INSERT INTO fec_v2_run_failures(release_id,plan_sha256,run_id,failure_code,scope_sha256,subject_sha256) VALUES($1,$2,'failed-run','internal_failure',$3,$4)", [sourceId, plan, hash, fecV2FailureSubjectSha256({ schemaVersion: 1, runId: "failed-run", failureCode: "internal_failure", scopeSha256: hash })]);
+      const receiptDigest = (await pool.query<{ digest: string }>("SELECT encode(digest(convert_to(public.fec_v2_snapshot_receipt_bytes($1,$2,$3),'UTF8'),'sha256'),'hex') digest", [sourceId, plan, snapshot])).rows[0]!.digest;
+      await pool.query("UPDATE fec_v2_snapshot_metadata SET receipt_set_digest_sha256=$3 WHERE release_id=$1 AND snapshot_id=$2", [sourceId, snapshot, receiptDigest]);
+      await pool.query("UPDATE source_snapshots SET checksum_sha256=$3 WHERE release_id=$1 AND id=$2", [sourceId, snapshot, receiptDigest]);
+      await pool.query("SELECT public.seal_fec_v2_snapshot($1,$2,$3)", [sourceId, plan, snapshot]);
+      // Run history is operational and excluded from cloning. Keep this source
+      // run active rather than bypassing the finalizer-only terminal boundary.
+      const aggregateSeat = (await pool.query<{ id: string; geography_version_id: string }>("SELECT s.id,s.geography_version_id FROM seat_cycles s WHERE s.release_id=$1 AND s.id<>$2 ORDER BY s.id COLLATE \"C\" LIMIT 1", [sourceId, terminalSeat])).rows[0]!;
+      // The FEC snapshot was added after the skeleton was seeded.  Build its
+      // public aggregate parents in the in-memory manifest first, so the
+      // eventual checksum covers their relational and provenance edges.
+      await pool.query("ALTER TABLE data_releases DISABLE TRIGGER USER");
+      try { await pool.query("UPDATE data_releases SET source_cutoff=$2 WHERE id=$1", [sourceId, manifest.release.sourceCutoff]); }
+      finally { await pool.query("ALTER TABLE data_releases ENABLE TRIGGER USER"); }
+      const coherent = (await loadNationwideManifestForFinalization(pool, sourceId)).manifest;
+      const cloneProvenance = [{ snapshotId: snapshot, role: "original_publisher" }] as never;
+      coherent.contests.push({ id: "contest_clone", releaseId: sourceId, provenance: cloneProvenance, seatCycleId: aggregateSeat.id, kind: "house_general", round: "general", electionDate: "2026-11-03", geographyVersionId: aggregateSeat.geography_version_id, certificationStatus: "official_unfinalized", reportingCompletenessPercent: 0, denominatorVotes: { kind: "missing", reason: "not_collected" }, reportingUnit: "district", allocationMethod: "none", allocationCoveragePercent: { kind: "missing", reason: "not_applicable" }, lineage: { inputs: cloneProvenance, asOf: "2026-07-18", methodology: "clone-fixture", status: "reported" } } as never);
+      coherent.candidacies.push({ id: "candidacy_clone", releaseId: sourceId, provenance: cloneProvenance, contestId: "contest_clone", personId: null, party: "other", status: "filed" } as never);
+      coherent.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(coherent);
+      await pool.query("INSERT INTO contests(release_id,id,seat_cycle_id,kind,round,election_date,geography_version_id,certification_status,reporting_completeness_percent,denominator_votes,denominator_missing_reason,reporting_unit,allocation_method,allocation_coverage_percent,allocation_coverage_missing_reason,lineage_as_of,lineage_methodology,lineage_status) VALUES($1,'contest_clone',$2,'house_general','general','2026-11-03',$3,'official_unfinalized',0,NULL,'not_collected','district','none',NULL,'not_applicable','2026-07-18','clone-fixture','reported')", [sourceId, aggregateSeat.id, aggregateSeat.geography_version_id]);
+      await pool.query("INSERT INTO candidacies(release_id,id,contest_id,person_id,party,status) VALUES($1,'candidacy_clone','contest_clone',NULL,'other','filed')", [sourceId]);
+      await pool.query("INSERT INTO contest_lineage(release_id,contest_id,snapshot_id,role) VALUES($1,'contest_clone',$2,'original_publisher')", [sourceId, snapshot]);
+      await pool.query("INSERT INTO provenance(release_id,entity_type,entity_id,snapshot_id,role) VALUES($1,'contests','contest_clone',$2,'original_publisher'),($1,'candidacies','candidacy_clone',$2,'original_publisher')", [sourceId, snapshot]);
+      await pool.query("INSERT INTO fec_v2_candidate_mappings(id,release_id,plan_sha256,seat_cycle_id,target_kind,outcome,fec_candidate_id,candidacy_id,candidacy_contest_id,evidence_sha256) VALUES('candidate_mapping_clone',$1,$2,$3,'candidate_resolution_required','mapped','H00000000','candidacy_clone','contest_clone',$4)", [sourceId, plan, aggregateSeat.id, hash]);
+      await pool.query("INSERT INTO fec_v2_election_mappings(id,release_id,plan_sha256,seat_cycle_id,outcome,candidate_mapping_id,contest_id,election_code,election_date,evidence_sha256) VALUES('election_mapping_clone',$1,$2,$3,'mapped','candidate_mapping_clone','contest_clone','G2026','2026-11-03',$4)", [sourceId, plan, aggregateSeat.id, hash]);
+      await pool.query("INSERT INTO fec_v2_finance_closures(id,release_id,plan_sha256,seat_cycle_id,target_kind,subject_kind,subject_identity,candidate_mapping_id,status,subject_sha256) VALUES('closure_clone',$1,$2,$3,'candidate_resolution_required','candidate','candidate_mapping_clone','candidate_mapping_clone','finalized',$4)", [sourceId, plan, aggregateSeat.id, hash]);
+      await pool.query("INSERT INTO fec_v2_seat_coverage(release_id,plan_sha256,seat_cycle_id,closure_id,subject_identity,outcome,support_cents,oppose_cents) VALUES($1,$2,$3,'closure_clone','candidate_mapping_clone','complete_nonzero',123,45)", [sourceId, plan, aggregateSeat.id]);
+      await pool.query("UPDATE fec_v2_finance_closures SET finalized_at=$3 WHERE release_id=$1 AND plan_sha256=$2 AND id='closure_clone'", [sourceId, plan, finalizedAt]);
+      await pool.query(`CREATE ROLE \"${publisherLoginName}\" LOGIN INHERIT PASSWORD '${password}'`);
+      await pool.query(`GRANT dsa_seats_fec_v2_publisher TO \"${publisherLoginName}\"`);
+      publisherPool = new Pool({ connectionString: loginUrl(publisherLoginName) });
+      await publisherPool.query("SELECT public.finalize_fec_v2_exact_election_aggregate($1,$2,$3,'candidate_mapping_clone','election_mapping_clone','closure_clone',123,45)", [sourceId, plan, aggregateSeat.id]);
+      await pool.query("INSERT INTO fec_v2_finance_closures(id,release_id,plan_sha256,seat_cycle_id,target_kind,subject_kind,subject_identity,status,subject_sha256) VALUES('terminal',$1,$2,$3,'terminal','terminal','terminal','finalized',$4)", [sourceId, plan, terminalSeat, hash]);
+      await pool.query("INSERT INTO fec_v2_seat_coverage(release_id,plan_sha256,seat_cycle_id,closure_id,subject_identity,outcome,support_cents,oppose_cents) VALUES($1,$2,$3,'terminal','terminal','complete_zero',0,0)", [sourceId, plan, terminalSeat]);
+      await pool.query("UPDATE fec_v2_finance_closures SET finalized_at=$3 WHERE release_id=$1 AND plan_sha256=$2 AND id='terminal'", [sourceId, plan, finalizedAt]);
+      await pool.query("INSERT INTO fec_v2_data_review_signatures(review_id,release_id,plan_sha256,origin_release_id,subject_type,subject_sha256,reviewer_id,key_id,public_key_fingerprint,signed_at,signature) VALUES('source-data',$1,$2,$1,'fec_mapping',$3,'fixture-reviewer','fixture-key',$3,'2026-07-18T00:00:00Z','fixture-signature')", [sourceId, plan, hash]);
+      await pool.query("INSERT INTO fec_v2_publication_signatures(release_id,id,plan_sha256,canonical_sha256,reviewer_id,key_id,public_key_fingerprint,signed_at,signature) VALUES($1,'source-pub',$2,$2,'fixture-publisher','fixture-key',$3,'2026-07-18T00:00:00Z','fixture-signature')", [sourceId, plan, hash]);
+      await pool.query("INSERT INTO fec_v2_publication_proofs(release_id,id,signature_id,canonical_sha256,created_at) VALUES($1,'source-proof','source-pub',$2,'2026-07-18T00:00:00Z')", [sourceId, plan]);
+      const finalized = (await loadNationwideManifestForFinalization(pool, sourceId)).manifest;
+      finalized.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(finalized);
+      await pool.query("UPDATE release_manifests SET canonical_data_checksum_sha256=$2,content_checksum_sha256=$3,validated_at=NULL WHERE release_id=$1", [sourceId, finalized.canonicalDataChecksumSha256, expectedContentChecksum({ schema_version: 2, canonical_data_checksum_sha256: finalized.canonicalDataChecksumSha256, geometry_checksum_sha256: (await pool.query<{ geometry_checksum_sha256: string }>("SELECT geometry_checksum_sha256 FROM release_manifests WHERE release_id=$1", [sourceId])).rows[0]!.geometry_checksum_sha256, content_checksum_sha256: "" })]);
+      await validateNationwideCandidateRelease(pool, sourceId);
+      await pool.query("ALTER TABLE data_releases DISABLE TRIGGER USER");
+      try { await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,'sealed clone','candidate',$2,clock_timestamp(),NULL,$3)", [candidateId, manifest.release.sourceCutoff, sourceId]); }
+      finally { await pool.query("ALTER TABLE data_releases ENABLE TRIGGER USER"); }
+      await pool.query(`CREATE ROLE \"${migrationLoginName}\" LOGIN INHERIT PASSWORD '${password}'`);
+      await pool.query(`GRANT dsa_seats_migration_owner TO \"${migrationLoginName}\"`);
+      migrationPool = new Pool({ connectionString: loginUrl(migrationLoginName) });
+      expect((await migrationPool.query("SELECT pg_has_role(session_user,'dsa_seats_migration_owner','member') migration_owner,pg_has_role(session_user,'dsa_seats_fec_v2_publisher','member') publisher")).rows[0]).toEqual({ migration_owner: true, publisher: false });
+      await baselineCandidateRelease(migrationPool, sourceId, candidateId);
+      await expect(recheckNationwideValidationGate(pool, candidateId)).resolves.toBeUndefined();
+      const digestRows = await Promise.all([sourceId, candidateId].map(async (releaseId) => (await pool.query("SELECT domain,row_count,sha256 FROM release_content_digests WHERE release_id=$1 ORDER BY domain", [releaseId])).rows));
+      expect(digestRows[0]).toHaveLength(7);
+      expect(digestRows[1]).toEqual(digestRows[0]);
+      expect((await pool.query("SELECT release_id,origin_release_id FROM fec_v2_plans WHERE release_id=ANY($1) ORDER BY release_id COLLATE \"C\"", [[sourceId, candidateId]])).rows).toEqual([{ release_id: candidateId, origin_release_id: sourceId }, { release_id: sourceId, origin_release_id: sourceId }]);
+      expect((await pool.query("SELECT route,plan_sha256 FROM finance_proof_routes WHERE release_id=$1", [candidateId])).rows).toEqual([{ route: "fec_v2_exact_election", plan_sha256: plan }]);
+      for (const [table, column, value] of [["fec_v2_plans", "plan_sha256", plan], ["fec_v2_snapshot_metadata", "snapshot_id", snapshot]] as const) { const timestamps = (await pool.query<{ source: Date; candidate: Date }>(`SELECT (SELECT sealed_at FROM ${table} WHERE release_id=$1 AND ${column}=$3) source,(SELECT sealed_at FROM ${table} WHERE release_id=$2 AND ${column}=$3) candidate`, [sourceId, candidateId, value])).rows[0]!; expect(timestamps.candidate.toISOString()).toBe(timestamps.source.toISOString()); }
+      expect((await pool.query("SELECT finalized_at FROM fec_v2_filing_ledgers WHERE release_id=$1 AND artifact_sha256=$2", [candidateId, ledger])).rows[0]?.finalized_at.toISOString()).toBe(finalizedAt);
+      const ledgerColumns = "ledger_sha256,file_number,entry_identity_sha256,canonical_form_type,base_form_type,report_type,report_date,receipt_date,coverage_start,coverage_end,amendment_indicator,filer_id,committee_id,electronic_status,raw_source_availability";
+      expect((await pool.query(`SELECT ${ledgerColumns} FROM fec_v2_filing_ledger_entries WHERE release_id=$1 ORDER BY file_number`, [candidateId])).rows).toEqual((await pool.query(`SELECT ${ledgerColumns} FROM fec_v2_filing_ledger_entries WHERE release_id=$1 ORDER BY file_number`, [sourceId])).rows);
+      expect((await pool.query("SELECT finalized_at FROM fec_v2_finance_closures WHERE release_id=$1 AND id='terminal'", [candidateId])).rows[0]?.finalized_at.toISOString()).toBe(finalizedAt);
+      const aggregateColumns = "plan_sha256,seat_cycle_id,candidate_mapping_id,election_mapping_id,closure_id,support_cents,oppose_cents,methodology,coverage_through";
+      expect((await pool.query(`SELECT ${aggregateColumns} FROM fec_v2_exact_election_aggregates WHERE release_id=$1`, [candidateId])).rows).toEqual((await pool.query(`SELECT ${aggregateColumns} FROM fec_v2_exact_election_aggregates WHERE release_id=$1`, [sourceId])).rows);
+      const aggregateInsert = "INSERT INTO fec_v2_exact_election_aggregates(release_id,plan_sha256,seat_cycle_id,candidate_mapping_id,election_mapping_id,closure_id,support_cents,oppose_cents,methodology,coverage_through) SELECT $1,plan_sha256,seat_cycle_id,candidate_mapping_id,election_mapping_id,closure_id,$2,oppose_cents,methodology,coverage_through FROM fec_v2_exact_election_aggregates WHERE release_id=$3";
+      await expect(migrationPool.query(aggregateInsert, [candidateId, 124, sourceId])).rejects.toMatchObject({ code: "55000" });
+      await expect(migrationPool.query("INSERT INTO fec_v2_exact_election_aggregates(release_id,plan_sha256,seat_cycle_id,candidate_mapping_id,election_mapping_id,closure_id,support_cents,oppose_cents,methodology,coverage_through) VALUES($1,$2,'novel-seat','novel-candidate','novel-election','novel-closure',0,0,'fec-receipt-cutoff-v2','2026-07-18')", [candidateId, plan])).rejects.toMatchObject({ code: "55000" });
+      await pool.query("ALTER TABLE data_releases DISABLE TRIGGER USER");
+      try {
+        const nonPredecessorId = `rel_f2_non_predecessor_${suffix}`;
+        await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) SELECT $1,'non-predecessor','candidate',source_cutoff,clock_timestamp(),NULL,NULL FROM data_releases WHERE id=$2", [nonPredecessorId, candidateId]);
+        await pool.query("UPDATE data_releases SET previous_release_id=$2 WHERE id=$1", [candidateId, nonPredecessorId]);
+        await expect(migrationPool.query(aggregateInsert, [candidateId, 124, sourceId])).rejects.toMatchObject({ code: "55000" });
+        await pool.query("UPDATE data_releases SET status='retired',published_at=clock_timestamp() WHERE id=$1", [candidateId]);
+        await expect(migrationPool.query(aggregateInsert, [candidateId, 124, sourceId])).rejects.toMatchObject({ code: "55000" });
+        await pool.query("UPDATE data_releases SET status='candidate',published_at=NULL,previous_release_id=$2 WHERE id=$1", [candidateId, sourceId]);
+      } finally { await pool.query("ALTER TABLE data_releases ENABLE TRIGGER USER"); }
+      for (const domain of Object.keys(contentDomains) as Array<keyof typeof contentDomains>) expect(await computeReleaseDigest(pool, candidateId, domain)).toEqual(await computeReleaseDigest(pool, sourceId, domain));
+      expect((await pool.query("SELECT count(*)::int count FROM fec_v2_publication_signatures WHERE release_id=$1", [candidateId])).rows[0]).toEqual({ count: 0 });
+      for (const table of ["fec_v2_runs", "fec_v2_run_snapshots", "fec_v2_run_failures", "fec_v2_publication_proofs"]) expect((await pool.query(`SELECT count(*)::int count FROM ${table} WHERE release_id=$1`, [candidateId])).rows[0]).toEqual({ count: 0 });
+      const descendantPlan = `${suffix}${suffix}`.slice(0, 64);
+      const descendantOrigin = (await pool.query<{ origin: string }>("SELECT public.expected_fec_v2_origin($1::text,$2::text) origin", [candidateId, descendantPlan])).rows[0]!.origin;
+      expect(descendantOrigin).toBe(candidateId);
+      await pool.query("INSERT INTO fec_v2_plans(release_id,plan_sha256,origin_release_id,receipt_cutoff,campaign_cycle,source_lock_sha256,target_universe_sha256,canonical_sha256) VALUES($1,$2,$3,'2026-07-18',2026,$4,$4,$2)", [candidateId, descendantPlan, descendantOrigin, hash]);
+      expect((await pool.query<{ origin: string }>("SELECT public.expected_fec_v2_origin($1::text,$2::text) origin", [candidateId, plan])).rows[0]?.origin).toBe(sourceId);
+      await pool.query("DELETE FROM fec_v2_plans WHERE release_id=$1 AND plan_sha256=$2", [candidateId, descendantPlan]);
+      await pool.query("UPDATE fec_v2_data_review_signatures SET signature='mutated-fixture-signature' WHERE release_id=$1 AND review_id='source-data'", [candidateId]);
+      expect((await pool.query("SELECT 1 FROM release_content_digests WHERE release_id=$1 AND domain='finance'", [candidateId])).rowCount).toBe(0);
+      expect((await pool.query("SELECT 1 FROM nationwide_validation_gates WHERE release_id=$1", [candidateId])).rowCount).toBe(0);
+      await validateNationwideCandidateRelease(pool, candidateId);
+      const retiredId = `rel_f2_clone_retired_${suffix}`;
+      await pool.query("ALTER TABLE data_releases DISABLE TRIGGER USER");
+      try { await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,'retired clone fixture','retired',$2,clock_timestamp(),clock_timestamp(),NULL)", [retiredId, manifest.release.sourceCutoff]); }
+      finally { await pool.query("ALTER TABLE data_releases ENABLE TRIGGER USER"); }
+      await expect(pool.query("INSERT INTO fec_v2_plans(release_id,plan_sha256,origin_release_id,receipt_cutoff,campaign_cycle,source_lock_sha256,target_universe_sha256,canonical_sha256) VALUES($1,$2,$1,'2026-07-18',2026,$3,$3,$2)", [retiredId, "e".repeat(64), hash])).rejects.toMatchObject({ code: "23514", message: expect.stringMatching(/nationwide content is mutable only while candidate/i) });
+    } finally { await publisherPool?.end(); await migrationPool?.end(); await pool.query(`DROP ROLE IF EXISTS \"${publisherLoginName}\"`).catch(() => undefined); await pool.query(`DROP ROLE IF EXISTS \"${migrationLoginName}\"`).catch(() => undefined); await pool.end(); }
+  }, 180_000);
 
   it("round-trips the canonical candidate with artifact and geometry identity", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
@@ -550,7 +1105,9 @@ integration("PostgreSQL integration", () => {
 
   it("has exact final 0002 snapshot catalog signatures after migration", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
-    const task2Tables = ["acs_variable_dependencies", "acs_variable_inputs", "acs_variables", "biographical_fact_provenance", "biographical_facts", "committee_assignment_provenance", "committee_assignments", "coverage_input_snapshots", "coverage_missing_reasons", "coverage_records", "election_decision_inputs", "election_decisions", "finance_aggregate_inputs", "finance_aggregates", "funding_category_aggregates", "funding_category_input_snapshots", "funding_organization_aggregates", "funding_organization_input_snapshots", "ingest_runs", "jurisdictions", "map_artifact_inputs", "map_artifacts", "nationwide_validation_gates", "outside_spending_aggregates", "outside_spending_input_snapshots", "quarantined_records", "release_content_digests", "snapshot_derivation_inputs", "snapshot_derivations", "stg_identity", "stg_tiger", "stg_acs", "stg_fec", "stg_elections", "seat_cycles", "people", "contests", "result_options", "election_results"];
+    // 0006 intentionally replaces signed-money/FEC staging checks; their final
+    // signatures are asserted by the 0006 schema tests rather than this 0002 lock.
+    const task2Tables = ["acs_variable_dependencies", "acs_variable_inputs", "acs_variables", "biographical_fact_provenance", "biographical_facts", "committee_assignment_provenance", "committee_assignments", "coverage_input_snapshots", "coverage_missing_reasons", "coverage_records", "election_decision_inputs", "election_decisions", "finance_aggregate_inputs", "funding_category_input_snapshots", "funding_organization_input_snapshots", "ingest_runs", "jurisdictions", "map_artifact_inputs", "map_artifacts", "nationwide_validation_gates", "outside_spending_input_snapshots", "quarantined_records", "release_content_digests", "snapshot_derivation_inputs", "snapshot_derivations", "stg_identity", "stg_tiger", "stg_acs", "stg_elections", "seat_cycles", "people", "contests", "result_options", "election_results"];
     try {
       const snapshot = JSON.parse(await readFile(resolve(process.cwd(), "drizzle/meta/0002_snapshot.json"), "utf8")) as { tables: Record<string, { columns: Record<string, { name: string; type: string; notNull: boolean; primaryKey: boolean }>; compositePrimaryKeys: Record<string, { columns: string[] }>; foreignKeys: Record<string, { columnsFrom: string[]; columnsTo: string[]; tableTo: string; onDelete: string; onUpdate: string }>; checkConstraints: Record<string, { value: string }>; indexes: Record<string, { isUnique: boolean; method: string; columns: Array<{ expression: string; asc: boolean; nulls: string }>; where?: string }> }> };
       const normalize = (value: string) => {
@@ -1274,7 +1831,7 @@ integration("PostgreSQL integration", () => {
       const candidateId = "rel_task10_maps_candidate";
       await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,'Task 10 maps','candidate',$2,$3,NULL,$4)", [candidateId, manifest.release.sourceCutoff, "2024-01-03T00:00:00.000Z", manifest.release.id]);
       await baselineCandidateRelease(pool, manifest.release.id, candidateId);
-      await expect(recheckNationwideValidationGate(pool, candidateId)).rejects.toThrow("Nationwide validation gate or digests are missing");
+      await expect(recheckNationwideValidationGate(pool, candidateId)).resolves.toBeUndefined();
       await expect(simplifyNationalTigerDistrictLayer(districtBytes, { expectedSourceSha256: "f".repeat(64) })).rejects.toThrow("source checksum mismatch");
       const layer = await simplifyNationalTigerDistrictLayer(districtBytes, { expectedSourceSha256: manifest.geometryArtifacts[0]!.checksumSha256 });
       expect(layer.metrics).toMatchObject({ featureCount: 441 });
@@ -1285,6 +1842,9 @@ integration("PostgreSQL integration", () => {
       await expect(finalizeCandidateMaps({ ...task10, layer: { ...layer, metrics: { ...layer.metrics, outputSha256: "0".repeat(64) } } })).rejects.toThrow("MAP_FINALIZE_INPUT_INVALID");
       expect((await pool.query("SELECT count(*)::int count FROM map_artifacts WHERE release_id=$1", [candidateId])).rows[0]).toEqual({ count: 0 });
       expect((await pool.query("SELECT content_checksum_sha256,validated_at,(SELECT row_to_json(g) FROM nationwide_validation_gates g WHERE g.release_id=$1) gate FROM release_manifests WHERE release_id=$1", [candidateId])).rows).toEqual(beforeFailure.rows);
+      // Repeated cross-test TRUNCATE leaves PostgreSQL with empty-table planner
+      // statistics; refresh the joined release tables before the CPU-heavy map drill.
+      await pool.query("ANALYZE geography_versions,geometry_artifacts,source_snapshots,sources,district_plans,seat_cycles,office_terms,data_releases");
       let puts = 0;
       const failingStore: MapArtifactStore = { read: receipt => store.read(receipt), put: async input => { puts++; const receipt = await store.put(input); if (puts === 4) throw new Error("injected immutable-store failure"); return receipt; } };
       await expect(finalizeCandidateMaps({ ...task10, store: failingStore })).rejects.toThrow("MAP_FINALIZE_FAILED");
@@ -1332,7 +1892,7 @@ integration("PostgreSQL integration", () => {
       await pool.end();
       await rm(root, { recursive: true, force: true });
     }
-  }, 300_000);
+  }, 900_000);
 
   it("rejects a nationwide baseline with a different cutoff before copying content", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
@@ -1830,4 +2390,16 @@ integration("PostgreSQL integration", () => {
       await owner.end();
     }
   }, 180_000);
+
+  it("exposes only the typed FEC V2 acquisition surface", async () => {
+    const pool = new Pool({ connectionString: testDatabaseUrl });
+    try {
+      const names = ["claim_fec_v2_run", "heartbeat_fec_v2_run", "abort_fec_v2_run", "reap_expired_fec_v2_run", "stage_fec_v2_snapshot", "stage_fec_v2_artifact", "stage_fec_v2_receipt", "stage_fec_v2_enumeration_page", "stage_fec_v2_ledger_header", "stage_fec_v2_ledger_entry", "stage_fec_v2_page_lineage", "stage_fec_v2_amendment_link", "stage_fec_v2_sanitized_filing", "stage_fec_v2_acquisition_outcome", "read_fec_v2_run_status", "read_fec_v2_staged_receipt_descriptors"];
+      const routines = await pool.query<{ proname: string; owner: string; arguments: string }>("SELECT p.proname,r.rolname AS owner,pg_get_function_arguments(p.oid) AS arguments FROM pg_proc p JOIN pg_namespace n ON n.oid=p.pronamespace JOIN pg_roles r ON r.oid=p.proowner WHERE n.nspname='public' AND p.proname=ANY($1) ORDER BY p.proname", [names]);
+      expect(routines.rows.map(row => row.proname).sort()).toEqual([...names].sort());
+      expect(routines.rows.every(row => row.owner === "dsa_seats_migration_owner" && !/json/i.test(row.arguments))).toBe(true);
+      const forbidden = await pool.query<{ allowed: boolean }>("SELECT has_table_privilege('dsa_seats_fec_v2_acquisition','public.fec_v2_runs','UPDATE') OR has_table_privilege('dsa_seats_fec_v2_acquisition','public.stg_fec_v2_artifacts','INSERT') AS allowed");
+      expect(forbidden.rows[0]?.allowed).toBe(false);
+    } finally { await pool.end(); }
+  });
 });

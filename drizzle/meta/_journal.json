@@ -43,6 +43,69 @@
       "when": 1784624094705,
       "tag": "0005_petite_black_bolt",
       "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1784744977276,
+      "tag": "0006_launch_data_proofs",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1784865217813,
+      "tag": "0007_parallel_scrambler",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1784915907549,
+      "tag": "0008_hot_living_tribunal",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1784916000000,
+      "tag": "0009_ledger_identity_transcript",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1785024493220,
+      "tag": "0010_lyrical_silver_samurai",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1785100000000,
+      "tag": "0011_fec_v2_plan_expectation",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1785276000000,
+      "tag": "0012_factual_release_stages",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1785279000000,
+      "tag": "0013_nationwide_finalizer_role",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1785287000000,
+      "tag": "0014_acs_inheritance_proof",
+      "breakpoints": true
     }
   ]
 }

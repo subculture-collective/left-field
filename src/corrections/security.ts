@@ -12,9 +12,10 @@ export interface CorrectionSecurityConfig {
   csrfSecret: string;
   rateHmacSecret: string;
 }
+export interface VerifiedCorrectionGate { packageSha256: string; expiresAt: string; }
 
-export function parseCorrectionSecurityConfig(env: Record<string, string | undefined>): CorrectionSecurityConfig {
-  if (env.CORRECTION_INTAKE_ENABLED !== "true") throw new Error("CORRECTION_INTAKE_ENABLED must be explicitly true");
+export function parseCorrectionSecurityConfig(env: Record<string, string | undefined>, verified: VerifiedCorrectionGate): CorrectionSecurityConfig {
+  if (!verified || !/^[a-f0-9]{64}$/.test(verified.packageSha256) || env.CORRECTION_APPROVAL_REVISION !== verified.packageSha256 || !Number.isFinite(Date.parse(verified.expiresAt)) || Date.parse(verified.expiresAt) <= Date.now() || env.CORRECTION_KILL_SWITCH !== "allow") throw new Error("correction intake is not allowed");
   const publicOrigin = env.CORRECTION_PUBLIC_ORIGIN;
   const trustedIpHeader = env.CORRECTION_TRUSTED_IP_HEADER?.toLowerCase();
   const csrfSecret = env.CORRECTION_CSRF_SECRET;

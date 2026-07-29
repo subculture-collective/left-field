@@ -1,0 +1,292 @@
+name: dsa-seats-r1
+
+x-db-secrets: &db-secrets
+  - db_admin_password
+  - db_web_password
+  - db_ingest_password
+  - db_preflight_password
+  - db_operator_password
+  - db_launch_verifier_password
+  - db_nationwide_finalizer_password
+  - db_fec_v2_acquisition_password
+  - db_fec_v2_replay_verifier_password
+
+x-release-environment: &release-environment
+  NODE_ENV: production
+  DATABASE_HOST: postgres
+  DATABASE_NAME: dsa_seats_r1
+  RAW_OBJECT_BUCKET: dsa-seats-r1-raw
+  RAW_OBJECT_ENDPOINT: http://rawstore:9000
+  RAW_OBJECT_FORCE_PATH_STYLE: "true"
+  AWS_REGION: us-east-1
+  SOURCE_LOCK_SHA256: ${SOURCE_LOCK_SHA256:?SOURCE_LOCK_SHA256 is required}
+  FEC_V2_STORE_MODE: production
+  FEC_V2_OBJECT_BUCKET: dsa-seats-fec-v2
+  FEC_V2_S3_REGION: us-east-1
+  FEC_V2_OBJECT_ENDPOINT: https://fecstore:9000
+  FEC_V2_OBJECT_FORCE_PATH_STYLE: "true"
+  FEC_V2_RETENTION_EVIDENCE_SHA256: ${FEC_V2_RETENTION_EVIDENCE_SHA256:?FEC_V2_RETENTION_EVIDENCE_SHA256 is required}
+  FEC_V2_RETENTION_EVIDENCE_FILE: /etc/dsa-seats/fec-v2-retention-evidence.txt
+  FEC_V2_CA_CERT_FILE: /etc/dsa-seats/fec-v2-root.crt
+  NODE_EXTRA_CA_CERTS: /etc/dsa-seats/fec-v2-root.crt
+
+services:
+  postgres:
+    image: postgis/postgis:16-3.4-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dsa_seats_r1
+      POSTGRES_USER: dsa_seats_admin
+      POSTGRES_PASSWORD_FILE: /run/secrets/db_admin_password
+    secrets: *db-secrets
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      # The image starts a temporary PostgreSQL server while initializing a
+      # fresh volume. pg_isready alone can report healthy before that server is
+      # stopped, racing migrations. PID 1 becomes postgres only after the
+      # entrypoint has finished initialization and exec'd the final server.
+      test: ["CMD-SHELL", "test \"$$(cat /proc/1/comm)\" = postgres && pg_isready -U dsa_seats_admin -d dsa_seats_r1"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  rawstore:
+    image: minio/minio@sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e
+    restart: unless-stopped
+    command: ["server", "/data"]
+    environment:
+      MINIO_ROOT_USER_FILE: /run/secrets/raw_root_user
+      MINIO_ROOT_PASSWORD_FILE: /run/secrets/raw_root_password
+    secrets:
+      - raw_root_user
+      - raw_root_password
+    volumes:
+      - raw_objects:/data
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:9000/minio/health/live"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  rawstore-init:
+    image: minio/mc@sha256:a7fe349ef4bd8521fb8497f55c6042871b2ae640607cf99d9bede5e9bdf11727
+    depends_on:
+      rawstore:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - |
+        root_user=$$(tr -d '\r\n' < /run/secrets/raw_root_user)
+        root_password=$$(tr -d '\r\n' < /run/secrets/raw_root_password)
+        access_key=$$(tr -d '\r\n' < /run/secrets/raw_access_key)
+        secret_key=$$(tr -d '\r\n' < /run/secrets/raw_secret_key)
+        mc alias set local http://rawstore:9000 "$$root_user" "$$root_password"
+        mc mb --ignore-existing local/dsa-seats-r1-raw
+        mc version enable local/dsa-seats-r1-raw
+        mc anonymous set none local/dsa-seats-r1-raw
+        mc admin policy create local dsa-seats-r1-writer /config/rawstore-policy.json \
+          || mc admin policy info local dsa-seats-r1-writer
+        mc admin user add local "$$access_key" "$$secret_key" >/dev/null \
+          || { mc admin user info local "$$access_key" >/dev/null; mc admin user enable local "$$access_key" >/dev/null; }
+        mc admin policy attach local dsa-seats-r1-writer --user "$$access_key" >/dev/null
+    secrets:
+      - raw_root_user
+      - raw_root_password
+      - raw_access_key
+      - raw_secret_key
+    volumes:
+      - ./rawstore-policy.json:/config/rawstore-policy.json:ro
+
+  fecstore:
+    image: minio/minio@sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e
+    restart: unless-stopped
+    command: ["server", "--certs-dir", "/certs", "/data"]
+    environment:
+      MINIO_ROOT_USER_FILE: /run/secrets/fec_store_root_user
+      MINIO_ROOT_PASSWORD_FILE: /run/secrets/fec_store_root_password
+    secrets:
+      - fec_store_root_user
+      - fec_store_root_password
+    volumes:
+      - fec_v2_objects:/data
+      - ${FEC_V2_TLS_DIR:?FEC_V2_TLS_DIR is required}:/certs:ro
+    healthcheck:
+      test: ["CMD", "curl", "--cacert", "/certs/CAs/root.crt", "-fsS", "https://fecstore:9000/minio/health/live"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  fecstore-init:
+    image: minio/mc@sha256:a7fe349ef4bd8521fb8497f55c6042871b2ae640607cf99d9bede5e9bdf11727
+    depends_on:
+      fecstore:
+        condition: service_healthy
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - |
+        export SSL_CERT_FILE=/certs/CAs/root.crt
+        root_user=$$(tr -d '\r\n' < /run/secrets/fec_store_root_user)
+        root_password=$$(tr -d '\r\n' < /run/secrets/fec_store_root_password)
+        access_key=$$(tr -d '\r\n' < /run/secrets/fec_store_access_key)
+        secret_key=$$(tr -d '\r\n' < /run/secrets/fec_store_secret_key)
+        mc alias set fecstore https://fecstore:9000 "$$root_user" "$$root_password"
+        mc mb --ignore-existing --with-lock fecstore/dsa-seats-fec-v2
+        mc version enable fecstore/dsa-seats-fec-v2
+        mc retention set --default COMPLIANCE "1y" fecstore/dsa-seats-fec-v2
+        mc anonymous set none fecstore/dsa-seats-fec-v2
+        mc admin policy create fecstore dsa-seats-fec-v2-writer /config/fec-v2-rawstore-policy.json \
+          || mc admin policy info fecstore dsa-seats-fec-v2-writer
+        mc admin user add fecstore "$$access_key" "$$secret_key" >/dev/null \
+          || { mc admin user info fecstore "$$access_key" >/dev/null; mc admin user enable fecstore "$$access_key" >/dev/null; }
+        mc admin policy attach fecstore dsa-seats-fec-v2-writer --user "$$access_key" >/dev/null
+        mc version info fecstore/dsa-seats-fec-v2
+        mc retention info --default fecstore/dsa-seats-fec-v2
+    secrets:
+      - fec_store_root_user
+      - fec_store_root_password
+      - fec_store_access_key
+      - fec_store_secret_key
+    volumes:
+      - ./fec-v2-rawstore-policy.json:/config/fec-v2-rawstore-policy.json:ro
+      - ${FEC_V2_TLS_DIR:?FEC_V2_TLS_DIR is required}:/certs:ro
+
+  migrate:
+    image: ${APP_IMAGE:?APP_IMAGE is required}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    entrypoint: ["/app/deploy/nuc/run-with-secrets.sh"]
+    command: ["npm", "run", "db:migrate"]
+    environment:
+      DATABASE_HOST: postgres
+      DATABASE_NAME: dsa_seats_r1
+    secrets:
+      - db_admin_password
+
+  role-grants:
+    image: postgis/postgis:16-3.4-alpine
+    depends_on:
+      migrate:
+        condition: service_completed_successfully
+    entrypoint: ["/bin/sh", "-ec"]
+    command:
+      - |
+        export PGPASSWORD=$$(tr -d '\r\n' < /run/secrets/db_admin_password)
+        exec psql --set ON_ERROR_STOP=1 \
+          --set web_password="$$(tr -d '\r\n' < /run/secrets/db_web_password)" \
+          --set ingest_password="$$(tr -d '\r\n' < /run/secrets/db_ingest_password)" \
+          --set preflight_password="$$(tr -d '\r\n' < /run/secrets/db_preflight_password)" \
+          --set operator_password="$$(tr -d '\r\n' < /run/secrets/db_operator_password)" \
+          --set launch_verifier_password="$$(tr -d '\r\n' < /run/secrets/db_launch_verifier_password)" \
+          --set nationwide_finalizer_password="$$(tr -d '\r\n' < /run/secrets/db_nationwide_finalizer_password)" \
+          --set fec_v2_acquisition_password="$$(tr -d '\r\n' < /run/secrets/db_fec_v2_acquisition_password)" \
+          --set fec_v2_replay_verifier_password="$$(tr -d '\r\n' < /run/secrets/db_fec_v2_replay_verifier_password)" \
+          --host postgres --username dsa_seats_admin --dbname dsa_seats_r1 \
+          --file /config/grant-runtime-roles.sql
+    secrets: *db-secrets
+    volumes:
+      - ./grant-runtime-roles.sql:/config/grant-runtime-roles.sql:ro
+
+  app:
+    image: ${APP_IMAGE:?APP_IMAGE is required}
+    restart: unless-stopped
+    depends_on:
+      role-grants:
+        condition: service_completed_successfully
+      rawstore-init:
+        condition: service_completed_successfully
+      fecstore-init:
+        condition: service_completed_successfully
+    entrypoint: ["/app/deploy/nuc/run-with-secrets.sh"]
+    command: ["npm", "run", "start", "--", "-H", "0.0.0.0"]
+    environment:
+      NODE_ENV: production
+      DATABASE_HOST: postgres
+      DATABASE_NAME: dsa_seats_r1
+      MAP_ARTIFACT_ROOT: /var/lib/dsa-seats/maps/r1-factual
+    secrets:
+      - db_web_password
+    ports:
+      - "10.0.0.56:3045:3000"
+    volumes:
+      - map_artifacts:/var/lib/dsa-seats/maps:ro
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/').then(async r=>{const b=await r.text();if(!r.ok||b.length<10000||b.includes('Synthetic'))process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 18
+
+  release:
+    profiles: ["tools"]
+    image: ${APP_IMAGE:?APP_IMAGE is required}
+    depends_on:
+      role-grants:
+        condition: service_completed_successfully
+      rawstore-init:
+        condition: service_completed_successfully
+      fecstore-init:
+        condition: service_completed_successfully
+    entrypoint: ["/app/deploy/nuc/run-with-secrets.sh"]
+    environment: *release-environment
+    secrets:
+      - db_admin_password
+      - db_ingest_password
+      - db_preflight_password
+      - db_operator_password
+      - db_launch_verifier_password
+      - db_nationwide_finalizer_password
+      - db_fec_v2_acquisition_password
+      - db_fec_v2_replay_verifier_password
+      - raw_access_key
+      - raw_secret_key
+      - fec_api_credential
+      - fec_store_access_key
+      - fec_store_secret_key
+    volumes:
+      - ${FEC_V2_TLS_DIR:?FEC_V2_TLS_DIR is required}/CAs/root.crt:/etc/dsa-seats/fec-v2-root.crt:ro
+      - ${FEC_V2_RETENTION_EVIDENCE_FILE_HOST:?FEC_V2_RETENTION_EVIDENCE_FILE_HOST is required}:/etc/dsa-seats/fec-v2-retention-evidence.txt:ro
+
+volumes:
+  postgres_data:
+  raw_objects:
+  map_artifacts:
+  fec_v2_objects:
+
+secrets:
+  db_admin_password:
+    file: ${SECRETS_DIR:-./secrets}/db_admin_password
+  db_web_password:
+    file: ${SECRETS_DIR:-./secrets}/db_web_password
+  db_ingest_password:
+    file: ${SECRETS_DIR:-./secrets}/db_ingest_password
+  db_preflight_password:
+    file: ${SECRETS_DIR:-./secrets}/db_preflight_password
+  db_operator_password:
+    file: ${SECRETS_DIR:-./secrets}/db_operator_password
+  db_launch_verifier_password:
+    file: ${SECRETS_DIR:-./secrets}/db_launch_verifier_password
+  db_nationwide_finalizer_password:
+    file: ${SECRETS_DIR:-./secrets}/db_nationwide_finalizer_password
+  db_fec_v2_acquisition_password:
+    file: ${SECRETS_DIR:-./secrets}/db_fec_v2_acquisition_password
+  db_fec_v2_replay_verifier_password:
+    file: ${SECRETS_DIR:-./secrets}/db_fec_v2_replay_verifier_password
+  raw_root_user:
+    file: ${SECRETS_DIR:-./secrets}/raw_root_user
+  raw_root_password:
+    file: ${SECRETS_DIR:-./secrets}/raw_root_password
+  raw_access_key:
+    file: ${SECRETS_DIR:-./secrets}/raw_access_key
+  raw_secret_key:
+    file: ${SECRETS_DIR:-./secrets}/raw_secret_key
+  fec_api_credential:
+    file: ${SECRETS_DIR:-./secrets}/fec_api_credential
+  fec_store_root_user:
+    file: ${SECRETS_DIR:-./secrets}/fec_store_root_user
+  fec_store_root_password:
+    file: ${SECRETS_DIR:-./secrets}/fec_store_root_password
+  fec_store_access_key:
+    file: ${SECRETS_DIR:-./secrets}/fec_store_access_key
+  fec_store_secret_key:
+    file: ${SECRETS_DIR:-./secrets}/fec_store_secret_key

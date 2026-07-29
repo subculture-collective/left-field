@@ -1,4 +1,5 @@
 import type { DecimalMoney, FecReportVersion, ResolvedFecReportVersion } from "./amendments";
+import { fecMoneyToCents, formatFecCents, isFecCommitteeId } from "./values";
 
 export type CommitteeRelationshipType = "principal_campaign_committee" | "authorized";
 export type FecCommitteeMapping = Readonly<{ committeeId: string; relationshipType: CommitteeRelationshipType; effectiveFrom: string; effectiveTo: string | null }>;
@@ -16,8 +17,8 @@ export type OutsideSpendingAggregate = Readonly<{ candidateId: string; cycle: nu
 export class FecAggregateError extends Error { constructor(readonly code: string) { super(`FEC aggregate failed: ${code}`); this.name = "FecAggregateError"; } }
 const fail = (code: string): never => { throw new FecAggregateError(code); };
 const validDate = (d: string): boolean => { if (!/^\d{4}-\d{2}-\d{2}$/.test(d)) return false; const parsed = new Date(`${d}T00:00:00Z`); return !Number.isNaN(parsed.getTime()) && parsed.toISOString().slice(0, 10) === d; };
-const money = (value: DecimalMoney): number => { if (!/^\d+(?:\.\d{1,2})?$/.test(value)) fail("INVALID_MONEY_AMOUNT"); const [whole, fraction = ""] = value.split("."); const centsText = `${whole.replace(/^0+(?=\d)/, "")}${(fraction + "00").slice(0, 2)}`.replace(/^0+(?=\d)/, ""); if (centsText.length > 16 || centsText.length === 16 && centsText > "9007199254740991") fail("INVALID_MONEY_AMOUNT"); return Number(centsText); };
-const format = (cents: number): DecimalMoney => `${Math.floor(cents / 100)}.${String(cents % 100).padStart(2, "0")}`;
+const money = (value: DecimalMoney): number => fecMoneyToCents(value) ?? fail("INVALID_MONEY_AMOUNT");
+const format = (cents: number): DecimalMoney => formatFecCents(cents) ?? fail("INVALID_MONEY_AMOUNT");
 const fact = (values: readonly (DecimalMoney | null)[]): FinanceFact => {
   if (values.some(v => v === null)) return { kind: "missing", reason: "not_reported" };
   const cents = values.reduce((sum, value) => { const next = sum + money(value!); if (!Number.isSafeInteger(next)) fail("INVALID_MONEY_AMOUNT"); return next; }, 0);
@@ -63,7 +64,7 @@ export function aggregateFecFinance(mappings: readonly FecCandidateMapping[], ca
 export function aggregateOutsideSpending(candidateId: string, cycle: number, records: readonly OutsideSpendingRecord[], paginationComplete: boolean, reconciliationComplete: boolean): OutsideSpendingAggregate {
   if (!paginationComplete || !reconciliationComplete) fail("INCOMPLETE_SCHEDULE_E_ATTESTATION");
   const seen = new Set<string>(); let support = 0; let oppose = 0;
-  for (const r of records) { const key = `${r.candidateId}\0${r.committeeId}\0${r.cycle}\0${r.disposition}`; if (r.candidateId !== candidateId || r.cycle !== cycle || r.electionFull !== false || !/^C[0-9]{8}$/.test(r.committeeId)) fail("OUTSIDE_SPENDING_SCOPE_MISMATCH"); if (seen.has(key)) fail("DUPLICATE_OUTSIDE_SPENDING_RECORD"); seen.add(key); if (r.disposition === "support") support += money(r.amount); else oppose += money(r.amount); if (!Number.isSafeInteger(support) || !Number.isSafeInteger(oppose)) fail("INVALID_MONEY_AMOUNT"); }
+  for (const r of records) { const key = `${r.candidateId}\0${r.committeeId}\0${r.cycle}\0${r.disposition}`; if (r.candidateId !== candidateId || r.cycle !== cycle || r.electionFull !== false || !isFecCommitteeId(r.committeeId)) fail("OUTSIDE_SPENDING_SCOPE_MISMATCH"); if (seen.has(key)) fail("DUPLICATE_OUTSIDE_SPENDING_RECORD"); seen.add(key); if (r.disposition === "support") support += money(r.amount); else oppose += money(r.amount); if (!Number.isSafeInteger(support) || !Number.isSafeInteger(oppose)) fail("INVALID_MONEY_AMOUNT"); }
   return { candidateId, cycle, supportAmount: format(support), opposeAmount: format(oppose), methodologyVersion: "fec-schedule-e-cycle-v1", publishableAsExactElection: false };
 }
 export type { FecReportVersion };

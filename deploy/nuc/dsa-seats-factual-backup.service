@@ -1,0 +1,14 @@
+[Unit]
+Description=Back up DSA Seats factual PostgreSQL and immutable artifacts
+Wants=network-online.target docker.service
+After=network-online.target docker.service
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/dsa-seats-factual-backup.sh
+Nice=10
+IOSchedulingClass=best-effort
+IOSchedulingPriority=7
+CPUQuota=50%
+CPUWeight=50
+IOWeight=100

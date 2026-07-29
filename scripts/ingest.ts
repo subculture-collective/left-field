@@ -3,6 +3,7 @@ import { isoDateSchema, releaseIdSchema } from "@/domain/contracts";
 import type { Pool } from "pg";
 import { assertProductionIngestionEnv, createRawObjectStore, runConfiguredSource, verifyConfiguredSourceLock } from "./ingestion-config";
 import type { RunSourceResult } from "@/ingestion/core/run-source";
+import { runConfiguredFecV2FromEnvironment } from "@/ingestion/fec/runner";
 
 export type IngestSource = "identity" | "tiger" | "acs" | "fec" | "elections";
 export interface IngestArguments { readonly source: IngestSource; readonly release: string; readonly cutoff: string; readonly dryRun: boolean; }
@@ -23,12 +24,19 @@ type IngestRunner = (args: IngestArguments, pool: Pool) => Promise<RunSourceResu
 export interface IngestCliDependencies { readonly env: NodeJS.ProcessEnv; readonly getPool: () => Pool; readonly registry?: Partial<Record<IngestSource, IngestRunner>>; }
 export interface IngestExecutionResult { readonly source: IngestSource; readonly release: string; readonly runIds: readonly string[]; readonly reusedRunIds: readonly string[]; readonly finalizationRunIds: readonly string[]; }
 export function defaultRegistry(env: NodeJS.ProcessEnv): Partial<Record<IngestSource, IngestRunner>> {
-  return { identity: async (args, pool) => runConfiguredSource("identity", args, pool, createRawObjectStore(env), env), tiger: async (args, pool) => runConfiguredSource("tiger", args, pool, createRawObjectStore(env), env), acs: async (args, pool) => runConfiguredSource("acs", args, pool, createRawObjectStore(env), env) };
+  return { identity: async (args, pool) => runConfiguredSource("identity", args, pool, createRawObjectStore(env), env), tiger: async (args, pool) => runConfiguredSource("tiger", args, pool, createRawObjectStore(env), env), acs: async (args, pool) => runConfiguredSource("acs", args, pool, createRawObjectStore(env), env), fec: async args => {
+    const result = await runConfiguredFecV2FromEnvironment({ release: args.release, cutoff: args.cutoff, planPath: env.FEC_V2_ACQUISITION_PLAN_PATH ?? "", dryRun: args.dryRun }, { env });
+    return { runIds: result.loadedRunIds, reusedRunIds: result.reusedRunIds } as RunSourceResult;
+  } };
 }
 export async function executeIngest(argv: readonly string[], dependencies: IngestCliDependencies): Promise<IngestExecutionResult> {
   const args = parseIngestArguments(argv);
   const runner = dependencies.registry?.[args.source];
   if (!runner) throw new Error(`Ingestion source is unavailable: ${args.source}`);
+  if (args.source === "fec") {
+    const result = await runner(args, undefined as never); // FEC V2 owns its dedicated verifier/acquisition pools.
+    return { source: args.source, release: args.release, runIds: result.runIds, reusedRunIds: result.reusedRunIds, finalizationRunIds: [...result.runIds, ...result.reusedRunIds] };
+  }
   if (!args.dryRun) throw new Error("Configured ingestion only stages with --dry-run; use the source-specific finalization command to finalize a candidate");
   assertProductionIngestionEnv(dependencies.env);
   if (dependencies.env.NODE_ENV === "production") await verifyConfiguredSourceLock(dependencies.env);

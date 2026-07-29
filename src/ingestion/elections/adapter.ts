@@ -54,7 +54,7 @@ export function createElectionDecisionAdapter(options: ElectionDecisionAdapterOp
       if (!extractedReceipt || !extractedSnapshot || !sameReceipt(raw.receipt, extractedReceipt) || !receiptValid(raw.receipt) || raw.snapshot.id !== extractedSnapshot.id || raw.snapshot.sourceUrl !== extractedSnapshot.sourceUrl || raw.snapshot.checksumSha256 !== extractedSnapshot.checksumSha256 || raw.snapshot.upstreamRelease !== extractedSnapshot.upstreamRelease || raw.snapshot.publishedAt !== null || raw.snapshot.license !== "project-generated" || raw.snapshot.usageStatus !== "approved" || raw.value.sourceLockSha256 !== options.sourceLockSha256 || !Buffer.from(encodeElectionDecisionEnvelope(raw.value)).equals(Buffer.from(options.envelopeBytes))) throw new Error("ELECTION_DECISION_RAW_BINDING_MISMATCH");
       return;
     },
-    naturalKey: (_row) => { throw new Error("ELECTION_DECISION_NO_ROWS"); },
+    naturalKey: () => { throw new Error("ELECTION_DECISION_NO_ROWS"); },
     async stage(_client, _runId, rows) { if (rows.length) throw new Error("ELECTION_DECISION_NO_ROWS"); },
     async validateStaged(client, runId): Promise<readonly ValidationIssue[]> {
       const result = await client.query<{ valid: unknown }>("SELECT ir.extracted_count=0 AND ir.staged_count=0 AND ir.quarantined_count=0 AND ir.snapshot_id=$2 AND ir.raw_object_sha256=$3 AND ir.adapter_version=$4 AND ir.upstream_release=$5 AND (SELECT count(*) FROM stg_elections WHERE run_id=ir.id)=0 AS valid FROM ingest_runs ir WHERE ir.id=$1", [runId, options.snapshotId, options.envelopeChecksumSha256, ELECTION_DECISION_ADAPTER_VERSION, ELECTION_DECISION_UPSTREAM_RELEASE]);

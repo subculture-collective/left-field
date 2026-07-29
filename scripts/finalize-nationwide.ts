@@ -1,4 +1,4 @@
-import { closeDb, getIngestPool } from "@/db/client";
+import { closeDb, getNationwideFinalizerPool } from "@/db/client";
 import { releaseIdSchema } from "@/domain/contracts";
 import { finalizeNationwideCandidate } from "@/ingestion/catalog/finalize-nationwide";
 import type { Pool } from "pg";
@@ -21,5 +21,5 @@ export async function executeFinalize(argv: readonly string[], dependencies: { e
   await (dependencies.finalize ?? finalizeNationwideCandidate)({ pool: dependencies.getPool(), rawStore, releaseId: args.release, identityRunId: args.identityRun, tigerRunId: args.tigerRun, sourceLockSha256 });
   return { release: args.release, identityRunId: args.identityRun, tigerRunId: args.tigerRun, status: "finalized" };
 }
-export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<Parameters<typeof executeFinalize>[1], "env"> = { getPool: getIngestPool }): Promise<FinalizeExecutionResult> { const result = await executeFinalize(argv, { env, ...dependencies }); process.stdout.write(`${JSON.stringify(result)}\n`); return result; }
+export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<Parameters<typeof executeFinalize>[1], "env"> = { getPool: getNationwideFinalizerPool }): Promise<FinalizeExecutionResult> { const result = await executeFinalize(argv, { env, ...dependencies }); process.stdout.write(`${JSON.stringify(result)}\n`); return result; }
 if (require.main === module) main().catch(error => { process.stderr.write(`${error instanceof Error ? error.message : "Finalization failed"}\n`); process.exitCode = 1; }).finally(closeDb);

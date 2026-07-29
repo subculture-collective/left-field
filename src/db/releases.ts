@@ -7,13 +7,53 @@ import { createHash, randomUUID } from "node:crypto";
 import type { MapArtifactReceipt, MapArtifactStore } from "@/maps/map-artifact-store";
 import { isCanonicalDistrictGeoJson } from "@/maps/public-map";
 import { boundedDuration, boundedFailureCode, emitOperationalSignal, signalTimestamp, type OperationalSignalSink } from "@/operations/signals";
+import {
+  verifyElectionPublicationProofWithClient,
+  verifyFinancePublicationProofWithClient,
+  verifyFecV2PublicationProofWithClient,
+  prepareFecV2ArtifactTranscriptWithClient,
+  type ElectionPublicationProof as LaunchElectionPublicationProof,
+  type FinancePublicationProof,
+  type FecV2PublicationProof,
+  type FecV2ArtifactVerifier,
+  type FecV2ArtifactVerificationBundle,
+  type LaunchArtifactStoreResolver,
+  type PublicKeyResolver,
+  type SignatureVerifier,
+} from "./launch-data-proofs";
 
 const SERIALIZATION_FAILURE = "40001";
 export type ElectionPublicationProof = Omit<FinalizeCandidateElectionDecisionsOptions, "pool" | "candidateReleaseId">;
+export interface LaunchPublicationEvidence {
+  readonly finance?:
+    | { readonly kind: "fec_v1"; readonly proof: FinancePublicationProof; readonly resolver: PublicKeyResolver; readonly verifier: SignatureVerifier; readonly stores: LaunchArtifactStoreResolver }
+    | { readonly kind: "fec_v2_exact_election"; readonly proof: FecV2PublicationProof; readonly resolver: PublicKeyResolver; readonly verifier: SignatureVerifier; readonly artifactVerifier: FecV2ArtifactVerifier };
+  readonly election?: { readonly proof: LaunchElectionPublicationProof; readonly resolver: PublicKeyResolver; readonly verifier: SignatureVerifier; readonly stores: LaunchArtifactStoreResolver };
+}
+/** @deprecated Compatibility only for persisted callers; new callers must use the orthogonal root object. */
+type LegacyLaunchPublicationEvidence =
+  | { readonly kind: "finance"; readonly proof: FinancePublicationProof; readonly resolver: PublicKeyResolver; readonly verifier: SignatureVerifier; readonly stores: LaunchArtifactStoreResolver }
+  | { readonly kind: "election"; readonly proof: LaunchElectionPublicationProof; readonly resolver: PublicKeyResolver; readonly verifier: SignatureVerifier; readonly stores: LaunchArtifactStoreResolver };
+type AnyLaunchPublicationEvidence = LaunchPublicationEvidence | LegacyLaunchPublicationEvidence;
+const normalizeEvidence = (evidence: AnyLaunchPublicationEvidence | undefined): LaunchPublicationEvidence | undefined => {
+  if (!evidence || !("kind" in evidence)) return evidence;
+  return evidence.kind === "finance" ? { finance: { kind: "fec_v1", proof: evidence.proof, resolver: evidence.resolver, verifier: evidence.verifier, stores: evidence.stores } } : { election: { proof: evidence.proof, resolver: evidence.resolver, verifier: evidence.verifier, stores: evidence.stores } };
+};
 /** Required out-of-database evidence before a map-bearing release can be public. */
 export interface MapPublicationProof { readonly store: MapArtifactStore; }
 /** Separate least-privilege connections for capability issuance and consumption. */
-export interface ReleaseLifecyclePools { readonly preflightPool?: Pool; readonly operatorPool?: Pool; readonly signalSink?: OperationalSignalSink; }
+export interface ReleaseLifecyclePools { readonly preflightPool?: Pool; readonly launchVerifierPool?: Pool; readonly operatorPool?: Pool; readonly signalSink?: OperationalSignalSink; readonly launchEvidence?: AnyLaunchPublicationEvidence; /** Bounded FEC V2 replay window (1 second through 8 hours). */ readonly artifactReplayTimeoutMs?: number; }
+type LaunchStageValidation = { readonly stage: "legacy" | "member" | "acs" | "finance" | "election" | "maps"; readonly proofKind?: "member" | "acs" | "finance" | "election" | "maps" | "fec_v2_finance" | "fec_v2_election" | "fec_v2_maps"; readonly canonicalSha256?: string };
+export type FecV2CombinedStage = "finance" | "election" | "maps";
+export function fecV2CombinedStageBytes(releaseId: string, stage: FecV2CombinedStage, financeCanonicalSha256: string | null, electionCanonicalSha256: string | null, mapReceiptsFingerprint: string | null): Uint8Array {
+  const hash = (value: string | null): boolean => value === null || /^[a-f0-9]{64}$/.test(value);
+  if (!releaseId || !hash(financeCanonicalSha256) || !hash(electionCanonicalSha256) || !hash(mapReceiptsFingerprint)
+    || (stage === "finance" && (!financeCanonicalSha256 || electionCanonicalSha256 !== null || mapReceiptsFingerprint !== null))
+    || (stage === "election" && (!financeCanonicalSha256 || !electionCanonicalSha256 || mapReceiptsFingerprint !== null))
+    || (stage === "maps" && (!financeCanonicalSha256 || electionCanonicalSha256 !== null || !mapReceiptsFingerprint))) throw new Error("Invalid FEC V2 combined launch stage");
+  return new TextEncoder().encode(`${JSON.stringify({ schemaVersion: 1, releaseId, stage, financeCanonicalSha256, electionCanonicalSha256, mapReceiptsFingerprint })}\n`);
+}
+export const fecV2CombinedStageSha256 = (releaseId: string, stage: FecV2CombinedStage, financeCanonicalSha256: string | null, electionCanonicalSha256: string | null, mapReceiptsFingerprint: string | null): string => createHash("sha256").update(fecV2CombinedStageBytes(releaseId, stage, financeCanonicalSha256, electionCanonicalSha256, mapReceiptsFingerprint)).digest("hex");
 
 async function issuePreflight(client: PoolClient, operation: "promote" | "roll_forward", releaseId: string, currentId: string | null, predecessorId: string | null, runIds?: readonly string[]): Promise<string> {
   const proofId = randomUUID();
@@ -30,6 +70,212 @@ async function lockReleases(client: PoolClient, ids: readonly (string | null | u
   for (const id of [...new Set(ids.filter((value): value is string => value !== null && value !== undefined))].sort()) {
     await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [id]);
   }
+}
+
+const launchCutoff = "2026-07-18";
+
+async function assertInheritedFinance(client: PoolClient, releaseId: string, predecessorId: string): Promise<void> {
+  await recheckNationwideValidationGateShared(client, predecessorId);
+  const result = await client.query<{ equal: boolean }>(`
+    SELECT EXISTS(
+      SELECT 1 FROM release_content_digests target
+      JOIN release_content_digests predecessor
+        ON predecessor.release_id=$2 AND predecessor.domain='finance'
+      WHERE target.release_id=$1 AND target.domain='finance'
+        AND (target.row_count,target.sha256)=(predecessor.row_count,predecessor.sha256)
+    ) AS equal`, [releaseId, predecessorId]);
+  if (!result.rows[0]?.equal) throw new Error(`Election release ${releaseId} did not inherit predecessor finance content`);
+}
+async function inheritedElectionSha(client: PoolClient, releaseId: string, predecessorId: string): Promise<string> {
+  const result = await client.query<{ canonical_sha256: string; equal: boolean }>(`SELECT p.canonical_sha256, EXISTS(SELECT 1 FROM release_content_digests t JOIN release_content_digests q ON q.release_id=$2 AND q.domain='elections' WHERE t.release_id=$1 AND t.domain='elections' AND (t.row_count,t.sha256)=(q.row_count,q.sha256)) equal FROM election_publication_proofs p WHERE p.release_id=$2`, [releaseId, predecessorId]);
+  if (result.rowCount !== 1 || !result.rows[0]?.equal || !/^[a-f0-9]{64}$/.test(result.rows[0].canonical_sha256)) throw new Error(`Map release ${releaseId} did not inherit exact predecessor election proof`);
+  return result.rows[0].canonical_sha256;
+}
+
+async function validateLaunchStage(
+  client: PoolClient,
+  releaseId: string,
+  predecessorId: string | null,
+  hasMaps: boolean,
+  legacyElectionProof: ElectionPublicationProof | undefined,
+  evidence: LaunchPublicationEvidence | undefined,
+  bundle?: FecV2ArtifactVerificationBundle,
+): Promise<LaunchStageValidation> {
+  const state = await client.query<{
+    cutoff: string;
+    finance_proofs: number;
+    election_proofs: number;
+    finance_content: boolean;
+    election_content: boolean;
+    predecessor_finance_proofs: number;
+    predecessor_election_proofs: number;
+    predecessor_finance_content: boolean;
+    predecessor_election_content: boolean;
+    finance_facts: boolean;
+    election_facts: boolean;
+    v2_content: boolean;
+    route: string | null;
+    predecessor_finance_facts: boolean;
+    predecessor_election_facts: boolean;
+    v2_publication_proofs: number;
+    predecessor_v2_publication_proofs: number;
+    maps: number;
+    predecessor_maps: number;
+    member_facts: number;
+    predecessor_member_facts: number;
+    acs_facts: number;
+    predecessor_acs_facts: number;
+    inherited_nonfactual: boolean;
+    inherited_member: boolean;
+    inherited_acs: boolean;
+    manifest_content_sha256: string;
+  }>(`
+    SELECT to_char(r.source_cutoff AT TIME ZONE 'UTC','YYYY-MM-DD') cutoff,
+      (SELECT content_checksum_sha256 FROM release_manifests m WHERE m.release_id=r.id) manifest_content_sha256,
+      (SELECT count(*)::int FROM finance_publication_proofs p WHERE p.release_id=r.id) finance_proofs,
+      (SELECT count(*)::int FROM election_publication_proofs p WHERE p.release_id=r.id) election_proofs,
+      EXISTS(SELECT 1 FROM finance_launch_receipts f WHERE f.release_id=r.id) finance_content,
+      EXISTS(SELECT 1 FROM election_launch_receipts e WHERE e.release_id=r.id) election_content,
+      EXISTS(SELECT 1 FROM fec_v2_plans p WHERE p.release_id=r.id) v2_content,
+      (SELECT count(*)::int FROM fec_v2_publication_proofs p WHERE p.release_id=r.id) v2_publication_proofs,
+      (SELECT count(*)::int FROM map_artifacts m WHERE m.release_id=r.id) maps,
+      (SELECT route FROM finance_proof_routes f WHERE f.release_id=r.id) route,
+      (SELECT count(*)::int FROM finance_publication_proofs p WHERE p.release_id=r.previous_release_id) predecessor_finance_proofs,
+      (SELECT count(*)::int FROM election_publication_proofs p WHERE p.release_id=r.previous_release_id) predecessor_election_proofs,
+      (SELECT count(*)::int FROM fec_v2_publication_proofs p WHERE p.release_id=r.previous_release_id) predecessor_v2_publication_proofs,
+      (SELECT count(*)::int FROM map_artifacts m WHERE m.release_id=r.previous_release_id) predecessor_maps,
+      (SELECT count(*)::int FROM biographical_facts b WHERE b.release_id=r.id) member_facts,
+      (SELECT count(*)::int FROM biographical_facts b WHERE b.release_id=r.previous_release_id) predecessor_member_facts,
+      (SELECT count(*)::int FROM acs_observations a WHERE a.release_id=r.id) acs_facts,
+      (SELECT count(*)::int FROM acs_observations a WHERE a.release_id=r.previous_release_id) predecessor_acs_facts,
+      NOT EXISTS(
+        SELECT 1 FROM unnest(ARRAY['identity','geography','finance','elections','maps']::text[]) AS domains(domain_name)
+        WHERE NOT EXISTS(
+          SELECT 1 FROM release_content_digests target
+          JOIN release_content_digests predecessor
+            ON predecessor.release_id=r.previous_release_id AND predecessor.domain=domains.domain_name
+          WHERE target.release_id=r.id AND target.domain=domains.domain_name
+            AND (target.row_count,target.sha256)=(predecessor.row_count,predecessor.sha256)
+        )
+      ) inherited_nonfactual,
+      EXISTS(
+        SELECT 1 FROM release_content_digests target
+        JOIN release_content_digests predecessor
+          ON predecessor.release_id=r.previous_release_id AND predecessor.domain='member'
+        WHERE target.release_id=r.id AND target.domain='member'
+          AND (target.row_count,target.sha256)=(predecessor.row_count,predecessor.sha256)
+      ) inherited_member,
+      EXISTS(
+        SELECT 1 FROM release_content_digests target
+        JOIN release_content_digests predecessor
+          ON predecessor.release_id=r.previous_release_id AND predecessor.domain='acs'
+        WHERE target.release_id=r.id AND target.domain='acs'
+          AND (target.row_count,target.sha256)=(predecessor.row_count,predecessor.sha256)
+      ) inherited_acs,
+      EXISTS(SELECT 1 FROM finance_launch_receipts f WHERE f.release_id=r.previous_release_id) predecessor_finance_content,
+      EXISTS(SELECT 1 FROM election_launch_receipts e WHERE e.release_id=r.previous_release_id) predecessor_election_content,
+      EXISTS(SELECT 1 FROM fec_filing_summaries f WHERE f.release_id=r.id UNION ALL SELECT 1 FROM seat_finance_summaries f WHERE f.release_id=r.id AND f.filing_id IS NOT NULL UNION ALL SELECT 1 FROM finance_aggregates f WHERE f.release_id=r.id AND (f.cash_on_hand IS NOT NULL OR f.receipts IS NOT NULL OR f.disbursements IS NOT NULL) UNION ALL SELECT 1 FROM funding_category_aggregates f WHERE f.release_id=r.id AND f.amount IS NOT NULL UNION ALL SELECT 1 FROM funding_organization_aggregates f WHERE f.release_id=r.id AND f.amount IS NOT NULL UNION ALL SELECT 1 FROM outside_spending_aggregates f WHERE f.release_id=r.id AND (f.support_amount IS NOT NULL OR f.oppose_amount IS NOT NULL)) finance_facts,
+      EXISTS(SELECT 1 FROM election_decisions e WHERE e.release_id=r.id AND e.status<>'unassessed' UNION ALL SELECT 1 FROM contests c WHERE c.release_id=r.id AND EXTRACT(YEAR FROM c.election_date)::int IN(2020,2022,2024) UNION ALL SELECT 1 FROM election_results e WHERE e.release_id=r.id) election_facts,
+      EXISTS(SELECT 1 FROM fec_filing_summaries f WHERE f.release_id=r.previous_release_id UNION ALL SELECT 1 FROM seat_finance_summaries f WHERE f.release_id=r.previous_release_id AND f.filing_id IS NOT NULL UNION ALL SELECT 1 FROM finance_aggregates f WHERE f.release_id=r.previous_release_id AND (f.cash_on_hand IS NOT NULL OR f.receipts IS NOT NULL OR f.disbursements IS NOT NULL) UNION ALL SELECT 1 FROM funding_category_aggregates f WHERE f.release_id=r.previous_release_id AND f.amount IS NOT NULL UNION ALL SELECT 1 FROM funding_organization_aggregates f WHERE f.release_id=r.previous_release_id AND f.amount IS NOT NULL UNION ALL SELECT 1 FROM outside_spending_aggregates f WHERE f.release_id=r.previous_release_id AND (f.support_amount IS NOT NULL OR f.oppose_amount IS NOT NULL)) predecessor_finance_facts,
+      EXISTS(SELECT 1 FROM election_decisions e WHERE e.release_id=r.previous_release_id AND e.status<>'unassessed' UNION ALL SELECT 1 FROM contests c WHERE c.release_id=r.previous_release_id AND EXTRACT(YEAR FROM c.election_date)::int IN(2020,2022,2024) UNION ALL SELECT 1 FROM election_results e WHERE e.release_id=r.previous_release_id) predecessor_election_facts
+    FROM data_releases r WHERE r.id=$1`, [releaseId]);
+  const row = state.rows[0];
+  if (!row) throw new Error(`Release ${releaseId} is missing`);
+  if (row.cutoff !== launchCutoff) {
+    if (evidence) throw new Error(`Launch publication evidence is only valid for cutoff ${launchCutoff}`);
+    return { stage: "legacy" };
+  }
+  const finance = evidence?.finance;
+  const election = evidence?.election;
+  const isV2 = row.v2_content || row.route === "fec_v2_exact_election";
+  if (isV2) {
+    if (row.route !== "fec_v2_exact_election" || !row.v2_content || row.v2_publication_proofs !== 1 || row.finance_proofs !== 0 || row.finance_content || !finance || finance.kind !== "fec_v2_exact_election" || finance.proof.releaseId !== releaseId || !bundle) throw new Error(`FEC V2 release ${releaseId} requires only its sealed V2 publication route and replay bundle`);
+    const financeSha = await verifyFecV2PublicationProofWithClient(client, finance.proof, finance.resolver, finance.verifier, bundle);
+    if (hasMaps) {
+      if (row.maps !== 441 || election || row.election_proofs !== 0 || row.election_content || row.election_facts || !predecessorId || row.predecessor_v2_publication_proofs !== 1 || row.predecessor_election_proofs !== 1 || !row.predecessor_election_content || !row.predecessor_election_facts || row.predecessor_maps !== 0) throw new Error(`FEC V2 map release ${releaseId} requires exact V2 finance and predecessor election evidence`);
+      await assertInheritedFinance(client, releaseId, predecessorId);
+      const fingerprint = await client.query<{ map_receipts_fingerprint: string }>("SELECT map_receipts_fingerprint FROM public.release_preflight_fingerprint($1,NULL)", [releaseId]);
+      await inheritedElectionSha(client, releaseId, predecessorId);
+      return { stage: "maps", proofKind: "fec_v2_maps", canonicalSha256: fecV2CombinedStageSha256(releaseId, "maps", financeSha, null, fingerprint.rows[0]!.map_receipts_fingerprint) };
+    }
+    if (row.election_proofs === 0) {
+      if (row.maps !== 0 || election || row.election_content || row.election_facts || row.predecessor_v2_publication_proofs !== 0 || row.predecessor_election_proofs !== 0 || row.predecessor_finance_proofs !== 0 || row.predecessor_finance_content || row.predecessor_election_content || row.predecessor_finance_facts || row.predecessor_election_facts || row.predecessor_maps !== 0) throw new Error(`FEC V2 finance release ${releaseId} requires no election component or predecessor launch proof`);
+      return { stage: "finance", proofKind: "fec_v2_finance", canonicalSha256: fecV2CombinedStageSha256(releaseId, "finance", financeSha, null, null) };
+    }
+    if (row.election_proofs !== 1 || row.maps !== 0 || !election || election.proof.releaseId !== releaseId || !row.election_content || !row.election_facts || !predecessorId || row.predecessor_v2_publication_proofs !== 1 || row.predecessor_finance_proofs !== 0 || row.predecessor_election_proofs !== 0 || row.predecessor_finance_content || row.predecessor_election_content || row.predecessor_finance_facts || row.predecessor_election_facts || row.predecessor_maps !== 0) throw new Error(`FEC V2 election release ${releaseId} requires exact V2 finance and election evidence`);
+    await assertInheritedFinance(client, releaseId, predecessorId);
+    const electionSha = await verifyElectionPublicationProofWithClient(client, election.proof, election.resolver, election.verifier, election.stores);
+    return { stage: "election", proofKind: "fec_v2_election", canonicalSha256: fecV2CombinedStageSha256(releaseId, "election", financeSha, electionSha, null) };
+  }
+  if (hasMaps) {
+    if (evidence || row.finance_proofs !== 0 || row.election_proofs !== 0 || !row.finance_content || !row.election_content || !row.finance_facts || !row.election_facts || !predecessorId || row.predecessor_finance_proofs !== 0 || row.predecessor_election_proofs !== 1 || !row.predecessor_finance_content || !row.predecessor_election_content || !row.predecessor_finance_facts || !row.predecessor_election_facts) throw new Error(`Production map release ${releaseId} requires an exact proofed R3 predecessor and no target launch proof`);
+    await assertInheritedFinance(client, releaseId, predecessorId);
+    const fingerprint = await client.query<{ map_receipts_fingerprint: string }>("SELECT map_receipts_fingerprint FROM public.release_preflight_fingerprint($1,NULL)", [releaseId]);
+    return { stage: "maps", canonicalSha256: fingerprint.rows[0]!.map_receipts_fingerprint };
+  }
+  if (predecessorId === null) {
+    if (evidence || row.finance_proofs !== 0 || row.election_proofs !== 0 || row.finance_content || row.election_content || row.finance_facts || row.election_facts) throw new Error(`Initial production release ${releaseId} must not contain R2/R3 launch evidence or public facts`);
+    return { stage: "legacy" };
+  }
+  const factualOnly =
+    !evidence
+    && !legacyElectionProof?.runIds.length
+    && row.finance_proofs === 0
+    && row.election_proofs === 0
+    && !row.finance_content
+    && !row.election_content
+    && !row.finance_facts
+    && !row.election_facts
+    && !row.v2_content
+    && row.v2_publication_proofs === 0
+    && row.maps === 0
+    && row.predecessor_finance_proofs === 0
+    && row.predecessor_election_proofs === 0
+    && !row.predecessor_finance_content
+    && !row.predecessor_election_content
+    && !row.predecessor_finance_facts
+    && !row.predecessor_election_facts
+    && row.predecessor_v2_publication_proofs === 0
+    && row.predecessor_maps === 0;
+  const memberStage =
+    factualOnly
+    && row.inherited_nonfactual
+    && row.member_facts > 0
+    && row.predecessor_member_facts === 0
+    && row.acs_facts === 0
+    && row.predecessor_acs_facts === 0
+    && !row.inherited_member
+    && row.inherited_acs;
+  const acsStage =
+    factualOnly
+    && row.member_facts > 0
+    && row.member_facts === row.predecessor_member_facts
+    && row.acs_facts > 0
+    && row.predecessor_acs_facts === 0
+    && !row.inherited_acs;
+  if (memberStage || acsStage) {
+    if (!/^[a-f0-9]{64}$/.test(row.manifest_content_sha256)) throw new Error(`Factual release ${releaseId} has an invalid manifest content checksum`);
+    if (acsStage) {
+      await client.query("SELECT public.assert_acs_inherited_content($1,$2)", [releaseId, predecessorId]);
+    }
+    return {
+      stage: memberStage ? "member" : "acs",
+      proofKind: memberStage ? "member" : "acs",
+      canonicalSha256: row.manifest_content_sha256,
+    };
+  }
+  if (row.finance_proofs === 1 && row.election_proofs === 0) {
+    if (legacyElectionProof?.runIds.length || !finance || finance.kind !== "fec_v1" || election || finance.proof.releaseId !== releaseId || !row.finance_content || !row.finance_facts || row.election_content || row.election_facts || row.predecessor_finance_proofs !== 0 || row.predecessor_election_proofs !== 0 || row.predecessor_finance_content || row.predecessor_election_content || row.predecessor_finance_facts || row.predecessor_election_facts) throw new Error(`Finance release ${releaseId} requires fact-free proofless R1 and only its exact finance proof`);
+    const canonicalSha256 = await verifyFinancePublicationProofWithClient(client, finance.proof, finance.resolver, finance.verifier, finance.stores);
+    return { stage: "finance", canonicalSha256 };
+  }
+  if (row.election_proofs === 1 && row.finance_proofs === 0) {
+    if (legacyElectionProof?.runIds.length || !election || finance || election.proof.releaseId !== releaseId || !row.finance_content || !row.election_content || !row.finance_facts || !row.election_facts || row.predecessor_finance_proofs !== 1 || row.predecessor_election_proofs !== 0 || !row.predecessor_finance_content || !row.predecessor_finance_facts || row.predecessor_election_content || row.predecessor_election_facts) throw new Error(`Election release ${releaseId} requires only its exact election proof and an exact proofed R2 predecessor`);
+    await assertInheritedFinance(client, releaseId, predecessorId);
+    const canonicalSha256 = await verifyElectionPublicationProofWithClient(client, election.proof, election.resolver, election.verifier, election.stores);
+    return { stage: "election", canonicalSha256 };
+  }
+  throw new Error(`Production release ${releaseId} has an invalid or missing launch publication stage`);
 }
 
 /** Reads every exact persisted receipt, failing closed on a missing, replaced, or malformed map object. */
@@ -151,14 +397,14 @@ export async function assertElectionPublicationReadiness(
   return true;
 }
 
-async function validateReleaseForPublication(client: Parameters<typeof loadPrototypeManifest>[0], pool: Pool, releaseId: string, targetStatus: "candidate" | "retired", electionProof?: ElectionPublicationProof, mapProof?: MapPublicationProof): Promise<void> {
+async function validateReleaseForPublication(client: Parameters<typeof loadPrototypeManifest>[0], pool: Pool, releaseId: string, targetStatus: "candidate" | "retired", electionProof?: ElectionPublicationProof, mapProof?: MapPublicationProof, launchEvidence?: LaunchPublicationEvidence, bundle?: FecV2ArtifactVerificationBundle): Promise<LaunchStageValidation> {
   const version = await client.query<{ schema_version: number }>("SELECT schema_version FROM release_manifests WHERE release_id=$1", [releaseId]);
   switch (version.rows[0]?.schema_version) {
     case 1: {
       const manifest = await loadPrototypeManifest(client, releaseId);
       const semantic = validatePrototypeManifest(manifest);
       if (!semantic.success || manifest.profileSeatCycleIds.length < 10 || manifest.profileSeatCycleIds.length > 12) throw new Error(`Release ${releaseId} failed validation immediately before promotion`);
-      return;
+      return { stage: "legacy" };
     }
     case 2:
       await recheckNationwideValidationGateShared(client as PoolClient, releaseId);
@@ -167,18 +413,22 @@ async function validateReleaseForPublication(client: Parameters<typeof loadProto
       await loadNationwideManifest(client, releaseId);
       const mapTarget = await client.query<{ previous_release_id: string | null; maps: boolean }>("SELECT r.previous_release_id,EXISTS(SELECT 1 FROM map_artifacts ma WHERE ma.release_id=r.id) maps FROM data_releases r WHERE r.id=$1", [releaseId]);
       if (mapTarget.rowCount !== 1) throw new Error(`Release ${releaseId} is missing`);
+      const launchStage = await validateLaunchStage(client as PoolClient, releaseId, mapTarget.rows[0]!.previous_release_id, mapTarget.rows[0]!.maps, electionProof, launchEvidence, bundle);
       if (mapTarget.rows[0]!.maps) {
         const predecessor = mapTarget.rows[0]!.previous_release_id;
         if (predecessor === null) throw new Error(`Map-bearing release ${releaseId} requires an immutable predecessor`);
         await recheckNationwideValidationGateShared(client as PoolClient, predecessor);
-        if (!electionProof || electionProof.runIds.length !== 158) throw new Error(`Release ${releaseId} requires predecessor Task 9 evidence`);
-        await verifyPersistedTask9ElectionWithClient(client as never, { ...electionProof, pool, candidateReleaseId: predecessor }, ["published", "retired"]);
+        if (launchStage.stage === "legacy") {
+          if (!electionProof || electionProof.runIds.length !== 158) throw new Error(`Release ${releaseId} requires predecessor Task 9 evidence`);
+          await verifyPersistedTask9ElectionWithClient(client as never, { ...electionProof, pool, candidateReleaseId: predecessor }, ["published", "retired"]);
+        } else if (electionProof?.runIds.length) throw new Error(`Production map release ${releaseId} must not use legacy Task 9 run-ID evidence`);
         const inherited = await client.query<{ equal: boolean }>("SELECT EXISTS(SELECT 1 FROM release_content_digests t JOIN release_content_digests p ON p.domain='elections' AND p.release_id=$2 WHERE t.release_id=$1 AND t.domain='elections' AND t.row_count=p.row_count AND t.sha256=p.sha256) equal", [releaseId, predecessor]);
         if (!inherited.rows[0]!.equal) throw new Error(`Map-bearing release ${releaseId} did not inherit predecessor elections content`);
         if (!mapProof) throw new Error(`Map-bearing release ${releaseId} requires map publication evidence`);
         await verifyPublishedMapObjectsWithClient(client, mapProof.store, releaseId);
-        return;
+        return launchStage;
       }
+      if (launchStage.stage === "member" || launchStage.stage === "acs" || launchStage.stage === "finance" || launchStage.stage === "election") return launchStage;
       if (await assertElectionPublicationReadiness(client, releaseId)) {
         if (!electionProof || electionProof.runIds.length !== 158) throw new Error(`Release ${releaseId} requires exact Task 9 publication evidence`);
         const options = { ...electionProof, pool, candidateReleaseId: releaseId };
@@ -188,17 +438,52 @@ async function validateReleaseForPublication(client: Parameters<typeof loadProto
       } else if (electionProof?.runIds.length) {
         throw new Error(`All-unassessed release ${releaseId} must not supply Task 9 evidence`);
       }
-      return;
+      return launchStage;
     default:
       throw new Error(`Release ${releaseId} has an unsupported manifest schema version`);
   }
 }
 
+async function issueLaunchVerifierAttestation(client: PoolClient, operation: "promote" | "roll_forward", releaseId: string, currentId: string | null, predecessorId: string | null, validation: LaunchStageValidation): Promise<void> {
+  if (validation.stage === "legacy") return;
+  if (!validation.canonicalSha256) throw new Error(`Launch stage ${validation.stage} did not produce a canonical verifier hash`);
+  await client.query("SELECT public.issue_launch_verifier_attestation($1,$2,$3,$4,$5,$6,$7,$8)", [randomUUID(), operation, releaseId, currentId, predecessorId, validation.proofKind ?? validation.stage, validation.canonicalSha256, 300]);
+}
+
+async function issuePreflightOnPool(pool: Pool, operation: "promote" | "roll_forward", releaseId: string, currentId: string | null, predecessorId: string | null, runIds?: readonly string[]): Promise<string> {
+  const client = await pool.connect();
+  try {
+    await client.query("BEGIN ISOLATION LEVEL READ COMMITTED");
+    const proofId = await issuePreflight(client, operation, releaseId, currentId, predecessorId, runIds);
+    await client.query("COMMIT");
+    return proofId;
+  } catch (error) { await client.query("ROLLBACK").catch(() => undefined); throw error; }
+  finally { client.release(); }
+}
+const DEFAULT_ARTIFACT_REPLAY_TIMEOUT_MS = 2 * 60 * 60 * 1_000;
+async function prepareFecV2Replay(pool: Pool, evidence: LaunchPublicationEvidence | undefined, artifactReplayTimeoutMs?: number): Promise<FecV2ArtifactVerificationBundle | undefined> {
+  const finance = evidence?.finance;
+  if (!finance || finance.kind !== "fec_v2_exact_election") return undefined;
+  const timeoutMs = artifactReplayTimeoutMs ?? DEFAULT_ARTIFACT_REPLAY_TIMEOUT_MS;
+  if (!Number.isSafeInteger(timeoutMs) || timeoutMs < 1_000 || timeoutMs > 8 * 60 * 60 * 1_000) throw new Error("artifactReplayTimeoutMs must be between 1 second and 8 hours");
+  const controller = new AbortController(), deadlineMs = Date.now() + timeoutMs, timer = setTimeout(() => controller.abort(), timeoutMs);
+  let client: PoolClient | undefined;
+  try {
+    client = await pool.connect();
+    return await prepareFecV2ArtifactTranscriptWithClient(client, finance.proof, finance.artifactVerifier, { signal: controller.signal, deadlineMs });
+  } finally { clearTimeout(timer); client?.release(); }
+}
+
 /** Atomically makes a candidate the sole published release after the content lock exposes its latest committed state. */
 async function promoteCandidateReleaseImpl(pool: Pool, releaseId: string, maxAttempts = 3, electionProof?: ElectionPublicationProof, mapProof?: MapPublicationProof, lifecyclePools: ReleaseLifecyclePools = {}): Promise<void> {
+  const launchEvidence = normalizeEvidence(lifecyclePools.launchEvidence);
   if (lifecyclePools.preflightPool && !lifecyclePools.operatorPool) throw new Error("A separate preflight pool requires a separate operator pool");
-  const validationPool = lifecyclePools.preflightPool ?? pool;
+  if (lifecyclePools.launchEvidence && !lifecyclePools.launchVerifierPool) throw new Error("Launch publication evidence requires a separate launch verifier pool");
+  if (lifecyclePools.launchVerifierPool && (!lifecyclePools.preflightPool || !lifecyclePools.operatorPool || lifecyclePools.launchVerifierPool === lifecyclePools.preflightPool || lifecyclePools.launchVerifierPool === lifecyclePools.operatorPool || lifecyclePools.preflightPool === lifecyclePools.operatorPool)) throw new Error("Launch verification requires distinct verifier, preflight, and operator pools");
+  const validationPool = lifecyclePools.launchVerifierPool ?? lifecyclePools.preflightPool ?? pool;
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    // Remote artifact replay deliberately precedes BEGIN and every advisory lock.
+    const bundle = await prepareFecV2Replay(validationPool, launchEvidence, lifecyclePools.artifactReplayTimeoutMs);
     const client = await validationPool.connect();
     let committed = false;
     try {
@@ -219,7 +504,14 @@ async function promoteCandidateReleaseImpl(pool: Pool, releaseId: string, maxAtt
       // The global lock freezes lifecycle topology; lock every release whose
       // lineage/evidence is read so writers and finalizers share one order.
       await lockReleases(client, [releaseId, candidate.rows[0]!.previous_release_id, currentId]);
-      await validateReleaseForPublication(client, validationPool, releaseId, "candidate", electionProof, mapProof);
+      const validation = await validateReleaseForPublication(client, validationPool, releaseId, "candidate", electionProof, mapProof, launchEvidence, bundle);
+      await issueLaunchVerifierAttestation(client, "promote", releaseId, currentId, currentId, validation);
+      if (lifecyclePools.launchVerifierPool) {
+        await client.query("COMMIT"); committed = true;
+        const proofId = await issuePreflightOnPool(lifecyclePools.preflightPool!, "promote", releaseId, currentId, currentId, electionProof?.runIds);
+        await consumeLifecycle(lifecyclePools.operatorPool!, "SELECT public.lifecycle_promote_candidate($1,$2,$3,$4,$5)", [proofId, releaseId, currentId, currentId, electionProof?.runIds ?? null]);
+        return;
+      }
       const proofId = await issuePreflight(client, "promote", releaseId, currentId, currentId, electionProof?.runIds);
       const args = [proofId, releaseId, currentId, currentId, electionProof?.runIds ?? null];
       if (lifecyclePools.operatorPool) {
@@ -240,9 +532,14 @@ async function promoteCandidateReleaseImpl(pool: Pool, releaseId: string, maxAtt
 
 /** Republishes the direct retired successor of the current release after revalidating immutable content. */
 async function rollForwardRetiredReleaseImpl(pool: Pool, releaseId: string, maxAttempts = 3, electionProof?: ElectionPublicationProof, mapProof?: MapPublicationProof, lifecyclePools: ReleaseLifecyclePools = {}): Promise<{ publishedReleaseId: string; retiredReleaseId: string }> {
+  const launchEvidence = normalizeEvidence(lifecyclePools.launchEvidence);
   if (lifecyclePools.preflightPool && !lifecyclePools.operatorPool) throw new Error("A separate preflight pool requires a separate operator pool");
-  const validationPool = lifecyclePools.preflightPool ?? pool;
+  if (lifecyclePools.launchEvidence && !lifecyclePools.launchVerifierPool) throw new Error("Launch publication evidence requires a separate launch verifier pool");
+  if (lifecyclePools.launchVerifierPool && (!lifecyclePools.preflightPool || !lifecyclePools.operatorPool || lifecyclePools.launchVerifierPool === lifecyclePools.preflightPool || lifecyclePools.launchVerifierPool === lifecyclePools.operatorPool || lifecyclePools.preflightPool === lifecyclePools.operatorPool)) throw new Error("Launch verification requires distinct verifier, preflight, and operator pools");
+  const validationPool = lifecyclePools.launchVerifierPool ?? lifecyclePools.preflightPool ?? pool;
   for (let attempt = 1; attempt <= maxAttempts; attempt += 1) {
+    // Remote artifact replay deliberately precedes BEGIN and every advisory lock.
+    const bundle = await prepareFecV2Replay(validationPool, launchEvidence, lifecyclePools.artifactReplayTimeoutMs);
     const client = await validationPool.connect();
     let committed = false;
     try {
@@ -255,7 +552,14 @@ async function rollForwardRetiredReleaseImpl(pool: Pool, releaseId: string, maxA
       const target = await client.query<{ id: string; previous_release_id: string | null }>("SELECT id,previous_release_id FROM data_releases WHERE id=$1 AND status='retired' AND previous_release_id=$2", [releaseId, current.id]);
       if (target.rowCount !== 1) throw new Error(`Retired release ${releaseId} is not the direct successor of published release ${current.id}`);
       await lockReleases(client, [releaseId, current.id, target.rows[0]!.previous_release_id]);
-      await validateReleaseForPublication(client, validationPool, releaseId, "retired", electionProof, mapProof);
+      const validation = await validateReleaseForPublication(client, validationPool, releaseId, "retired", electionProof, mapProof, launchEvidence, bundle);
+      await issueLaunchVerifierAttestation(client, "roll_forward", releaseId, current.id, current.id, validation);
+      if (lifecyclePools.launchVerifierPool) {
+        await client.query("COMMIT"); committed = true;
+        const proofId = await issuePreflightOnPool(lifecyclePools.preflightPool!, "roll_forward", releaseId, current.id, current.id, electionProof?.runIds);
+        await consumeLifecycle(lifecyclePools.operatorPool!, "SELECT public.lifecycle_roll_forward($1,$2,$3,$4,$5)", [proofId, releaseId, current.id, current.id, electionProof?.runIds ?? null]);
+        return { publishedReleaseId: releaseId, retiredReleaseId: current.id };
+      }
       // The SECURITY DEFINER routine preserves the target's historical metadata.
       const proofId = await issuePreflight(client, "roll_forward", releaseId, current.id, current.id, electionProof?.runIds);
       const args = [proofId, releaseId, current.id, current.id, electionProof?.runIds ?? null];

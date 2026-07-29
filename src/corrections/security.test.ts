@@ -2,16 +2,17 @@ import { describe, expect, it } from "vitest";
 
 import { canonicalTrustedIp, correctionAnonymousSubjectHash, generateCorrectionIdempotencyToken, issueCorrectionCsrf, parseCorrectionCsrfCookie, parseCorrectionSecurityConfig, validateCorrectionRequestHeaders, verifyCorrectionCsrf } from "./security";
 
-const env = { CORRECTION_INTAKE_ENABLED: "true", CORRECTION_PUBLIC_ORIGIN: "https://example.test", CORRECTION_TRUSTED_IP_HEADER: "x-edge-client-ip", CORRECTION_CSRF_SECRET: "a".repeat(32), CORRECTION_RATE_HMAC_SECRET: "b".repeat(32) };
-const config = parseCorrectionSecurityConfig(env);
+const env = { CORRECTION_KILL_SWITCH: "allow", CORRECTION_APPROVAL_REVISION: "a".repeat(64), CORRECTION_PUBLIC_ORIGIN: "https://example.test", CORRECTION_TRUSTED_IP_HEADER: "x-edge-client-ip", CORRECTION_CSRF_SECRET: "a".repeat(32), CORRECTION_RATE_HMAC_SECRET: "b".repeat(32) };
+const verified = { packageSha256: "a".repeat(64), expiresAt: "2099-01-01T00:00:00.000Z" };
+const config = parseCorrectionSecurityConfig(env, verified);
 
 describe("correction security", () => {
   it("fails closed for weak configuration", () => {
-    expect(() => parseCorrectionSecurityConfig({ ...env, CORRECTION_PUBLIC_ORIGIN: "https://example.test/path" })).toThrow();
-    expect(() => parseCorrectionSecurityConfig({ ...env, CORRECTION_CSRF_SECRET: "weak" })).toThrow();
-    expect(() => parseCorrectionSecurityConfig({ ...env, CORRECTION_TRUSTED_IP_HEADER: "x-forwarded-for" })).toThrow();
-    expect(() => parseCorrectionSecurityConfig({ ...env, CORRECTION_INTAKE_ENABLED: "false" })).toThrow();
-    expect(() => parseCorrectionSecurityConfig({ ...env, CORRECTION_INTAKE_ENABLED: undefined })).toThrow();
+    expect(() => parseCorrectionSecurityConfig({ ...env, CORRECTION_PUBLIC_ORIGIN: "https://example.test/path" }, verified)).toThrow();
+    expect(() => parseCorrectionSecurityConfig({ ...env, CORRECTION_CSRF_SECRET: "weak" }, verified)).toThrow();
+    expect(() => parseCorrectionSecurityConfig({ ...env, CORRECTION_TRUSTED_IP_HEADER: "x-forwarded-for" }, verified)).toThrow();
+    expect(() => parseCorrectionSecurityConfig({ ...env, CORRECTION_APPROVAL_REVISION: "b".repeat(64) }, verified)).toThrow();
+    expect(() => parseCorrectionSecurityConfig({ ...env, CORRECTION_KILL_SWITCH: "deny" }, verified)).toThrow();
   });
   it("issues secure CSRF material and verifies its bounded lifetime", () => {
     const material = issueCorrectionCsrf(config, 1_000);

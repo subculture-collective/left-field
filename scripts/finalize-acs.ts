@@ -1,4 +1,4 @@
-import { closeDb, getIngestPool } from "@/db/client";
+import { closeDb, getNationwideFinalizerPool } from "@/db/client";
 import { releaseIdSchema } from "@/domain/contracts";
 import { finalizeCandidateAcs } from "@/ingestion/acs/finalize-acs";
 import { ACS_INDICATOR_DICTIONARY } from "@/ingestion/acs/indicator-dictionary";
@@ -31,5 +31,5 @@ export async function executeFinalizeAcs(argv: readonly string[], dependencies: 
   await (dependencies.finalize ?? finalizeCandidateAcs)({ pool: dependencies.getPool(), rawStore, candidateReleaseId: args.release, sourceReleaseId: args.sourceRelease, runIds, sourceLockSha256, sourceLockEntries });
   return { release: args.release, sourceReleaseId: args.sourceRelease, runIds, status: "validated_candidate" };
 }
-export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<FinalizeAcsDependencies, "env"> = { getPool: getIngestPool }): Promise<FinalizeAcsResult> { const result = await executeFinalizeAcs(argv, { env, ...dependencies }); process.stdout.write(`${JSON.stringify(result)}\n`); return result; }
+export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<FinalizeAcsDependencies, "env"> = { getPool: getNationwideFinalizerPool }): Promise<FinalizeAcsResult> { const result = await executeFinalizeAcs(argv, { env, ...dependencies }); process.stdout.write(`${JSON.stringify(result)}\n`); return result; }
 if (require.main === module) main().catch(error => { process.stderr.write(`${error instanceof Error ? error.message : "ACS finalization failed"}\n`); process.exitCode = 1; }).finally(closeDb);

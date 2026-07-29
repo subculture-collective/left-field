@@ -5,13 +5,14 @@ import { createAddressRuntime } from "@/address/runtime";
 import { canaryAuthorizationLooksValid, canonicalIp, digest, issueAddressCsrf, verifyAddressCsrf, verifyCanary } from "@/address/security";
 import { boundedDuration, emitOperationalSignal, signalTimestamp, type OperationalSignalSink } from "@/operations/signals";
 import { getRuntimeOperationalSignalSink } from "@/operations/runtime-signals";
+import { readFeatureGates, type FeatureGates } from "@/features/gates";
 
 export const runtime = "nodejs";
 const headers = { "Cache-Control": "no-store", "Content-Type": "application/json; charset=utf-8" };
 const json = (status: number, body: object, extra?: HeadersInit) => Response.json(body, { status, headers: { ...headers, ...extra } });
 const retry = (n: number | null) => String(Math.max(1, Math.min(86400, Math.floor(n ?? 1))));
 type Repository = Pick<AddressAdmissionRepository, "consumeMetadataAttempt" | "consumeEnabledLookup" | "consumeCanary">;
-export interface AddressHandlerDependencies { getConfig?: () => AddressConfig; createRuntime?: (config: AddressConfig) => { repository: Repository; resolver: AddressResolver }; now?: () => Date; signalSink?: OperationalSignalSink; }
+export interface AddressHandlerDependencies { getGates?: () => Promise<FeatureGates>; getConfig?: (mode: AddressConfig["mode"], verified: { packageSha256: string; expiresAt: string }) => AddressConfig; createRuntime?: (config: AddressConfig) => { repository: Repository; resolver: AddressResolver }; now?: () => Date; signalSink?: OperationalSignalSink; }
 async function body(request: Request): Promise<Uint8Array> {
   const reader = request.body?.getReader(); if (!reader) throw new Error("malformed"); let size = 0; const chunks: Uint8Array[] = []; let timer: ReturnType<typeof setTimeout> | undefined;
   let onAbort: (() => void) | undefined;
@@ -29,12 +30,13 @@ function enabledHeaders(request: Request, config: AddressConfig, at: number): st
   return canonicalIp(request.headers.get(config.trustedIpHeader!));
 }
 export function createAddressHandler(deps: AddressHandlerDependencies = {}) {
-  const getConfig = deps.getConfig ?? (() => parseAddressConfig(process.env)); const createRuntime = deps.createRuntime ?? createAddressRuntime; const now = deps.now ?? (() => new Date()); const signalSink = deps.signalSink ?? getRuntimeOperationalSignalSink();
+  const getGates = deps.getGates ?? readFeatureGates; const getConfig = deps.getConfig ?? ((mode, verified) => parseAddressConfig(process.env, mode, verified)); const createRuntime = deps.createRuntime ?? createAddressRuntime; const now = deps.now ?? (() => new Date()); const signalSink = deps.signalSink ?? getRuntimeOperationalSignalSink();
   const handler = {
-    async GET(request: Request): Promise<Response> { let config: AddressConfig; try { config = getConfig(); } catch { return json(503, { status: "unavailable" }); } if (config.mode !== "enabled") return disabled(); if (!exactPath(request)) return json(404, { status: "not_found" }); try { const csrf = issueAddressCsrf(config, now().getTime()); return json(200, { csrfToken: csrf.token }, { "Set-Cookie": csrf.cookie }); } catch { return json(503, { status: "unavailable" }); } },
+    async GET(request: Request): Promise<Response> { let gate: FeatureGates; try { gate = await getGates(); } catch { return disabled(); } if (gate.address.mode !== "enabled") return disabled(); let config: AddressConfig; try { config = getConfig(gate.address.mode, gate.address); } catch { return json(503, { status: "unavailable" }); } if (!exactPath(request)) return json(404, { status: "not_found" }); try { const csrf = issueAddressCsrf(config, now().getTime()); return json(200, { csrfToken: csrf.token }, { "Set-Cookie": csrf.cookie }); } catch { return json(503, { status: "unavailable" }); } },
     async POST(request: Request): Promise<Response> {
-      let config: AddressConfig; try { config = getConfig(); } catch { return json(503, { status: "unavailable" }); }
-      if (config.mode === "disabled") return disabled();
+      let gate: FeatureGates; try { gate = await getGates(); } catch { return disabled(); }
+      if (gate.address.mode === "disabled") return disabled();
+      let config: AddressConfig; try { config = getConfig(gate.address.mode, gate.address); } catch { return json(503, { status: "unavailable" }); }
       let repository!: Repository; let resolver!: AddressResolver; let enabledIp: string | undefined;
       if (config.mode === "enabled") {
         if (!exactPath(request)) return json(403, { status: "forbidden" }); enabledIp = enabledHeaders(request, config, now().getTime()); if (!enabledIp) return json(403, { status: "forbidden" });
@@ -64,6 +66,7 @@ export function createAddressHandler(deps: AddressHandlerDependencies = {}) {
       const response = await handler.POST(request);
       const resolvedOutcome = response.headers.get("X-Address-Resolve-Outcome");
       response.headers.delete("X-Address-Resolve-Outcome");
+      if (resolvedOutcome === "disabled") return response;
       const outcome = resolvedOutcome ?? (response.status === 503 ? "unavailable" : response.status === 429 ? "rate_limited" : response.status === 413 ? "too_large" : response.status === 400 ? "malformed" : "forbidden");
       emitOperationalSignal(signalSink, { version: 1, timestamp: signalTimestamp(), kind: "address_resolve", route: "/api/address/resolve", outcome, durationMs: boundedDuration(startedAt) });
       return response;

@@ -1,0 +1,11 @@
+[Unit]
+Description=Daily encrypted off-host backup of DSA Seats factual data
+
+[Timer]
+OnCalendar=*-*-* 01:43:00
+Persistent=true
+RandomizedDelaySec=15m
+Unit=dsa-seats-factual-backup.service
+
+[Install]
+WantedBy=timers.target

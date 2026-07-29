@@ -1,0 +1,53 @@
+{
+  "version": 1,
+  "cycle": 2026,
+  "cutoff": "2026-07-18",
+  "publicationEligible": false,
+  "reviewStatus": "unreviewed",
+  "entries": [
+    {
+      "kind": "candidate_committee_linkage",
+      "officialUrl": "https://www.fec.gov/files/bulk-downloads/2026/ccl26.zip",
+      "fileName": "ccl26.zip",
+      "retrievedAt": "OPERATOR_FILL_UTC_ISO",
+      "byteSize": 85363,
+      "sha256": "a8994e88ebe860cbdbad950f2ec7a7fc0f2f22c42e70b236b645b45760420433",
+      "finalUrl": "https://www.fec.gov/files/bulk-downloads/2026/ccl26.zip",
+      "etag": null,
+      "lastModified": null
+    },
+    {
+      "kind": "candidate_master",
+      "officialUrl": "https://www.fec.gov/files/bulk-downloads/2026/cn26.zip",
+      "fileName": "cn26.zip",
+      "retrievedAt": "OPERATOR_FILL_UTC_ISO",
+      "byteSize": 298955,
+      "sha256": "73a24608be62fc2cf9fee05d1493f5a99d60c1a866a76f3a68144f4047fb6b3b",
+      "finalUrl": "https://www.fec.gov/files/bulk-downloads/2026/cn26.zip",
+      "etag": null,
+      "lastModified": null
+    },
+    {
+      "kind": "candidate_summary",
+      "officialUrl": "https://www.fec.gov/files/bulk-downloads/2026/weball26.zip",
+      "fileName": "weball26.zip",
+      "retrievedAt": "OPERATOR_FILL_UTC_ISO",
+      "byteSize": 191402,
+      "sha256": "fbd72b09dffae45198efa6a79e189cc7f32b4e62a30f97c7424d4416108a4d44",
+      "finalUrl": "https://www.fec.gov/files/bulk-downloads/2026/weball26.zip",
+      "etag": null,
+      "lastModified": null
+    },
+    {
+      "kind": "committee_master",
+      "officialUrl": "https://www.fec.gov/files/bulk-downloads/2026/cm26.zip",
+      "fileName": "cm26.zip",
+      "retrievedAt": "OPERATOR_FILL_UTC_ISO",
+      "byteSize": 849874,
+      "sha256": "80172c5fb5af2dfb1c22b9652d07fe872297ba85fbb09c69565b8685488078f5",
+      "finalUrl": "https://www.fec.gov/files/bulk-downloads/2026/cm26.zip",
+      "etag": null,
+      "lastModified": null
+    }
+  ]
+}

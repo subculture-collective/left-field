@@ -49,6 +49,7 @@ describe("ACS Task 7 finalizer input boundary", () => {
   it("runs Task 6 before any ACS mutation and rolls back an initial mismatch", async () => {
     const fixture = recordingPool((sql) => sql.includes("FROM data_releases r JOIN") ? emptyResult([{ ok: true }]) : emptyResult());
     await expect(finalizeCandidateAcs({ ...base, pool: fixture.pool })).rejects.toThrow("ACS_FINALIZE_RUN_INVALID");
+    expect(fixture.calls.find((sql) => sql.includes("FROM data_releases r JOIN"))).not.toMatch(/FOR UPDATE|FOR SHARE/);
     expect(fixture.calls).toContain("ROLLBACK");
     expect(fixture.calls.some((sql) => sql.startsWith("COMMIT"))).toBe(false);
     expect(fixture.calls.some((sql) => /INSERT INTO acs_|UPDATE release_manifests/.test(sql))).toBe(false);
@@ -96,6 +97,6 @@ describe("ACS Task 7 finalizer input boundary", () => {
     expect(fixture.calls[0]).toBe("BEGIN ISOLATION LEVEL REPEATABLE READ");
     expect(fixture.calls[0]).not.toContain("READ ONLY");
     expect(fixture.calls.some((sql) => /INSERT|UPDATE|DELETE|FOR UPDATE/.test(sql))).toBe(false);
-    expect(fixture.calls.some((sql) => sql.includes("FOR SHARE"))).toBe(true);
+    expect(fixture.calls.some((sql) => /FOR UPDATE|FOR SHARE/.test(sql))).toBe(false);
   });
 });

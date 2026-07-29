@@ -2,7 +2,8 @@ import { describe, expect, it } from "vitest";
 import { z } from "zod";
 
 import { addressResolutionSchema } from "./address";
-import { dataReleaseSchema, factValueSchema, sourceSchema, sourceSnapshotSchema } from "./contracts";
+import { dataReleaseSchema, factValueSchema, sourceSchema, sourceSnapshotSchema, fecV2ExactElectionAggregateSchema } from "./contracts";
+import { nationwideManifestSchema } from "./manifest";
 import { seatListItemSchema, seatProfileSchema, seatQuerySchema } from "./repository";
 
 describe("seatQuerySchema", () => {
@@ -101,6 +102,19 @@ describe("factValueSchema", () => {
     { kind: "missing", reason: "not_reported", value: "reported" },
   ])("rejects incomplete or contradictory fact-value shapes", (value) => {
     expect(schema.safeParse(value).success).toBe(false);
+  });
+});
+
+describe("FEC v2 manifest contracts", () => {
+  const aggregate = { releaseId: "rel_1", acquisitionPlanSha256: "a".repeat(64), seatCycleId: "seat_1", candidateMappingId: "candidate_1", electionMappingId: "election_1", closureId: "closure_1", supportCents: "0", opposeCents: "123", methodology: "fec-receipt-cutoff-v2", coverageThrough: "2026-07-18" };
+  it("uses canonical unsigned cents strings", () => {
+    expect(fecV2ExactElectionAggregateSchema.safeParse(aggregate).success).toBe(true);
+    expect(fecV2ExactElectionAggregateSchema.safeParse({ ...aggregate, supportCents: "01" }).success).toBe(false);
+    expect(fecV2ExactElectionAggregateSchema.safeParse({ ...aggregate, supportCents: "9223372036854775807" }).success).toBe(true);
+    expect(fecV2ExactElectionAggregateSchema.safeParse({ ...aggregate, supportCents: "9223372036854775808" }).success).toBe(false);
+  });
+  it("keeps the V2 manifest section optional", () => {
+    expect(nationwideManifestSchema.shape.fecV2ExactElectionAggregates.isOptional()).toBe(true);
   });
 });
 

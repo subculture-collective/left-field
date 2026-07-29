@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { executeReleaseLifecycle, parseReleaseLifecycleArguments, releaseLifecyclePoolConfigs } from "./release-lifecycle";
+import { executeReleaseLifecycle, lifecycleFailureReport, parseReleaseLifecycleArguments, releaseLifecyclePoolConfigs } from "./release-lifecycle";
 
 const env = { INGEST_DATABASE_URL: "postgres://ingest:x@localhost/db", RELEASE_PREFLIGHT_DATABASE_URL: "postgres://preflight:x@localhost/db", RELEASE_OPERATOR_DATABASE_URL: "postgres://operator:x@localhost/db" };
 const runs = (count: number): string[] => Array.from({ length: count }, (_, index) => `run_${index}`);
@@ -32,6 +32,47 @@ describe("release lifecycle CLI", () => {
   it("uses only the three explicit capability pools", () => {
     const bounds = { max: 3, connectionTimeoutMillis: 5_000, query_timeout: 120_000, statement_timeout: 120_000, lock_timeout: 5_000, idleTimeoutMillis: 30_000 };
     expect(releaseLifecyclePoolConfigs({ ...env, DATABASE_URL: "postgres://owner:secret@localhost/db" })).toEqual({ ingest: { connectionString: env.INGEST_DATABASE_URL, ...bounds }, preflight: { connectionString: env.RELEASE_PREFLIGHT_DATABASE_URL, ...bounds }, operator: { connectionString: env.RELEASE_OPERATOR_DATABASE_URL, ...bounds } });
+  });
+
+  it("reports bounded lifecycle diagnostics without leaking connection strings or secret values", () => {
+    expect(JSON.parse(lifecycleFailureReport(Object.assign(new Error("query timed out at postgresql://operator:secret@db/app password=hunter2"), { code: "57014" }))))
+      .toEqual({ error: "release_lifecycle_failed", code: "57014", message: "query timed out at [REDACTED] [REDACTED]" });
+    expect(JSON.parse(lifecycleFailureReport({ code: "not valid!", message: "api_key=private-value" })))
+      .toEqual({ error: "release_lifecycle_failed", code: "UNCLASSIFIED", message: "[REDACTED]" });
+    expect(JSON.parse(lifecycleFailureReport("opaque")))
+      .toEqual({ error: "release_lifecycle_failed", code: "UNCLASSIFIED", message: "Release lifecycle failed" });
+    expect(JSON.parse(lifecycleFailureReport(new Error("x".repeat(400)))).message).toHaveLength(300);
+  });
+
+  it("keeps launch proof modes mutually exclusive and requires a distinct verifier principal", () => {
+    expect(() => parseReleaseLifecycleArguments(["promote", "--release", "rel_target", "--launch-finance-proof", "proof_f", "--launch-election-proof", "proof_e"])).toThrow();
+    expect(() => parseReleaseLifecycleArguments([...proofArgs(), "--launch-finance-proof", "proof_f"])).toThrow();
+    expect(() => parseReleaseLifecycleArguments(["promote", "--release", "rel_target", "--launch-maps", "--launch-finance-proof", "proof_f"])).toThrow();
+    expect(parseReleaseLifecycleArguments(["promote", "--release", "rel_target", "--launch-factual"])).toMatchObject({ launchFactual: true });
+    expect(() => parseReleaseLifecycleArguments(["promote", "--release", "rel_target", "--launch-factual", "--launch-maps"])).toThrow();
+    expect(() => parseReleaseLifecycleArguments(["promote", "--release", "rel_target", "--launch-factual", "--launch-finance-proof", "proof_f"])).toThrow();
+    expect(() => releaseLifecyclePoolConfigs({ ...env, LAUNCH_VERIFIER_DATABASE_URL: env.INGEST_DATABASE_URL }, true)).toThrow("distinct LOGIN");
+    expect(() => releaseLifecyclePoolConfigs({ ...env, RELEASE_OPERATOR_DATABASE_URL: env.RELEASE_PREFLIGHT_DATABASE_URL })).toThrow("distinct LOGIN");
+    expect(() => releaseLifecyclePoolConfigs(env, true)).toThrow("LAUNCH_VERIFIER_DATABASE_URL is required");
+  });
+
+  it("passes a distinct verifier pool for factual member or ACS publication", async () => {
+    const launchEnv = { ...env, LAUNCH_VERIFIER_DATABASE_URL: "postgres://verifier:x@localhost/db" };
+    const pools = [0, 1, 2, 3].map(() => ({ end: vi.fn().mockResolvedValue(undefined) }));
+    const createPool = vi.fn(() => pools.shift()!);
+    const promote = vi.fn().mockResolvedValue(undefined);
+    await executeReleaseLifecycle(["promote", "--release", "rel_target", "--launch-factual"], launchEnv, { createPool, promote });
+    expect(createPool).toHaveBeenCalledTimes(4);
+    expect(promote.mock.calls[0]?.[5]).toMatchObject({ launchVerifierPool: expect.anything() });
+  });
+
+  it("derives finance proof outcomes from ingest and passes verifier evidence", async () => {
+    const launchEnv = { ...env, LAUNCH_VERIFIER_DATABASE_URL: "postgres://verifier:x@localhost/db", LAUNCH_REVIEW_KEYS_FILE: "/unused", RAW_OBJECT_ROOT: ".raw" };
+    const verifierPool = { end: vi.fn().mockResolvedValue(undefined) }; const ingest = { end: vi.fn().mockResolvedValue(undefined), query: vi.fn().mockResolvedValue({ rows: [{ outcome: "vacancy" }, { outcome: "approved_finance" }] }) };
+    const pools = [ingest, { end: vi.fn().mockResolvedValue(undefined) }, { end: vi.fn().mockResolvedValue(undefined) }, verifierPool]; const createPool = vi.fn(() => pools.shift()!);
+    const promote = vi.fn().mockResolvedValue(undefined); const runtime = { resolver: {}, verifier: {}, stores: {} };
+    await executeReleaseLifecycle(["promote", "--release", "rel_target", "--launch-finance-proof", "proof_f"], launchEnv, { createPool, promote, createRawStore: store, loadLaunchRuntime: vi.fn(() => runtime as never) });
+    expect(promote.mock.calls[0]?.[5]).toMatchObject({ launchVerifierPool: verifierPool, launchEvidence: { finance: { kind: "fec_v1", proof: { terminalOutcomes: ["vacancy", "approved_finance"] } } } });
   });
 
   it("passes only named configured entries in deterministic byte order", async () => {

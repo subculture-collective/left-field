@@ -3,7 +3,7 @@ import { afterEach, describe, expect, it, vi } from "vitest";
 const pools = vi.hoisted((): Array<Record<string, unknown>> => []);
 vi.mock("pg", () => ({ Pool: class { public constructor(options: Record<string, unknown>) { pools.push(options); } public end = vi.fn(); } }));
 
-import { closeDb, getIngestPool, getPool } from "./client";
+import { closeDb, getIngestPool, getNationwideFinalizerPool, getPool } from "./client";
 
 const originalEnv = { ...process.env };
 afterEach(async () => { await closeDb(); pools.length = 0; process.env = { ...originalEnv }; });
@@ -29,5 +29,16 @@ describe("database runtime pools", () => {
   it("requires the ingestion URL in production", () => {
     process.env = { NODE_ENV: "production", DATABASE_URL: "postgres://migration-only" };
     expect(getIngestPool).toThrow("INGEST_DATABASE_URL is required");
+  });
+
+  it("uses a distinct bounded nationwide-finalizer URL", () => {
+    process.env = { NODE_ENV: "production", NATIONWIDE_FINALIZER_DATABASE_URL: "postgres://finalizer" };
+    getNationwideFinalizerPool();
+    expect(pools[0]).toMatchObject({ connectionString: "postgres://finalizer", max: 2, connectionTimeoutMillis: 5_000, query_timeout: 310_000, statement_timeout: 300_000, idleTimeoutMillis: 30_000 });
+  });
+
+  it("requires the nationwide-finalizer URL", () => {
+    process.env = { NODE_ENV: "production", INGEST_DATABASE_URL: "postgres://ingest" };
+    expect(getNationwideFinalizerPool).toThrow("NATIONWIDE_FINALIZER_DATABASE_URL is required");
   });
 });

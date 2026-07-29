@@ -4,7 +4,7 @@
 
 Do not place connection strings, keys, addresses, or raw receipts in shell history, logs, tickets, or command lines. Inject secret values through the approved secret manager. Stop on any failed gate; do not retry a failed candidate by mutation. Preserve its receipts and quarantine/review the failed source or candidate before a new validated attempt.
 
-Use distinct least-privilege connections: migration owner `DATABASE_URL`; ingest `INGEST_DATABASE_URL`; read-only preflight `RELEASE_PREFLIGHT_DATABASE_URL`; lifecycle operator `RELEASE_OPERATOR_DATABASE_URL`; web `WEB_DATABASE_URL`; corrections `CORRECTION_DATABASE_URL`; address admission `ADDRESS_DATABASE_URL`. `release:health` accepts only the preflight URL and verifies the session's exclusive `dsa_seats_release_preflight` role membership inside PostgreSQL; username spelling is not authorization.
+Use distinct least-privilege connections: migration owner `DATABASE_URL`; ingest `INGEST_DATABASE_URL`; read-only preflight `RELEASE_PREFLIGHT_DATABASE_URL`; lifecycle operator `RELEASE_OPERATOR_DATABASE_URL`; independent launch verifier `LAUNCH_VERIFIER_DATABASE_URL`; web `WEB_DATABASE_URL`; corrections `CORRECTION_DATABASE_URL`; address admission `ADDRESS_DATABASE_URL`. The launch verifier must have a distinct LOGIN principal. `release:health` accepts only the preflight URL and verifies the session's exclusive `dsa_seats_release_preflight` role membership inside PostgreSQL; username spelling is not authorization.
 
 ## Local, disposable mechanism commands
 
@@ -31,6 +31,20 @@ npm run release:health -- --release <rel_release_id>
 ```
 
 The JSON report is deliberately sanitized to counts/statuses/durations. It checks the 541/441/100 universe, 497 valid geometries, source/snapshot status, coverage/quarantine count, unresolved current ingestion runs, seven-domain gate, and bounded repository reads. A local repository gate is clean only when `repositoryStatus` is `pass`. Overall production readiness remains non-pass because production telemetry is explicitly `not_observed`; this is not launch approval.
+
+Run the combined production report from a verifier container that can reach both
+the factual database network and the monitoring network:
+
+```bash
+npm run production:health -- --release <rel_release_id>
+```
+
+The command uses the restricted preflight database role and Prometheus API. A
+healthy deployment reports `repositoryStatus=pass` and
+`productionTelemetryStatus=pass`. `alertDeliveryStatus` remains `blocked` until
+a named human receiver owns the DSA Seats alert route and an end-to-end test
+receipt is retained; a technically configured receiver name alone is not
+delivery evidence.
 
 Run the lifecycle drill only on one loopback `*_test` database, with five distinct LOGIN users, nonproduction `NODE_ENV`, and `RELEASE_DRILL_OPT_IN=RUN_SYNTHETIC_RELEASE_DRILL` already supplied by the disposable test environment:
 
@@ -62,14 +76,91 @@ npm run release:lifecycle -- promote --release rel_... \
 npm run release:lifecycle -- rollback
 ```
 
-The process requires `INGEST_DATABASE_URL`, `RELEASE_PREFLIGHT_DATABASE_URL`, and `RELEASE_OPERATOR_DATABASE_URL`; the ingest connection performs no lifecycle mutation. Map-bearing transitions additionally require configured exact map storage, and reviewed elections require the verified source lock/raw store. Missing or incomplete proof arguments fail before transition.
+Launch proofs are explicit and mutually exclusive: `--launch-finance-proof <id>` or `--launch-election-proof <id>`. They require `LAUNCH_VERIFIER_DATABASE_URL`, an immutable configured raw store, and the review registry. Production reads only `/etc/dsa-seats/launch-review-keys.json`, which must be a root-owned regular file with exact mode `0640` and group equal to the process effective group; do not pass keys or paths on the command line. Nonproduction may set `LAUNCH_REVIEW_KEYS_FILE`. Finance terminal outcomes are derived from persisted verifier data, never CLI input. R4 maps at the fixed cutoff use `--launch-maps` and also require the independent verifier database.
+
+The process requires `INGEST_DATABASE_URL`, `RELEASE_PREFLIGHT_DATABASE_URL`, and `RELEASE_OPERATOR_DATABASE_URL`; the ingest connection performs no lifecycle mutation. Map-bearing transitions additionally require configured exact map storage, and reviewed elections require the verified source lock/raw store. Missing or incomplete proof arguments fail before transition. Defaults remain disabled: no launch proof or map flag is inferred.
 
 For promotion, obtain a short-lived preflight proof through the authorized API while the candidate is locked, then consume it once through the authorized operator API. The proof is bound to target/predecessor and expires; an expired or consumed proof must fail. Direct-predecessor rollback has its defined proof-free path; roll-forward still uses the restricted API and applicable proof. On any conflict, expiry, stale digest, or failed smoke, leave the published pointer unchanged, disable further lifecycle attempts, and roll forward only after the root cause is corrected and a new valid proof is issued.
 
-R2 publication remains externally blocked by real keyed/reviewed FEC evidence and mappings. R3 is blocked by reviewed nationwide election decisions and proof closure. R4 is blocked by a publishable R3 predecessor and production object-retention/runtime-credential evidence. These are not runnable local steps.
+R2/R3/R4 publication is currently blocked until independent reviewer keys, an independent verifier principal, immutable raw storage, and the approval package exist. R2 requires real keyed/reviewed FEC evidence and mappings; R3 requires reviewed nationwide election decisions and proof closure; R4 requires a publishable R3 predecessor and production object-retention/runtime-credential evidence. These are not runnable local steps.
+
+For nonpublication research only, `npm run fetch:fec-local -- --output data/fec-local.json` fetches OpenFEC filing metadata and available electronic filings, sanitizes filings while streaming, and writes canonical content-addressed JSON under `data/fec-local.json.artifacts/` plus a resumable manifest. It requires only `FEC_API_KEY`; `--hours 1..6`, `--artifacts PATH`, and `--resume` are optional. The command has no PostgreSQL or object-store path, and every manifest is permanently marked `publicationEligible:false`, `reviewStatus:"unreviewed"`. Its output cannot be finalized, promoted, signed, or treated as publication evidence.
+
+The production `release` tooling obtains the OpenFEC credential and distinct
+FEC acquisition/replay-verifier database connections only from mounted secret
+files. Both logins must be non-superuser, non-createdb, non-createrole,
+non-replication principals with exactly their corresponding capability role;
+neither may directly write release tables or inherit the other capability.
+Their presence is necessary but insufficient. Do not run
+`npm run acquire:fec-v2` until the exact candidate contains the independently
+sealed 541-seat plan and expectation and the production TLS versioned store has
+recorded retention evidence. The release container receives that evidence and
+the store's public root CA as read-only files. Startup recomputes the evidence
+SHA-256 and rejects evidence that is not bound to the configured endpoint,
+bucket, pinned CA, enabled versioning, writer delete denial, exact one-year
+COMPLIANCE default retention, and a retained-object proof. Never substitute the
+local research fetcher, ordinary raw store, or an operator-created expectation.
 
 ## Operational incidents and retention
 
-Corrections remain disabled unless the trusted-edge/direct-ingress and cleanup evidence is approved. Disable correction intake immediately by removing `CORRECTION_INTAKE_ENABLED=true`; do not expose its CSRF or rate-HMAC secrets. Address lookup remains disabled unless `ADDRESS_LOOKUP_KILL_SWITCH=allow` plus the complete environment-specific privacy gate are approved; disable it immediately by removing that allow value or setting `ADDRESS_LOOKUP_MODE=disabled`. On address/correction privacy uncertainty, disable first, preserve only nonsensitive incident evidence, and follow [`address-lookup-privacy-gate.md`](../deployment/address-lookup-privacy-gate.md).
+Only the root-owned, latched `/run/dsa-seats/feature-gates.json` signed v2 activation package can enable correction intake or address lookup. Production verifies it against `/etc/dsa-seats/feature-gate-public-key.json`; both are root:`dsa-seats-gates`, exact `0640`, beneath root-owned exact-`0750` directories. The key document is `{version:1,keyId,publicKeyPem}` and the gate is an offline Ed25519 signature over canonical JSON; private signing keys must never be deployed. Use separate approved package SHA-256 values when both features are enabled. On uncertainty, replace it with the disabled signed package (or use the negative-only address/correction kill switches); do not use environment variables to activate either feature. Nonproduction may use the explicitly named path overrides only. On address/correction privacy uncertainty, disable first, preserve only nonsensitive incident evidence, and follow [`address-lookup-privacy-gate.md`](../deployment/address-lookup-privacy-gate.md).
 
-Operations owns retention for raw objects, source receipts, lifecycle proofs, operational tables, logs, backups, and vendor exports. Production maps additionally require version retention and delete denial. Do not claim telemetry delivery: signals are bounded, sanitized JSONL best-effort events with no default durable destination or retry. `releaseId`, `runId`, and `sourceId` are JSONL correlation fields only and MUST NOT be metric label dimensions.
+The NUC runs `/usr/local/sbin/dsa-seats-factual-monitor.sh` through
+`dsa-seats-factual-monitor.timer`. Inspect the latest result and its
+low-cardinality textfile metrics with:
+
+```bash
+sudo systemctl status dsa-seats-factual-monitor.timer
+sudo systemctl status dsa-seats-factual-monitor.service
+sudo journalctl -u dsa-seats-factual-monitor.service --since today
+sudo sed -n '1,240p' /srv/server/monitoring/data/node-exporter-textfile/dsa_seats_factual.prom
+```
+
+The monitor checks public HTTPS, the reverse-proxy hop, the NUC origin,
+container health, restricted database access, the published release pointer,
+the seven-domain gate, unresolved ingestion, and the exact map receipt/route
+contract. It emits no release, run, source, URL, address, or receipt identifiers
+as metric labels. Prometheus loads the DSA rules from
+`/etc/prometheus/alerts/dsa-seats-alerts.yml`.
+
+The encrypted factual backup runs through
+`dsa-seats-factual-backup.timer`. A successful backup includes the database,
+immutable raw objects, map objects, exact source archive and source lock,
+deployment/image identity, release and ingest manifests, backup/restore/monitor
+scripts and units, monitor environment, Prometheus config and alert rules, the
+FEC retention evidence and public root CA, and the latest sanitized
+metrics/evidence. The FEC server private key is deliberately excluded and must
+be recovered through the separately approved secret-recovery path. Validate the
+local manifest before using a snapshot:
+
+```bash
+sudo systemctl status dsa-seats-factual-backup.timer
+sudo cat /srv/server/backups/dsa-seats-r1/LAST_SUCCESS
+sudo sh -c 'cd "/srv/server/backups/dsa-seats-r1/$(cat /srv/server/backups/dsa-seats-r1/LAST_SUCCESS)" && sha256sum --check SHA256SUMS'
+```
+
+Run the recovery proof as a transient service:
+
+```bash
+sudo systemd-run \
+  --unit=dsa-seats-factual-restore-drill \
+  --collect \
+  /usr/local/sbin/dsa-seats-factual-restore-drill.sh
+sudo journalctl -fu dsa-seats-factual-restore-drill.service
+```
+
+The drill restores the latest encrypted off-host snapshot into disposable
+networks, containers, and volumes; verifies every backed-up checksum; migrates
+and restores PostgreSQL; proves release/digest/ingest parity and the factual
+closure; starts the restored application; exercises public data restrictions
+and release-addressed browser/profile/sources/method routes; and performs an
+isolated predecessor rollback and roll-forward. It also starts the restored FEC
+store with the recovered TLS secret, validates it over HTTPS with the backed-up
+public CA, proves the CA and server-certificate bindings recorded by the
+retention evidence, and requires both the exact one-year COMPLIANCE default and
+the retained object's versioned COMPLIANCE lock. Evidence is written beneath
+`/srv/server/restore-evidence/dsa-seats/`, metrics beneath
+`/srv/server/monitoring/data/node-exporter-textfile/`, and disposable resources
+must be absent after completion.
+
+Operations owns retention for raw objects, source receipts, lifecycle proofs, operational tables, logs, backups, and vendor exports. Production maps additionally require version retention and delete denial. Do not claim alert delivery without a named human receiver and retained end-to-end receipt. Application telemetry signals are bounded, sanitized JSONL best-effort events with no default durable destination or retry. `releaseId`, `runId`, and `sourceId` are JSONL correlation fields only and MUST NOT be metric label dimensions.

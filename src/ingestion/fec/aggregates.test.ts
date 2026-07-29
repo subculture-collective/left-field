@@ -24,7 +24,8 @@ describe("FEC finance aggregation", () => {
   it("Oracle decimal cent arithmetic and malformed/nonfinite/too-many-decimal amounts", () => {
     const out = aggregateFecFinance([mapping()], "C", 2024, target, resolve([report("P", 1, ["0.10", "0.20", "0.30"]), report("A", 2, ["0.20", "0.10", "0.40"])]));
     expect(out).toMatchObject({ cashOnHand: { value: "0.30" }, receipts: { value: "0.30" }, disbursements: { value: "0.70" } });
-    for (const bad of ["NaN", "Infinity", "1.234", "-1", "1e2"]) expect(() => aggregateFecFinance([mapping(["P"])], "C", 2024, target, resolve([report("P", 1, [bad, "1.00", "1.00"])]))).toThrow("INVALID_MONEY_AMOUNT");
+    for (const bad of ["NaN", "Infinity", "1.234", "1e2"]) expect(() => aggregateFecFinance([mapping(["P"])], "C", 2024, target, resolve([report("P", 1, [bad, "1.00", "1.00"])]))).toThrow("INVALID_MONEY_AMOUNT");
+    expect(aggregateFecFinance([mapping(["P"])], "C", 2024, target, resolve([report("P", 1, ["-1.00", "2.00", "-0.50"])]))).toMatchObject({ cashOnHand: { value: "-1.00" }, disbursements: { value: "-0.50" } });
   });
   it("Oracle rejects malformed selected money despite null fields or missing committees", () => {
     const malformedValues: [string | null, string | null, string | null][] = [["1.234", null, null], [null, "1.234", null], [null, null, "1.234"]];

@@ -1,9 +1,11 @@
 import { createHash } from "node:crypto";
+import { readFileSync, realpathSync, statSync } from "node:fs";
 import { readdir, readFile, realpath, stat } from "node:fs/promises";
 import { basename, posix, relative, resolve } from "node:path";
 import { S3Client } from "@aws-sdk/client-s3";
 import type { Pool } from "pg";
 import { LocalRawObjectStore, S3RawObjectStore, type RawObjectStore } from "@/ingestion/core/raw-object-store";
+import { createNonproductionS3VersionedRawObjectStore, createS3VersionedRawObjectStore, isFecV2LiteralLoopbackHost, type EndpointPolicy, type S3VersionedStoreConfig, type VersionedRawObjectStore } from "@/ingestion/fec/versioned-artifact-store";
 import { createIdentityAdapter } from "@/ingestion/identity/adapter";
 import { parseSenateRoster, parseSenateServiceStartsArtifact } from "@/ingestion/identity/senate";
 import type { SenateSeat } from "@/ingestion/identity/senate";
@@ -99,16 +101,87 @@ const houseTerm = (stateCode: string) => ({ termStartsAt: "2025-01-03", termEnds
 const senateTerm = (senateClass: SenateSeat["senateClass"]) => senateClass === 1 ? { termStartsAt: "2025-01-03", termEndsAt: "2031-01-03" } as const : senateClass === 2 ? { termStartsAt: "2021-01-03", termEndsAt: "2027-01-03" } as const : { termStartsAt: "2023-01-03", termEndsAt: "2029-01-03" } as const;
 
 export function assertProductionIngestionEnv(env: NodeJS.ProcessEnv): void { if (env.NODE_ENV === "production" && (!env.RAW_OBJECT_BUCKET || !env.INGEST_DATABASE_URL || !env.SOURCE_LOCK_SHA256 || !hashPattern.test(env.SOURCE_LOCK_SHA256))) fail("Production ingestion requires RAW_OBJECT_BUCKET, INGEST_DATABASE_URL, and SOURCE_LOCK_SHA256"); }
-export function createRawObjectStore(env: NodeJS.ProcessEnv, projectRoot = process.cwd()): RawObjectStore {
-  if (env.NODE_ENV === "production") { assertProductionIngestionEnv(env); if (!!env.AWS_ACCESS_KEY_ID !== !!env.AWS_SECRET_ACCESS_KEY) fail("AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY must be supplied together"); return new S3RawObjectStore(new S3Client({ region: env.AWS_REGION, endpoint: env.RAW_OBJECT_ENDPOINT, forcePathStyle: env.RAW_OBJECT_FORCE_PATH_STYLE === "true", ...(env.AWS_ACCESS_KEY_ID ? { credentials: { accessKeyId: env.AWS_ACCESS_KEY_ID, secretAccessKey: env.AWS_SECRET_ACCESS_KEY! } } : {}) }), env.RAW_OBJECT_BUCKET!); }
+export function createArtifactRawObjectStore(env: NodeJS.ProcessEnv, projectRoot = process.cwd()): RawObjectStore {
+  if (env.NODE_ENV === "production") { if (!env.RAW_OBJECT_BUCKET) fail("Production artifact storage requires RAW_OBJECT_BUCKET"); if (!!env.AWS_ACCESS_KEY_ID !== !!env.AWS_SECRET_ACCESS_KEY) fail("AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY must be supplied together"); return new S3RawObjectStore(new S3Client({ region: env.AWS_REGION, endpoint: env.RAW_OBJECT_ENDPOINT, forcePathStyle: env.RAW_OBJECT_FORCE_PATH_STYLE === "true", ...(env.AWS_ACCESS_KEY_ID ? { credentials: { accessKeyId: env.AWS_ACCESS_KEY_ID, secretAccessKey: env.AWS_SECRET_ACCESS_KEY! } } : {}) }), env.RAW_OBJECT_BUCKET!); }
   const rawRoot = env.RAW_OBJECT_ROOT; if (!rawRoot) fail("Nonproduction ingestion requires explicit RAW_OBJECT_ROOT"); return new LocalRawObjectStore(resolve(projectRoot, rawRoot!));
 }
+export function createRawObjectStore(env: NodeJS.ProcessEnv, projectRoot = process.cwd()): RawObjectStore { assertProductionIngestionEnv(env); return createArtifactRawObjectStore(env, projectRoot); }
+export function verifyFecV2RetentionEvidence(env: NodeJS.ProcessEnv, bucket: string, endpoint: string): string {
+  const evidencePath = env.FEC_V2_RETENTION_EVIDENCE_FILE, caPath = env.FEC_V2_CA_CERT_FILE;
+  if (typeof evidencePath !== "string" || typeof caPath !== "string" || !evidencePath.startsWith("/") || !caPath.startsWith("/")) return fail("FEC_V2_STORE_CONFIGURATION_REQUIRED");
+  const evidenceFile: string = evidencePath, caFile: string = caPath;
+  let bytes: Buffer, ca: Buffer;
+  try {
+    const evidenceTarget = realpathSync(evidenceFile), caTarget = realpathSync(caFile);
+    if (!statSync(evidenceTarget).isFile() || !statSync(caTarget).isFile()) fail("FEC_V2_STORE_CONFIGURATION_INVALID");
+    bytes = readFileSync(evidenceTarget); ca = readFileSync(caTarget);
+  } catch { return fail("FEC_V2_STORE_CONFIGURATION_INVALID"); }
+  if (bytes.byteLength < 1 || bytes.byteLength > 64 * 1024 || ca.byteLength < 1 || ca.byteLength > 64 * 1024 || bytes.includes(0) || ca.includes(0)) fail("FEC_V2_STORE_CONFIGURATION_INVALID");
+  const evidenceSha256 = sha(bytes);
+  if (!env.FEC_V2_RETENTION_EVIDENCE_SHA256 || evidenceSha256 !== env.FEC_V2_RETENTION_EVIDENCE_SHA256) fail("FEC_V2_STORE_CONFIGURATION_INVALID");
+  const text = bytes.toString("utf8"), fields = new Map<string, string>();
+  for (const line of text.split("\n")) {
+    const match = /^([a-z][a-z0-9_]*)=(.*)$/.exec(line);
+    if (match) {
+      if (fields.has(match[1]!)) fail("FEC_V2_STORE_CONFIGURATION_INVALID");
+      fields.set(match[1]!, match[2]!);
+    }
+  }
+  let evidenceEndpoint: string;
+  try { evidenceEndpoint = new URL(fields.get("endpoint") ?? "").toString(); } catch { return fail("FEC_V2_STORE_CONFIGURATION_INVALID"); }
+  const captured = Date.parse(fields.get("captured_at") ?? ""), retained = Date.parse(/X-Amz-Object-Lock-Retain-Until-Date:\s*(\S+)/.exec(text)?.[1] ?? "");
+  const retentionDays = (retained - captured) / 86_400_000;
+  if (
+    fields.get("evidence_class") !== "fec-v2-production-versioned-retained-store"
+    || fields.get("bucket") !== bucket
+    || evidenceEndpoint !== endpoint
+    || fields.get("tls_without_private_ca") !== "rejected"
+    || fields.get("tls_with_pinned_ca") !== "pass"
+    || fields.get("ca_sha256") !== sha(ca)
+    || fields.get("writer_object_delete") !== "denied"
+    || fields.get("status") !== "pass"
+    || !text.includes("versioning is enabled")
+    || !text.includes("Object locking 'COMPLIANCE' is configured for 1YEARS.")
+    || !text.includes("X-Amz-Object-Lock-Mode             : COMPLIANCE")
+    || !Number.isFinite(retentionDays)
+    || retentionDays < 364
+    || retentionDays > 367
+  ) fail("FEC_V2_STORE_CONFIGURATION_INVALID");
+  return evidenceSha256;
+}
+/** Pure, strict FEC V2 configuration: this never falls back to generic AWS settings. */
+export function parseFecV2VersionedStoreConfig(env: NodeJS.ProcessEnv): S3VersionedStoreConfig {
+  const bucket=env.FEC_V2_OBJECT_BUCKET, region=env.FEC_V2_S3_REGION, endpoint=env.FEC_V2_OBJECT_ENDPOINT;
+  if(!bucket||!region||!endpoint||!env.FEC_V2_S3_ACCESS_KEY_ID||!env.FEC_V2_S3_SECRET_ACCESS_KEY) fail("FEC_V2_STORE_CONFIGURATION_REQUIRED");
+  if(env.NODE_TLS_REJECT_UNAUTHORIZED==="0") fail("FEC_V2_STORE_CONFIGURATION_INVALID");
+  const required={bucket:bucket!,region:region!,endpoint:endpoint!,accessKeyId:env.FEC_V2_S3_ACCESS_KEY_ID!,secretAccessKey:env.FEC_V2_S3_SECRET_ACCESS_KEY!};
+  if(!/^[a-z0-9](?:[a-z0-9.-]{1,61}[a-z0-9])?$/.test(required.bucket)) fail("FEC_V2_STORE_CONFIGURATION_INVALID");
+  let url:URL;try{url=new URL(required.endpoint);}catch{return fail("FEC_V2_STORE_CONFIGURATION_INVALID");}
+  if(url.username||url.password||url.search||url.hash) fail("FEC_V2_STORE_CONFIGURATION_INVALID");
+  if(env.FEC_V2_STORE_MODE!=="production"&&env.FEC_V2_STORE_MODE!=="local_loopback") fail("FEC_V2_STORE_CONFIGURATION_INVALID");
+  const local=env.FEC_V2_STORE_MODE==="local_loopback";
+  const host=url.hostname.toLowerCase().replace(/^\[|\]$/g, "").replace(/\.+$/, ""); const literalLoopback=isFecV2LiteralLoopbackHost(host);
+  if(host==="0.0.0.0"||host==="::"||host.startsWith("::ffff:") || (env.NODE_ENV==="production"&&local)|| (local ? url.protocol!=="http:"||!literalLoopback : url.protocol!=="https:"||literalLoopback||host==="localhost"||host.startsWith("::ffff:")||!env.FEC_V2_RETENTION_EVIDENCE_SHA256||!hashPattern.test(env.FEC_V2_RETENTION_EVIDENCE_SHA256))) fail("FEC_V2_STORE_CONFIGURATION_INVALID");
+  if(env.FEC_V2_OBJECT_FORCE_PATH_STYLE!==undefined&&env.FEC_V2_OBJECT_FORCE_PATH_STYLE!=="true") fail("FEC_V2_STORE_CONFIGURATION_INVALID");
+  // The AWS SDK's Node transport validates TLS by default; disabling it via its global env is rejected above.
+  const config=Object.freeze({region:required.region,endpoint:url.toString(),forcePathStyle:true as const,credentials:Object.freeze({accessKeyId:required.accessKeyId,secretAccessKey:required.secretAccessKey,...(env.FEC_V2_S3_SESSION_TOKEN?{sessionToken:env.FEC_V2_S3_SESSION_TOKEN}:{})})});
+  const retentionEvidenceSha256 = local ? undefined : verifyFecV2RetentionEvidence(env, required.bucket, config.endpoint);
+  const policy:EndpointPolicy=Object.freeze(local?{mode:"local_loopback",endpointUrl:config.endpoint,certificateValidation:false}:{mode:"production",endpointUrl:config.endpoint,certificateValidation:true,retentionEvidenceSha256:retentionEvidenceSha256!});
+  return Object.freeze({bucket:required.bucket,client:config,policy});
+}
+/** Production construction has no injectable client boundary. */
+export function loadFecV2VersionedStoreFromEnvironment(env: NodeJS.ProcessEnv): VersionedRawObjectStore { const config=parseFecV2VersionedStoreConfig(env); return config.policy.mode === "production" ? createS3VersionedRawObjectStore(config) : createNonproductionS3VersionedRawObjectStore(config); }
 export async function sourceId(pool: Pool, release: string, name: ConfiguredSource): Promise<string> {
   if (name !== "acs") { const result = await pool.query<{ id: string }>("SELECT id FROM sources WHERE release_id=$1 AND name=$2", [release, name]); if (result.rowCount !== 1) fail(`Expected exactly one preregistered ${name} source for release ${release}`); return result.rows[0]!.id; }
   const client = await pool.connect();
   try {
     await client.query("BEGIN");
-    const releaseRow = await client.query<{ status: string }>("SELECT status FROM data_releases WHERE id=$1 FOR UPDATE", [release]);
+    // Serialize with lifecycle operations without requiring the ingest role to
+    // hold UPDATE on data_releases. SELECT ... FOR UPDATE would silently widen
+    // this least-privilege boundary because PostgreSQL requires UPDATE privilege
+    // for row locks, even when the query only reads status.
+    await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [release]);
+    const releaseRow = await client.query<{ status: string }>("SELECT status FROM data_releases WHERE id=$1", [release]);
     if (releaseRow.rowCount !== 1 || releaseRow.rows[0]!.status !== "candidate") fail("ACS_SOURCE_RELEASE_NOT_CANDIDATE");
     const rows = await client.query<{ id: string; name: string; authority: string; homepage_url: string }>("SELECT id,name,authority,homepage_url FROM sources WHERE release_id=$1 AND (name='acs' OR id='src_acs_2024') FOR UPDATE", [release]);
     if (!rows.rowCount) await client.query("INSERT INTO sources(id,release_id,name,authority,homepage_url) VALUES('src_acs_2024',$1,'acs','official','https://www.census.gov/programs-surveys/acs.html')", [release]);

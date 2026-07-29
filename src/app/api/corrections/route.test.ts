@@ -4,10 +4,11 @@ import type { SubmitCorrectionResult } from "@/corrections/repository";
 import { issueCorrectionCsrf, parseCorrectionSecurityConfig } from "@/corrections/security";
 import { createCorrectionHandler } from "./route";
 
-const config = parseCorrectionSecurityConfig({ CORRECTION_INTAKE_ENABLED: "true", CORRECTION_PUBLIC_ORIGIN: "https://example.test", CORRECTION_TRUSTED_IP_HEADER: "x-edge-client-ip", CORRECTION_CSRF_SECRET: "a".repeat(32), CORRECTION_RATE_HMAC_SECRET: "b".repeat(32) });
+const config = parseCorrectionSecurityConfig({ CORRECTION_KILL_SWITCH: "allow", CORRECTION_APPROVAL_REVISION: "a".repeat(64), CORRECTION_PUBLIC_ORIGIN: "https://example.test", CORRECTION_TRUSTED_IP_HEADER: "x-edge-client-ip", CORRECTION_CSRF_SECRET: "a".repeat(32), CORRECTION_RATE_HMAC_SECRET: "b".repeat(32) }, { packageSha256: "a".repeat(64), expiresAt: "2099-01-01T00:00:00.000Z" });
 const now = new Date("2026-01-02T03:04:05.000Z");
 const id = "5d39ad18-8bd5-4a0f-922d-4f04942d1433";
 const body = { releaseId: "rel_1", fieldPath: "identity.party", explanation: "This explanation is sufficiently detailed." };
+const enabledGates = async () => ({ version: 2 as const, generatedAt: "", signerKeyId: "test", signature: "", correction: { mode: "enabled" as const, packageSha256: "a".repeat(64), expiresAt: "2099-01-01T00:00:00.000Z" }, address: { mode: "disabled" as const } });
 
 function request(overrides: { body?: unknown; headers?: Record<string, string> } = {}): Request {
   const csrf = issueCorrectionCsrf(config, now.getTime());
@@ -17,10 +18,16 @@ function request(overrides: { body?: unknown; headers?: Record<string, string> }
   }, body: JSON.stringify(overrides.body ?? body) });
 }
 function handler(result: SubmitCorrectionResult = { outcome: "accepted", correctionId: id, created: true, retryAfter: null }) {
-  return createCorrectionHandler({ getConfig: () => config, now: () => now, createRepository: () => ({ consumeAttempt: async () => ({ allowed: true, retryAfter: null }), submit: async () => result }) });
+  return createCorrectionHandler({ getGates: enabledGates, getConfig: () => config, now: () => now, createRepository: () => ({ consumeAttempt: async () => ({ allowed: true, retryAfter: null }), submit: async () => result }) });
 }
 
 describe("corrections route", () => {
+  it("is disabled before reading a body or constructing dependencies", async () => {
+    let constructed = false;
+    const handler = createCorrectionHandler({ getGates: async () => ({ version: 2, generatedAt: "", signerKeyId: "", signature: "", correction: { mode: "disabled" }, address: { mode: "disabled" } }), getConfig: () => { throw new Error("must not parse"); }, createRepository: () => { constructed = true; throw new Error("must not construct"); } });
+    const response = await handler.POST(new Request("https://x/api/corrections", { method: "POST", duplex: "half", body: new ReadableStream({ pull() { throw new Error("body read"); } }) } as RequestInit));
+    expect(response.status).toBe(503); expect(await response.json()).toEqual({ status: "disabled" }); expect(constructed).toBe(false);
+  });
   it("issues no-store CSRF and idempotency material", async () => {
     const response = await handler().GET();
     const payload = await response.json();
@@ -29,10 +36,10 @@ describe("corrections route", () => {
     expect(payload).toMatchObject({ csrfToken: expect.any(String), idempotencyToken: expect.stringMatching(/^[A-Za-z0-9_-]{43}$/) });
   });
   it("fails closed when configuration or the database cannot be initialized", async () => {
-    expect((await createCorrectionHandler({ getConfig: () => { throw new Error("secret"); } }).GET()).status).toBe(503);
-    const unavailable = await createCorrectionHandler({ getConfig: () => config, createRepository: () => { throw new Error("database url"); } }).POST(request());
+    expect((await createCorrectionHandler({ getGates: enabledGates, getConfig: () => { throw new Error("secret"); } }).GET()).status).toBe(503);
+    const unavailable = await createCorrectionHandler({ getGates: enabledGates, getConfig: () => config, createRepository: () => { throw new Error("database url"); } }).POST(request());
     expect(await unavailable.json()).toEqual({ status: "unavailable" });
-    expect((await createCorrectionHandler({ getConfig: () => config, createRepository: () => { throw new Error("database url"); } }).GET()).status).toBe(503);
+    expect((await createCorrectionHandler({ getGates: enabledGates, getConfig: () => config, createRepository: () => { throw new Error("database url"); } }).GET()).status).toBe(503);
   });
   it.each([
     [{ origin: "https://evil.test" }, 403, "forbidden"], [{ "sec-fetch-site": "cross-site" }, 403, "forbidden"], [{ "x-edge-client-ip": "1.1.1.1, 2.2.2.2" }, 403, "forbidden"],
@@ -58,11 +65,11 @@ describe("corrections route", () => {
     if (status === 429) expect(response.headers.get("retry-after")).toBe("3600");
   });
   it("sanitizes database exceptions", async () => {
-    const response = await createCorrectionHandler({ getConfig: () => config, now: () => now, createRepository: () => ({ consumeAttempt: async () => ({ allowed: true, retryAfter: null }), submit: async () => { throw new Error("postgres password"); } }) }).POST(request());
+    const response = await createCorrectionHandler({ getGates: enabledGates, getConfig: () => config, now: () => now, createRepository: () => ({ consumeAttempt: async () => ({ allowed: true, retryAfter: null }), submit: async () => { throw new Error("postgres password"); } }) }).POST(request());
     expect(response.status).toBe(503); expect(await response.text()).toBe('{"status":"unavailable"}');
   });
   it("throttles trusted malformed transport before parsing the body", async () => {
-    const response = await createCorrectionHandler({ getConfig: () => config, now: () => now, createRepository: () => ({ consumeAttempt: async () => ({ allowed: false, retryAfter: 12 }), submit: async () => { throw new Error("must not submit"); } }) }).POST(request({ headers: { "idempotency-key": "bad" } }));
+    const response = await createCorrectionHandler({ getGates: enabledGates, getConfig: () => config, now: () => now, createRepository: () => ({ consumeAttempt: async () => ({ allowed: false, retryAfter: 12 }), submit: async () => { throw new Error("must not submit"); } }) }).POST(request({ headers: { "idempotency-key": "bad" } }));
     expect(response.status).toBe(429); expect(response.headers.get("retry-after")).toBe("12"); expect(await response.json()).toEqual({ status: "rate_limited" });
   });
 });

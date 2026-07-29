@@ -1,0 +1,13 @@
+[Unit]
+Description=Run DSA Seats factual production probes every minute
+
+[Timer]
+OnBootSec=1min
+OnUnitActiveSec=1min
+RandomizedDelaySec=10s
+AccuracySec=5s
+Persistent=true
+Unit=dsa-seats-factual-monitor.service
+
+[Install]
+WantedBy=timers.target

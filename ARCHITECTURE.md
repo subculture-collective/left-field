@@ -2,7 +2,7 @@
 
 ## Implemented Phase 1 baseline (2026-07-21)
 
-The checked-in baseline is a modular monolith: **Next.js route handlers and TypeScript**, Drizzle, and a local tested **PostgreSQL 16.4/PostGIS 3.4** baseline. Immutable migrations `0000`–`0005` define 70 tables. This describes repository and disposable-local evidence, not a production deployment.
+The checked-in baseline is a modular monolith: **Next.js route handlers and TypeScript**, Drizzle, and a local tested **PostgreSQL 16.4/PostGIS 3.4** baseline. Migrations `0000`–`0006` define 90 tables, including normalized launch-proof evidence and verifier attestations. This describes repository and disposable-local evidence, not a production deployment.
 
 The current published release is R1 only: **541 offices** (441 House and 100 Senate) and **497 valid geometries**. R2 (members/ACS/finance), R3 (elections), and R4 (maps, corrections, and lookup readiness) are candidate, synthetic, disabled, or otherwise blocked; none may be represented as published factual enrichment.
 
@@ -10,8 +10,8 @@ The current published release is R1 only: **541 offices** (441 House and 100 Sen
 
 - Next route handlers serve public reads through bounded direct SQL DTO queries. Browse limits its root result to 51 and joins to the 541-seat catalog; profile reads use a bounded recursive source-closure query seeded from the current DTO, rather than an unbounded graph traversal.
 - Release manifests v1/v2 bind release content. Seven domain digests and their invalidation triggers gate candidate validation and promotion; a changed gated domain removes its digest and validation gate transactionally.
-- `DATABASE_URL` is migration-owner only. `WEB_DATABASE_URL` is read-only; `INGEST_DATABASE_URL`, `RELEASE_PREFLIGHT_DATABASE_URL`, and `RELEASE_OPERATOR_DATABASE_URL` are distinct ingestion, restricted-preflight, and single-use operator capabilities. Correction intake/review/maintenance and address-lookup roles use their own URLs. These credentials are not interchangeable.
-- Candidate creation, validation/preflight proof, and promotion are separate actions. Proofs expire, are single-use, freeze candidate writers, and are consumed by the operator lifecycle function. The lifecycle CLI performs promote, rollback, and roll-forward only; it never creates or mutates candidates. Public readers see only the published pointer.
+- `DATABASE_URL` is migration-owner only. `WEB_DATABASE_URL` is read-only; `INGEST_DATABASE_URL`, `LAUNCH_VERIFIER_DATABASE_URL`, `RELEASE_PREFLIGHT_DATABASE_URL`, and `RELEASE_OPERATOR_DATABASE_URL` are distinct ingestion, cryptographic verification, restricted-preflight, and single-use operator capabilities. Correction intake/review/maintenance and address-lookup roles use their own URLs. These credentials are not interchangeable.
+- Candidate creation, launch verification, preflight proof, and promotion are separate actions. Launch attestations and proofs expire, are single-use, bind the branch and fingerprints, freeze candidate writers, and are consumed by the operator lifecycle function. The lifecycle CLI performs promote, rollback, and roll-forward only; it never creates or mutates candidates. Public readers see only the published pointer.
 - Candidate baselines may be copied only from an eligible published or retired schema-v2 release. Published and retired release history remains immutable; rollback and roll-forward change the pointer rather than rebuild data.
 
 ## Maps and operations

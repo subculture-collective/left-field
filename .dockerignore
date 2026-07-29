@@ -1,0 +1,13 @@
+.git
+.next
+.env
+.env.*
+!.env.example
+node_modules
+coverage
+test-results
+FEC
+data/fec-local*.json
+data/fec-local*.artifacts
+*.log
+*.tsbuildinfo

@@ -41,7 +41,20 @@ export function isVerifiedRollbackDrillEvidence(value: unknown, releaseId?: stri
 }
 
 async function safely(name: CheckName, work: () => Promise<ReleaseHealthCheck>): Promise<ReleaseHealthCheck> { try { return await work(); } catch { return check(name, "fail", { durationMs: 0 }); } }
-async function repositorySmoke(client: PoolClient, releaseId: string): Promise<ReleaseHealthCheck> { const page = await listSeatPage(client, releaseId as never, { limit: 1, sort: "state", direction: "asc" }); const seat = page.items[0]; if (!seat) return check("repository_smokes", "fail", { smokes: 0 }); const [profile, sources, coverage] = await Promise.all([getSeatProfile(client, releaseId as never, seat.id), listSources(client, releaseId as never), listReleaseCoverage(client, releaseId as never)]); const smokes = Number(profile !== null) + Number(sources.length > 0) + Number(coverage.length > 0) + 1; return check("repository_smokes", smokes === 4 ? "pass" : "fail", { smokes }); }
+async function repositorySmoke(client: PoolClient, releaseId: string): Promise<ReleaseHealthCheck> {
+  const page = await listSeatPage(client, releaseId as never, { limit: 1, sort: "state", direction: "asc" });
+  const seat = page.items[0];
+  if (!seat) return check("repository_smokes", "fail", { smokes: 0 });
+
+  // node-postgres serializes queries on one PoolClient. Await them explicitly:
+  // Promise.all on a transaction-bound client is not concurrent and emits a
+  // deprecation warning in current pg releases.
+  const profile = await getSeatProfile(client, releaseId as never, seat.id);
+  const sources = await listSources(client, releaseId as never);
+  const coverage = await listReleaseCoverage(client, releaseId as never);
+  const smokes = Number(profile !== null) + Number(sources.length > 0) + Number(coverage.length > 0) + 1;
+  return check("repository_smokes", smokes === 4 ? "pass" : "fail", { smokes });
+}
 
 /** Runs database checks in one immutable snapshot and always returns the complete ordered checklist. */
 export async function inspectReleaseHealth(pool: Pool, releaseId: string, options: ReleaseHealthOptions = {}): Promise<ReleaseHealthReport> {
@@ -49,7 +62,7 @@ export async function inspectReleaseHealth(pool: Pool, releaseId: string, option
   const replace = (item: ReleaseHealthCheck): void => { checks.set(item.name, item); };
   let databaseClass: ReleaseHealthDatabaseClass = "unknown"; let client: PoolClient | undefined; let commitAttempted = false;
   try {
-    client = await pool.connect(); await client.query("BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY"); await client.query("SET LOCAL statement_timeout = '5000ms'");
+    client = await pool.connect(); await client.query("BEGIN ISOLATION LEVEL REPEATABLE READ READ ONLY"); await client.query("SET LOCAL statement_timeout = '60000ms'");
     const restricted = (await client.query<{ restricted: boolean }>("SELECT NOT EXISTS(SELECT 1 FROM pg_roles WHERE rolname=session_user AND rolsuper) AND session_user::text<>(SELECT pg_get_userbyid(datdba)::text FROM pg_database WHERE datname=current_database()) AND (SELECT count(*) FROM pg_auth_members membership JOIN pg_roles member ON member.oid=membership.member WHERE member.rolname=session_user)=1 AND EXISTS(SELECT 1 FROM pg_auth_members membership JOIN pg_roles member ON member.oid=membership.member JOIN pg_roles granted ON granted.oid=membership.roleid WHERE member.rolname=session_user AND granted.rolname='dsa_seats_release_preflight') AS restricted")).rows[0]?.restricted === true;
     replace(check("preflight_access", restricted ? "pass" : "fail", { restricted: Number(restricted) })); if (!restricted) throw new Error("restricted preflight session required");
     replace(await safely("universe", async () => { const row = (await client!.query<CountRow>("SELECT count(sc.id) total_seats,count(sc.id) FILTER (WHERE o.kind='house_voting') voting_house,count(sc.id) FILTER (WHERE o.kind='house_delegate') delegates,count(sc.id) FILTER (WHERE o.kind='resident_commissioner') resident_commissioner,count(sc.id) FILTER (WHERE o.kind='senate') senate,count(sc.id) FILTER (WHERE o.senate_class=1) senate_class_1,count(sc.id) FILTER (WHERE o.senate_class=2) senate_class_2,count(sc.id) FILTER (WHERE o.senate_class=3) senate_class_3,count(sc.id) FILTER (WHERE sc.occupancy_status='vacant') vacancies,count(sc.id) FILTER (WHERE sc.election_kind='special') special_election_seats,(SELECT count(*) FROM jurisdictions j WHERE j.release_id=r.id) jurisdictions,count(DISTINCT r.id) FILTER (WHERE r.source_cutoff IS NOT NULL) source_cutoff_present FROM data_releases r LEFT JOIN seat_cycles sc ON sc.release_id=r.id LEFT JOIN offices o ON o.release_id=sc.release_id AND o.id=sc.office_id WHERE r.id=$1 GROUP BY r.id", [releaseId])).rows[0]; const totalSeats=count(row?.total_seats),votingHouse=count(row?.voting_house),delegates=count(row?.delegates),residentCommissioner=count(row?.resident_commissioner),senate=count(row?.senate),senateClass1=count(row?.senate_class_1),senateClass2=count(row?.senate_class_2),senateClass3=count(row?.senate_class_3),vacancies=count(row?.vacancies),specialElectionSeats=count(row?.special_election_seats),jurisdictions=count(row?.jurisdictions),sourceCutoffPresent=count(row?.source_cutoff_present); return check("universe", totalSeats===541 && votingHouse===435 && delegates===5 && residentCommissioner===1 && senate===100 && senateClass1===33 && senateClass2===33 && senateClass3===34 && vacancies>=0 && specialElectionSeats>=0 && jurisdictions===56 && sourceCutoffPresent===1 ? "pass":"fail", { totalSeats,votingHouse,delegates,residentCommissioner,senate,senateClass1,senateClass2,senateClass3,vacancies,specialElectionSeats,jurisdictions,sourceCutoffPresent }); }));

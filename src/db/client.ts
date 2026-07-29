@@ -5,6 +5,7 @@ import * as schema from "./schema";
 let pool: Pool | undefined;
 let database: NodePgDatabase<typeof schema> | undefined;
 let ingestPool: Pool | undefined;
+let nationwideFinalizerPool: Pool | undefined;
 let releasePreflightPool: Pool | undefined;
 let releaseOperatorPool: Pool | undefined;
 let correctionPool: Pool | undefined;
@@ -18,6 +19,16 @@ const boundedPoolOptions = (connectionString: string) => ({
   statement_timeout: 15_000,
   lock_timeout: 1_000,
   idleTimeoutMillis: 30_000,
+});
+
+const nationwideFinalizerPoolOptions = (connectionString: string) => ({
+  ...boundedPoolOptions(connectionString),
+  // Nationwide cloning and digest recomputation are offline, serialized jobs.
+  // Keep them bounded, but do not apply the 15-second request-path budget: a
+  // production member baseline takes roughly three minutes on the NUC.
+  query_timeout: 310_000,
+  statement_timeout: 300_000,
+  max: 2,
 });
 
 function webDatabaseUrl(): string {
@@ -42,10 +53,11 @@ export function getPool(): Pool {
   return pool!;
 }
 
-function configuredPool(variable: "INGEST_DATABASE_URL" | "RELEASE_PREFLIGHT_DATABASE_URL" | "RELEASE_OPERATOR_DATABASE_URL" | "CORRECTION_DATABASE_URL", slot: "ingest" | "preflight" | "operator" | "correction"): Pool {
+function configuredPool(variable: "INGEST_DATABASE_URL" | "NATIONWIDE_FINALIZER_DATABASE_URL" | "RELEASE_PREFLIGHT_DATABASE_URL" | "RELEASE_OPERATOR_DATABASE_URL" | "CORRECTION_DATABASE_URL", slot: "ingest" | "finalizer" | "preflight" | "operator" | "correction"): Pool {
   const connectionString = process.env[variable];
   if (!connectionString) throw new Error(`${variable} is required for this privileged database operation`);
   if (slot === "ingest") return ingestPool ??= new Pool(boundedPoolOptions(connectionString));
+  if (slot === "finalizer") return nationwideFinalizerPool ??= new Pool(nationwideFinalizerPoolOptions(connectionString));
   if (slot === "preflight") return releasePreflightPool ??= new Pool({ connectionString });
   if (slot === "correction") return correctionPool ??= new Pool({ connectionString, connectionTimeoutMillis: 5_000, statement_timeout: 5_000, lock_timeout: 1_000, query_timeout: 5_000 });
   return releaseOperatorPool ??= new Pool({ connectionString });
@@ -53,6 +65,7 @@ function configuredPool(variable: "INGEST_DATABASE_URL" | "RELEASE_PREFLIGHT_DAT
 
 /** These are intentionally separate from getPool(), which is safe for web use. */
 export const getIngestPool = (): Pool => configuredPool("INGEST_DATABASE_URL", "ingest");
+export const getNationwideFinalizerPool = (): Pool => configuredPool("NATIONWIDE_FINALIZER_DATABASE_URL", "finalizer");
 export const getReleasePreflightPool = (): Pool => configuredPool("RELEASE_PREFLIGHT_DATABASE_URL", "preflight");
 export const getReleaseOperatorPool = (): Pool => configuredPool("RELEASE_OPERATOR_DATABASE_URL", "operator");
 /** Separate constrained connection for correction intake/review/maintenance roles. */
@@ -67,12 +80,14 @@ export function getAddressPool(): Pool {
 export async function closeDb(): Promise<void> {
   await pool?.end();
   await ingestPool?.end();
+  await nationwideFinalizerPool?.end();
   await releasePreflightPool?.end();
   await releaseOperatorPool?.end();
   await correctionPool?.end();
   await addressPool?.end();
   pool = undefined;
   ingestPool = undefined;
+  nationwideFinalizerPool = undefined;
   releasePreflightPool = undefined;
   releaseOperatorPool = undefined;
   correctionPool = undefined;

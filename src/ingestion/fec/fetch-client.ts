@@ -1,6 +1,8 @@
 import { createHash } from "node:crypto";
 import type { FecCandidateMapping, FinanceScope, OutsideSpendingRecord } from "./aggregates";
 import type { DecimalMoney, FecReportVersion } from "./amendments";
+import { loadFecApiCredential } from "./credential";
+import { isFecCandidateId, isFecCommitteeId, normalizeFecMoney, openFecTimestampDate } from "./values";
 import {
   encodeFecSanitizedEnvelope,
   canonicalizeFecFinanceScope,
@@ -93,31 +95,15 @@ const date = (value: unknown, code: string): string => {
   return candidate;
 };
 const responseDate = (value: unknown, code: string): string => {
-  if (typeof value !== "string") return fail(code);
-  return date(value.slice(0, 10), code);
+  return openFecTimestampDate(value) ?? fail(code);
 };
 const money = (value: unknown, code: string): DecimalMoney | null => {
-  if (value === null || value === undefined) return null;
-  const candidate =
-    typeof value === "string"
-      ? value
-      : typeof value === "number" &&
-          Number.isFinite(value) &&
-          value >= 0 &&
-          Number.isSafeInteger(Math.round(value * 100)) &&
-          Math.abs(value * 100 - Math.round(value * 100)) < 1e-7
-        ? value.toFixed(2)
-        : fail(code);
-  if (!/^\d+(?:\.\d{1,2})?$/.test(candidate)) fail(code);
-  const [whole, fraction = ""] = candidate.split(".");
-  const cents = `${whole}${(fraction + "00").slice(0, 2)}`;
-  if (!Number.isSafeInteger(Number(cents))) fail(code);
-  return candidate;
+  const normalized = normalizeFecMoney(value);
+  return normalized === undefined ? fail(code) : normalized;
 };
 const numericId = (value: unknown, prefix: "C" | "HSP", code: string) => {
   const candidate = text(value, code, 16);
-  const pattern = prefix === "C" ? /^C\d{8}$/ : /^[HSP]\d{8}$/;
-  if (!pattern.test(candidate)) fail(code);
+  if (prefix === "C" ? !isFecCommitteeId(candidate) : !isFecCandidateId(candidate)) fail(code);
   return candidate;
 };
 const booleanOrNull = (value: unknown, code: string): boolean | null => {
@@ -253,6 +239,7 @@ const retryDelay = (response: Response, attempt: number): number => {
 async function fetchPage(
   fetcher: OpenFecFetch,
   url: URL,
+  apiKey: string,
   outerSignal: AbortSignal | undefined,
   sleep: (milliseconds: number) => Promise<void>,
   budget: AcquisitionBudget,
@@ -277,7 +264,7 @@ async function fetchPage(
       response = await withinDeadline(
         fetcher(url, {
           method: "GET",
-          headers: { accept: "application/json" },
+          headers: { accept: "application/json", "X-Api-Key": apiKey },
           redirect: "error",
           cache: "no-store",
           signal,
@@ -351,8 +338,7 @@ async function fetchGroup<T>(
     };
     const url = new URL(path, FEC_OPENFEC_ORIGIN);
     for (const [key, value] of Object.entries(query)) url.searchParams.set(key, value);
-    url.searchParams.set("api_key", options.apiKey);
-    const payload = await fetchPage(fetcher, url, options.signal, sleep, budget);
+    const payload = await fetchPage(fetcher, url, options.apiKey, options.signal, sleep, budget);
     if (payload.pagination.perPage !== PER_PAGE)
       fail("FEC_RESPONSE_PAGINATION_INVALID");
     const projected = payload.results.map(project);
@@ -693,4 +679,11 @@ export async function fetchFecSanitizedEnvelope(
     },
   };
   return encodeFecSanitizedEnvelope(envelope);
+}
+
+export async function fetchFecSanitizedEnvelopeFromEnv(
+  options: Omit<FetchFecEnvelopeOptions, "apiKey">,
+  env: NodeJS.ProcessEnv,
+): Promise<Uint8Array> {
+  return fetchFecSanitizedEnvelope({ ...options, apiKey: loadFecApiCredential(env) });
 }

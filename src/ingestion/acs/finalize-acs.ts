@@ -43,7 +43,7 @@ export interface AcsFinalizationLockEntry {
 }
 
 type Runner = Pool | PoolClient;
-type LockMode = "FOR UPDATE" | "FOR SHARE";
+type LockMode = "FOR UPDATE OF ir" | "";
 type Run = QueryResultRow & {
   id: string; release_id: string; source_id: string; snapshot_id: string; adapter_version: string; upstream_release: string;
   raw_store_kind: "local" | "s3"; raw_store_locator: string; raw_object_key: string;
@@ -283,8 +283,12 @@ async function persist(client: PoolClient, options: FinalizeCandidateAcsOptions,
   await client.query("UPDATE release_manifests SET canonical_data_checksum_sha256=$2,content_checksum_sha256=$3,validated_at=NULL WHERE release_id=$1", [options.candidateReleaseId, candidate.canonicalDataChecksumSha256, contentChecksum]);
 }
 
-async function assertCandidate(client: PoolClient, options: FinalizeCandidateAcsOptions, lock: LockMode): Promise<void> {
-  const result = await client.query(`SELECT 1 FROM data_releases r JOIN data_releases s ON s.id=r.previous_release_id JOIN release_manifests m ON m.release_id=r.id WHERE r.id=$1 AND r.status='candidate' AND r.previous_release_id=$2 AND r.source_cutoff=s.source_cutoff AND m.schema_version=2 ${lock}`, [options.candidateReleaseId, options.sourceReleaseId]);
+async function assertCandidate(client: PoolClient, options: FinalizeCandidateAcsOptions): Promise<void> {
+  // The caller already holds the release advisory lock (exclusive for
+  // finalization, shared for verification). A row-locking clause here would
+  // additionally require UPDATE on data_releases and incorrectly widen the
+  // finalizer/verifier lifecycle boundary.
+  const result = await client.query("SELECT 1 FROM data_releases r JOIN data_releases s ON s.id=r.previous_release_id JOIN release_manifests m ON m.release_id=r.id WHERE r.id=$1 AND r.status='candidate' AND r.previous_release_id=$2 AND r.source_cutoff=s.source_cutoff AND m.schema_version=2", [options.candidateReleaseId, options.sourceReleaseId]);
   if (result.rowCount !== 1) fail("ACS_FINALIZE_CANDIDATE_INVALID");
 }
 async function replayAll(client: PoolClient, options: FinalizeCandidateAcsOptions, lock: LockMode): Promise<{ runs: Run[]; staged: Map<string, readonly Stage[]> }> {
@@ -301,8 +305,8 @@ export async function finalizeCandidateAcs(options: FinalizeCandidateAcsOptions)
   try {
     assertNotAborted(options.signal); await client.query("BEGIN"); begun = true;
     await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))", [options.candidateReleaseId]);
-    await assertCandidate(client, options, "FOR UPDATE");
-    const replayed = await replayAll(client, options, "FOR UPDATE"); await assertGeographyPolicy(client, options.candidateReleaseId);
+    await assertCandidate(client, options);
+    const replayed = await replayAll(client, options, "FOR UPDATE OF ir"); await assertGeographyPolicy(client, options.candidateReleaseId);
     if (replayed.runs.every((run) => run.status === "loaded")) {
       await recheckNationwideValidationGate(client, options.candidateReleaseId); await assertPersistedTask6MemberInvariant(client, options.candidateReleaseId, options.sourceReleaseId); await assertPersistedTask7AcsInvariant(client, options.candidateReleaseId, options.sourceReleaseId);
     } else {
@@ -324,8 +328,11 @@ export async function verifyPersistedTask7AcsCandidate(options: FinalizeCandidat
   try {
     await client.query("BEGIN ISOLATION LEVEL REPEATABLE READ"); begun = true;
     await client.query("SELECT pg_advisory_xact_lock_shared(hashtext('dsa_seats_release:' || $1))", [options.candidateReleaseId]);
-    await assertCandidate(client, options, "FOR SHARE");
-    const replayed = await replayAll(client, options, "FOR SHARE");
+    await assertCandidate(client, options);
+    // The shared release advisory lock and repeatable-read snapshot prevent a
+    // concurrent finalizer from changing the run set; the verifier needs no
+    // row-mutation privilege on ingest_runs.
+    const replayed = await replayAll(client, options, "");
     if (replayed.runs.some((run) => run.status !== "loaded")) fail("ACS_FINALIZE_MIXED_STATUS");
     await assertGeographyPolicy(client, options.candidateReleaseId);
     await recheckNationwideValidationGateShared(client, options.candidateReleaseId);

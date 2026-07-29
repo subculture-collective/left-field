@@ -4,8 +4,16 @@ coverage/
 .env
 .env.*
 !.env.example
+deploy/nuc/secrets/
 *.log
 *.tsbuildinfo
 
 # Local deepwork state
 .blacktower/deepwork/
+
+# Local FEC bulk downloads may contain contributor/vendor personal data.
+FEC/
+
+# Nonpublishable local FEC acquisition outputs.
+/data/fec-local*.json
+/data/fec-local*.artifacts/

@@ -1,0 +1,8 @@
+{
+  "version": 2,
+  "generatedAt": "1970-01-01T00:00:00.000Z",
+  "signerKeyId": "REPLACE_WITH_OFFLINE_SIGNER_KEY_ID",
+  "correction": { "mode": "disabled" },
+  "address": { "mode": "disabled" },
+  "signature": "REPLACE_WITH_CANONICAL_ED25519_SIGNATURE"
+}

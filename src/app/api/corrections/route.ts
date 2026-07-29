@@ -1,8 +1,9 @@
 import { createHash } from "node:crypto";
 
 import { CorrectionRepository, type SubmitCorrectionResult } from "@/corrections/repository";
-import { correctionAnonymousSubjectHash, generateCorrectionIdempotencyToken, isCorrectionIdempotencyToken, issueCorrectionCsrf, parseCorrectionCsrfCookie, parseCorrectionSecurityConfig, validateCorrectionRequestHeaders, verifyCorrectionCsrf, type CorrectionSecurityConfig } from "@/corrections/security";
+import { correctionAnonymousSubjectHash, generateCorrectionIdempotencyToken, isCorrectionIdempotencyToken, issueCorrectionCsrf, parseCorrectionCsrfCookie, parseCorrectionSecurityConfig, validateCorrectionRequestHeaders, verifyCorrectionCsrf, type CorrectionSecurityConfig, type VerifiedCorrectionGate } from "@/corrections/security";
 import { correctionPublicOutcomeSchema, parseCorrectionSubmission } from "@/domain/corrections";
+import { readFeatureGates, type FeatureGates } from "@/features/gates";
 
 export const runtime = "nodejs";
 
@@ -12,7 +13,8 @@ const NO_STORE = { "Cache-Control": "no-store", "Content-Type": "application/jso
 const JSON_CONTENT_TYPE = /^application\/json(?:\s*;\s*charset=utf-8)?$/i;
 type Repository = Pick<CorrectionRepository, "consumeAttempt" | "submit">;
 export interface CorrectionHandlerDependencies {
-  getConfig?: () => CorrectionSecurityConfig;
+  getGates?: () => Promise<FeatureGates>;
+  getConfig?: (verified: VerifiedCorrectionGate) => CorrectionSecurityConfig;
   createRepository?: () => Repository;
   now?: () => Date;
 }
@@ -55,22 +57,27 @@ function hash(value: string): Buffer { return createHash("sha256").update(value)
 function retryAfter(value: number | null): string { return String(Math.max(1, Math.min(3600, Math.floor(value ?? 1)))); }
 
 export function createCorrectionHandler(dependencies: CorrectionHandlerDependencies = {}) {
-  const getConfig = dependencies.getConfig ?? (() => parseCorrectionSecurityConfig(process.env));
+  const getConfig = dependencies.getConfig ?? ((verified) => parseCorrectionSecurityConfig(process.env, verified));
+  const getGates = dependencies.getGates ?? readFeatureGates;
   const createRepository = dependencies.createRepository ?? (() => new CorrectionRepository());
   const now = dependencies.now ?? (() => new Date());
   return {
     async GET(): Promise<Response> {
+      let gate: FeatureGates; try { gate = await getGates(); if (gate.correction.mode !== "enabled") return response(503, { status: "disabled" }); }
+      catch { return response(503, { status: "disabled" }); }
       try {
-        const config = getConfig();
+        const config = getConfig(gate.correction);
         createRepository();
         const material = issueCorrectionCsrf(config, now().getTime());
         return response(200, { csrfToken: material.token, idempotencyToken: generateCorrectionIdempotencyToken() }, { "Set-Cookie": material.cookie });
       } catch { return response(503, { status: "unavailable" }); }
     },
     async POST(request: Request): Promise<Response> {
+      let gate: FeatureGates; try { gate = await getGates(); if (gate.correction.mode !== "enabled") return response(503, { status: "disabled" }); }
+      catch { return response(503, { status: "disabled" }); }
       let config: CorrectionSecurityConfig;
       let repository: Repository;
-      try { config = getConfig(); repository = createRepository(); }
+      try { config = getConfig(gate.correction); repository = createRepository(); }
       catch { return response(503, { status: "unavailable" }); }
       if (!JSON_CONTENT_TYPE.test(request.headers.get("content-type") ?? "")) return response(415, { status: "unsupported_media_type" });
       const ip = validateCorrectionRequestHeaders(request.headers, config);

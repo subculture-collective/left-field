@@ -3,6 +3,7 @@ import { aggregateOutsideSpending, type FecCandidateMapping } from "./aggregates
 import { decodeFecSanitizedEnvelope } from "./envelope";
 import {
   fetchFecSanitizedEnvelope,
+  fetchFecSanitizedEnvelopeFromEnv,
   type OpenFecFetch,
 } from "./fetch-client";
 
@@ -69,7 +70,8 @@ const successfulFetcher = (captured: string[]): OpenFecFetch => async (input, in
   captured.push(url.toString());
   expect(init).toMatchObject({ method: "GET", redirect: "error", cache: "no-store" });
   expect(url.origin).toBe("https://api.open.fec.gov");
-  expect(url.searchParams.get("api_key")).toBe("TOP_SECRET_KEY");
+  expect(url.searchParams.has("api_key")).toBe(false);
+  expect((init?.headers as Record<string, string>)["X-Api-Key"]).toBe("TOP_SECRET_KEY");
   const page = Number(url.searchParams.get("page"));
   const results = page === 1 ? [resultFor(url.pathname)] : [];
   return new Response(
@@ -199,6 +201,19 @@ describe("OpenFEC sanitized fetch boundary", () => {
           new Response("CANARY PRIVATE ERROR BODY", { status: 403 }),
       }),
     ).rejects.toThrow(/^FEC_FETCH_HTTP_ERROR$/);
+  });
+
+  it("loads the runtime credential before any network request", async () => {
+    let called = false;
+    const options = {
+      sourceLockSha256: "a".repeat(64),
+      releaseCutoff: "2024-12-31",
+      electionKey: "2024-ca-01-general",
+      mapping: mapping(),
+      fetcher: async () => { called = true; return new Response(); },
+    };
+    await expect(fetchFecSanitizedEnvelopeFromEnv(options, { NODE_ENV: "test", FEC_API_CREDENTIAL: "one", FEC_API_KEY: "two" })).rejects.toThrow("FEC_API_CREDENTIAL_CONFLICT");
+    expect(called).toBe(false);
   });
 
   it("rejects duplicate mapped committees before network amplification", async () => {

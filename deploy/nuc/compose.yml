@@ -1,0 +1,57 @@
+name: dsa-seats-preview
+
+services:
+  postgres:
+    image: postgis/postgis:16-3.4-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: dsa_seats_preview_test
+      POSTGRES_USER: dsa_seats
+      POSTGRES_PASSWORD: ${DB_PASSWORD:?DB_PASSWORD is required}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dsa_seats -d dsa_seats_preview_test"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  app:
+    build:
+      context: ../..
+      dockerfile: deploy/nuc/Dockerfile
+    image: dsa-seats-preview:local
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: production
+      WEB_DATABASE_URL: postgresql://dsa_seats:${DB_PASSWORD}@postgres:5432/dsa_seats_preview_test
+      MAP_ARTIFACT_ROOT: /var/lib/dsa-seats/maps/task10-preview
+    ports:
+      - "10.0.0.56:3044:3000"
+    volumes:
+      - map_artifacts:/var/lib/dsa-seats/maps:ro
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000/').then(r=>{if(!r.ok)process.exit(1)}).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+
+  seed:
+    profiles: ["tools"]
+    image: dsa-seats-preview:local
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      NODE_ENV: test
+      DATABASE_URL: postgresql://dsa_seats:${DB_PASSWORD}@postgres:5432/dsa_seats_preview_test
+      MAP_ARTIFACT_ROOT: /tmp/dsa-seats-volume/task10-preview
+    volumes:
+      - map_artifacts:/tmp/dsa-seats-volume
+
+volumes:
+  postgres_data:
+  map_artifacts:

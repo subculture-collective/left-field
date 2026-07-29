@@ -55,20 +55,24 @@ export function CorrectionForm({ releaseId, seatCycleId }: Props) {
   const [status, setStatus] = useState<Status>(null);
   const [errors, setErrors] = useState<{ explanation?: string; sourceUrl?: string }>({});
   const [explanation, setExplanation] = useState("");
+  const [sourceUrl, setSourceUrl] = useState("");
+  const controller = useRef<AbortController | null>(null);
   const statusRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!releaseId) return;
     let active = true;
-    fetch("/api/corrections", { cache: "no-store", credentials: "same-origin" })
+    const abort = new AbortController();
+    controller.current = abort;
+    fetch("/api/corrections", { cache: "no-store", credentials: "same-origin", signal: abort.signal })
       .then(async (response) => response.ok ? response.json() : Promise.reject(new Error("unavailable")))
       .then((value: unknown) => {
         if (!value || typeof value !== "object" || typeof (value as Record<string, unknown>).csrfToken !== "string" || typeof (value as Record<string, unknown>).idempotencyToken !== "string") throw new Error("invalid response");
         if (active) setTokens(value as TokenState);
       })
-      .catch(() => { if (active) setStatus({ tone: "error", message: "Correction service configuration is unavailable. Please try again later." }); })
+      .catch(() => { if (active && !abort.signal.aborted) setStatus({ tone: "error", message: "Correction service configuration is unavailable. Please try again later." }); })
       .finally(() => { if (active) setLoading(false); });
-    return () => { active = false; };
+    return () => { active = false; controller.current?.abort(); setExplanation(""); setSourceUrl(""); setTokens(null); };
   }, [releaseId]);
 
   useEffect(() => { if (status) statusRef.current?.focus(); }, [status]);
@@ -77,24 +81,28 @@ export function CorrectionForm({ releaseId, seatCycleId }: Props) {
     event.preventDefault();
     if (submitting || terminal || !tokens || !releaseId) return;
     const form = new FormData(event.currentTarget);
-    const sourceUrl = String(form.get("sourceUrl") ?? "").trim();
+    const submittedSourceUrl = String(form.get("sourceUrl") ?? "").trim();
     const submittedExplanation = String(form.get("explanation")).trim();
     const nextErrors: { explanation?: string; sourceUrl?: string } = {};
     const explanationLength = Array.from(submittedExplanation).length;
     if (explanationLength < 20 || explanationLength > 4000) nextErrors.explanation = "Enter an explanation between 20 and 4,000 characters.";
-    if (sourceUrl && !isPublicHttpsSourceUrl(sourceUrl)) nextErrors.sourceUrl = "Enter a public HTTPS URL without credentials, a fragment, private hostnames, ports, or invalid URL encoding.";
-    if (Object.keys(nextErrors).length) { setErrors(nextErrors); setStatus({ tone: "error", message: "Review the highlighted fields before submitting." }); return; }
+    if (submittedSourceUrl && !isPublicHttpsSourceUrl(submittedSourceUrl)) nextErrors.sourceUrl = "Enter a public HTTPS URL without credentials, a fragment, private hostnames, ports, or invalid URL encoding.";
+    if (Object.keys(nextErrors).length) { setErrors(nextErrors); setExplanation(""); setSourceUrl(""); setStatus({ tone: "error", message: "Review the highlighted fields before submitting." }); return; }
     setErrors({});
-    const body = { releaseId, ...(seatCycleId ? { seatCycleId } : {}), fieldPath: String(form.get("fieldPath")), explanation: submittedExplanation, ...(sourceUrl ? { sourceUrl } : {}) };
+    const body = { releaseId, ...(seatCycleId ? { seatCycleId } : {}), fieldPath: String(form.get("fieldPath")), explanation: submittedExplanation, ...(submittedSourceUrl ? { sourceUrl: submittedSourceUrl } : {}) };
+    controller.current?.abort();
+    const abort = new AbortController();
+    controller.current = abort;
     setSubmitting(true); setStatus(null);
     try {
-      const response = await fetch("/api/corrections", { method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json", "X-CSRF-Token": tokens.csrfToken, "Idempotency-Key": tokens.idempotencyToken }, body: JSON.stringify(body) });
+      const response = await fetch("/api/corrections", { method: "POST", credentials: "same-origin", signal: abort.signal, headers: { "Content-Type": "application/json", "X-CSRF-Token": tokens.csrfToken, "Idempotency-Key": tokens.idempotencyToken }, body: JSON.stringify(body) });
       const result: unknown = await response.json().catch(() => ({}));
       const apiStatus = result && typeof result === "object" && typeof (result as Record<string, unknown>).status === "string" ? (result as Record<string, string>).status : "unavailable";
-      if (apiStatus === "accepted" || apiStatus === "replay") setTerminal(true);
+      if (apiStatus === "accepted" || apiStatus === "replay") { setTerminal(true); setTokens(null); setErrors({}); }
+      setExplanation(""); setSourceUrl("");
       setStatus(responseMessage(apiStatus, response.ok));
-    } catch { setStatus({ tone: "error", message: "The correction service is unavailable right now. Please try again later." }); }
-    finally { setSubmitting(false); }
+    } catch { setExplanation(""); setSourceUrl(""); if (!abort.signal.aborted) setStatus({ tone: "error", message: "The correction service is unavailable right now. Please try again later." }); }
+    finally { if (!abort.signal.aborted) setSubmitting(false); }
   }
 
   if (!releaseId) return <section className="notice correction-state" aria-labelledby="correction-unavailable"><h2 id="correction-unavailable">Correction form unavailable</h2><p>Open this form from a published seat record so its immutable release identifier can be cited.</p></section>;
@@ -103,7 +111,7 @@ export function CorrectionForm({ releaseId, seatCycleId }: Props) {
     <label htmlFor="correction-area">Correction area<select id="correction-area" name="fieldPath" defaultValue="identity.current_holder" required disabled={terminal}>{AREAS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
     <label htmlFor="correction-explanation">What should be corrected?<textarea id="correction-explanation" name="explanation" value={explanation} onChange={(event) => setExplanation(event.target.value)} minLength={20} maxLength={4000} required disabled={terminal} aria-invalid={Boolean(errors.explanation)} aria-describedby={`explanation-help explanation-count${errors.explanation ? " explanation-error" : ""}`} /></label>
     <p className="field-help" id="explanation-help">Use 20–4,000 characters. State the published fact, the correction, and supporting context. Do not include personal contact details, addresses, voter information, or private links.</p>{errors.explanation && <p className="field-error" id="explanation-error" role="alert">{errors.explanation}</p>}<p className="field-count" id="explanation-count" aria-live="polite">{Array.from(explanation).length} / 4,000 characters</p>
-    <label htmlFor="correction-source">Source URL <span className="optional">(optional)</span><input id="correction-source" name="sourceUrl" type="url" inputMode="url" maxLength={2000} placeholder="https://example.org/record" disabled={terminal} aria-invalid={Boolean(errors.sourceUrl)} aria-describedby={`source-help${errors.sourceUrl ? " source-error" : ""}`} /></label><p className="field-help" id="source-help">If included, use a public HTTPS source link.</p>{errors.sourceUrl && <p className="field-error" id="source-error" role="alert">{errors.sourceUrl}</p>}
+    <label htmlFor="correction-source">Source URL <span className="optional">(optional)</span><input id="correction-source" name="sourceUrl" type="url" inputMode="url" maxLength={2000} placeholder="https://example.org/record" value={sourceUrl} onChange={(event) => setSourceUrl(event.target.value)} disabled={terminal} aria-invalid={Boolean(errors.sourceUrl)} aria-describedby={`source-help${errors.sourceUrl ? " source-error" : ""}`} /></label><p className="field-help" id="source-help">If included, use a public HTTPS source link.</p>{errors.sourceUrl && <p className="field-error" id="source-error" role="alert">{errors.sourceUrl}</p>}
     <div className="correction-actions"><button type="submit" disabled={loading || !tokens || submitting || terminal}>{loading ? "Preparing form…" : submitting ? "Submitting…" : "Submit for review"}</button><p>{terminal ? "This report is complete. To report another correction, reopen or reload this page." : loading ? "Loading secure submission controls…" : "Do not submit contact details, political or voter information, addresses, demographic information, or signed/private URLs."}</p></div>
     {status && <div ref={statusRef} className={`submission-status ${status.tone}`} role="status" aria-live="polite" tabIndex={-1}>{status.message}</div>}
   </form></section>;

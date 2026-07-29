@@ -4,6 +4,7 @@ import {
   resolveFecAmendments,
   type FecReportVersion,
 } from "./amendments";
+import { isFecCandidateId, isFecCommitteeId, normalizeFecMoney } from "./values";
 
 export const FEC_SANITIZED_ADAPTER_VERSION = "openfec-sanitized-v1";
 export const FEC_OPENFEC_ORIGIN = "https://api.open.fec.gov";
@@ -106,30 +107,17 @@ const validText = (
   value.length <= maximum &&
   !/[\u0000-\u001f\u007f]/.test(value);
 const validMoney = (value: unknown): value is string => {
-  if (typeof value !== "string" || !/^\d+(?:\.\d{1,2})?$/.test(value))
-    return false;
-  const [whole, fraction = ""] = value.split(".");
-  const cents = `${whole.replace(/^0+(?=\d)/, "")}${(fraction + "00").slice(0, 2)}`.replace(
-    /^0+(?=\d)/,
-    "",
-  );
-  return (
-    cents.length < 16 ||
-    (cents.length === 16 && cents <= "9007199254740991")
-  );
+  return typeof value === "string" && normalizeFecMoney(value) !== undefined;
 };
 const canonicalMoney = (value: string): string => {
-  if (!validMoney(value)) throw new Error("FEC_MONEY_INVALID");
-  const [whole, fraction = ""] = value.split(".");
-  const cents = `${whole.replace(/^0+(?=\d)/, "")}${(fraction + "00").slice(0, 2)}`
-    .replace(/^0+(?=\d)/, "")
-    .padStart(3, "0");
-  return `${cents.slice(0, -2)}.${cents.slice(-2)}`;
+  const normalized = normalizeFecMoney(value);
+  if (normalized === null || normalized === undefined) throw new Error("FEC_MONEY_INVALID");
+  return normalized;
 };
 const validCandidateId = (value: unknown): value is string =>
-  typeof value === "string" && /^[HS]\d{8}$/.test(value);
+  isFecCandidateId(value, "HS");
 const validCommitteeId = (value: unknown): value is string =>
-  typeof value === "string" && /^C\d{8}$/.test(value);
+  isFecCommitteeId(value);
 const validCycle = (value: unknown): value is number =>
   safeInteger(value, 1000) && value <= 9999 && value % 2 === 0;
 const object = (value: unknown): Record<string, unknown> => {

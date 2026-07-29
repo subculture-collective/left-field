@@ -1,4 +1,4 @@
-import { closeDb, getIngestPool } from "@/db/client";
+import { closeDb, getNationwideFinalizerPool } from "@/db/client";
 import { contentTableRegistry, enrichCandidateMembersFromBaseline, verifyPersistedTask6MemberCandidate } from "@/db/catalog-release";
 import { releaseIdSchema } from "@/domain/contracts";
 import type { Pool } from "pg";
@@ -42,7 +42,7 @@ export async function executeEnrichMembers(argv: readonly string[], dependencies
   const candidateResult = await pool.query<ReleaseRow>("SELECT id,label,status,source_cutoff,previous_release_id FROM data_releases WHERE id=$1", [args.candidateReleaseId]);
   let created = false;
   if (candidateResult.rowCount === 0) {
-    await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,$2,'candidate',$3,$4,NULL,$5)", [args.candidateReleaseId, args.label, cutoff, args.createdAt ?? dependencies.now?.().toISOString() ?? new Date().toISOString(), args.sourceReleaseId]);
+    await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,previous_release_id) VALUES($1,$2,'candidate',$3,$4,$5)", [args.candidateReleaseId, args.label, cutoff, args.createdAt ?? dependencies.now?.().toISOString() ?? new Date().toISOString(), args.sourceReleaseId]);
     created = true;
   } else {
     const candidate = candidateResult.rows[0]!;
@@ -61,5 +61,5 @@ export async function executeEnrichMembers(argv: readonly string[], dependencies
   } catch (error) { if (created) await cleanupNewShell(pool, args.candidateReleaseId); throw error; }
 }
 
-export async function main(argv = process.argv.slice(2), dependencies: EnrichMemberDependencies & { readonly stdout?: Pick<NodeJS.WriteStream, "write"> } = { getPool: getIngestPool }): Promise<EnrichMemberResult> { const result = await executeEnrichMembers(argv, dependencies); (dependencies.stdout ?? process.stdout).write(`${JSON.stringify(result)}\n`); return result; }
+export async function main(argv = process.argv.slice(2), dependencies: EnrichMemberDependencies & { readonly stdout?: Pick<NodeJS.WriteStream, "write"> } = { getPool: getNationwideFinalizerPool }): Promise<EnrichMemberResult> { const result = await executeEnrichMembers(argv, dependencies); (dependencies.stdout ?? process.stdout).write(`${JSON.stringify(result)}\n`); return result; }
 if (require.main === module) main().catch((error: unknown) => { process.stderr.write(`${error instanceof Error ? error.message : "Member enrichment failed"}\n`); process.exitCode = 1; }).finally(closeDb);
