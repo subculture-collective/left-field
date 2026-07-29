@@ -101,6 +101,43 @@ bucket, pinned CA, enabled versioning, writer delete denial, exact one-year
 COMPLIANCE default retention, and a retained-object proof. Never substitute the
 local research fetcher, ordinary raw store, or an operator-created expectation.
 
+### FEC v2 plan review handoff
+
+The application may compile a proposed acquisition plan for independent review;
+it may not install, seal, approve, or sign the verifier-owned expectation.
+Prepare an explicit JSON input with exactly these root fields:
+`schemaVersion` (`1`), `releaseId`, `receiptCutoff` (`2026-07-18`),
+`campaignCycle` (`2026`), `sourceLockSha256`, and `targets`. `targets` must
+contain exactly 541 unique seat-cycle IDs in C-byte order. Each target is either
+`candidate_resolution_required`, or an explicit `terminal` target with
+`vacant`, `non_candidate`, or `not_contested` disposition and an evidence
+SHA-256.
+
+Compile the review artifacts offline:
+
+```bash
+npm run compile:fec-v2-plan -- \
+  --input /path/to/reviewed-targets.json \
+  --plan /path/to/fec-v2-plan.json \
+  --manifest /path/to/fec-v2-plan.review.json
+```
+
+The command creates files with exclusive-create semantics, verifies exact
+idempotent retries, and rejects an existing conflicting plan or manifest. The
+manifest records the canonical plan hash, source-lock hash, target-universe
+hash, and disposition counts; it contains no credential or reviewer private
+key. Send both files and the separate approval package to independent data
+review. Only verifier-side administration may persist and seal the reviewed
+541-target expectation. The release runtime receives the resulting exact plan
+SHA and read-only plan file.
+
+Before any production candidate or acquisition, requalify and record named
+reviewer keys, acquisition/replay role separation, legal/data approval, exact
+TLS endpoint/bucket/CA binding, enabled versioning, writer delete denial,
+one-year COMPLIANCE retention, a retained-object proof, verifier-side plan
+authority, and explicit candidate authorization. A missing gate blocks
+production writes; local compilation is not production readiness evidence.
+
 ## Operational incidents and retention
 
 Only the root-owned, latched `/run/dsa-seats/feature-gates.json` signed v2 activation package can enable correction intake or address lookup. Production verifies it against `/etc/dsa-seats/feature-gate-public-key.json`; both are root:`dsa-seats-gates`, exact `0640`, beneath root-owned exact-`0750` directories. The key document is `{version:1,keyId,publicKeyPem}` and the gate is an offline Ed25519 signature over canonical JSON; private signing keys must never be deployed. Use separate approved package SHA-256 values when both features are enabled. On uncertainty, replace it with the disabled signed package (or use the negative-only address/correction kill switches); do not use environment variables to activate either feature. Nonproduction may use the explicitly named path overrides only. On address/correction privacy uncertainty, disable first, preserve only nonsensitive incident evidence, and follow [`address-lookup-privacy-gate.md`](../deployment/address-lookup-privacy-gate.md).

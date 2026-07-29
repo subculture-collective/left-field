@@ -18,6 +18,7 @@
     "data:verify": "node scripts/verify-source-lock.mjs",
     "bootstrap:factual-r1": "tsx scripts/bootstrap-factual-r1.ts",
     "ingest": "tsx scripts/ingest.ts",
+    "compile:fec-v2-plan": "tsx scripts/compile-fec-v2-plan.ts",
     "acquire:fec-v2": "tsx scripts/acquire-fec-v2.ts",
     "fetch:fec-local": "tsx scripts/fetch-fec-local.ts",
     "baseline:factual": "tsx scripts/baseline-factual.ts",
