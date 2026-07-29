@@ -90,6 +90,8 @@ describe("factual production FEC runtime wiring", () => {
     expect(backup).toContain("fec-v2-retention-evidence.txt");
     expect(backup).toContain("fec-v2-root.crt");
     expect(restore).toContain('fec_v2_volume="${network}-fec-v2-objects"');
+    expect(restore).toContain('RESTORE_SUBNET="${RESTORE_SUBNET:-10.253.0.0/24}"');
+    expect(restore).toContain('docker network create --internal --subnet "$RESTORE_SUBNET" "$network"');
     expect(restore).toContain("/backup/fec_v2_objects.tgz");
     expect(restore).toContain("server --certs-dir /certs /data");
     expect(restore).toContain("mc alias set restored https://fecstore:9000");

@@ -5,6 +5,7 @@ readonly RESTIC_REPOSITORY="${RESTIC_REPOSITORY:-sftp:root@10.0.0.1:/tmp/mountd/
 readonly RESTIC_PASSWORD_FILE="${RESTIC_PASSWORD_FILE:-/etc/nuc-router-backup/restic-password}"
 readonly ROUTER_BACKUP_SSH_KEY="${ROUTER_BACKUP_SSH_KEY:-/root/.ssh/nuc_router_backup_ed25519}"
 readonly RESTORE_PARENT="${RESTORE_PARENT:-/srv/server/restore-tests}"
+readonly RESTORE_SUBNET="${RESTORE_SUBNET:-10.253.0.0/24}"
 readonly EVIDENCE_ROOT="${EVIDENCE_ROOT:-/srv/server/restore-evidence/dsa-seats}"
 readonly METRIC_FILE="${METRIC_FILE:-/srv/server/monitoring/data/node-exporter-textfile/dsa_seats_restore.prom}"
 readonly FEC_V2_TLS_DIR="${FEC_V2_TLS_DIR:-/srv/server/projects/dsa-seats-r1/runtime/fec-v2-tls}"
@@ -163,7 +164,7 @@ main() {
   append_evidence "git_revision=$git_revision"
   append_evidence "app_image_id=$app_image_id"
 
-  docker network create --internal "$network" >/dev/null
+  docker network create --internal --subnet "$RESTORE_SUBNET" "$network" >/dev/null
   docker volume create "$postgres_volume" >/dev/null
   docker volume create "$raw_volume" >/dev/null
   docker volume create "$map_volume" >/dev/null
