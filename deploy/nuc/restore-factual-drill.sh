@@ -333,6 +333,8 @@ main() {
     server /data >/dev/null
   wait_for_health "$rawstore_container"
   append_evidence "rawstore_health=pass"
+  docker stop --time 30 "$rawstore_container" >/dev/null
+  append_evidence "rawstore_stopped_after_health=pass"
 
   local fec_root_user="$restore_root/fec-root-user" fec_root_password="$restore_root/fec-root-password"
   [[ -r "$FEC_V2_TLS_DIR/public.crt" && -r "$FEC_V2_TLS_DIR/private.key" && -r "$FEC_V2_TLS_DIR/CAs/root.crt" ]] || fatal "FEC v2 TLS recovery path is unavailable"
