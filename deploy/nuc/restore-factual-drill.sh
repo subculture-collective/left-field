@@ -335,6 +335,8 @@ main() {
   append_evidence "rawstore_health=pass"
   docker stop --time 30 "$rawstore_container" >/dev/null
   append_evidence "rawstore_stopped_after_health=pass"
+  docker stop --time 30 "$postgres_container" >/dev/null
+  append_evidence "postgres_stopped_before_fec_restore=pass"
 
   local fec_root_user="$restore_root/fec-root-user" fec_root_password="$restore_root/fec-root-password"
   [[ -r "$FEC_V2_TLS_DIR/public.crt" && -r "$FEC_V2_TLS_DIR/private.key" && -r "$FEC_V2_TLS_DIR/CAs/root.crt" ]] || fatal "FEC v2 TLS recovery path is unavailable"
@@ -397,6 +399,10 @@ main() {
   append_evidence "fec_v2_certificate_binding_restore=pass"
   append_evidence "fec_v2_versioning_restore=pass"
   append_evidence "fec_v2_one_year_compliance_retention_restore=pass"
+  docker stop --time 30 "$fecstore_container" >/dev/null
+  docker start "$postgres_container" >/dev/null
+  wait_for_health "$postgres_container"
+  append_evidence "postgres_restarted_after_fec_restore=pass"
 
   local web_url="postgresql://dsa_restore_web@${postgres_container}:5432/dsa_seats_restore"
   docker run -d --name "$app_container" --network "$network" \

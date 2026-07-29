@@ -94,6 +94,10 @@ describe("factual production FEC runtime wiring", () => {
     expect(restore).toContain('docker network create --internal --subnet "$RESTORE_SUBNET" "$network"');
     expect(restore).toContain('docker stop --time 30 "$rawstore_container"');
     expect(restore).toContain('append_evidence "rawstore_stopped_after_health=pass"');
+    expect(restore).toContain('docker stop --time 30 "$postgres_container"');
+    expect(restore).toContain('append_evidence "postgres_stopped_before_fec_restore=pass"');
+    expect(restore).toContain('docker stop --time 30 "$fecstore_container"');
+    expect(restore).toContain('append_evidence "postgres_restarted_after_fec_restore=pass"');
     expect(restore).toContain("/backup/fec_v2_objects.tgz");
     expect(restore).toContain("server --certs-dir /certs /data");
     expect(restore).toContain("mc alias set restored https://fecstore:9000");
