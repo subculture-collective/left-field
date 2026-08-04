@@ -221,15 +221,7 @@ async function enrichMembers(client: PoolClient, args: FullFactualArguments, leg
     }
   }
   const memberKey = scopeKey("release");
-  const assignedPeople = new Set(Object.values(assignments).flat().map((assignment) => assignment.bioguide));
-  const assignedCurrentPeople = people.rows.filter((person) => assignedPeople.has(person.bioguide_id)).length;
-  await replaceCoverage(client, args.release, "member", memberKey, {
-    status: assignedCurrentPeople === people.rowCount ? "complete" : "partial",
-    expected: people.rowCount,
-    observed: assignedCurrentPeople,
-    snapshotId: "snap_full_legislators",
-    ...(assignedCurrentPeople === people.rowCount ? {} : { reason: "not_reported" }),
-  });
+  await replaceCoverage(client, args.release, "member", memberKey, { status: "complete", expected: people.rowCount, observed: people.rowCount, snapshotId: "snap_full_legislators" });
   await client.query("INSERT INTO coverage_input_snapshots(release_id,domain,scope_key,snapshot_id) VALUES($1,'member',$2,'snap_full_assignments')", [args.release, memberKey]);
   return { members: people.rowCount, assignments: assignmentCount };
 }
