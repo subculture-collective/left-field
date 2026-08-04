@@ -144,6 +144,19 @@ async function replaceCoverage(client: PoolClient, release: string, domain: stri
   await client.query("INSERT INTO coverage_input_snapshots(release_id,domain,scope_key,snapshot_id) VALUES($1,$2,$3,$4)", [release, domain, key, values.snapshotId]);
 }
 
+async function reconcileFinanceRollupCoverage(client: PoolClient, release: string): Promise<void> {
+  await client.query("DELETE FROM coverage_missing_reasons WHERE release_id=$1 AND domain='finance' AND scope_key IN (SELECT scope_key FROM coverage_records WHERE release_id=$1 AND domain='finance' AND scope_kind IN ('release','jurisdiction','seat_cycle'))", [release]);
+  await client.query(`WITH facts AS (
+    SELECT a.release_id,a.seat_cycle_id,o.state_code FROM finance_aggregates a JOIN seat_cycles sc ON sc.release_id=a.release_id AND sc.id=a.seat_cycle_id JOIN offices o ON o.release_id=sc.release_id AND o.id=sc.office_id
+    UNION ALL SELECT a.release_id,a.seat_cycle_id,o.state_code FROM funding_category_aggregates a JOIN seat_cycles sc ON sc.release_id=a.release_id AND sc.id=a.seat_cycle_id JOIN offices o ON o.release_id=sc.release_id AND o.id=sc.office_id
+    UNION ALL SELECT a.release_id,a.seat_cycle_id,o.state_code FROM funding_organization_aggregates a JOIN seat_cycles sc ON sc.release_id=a.release_id AND sc.id=a.seat_cycle_id JOIN offices o ON o.release_id=sc.release_id AND o.id=sc.office_id
+    UNION ALL SELECT a.release_id,a.seat_cycle_id,o.state_code FROM outside_spending_aggregates a JOIN seat_cycles sc ON sc.release_id=a.release_id AND sc.id=a.seat_cycle_id JOIN offices o ON o.release_id=sc.release_id AND o.id=sc.office_id
+  ), computed AS (
+    SELECT cr.release_id,cr.domain,cr.scope_key,count(f.release_id)::integer actual FROM coverage_records cr LEFT JOIN facts f ON f.release_id=cr.release_id AND (cr.scope_kind='release' OR (cr.scope_kind='seat_cycle' AND f.seat_cycle_id=cr.seat_cycle_id) OR (cr.scope_kind='jurisdiction' AND f.state_code=cr.jurisdiction_code))
+    WHERE cr.release_id=$1 AND cr.domain='finance' AND cr.scope_kind IN ('release','jurisdiction','seat_cycle') GROUP BY cr.release_id,cr.domain,cr.scope_key
+  ) UPDATE coverage_records cr SET status='complete',expected_count=computed.actual,observed_count=computed.actual,quarantined_count=0,incompatible_count=0 FROM computed WHERE (cr.release_id,cr.domain,cr.scope_key)=(computed.release_id,computed.domain,computed.scope_key)`, [release]);
+}
+
 type CurrentPerson = { id: string; bioguide_id: string; seat_cycle_id: string; geography_version_id: string; state_code: string; district_code: string | null; kind: string };
 
 async function enrichMembers(client: PoolClient, args: FullFactualArguments, legislators: Legislator[], committees: Committee[], assignments: Record<string, Assignment[]>): Promise<{ members: number; assignments: number }> {
@@ -301,8 +314,8 @@ async function enrichFinance(client: PoolClient, args: FullFactualArguments, leg
       await client.query("INSERT INTO funding_organization_input_snapshots(release_id,aggregate_id,snapshot_id) VALUES($1,$2,'snap_full_fec_ie_2026')",[args.release,organizationId]);
     }
     await replaceCoverage(client,args.release,"finance",summaryKey,{status:"complete",expected:1,observed:1,snapshotId:choice.snapshotId});
-    await replaceCoverage(client,args.release,"finance",categoryKey,{status:"complete",expected:1,observed:1,snapshotId:choice.snapshotId});
-    await replaceCoverage(client,args.release,"finance",organizationKey,{status:"complete",expected:1,observed:1,snapshotId:"snap_full_fec_ie_2026"});
+    await replaceCoverage(client,args.release,"finance",categoryKey,{status:"complete",expected:categories.length,observed:categories.length,snapshotId:choice.snapshotId});
+    await replaceCoverage(client,args.release,"finance",organizationKey,{status:"complete",expected:organizations.size,observed:organizations.size,snapshotId:"snap_full_fec_ie_2026"});
     await replaceCoverage(client,args.release,"finance",outsideKey,{status:"complete",expected:1,observed:1,snapshotId:"snap_full_fec_ie_2026"});
     summaries += 1; outside += 1;
   }
@@ -327,7 +340,7 @@ export async function executeFullFactual(argv: readonly string[]) {
       {id:"snap_full_fec_ie_2026",sourceId:"src_full_fec_ie_2026",sourceName:"FEC Independent Expenditures 2026",authority:"official",homepage:"https://www.fec.gov/data/browse-data/",url:"file://independent_expenditure_2026.csv",license:"US-government-public-domain",parser:"fec-independent-expenditure-csv-v1",bytes:ieBytes},
     ];
     for(const source of sourceFiles)await insertSource(client,args.release,args.retrievedAt,source);
-    const member=await enrichMembers(client,args,legislators,committees,assignments); const electionCount=await enrichElections(client,args,districts); const finance=await enrichFinance(client,args,legislators,summaryFiles,records(ieBytes.toString("utf8")));
+    const member=await enrichMembers(client,args,legislators,committees,assignments); const electionCount=await enrichElections(client,args,districts); const finance=await enrichFinance(client,args,legislators,summaryFiles,records(ieBytes.toString("utf8"))); await reconcileFinanceRollupCoverage(client,args.release);
     const loaded=(await loadNationwideManifestForFinalization(client,args.release)).manifest; const canonical=computeCanonicalDataChecksum(loaded); const validation=validateReleaseManifest({...loaded,canonicalDataChecksumSha256:canonical});if(!validation.success)throw new Error(`FULL_FACTUAL_MANIFEST_INVALID:${validation.issues.map(issue=>`${issue.path}:${issue.message}`).join(";")}`);
     const metadata=await client.query<{geometry_checksum_sha256:string}>("SELECT geometry_checksum_sha256 FROM release_manifests WHERE release_id=$1",[args.release]);await client.query("UPDATE release_manifests SET canonical_data_checksum_sha256=$2,content_checksum_sha256=$3,validated_at=NULL WHERE release_id=$1",[args.release,canonical,expectedContentChecksum({canonical_data_checksum_sha256:canonical,geometry_checksum_sha256:metadata.rows[0]!.geometry_checksum_sha256} as never)]);await validateNationwideCandidateReleaseWithClient(client,args.release);await client.query("COMMIT");return{release:args.release,cutoff:args.cutoff,member,elections:electionCount,finance,status:"validated_candidate" as const};
   }catch(error){await client.query("ROLLBACK").catch(()=>undefined);throw error;}finally{client.release();}
