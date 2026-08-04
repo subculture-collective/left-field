@@ -146,8 +146,9 @@ async function enrichMembers(client: PoolClient, args: FullFactualArguments, leg
   }
   const flattened = committees.flatMap((committee) => [
     { sourceId: committee.thomas_id, name: committee.name, type: committee.type },
-    ...(committee.subcommittees ?? []).map((subcommittee) => ({ sourceId: subcommittee.thomas_id, name: `${committee.name}: ${subcommittee.name}`, type: `${committee.type}_subcommittee` })),
+    ...(committee.subcommittees ?? []).map((subcommittee) => ({ sourceId: `${committee.thomas_id}${subcommittee.thomas_id}`, name: `${committee.name}: ${subcommittee.name}`, type: `${committee.type}_subcommittee` })),
   ]);
+  if (new Set(flattened.map((committee) => committee.sourceId)).size !== flattened.length) throw new Error("COMMITTEE_SOURCE_ID_CLOSURE_INVALID");
   const committeeIds = new Map<string, string>();
   for (const committee of flattened) {
     const id = `committee_leg_${safeId(committee.sourceId)}`; committeeIds.set(committee.sourceId, id);
