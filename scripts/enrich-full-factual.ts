@@ -16,6 +16,7 @@ type Legislator = {
   id: { bioguide: string; fec?: string[] };
   bio: { birthday: string };
   name: { official_full?: string; first: string; last: string };
+  terms?: Array<{ type?: string; state?: string; district?: number }>;
 };
 type Committee = {
   type: string;
@@ -72,19 +73,37 @@ const number = (value: string | undefined): number | null => {
   const parsed = Number(value.replace(/,/g, "").replace(/%$/, ""));
   return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
 };
+const signedNumber = (value: string | undefined): number | null => {
+  if (value === undefined || value.trim() === "") return null;
+  const parsed = Number(value.replace(/,/g, "").replace(/%$/, ""));
+  return Number.isFinite(parsed) ? parsed : null;
+};
 
 export function normalizeFecDate(value: string): string {
   const compact = /^(\d{4})(\d{2})(\d{2})$/.exec(value);
   const slashed = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(value);
+  const named = /^(\d{1,2})-([A-Za-z]{3})-(\d{2})$/.exec(value);
+  const namedMonth = named ? ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"].indexOf(named[2]!.toUpperCase()) + 1 : 0;
   const normalized = compact
     ? `${compact[1]}-${compact[2]}-${compact[3]}`
     : slashed
       ? `${slashed[3]}-${slashed[1]!.padStart(2, "0")}-${slashed[2]!.padStart(2, "0")}`
+      : named && namedMonth > 0
+        ? `20${named[3]}-${String(namedMonth).padStart(2, "0")}-${named[1]!.padStart(2, "0")}`
       : "";
   if (!datePattern.test(normalized) || Number.isNaN(Date.parse(`${normalized}T00:00:00Z`))) {
     throw new Error(`FEC_DATE_INVALID:${value}`);
   }
   return normalized;
+}
+
+export function fecCandidateMatchesSeat(row: Json, seat: Pick<CurrentPerson, "state_code" | "district_code" | "kind">): boolean {
+  const office = value(row, "Cand_Office");
+  if (office !== (seat.kind === "senate" ? "S" : "H") || value(row, "Cand_Office_St") !== seat.state_code) return false;
+  if (office === "S") return true;
+  const reported = value(row, "Cand_Office_Dist").replace(/^0+/, "") || "0";
+  if (seat.district_code === "AL") return reported === "0" || reported === "1";
+  return reported === String(Number(seat.district_code));
 }
 
 /** RFC 4180 parser used for official FEC and publisher spreadsheets. */
@@ -202,7 +221,15 @@ async function enrichMembers(client: PoolClient, args: FullFactualArguments, leg
     }
   }
   const memberKey = scopeKey("release");
-  await replaceCoverage(client, args.release, "member", memberKey, { status: "complete", expected: people.rowCount, observed: people.rowCount, snapshotId: "snap_full_legislators" });
+  const assignedPeople = new Set(Object.values(assignments).flat().map((assignment) => assignment.bioguide));
+  const assignedCurrentPeople = people.rows.filter((person) => assignedPeople.has(person.bioguide_id)).length;
+  await replaceCoverage(client, args.release, "member", memberKey, {
+    status: assignedCurrentPeople === people.rowCount ? "complete" : "partial",
+    expected: people.rowCount,
+    observed: assignedCurrentPeople,
+    snapshotId: "snap_full_legislators",
+    ...(assignedCurrentPeople === people.rowCount ? {} : { reason: "not_reported" }),
+  });
   await client.query("INSERT INTO coverage_input_snapshots(release_id,domain,scope_key,snapshot_id) VALUES($1,'member',$2,'snap_full_assignments')", [args.release, memberKey]);
   return { members: people.rowCount, assignments: assignmentCount };
 }
@@ -245,10 +272,11 @@ type FecChoice = { cycle: number; row: Json; snapshotId: string };
 const value = (row: Json, key: string): string => String(row[key] ?? "");
 
 async function enrichFinance(client: PoolClient, args: FullFactualArguments, legislators: Legislator[], summaryFiles: Array<{ cycle: number; rows: Json[]; snapshotId: string }>, ieRows: Json[]): Promise<{ summaries: number; missing: number; outside: number }> {
-  const byFec = new Map<string, FecChoice>();
+  const byFec = new Map<string, FecChoice[]>();
   for (const file of summaryFiles) for (const row of file.rows) {
     const candidateId = value(row, "Cand_Id"), coverage = value(row, "Coverage_End_Date"); if (!candidateId || !coverage) continue;
-    const prior = byFec.get(candidateId); if (!prior || file.cycle > prior.cycle) byFec.set(candidateId, { cycle: file.cycle, row, snapshotId: file.snapshotId });
+    const normalizedCoverage = normalizeFecDate(coverage);
+    if (normalizedCoverage <= args.cutoff) byFec.set(candidateId, [...(byFec.get(candidateId) ?? []), { cycle: file.cycle, row, snapshotId: file.snapshotId }]);
   }
   const byBioguide = new Map(legislators.map((row) => [row.id.bioguide, row]));
   const seats = await client.query<CurrentPerson>(`SELECT DISTINCT p.id,p.bioguide_id,sc.id seat_cycle_id,sc.geography_version_id,o.state_code,o.district_code,o.kind
@@ -258,6 +286,8 @@ async function enrichFinance(client: PoolClient, args: FullFactualArguments, leg
     LEFT JOIN people p ON p.release_id=m.release_id AND p.id=m.person_id WHERE sc.release_id=$1`, [args.release, args.cutoff]);
   const ieLatest = new Map<string, Json>();
   for (const row of ieRows) {
+    const expenditureDate = normalizeFecDate(value(row,"exp_date") || value(row,"dissem_dt"));
+    if (expenditureDate > args.cutoff) continue;
     const key = `${value(row,"spe_id")}|${value(row,"cand_id")}|${value(row,"tran_id")}`; const prior = ieLatest.get(key);
     if (!prior || Number(value(row,"file_num")) > Number(value(prior,"file_num"))) ieLatest.set(key, row);
   }
@@ -266,8 +296,7 @@ async function enrichFinance(client: PoolClient, args: FullFactualArguments, leg
   let summaries = 0, missing = 0, outside = 0;
   for (const seat of seats.rows) {
     const legislator = seat.bioguide_id ? byBioguide.get(seat.bioguide_id) : undefined;
-    const expectedOffice = seat.kind === "senate" ? "S" : "H";
-    const choices = (legislator?.id.fec ?? []).map((id) => byFec.get(id)).filter((choice): choice is FecChoice => Boolean(choice && value(choice.row,"Cand_Office") === expectedOffice)).sort((a,b) => b.cycle-a.cycle);
+    const choices = (legislator?.id.fec ?? []).flatMap((id) => byFec.get(id) ?? []).filter((choice) => fecCandidateMatchesSeat(choice.row, seat)).sort((a,b) => b.cycle-a.cycle || normalizeFecDate(value(b.row,"Coverage_End_Date")).localeCompare(normalizeFecDate(value(a.row,"Coverage_End_Date"))));
     const choice = choices[0];
     const summaryKey = scopeKey("funding", { seatCycleId: seat.seat_cycle_id, fundingKind: "summary" });
     const categoryKey = scopeKey("funding", { seatCycleId: seat.seat_cycle_id, fundingKind: "category" });
@@ -291,21 +320,22 @@ async function enrichFinance(client: PoolClient, args: FullFactualArguments, leg
     await client.query("INSERT INTO candidacies(release_id,id,contest_id,person_id,party,status) VALUES($1,$2,$3,$4,$5,'filed')",[args.release,candidacyId,financeContestId,seat.id,party]);
     await client.query("INSERT INTO committee_relationships(release_id,id,committee_id,candidacy_id,relationship,effective_from,effective_to) VALUES($1,$2,$3,$4,'authorized',$5,NULL)",[args.release,relationshipId,committeeId,candidacyId,`${choice.cycle-1}-01-01`]);
     await client.query("INSERT INTO provenance(release_id,entity_type,entity_id,snapshot_id,role) VALUES($1,'contests',$2,$5,'original_publisher'),($1,'candidacies',$3,$5,'original_publisher'),($1,'committee_relationships',$4,$5,'original_publisher')",[args.release,financeContestId,candidacyId,relationshipId,choice.snapshotId]);
-    const cash=number(value(choice.row,"Cash_On_Hand_COP")) ?? 0, receipts=number(value(choice.row,"Total_Receipt")) ?? 0, disbursements=number(value(choice.row,"Total_Disbursement")) ?? 0;
-    await client.query("INSERT INTO fec_filing_summaries(release_id,id,seat_cycle_id,committee_id,source_filing_id,report_type,reporting_period_start,reporting_period_end,filed_at,amendment_number,amendment_status,amends_filing_id,cash_on_hand,cash_on_hand_missing_reason,total_receipts,total_receipts_missing_reason,total_disbursements,total_disbursements_missing_reason,lineage_as_of,lineage_methodology,lineage_status) VALUES($1,$2,$3,$4,$5,'candidate_summary_bulk',$6,$7,$8,0,'new',NULL,$9,NULL,$10,NULL,$11,NULL,$7,'fec-candidate-summary-bulk-v1','reported')", [args.release,filingId,seat.seat_cycle_id,committeeId,`candidate-summary:${choice.cycle}:${candidateId}`,`${choice.cycle-1}-01-01`,coverage,args.retrievedAt,cash,receipts,disbursements]);
+    const cash=number(value(choice.row,"Cash_On_Hand_COP")), receipts=number(value(choice.row,"Total_Receipt")), disbursements=number(value(choice.row,"Total_Disbursement"));
+    await client.query("INSERT INTO fec_filing_summaries(release_id,id,seat_cycle_id,committee_id,source_filing_id,report_type,reporting_period_start,reporting_period_end,filed_at,amendment_number,amendment_status,amends_filing_id,cash_on_hand,cash_on_hand_missing_reason,total_receipts,total_receipts_missing_reason,total_disbursements,total_disbursements_missing_reason,lineage_as_of,lineage_methodology,lineage_status) VALUES($1,$2,$3,$4,$5,'candidate_summary_bulk',$6,$7,$8,0,'new',NULL,$9,$10,$11,$12,$13,$14,$7,'fec-candidate-summary-bulk-v2','reported')", [args.release,filingId,seat.seat_cycle_id,committeeId,`candidate-summary:${choice.cycle}:${candidateId}`,`${choice.cycle-1}-01-01`,coverage,args.retrievedAt,cash,cash===null?"not_reported":null,receipts,receipts===null?"not_reported":null,disbursements,disbursements===null?"not_reported":null]);
     await client.query("INSERT INTO fec_filing_lineage(release_id,filing_id,snapshot_id,role) VALUES($1,$2,$3,'original_publisher')", [args.release,filingId,choice.snapshotId]);
     await client.query("UPDATE seat_finance_summaries SET filing_id=$3,missing_reason=NULL,as_of=NULL WHERE release_id=$1 AND seat_cycle_id=$2", [args.release,seat.seat_cycle_id,filingId]);
     await client.query("DELETE FROM seat_finance_summary_lineage WHERE release_id=$1 AND seat_cycle_id=$2", [args.release,seat.seat_cycle_id]);
-    await client.query("INSERT INTO finance_aggregates(release_id,id,seat_cycle_id,as_of,coverage_through,reporting_period_start,cash_on_hand,cash_on_hand_missing_reason,receipts,receipts_missing_reason,disbursements,disbursements_missing_reason,methodology_version) VALUES($1,$2,$3,$4,$5,$6,$7,NULL,$8,NULL,$9,NULL,'fec-candidate-summary-bulk-v1')", [args.release,aggregateId,seat.seat_cycle_id,args.cutoff,coverage,`${choice.cycle-1}-01-01`,cash,receipts,disbursements]);
+    await client.query("INSERT INTO finance_aggregates(release_id,id,seat_cycle_id,as_of,coverage_through,reporting_period_start,cash_on_hand,cash_on_hand_missing_reason,receipts,receipts_missing_reason,disbursements,disbursements_missing_reason,methodology_version) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11,$12,'fec-candidate-summary-bulk-v2')", [args.release,aggregateId,seat.seat_cycle_id,args.cutoff,coverage,`${choice.cycle-1}-01-01`,cash,cash===null?"not_reported":null,receipts,receipts===null?"not_reported":null,disbursements,disbursements===null?"not_reported":null]);
     await client.query("INSERT INTO finance_aggregate_inputs(release_id,finance_aggregate_id,committee_id,filing_id,missing_reason) VALUES($1,$2,$3,$4,NULL)", [args.release,aggregateId,committeeId,filingId]);
-    const categories = [["individual_contributions","Individual_Contribution"],["other_committee_contributions","Other_Committee_Contribution"],["party_committee_contributions","Party_Committee_Contribution"],["candidate_contributions","Cand_Contribution"],["transfers_from_authorized_committees","Transfer_From_Other_Auth_Committee"],["other_receipts","Other_Receipt"]] as const;
+    const categories = [["individual_contributions","Individual_Contribution"],["other_committee_contributions","Other_Committee_Contribution"],["party_committee_contributions","Party_Committee_Contribution"],["candidate_contributions","Cand_Contribution"],["transfers_from_authorized_committees","Transfer_From_Other_Auth_Committee"],["other_receipts","Other_Receipts"]] as const;
     for (const [category,column] of categories) {
-      await client.query("INSERT INTO funding_category_aggregates(release_id,seat_cycle_id,category,amount,amount_missing_reason,coverage_through,methodology_version) VALUES($1,$2,$3,$4,NULL,$5,'fec-candidate-summary-categories-v1')", [args.release,seat.seat_cycle_id,category,number(value(choice.row,column)) ?? 0,coverage]);
-      await client.query("INSERT INTO funding_category_input_snapshots(release_id,seat_cycle_id,category,coverage_through,methodology_version,snapshot_id) VALUES($1,$2,$3,$4,'fec-candidate-summary-categories-v1',$5)", [args.release,seat.seat_cycle_id,category,coverage,choice.snapshotId]);
+      const amount = number(value(choice.row,column));
+      await client.query("INSERT INTO funding_category_aggregates(release_id,seat_cycle_id,category,amount,amount_missing_reason,coverage_through,methodology_version) VALUES($1,$2,$3,$4,$5,$6,'fec-candidate-summary-categories-v2')", [args.release,seat.seat_cycle_id,category,amount,amount===null?"not_reported":null,coverage]);
+      await client.query("INSERT INTO funding_category_input_snapshots(release_id,seat_cycle_id,category,coverage_through,methodology_version,snapshot_id) VALUES($1,$2,$3,$4,'fec-candidate-summary-categories-v2',$5)", [args.release,seat.seat_cycle_id,category,coverage,choice.snapshotId]);
     }
     const candidateIe = ieByCandidate.get(candidateId) ?? [];
     let support=0, oppose=0; const organizations=new Map<string,{id:string;name:string;amount:number}>();
-    for (const row of candidateIe) { const amount=number(value(row,"exp_amo")) ?? 0; if(value(row,"sup_opp")==="S")support+=amount; else if(value(row,"sup_opp")==="O")oppose+=amount; const name=value(row,"spe_nam")||"Unidentified reporting committee"; const id=value(row,"spe_id")||name; organizations.set(id,{id,name,amount:(organizations.get(id)?.amount??0)+amount}); }
+    for (const row of candidateIe) { const amount=signedNumber(value(row,"exp_amo")); if(amount===null)throw new Error(`FEC_IE_AMOUNT_INVALID:${value(row,"tran_id")}`); if(value(row,"sup_opp")==="S")support+=amount; else if(value(row,"sup_opp")==="O")oppose+=amount; const name=value(row,"spe_nam")||"Unidentified reporting committee"; const id=value(row,"spe_id")||name; organizations.set(id,{id,name,amount:(organizations.get(id)?.amount??0)+amount}); }
     await client.query("INSERT INTO outside_spending_aggregates(release_id,seat_cycle_id,support_amount,support_amount_missing_reason,oppose_amount,oppose_amount_missing_reason,coverage_through,methodology_version) VALUES($1,$2,$3,NULL,$4,NULL,$5,'fec-schedule-e-latest-transaction-v1')", [args.release,seat.seat_cycle_id,support,oppose,args.cutoff]);
     await client.query("INSERT INTO outside_spending_input_snapshots(release_id,seat_cycle_id,coverage_through,methodology_version,snapshot_id) VALUES($1,$2,$3,'fec-schedule-e-latest-transaction-v1','snap_full_fec_ie_2026')", [args.release,seat.seat_cycle_id,args.cutoff]);
     for (const organization of organizations.values()) {
@@ -327,7 +357,7 @@ export async function executeFullFactual(argv: readonly string[]) {
   const [legislatorBytes,committeeBytes,assignmentBytes,electionBytes,ieBytes,...fecBytes]=await Promise.all([readFile(args.legislators),readFile(args.committees),readFile(args.assignments),readFile(args.elections),readFile(args.independentExpenditures),...args.fecSummaries.map((path) => readFile(path))]);
   const legislators=JSON.parse(legislatorBytes.toString("utf8")) as Legislator[]; const committees=JSON.parse(committeeBytes.toString("utf8")) as Committee[]; const assignments=JSON.parse(assignmentBytes.toString("utf8")) as Record<string,Assignment[]>; const districts=parsePresidentialDistricts(electionBytes.toString("utf8"));
   if(legislators.length!==537 || committees.length<40 || Object.keys(assignments).length<100) throw new Error("MEMBER_SOURCE_CLOSURE_INVALID");
-  const summaryFiles=fecBytes.map((bytes,index)=>{const match=basename(args.fecSummaries[index]!).match(/(20\d{2})/);if(!match)throw new Error("FEC_SUMMARY_CYCLE_MISSING");const cycle=Number(match[1]);return{cycle,rows:records(bytes.toString("utf8")),snapshotId:`snap_full_fec_${cycle}`};}).sort((a,b)=>a.cycle-b.cycle);
+  const summaryFiles=args.fecSummaries.map((path,index)=>{const bytes=fecBytes[index]!;const match=basename(path).match(/(20\d{2})/);if(!match)throw new Error("FEC_SUMMARY_CYCLE_MISSING");const cycle=Number(match[1]);return{cycle,path,bytes,rows:records(bytes.toString("utf8")),snapshotId:`snap_full_fec_${cycle}`};}).sort((a,b)=>a.cycle-b.cycle);
   const client=await pool.connect(); try { await client.query("BEGIN"); for(const id of [args.release,args.sourceRelease].sort())await client.query("SELECT pg_advisory_xact_lock(hashtext('dsa_seats_release:' || $1))",[id]);
     const candidate=await client.query<{source_cutoff:string}>("SELECT (source_cutoff AT TIME ZONE 'UTC')::date::text source_cutoff FROM data_releases WHERE id=$1 AND status='candidate' AND previous_release_id=$2",[args.release,args.sourceRelease]);if(candidate.rowCount!==1||candidate.rows[0]!.source_cutoff!==args.cutoff)throw new Error("FULL_FACTUAL_CANDIDATE_INVALID");
     await client.query("UPDATE seat_cycles SET occupancy_as_of=$2::date WHERE release_id=$1",[args.release,args.cutoff]);
@@ -336,8 +366,8 @@ export async function executeFullFactual(argv: readonly string[]) {
       {id:"snap_full_committees",sourceId:"src_full_committees",sourceName:"United States Congress Committees",authority:"editorial",homepage:"https://github.com/unitedstates/congress-legislators",url:"https://unitedstates.github.io/congress-legislators/committees-current.json",license:"CC0-1.0",parser:"congress-committees-json-v1",bytes:committeeBytes},
       {id:"snap_full_assignments",sourceId:"src_full_assignments",sourceName:"United States Congress Committee Membership",authority:"editorial",homepage:"https://github.com/unitedstates/congress-legislators",url:"https://unitedstates.github.io/congress-legislators/committee-membership-current.json",license:"CC0-1.0",parser:"congress-committee-membership-json-v1",bytes:assignmentBytes},
       {id:"snap_full_elections",sourceId:"src_full_elections",sourceName:"The Downballot 2024 Presidential Results by Congressional District",authority:"editorial",homepage:"https://www.the-downballot.com/p/the-downballots-calculations-of-presidential",url:"https://docs.google.com/spreadsheets/d/1ng1i_Dm_RMDnEvauH44pgE6JCUsapcuu8F2pCfeLWFo/export?format=csv&gid=1491069057",license:"publisher-publication",parser:"downballot-cd-exact-csv-v1",bytes:electionBytes},
-      ...summaryFiles.map((file,index)=>({id:file.snapshotId,sourceId:`src_full_fec_${file.cycle}`,sourceName:`FEC Candidate Summary ${file.cycle}`,authority:"official",homepage:"https://www.fec.gov/data/browse-data/",url:`file://${basename(args.fecSummaries[index]!)}`,license:"US-government-public-domain",parser:"fec-candidate-summary-csv-v1",bytes:fecBytes[index]!})),
-      {id:"snap_full_fec_ie_2026",sourceId:"src_full_fec_ie_2026",sourceName:"FEC Independent Expenditures 2026",authority:"official",homepage:"https://www.fec.gov/data/browse-data/",url:"file://independent_expenditure_2026.csv",license:"US-government-public-domain",parser:"fec-independent-expenditure-csv-v1",bytes:ieBytes},
+      ...summaryFiles.map((file)=>({id:file.snapshotId,sourceId:`src_full_fec_${file.cycle}`,sourceName:`FEC Candidate Summary ${file.cycle}`,authority:"official",homepage:"https://www.fec.gov/data/browse-data/",url:`https://www.fec.gov/files/bulk-downloads/${file.cycle}/weball${String(file.cycle).slice(2)}.zip`,license:"US-government-public-domain",parser:"fec-candidate-summary-csv-v2",bytes:file.bytes})),
+      {id:"snap_full_fec_ie_2026",sourceId:"src_full_fec_ie_2026",sourceName:"FEC Independent Expenditures 2026",authority:"official",homepage:"https://www.fec.gov/data/browse-data/",url:"https://www.fec.gov/files/bulk-downloads/2026/independent_expenditure_2026.csv",license:"US-government-public-domain",parser:"fec-independent-expenditure-csv-v2",bytes:ieBytes},
     ];
     for(const source of sourceFiles)await insertSource(client,args.release,args.retrievedAt,source);
     const member=await enrichMembers(client,args,legislators,committees,assignments); const electionCount=await enrichElections(client,args,districts); const finance=await enrichFinance(client,args,legislators,summaryFiles,records(ieBytes.toString("utf8"))); await reconcileFinanceRollupCoverage(client,args.release);

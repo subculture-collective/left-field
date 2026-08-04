@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { fecSummaryFilingId, federalGeneralElectionDate, normalizeFecDate, parseCsv, parseFullFactualArguments, parsePresidentialDistricts } from "./enrich-full-factual";
+import { fecCandidateMatchesSeat, fecSummaryFilingId, federalGeneralElectionDate, normalizeFecDate, parseCsv, parseFullFactualArguments, parsePresidentialDistricts } from "./enrich-full-factual";
 
 describe("accelerated full factual import", () => {
   it("parses quoted RFC 4180 fields", () => {
@@ -29,7 +29,16 @@ describe("accelerated full factual import", () => {
   it("normalizes both FEC bulk date formats", () => {
     expect(normalizeFecDate("04/03/2024")).toBe("2024-04-03");
     expect(normalizeFecDate("20240630")).toBe("2024-06-30");
+    expect(normalizeFecDate("15-MAY-26")).toBe("2026-05-15");
     expect(() => normalizeFecDate("06/3-0/-20")).toThrow("FEC_DATE_INVALID");
+  });
+
+  it("requires FEC candidates to match the exact current seat", () => {
+    const seat = { state_code: "CA", district_code: "41", kind: "house_voting" };
+    expect(fecCandidateMatchesSeat({ Cand_Office: "H", Cand_Office_St: "CA", Cand_Office_Dist: "41" }, seat)).toBe(true);
+    expect(fecCandidateMatchesSeat({ Cand_Office: "H", Cand_Office_St: "CA", Cand_Office_Dist: "40" }, seat)).toBe(false);
+    expect(fecCandidateMatchesSeat({ Cand_Office: "S", Cand_Office_St: "CA", Cand_Office_Dist: "00" }, seat)).toBe(false);
+    expect(fecCandidateMatchesSeat({ Cand_Office: "H", Cand_Office_St: "AK", Cand_Office_Dist: "00" }, { state_code: "AK", district_code: "AL", kind: "house_voting" })).toBe(true);
   });
 
   it("uses the canonical FEC filing identifier namespace", () => {
