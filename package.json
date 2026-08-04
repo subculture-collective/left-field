@@ -23,6 +23,7 @@
     "fetch:fec-local": "tsx scripts/fetch-fec-local.ts",
     "baseline:factual": "tsx scripts/baseline-factual.ts",
     "enrich:members": "tsx scripts/enrich-member-facts.ts",
+    "enrich:full-factual": "tsx scripts/enrich-full-factual.ts",
     "finalize:nationwide": "tsx scripts/finalize-nationwide.ts",
     "finalize:acs": "tsx scripts/finalize-acs.ts",
     "finalize:fec": "tsx scripts/finalize-fec.ts",
