@@ -252,7 +252,7 @@ async function enrichFinance(client: PoolClient, args: FullFactualArguments, leg
     const organizationKey = scopeKey("funding", { seatCycleId: seat.seat_cycle_id, fundingKind: "organization" });
     const outsideKey = scopeKey("funding", { seatCycleId: seat.seat_cycle_id, fundingKind: "outside_spending" });
     if (!choice) {
-      const reason = legislator ? "not_reported" : "not_applicable"; missing += 1;
+      const reason = "not_reported"; missing += 1;
       for (const key of [summaryKey, categoryKey, organizationKey]) await replaceCoverage(client,args.release,"finance",key,{status:"unavailable",expected:1,observed:0,snapshotId:"snap_full_fec_2026",reason});
       await replaceCoverage(client,args.release,"finance",outsideKey,{status:"unavailable",expected:1,observed:0,snapshotId:"snap_full_fec_ie_2026",reason});
       continue;
