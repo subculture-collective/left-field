@@ -1,7 +1,7 @@
 import { S3Client } from "@aws-sdk/client-s3";
 import type { Pool } from "pg";
 
-import { closeDb, getIngestPool } from "@/db/client";
+import { closeDb, getNationwideFinalizerPool } from "@/db/client";
 import { releaseIdSchema } from "@/domain/contracts";
 import { finalizeCandidateMaps } from "@/ingestion/tiger/finalize-maps";
 import { simplifyNationalTigerDistrictLayer } from "@/ingestion/tiger/simplify";
@@ -29,5 +29,5 @@ export async function executeFinalizeMaps(argv: readonly string[], dependencies:
   await (dependencies.finalize ?? finalizeCandidateMaps)({ pool: dependencies.getPool(), store: dependencies.store ?? createMapStore(dependencies.env), candidateReleaseId: args.candidateRelease, sourceReleaseId: args.sourceRelease, layer });
   return { status: 'finalized', candidateRelease: args.candidateRelease };
 }
-export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<Parameters<typeof executeFinalizeMaps>[1], 'env'> = { getPool: getIngestPool }): Promise<void> { process.stdout.write(`${JSON.stringify(await executeFinalizeMaps(argv, { env, ...dependencies }))}\n`); }
+export async function main(argv = process.argv.slice(2), env = process.env, dependencies: Omit<Parameters<typeof executeFinalizeMaps>[1], 'env'> = { getPool: getNationwideFinalizerPool }): Promise<void> { process.stdout.write(`${JSON.stringify(await executeFinalizeMaps(argv, { env, ...dependencies }))}\n`); }
 if (require.main === module) main().catch(error => { process.stderr.write(`${error instanceof Error ? error.message : 'Map finalization failed'}\n`); process.exitCode = 1; }).finally(closeDb);
