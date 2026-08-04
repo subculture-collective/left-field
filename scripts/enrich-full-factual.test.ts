@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { parseCsv, parseFullFactualArguments, parsePresidentialDistricts } from "./enrich-full-factual";
+import { normalizeFecDate, parseCsv, parseFullFactualArguments, parsePresidentialDistricts } from "./enrich-full-factual";
 
 describe("accelerated full factual import", () => {
   it("parses quoted RFC 4180 fields", () => {
@@ -24,5 +24,11 @@ describe("accelerated full factual import", () => {
   it("rejects a partial presidential district package", () => {
     const csv = "District,Incumbent,Party,2024,,,2020,,\n,,,Harris,Trump,Total,Biden,Trump,Total\nAL-01,Member,(R),10,20,31,0,0,0\n";
     expect(() => parsePresidentialDistricts(csv)).toThrow("ELECTION_DISTRICT_CLOSURE_INVALID");
+  });
+
+  it("normalizes both FEC bulk date formats", () => {
+    expect(normalizeFecDate("04/03/2024")).toBe("2024-04-03");
+    expect(normalizeFecDate("20240630")).toBe("2024-06-30");
+    expect(() => normalizeFecDate("06/3-0/-20")).toThrow("FEC_DATE_INVALID");
   });
 });

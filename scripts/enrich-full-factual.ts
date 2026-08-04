@@ -67,6 +67,20 @@ const number = (value: string | undefined): number | null => {
   return Number.isFinite(parsed) && parsed >= 0 ? parsed : null;
 };
 
+export function normalizeFecDate(value: string): string {
+  const compact = /^(\d{4})(\d{2})(\d{2})$/.exec(value);
+  const slashed = /^(\d{1,2})\/(\d{1,2})\/(\d{4})$/.exec(value);
+  const normalized = compact
+    ? `${compact[1]}-${compact[2]}-${compact[3]}`
+    : slashed
+      ? `${slashed[3]}-${slashed[1]!.padStart(2, "0")}-${slashed[2]!.padStart(2, "0")}`
+      : "";
+  if (!datePattern.test(normalized) || Number.isNaN(Date.parse(`${normalized}T00:00:00Z`))) {
+    throw new Error(`FEC_DATE_INVALID:${value}`);
+  }
+  return normalized;
+}
+
 /** RFC 4180 parser used for official FEC and publisher spreadsheets. */
 export function parseCsv(input: string): string[][] {
   const rows: string[][] = []; let row: string[] = []; let value = ""; let quoted = false;
@@ -243,7 +257,7 @@ async function enrichFinance(client: PoolClient, args: FullFactualArguments, leg
       continue;
     }
     const candidateId = value(choice.row,"Cand_Id"), coverageRaw = value(choice.row,"Coverage_End_Date");
-    const coverage = `${coverageRaw.slice(0,4)}-${coverageRaw.slice(4,6)}-${coverageRaw.slice(6,8)}`;
+    const coverage = normalizeFecDate(coverageRaw);
     const committeeId = `committee_fec_${safeId(candidateId)}`, filingId = `filing_fec_summary_${choice.cycle}_${safeId(candidateId)}`, aggregateId = `finance_fec_summary_${choice.cycle}_${safeId(seat.seat_cycle_id)}`;
     await client.query("INSERT INTO committees(release_id,id,source_committee_id,name,committee_type) VALUES($1,$2,$3,$4,'fec_candidate_summary_rollup')", [args.release,committeeId,`summary:${choice.cycle}:${candidateId}`,`${value(choice.row,"Cand_Name")} authorized committee summary`]);
     await client.query("INSERT INTO provenance(release_id,entity_type,entity_id,snapshot_id,role) VALUES($1,'committees',$2,$3,'original_publisher')", [args.release,committeeId,choice.snapshotId]);
