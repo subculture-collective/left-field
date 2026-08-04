@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { fecSummaryFilingId, normalizeFecDate, parseCsv, parseFullFactualArguments, parsePresidentialDistricts } from "./enrich-full-factual";
+import { fecSummaryFilingId, federalGeneralElectionDate, normalizeFecDate, parseCsv, parseFullFactualArguments, parsePresidentialDistricts } from "./enrich-full-factual";
 
 describe("accelerated full factual import", () => {
   it("parses quoted RFC 4180 fields", () => {
@@ -34,5 +34,11 @@ describe("accelerated full factual import", () => {
 
   it("uses the canonical FEC filing identifier namespace", () => {
     expect(fecSummaryFilingId(2026, "H6AL01123")).toBe("fec_summary_2026_h6al01123");
+  });
+
+  it("computes the statutory federal general election date", () => {
+    expect(federalGeneralElectionDate(2022)).toBe("2022-11-08");
+    expect(federalGeneralElectionDate(2024)).toBe("2024-11-05");
+    expect(federalGeneralElectionDate(2026)).toBe("2026-11-03");
   });
 });

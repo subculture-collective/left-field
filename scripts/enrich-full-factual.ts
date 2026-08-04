@@ -62,6 +62,11 @@ export function parseFullFactualArguments(argv: readonly string[]): FullFactualA
 const sha256 = (bytes: Buffer): string => createHash("sha256").update(bytes).digest("hex");
 const safeId = (value: string): string => value.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
 export const fecSummaryFilingId = (cycle: number, candidateId: string): string => `fec_summary_${cycle}_${safeId(candidateId)}`;
+export function federalGeneralElectionDate(year: number): string {
+  const date = new Date(Date.UTC(year, 10, 2));
+  while (date.getUTCDay() !== 2) date.setUTCDate(date.getUTCDate() + 1);
+  return date.toISOString().slice(0, 10);
+}
 const number = (value: string | undefined): number | null => {
   if (value === undefined || value.trim() === "") return null;
   const parsed = Number(value.replace(/,/g, "").replace(/%$/, ""));
@@ -139,7 +144,7 @@ async function replaceCoverage(client: PoolClient, release: string, domain: stri
   await client.query("INSERT INTO coverage_input_snapshots(release_id,domain,scope_key,snapshot_id) VALUES($1,$2,$3,$4)", [release, domain, key, values.snapshotId]);
 }
 
-type CurrentPerson = { id: string; bioguide_id: string; seat_cycle_id: string; state_code: string; district_code: string | null; kind: string };
+type CurrentPerson = { id: string; bioguide_id: string; seat_cycle_id: string; geography_version_id: string; state_code: string; district_code: string | null; kind: string };
 
 async function enrichMembers(client: PoolClient, args: FullFactualArguments, legislators: Legislator[], committees: Committee[], assignments: Record<string, Assignment[]>): Promise<{ members: number; assignments: number }> {
   const people = await client.query<CurrentPerson>(`SELECT DISTINCT p.id,p.bioguide_id,sc.id seat_cycle_id,o.state_code,o.district_code,o.kind
@@ -196,7 +201,7 @@ async function enrichElections(client: PoolClient, args: FullFactualArguments, d
   for (const seat of seats.rows) {
     const row = byDistrict.get(`${seat.state_code}-${seat.district_code}`)!;
     const suffix = `${seat.state_code.toLowerCase()}_${seat.district_code.toLowerCase()}`;
-    const contest = `contest_president_2024_${suffix}`, dem = `option_harris_2024_${suffix}`, rep = `option_trump_2024_${suffix}`;
+    const contest = `contest_president_2024_${suffix}`, dem = `option_harris_2024_${suffix}`, rep = `option_trump_2024_${suffix}`, other = `option_other_2024_${suffix}`;
     await client.query("INSERT INTO contests(release_id,id,seat_cycle_id,kind,round,election_date,geography_version_id,certification_status,reporting_completeness_percent,denominator_votes,denominator_missing_reason,reporting_unit,allocation_method,allocation_coverage_percent,allocation_coverage_missing_reason,lineage_as_of,lineage_methodology,lineage_status) VALUES($1,$2,$3,'president_general','general','2024-11-05',$4,'modeled',100,$5,NULL,'district','other',100,NULL,'2025-04-23','downballot-cd-2024-exact-v1','modeled')", [args.release, contest, seat.id, seat.geography_version_id, row.total]);
     await client.query("INSERT INTO provenance(release_id,entity_type,entity_id,snapshot_id,role) VALUES($1,'contests',$2,'snap_full_elections','original_publisher')", [args.release, contest]);
     await client.query("INSERT INTO contest_lineage(release_id,contest_id,snapshot_id,role) VALUES($1,$2,'snap_full_elections','original_publisher')", [args.release, contest]);
@@ -206,6 +211,10 @@ async function enrichElections(client: PoolClient, args: FullFactualArguments, d
       await client.query("INSERT INTO election_results(release_id,contest_id,result_option_id,votes,votes_missing_reason,lineage_as_of,lineage_methodology,lineage_status) VALUES($1,$2,$3,$4,NULL,'2025-04-23','downballot-cd-2024-exact-v1','modeled')", [args.release, contest, id, votes]);
       await client.query("INSERT INTO election_result_lineage(release_id,contest_id,result_option_id,snapshot_id,role) VALUES($1,$2,$3,'snap_full_elections','original_publisher')", [args.release, contest, id]);
     }
+    await client.query("INSERT INTO result_options(release_id,id,contest_id,candidacy_id,label,party,option_kind) VALUES($1,$2,$3,NULL,'Other candidates',NULL,'other')", [args.release, other, contest]);
+    await client.query("INSERT INTO provenance(release_id,entity_type,entity_id,snapshot_id,role) VALUES($1,'result_options',$2,'snap_full_elections','original_publisher')", [args.release, other]);
+    await client.query("INSERT INTO election_results(release_id,contest_id,result_option_id,votes,votes_missing_reason,lineage_as_of,lineage_methodology,lineage_status) VALUES($1,$2,$3,$4,NULL,'2025-04-23','downballot-cd-2024-exact-v1','modeled')", [args.release, contest, other, row.total - row.harris - row.trump]);
+    await client.query("INSERT INTO election_result_lineage(release_id,contest_id,result_option_id,snapshot_id,role) VALUES($1,$2,$3,'snap_full_elections','original_publisher')", [args.release, contest, other]);
   }
   const states = new Set(districts.map((row) => row.state));
   for (const state of states) {
@@ -229,7 +238,7 @@ async function enrichFinance(client: PoolClient, args: FullFactualArguments, leg
     const prior = byFec.get(candidateId); if (!prior || file.cycle > prior.cycle) byFec.set(candidateId, { cycle: file.cycle, row, snapshotId: file.snapshotId });
   }
   const byBioguide = new Map(legislators.map((row) => [row.id.bioguide, row]));
-  const seats = await client.query<CurrentPerson>(`SELECT DISTINCT p.id,p.bioguide_id,sc.id seat_cycle_id,o.state_code,o.district_code,o.kind
+  const seats = await client.query<CurrentPerson>(`SELECT DISTINCT p.id,p.bioguide_id,sc.id seat_cycle_id,sc.geography_version_id,o.state_code,o.district_code,o.kind
     FROM seat_cycles sc JOIN offices o ON o.release_id=sc.release_id AND o.id=sc.office_id
     LEFT JOIN office_terms ot ON ot.release_id=sc.release_id AND ot.id=sc.office_term_id
     LEFT JOIN memberships m ON m.release_id=ot.release_id AND m.office_term_id=ot.id AND m.starts_at <= $2::date AND (m.ends_at IS NULL OR $2::date < m.ends_at)
@@ -260,14 +269,21 @@ async function enrichFinance(client: PoolClient, args: FullFactualArguments, leg
     const candidateId = value(choice.row,"Cand_Id"), coverageRaw = value(choice.row,"Coverage_End_Date");
     const coverage = normalizeFecDate(coverageRaw);
     const committeeId = `committee_fec_${safeId(candidateId)}`, filingId = fecSummaryFilingId(choice.cycle, candidateId), aggregateId = `finance_fec_summary_${choice.cycle}_${safeId(seat.seat_cycle_id)}`;
+    const financeContestId = `contest_finance_${choice.cycle}_${safeId(seat.seat_cycle_id)}`, candidacyId = `candidacy_finance_${choice.cycle}_${safeId(candidateId)}`, relationshipId = `committee_rel_finance_${choice.cycle}_${safeId(candidateId)}`;
+    const partyCode=value(choice.row,"Cand_Pty_Affiliation").toUpperCase(); const party=partyCode==="DEM"?"democratic":partyCode==="REP"?"republican":partyCode==="IND"?"independent":"other";
     await client.query("INSERT INTO committees(release_id,id,source_committee_id,name,committee_type) VALUES($1,$2,$3,$4,'fec_candidate_summary_rollup')", [args.release,committeeId,`summary:${choice.cycle}:${candidateId}`,`${value(choice.row,"Cand_Name")} authorized committee summary`]);
     await client.query("INSERT INTO provenance(release_id,entity_type,entity_id,snapshot_id,role) VALUES($1,'committees',$2,$3,'original_publisher')", [args.release,committeeId,choice.snapshotId]);
+    await client.query("INSERT INTO contests(release_id,id,seat_cycle_id,kind,round,election_date,geography_version_id,certification_status,reporting_completeness_percent,denominator_votes,denominator_missing_reason,reporting_unit,allocation_method,allocation_coverage_percent,allocation_coverage_missing_reason,lineage_as_of,lineage_methodology,lineage_status) VALUES($1,$2,$3,$4,'general',$5,$6,'unavailable',0,NULL,'not_defensibly_modeled',$7,'none',NULL,'not_applicable',$8,'fec-candidate-summary-attribution-v1','reported')",[args.release,financeContestId,seat.seat_cycle_id,seat.kind==="senate"?"senate_general":"house_general",federalGeneralElectionDate(choice.cycle),seat.geography_version_id,seat.kind==="senate"?"state":"district",args.cutoff]);
+    await client.query("INSERT INTO contest_lineage(release_id,contest_id,snapshot_id,role) VALUES($1,$2,$3,'original_publisher')",[args.release,financeContestId,choice.snapshotId]);
+    await client.query("INSERT INTO candidacies(release_id,id,contest_id,person_id,party,status) VALUES($1,$2,$3,$4,$5,'filed')",[args.release,candidacyId,financeContestId,seat.id,party]);
+    await client.query("INSERT INTO committee_relationships(release_id,id,committee_id,candidacy_id,relationship,effective_from,effective_to) VALUES($1,$2,$3,$4,'authorized',$5,NULL)",[args.release,relationshipId,committeeId,candidacyId,`${choice.cycle-1}-01-01`]);
+    await client.query("INSERT INTO provenance(release_id,entity_type,entity_id,snapshot_id,role) VALUES($1,'contests',$2,$5,'original_publisher'),($1,'candidacies',$3,$5,'original_publisher'),($1,'committee_relationships',$4,$5,'original_publisher')",[args.release,financeContestId,candidacyId,relationshipId,choice.snapshotId]);
     const cash=number(value(choice.row,"Cash_On_Hand_COP")) ?? 0, receipts=number(value(choice.row,"Total_Receipt")) ?? 0, disbursements=number(value(choice.row,"Total_Disbursement")) ?? 0;
     await client.query("INSERT INTO fec_filing_summaries(release_id,id,seat_cycle_id,committee_id,source_filing_id,report_type,reporting_period_start,reporting_period_end,filed_at,amendment_number,amendment_status,amends_filing_id,cash_on_hand,cash_on_hand_missing_reason,total_receipts,total_receipts_missing_reason,total_disbursements,total_disbursements_missing_reason,lineage_as_of,lineage_methodology,lineage_status) VALUES($1,$2,$3,$4,$5,'candidate_summary_bulk',$6,$7,$8,0,'new',NULL,$9,NULL,$10,NULL,$11,NULL,$7,'fec-candidate-summary-bulk-v1','reported')", [args.release,filingId,seat.seat_cycle_id,committeeId,`candidate-summary:${choice.cycle}:${candidateId}`,`${choice.cycle-1}-01-01`,coverage,args.retrievedAt,cash,receipts,disbursements]);
     await client.query("INSERT INTO fec_filing_lineage(release_id,filing_id,snapshot_id,role) VALUES($1,$2,$3,'original_publisher')", [args.release,filingId,choice.snapshotId]);
     await client.query("UPDATE seat_finance_summaries SET filing_id=$3,missing_reason=NULL,as_of=NULL WHERE release_id=$1 AND seat_cycle_id=$2", [args.release,seat.seat_cycle_id,filingId]);
     await client.query("DELETE FROM seat_finance_summary_lineage WHERE release_id=$1 AND seat_cycle_id=$2", [args.release,seat.seat_cycle_id]);
-    await client.query("INSERT INTO finance_aggregates(release_id,id,seat_cycle_id,as_of,coverage_through,reporting_period_start,cash_on_hand,cash_on_hand_missing_reason,receipts,receipts_missing_reason,disbursements,disbursements_missing_reason,methodology_version) VALUES($1,$2,$3,$4,$4,$5,$6,NULL,$7,NULL,$8,NULL,'fec-candidate-summary-bulk-v1')", [args.release,aggregateId,seat.seat_cycle_id,coverage,`${choice.cycle-1}-01-01`,cash,receipts,disbursements]);
+    await client.query("INSERT INTO finance_aggregates(release_id,id,seat_cycle_id,as_of,coverage_through,reporting_period_start,cash_on_hand,cash_on_hand_missing_reason,receipts,receipts_missing_reason,disbursements,disbursements_missing_reason,methodology_version) VALUES($1,$2,$3,$4,$5,$6,$7,NULL,$8,NULL,$9,NULL,'fec-candidate-summary-bulk-v1')", [args.release,aggregateId,seat.seat_cycle_id,args.cutoff,coverage,`${choice.cycle-1}-01-01`,cash,receipts,disbursements]);
     await client.query("INSERT INTO finance_aggregate_inputs(release_id,finance_aggregate_id,committee_id,filing_id,missing_reason) VALUES($1,$2,$3,$4,NULL)", [args.release,aggregateId,committeeId,filingId]);
     const categories = [["individual_contributions","Individual_Contribution"],["other_committee_contributions","Other_Committee_Contribution"],["party_committee_contributions","Party_Committee_Contribution"],["candidate_contributions","Cand_Contribution"],["transfers_from_authorized_committees","Transfer_From_Other_Auth_Committee"],["other_receipts","Other_Receipt"]] as const;
     for (const [category,column] of categories) {
