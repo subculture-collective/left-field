@@ -1,0 +1,110 @@
+# DSA primary target evaluation v0.1
+
+## Goal and scope
+
+This evaluation ranks regular, occupied, voting U.S. House seats held by a Democrat for a potential left primary challenge. It is a strategic target score, not a probability of winning. It does not consume individual-voter records, individual-donor identities, addresses, or demographic attributes.
+
+The score selects the higher of two independently qualified routes:
+
+1. **Deep-blue route:** a seat whose conservative two-cycle Democratic presidential-margin floor is at least 20 percentage points.
+2. **AIPAC-supported-blue route:** a seat whose conservative Democratic presidential-margin floor is at least 8 points and whose incumbent has qualifying AIPAC-network financial support evidence.
+
+The application may infer AIPAC support automatically from pinned committee IDs and FEC transactions. The inference remains reproducible through retained source snapshots even if the public list does not require a reviewer to apply a label manually.
+
+## Formula
+
+All component scores are bounded to `0..100`.
+
+```text
+blue_baseline = clamp((minimum Democratic presidential margin - 5) * 4, 0, 100)
+
+deep_blue_route = 0.70 * blue_baseline
+                + 0.30 * primary_feasibility
+
+aipac_supported_blue_route = 0.60 * aipac_support
+                           + 0.25 * blue_baseline
+                           + 0.15 * primary_feasibility
+
+target_score = maximum qualified route
+```
+
+Positive presidential margins mean Democratic margin over Republican. The minimum compatible 2020/2024 margin is used so one unusually strong cycle cannot make an unstable seat look historically safe. With only one compatible cycle, the formula may emit a partial inference and reports 50% blue-baseline coverage.
+
+### Primary feasibility
+
+The feasibility component starts with the original PRD's non-baseline primary factors and adds two aggregate election-history factors that describe the scale and demonstrated progressive constituency of the seat:
+
+| Input | Internal weight | Transform |
+| --- | ---: | --- |
+| Prior incumbent primary margin | 25 | `clamp(100 - 2 * margin_points, 0, 100)` |
+| Incumbent cash on hand | 20 | Inverse log scale: 100 at or below $50,000; 0 at or above $5 million |
+| Incumbent tenure | 15 | `clamp(100 - 4 * tenure_years, 0, 100)` |
+| Filing runway | 10 | `clamp(days_remaining / 365 * 100, 0, 100)` |
+| Prior Democratic primary votes | 15 | Inverse log scale: 100 at or below 20,000 votes; 0 at or above 250,000 |
+| Prior progressive primary vote share | 15 | `clamp(2 * vote_share, 0, 100)` |
+
+Available factors are renormalized by their available weight. Partial feasibility is then multiplied by `0.6 + 0.4 * coverage`, preventing a seat with one favorable observation from receiving the same score as a complete record. If every feasibility factor is missing, the evaluator uses a conservative value of 30 with zero coverage. Primary vote totals are aggregate contest results, not modeled individual turnout propensity.
+
+### AIPAC support inference
+
+Version 0.1 recognizes only exact FEC committee identities:
+
+| Committee | FEC ID | Accepted evidence |
+| --- | --- | --- |
+| American Israel Public Affairs Committee PAC | `C00797670` | Direct contribution to the incumbent's authorized committee |
+| United Democracy Project | `C00799031` | Independent expenditure supporting the incumbent or opposing an incumbent's primary challenger |
+
+Direct contributions and independent expenditures are not treated as equivalent transactions. Each produces a bounded signal with cycle-recency decay; multiple signals combine as `1 - product(1 - signal)`. Current-cycle evidence receives full weight, the prior cycle 70%, and two cycles prior 45%. The AIPAC-supported route gives this component 60% of its total score.
+
+Every qualifying record is bound to latest-revision transaction identities, positive net amount, exact FEC candidate identity, seat, primary-election relationship, and release snapshot closure. Direct contributions must reach an authorized committee mapped to the incumbent. Independent spending must either support that incumbent or oppose a demonstrated same-seat Democratic primary challenger. Corrective/amended transactions are netted before evaluation; a zero or negative net is not support evidence.
+
+United Democracy Project's inclusion in the AIPAC network requires the versioned organization-classification record `org-classification-aipac-network-v1` and its retained source snapshot in addition to FEC transaction evidence. Committee identity alone does not prove the editorial network classification.
+
+An absence of evidence is treated as a true zero only when direct-contribution and independent-expenditure collection is complete for the current and two prior cycles. Every completeness claim must reference retained source snapshots for that channel and cycle. Otherwise the component is explicit `not_collected`, has no numeric score, and cannot qualify the AIPAC route. Organization-name substring matching is prohibited.
+
+The source adapter projects the official FEC PAS2 committee-to-candidate file and independent-expenditure file into this contract. For direct contributions it accepts transaction types `24K`, `24P`, and `24Z`, includes memo-coded records, requires a primary election indicator, and checks the exact recipient against a reviewed authorized-committee mapping. For independent expenditures it requires the UDP committee ID, primary election indicator, exact `S` or `O` direction, and reviewed candidate-to-seat relationship. In both channels it selects the greatest file number for a transaction identity, nets the remaining latest signed identities within the candidate relationship, and omits non-positive groups.
+
+## Current release readiness
+
+The August 4, 2026 factual release can populate:
+
+- current Democratic incumbent and occupied voting-House eligibility;
+- 2024 Democratic presidential margin after reversing the repository's current Republican-minus-Democratic display sign;
+- incumbent cash on hand;
+- candidate-linked United Democracy Project organization totals, which are useful for locating source records but are **not qualifying AIPAC-route evidence** because the published aggregate discarded organization-specific support/opposition direction and transaction identity.
+
+The following acquisitions are required for complete v0.1 rankings:
+
+1. Compatible 2020 presidential results on current district boundaries.
+2. Nationwide Democratic House-primary results for at least the 2022, 2024, and current cycles, including uncontested dispositions and vote totals.
+3. AIPAC PAC Schedule B direct contributions keyed from `C00797670` through recipient committee and candidate mappings.
+4. Filing deadlines and election-system rules from state election authorities.
+5. Incumbent tenure derived from pinned service-start evidence already available in the member package.
+6. Complete current and two-prior-cycle independent-expenditure closure for `C00799031`, preserving support/opposition, primary-election context, candidate identity, latest amendment/file identity, and signed net amount rather than organization totals alone.
+7. A versioned, reviewed organization-classification record establishing why `C00799031` is included in the AIPAC network, with effective dates and correction history.
+
+Aggregate primary turnout and prior progressive-challenger performance are formula inputs, but remain missing until nationwide, geography-compatible sources are selected. Local DSA chapter capacity, endorsements, candidate quality, polling, and field strength should be maintained as separate reviewer inputs; they describe a campaign and organization, not an intrinsic seat condition.
+
+## Interpretation
+
+- The score measures target attractiveness under this strategy, not incumbent ideology and not win probability.
+- AIPAC financial support is deliberately a dominant strategic signal on its route.
+- A deep-blue seat can qualify without AIPAC evidence.
+- AIPAC evidence cannot qualify a district whose Democratic presidential-margin floor is below 8 points.
+- Every output includes formula version, selected route, component values, evidence coverage, and whether partial inference was used.
+- Feasibility observations carry their own as-of date, methodology version, and release-closure snapshot IDs; post-cutoff observations are rejected.
+- Open/vacant seats, special elections, non-voting seats, Senate seats, and non-Democratic incumbents require separate formulas and are outside v0.1.
+
+## Separate campaign-readiness review
+
+The seat score answers where structural conditions fit this targeting strategy. It does not answer whether a real campaign is ready. After a seat qualifies, a reviewer should record a separate, non-composite campaign-readiness assessment based on DSA National Electoral Commission criteria and campaign-specific evidence:
+
+- local chapter support, leadership depth, and capacity for a sustained field operation;
+- whether a prospective candidate is a DSA member with demonstrated chapter participation;
+- candidate commitment to DSA's platform, organization-building, and socialist identification;
+- candidate-specific fundraising, volunteer, communications, and ballot-access plans;
+- local endorsements and labor/community relationships;
+- whether national fundraising, publicity, phonebanking, or canvassing would materially improve the path to victory;
+- credible polling or field evidence, when available, with sponsor and methodology disclosed.
+
+These observations must not be silently imputed from the district's demographics, online popularity, or the seat score. They should be versioned reviewer inputs attached to a named prospective campaign. The product may eventually present a two-dimensional matrix—`seat target score` by `campaign readiness`—but must not add the two into a false-precision win probability.
