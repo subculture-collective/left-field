@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 
-import { normalizeFecDate, parseCsv, parseFullFactualArguments, parsePresidentialDistricts } from "./enrich-full-factual";
+import { fecSummaryFilingId, normalizeFecDate, parseCsv, parseFullFactualArguments, parsePresidentialDistricts } from "./enrich-full-factual";
 
 describe("accelerated full factual import", () => {
   it("parses quoted RFC 4180 fields", () => {
@@ -30,5 +30,9 @@ describe("accelerated full factual import", () => {
     expect(normalizeFecDate("04/03/2024")).toBe("2024-04-03");
     expect(normalizeFecDate("20240630")).toBe("2024-06-30");
     expect(() => normalizeFecDate("06/3-0/-20")).toThrow("FEC_DATE_INVALID");
+  });
+
+  it("uses the canonical FEC filing identifier namespace", () => {
+    expect(fecSummaryFilingId(2026, "H6AL01123")).toBe("fec_summary_2026_h6al01123");
   });
 });

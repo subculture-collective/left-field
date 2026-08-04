@@ -61,6 +61,7 @@ export function parseFullFactualArguments(argv: readonly string[]): FullFactualA
 
 const sha256 = (bytes: Buffer): string => createHash("sha256").update(bytes).digest("hex");
 const safeId = (value: string): string => value.toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+export const fecSummaryFilingId = (cycle: number, candidateId: string): string => `fec_summary_${cycle}_${safeId(candidateId)}`;
 const number = (value: string | undefined): number | null => {
   if (value === undefined || value.trim() === "") return null;
   const parsed = Number(value.replace(/,/g, "").replace(/%$/, ""));
@@ -258,7 +259,7 @@ async function enrichFinance(client: PoolClient, args: FullFactualArguments, leg
     }
     const candidateId = value(choice.row,"Cand_Id"), coverageRaw = value(choice.row,"Coverage_End_Date");
     const coverage = normalizeFecDate(coverageRaw);
-    const committeeId = `committee_fec_${safeId(candidateId)}`, filingId = `filing_fec_summary_${choice.cycle}_${safeId(candidateId)}`, aggregateId = `finance_fec_summary_${choice.cycle}_${safeId(seat.seat_cycle_id)}`;
+    const committeeId = `committee_fec_${safeId(candidateId)}`, filingId = fecSummaryFilingId(choice.cycle, candidateId), aggregateId = `finance_fec_summary_${choice.cycle}_${safeId(seat.seat_cycle_id)}`;
     await client.query("INSERT INTO committees(release_id,id,source_committee_id,name,committee_type) VALUES($1,$2,$3,$4,'fec_candidate_summary_rollup')", [args.release,committeeId,`summary:${choice.cycle}:${candidateId}`,`${value(choice.row,"Cand_Name")} authorized committee summary`]);
     await client.query("INSERT INTO provenance(release_id,entity_type,entity_id,snapshot_id,role) VALUES($1,'committees',$2,$3,'original_publisher')", [args.release,committeeId,choice.snapshotId]);
     const cash=number(value(choice.row,"Cash_On_Hand_COP")) ?? 0, receipts=number(value(choice.row,"Total_Receipt")) ?? 0, disbursements=number(value(choice.row,"Total_Disbursement")) ?? 0;
