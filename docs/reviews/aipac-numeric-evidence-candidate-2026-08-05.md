@@ -49,6 +49,15 @@ Washington is explicitly excluded from the AIPAC route because the current evalu
 
 The 15 UDP challenger relationships remain labeled medium-confidence inferred candidate relationships in the parent foundation. Numeric use here does not upgrade them to reviewed facts. Human review and a separate promotion decision remain required before any public release.
 
+## Concise reviewer decision package
+
+`data/metadata/aipac-numeric-review-package-v1.json` is the current concise handoff for this exact candidate; the older 231-row pre-calculation queue remains retained as historical proposal evidence. The current package contains 12 unresolved decisions: the eight exact remaining mapping conflicts, three methodology choices (numeric lineage, labeled UDP inference use, and formula v0.1 score use), and one publication-promotion choice. Its recommendation is to accept the reproducible methodology and labeled inferences for a future reviewed release, keep every direct/inferred label intact, and defer public promotion until prerequisites are resolved and a distinct approved release is generated.
+
+- Package SHA-256: `df22d6c336603d12f5d81199d9e6cd0b1e512459c6aa089b9e99fc83842e61bc`
+- Retained file SHA-256: `1773e2b4252e7e8c376f625ca1e336a182ea349d854ff6eb58e429339c1d95ea`
+- Decision-set SHA-256: `a3fe3ec5ec527c6991269850b8b0a3fd23971df46693b0a6d749aa02c9bd906e`
+- Safe default: `retain_reviewer_candidate_exclude_from_publication`
+
 ## Reproduction and validation
 
 Place the three locked official ZIPs (`pas222.zip`, `pas224.zip`, `pas226.zip`) in `/tmp/dsa-aipac-evidence-20260804`, or set `DSA_SEATS_AIPAC_PAS2_DIR`, then run:

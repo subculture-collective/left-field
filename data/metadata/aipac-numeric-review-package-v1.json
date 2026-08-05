@@ -1,0 +1,404 @@
+{
+  "schema": "aipac-numeric-review-package-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T08:15:00.000Z",
+  "sourceCutoff": "2026-08-04",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "inputs": {
+    "foundation": {
+      "fileSha256": "a0fe151080a0958c6cdddc447d50db4044700e31960d37dd2326ea86d6f7a7b7",
+      "packageSha256": "cb888028e9038a69d5000d80f3bb330085200335597c101362584183b8be49da"
+    },
+    "candidate": {
+      "fileSha256": "13e07985802bc6629ea46ed1287e429c949f66b47ca0cc6f5631d963acc129b7",
+      "packageSha256": "dc3f6939701930226ad7558661e14b9912b7828266133d44260ae83570a2c077"
+    },
+    "report": {
+      "fileSha256": "ecea6ddb2074566069faa75db73963faff949816f69acdc71bdfd5b39b44565b",
+      "reportSha256": "a3db55181cbd0ffbe2c0b555276a5595ee37c7d233bcc30359eb2550dbcd918c"
+    }
+  },
+  "summary": {
+    "totalDecisions": 12,
+    "mappingConflicts": 8,
+    "methodologyDecisions": 3,
+    "promotionDecisions": 1,
+    "safeDefault": "retain_reviewer_candidate_exclude_from_publication"
+  },
+  "decisions": [
+    {
+      "decisionId": "aipac-conflict:challenger:seat_house_ca_47_current:H0IL07167",
+      "component": "mapping_conflict",
+      "question": "Which single seat, if either, is the correct relationship for H0IL07167?",
+      "recommendedDecision": "Resolve the candidate-to-seat ambiguity and accept at most one corrected unique relationship.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Correct the candidate ID or seat relationship.",
+        "Reject both ambiguous relationships."
+      ],
+      "consequences": [
+        "A corrected relationship can enter a later evidence build.",
+        "Deferral affects only this relationship; every non-conflicting relationship continues."
+      ],
+      "confidence": "low",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "All non-conflicting relationships were automatically closed.",
+        "The affected relationship remains excluded from numeric evidence."
+      ],
+      "evidenceSha256s": [
+        "4c1a956398e9ee714e1c75e7601e614c98b887a55d563b07e8db8c0e02350e43",
+        "48ab109dfdd3f742d621ce08a19ee0ad1b63c55cfd4fd0dd8ee45c9874c4476b"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "1b1be76caae3b6e9c7573d34ed4811ba1f2b92313dfd61a239d6b9e280ba3055"
+    },
+    {
+      "decisionId": "aipac-conflict:challenger:seat_house_il_07_current:H0IL07167",
+      "component": "mapping_conflict",
+      "question": "Which single seat, if either, is the correct relationship for H0IL07167?",
+      "recommendedDecision": "Resolve the candidate-to-seat ambiguity and accept at most one corrected unique relationship.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Correct the candidate ID or seat relationship.",
+        "Reject both ambiguous relationships."
+      ],
+      "consequences": [
+        "A corrected relationship can enter a later evidence build.",
+        "Deferral affects only this relationship; every non-conflicting relationship continues."
+      ],
+      "confidence": "low",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "All non-conflicting relationships were automatically closed.",
+        "The affected relationship remains excluded from numeric evidence."
+      ],
+      "evidenceSha256s": [
+        "7d59af007929be0b475e327ce0411b610b0493d79c7576c92835fcb5832c2833",
+        "15ee56bfbd7aa51e7f26aa9f641ea9bc131907db7e08f8ad6e8a24741ccfb72c"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "8f16747e688d40fd36b25d94033f7da8da35c934546bb26cac54d300d7cd4e4d"
+    },
+    {
+      "decisionId": "aipac-conflict:incumbent:seat_house_ca_31_current:H8CA39174",
+      "component": "mapping_conflict",
+      "question": "What corrected FEC candidate and principal-committee relationship applies to seat_house_ca_31_current?",
+      "recommendedDecision": "Resolve the candidate/principal-committee conflict and accept only an exact corrected relationship.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Correct the candidate or committee mapping.",
+        "Reject the relationship."
+      ],
+      "consequences": [
+        "A corrected relationship can enter a later evidence build.",
+        "Deferral affects only this relationship; every non-conflicting relationship continues."
+      ],
+      "confidence": "low",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "All non-conflicting relationships were automatically closed.",
+        "The affected relationship remains excluded from numeric evidence."
+      ],
+      "evidenceSha256s": [
+        "573f162ebe76757ec7a494c0c22b158dd4ee43676616b41e854a9f9322ff621b",
+        "d7d8f0d5fa14e828834437a1fcb26166e1af70e68fc1a0692468a88fdc60993d",
+        "12d9c7f5c0475d4dcec1f17ba8c7d2ea45a7222c03b4a5f3e791553cc9e69367"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "fd3878ff0e74ffc85c7ce9a32d34b4059deda2015a5cf29fd2a98fdc8e3d705e"
+    },
+    {
+      "decisionId": "aipac-conflict:incumbent:seat_house_ma_06_current:H4MA06090",
+      "component": "mapping_conflict",
+      "question": "What corrected FEC candidate and principal-committee relationship applies to seat_house_ma_06_current?",
+      "recommendedDecision": "Resolve the candidate/principal-committee conflict and accept only an exact corrected relationship.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Correct the candidate or committee mapping.",
+        "Reject the relationship."
+      ],
+      "consequences": [
+        "A corrected relationship can enter a later evidence build.",
+        "Deferral affects only this relationship; every non-conflicting relationship continues."
+      ],
+      "confidence": "low",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "All non-conflicting relationships were automatically closed.",
+        "The affected relationship remains excluded from numeric evidence."
+      ],
+      "evidenceSha256s": [
+        "1acb9130d4bf783e089296d6e78c3a33e50cc51abe2d19df4ae2496c2065c0f6",
+        "350081bc40725418425c2eab406723a1a28abba30cd6666ea597b51a4bdc781b",
+        "d1ff6540e1e35e9edd7f7fdea5dd3e106c6c4966554566f74b43f1dd0437bf9d",
+        "fd8da89cc72379df8403f036d1f4d3756d627ee356a148553d77f27235db368f"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "9c123ed648182480331b527c112a43f4e7d562fc8fcc4d3e52341eb78cff75e4"
+    },
+    {
+      "decisionId": "aipac-conflict:incumbent:seat_house_md_04_current:H2MD04315",
+      "component": "mapping_conflict",
+      "question": "What corrected FEC candidate and principal-committee relationship applies to seat_house_md_04_current?",
+      "recommendedDecision": "Resolve the candidate/principal-committee conflict and accept only an exact corrected relationship.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Correct the candidate or committee mapping.",
+        "Reject the relationship."
+      ],
+      "consequences": [
+        "A corrected relationship can enter a later evidence build.",
+        "Deferral affects only this relationship; every non-conflicting relationship continues."
+      ],
+      "confidence": "low",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "All non-conflicting relationships were automatically closed.",
+        "The affected relationship remains excluded from numeric evidence."
+      ],
+      "evidenceSha256s": [
+        "ba1789945c020734ecbb6801bc5a1630a4f114a7ca62937b96fbb29efd86c482",
+        "8107af5807f1747be6f936e6671a6d3059c6b5d4864fb2679c5fc72d493e8ece"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "3aeea40b491ae8ffda699a56a78f4276b85c10fee5987c8a7ee5db74e42b8112"
+    },
+    {
+      "decisionId": "aipac-conflict:incumbent:seat_house_mn_03_current:H4MN03118",
+      "component": "mapping_conflict",
+      "question": "What corrected FEC candidate and principal-committee relationship applies to seat_house_mn_03_current?",
+      "recommendedDecision": "Resolve the candidate/principal-committee conflict and accept only an exact corrected relationship.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Correct the candidate or committee mapping.",
+        "Reject the relationship."
+      ],
+      "consequences": [
+        "A corrected relationship can enter a later evidence build.",
+        "Deferral affects only this relationship; every non-conflicting relationship continues."
+      ],
+      "confidence": "low",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "All non-conflicting relationships were automatically closed.",
+        "The affected relationship remains excluded from numeric evidence."
+      ],
+      "evidenceSha256s": [
+        "dcf448b495f72fdbb556c40a932bb62385ce5523eb5623102c7fa4d355bef784",
+        "c3ef164dc639586e8181b3a91b1df5bd9bae39cb9906b8d692c51d133e4d1430"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "3d4423bcd5b1309e1e0934c766b57a8b1bf81b50b860face81e0863b10f9c78a"
+    },
+    {
+      "decisionId": "aipac-conflict:incumbent:seat_house_nh_01_current:H8NH01210",
+      "component": "mapping_conflict",
+      "question": "What corrected FEC candidate and principal-committee relationship applies to seat_house_nh_01_current?",
+      "recommendedDecision": "Resolve the candidate/principal-committee conflict and accept only an exact corrected relationship.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Correct the candidate or committee mapping.",
+        "Reject the relationship."
+      ],
+      "consequences": [
+        "A corrected relationship can enter a later evidence build.",
+        "Deferral affects only this relationship; every non-conflicting relationship continues."
+      ],
+      "confidence": "low",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "All non-conflicting relationships were automatically closed.",
+        "The affected relationship remains excluded from numeric evidence."
+      ],
+      "evidenceSha256s": [
+        "f7d9a4924fc17edec8c94fd55d0b5157c802ebea60632042b773aac3887af6b0",
+        "69f7a88090349599cb93f8f4e7aa6db7d9134cef63fbe240abb75356460d8097",
+        "df8a1f72b72a77cb591e5933be517bc8888a4394f24e74e764a2ae40df93a4a9",
+        "5a0835f4b2208403dcc872c811f06b70ac79b36dc1cdbfacf32a0cc6d11e77e0"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "7561aa12e3008dfea278279dbd3e5e7cd41bce95d3cda2f5eb00014f833f18cf"
+    },
+    {
+      "decisionId": "aipac-conflict:incumbent:seat_house_ny_04_current:H4NY04158",
+      "component": "mapping_conflict",
+      "question": "What corrected FEC candidate and principal-committee relationship applies to seat_house_ny_04_current?",
+      "recommendedDecision": "Resolve the candidate/principal-committee conflict and accept only an exact corrected relationship.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Correct the candidate or committee mapping.",
+        "Reject the relationship."
+      ],
+      "consequences": [
+        "A corrected relationship can enter a later evidence build.",
+        "Deferral affects only this relationship; every non-conflicting relationship continues."
+      ],
+      "confidence": "low",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "All non-conflicting relationships were automatically closed.",
+        "The affected relationship remains excluded from numeric evidence."
+      ],
+      "evidenceSha256s": [
+        "caf67500e648a00077c0e7615d429575690f7973829d349a4a9103bb93481a62",
+        "79534b902c63a21612c5c2233cd7822a26aa72ef10d9242dbd471349b6e368dd"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "0da743731362278b0d9d38cb7659d79e9b8d53abb2104ebb20ed12e1dcfc96cf"
+    },
+    {
+      "decisionId": "aipac-numeric:accept-labeled-udp-inferences-v1",
+      "component": "inferred_udp_relationships",
+      "question": "Should the 15 nonconflicting UDP challenger relationships be retained as explicitly inferred, medium-confidence relationships in a future reviewed release?",
+      "recommendedDecision": "Accept them only as labeled inferences with the exact same-seat primary rationale and correction path; never relabel them as direct mappings.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Require individual review of all 15 relationships.",
+        "Exclude all challenger-opposition evidence."
+      ],
+      "consequences": [
+        "Acceptance preserves eight UDP challenger-opposition evidence groups as inferred evidence.",
+        "Rejection removes only those inferred relationships and requires a regenerated report."
+      ],
+      "confidence": "medium",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "All 15 relationships remain labeled inferred in the foundation.",
+        "The eight true conflicts remain excluded."
+      ],
+      "evidenceSha256s": [
+        "cb888028e9038a69d5000d80f3bb330085200335597c101362584183b8be49da",
+        "80617e658de4274ec9d2e1bc7da61cec232d01f9a069cc3b48b6377753fb7f67"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "970fc6c1fadff3f184a9fe3ee836745e323006c50b008a265eb7ce5249137d52"
+    },
+    {
+      "decisionId": "aipac-numeric:accept-lineage-methodology-v1",
+      "component": "numeric_lineage_methodology",
+      "question": "Should the cutoff-ledger, terminal-revision, signed-net, and source-record receipt methodology be accepted for a future reviewed factual release?",
+      "recommendedDecision": "Accept the methodology after reproducing the exact candidate package from the three locked PAS2 ZIPs; retain the current artifact as reviewer-only until the complete package is approved.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Request a corrected transaction-family rule.",
+        "Reject numeric use and keep AIPAC not collected."
+      ],
+      "consequences": [
+        "Acceptance permits this exact numeric method to enter a later reviewed release.",
+        "Deferral leaves the v3 report useful only for reviewer analysis."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "All source rows were joined to terminal cutoff-valid filing chains.",
+        "2,435 transaction receipts bind 2,647 hashed source records to 272 evidence groups."
+      ],
+      "evidenceSha256s": [
+        "dc3f6939701930226ad7558661e14b9912b7828266133d44260ae83570a2c077",
+        "1675bdedddb55d5520b9258f5ffa09d97fe8b19d566d5ea5763d8d66f7c82fb7",
+        "637232a75e4d517d4c72aaafaf0ea962e728a4e3e19de96851863f74c0f566f3"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "082edae90f7c3f03722967a5031247f3399285ef234ae8c4658489b5bca98ef1"
+    },
+    {
+      "decisionId": "aipac-numeric:accept-v01-score-use-v1",
+      "component": "scoring_model",
+      "question": "Should formula dsa-primary-target-v0.1 use the candidate AIPAC component at 60% of the AIPAC route for a future reviewed release?",
+      "recommendedDecision": "Accept v0.1 as an explainable initial reviewer model, retain the decomposed components, and require a separately versioned formula for any weight change.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Choose a lower AIPAC route weight and regenerate sensitivity results.",
+        "Keep the component visible but exclude it from ranking."
+      ],
+      "consequences": [
+        "Acceptance preserves 51 AIPAC-route selections in the formula-compatible candidate universe.",
+        "A different weight changes ranks and requires a new report hash."
+      ],
+      "confidence": "medium",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "The report preserves component, route, and rank decomposition for all 212 seats.",
+        "Eight Washington top-two seats are source-bound and formula-excluded."
+      ],
+      "evidenceSha256s": [
+        "a3db55181cbd0ffbe2c0b555276a5595ee37c7d233bcc30359eb2550dbcd918c",
+        "dc3f6939701930226ad7558661e14b9912b7828266133d44260ae83570a2c077"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "d7cef9b5c10924b33169f68cb6e80426ca26d0add1b83cef395f8b9598986684"
+    },
+    {
+      "decisionId": "aipac-numeric:promote-factual-release-v1",
+      "component": "publication_promotion",
+      "question": "Should this exact candidate and v3 report be promoted to a new public factual release?",
+      "recommendedDecision": "Defer promotion until the three methodology decisions and all affected mapping conflicts are resolved, then generate a distinct approved release rather than mutating this proposal.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Approve a corrected subset and regenerate.",
+        "Reject promotion while retaining the research artifact."
+      ],
+      "consequences": [
+        "Approval after prerequisite resolution enables public score and evidence UI work.",
+        "Deferral leaves the deployed v2 application unchanged and truthful."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "The candidate, report, source-lock closure, privacy scan, and public firewall are complete.",
+        "The published v2 report remains byte-identical and contains no candidate rankings."
+      ],
+      "evidenceSha256s": [
+        "dc3f6939701930226ad7558661e14b9912b7828266133d44260ae83570a2c077",
+        "a3db55181cbd0ffbe2c0b555276a5595ee37c7d233bcc30359eb2550dbcd918c"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "69292b685b674521d06561ccb14f9483491d0d4d8b486cce11a9031bc5c96d38"
+    }
+  ],
+  "decisionSetSha256": "a3fe3ec5ec527c6991269850b8b0a3fd23971df46693b0a6d749aa02c9bd906e",
+  "packageSha256": "df22d6c336603d12f5d81199d9e6cd0b1e512459c6aa089b9e99fc83842e61bc"
+}
