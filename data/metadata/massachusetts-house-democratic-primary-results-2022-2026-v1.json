@@ -1,0 +1,947 @@
+{
+  "schema": "massachusetts-house-democratic-primary-results-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T16:35:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "parentProposal": {
+    "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "decisionSupport": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    }
+  ],
+  "inheritedDecisionResolutions": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "resolution": null
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "resolution": null
+    }
+  ],
+  "authority": {
+    "publisher": "Massachusetts Secretary of the Commonwealth, Elections Division",
+    "database": "PD43+ Certified Election Results",
+    "certificationPolicyStatus": "final_certified_official_results_published_after_local_certification_and_state_review",
+    "individualCertificateStatus": "not_separately_retained"
+  },
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "electionDate": "2022-09-06",
+      "status": "retained_official_database_results"
+    },
+    {
+      "cycleYear": 2024,
+      "electionDate": "2024-09-03",
+      "status": "retained_official_database_results"
+    },
+    {
+      "cycleYear": 2026,
+      "scheduledElectionDate": "2026-09-01",
+      "status": "scheduled_not_held_at_source_cutoff",
+      "resultRows": 0
+    }
+  ],
+  "sources": [
+    {
+      "id": "ma-2022-house-democratic-primary-district-1-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/152337/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2022/district-1-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 2383,
+      "sha256": "bee2cfdf469c35164ab5e35665e0ff656ed107782e86182355f40de5ad07f464",
+      "kind": "source",
+      "parentIds": [
+        "ma-2022-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2022-house-democratic-primary-district-2-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/152373/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2022/district-2-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1941,
+      "sha256": "d8ed50f4bc94d30bda754c4e26a534b4b98f425125b48d5f49697d84d4b71ce5",
+      "kind": "source",
+      "parentIds": [
+        "ma-2022-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2022-house-democratic-primary-district-3-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/152305/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2022/district-3-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1170,
+      "sha256": "188f645c4c6e7062e92526e373db1f2a29bc34f901c494ce051b6e8b3a6d2f91",
+      "kind": "source",
+      "parentIds": [
+        "ma-2022-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2022-house-democratic-primary-district-4-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/152427/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2022/district-4-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1179,
+      "sha256": "5e1dfa4226cacf805f2e4a0b94ee901080c30b4aab2b70536b10c22d770121ce",
+      "kind": "source",
+      "parentIds": [
+        "ma-2022-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2022-house-democratic-primary-district-5-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/152395/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2022/district-5-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 879,
+      "sha256": "33b7ccd787ae3b35e8c51f9bb5694fb7c76e5dbd629c09d52d17e31b0d5b4e57",
+      "kind": "source",
+      "parentIds": [
+        "ma-2022-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2022-house-democratic-primary-district-6-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/152361/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2022/district-6-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1329,
+      "sha256": "170e5a13b1ff6ef25301817d5f393ee4ce455418976221cfc37fcf36886192e6",
+      "kind": "source",
+      "parentIds": [
+        "ma-2022-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2022-house-democratic-primary-district-7-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/152497/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2022/district-7-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 364,
+      "sha256": "a9ad43a9ff77100d4e507d97d0420f187c0d3de54bc5e97cfd1e2eb453d59155",
+      "kind": "source",
+      "parentIds": [
+        "ma-2022-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2022-house-democratic-primary-district-8-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/152289/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2022/district-8-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 806,
+      "sha256": "7420db14115a67428ee20fdd015a85fa90a1855f79f70747c9f261fb350488a4",
+      "kind": "source",
+      "parentIds": [
+        "ma-2022-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2022-house-democratic-primary-district-9-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/152323/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2022/district-9-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1579,
+      "sha256": "7eb18285667f2108367cf9ef5c8da0ba7f7022d611fcc861fb5e2224c1cba58e",
+      "kind": "source",
+      "parentIds": [
+        "ma-2022-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2022-house-democratic-primary-search",
+      "url": "https://electionstats.state.ma.us/elections/search/?year_from=2022&year_to=2022&date=2022-09-06&office_id=5&stage=Democratic",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2022/search.html",
+      "retainedStatus": "retained",
+      "byteSize": 338404,
+      "sha256": "4fb766336a9e0f49aa6c67b5de6ffb1783d5dfe3252e00738b45a0d6779a0197",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "ma-2024-house-democratic-primary-district-1-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/163580/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2024/district-1-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 2267,
+      "sha256": "37b3e67ba72dd9f4364766622e5d6b9e4278ec3bd8ec128196802f0497a5669a",
+      "kind": "source",
+      "parentIds": [
+        "ma-2024-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2024-house-democratic-primary-district-2-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/163640/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2024/district-2-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1857,
+      "sha256": "793447a5cef66a90e6f926af33d995ac64ac6bef08ea6db9301b8cc33a609530",
+      "kind": "source",
+      "parentIds": [
+        "ma-2024-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2024-house-democratic-primary-district-3-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/163535/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2024/district-3-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1105,
+      "sha256": "f19a0b27afe8e5137d432e94e6992991416827038d65297c0457a387e846b721",
+      "kind": "source",
+      "parentIds": [
+        "ma-2024-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2024-house-democratic-primary-district-4-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/163730/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2024/district-4-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1144,
+      "sha256": "fbf5fd0d12a14fcb2a34e2619cce82a1a9addac50932e4f84762387df3f8c875",
+      "kind": "source",
+      "parentIds": [
+        "ma-2024-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2024-house-democratic-primary-district-5-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/163673/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2024/district-5-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 864,
+      "sha256": "d18f8a9a2fa98244340a8d1a5c8246dc712c666677775d583cf1ed52551e682c",
+      "kind": "source",
+      "parentIds": [
+        "ma-2024-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2024-house-democratic-primary-district-6-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/163619/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2024/district-6-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1284,
+      "sha256": "5a7eb38eae13a885b41ad4a539895dfc76f6cb4083b2a6ce39b646307a456dc8",
+      "kind": "source",
+      "parentIds": [
+        "ma-2024-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2024-house-democratic-primary-district-7-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/163856/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2024/district-7-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 363,
+      "sha256": "6738c7f9c079b0c2a5cfc12e79fc4043d5113be013d00546d9c05332c13ff081",
+      "kind": "source",
+      "parentIds": [
+        "ma-2024-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2024-house-democratic-primary-district-8-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/163514/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2024/district-8-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 779,
+      "sha256": "92dd3ea438a9c39caaf8fd0caf5a9f45ef642677b10c694ad2411c594e7b18fd",
+      "kind": "source",
+      "parentIds": [
+        "ma-2024-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2024-house-democratic-primary-district-9-municipality-csv",
+      "url": "https://electionstats.state.ma.us/elections/download/163559/precincts_include:0/",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2024/district-9-municipality.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1513,
+      "sha256": "32d0c516780542f8df6bfef8511de31d03e1a384f556f9e00ff7d732172b1297",
+      "kind": "source",
+      "parentIds": [
+        "ma-2024-house-democratic-primary-search"
+      ]
+    },
+    {
+      "id": "ma-2024-house-democratic-primary-search",
+      "url": "https://electionstats.state.ma.us/elections/search/?year_from=2024&year_to=2024&date=2024-09-03&office_id=5&stage=Democratic",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/2024/search.html",
+      "retainedStatus": "retained",
+      "byteSize": 338401,
+      "sha256": "d206fe323d345eb816abaf3cb64efbb5a0a64b65336418a240f9023bba0e4f7a",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "ma-2026-state-primary-schedule-rendered-20260805",
+      "url": "https://www.sec.state.ma.us/divisions/elections/recent-updates/upcoming-elections.htm",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/authority/2026-upcoming-elections-rendered.html",
+      "retainedStatus": "retained",
+      "byteSize": 38289,
+      "sha256": "5872419b8d44b78f4ca0d720616e64ab489205ec06bbb059807caa3a5f4c3882",
+      "kind": "browser_rendered_source",
+      "parentIds": []
+    },
+    {
+      "id": "ma-primary-certification-policy-rendered-20260805",
+      "url": "https://www.sec.state.ma.us/divisions/elections/voting-information/announcing-certifying.htm",
+      "retainedPath": "data/source/elections/primary-results/massachusetts/authority/certification-policy-rendered.html",
+      "retainedStatus": "retained",
+      "byteSize": 45108,
+      "sha256": "6661ad5c64c7bb06b30425393312569644e03f6204cb068bc1461e5cb7872e01",
+      "kind": "browser_rendered_source",
+      "parentIds": []
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "ma:2022:regular:us-house:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-06",
+      "stateCode": "MA",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 152337,
+      "searchSourceLockId": "ma-2022-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2022-house-democratic-primary-district-1-municipality-csv",
+      "sourceCandidateName": "Richard E. Neal",
+      "namedCandidateVotes": 143856,
+      "allOthersVotes": 1212,
+      "blankVotes": 24108,
+      "sourceTotalVotesCast": 169176,
+      "municipalityRows": 84,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "44c6b224cc727b24ba55078ef563351ea907d0f11499ba5c1c5d15e8474a4aba"
+    },
+    {
+      "contestId": "ma:2022:regular:us-house:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-06",
+      "stateCode": "MA",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 152373,
+      "searchSourceLockId": "ma-2022-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2022-house-democratic-primary-district-2-municipality-csv",
+      "sourceCandidateName": "James P. McGovern",
+      "namedCandidateVotes": 139678,
+      "allOthersVotes": 432,
+      "blankVotes": 14724,
+      "sourceTotalVotesCast": 154834,
+      "municipalityRows": 69,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "577d8fb199060f25687037ec0429f604e0ece418ccb3ec3356b8163df58866a9"
+    },
+    {
+      "contestId": "ma:2022:regular:us-house:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-06",
+      "stateCode": "MA",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 152305,
+      "searchSourceLockId": "ma-2022-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2022-house-democratic-primary-district-3-municipality-csv",
+      "sourceCandidateName": "Lori Loureiro Trahan",
+      "namedCandidateVotes": 128380,
+      "allOthersVotes": 566,
+      "blankVotes": 18370,
+      "sourceTotalVotesCast": 147316,
+      "municipalityRows": 36,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "587ed36be08a71fabda7db1fd5c58606ad564ecf4a4d70b55ff96d08701b8d98"
+    },
+    {
+      "contestId": "ma:2022:regular:us-house:04:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-06",
+      "stateCode": "MA",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 152427,
+      "searchSourceLockId": "ma-2022-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2022-house-democratic-primary-district-4-municipality-csv",
+      "sourceCandidateName": "Jake Auchincloss",
+      "namedCandidateVotes": 135476,
+      "allOthersVotes": 962,
+      "blankVotes": 26186,
+      "sourceTotalVotesCast": 162624,
+      "municipalityRows": 36,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f269b07037c39f8d716e086efe1bc86b7a9e38f4c4afa9d8ed2a3b9ced9c0e65"
+    },
+    {
+      "contestId": "ma:2022:regular:us-house:05:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-06",
+      "stateCode": "MA",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 152395,
+      "searchSourceLockId": "ma-2022-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2022-house-democratic-primary-district-5-municipality-csv",
+      "sourceCandidateName": "Katherine M. Clark",
+      "namedCandidateVotes": 169690,
+      "allOthersVotes": 658,
+      "blankVotes": 27044,
+      "sourceTotalVotesCast": 197392,
+      "municipalityRows": 24,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "7e0f3fc31909f8502a1680332a048bac5fe67ffc0035ea608bd5b8d36a766e1f"
+    },
+    {
+      "contestId": "ma:2022:regular:us-house:06:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-06",
+      "stateCode": "MA",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 152361,
+      "searchSourceLockId": "ma-2022-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2022-house-democratic-primary-district-6-municipality-csv",
+      "sourceCandidateName": "Seth W. Moulton",
+      "namedCandidateVotes": 169720,
+      "allOthersVotes": 1194,
+      "blankVotes": 25790,
+      "sourceTotalVotesCast": 196704,
+      "municipalityRows": 40,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3ec7c1dc0e9122a11142a32e32904a6dd85c7ad51c68ce17b364ee7a74071888"
+    },
+    {
+      "contestId": "ma:2022:regular:us-house:07:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-06",
+      "stateCode": "MA",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 152497,
+      "searchSourceLockId": "ma-2022-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2022-house-democratic-primary-district-7-municipality-csv",
+      "sourceCandidateName": "Ayanna S. Pressley",
+      "namedCandidateVotes": 138454,
+      "allOthersVotes": 1786,
+      "blankVotes": 22384,
+      "sourceTotalVotesCast": 162624,
+      "municipalityRows": 8,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3c4c769d57a3948bd2388fff046b92e343fd5c083015f51a670f99d070d6a5eb"
+    },
+    {
+      "contestId": "ma:2022:regular:us-house:08:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-06",
+      "stateCode": "MA",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 152289,
+      "searchSourceLockId": "ma-2022-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2022-house-democratic-primary-district-8-municipality-csv",
+      "sourceCandidateName": "Stephen F. Lynch",
+      "namedCandidateVotes": 146382,
+      "allOthersVotes": 1430,
+      "blankVotes": 31878,
+      "sourceTotalVotesCast": 179690,
+      "municipalityRows": 22,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "777584b87c90ca9f8235bf70791a67f9c7e49629033c00ee93d46c3745d79014"
+    },
+    {
+      "contestId": "ma:2022:regular:us-house:09:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-06",
+      "stateCode": "MA",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 152323,
+      "searchSourceLockId": "ma-2022-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2022-house-democratic-primary-district-9-municipality-csv",
+      "sourceCandidateName": "Bill Keating",
+      "namedCandidateVotes": 163060,
+      "allOthersVotes": 456,
+      "blankVotes": 20576,
+      "sourceTotalVotesCast": 184092,
+      "municipalityRows": 50,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "735f6c0efcdce1eda05ec9ceb3e8062ef980d0d577b685b790378b24e3d65481"
+    },
+    {
+      "contestId": "ma:2024:regular:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-03",
+      "stateCode": "MA",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 163580,
+      "searchSourceLockId": "ma-2024-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2024-house-democratic-primary-district-1-municipality-csv",
+      "sourceCandidateName": "Richard E. Neal",
+      "namedCandidateVotes": 112728,
+      "allOthersVotes": 1056,
+      "blankVotes": 7492,
+      "sourceTotalVotesCast": 121276,
+      "municipalityRows": 84,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "cc347575c5caba3e8790bc9faf3c667a7f04967789fec83c366a212f7f9d8de2"
+    },
+    {
+      "contestId": "ma:2024:regular:us-house:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-03",
+      "stateCode": "MA",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 163640,
+      "searchSourceLockId": "ma-2024-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2024-house-democratic-primary-district-2-municipality-csv",
+      "sourceCandidateName": "James P. McGovern",
+      "namedCandidateVotes": 112686,
+      "allOthersVotes": 450,
+      "blankVotes": 4100,
+      "sourceTotalVotesCast": 117236,
+      "municipalityRows": 69,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a6fe870d05048fad7a8b71e55aef82783116b92218e3685aad72f7f16b5496ee"
+    },
+    {
+      "contestId": "ma:2024:regular:us-house:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-03",
+      "stateCode": "MA",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 163535,
+      "searchSourceLockId": "ma-2024-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2024-house-democratic-primary-district-3-municipality-csv",
+      "sourceCandidateName": "Lori Loureiro Trahan",
+      "namedCandidateVotes": 109224,
+      "allOthersVotes": 714,
+      "blankVotes": 9468,
+      "sourceTotalVotesCast": 119406,
+      "municipalityRows": 36,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "124478b22f0b7857b059bde73b5c24c75df6e6cdecddf7fb20f73147ef4de721"
+    },
+    {
+      "contestId": "ma:2024:regular:us-house:04:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-03",
+      "stateCode": "MA",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 163730,
+      "searchSourceLockId": "ma-2024-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2024-house-democratic-primary-district-4-municipality-csv",
+      "sourceCandidateName": "Jake Auchincloss",
+      "namedCandidateVotes": 128476,
+      "allOthersVotes": 1484,
+      "blankVotes": 15392,
+      "sourceTotalVotesCast": 145352,
+      "municipalityRows": 36,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2d8a8d388a79121ab2a134cb5b00b1108c1e6bf2a4c4ce0bd997bdc83fd5aace"
+    },
+    {
+      "contestId": "ma:2024:regular:us-house:05:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-03",
+      "stateCode": "MA",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 163673,
+      "searchSourceLockId": "ma-2024-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2024-house-democratic-primary-district-5-municipality-csv",
+      "sourceCandidateName": "Katherine M. Clark",
+      "namedCandidateVotes": 153612,
+      "allOthersVotes": 1228,
+      "blankVotes": 14188,
+      "sourceTotalVotesCast": 169028,
+      "municipalityRows": 24,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "cea568f37c3fe3dc68fc2681d78080d3a98769c871b73ac1c1a20aab0bf5865d"
+    },
+    {
+      "contestId": "ma:2024:regular:us-house:06:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-03",
+      "stateCode": "MA",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 163619,
+      "searchSourceLockId": "ma-2024-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2024-house-democratic-primary-district-6-municipality-csv",
+      "sourceCandidateName": "Seth W. Moulton",
+      "namedCandidateVotes": 125972,
+      "allOthersVotes": 788,
+      "blankVotes": 9796,
+      "sourceTotalVotesCast": 136556,
+      "municipalityRows": 40,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "63c03538ea266d41f56294bf637cba15a990d3f1586421077b7863ca241046f0"
+    },
+    {
+      "contestId": "ma:2024:regular:us-house:07:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-03",
+      "stateCode": "MA",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 163856,
+      "searchSourceLockId": "ma-2024-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2024-house-democratic-primary-district-7-municipality-csv",
+      "sourceCandidateName": "Ayanna S. Pressley",
+      "namedCandidateVotes": 114344,
+      "allOthersVotes": 2040,
+      "blankVotes": 12908,
+      "sourceTotalVotesCast": 129292,
+      "municipalityRows": 8,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "94a194554c2d1e51b99e77483af595a2bff0485dc725acbe1f94f52f22927f75"
+    },
+    {
+      "contestId": "ma:2024:regular:us-house:08:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-03",
+      "stateCode": "MA",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 163514,
+      "searchSourceLockId": "ma-2024-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2024-house-democratic-primary-district-8-municipality-csv",
+      "sourceCandidateName": "Stephen F. Lynch",
+      "namedCandidateVotes": 129522,
+      "allOthersVotes": 1722,
+      "blankVotes": 17246,
+      "sourceTotalVotesCast": 148490,
+      "municipalityRows": 22,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "ea5183518bc534bb7a2f9743bcbbbff4b70a30debfe1e2c133fc6ee01a8957a2"
+    },
+    {
+      "contestId": "ma:2024:regular:us-house:09:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-03",
+      "stateCode": "MA",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceRecordId": 163559,
+      "searchSourceLockId": "ma-2024-house-democratic-primary-search",
+      "csvSourceLockId": "ma-2024-house-democratic-primary-district-9-municipality-csv",
+      "sourceCandidateName": "Bill Keating",
+      "namedCandidateVotes": 143628,
+      "allOthersVotes": 550,
+      "blankVotes": 8864,
+      "sourceTotalVotesCast": 153042,
+      "municipalityRows": 50,
+      "voteReconciliation": "named_candidate_plus_all_others_plus_blanks_equals_total_votes_cast",
+      "resultStatus": "official_database_published_after_certification",
+      "certificateInstrumentStatus": "database_policy_bound_no_individual_signed_certificate",
+      "disposition": "reported_single_named_candidate_not_uncontested_inference",
+      "sourceWinnerStatus": "portal_marks_named_candidate_winner_not_current_identity",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2ae05eaf0d9a7ed05924a8d073b9b15ef60c8eced56392b0b4e7b55f6fcfface"
+    }
+  ],
+  "summary": {
+    "historicalCycles": 2,
+    "scheduledFutureCycles": 1,
+    "contests": 18,
+    "contests2022": 9,
+    "contests2024": 9,
+    "contests2026": 0,
+    "candidates": 18,
+    "namedCandidateVotes": 2464888,
+    "allOthersVotes": 18728,
+    "blankVotes": 310514,
+    "totalVotesCast": 2794130,
+    "contestSetSha256": "2bcd6a4082753ff34868b3523ac9ef1c5981a8de48e0f03bcb453f58277ba8f9",
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0
+  },
+  "limitations": [
+    "The official database is published after certification, but this receipt does not retain an individual signed or sealed certificate for each contest.",
+    "One named candidate plus an All Others channel is not converted into an uncontested disposition.",
+    "Source winner display and candidate name do not establish current-incumbent identity, progressive classification, or historical-geography compatibility.",
+    "The September 1, 2026 primary was scheduled but not held at the source cutoff; it contributes zero result, disposition, candidate, vote, selection, or evaluator rows."
+  ],
+  "unresolvedGates": [
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "decide_nonstandard_primary_disposition_treatment",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "eb2c8172b785bea76e9632cb6813bd53a2b2ec2ad1ebbd232482bda45df63931"
+}

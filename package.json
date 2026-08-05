@@ -93,6 +93,8 @@
     "generate:nj-house-primary-results-receipt": "tsx scripts/generate-new-jersey-house-democratic-primary-results-receipt.ts",
     "fetch:tx-house-primary-results": "node scripts/fetch-tx-house-democratic-primary-results.mjs",
     "generate:tx-house-primary-results-receipt": "tsx scripts/generate-texas-house-democratic-primary-results-receipt.ts",
+    "fetch:ma-house-primary-results": "node scripts/fetch-ma-house-democratic-primary-results.mjs",
+    "generate:ma-house-primary-results-receipt": "tsx scripts/generate-massachusetts-house-democratic-primary-results-receipt.ts",
     "generate:md-house-primary-results-receipt": "tsx scripts/generate-maryland-house-democratic-primary-results-receipt.ts",
     "fetch:ct-house-primary-event-results": "node scripts/fetch-ct-house-democratic-primary-event-results.mjs",
     "generate:ct-house-primary-event-dispositions": "tsx scripts/generate-connecticut-house-democratic-primary-event-dispositions-receipt.ts",
