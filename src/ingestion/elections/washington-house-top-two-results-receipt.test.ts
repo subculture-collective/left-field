@@ -43,4 +43,15 @@ describe("Washington House top-two raw-results receipt", () => {
     expect(() => validateWashingtonHouseTopTwoResultsReceipt(percentage)).toThrow("PACKAGE_INVARIANT_INVALID");
     expect(createHash("sha256").update(files[2024]).digest("hex")).toBe(receipt.sources.find((source) => source.cycleYear === 2024)!.fileSha256);
   });
+
+  it("binds the generated receipt to both official sources and the excluded methodology parent", () => {
+    const artifactPath = "data/metadata/washington-house-top-two-results-receipt-20220802-20240806-v1.json";
+    const artifactBytes = readFileSync(resolve(artifactPath));
+    const artifact = validateWashingtonHouseTopTwoResultsReceipt(JSON.parse(artifactBytes.toString("utf8")));
+    const lock = JSON.parse(readFileSync(resolve("data/source-lock.json"), "utf8")) as { entries: { id: string; retainedPath: string | null; byteSize: number; sha256: string; kind: string; parentIds: string[] }[] };
+    const entry = lock.entries.find((row) => row.id === "washington-house-top-two-results-receipt-20220802-20240806-v1")!;
+    expect(entry).toMatchObject({ retainedPath: artifactPath, byteSize: artifactBytes.byteLength, sha256: createHash("sha256").update(artifactBytes).digest("hex"), kind: "review_proposal" });
+    expect(new Set(entry.parentIds)).toEqual(new Set(["wa-2022-house-primary-results", "wa-2024-house-primary-results", "house-democratic-primary-source-selection-proposal-20260804-v1"]));
+    expect(artifact.packageSha256).toBe("1d124e8d8f2476b311f3e4a26f453f2fd99104f4f206d6088a8357888207aef4");
+  });
 });

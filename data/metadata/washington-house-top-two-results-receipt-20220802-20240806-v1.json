@@ -1,0 +1,1553 @@
+{
+  "schema": "washington-house-top-two-results-receipt-v1",
+  "version": 1,
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "methodologyParent": {
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb",
+    "disposition": "excluded_methodology"
+  },
+  "originalPublisher": "Washington Secretary of State",
+  "certificationStatus": "official_final_uncertified",
+  "nominationSystem": "top_two",
+  "formulaApplicability": "confirmed_incompatible",
+  "sources": [
+    {
+      "cycleYear": 2022,
+      "retainedPath": "data/source/elections/primary-results/wa-2022-house-primary.csv",
+      "sourceUrl": "https://results.vote.wa.gov/results/20220802/export/20220802_congressional.csv",
+      "byteSize": 10929,
+      "fileSha256": "e6be25e87a37cf1e577c2678cd172083d860d25b7b9480ea0bd09ca73c72bfa8",
+      "sourceSha256": "51c6726202d136654a7ddf18d1a926659b589a33d2cc9b30a8eeb8b42ae57918"
+    },
+    {
+      "cycleYear": 2024,
+      "retainedPath": "data/source/elections/primary-results/wa-2024-house-primary.csv",
+      "sourceUrl": "https://results.vote.wa.gov/results/20240806/export/20240806_congressional.csv",
+      "byteSize": 9671,
+      "fileSha256": "244c1ebb89a9211e254e1115aacfe814f502b96a97552dff7791942c2eff8135",
+      "sourceSha256": "4578af45e3e1dbb047ed869772974bee3850a70136dbe6b8fceca53808172f31"
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "wa:2022:us-house:1",
+      "cycleYear": 2022,
+      "stateCode": "WA",
+      "districtCode": "1",
+      "sourceRace": "CONGRESSIONAL DISTRICT 1 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Matthew Heines",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 13634,
+          "suppliedPercentage": 8.21,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Derek K Chartrand",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 11536,
+          "suppliedPercentage": 6.95,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Vincent J Cavaleri",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 32998,
+          "suppliedPercentage": 19.87,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Tom Spears",
+          "partyPreference": "(States No Party Preference)",
+          "votes": 4840,
+          "suppliedPercentage": 2.92,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Suzan DelBene",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 102857,
+          "suppliedPercentage": 61.95,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 168,
+          "suppliedPercentage": 0.1,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 166033,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f71a8df7a59a348b0d3093c7b5772d88b93aa7aab38cd417354862074b586b85"
+    },
+    {
+      "contestId": "wa:2022:us-house:10",
+      "cycleYear": 2022,
+      "stateCode": "WA",
+      "districtCode": "10",
+      "sourceRace": "CONGRESSIONAL DISTRICT 10 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Marilyn Strickland",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 90093,
+          "suppliedPercentage": 55.34,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Richard Boyce",
+          "partyPreference": "(Prefers Congress Sucks Party)",
+          "votes": 3250,
+          "suppliedPercentage": 2,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Keith R Swank",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 55231,
+          "suppliedPercentage": 33.93,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Eric Mahaffy",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 3710,
+          "suppliedPercentage": 2.28,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Dan Earnest Gordon",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 10315,
+          "suppliedPercentage": 6.34,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 189,
+          "suppliedPercentage": 0.12,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 162788,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "108d8c7969501f27b4a8d17df97546863a6b1eb0ece672cce7b41fbb488af208"
+    },
+    {
+      "contestId": "wa:2022:us-house:2",
+      "cycleYear": 2022,
+      "stateCode": "WA",
+      "districtCode": "2",
+      "sourceRace": "CONGRESSIONAL DISTRICT 2 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Cody Hart",
+          "partyPreference": "(Prefers MAGA Republican Party)",
+          "votes": 22176,
+          "suppliedPercentage": 10.09,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Dan Matthews",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 37393,
+          "suppliedPercentage": 17.01,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Doug &quot;Yoshe&quot; Revelle",
+          "partyPreference": "(States No Party Preference)",
+          "votes": 927,
+          "suppliedPercentage": 0.42,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Bill Wheeler",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 9124,
+          "suppliedPercentage": 4.15,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Jon Welch",
+          "partyPreference": "(Prefers Conservative Party)",
+          "votes": 1699,
+          "suppliedPercentage": 0.77,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Brandon Lee Stalnaker",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 1366,
+          "suppliedPercentage": 0.62,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Jason Call",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 31991,
+          "suppliedPercentage": 14.55,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Leif Johnson",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 5582,
+          "suppliedPercentage": 2.54,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Carrie R. Kennedy",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 8802,
+          "suppliedPercentage": 4,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Rick Larsen",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 100631,
+          "suppliedPercentage": 45.77,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 161,
+          "suppliedPercentage": 0.07,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 219852,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2c5ae2e42713f2df2a897e6b4172279a4674f7a59de53a2f44b5fdccc04d5461"
+    },
+    {
+      "contestId": "wa:2022:us-house:3",
+      "cycleYear": 2022,
+      "stateCode": "WA",
+      "districtCode": "3",
+      "sourceRace": "CONGRESSIONAL DISTRICT 3 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Jaime Herrera Beutler",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 49001,
+          "suppliedPercentage": 22.28,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Chris Byrd",
+          "partyPreference": "(Prefers None / Independent Party)",
+          "votes": 3817,
+          "suppliedPercentage": 1.74,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Marie Gluesenkamp Perez",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 68190,
+          "suppliedPercentage": 31.01,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Vicki Kraft",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 7033,
+          "suppliedPercentage": 3.2,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Oliver Black",
+          "partyPreference": "(Prefers Am. Solidarity Party)",
+          "votes": 456,
+          "suppliedPercentage": 0.21,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Heidi St. John",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 35219,
+          "suppliedPercentage": 16.01,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Davy Ray",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 4870,
+          "suppliedPercentage": 2.21,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Leslie L. French",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 1100,
+          "suppliedPercentage": 0.5,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Joe Kent",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 50097,
+          "suppliedPercentage": 22.78,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 142,
+          "suppliedPercentage": 0.06,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 219925,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "186030792c454a17d0c2ec87d6262144ab275aa83622d0eddb29976bcb918d5f"
+    },
+    {
+      "contestId": "wa:2022:us-house:4",
+      "cycleYear": 2022,
+      "stateCode": "WA",
+      "districtCode": "4",
+      "sourceRace": "CONGRESSIONAL DISTRICT 4 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Corey Gibson",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 5080,
+          "suppliedPercentage": 3.38,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Loren Culp",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 32497,
+          "suppliedPercentage": 21.61,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Brad Klippert",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 15430,
+          "suppliedPercentage": 10.26,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Jacek Kobiesa",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 490,
+          "suppliedPercentage": 0.33,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Doug White",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 37760,
+          "suppliedPercentage": 25.11,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Benancio &quot;Benny&quot; Garcia III",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 2148,
+          "suppliedPercentage": 1.43,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Jerrod Sessler",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 18495,
+          "suppliedPercentage": 12.3,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Dan Newhouse",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 38331,
+          "suppliedPercentage": 25.49,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 149,
+          "suppliedPercentage": 0.1,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 150380,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "5c147ce3249f8d86b982d882bdbd0fb721c0f64659e2d85f8b3792679c640d5d"
+    },
+    {
+      "contestId": "wa:2022:us-house:5",
+      "cycleYear": 2022,
+      "stateCode": "WA",
+      "districtCode": "5",
+      "sourceRace": "CONGRESSIONAL DISTRICT 5 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Cathy McMorris Rodgers",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 106072,
+          "suppliedPercentage": 51.46,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Natasha Hill",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 61851,
+          "suppliedPercentage": 30.01,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Sean Clynch",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 16831,
+          "suppliedPercentage": 8.17,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Ann Marie Danimus",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 21123,
+          "suppliedPercentage": 10.25,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 247,
+          "suppliedPercentage": 0.12,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 206124,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e67a4a92d77cac5189088a57f2d714c70e158e39146a1bbc06329c32b0506293"
+    },
+    {
+      "contestId": "wa:2022:us-house:6",
+      "cycleYear": 2022,
+      "stateCode": "WA",
+      "districtCode": "6",
+      "sourceRace": "CONGRESSIONAL DISTRICT 6 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Rebecca Parson",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 21523,
+          "suppliedPercentage": 9.37,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Tom Triggs",
+          "partyPreference": "(Prefers Independent Party)",
+          "votes": 2674,
+          "suppliedPercentage": 1.16,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Derek Kilmer",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 115725,
+          "suppliedPercentage": 50.36,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Chris Binns",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 11074,
+          "suppliedPercentage": 4.82,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Todd A Bloom",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 24036,
+          "suppliedPercentage": 10.46,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Elizabeth Kreiselmaier",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 54621,
+          "suppliedPercentage": 23.77,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 125,
+          "suppliedPercentage": 0.05,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 229778,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "44180da81d11d615fc118b1b271e204bea469c9f29abe30650858ab5740a7a17"
+    },
+    {
+      "contestId": "wa:2022:us-house:7",
+      "cycleYear": 2022,
+      "stateCode": "WA",
+      "districtCode": "7",
+      "sourceRace": "CONGRESSIONAL DISTRICT 7 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Cliff Moon",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 15834,
+          "suppliedPercentage": 7.54,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Pramila Jayapal",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 177665,
+          "suppliedPercentage": 84.65,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Jesse A James",
+          "partyPreference": "(Prefers Independent Party)",
+          "votes": 4859,
+          "suppliedPercentage": 2.32,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Paul Glumaz",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 10982,
+          "suppliedPercentage": 5.23,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 551,
+          "suppliedPercentage": 0.26,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 209891,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "87b9922ed0ba94acdd2f7be28efacf22d4a0d755b0e745c2060b174339a35a75"
+    },
+    {
+      "contestId": "wa:2022:us-house:8",
+      "cycleYear": 2022,
+      "stateCode": "WA",
+      "districtCode": "8",
+      "sourceRace": "CONGRESSIONAL DISTRICT 8 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Emet Ward",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 1832,
+          "suppliedPercentage": 0.9,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Kim Schrier",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 97700,
+          "suppliedPercentage": 47.86,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Reagan Dunn",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 29494,
+          "suppliedPercentage": 14.45,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Matt Larkin",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 34684,
+          "suppliedPercentage": 16.99,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Dave Chapman",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 1811,
+          "suppliedPercentage": 0.89,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Ryan Dean Burkett",
+          "partyPreference": "(States No Party Preference)",
+          "votes": 701,
+          "suppliedPercentage": 0.34,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Justin Greywolf",
+          "partyPreference": "(Prefers Libertarian Party)",
+          "votes": 1518,
+          "suppliedPercentage": 0.74,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Keith Arnold",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 1669,
+          "suppliedPercentage": 0.82,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Patrick Dillon",
+          "partyPreference": "(Prefers Concordia Party)",
+          "votes": 296,
+          "suppliedPercentage": 0.15,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Jesse Jensen",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 26350,
+          "suppliedPercentage": 12.91,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Scott Stephenson",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 7954,
+          "suppliedPercentage": 3.9,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 122,
+          "suppliedPercentage": 0.06,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 204131,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "00449abe32650a0dd0ead1a1a3b0207499b4f4cb229278c385c21a65494f8a85"
+    },
+    {
+      "contestId": "wa:2022:us-house:9",
+      "cycleYear": 2022,
+      "stateCode": "WA",
+      "districtCode": "9",
+      "sourceRace": "CONGRESSIONAL DISTRICT 9 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Doug Basler",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 29144,
+          "suppliedPercentage": 20.56,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "David Michael Anderson",
+          "partyPreference": "(Prefers Independent Party)",
+          "votes": 1541,
+          "suppliedPercentage": 1.09,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Adam Smith",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 78272,
+          "suppliedPercentage": 55.21,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Sea M. Chan",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 5338,
+          "suppliedPercentage": 3.77,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Seth D Pedersen",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 4781,
+          "suppliedPercentage": 3.37,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Stephanie Gallardo",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 22531,
+          "suppliedPercentage": 15.89,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 153,
+          "suppliedPercentage": 0.11,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 141760,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a860e49dfbcef114a8bf9f21015351b73c6d6b05504772b9a05b059fdae169d7"
+    },
+    {
+      "contestId": "wa:2024:us-house:1",
+      "cycleYear": 2024,
+      "stateCode": "WA",
+      "districtCode": "1",
+      "sourceRace": "Congressional District 1 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Orion Webster",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 16770,
+          "suppliedPercentage": 9.67,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Mary Silva",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 11339,
+          "suppliedPercentage": 6.54,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Derek Chartrand",
+          "partyPreference": "(Prefers Calm Rational GOP Party)",
+          "votes": 6980,
+          "suppliedPercentage": 4.02,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Suzan DelBene",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 109456,
+          "suppliedPercentage": 63.11,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Matt Heines",
+          "partyPreference": "(Prefers Trump Republican Party)",
+          "votes": 10815,
+          "suppliedPercentage": 6.24,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Jeb Brewer",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 17675,
+          "suppliedPercentage": 10.19,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 392,
+          "suppliedPercentage": 0.23,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 173427,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4eccc605bf478d2e6c504458982eb407564baee5613c842354df57e172cb9820"
+    },
+    {
+      "contestId": "wa:2024:us-house:10",
+      "cycleYear": 2024,
+      "stateCode": "WA",
+      "districtCode": "10",
+      "sourceRace": "Congressional District 10 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Marilyn Strickland",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 93942,
+          "suppliedPercentage": 54.25,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Eric Mahaffy",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 3527,
+          "suppliedPercentage": 2.04,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Richard Boyce",
+          "partyPreference": "(Prefers Congress Sucks Party)",
+          "votes": 2056,
+          "suppliedPercentage": 1.19,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Nirav Sheth",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 20208,
+          "suppliedPercentage": 11.67,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Kurtis Engle",
+          "partyPreference": "(Prefers Union Party)",
+          "votes": 545,
+          "suppliedPercentage": 0.31,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Desiree C. Toliver",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 6424,
+          "suppliedPercentage": 3.71,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Don Hewett",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 46258,
+          "suppliedPercentage": 26.72,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 192,
+          "suppliedPercentage": 0.11,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 173152,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "9655eaf5795ee68582b6d1d39efd7a476e4010eabb050df7050012a55cd6ebba"
+    },
+    {
+      "contestId": "wa:2024:us-house:2",
+      "cycleYear": 2024,
+      "stateCode": "WA",
+      "districtCode": "2",
+      "sourceRace": "CONGRESSIONAL DISTRICT 2 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Edwin Stickle",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 7692,
+          "suppliedPercentage": 3.48,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Daniel Miller",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 11781,
+          "suppliedPercentage": 5.34,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Cody Hart",
+          "partyPreference": "(Prefers MAGA Republican Party)",
+          "votes": 43637,
+          "suppliedPercentage": 19.76,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Leif Johnson",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 23340,
+          "suppliedPercentage": 10.57,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Rick Larsen",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 106276,
+          "suppliedPercentage": 48.14,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Devin Hermanson",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 9578,
+          "suppliedPercentage": 4.34,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Jason Call",
+          "partyPreference": "(Prefers Green Party)",
+          "votes": 7787,
+          "suppliedPercentage": 3.53,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Josh Binda",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 10497,
+          "suppliedPercentage": 4.75,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 197,
+          "suppliedPercentage": 0.09,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 220785,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "66456abb1daedae78fcc60b1ed534e61fa2eecfe9e16b63bd0291fe4f94ff468"
+    },
+    {
+      "contestId": "wa:2024:us-house:3",
+      "cycleYear": 2024,
+      "stateCode": "WA",
+      "districtCode": "3",
+      "sourceRace": "CONGRESSIONAL DISTRICT 3 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Leslie Lewallen",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 25868,
+          "suppliedPercentage": 12.19,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Joe Kent",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 83389,
+          "suppliedPercentage": 39.31,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "John Saulie-Rohman",
+          "partyPreference": "(Prefers Independent Party)",
+          "votes": 5406,
+          "suppliedPercentage": 2.55,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Marie Gluesenkamp Perez",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 97274,
+          "suppliedPercentage": 45.86,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 186,
+          "suppliedPercentage": 0.09,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 212123,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "466c32e7f13cd229560676938f7103f0944b55ea5c5778be8e54b0be9fbc9e83"
+    },
+    {
+      "contestId": "wa:2024:us-house:4",
+      "cycleYear": 2024,
+      "stateCode": "WA",
+      "districtCode": "4",
+      "sourceRace": "Congressional District 4 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Mary Baechler",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 22353,
+          "suppliedPercentage": 14.48,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Jerrod Sessler",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 51020,
+          "suppliedPercentage": 33.06,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "John Malan",
+          "partyPreference": "(Prefers MAGA Democrat Party)",
+          "votes": 711,
+          "suppliedPercentage": 0.46,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Dan Newhouse",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 36073,
+          "suppliedPercentage": 23.37,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Benny &quot;BG3&quot; Garcia",
+          "partyPreference": "(Prefers Independent Party)",
+          "votes": 1389,
+          "suppliedPercentage": 0.9,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Barry Knowles",
+          "partyPreference": "(Prefers Democrat Party)",
+          "votes": 3329,
+          "suppliedPercentage": 2.16,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Tiffany Smiley",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 29761,
+          "suppliedPercentage": 19.28,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "&quot;Birdie&quot; Jane Muchlinski",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 9593,
+          "suppliedPercentage": 6.22,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 98,
+          "suppliedPercentage": 0.06,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 154327,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3675595a727d655abfa5d588824aaf111a46a8f6c1d269d394d282c981e4b008"
+    },
+    {
+      "contestId": "wa:2024:us-house:5",
+      "cycleYear": 2024,
+      "stateCode": "WA",
+      "districtCode": "5",
+      "sourceRace": "CONGRESSIONAL DISTRICT 5 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Rick Valentine Flynn",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 4822,
+          "suppliedPercentage": 2.37,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Rene' Holaday",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 6180,
+          "suppliedPercentage": 3.04,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Jacquelin Maycumber",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 27717,
+          "suppliedPercentage": 13.63,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Jonathan D Bingle",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 7510,
+          "suppliedPercentage": 3.69,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Carmela Conroy",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 37227,
+          "suppliedPercentage": 18.3,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Ann Marie Danimus",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 11306,
+          "suppliedPercentage": 5.56,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Matthew Welde",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 4183,
+          "suppliedPercentage": 2.06,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Bernadine Bank",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 24111,
+          "suppliedPercentage": 11.85,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Michael Baumgartner",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 55859,
+          "suppliedPercentage": 27.46,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Brian Dansel",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 21983,
+          "suppliedPercentage": 10.81,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Bobbi Bennett-Wolcott",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 2336,
+          "suppliedPercentage": 1.15,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 175,
+          "suppliedPercentage": 0.09,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 203409,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d2050fa9d8f8c2bfb7886c83d603ca49be969ed75ff89d182fc364449f8b70b8"
+    },
+    {
+      "contestId": "wa:2024:us-house:6",
+      "cycleYear": 2024,
+      "stateCode": "WA",
+      "districtCode": "6",
+      "sourceRace": "CONGRESSIONAL DISTRICT 6 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Emily Randall",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 80249,
+          "suppliedPercentage": 34.34,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Janis Clark",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 17665,
+          "suppliedPercentage": 7.56,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Drew C MacEwen",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 70513,
+          "suppliedPercentage": 30.18,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "J. Graham Ralston",
+          "partyPreference": "(Prefers Independent Party)",
+          "votes": 7235,
+          "suppliedPercentage": 3.1,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Hilary Franz",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 57824,
+          "suppliedPercentage": 24.75,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 188,
+          "suppliedPercentage": 0.08,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 233674,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "8df5637353f9d692d3d646940b29ccd46c5efb2a5ef08545be36945836ce8a92"
+    },
+    {
+      "contestId": "wa:2024:us-house:7",
+      "cycleYear": 2024,
+      "stateCode": "WA",
+      "districtCode": "7",
+      "sourceRace": "Congressional District 7 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Dan Alexander",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 16902,
+          "suppliedPercentage": 7.76,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Pramila Jayapal",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 174019,
+          "suppliedPercentage": 79.86,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Liz Hallock",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 16494,
+          "suppliedPercentage": 7.57,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Cliff Moon",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 10070,
+          "suppliedPercentage": 4.62,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 409,
+          "suppliedPercentage": 0.19,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 217894,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "ad16ba695a6b606e7b30531524b774215dfcf444d33a6877598c67555932c77f"
+    },
+    {
+      "contestId": "wa:2024:us-house:8",
+      "cycleYear": 2024,
+      "stateCode": "WA",
+      "districtCode": "8",
+      "sourceRace": "Congressional District 8 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Kim Schrier",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 105069,
+          "suppliedPercentage": 50.11,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Carmen Goers",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 94322,
+          "suppliedPercentage": 44.99,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Keith Arnold",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 2603,
+          "suppliedPercentage": 1.24,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Imraan Siddiqi",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 7374,
+          "suppliedPercentage": 3.52,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 291,
+          "suppliedPercentage": 0.14,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 209659,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4c2e4e3ce6ccf1ff4ef84f3f3a2411a9ed6877af60caaf393a5bb00fe25bec2d"
+    },
+    {
+      "contestId": "wa:2024:us-house:9",
+      "cycleYear": 2024,
+      "stateCode": "WA",
+      "districtCode": "9",
+      "sourceRace": "Congressional District 9 - U.S. Representative",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "top_two",
+      "formulaApplicability": "confirmed_incompatible",
+      "certificationStatus": "official_final_uncertified",
+      "candidates": [
+        {
+          "candidateName": "Melissa Chaudhry",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 30229,
+          "suppliedPercentage": 20.66,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Paul Martin",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 26646,
+          "suppliedPercentage": 18.21,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "David Ishii",
+          "partyPreference": "(Prefers Bipartisan Party)",
+          "votes": 963,
+          "suppliedPercentage": 0.66,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Mark Greene",
+          "partyPreference": "(Prefers Republican Party)",
+          "votes": 9459,
+          "suppliedPercentage": 6.47,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "Adam Smith",
+          "partyPreference": "(Prefers Democratic Party)",
+          "votes": 78761,
+          "suppliedPercentage": 53.83,
+          "isWriteIn": false
+        },
+        {
+          "candidateName": "WRITE-IN",
+          "partyPreference": null,
+          "votes": 248,
+          "suppliedPercentage": 0.17,
+          "isWriteIn": true
+        }
+      ],
+      "contestTotalVotes": 146306,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a5ad010f72d6fa9994e7ce774007e2f179ca7025544e4fcc863b4af773a90d69"
+    }
+  ],
+  "summary": {
+    "cycles": 2,
+    "contests": 20,
+    "candidates": 150,
+    "contestSetSha256": "81d60b663e5d06c337c8f1fd3b4a2b55447af0e3d38a9a19b797b0caf02166dd",
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0
+  },
+  "packageSha256": "1d124e8d8f2476b311f3e4a26f453f2fd99104f4f206d6088a8357888207aef4"
+}

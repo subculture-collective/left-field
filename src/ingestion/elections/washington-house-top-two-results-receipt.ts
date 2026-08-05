@@ -21,6 +21,11 @@ const SOURCES = Object.freeze([
     fileSha256: "244c1ebb89a9211e254e1115aacfe814f502b96a97552dff7791942c2eff8135",
   },
 ] as const);
+const SOURCE_RECEIPTS = Object.freeze([
+  { ...SOURCES[0], sourceSha256: "51c6726202d136654a7ddf18d1a926659b589a33d2cc9b30a8eeb8b42ae57918" },
+  { ...SOURCES[1], sourceSha256: "4578af45e3e1dbb047ed869772974bee3850a70136dbe6b8fceca53808172f31" },
+] as const);
+const CONTEST_SET_SHA256 = "81d60b663e5d06c337c8f1fd3b4a2b55447af0e3d38a9a19b797b0caf02166dd" as const;
 
 type CycleYear = typeof SOURCES[number]["cycleYear"];
 type InputBytes = Buffer | Uint8Array | string;
@@ -37,7 +42,7 @@ export type WashingtonHouseTopTwoResultsReceipt = Readonly<{
   methodologyParent: Readonly<{ packageSha256: typeof WASHINGTON_HOUSE_TOP_TWO_SOURCE_SELECTION_PACKAGE_SHA256; disposition: "excluded_methodology" }>;
   originalPublisher: "Washington Secretary of State"; certificationStatus: "official_final_uncertified"; nominationSystem: "top_two"; formulaApplicability: "confirmed_incompatible";
   sources: readonly Readonly<{ cycleYear: CycleYear; retainedPath: string; sourceUrl: string; byteSize: number; fileSha256: string; sourceSha256: string }>[];
-  contests: readonly WashingtonHouseTopTwoContest[]; summary: Readonly<{ cycles: 2; contests: 20; candidates: number; evaluatorNumericValues: 0; scoreEligibleContests: 0 }>;
+  contests: readonly WashingtonHouseTopTwoContest[]; summary: Readonly<{ cycles: 2; contests: 20; candidates: number; contestSetSha256: typeof CONTEST_SET_SHA256; evaluatorNumericValues: 0; scoreEligibleContests: 0 }>;
   packageSha256: string;
 }>;
 
@@ -62,13 +67,19 @@ function bytes(value: InputBytes): Buffer {
 function csvRows(text: string): string[][] {
   if (!text.length || text.includes("\u0000")) fail("CSV_TEXT_INVALID");
   const rows: string[][] = [], row: string[] = [];
-  let field = "", quoted = false, atStart = true;
+  let field = "", quoted = false, atStart = true, justClosedQuote = false;
   for (let index = 0; index < text.length; index += 1) {
     const char = text[index]!;
     if (quoted) {
-      if (char === '"') { if (text[index + 1] === '"') { field += '"'; index += 1; } else quoted = false; }
+      if (char === '"') { if (text[index + 1] === '"') { field += '"'; index += 1; } else { quoted = false; justClosedQuote = true; } }
       else field += char;
       continue;
+    }
+    if (justClosedQuote) {
+      if (char === ",") { row.push(field); field = ""; atStart = true; justClosedQuote = false; continue; }
+      if (char === "\n") { row.push(field); rows.push([...row]); row.length = 0; field = ""; atStart = true; justClosedQuote = false; continue; }
+      if (char === "\r" && text[index + 1] === "\n") continue;
+      fail("CSV_INVALID_POST_QUOTE_CHARACTER");
     }
     if (atStart && char === '"') { quoted = true; atStart = false; continue; }
     if (char === ",") { row.push(field); field = ""; atStart = true; continue; }
@@ -128,18 +139,20 @@ export function parseWashingtonHouseTopTwoResultsReceipt(input: WashingtonHouseT
     schema: WASHINGTON_HOUSE_TOP_TWO_RESULTS_RECEIPT_V1, version: 1 as const, reviewerOnly: true as const, publicationEligible: false as const,
     methodologyParent: { packageSha256: WASHINGTON_HOUSE_TOP_TWO_SOURCE_SELECTION_PACKAGE_SHA256, disposition: "excluded_methodology" as const },
     originalPublisher: "Washington Secretary of State" as const, certificationStatus: "official_final_uncertified" as const, nominationSystem: "top_two" as const, formulaApplicability: "confirmed_incompatible" as const,
-    sources, contests, summary: { cycles: 2 as const, contests: 20 as const, candidates: contests.reduce((total, contest) => total + contest.candidates.length, 0), evaluatorNumericValues: 0 as const, scoreEligibleContests: 0 as const },
+    sources, contests, summary: { cycles: 2 as const, contests: 20 as const, candidates: contests.reduce((total, contest) => total + contest.candidates.length, 0), contestSetSha256: CONTEST_SET_SHA256, evaluatorNumericValues: 0 as const, scoreEligibleContests: 0 as const },
   };
   return { ...unsigned, packageSha256: hash("dsa-seats:wa-house-top-two-package:v1\0", unsigned) };
 }
 
 export function validateWashingtonHouseTopTwoResultsReceipt(value: WashingtonHouseTopTwoResultsReceipt): WashingtonHouseTopTwoResultsReceipt {
   const { packageSha256, ...unsigned } = value;
-  if (packageSha256 !== hash("dsa-seats:wa-house-top-two-package:v1\0", unsigned) || value.reviewerOnly !== true || value.publicationEligible !== false || value.methodologyParent.packageSha256 !== WASHINGTON_HOUSE_TOP_TWO_SOURCE_SELECTION_PACKAGE_SHA256 || value.methodologyParent.disposition !== "excluded_methodology" || value.originalPublisher !== "Washington Secretary of State" || value.certificationStatus !== "official_final_uncertified" || value.nominationSystem !== "top_two" || value.formulaApplicability !== "confirmed_incompatible" || value.sources.length !== 2 || value.contests.length !== 20 || value.summary.evaluatorNumericValues !== 0 || value.summary.scoreEligibleContests !== 0) fail("PACKAGE_INVARIANT_INVALID");
+  const contestIds = value.contests.map((contest) => contest.contestId);
+  const contestSetSha256 = hash("dsa-seats:wa-house-top-two-contest-set:v1\0", value.contests.map((contest) => ({ contestId: contest.contestId, contestSha256: contest.contestSha256 })));
+  if (packageSha256 !== hash("dsa-seats:wa-house-top-two-package:v1\0", unsigned) || value.reviewerOnly !== true || value.publicationEligible !== false || value.methodologyParent.packageSha256 !== WASHINGTON_HOUSE_TOP_TWO_SOURCE_SELECTION_PACKAGE_SHA256 || value.methodologyParent.disposition !== "excluded_methodology" || value.originalPublisher !== "Washington Secretary of State" || value.certificationStatus !== "official_final_uncertified" || value.nominationSystem !== "top_two" || value.formulaApplicability !== "confirmed_incompatible" || canonicalJson(value.sources) !== canonicalJson(SOURCE_RECEIPTS) || value.contests.length !== 20 || new Set(contestIds).size !== 20 || value.summary.cycles !== 2 || value.summary.contests !== 20 || value.summary.candidates !== value.contests.reduce((sum, contest) => sum + contest.candidates.length, 0) || value.summary.contestSetSha256 !== CONTEST_SET_SHA256 || contestSetSha256 !== CONTEST_SET_SHA256 || value.summary.evaluatorNumericValues !== 0 || value.summary.scoreEligibleContests !== 0) fail("PACKAGE_INVARIANT_INVALID");
   for (const contest of value.contests) {
     const { contestSha256, ...contestUnsigned } = contest;
     const total = contest.candidates.reduce((sum, candidate) => sum + candidate.votes, 0);
-    if (contestSha256 !== hash("dsa-seats:wa-house-top-two-contest:v1\0", contestUnsigned) || total !== contest.contestTotalVotes || contest.scoreEligible || contest.evaluatorValues.priorPrimaryMargin !== null || contest.evaluatorValues.priorDemocraticPrimaryVotes !== null || contest.evaluatorValues.priorProgressivePrimaryShare !== null || contest.candidates.some((candidate) => Math.abs((candidate.votes / total) * 100 - candidate.suppliedPercentage) > 0.005000001)) fail("CONTEST_INVARIANT_INVALID");
+    if (contestSha256 !== hash("dsa-seats:wa-house-top-two-contest:v1\0", contestUnsigned) || contest.contestId !== `wa:${contest.cycleYear}:us-house:${contest.districtCode}` || (contest.cycleYear !== 2022 && contest.cycleYear !== 2024) || contest.stateCode !== "WA" || contest.office !== "U.S. Representative" || contest.eventKind !== "regular" || contest.stage !== "primary" || contest.nominationSystem !== "top_two" || contest.formulaApplicability !== "confirmed_incompatible" || contest.certificationStatus !== "official_final_uncertified" || !Number.isSafeInteger(total) || total < 1 || total !== contest.contestTotalVotes || new Set(contest.candidates.map((candidate) => candidate.candidateName)).size !== contest.candidates.length || contest.candidates.filter((candidate) => candidate.isWriteIn).length !== 1 || contest.candidates.some((candidate) => !Number.isSafeInteger(candidate.votes) || candidate.votes < 0 || !Number.isFinite(candidate.suppliedPercentage) || candidate.suppliedPercentage < 0 || candidate.suppliedPercentage > 100) || contest.scoreEligible || contest.evaluatorValues.priorPrimaryMargin !== null || contest.evaluatorValues.priorDemocraticPrimaryVotes !== null || contest.evaluatorValues.priorProgressivePrimaryShare !== null || contest.candidates.some((candidate) => Math.abs((candidate.votes / total) * 100 - candidate.suppliedPercentage) > 0.005000001)) fail("CONTEST_INVARIANT_INVALID");
   }
   return value;
 }
