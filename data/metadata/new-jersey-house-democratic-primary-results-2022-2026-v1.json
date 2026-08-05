@@ -1,0 +1,1663 @@
+{
+  "schema": "new-jersey-house-democratic-primary-results-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T23:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "originalPublisher": "New Jersey Department of State, Division of Elections",
+  "status": "official_result_candidate",
+  "extraction": {
+    "tool": "pdftotext",
+    "toolVersion": "26.07.0",
+    "layoutMode": true,
+    "derivedExtractsSourceLocked": true,
+    "candidateAddressesExcludedFromReceipt": true
+  },
+  "sources": [
+    {
+      "id": "nj-2022-official-primary-results-us-house-pdf",
+      "url": "https://www.nj.gov/state/elections/assets/pdf/election-results/2022/2022-official-primary-results-us-house.pdf",
+      "retainedPath": "data/source/elections/primary-results/new-jersey/2022/official-primary-results-us-house.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 36191,
+      "sha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nj-2022-official-primary-results-us-house-text",
+      "url": "urn:dsa-seats:nj-2022-official-primary-results-us-house:pdftotext-layout",
+      "retainedPath": "data/source/elections/primary-results/new-jersey/2022/official-primary-results-us-house.txt",
+      "retainedStatus": "retained",
+      "byteSize": 61052,
+      "sha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "kind": "derived_extract",
+      "parentIds": [
+        "nj-2022-official-primary-results-us-house-pdf"
+      ]
+    },
+    {
+      "id": "nj-2024-official-primary-results-us-house-pdf",
+      "url": "https://www.nj.gov/state/elections/assets/pdf/election-results/2024/2024-official-primary-results-us-house.pdf",
+      "retainedPath": "data/source/elections/primary-results/new-jersey/2024/official-primary-results-us-house.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 117625,
+      "sha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nj-2024-official-primary-results-us-house-text",
+      "url": "urn:dsa-seats:nj-2024-official-primary-results-us-house:pdftotext-layout",
+      "retainedPath": "data/source/elections/primary-results/new-jersey/2024/official-primary-results-us-house.txt",
+      "retainedStatus": "retained",
+      "byteSize": 54561,
+      "sha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "kind": "derived_extract",
+      "parentIds": [
+        "nj-2024-official-primary-results-us-house-pdf"
+      ]
+    },
+    {
+      "id": "nj-2026-official-primary-results-us-house-pdf",
+      "url": "https://www.nj.gov/state/elections/assets/pdf/election-results/2026/2026-official-primary-results-us-house.pdf",
+      "retainedPath": "data/source/elections/primary-results/new-jersey/2026/official-primary-results-us-house.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 151010,
+      "sha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nj-2026-official-primary-results-us-house-text",
+      "url": "urn:dsa-seats:nj-2026-official-primary-results-us-house:pdftotext-layout",
+      "retainedPath": "data/source/elections/primary-results/new-jersey/2026/official-primary-results-us-house.txt",
+      "retainedStatus": "retained",
+      "byteSize": 60756,
+      "sha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "kind": "derived_extract",
+      "parentIds": [
+        "nj-2026-official-primary-results-us-house-pdf"
+      ]
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "nj:2022:us-house:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NJ",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2022-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "derivedTextLockId": "nj-2022-official-primary-results-us-house-text",
+      "derivedTextSha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "DONALD W. NORCROSS",
+          "votes": 44985,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        },
+        {
+          "sourceCandidateName": "MARIO DESANTIS",
+          "votes": 13696,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 58681,
+      "winnerSourceCandidateName": "DONALD W. NORCROSS",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4b19f87965ba0813a244b7215e1ff498fd63d003e349dfab027bf965b22b1fdf"
+    },
+    {
+      "contestId": "nj:2022:us-house:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NJ",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2022-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "derivedTextLockId": "nj-2022-official-primary-results-us-house-text",
+      "derivedTextSha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "CAROLYN RUSH",
+          "votes": 10667,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "TIM ALEXANDER",
+          "votes": 17199,
+          "winnerMarker": true,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 27866,
+      "winnerSourceCandidateName": "TIM ALEXANDER",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "9d662d2c567fd0caf2cd984fc4c73010ab025ee75331e51a37bb5c67aeed8ce6"
+    },
+    {
+      "contestId": "nj:2022:us-house:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NJ",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2022-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "derivedTextLockId": "nj-2022-official-primary-results-us-house-text",
+      "derivedTextSha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "ANDY KIM",
+          "votes": 39433,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        },
+        {
+          "sourceCandidateName": "REUVEN HENDLER",
+          "votes": 3062,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 42495,
+      "winnerSourceCandidateName": "ANDY KIM",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "5f43338305825a3c1b45cf3585bd6fd0adf04003e430aee4428690887fd05dab"
+    },
+    {
+      "contestId": "nj:2022:us-house:04:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NJ",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2022-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "derivedTextLockId": "nj-2022-official-primary-results-us-house-text",
+      "derivedTextSha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "MATTHEW JENKINS",
+          "votes": 20655,
+          "winnerMarker": true,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 20655,
+      "winnerSourceCandidateName": "MATTHEW JENKINS",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "50f48929109259d1bf07112c9f9f18993c52247ce3ba536a34d5b26be9044a97"
+    },
+    {
+      "contestId": "nj:2022:us-house:05:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NJ",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2022-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "derivedTextLockId": "nj-2022-official-primary-results-us-house-text",
+      "derivedTextSha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "JOSH GOTTHEIMER",
+          "votes": 31142,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 31142,
+      "winnerSourceCandidateName": "JOSH GOTTHEIMER",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4771de045d4123b2eddce2dfc7536835d7f3d0c232a0d2ab393e8db9f12062b7"
+    },
+    {
+      "contestId": "nj:2022:us-house:06:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NJ",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2022-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "derivedTextLockId": "nj-2022-official-primary-results-us-house-text",
+      "derivedTextSha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "FRANK PALLONE JR.",
+          "votes": 30534,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 30534,
+      "winnerSourceCandidateName": "FRANK PALLONE JR.",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2dfb605215e157b3667e61c33bedb923fe2622f8211abd9701d0589de46d6d6c"
+    },
+    {
+      "contestId": "nj:2022:us-house:07:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NJ",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2022-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "derivedTextLockId": "nj-2022-official-primary-results-us-house-text",
+      "derivedTextSha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "ROGER BACON",
+          "votes": 2185,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "TOM MALINOWSKI",
+          "votes": 37304,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 39489,
+      "winnerSourceCandidateName": "TOM MALINOWSKI",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "5933513b200679da4e0c2bfaff3062aa9f1c1768668397800107b4ca40385a2e"
+    },
+    {
+      "contestId": "nj:2022:us-house:08:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NJ",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2022-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "derivedTextLockId": "nj-2022-official-primary-results-us-house-text",
+      "derivedTextSha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "ANE ROSEBOROUGH-EBERHARD",
+          "votes": 1668,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "DAVID OCAMPO GRAJALES",
+          "votes": 3749,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "ROBERT J. MENENDEZ",
+          "votes": 26490,
+          "winnerMarker": true,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 31907,
+      "winnerSourceCandidateName": "ROBERT J. MENENDEZ",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4581eecb478d807ab770033bbbfa2ee81e0de1362e8d2fdf681658d7e3b86dad"
+    },
+    {
+      "contestId": "nj:2022:us-house:09:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NJ",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2022-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "derivedTextLockId": "nj-2022-official-primary-results-us-house-text",
+      "derivedTextSha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "BILL PASCRELL JR.",
+          "votes": 19524,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 19524,
+      "winnerSourceCandidateName": "BILL PASCRELL JR.",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6c9069ffeeecb506d2b695b98971b8526d40e9414d82a1b43625fb021e957b1b"
+    },
+    {
+      "contestId": "nj:2022:us-house:10:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NJ",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2022-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "derivedTextLockId": "nj-2022-official-primary-results-us-house-text",
+      "derivedTextSha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "AKIL KHALFANI",
+          "votes": 2169,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "DONALD M. PAYNE JR.",
+          "votes": 29680,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        },
+        {
+          "sourceCandidateName": "IMANI OAKLEY",
+          "votes": 3764,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 35613,
+      "winnerSourceCandidateName": "DONALD M. PAYNE JR.",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3b6002afdac6f5d601fdebe96ed57c084e54d482a1c2f245973c8b352fc08150"
+    },
+    {
+      "contestId": "nj:2022:us-house:11:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NJ",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2022-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "derivedTextLockId": "nj-2022-official-primary-results-us-house-text",
+      "derivedTextSha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "MIKIE SHERRILL",
+          "votes": 37948,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 37948,
+      "winnerSourceCandidateName": "MIKIE SHERRILL",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "126e1ff769252c4fb4d65569671e687e1f6e5c4e7e88217c41ec5fa5f2ae64b9"
+    },
+    {
+      "contestId": "nj:2022:us-house:12:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NJ",
+      "districtCode": "12",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2022-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "b45986dd93c57e67c2ce31e5e0d7acd6378ddb9becd7d60befc38601b2a807a8",
+      "derivedTextLockId": "nj-2022-official-primary-results-us-house-text",
+      "derivedTextSha256": "4825bfe55e409f3b8ea73a6f84b74ab4686845e7341d39ab407211ad281cc9fd",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "BONNIE WATSON COLEMAN",
+          "votes": 37440,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 37440,
+      "winnerSourceCandidateName": "BONNIE WATSON COLEMAN",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e9b3a2e6cce33829008a28d3c4d3745dd0c032eccf9315801eee3fab50dd6034"
+    },
+    {
+      "contestId": "nj:2024:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NJ",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2024-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "derivedTextLockId": "nj-2024-official-primary-results-us-house-text",
+      "derivedTextSha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "DONALD NORCROSS",
+          "votes": 61308,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 61308,
+      "winnerSourceCandidateName": "DONALD NORCROSS",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "59e3840ca49a2f43941be2422b0f66a3c2d3263942d96458220fc5c4c6d5e04d"
+    },
+    {
+      "contestId": "nj:2024:us-house:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NJ",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2024-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "derivedTextLockId": "nj-2024-official-primary-results-us-house-text",
+      "derivedTextSha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "CAROLYN RUSH",
+          "votes": 7836,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "JOSEPH F. SALERNO",
+          "votes": 14060,
+          "winnerMarker": true,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "RODNEY A. DEAN SR.",
+          "votes": 1235,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "TIM ALEXANDER",
+          "votes": 13621,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 36752,
+      "winnerSourceCandidateName": "JOSEPH F. SALERNO",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6d2a9c31933babaaf869ff30736cb82f887abaa6e70afe12047597aaf979a380"
+    },
+    {
+      "contestId": "nj:2024:us-house:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NJ",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2024-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "derivedTextLockId": "nj-2024-official-primary-results-us-house-text",
+      "derivedTextSha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "BRIAN SCHKEEPER",
+          "votes": 1862,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "CAROL MURPHY",
+          "votes": 14049,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "HERB CONAWAY",
+          "votes": 27528,
+          "winnerMarker": true,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "JOE COHN",
+          "votes": 6517,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "SARAH SCHOENGOOD",
+          "votes": 5524,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 55480,
+      "winnerSourceCandidateName": "HERB CONAWAY",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "29af28cbc6ce7bb2a0a4e1ae4284be5f4bae1f6c1ea8420304eb0cfcad076937"
+    },
+    {
+      "contestId": "nj:2024:us-house:04:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NJ",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2024-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "derivedTextLockId": "nj-2024-official-primary-results-us-house-text",
+      "derivedTextSha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "MATTHEW JENKINS",
+          "votes": 25389,
+          "winnerMarker": true,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 25389,
+      "winnerSourceCandidateName": "MATTHEW JENKINS",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "979b38fdd20f95dd2695e7180232c8cb35dceb9d49895b437249ff7253b3eb42"
+    },
+    {
+      "contestId": "nj:2024:us-house:05:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NJ",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2024-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "derivedTextLockId": "nj-2024-official-primary-results-us-house-text",
+      "derivedTextSha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "JOSH GOTTHEIMER",
+          "votes": 42819,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 42819,
+      "winnerSourceCandidateName": "JOSH GOTTHEIMER",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4c9196d61ffce3eb29ffbd7ad660f6a409e31542bb93308d98a376a9cdd268a9"
+    },
+    {
+      "contestId": "nj:2024:us-house:06:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NJ",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2024-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "derivedTextLockId": "nj-2024-official-primary-results-us-house-text",
+      "derivedTextSha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "FRANK PALLONE JR.",
+          "votes": 36649,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        },
+        {
+          "sourceCandidateName": "JOHN HSU",
+          "votes": 6992,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 43641,
+      "winnerSourceCandidateName": "FRANK PALLONE JR.",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "072a800fc6f353098a2d9751ab6696750633abeb03b54a3678a2922f3d12bbd0"
+    },
+    {
+      "contestId": "nj:2024:us-house:07:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NJ",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2024-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "derivedTextLockId": "nj-2024-official-primary-results-us-house-text",
+      "derivedTextSha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "SUE ALTMAN",
+          "votes": 38030,
+          "winnerMarker": true,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 38030,
+      "winnerSourceCandidateName": "SUE ALTMAN",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "0a3ce3dd7a2b8ff3becbf77beac4ed9c41d4a11b85ea6db6af4b2ad0f0fc1bf2"
+    },
+    {
+      "contestId": "nj:2024:us-house:08:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NJ",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2024-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "derivedTextLockId": "nj-2024-official-primary-results-us-house-text",
+      "derivedTextSha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "KYLE FORT JASEY",
+          "votes": 4528,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "RAVINDER S. BHALLA",
+          "votes": 16218,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "ROB MENENDEZ",
+          "votes": 22465,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 43211,
+      "winnerSourceCandidateName": "ROB MENENDEZ",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "cdc452b7a5d0599e281fd10e5e93861818abaebd3350fc03ac4c380d8548a14b"
+    },
+    {
+      "contestId": "nj:2024:us-house:09:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NJ",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2024-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "derivedTextLockId": "nj-2024-official-primary-results-us-house-text",
+      "derivedTextSha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "BILL PASCRELL JR.",
+          "votes": 26514,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        },
+        {
+          "sourceCandidateName": "MOHAMED T. KHAIRULLAH",
+          "votes": 8328,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 34842,
+      "winnerSourceCandidateName": "BILL PASCRELL JR.",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "822b27e12d0aa9e322831c3d767d33ea60f6d4d88e048b83c25518425675fa7b"
+    },
+    {
+      "contestId": "nj:2024:us-house:10:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NJ",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2024-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "derivedTextLockId": "nj-2024-official-primary-results-us-house-text",
+      "derivedTextSha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "DONALD M. PAYNE JR.",
+          "votes": 30180,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 30180,
+      "winnerSourceCandidateName": "DONALD M. PAYNE JR.",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "1637a39be92746605ba014a94cea0391be082e8e32ba1ed23fc549555d7148f7"
+    },
+    {
+      "contestId": "nj:2024:us-house:11:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NJ",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2024-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "derivedTextLockId": "nj-2024-official-primary-results-us-house-text",
+      "derivedTextSha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "MARK DELOTTO",
+          "votes": 3309,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "MIKIE SHERRILL",
+          "votes": 48539,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 51848,
+      "winnerSourceCandidateName": "MIKIE SHERRILL",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "077473c0742c9f0db8eb1157a1e549040d46ffb8bbb780078567245f9f51d09e"
+    },
+    {
+      "contestId": "nj:2024:us-house:12:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NJ",
+      "districtCode": "12",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2024-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "90f8090d6138db048e3dc43b35a03a4936683e191e7fbe90d52ee26bf11cf485",
+      "derivedTextLockId": "nj-2024-official-primary-results-us-house-text",
+      "derivedTextSha256": "c2b739d30c430e1e5aea8ac06dc0ce7998f6b3edef6a541741913254a4970910",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "BONNIE WATSON COLEMAN",
+          "votes": 43510,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        },
+        {
+          "sourceCandidateName": "DANIEL J. DART",
+          "votes": 6623,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 50133,
+      "winnerSourceCandidateName": "BONNIE WATSON COLEMAN",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "eb237cc0ada634e31acab75c17b07207a301774f946d70fce559d8a3fca5b04b"
+    },
+    {
+      "contestId": "nj:2026:us-house:01:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NJ",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2026-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "derivedTextLockId": "nj-2026-official-primary-results-us-house-text",
+      "derivedTextSha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "DONALD NORCROSS",
+          "votes": 66059,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 66059,
+      "winnerSourceCandidateName": "DONALD NORCROSS",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a7e6a3c98b14e6f740bced781b1efa6abdb2dac6ff325b030f8d3838f4739e56"
+    },
+    {
+      "contestId": "nj:2026:us-house:02:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NJ",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2026-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "derivedTextLockId": "nj-2026-official-primary-results-us-house-text",
+      "derivedTextSha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "BAYLY WINDER",
+          "votes": 9846,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "TERRI REESE",
+          "votes": 4733,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "TIM ALEXANDER",
+          "votes": 12168,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "ZACK MULLOCK",
+          "votes": 17698,
+          "winnerMarker": true,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 44445,
+      "winnerSourceCandidateName": "ZACK MULLOCK",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "fb4986bc872e91a19b3fd708caf0945eff2f3b35afb66f28ad8404376314347a"
+    },
+    {
+      "contestId": "nj:2026:us-house:03:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NJ",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2026-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "derivedTextLockId": "nj-2026-official-primary-results-us-house-text",
+      "derivedTextSha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "HERB CONAWAY",
+          "votes": 50437,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 50437,
+      "winnerSourceCandidateName": "HERB CONAWAY",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "72f0bf4b6ff0334fc769a3bdf4ee6f15d96e8e353a3ef67003ce96fd8ad80cd7"
+    },
+    {
+      "contestId": "nj:2026:us-house:04:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NJ",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2026-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "derivedTextLockId": "nj-2026-official-primary-results-us-house-text",
+      "derivedTextSha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "JOHN BLAKE",
+          "votes": 7761,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "RACHEL PEACE",
+          "votes": 20782,
+          "winnerMarker": true,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 28543,
+      "winnerSourceCandidateName": "RACHEL PEACE",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "0d4aea1ec431936de07e21694bdb66bf774f64e20f14b0683cde16613570cb99"
+    },
+    {
+      "contestId": "nj:2026:us-house:05:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NJ",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2026-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "derivedTextLockId": "nj-2026-official-primary-results-us-house-text",
+      "derivedTextSha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "JOSH GOTTHEIMER",
+          "votes": 38077,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 38077,
+      "winnerSourceCandidateName": "JOSH GOTTHEIMER",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2b0d9de042903103bda69e85b055d516f02ba7d7a207618024f8e1fab97bf3c1"
+    },
+    {
+      "contestId": "nj:2026:us-house:06:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NJ",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2026-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "derivedTextLockId": "nj-2026-official-primary-results-us-house-text",
+      "derivedTextSha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "FRANK PALLONE JR.",
+          "votes": 32761,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        },
+        {
+          "sourceCandidateName": "JOHN HSU",
+          "votes": 13304,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "KATIE BANSIL",
+          "votes": 3837,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 49902,
+      "winnerSourceCandidateName": "FRANK PALLONE JR.",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d55a8b5801c4951fcc3086c9040a073d6ca257d860acd78abd90f9f30f9c4134"
+    },
+    {
+      "contestId": "nj:2026:us-house:07:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NJ",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2026-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "derivedTextLockId": "nj-2026-official-primary-results-us-house-text",
+      "derivedTextSha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "BRIAN VARELA",
+          "votes": 11614,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "MICHAEL ROTH",
+          "votes": 9452,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "REBECCA BENNETT",
+          "votes": 27525,
+          "winnerMarker": true,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "TINA SHAH",
+          "votes": 12146,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 60737,
+      "winnerSourceCandidateName": "REBECCA BENNETT",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "c016d6b52fdc5ce0b9076508373430940728da260d0caf2c89d1fdc2ed05dfb1"
+    },
+    {
+      "contestId": "nj:2026:us-house:08:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NJ",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2026-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "derivedTextLockId": "nj-2026-official-primary-results-us-house-text",
+      "derivedTextSha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "MUSSAB ALI",
+          "votes": 12930,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "ROB MENENDEZ",
+          "votes": 28509,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 41439,
+      "winnerSourceCandidateName": "ROB MENENDEZ",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "fe7d876760915ef59ac58254af39244a6f8366a1c582be1ef0b44a8659e6c003"
+    },
+    {
+      "contestId": "nj:2026:us-house:09:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NJ",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2026-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "derivedTextLockId": "nj-2026-official-primary-results-us-house-text",
+      "derivedTextSha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "NELIDA POU",
+          "votes": 27790,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        }
+      ],
+      "candidateVotes": 27790,
+      "winnerSourceCandidateName": "NELIDA POU",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2876c041ed03015ae5f1b088551719768484c1a96ae83d617681c9a80882b17a"
+    },
+    {
+      "contestId": "nj:2026:us-house:10:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NJ",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2026-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "derivedTextLockId": "nj-2026-official-primary-results-us-house-text",
+      "derivedTextSha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "LAMONICA R. MCIVER",
+          "votes": 38769,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        },
+        {
+          "sourceCandidateName": "LAWRENCE D. POSTER",
+          "votes": 6935,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 45704,
+      "winnerSourceCandidateName": "LAMONICA R. MCIVER",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "19eb61f20f8eb233acf13c92fac27976154684ff2e87a68071b595f372c9fdcd"
+    },
+    {
+      "contestId": "nj:2026:us-house:11:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NJ",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2026-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "derivedTextLockId": "nj-2026-official-primary-results-us-house-text",
+      "derivedTextSha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "ANALILIA MEJIA",
+          "votes": 52908,
+          "winnerMarker": true,
+          "incumbentMarker": true
+        },
+        {
+          "sourceCandidateName": "DONALD CRESITELLO",
+          "votes": 4443,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "JOSEPH B. LEWIS II",
+          "votes": 3507,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "JUSTIN STRICKLAND",
+          "votes": 3929,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 64787,
+      "winnerSourceCandidateName": "ANALILIA MEJIA",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "1a620320a6102232f2df9cc202bccfb650501bb4aa4ca90d4969ca22b7568658"
+    },
+    {
+      "contestId": "nj:2026:us-house:12:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NJ",
+      "districtCode": "12",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockId": "nj-2026-official-primary-results-us-house-pdf",
+      "sourceFileSha256": "63f7a09bf07e463f1967994c4fe8d10a971cce479ef6275cce9852d2a8566a42",
+      "derivedTextLockId": "nj-2026-official-primary-results-us-house-text",
+      "derivedTextSha256": "65b240fc094c93530f4a4eafbed2dc995a393ae1649cfb80e6b18720eed7c94a",
+      "authority": "New Jersey Department of State, Division of Elections",
+      "resultStatus": "state_division_official_result_candidate",
+      "certificationStatus": "division_labeled_official_result_not_separate_seal",
+      "candidates": [
+        {
+          "sourceCandidateName": "ADAM HAMAWY",
+          "votes": 22265,
+          "winnerMarker": true,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "ADRIAN O. MAPP",
+          "votes": 3389,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "BRAD COHEN",
+          "votes": 11353,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "ELIJAH DIXON",
+          "votes": 1150,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "JAY VAINGANKAR",
+          "votes": 2348,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "KYLE LITTLE",
+          "votes": 674,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "MATT ADAMS",
+          "votes": 1613,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "SAM WANG",
+          "votes": 7286,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "SHANEL Y. ROBINSON",
+          "votes": 6905,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "SQUIRE SERVANCE",
+          "votes": 4273,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "SUE ALTMAN",
+          "votes": 6595,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "SUJIT SINGH",
+          "votes": 3045,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        },
+        {
+          "sourceCandidateName": "VERLINA REYNOLDS-JACKSON",
+          "votes": 6858,
+          "winnerMarker": false,
+          "incumbentMarker": false
+        }
+      ],
+      "candidateVotes": 77754,
+      "winnerSourceCandidateName": "ADAM HAMAWY",
+      "winnerMarkerStatus": "one_source_winner_marker",
+      "candidateReconciliation": "exact_candidate_total_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "c1079c5a1bc2f9c3db209b10c23891d4740df945450715b0870e2d48de935f0b"
+    }
+  ],
+  "summary": {
+    "contests": 36,
+    "contests2022": 12,
+    "contests2024": 12,
+    "contests2026": 12,
+    "candidates": 83,
+    "candidateVotes": 1522601,
+    "sourceWinnerMarkedContests": 36,
+    "sourceWinnerUnmarkedContests": 0,
+    "sourceIncumbentMarkers": 25,
+    "contestSetSha256": "5f06d436f125403cf12a7aa0531a9d9e4348f9b4f7c8925ab86714072ec72946",
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0
+  },
+  "limitations": [
+    "The retained PDFs are labeled official U.S. House primary results by the New Jersey Division of Elections, but this receipt does not retain a separate signed or sealed cycle-level certification instrument.",
+    "Source winner and incumbent markers are retained exactly, including marker-only continuation lines in the 2022 and 2024 district 12 sections; no winner is inferred from vote totals.",
+    "Source incumbent markers and candidate names are retained as printed; they are not current-incumbent identity bindings or progressive classifications.",
+    "Candidate street addresses remain in the byte-retained public source PDFs but are deliberately excluded from the derived receipt and its text fields.",
+    "No contest is public, score eligible, historical-geography approved, or evaluator integrated."
+  ],
+  "unresolvedGates": [
+    "retain_or_review_final_result_certification_contract",
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "946205e381d17d6351f2f86867da9fd54280b5d8680c8a34ac7bde7914293157"
+}
