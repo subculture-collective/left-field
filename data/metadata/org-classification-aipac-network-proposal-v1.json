@@ -1,0 +1,47 @@
+{
+  "schema": "org-classification-aipac-network-proposal-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T04:46:00.000Z",
+  "classification": {
+    "subjectCommitteeId": "C00799031",
+    "relationship": "aipac_backed_super_pac",
+    "networkRootCommitteeId": "C00797670",
+    "confidence": "primary_source_explicit",
+    "status": "proposed"
+  },
+  "sources": [
+    {
+      "snapshotId": "aipac-politics",
+      "url": "https://aipac.org/politics",
+      "byteSize": 35154,
+      "artifactSha256": "8d62177153c01579ecdac4657c3fc19282c640248892733e2440417bc7043506",
+      "retrievedAt": "2026-08-05T04:46:00.000Z",
+      "sourceKind": "aipac_primary_statement",
+      "retainedExcerptSha256": "16cf40e2fccf469a0192b0a8301994dd497fbbe47650602b4b4860454513f2d3"
+    },
+    {
+      "snapshotId": "fec-aipac-pac",
+      "url": "https://www.fec.gov/data/committee/C00797670/",
+      "byteSize": 69746,
+      "artifactSha256": "2f6fd08ea804f5e70c198597082d9eff7a2d899c8dad89e97107e53e4da41c58",
+      "retrievedAt": "2026-08-05T04:46:00.000Z",
+      "sourceKind": "fec_committee_record",
+      "retainedExcerptSha256": "7f49961546e92ca183d85c97f530ca875874bfc3b0c6b5559c2ef91117df6d29"
+    },
+    {
+      "snapshotId": "fec-udp",
+      "url": "https://www.fec.gov/data/committee/C00799031/",
+      "byteSize": 69400,
+      "artifactSha256": "e553030b2c467620f4a4fc66aec5e2816e4fb7906524bb24a35fa5d3d1f5671c",
+      "retrievedAt": "2026-08-05T04:46:00.000Z",
+      "sourceKind": "fec_committee_record",
+      "retainedExcerptSha256": "0daa2fc1825685ff60063dbbf5ffb0be07016d361ee044060956607304f06221"
+    }
+  ],
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "packageSha256": "4e5874be01a618e66dc28de2f66ea3bc0ed57e6f9302d61f97ab60688b3d3c0f"
+}
