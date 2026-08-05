@@ -7,6 +7,9 @@ coverage/
 deploy/nuc/secrets/
 *.log
 *.tsbuildinfo
+__pycache__/
+*.py[cod]
+.venv-ca-primary/
 
 # Local deepwork state
 .blacktower/deepwork/
