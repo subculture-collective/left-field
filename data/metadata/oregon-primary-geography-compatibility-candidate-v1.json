@@ -1,0 +1,494 @@
+{
+  "schema": "oregon-primary-geography-compatibility-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T00:30:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_authorized_identity_historical_geography_and_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "sourceSelectionProposal": {
+      "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb",
+      "decisionUnresolved": true
+    },
+    "oregonReceipt": {
+      "sourceLockId": "oregon-house-democratic-primary-results-2022-2026-v1",
+      "fileSha256": "11c2da1823c1b56753375b906bbc004c6c06de7d5379147b1f566e838db71449",
+      "packageSha256": "e27397dec36c7804ca220bd19647d5c18112f8a0b02f505b4ff443660bd1c25f",
+      "contestSetSha256": "4d9eedd708ebe4687d3aeeb0821448e2bf9939031e4a24317aa0c019c76e9ca1"
+    },
+    "censusPlanChangeAuthority": {
+      "sourceLockId": "census-cd119-plan-change-authority-20260805",
+      "fileSha256": "66a0551a6c3c6432bff0a6a6db23f221fbe02ead1d15221d7050633898914670",
+      "authorityClaim": "five_states_redrew_for_cd119_al_ga_la_ny_nc_or_absent"
+    },
+    "tigerLayers": [
+      {
+        "sourceLockId": "tiger-cd118-41",
+        "fileSha256": "7cb5f032ba20abef66f0395cb7c5e1ec5215fb748024f898458c0bd88533edf3",
+        "dbfMemberSha256": "964cb9e745136f48363bc6bb8fc3bfdf5e07374c9d6c1a5fe5c8aa9d1ea49b1c",
+        "cdSession": "118",
+        "districtCount": 6
+      },
+      {
+        "sourceLockId": "tiger-cd119-41",
+        "fileSha256": "264688a2c95768dcde1361db0dec03252df8f52c5a918ea1892a8bc320e6f33a",
+        "dbfMemberSha256": "fb94e6893fa5338ca1bbac769dc1b3dd3a1cfc3934365e1d8fd508db26cfddde",
+        "cdSession": "119",
+        "districtCount": 6
+      }
+    ]
+  },
+  "methodology": {
+    "targetSession": "119",
+    "cycleSessionMapping": {
+      "2022": "118",
+      "2024": "119",
+      "2026": "120"
+    },
+    "rawTigerGeometryEqualityAssessed": false,
+    "overlapThresholdUsed": false,
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "contestCycleObservations": 18,
+    "cd118ToCd119PlanContinuityCandidates": 6,
+    "exactCd119SessionKeyCandidates": 6,
+    "cd120AuthorityPending": 6,
+    "compatibilityCandidates": 12,
+    "automaticallyApprovedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "rows": [
+    {
+      "contestId": "or:2022:regular:us-house:01:democratic",
+      "contestSha256": "da57c38963ae74c903c5c09c5c88170924e7f51ca3b129d699c018b2b0c7c50f",
+      "seatCycleId": "seat_house_or_01_current",
+      "districtCode": "01",
+      "cycleYear": 2022,
+      "targetCd119Geoid": "4101",
+      "historicalCongressSession": "118",
+      "historicalGeoid": "4101",
+      "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+      "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+      "confidence": "high",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "official_census_cd119_redraw_list_excludes_or",
+        "same_state_district_geoid_in_cd118_and_cd119_inventory"
+      ],
+      "rowSha256": "1cdbc7a72731d1b7ed3b85cd05520c6b98b81f2b831475d1fbeffcecf9024f8a"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:02:democratic",
+      "contestSha256": "faf17db04e3010265f45fd9342fbc7643c72d5adca81cf5d462521c2e4eab6b9",
+      "seatCycleId": "seat_house_or_02_current",
+      "districtCode": "02",
+      "cycleYear": 2022,
+      "targetCd119Geoid": "4102",
+      "historicalCongressSession": "118",
+      "historicalGeoid": "4102",
+      "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+      "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+      "confidence": "high",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "official_census_cd119_redraw_list_excludes_or",
+        "same_state_district_geoid_in_cd118_and_cd119_inventory"
+      ],
+      "rowSha256": "f9f1a718df764c2bf1f91f02e4d9ecbae456ee06199d6aed165da888155b56bd"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:03:democratic",
+      "contestSha256": "ff2a29a5d29b3479ea59c1ca167be81c6cf7a72260ef8269cb65d132f92687e6",
+      "seatCycleId": "seat_house_or_03_current",
+      "districtCode": "03",
+      "cycleYear": 2022,
+      "targetCd119Geoid": "4103",
+      "historicalCongressSession": "118",
+      "historicalGeoid": "4103",
+      "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+      "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+      "confidence": "high",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "official_census_cd119_redraw_list_excludes_or",
+        "same_state_district_geoid_in_cd118_and_cd119_inventory"
+      ],
+      "rowSha256": "64e3b95e68e79422f5d1bf3c5b6beee7536254abe21301df4fb7ab827eefa63f"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:04:democratic",
+      "contestSha256": "f673c47c783daa8b45d39eefcc266f719c5dd63cacc079ad66a8ceda9c60eaef",
+      "seatCycleId": "seat_house_or_04_current",
+      "districtCode": "04",
+      "cycleYear": 2022,
+      "targetCd119Geoid": "4104",
+      "historicalCongressSession": "118",
+      "historicalGeoid": "4104",
+      "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+      "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+      "confidence": "high",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "official_census_cd119_redraw_list_excludes_or",
+        "same_state_district_geoid_in_cd118_and_cd119_inventory"
+      ],
+      "rowSha256": "57cd7d906e951100be39584368a34fe0ddefe5dc19c0b8f5f6edd98d8ac2e587"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:05:democratic",
+      "contestSha256": "ae3c4593da7544c9d6b10b911eacf6403d2995ad8e6530683ac56bb57af1dcac",
+      "seatCycleId": "seat_house_or_05_current",
+      "districtCode": "05",
+      "cycleYear": 2022,
+      "targetCd119Geoid": "4105",
+      "historicalCongressSession": "118",
+      "historicalGeoid": "4105",
+      "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+      "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+      "confidence": "high",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "official_census_cd119_redraw_list_excludes_or",
+        "same_state_district_geoid_in_cd118_and_cd119_inventory"
+      ],
+      "rowSha256": "d7aa222591782d95c10e41c0fd431e34856cca741bcb980f4e291e090ffcc5ff"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:06:democratic",
+      "contestSha256": "dc3150bb97760ac3f437a9c7814e745f862c8df7840ef4a16d5557ef6411249e",
+      "seatCycleId": "seat_house_or_06_current",
+      "districtCode": "06",
+      "cycleYear": 2022,
+      "targetCd119Geoid": "4106",
+      "historicalCongressSession": "118",
+      "historicalGeoid": "4106",
+      "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+      "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+      "confidence": "high",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "official_census_cd119_redraw_list_excludes_or",
+        "same_state_district_geoid_in_cd118_and_cd119_inventory"
+      ],
+      "rowSha256": "d472020b673423028cdc89914d31b830328d2a4136fd50ac2891bcaf80d02dbd"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:01:democratic",
+      "contestSha256": "abeb73814f38a822bff5dd8a5106580532af850e92543dd6661f8362d4a18889",
+      "seatCycleId": "seat_house_or_01_current",
+      "districtCode": "01",
+      "cycleYear": 2024,
+      "targetCd119Geoid": "4101",
+      "historicalCongressSession": "119",
+      "historicalGeoid": "4101",
+      "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+      "evidenceClass": "derived_exact_session_and_key",
+      "confidence": "high",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_cd119_congressional_session",
+        "same_state_district_geoid_in_cd119_inventory"
+      ],
+      "rowSha256": "a679e0676a4b2ab75eebc01ac77808874b1a1b00386a0eecf8d753af711b5f71"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:02:democratic",
+      "contestSha256": "4f9de887a2a032875d406b6d5b52139aa87e3204f84016356eddae5a3bdbba34",
+      "seatCycleId": "seat_house_or_02_current",
+      "districtCode": "02",
+      "cycleYear": 2024,
+      "targetCd119Geoid": "4102",
+      "historicalCongressSession": "119",
+      "historicalGeoid": "4102",
+      "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+      "evidenceClass": "derived_exact_session_and_key",
+      "confidence": "high",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_cd119_congressional_session",
+        "same_state_district_geoid_in_cd119_inventory"
+      ],
+      "rowSha256": "264a799c193fd2241fb926bcac1a66cdc0c422994ffa044a1067d7dc1b0e42f0"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:03:democratic",
+      "contestSha256": "e3303a1b332e0c75c3274c895f30ae4a8725c4be3b06768a0e74c709fb059447",
+      "seatCycleId": "seat_house_or_03_current",
+      "districtCode": "03",
+      "cycleYear": 2024,
+      "targetCd119Geoid": "4103",
+      "historicalCongressSession": "119",
+      "historicalGeoid": "4103",
+      "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+      "evidenceClass": "derived_exact_session_and_key",
+      "confidence": "high",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_cd119_congressional_session",
+        "same_state_district_geoid_in_cd119_inventory"
+      ],
+      "rowSha256": "4861e2426f732882a5a8c8e0efc5729c26954b5dc9f47540fcba4c214d0e4edf"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:04:democratic",
+      "contestSha256": "15ef635bca7460aa6b7120fe24125d1397f1643340bc49426b40dd3f503a79d7",
+      "seatCycleId": "seat_house_or_04_current",
+      "districtCode": "04",
+      "cycleYear": 2024,
+      "targetCd119Geoid": "4104",
+      "historicalCongressSession": "119",
+      "historicalGeoid": "4104",
+      "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+      "evidenceClass": "derived_exact_session_and_key",
+      "confidence": "high",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_cd119_congressional_session",
+        "same_state_district_geoid_in_cd119_inventory"
+      ],
+      "rowSha256": "59b14a7363a826cb80b0ac0daaee0b886b30daee4136cffca6005819b6bc60a4"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:05:democratic",
+      "contestSha256": "525d495b97b93cc6c503bf3facf521c75e24c5962c8a2fd7adbe51f195d3b00a",
+      "seatCycleId": "seat_house_or_05_current",
+      "districtCode": "05",
+      "cycleYear": 2024,
+      "targetCd119Geoid": "4105",
+      "historicalCongressSession": "119",
+      "historicalGeoid": "4105",
+      "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+      "evidenceClass": "derived_exact_session_and_key",
+      "confidence": "high",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_cd119_congressional_session",
+        "same_state_district_geoid_in_cd119_inventory"
+      ],
+      "rowSha256": "5eb57730e55a343319cbfce52a01a42338f102ec84ce174154df5a5104267d68"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:06:democratic",
+      "contestSha256": "2626911e98c88b0899829760b4a674c1aa456c54bad4513f025712909284dad3",
+      "seatCycleId": "seat_house_or_06_current",
+      "districtCode": "06",
+      "cycleYear": 2024,
+      "targetCd119Geoid": "4106",
+      "historicalCongressSession": "119",
+      "historicalGeoid": "4106",
+      "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+      "evidenceClass": "derived_exact_session_and_key",
+      "confidence": "high",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_cd119_congressional_session",
+        "same_state_district_geoid_in_cd119_inventory"
+      ],
+      "rowSha256": "91656fa5659a1e1a643b766233c556335a66e31e5f309bc13ae50b25799fcfb6"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:01:democratic",
+      "contestSha256": "e5f7535a6e2d1cd7e541728e7e070c0dbac5decd5c554a08ed66a63cdd409841",
+      "seatCycleId": "seat_house_or_01_current",
+      "districtCode": "01",
+      "cycleYear": 2026,
+      "targetCd119Geoid": "4101",
+      "historicalCongressSession": "120",
+      "historicalGeoid": null,
+      "compatibilityDisposition": "unassessed_cd120_authority_collection_pending",
+      "evidenceClass": "authority_pending",
+      "confidence": "none",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "cd120_authority_not_yet_retained",
+        "do_not_assume_cd119_continuity_for_2026"
+      ],
+      "rowSha256": "c324dcce4384e536b489eb5deade1710efef748e392e29cd957dec68ab24d77c"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:02:democratic",
+      "contestSha256": "6e48f3b588f35dda6fa9b88f367198e223350cff6716ac5692b98290084e306a",
+      "seatCycleId": "seat_house_or_02_current",
+      "districtCode": "02",
+      "cycleYear": 2026,
+      "targetCd119Geoid": "4102",
+      "historicalCongressSession": "120",
+      "historicalGeoid": null,
+      "compatibilityDisposition": "unassessed_cd120_authority_collection_pending",
+      "evidenceClass": "authority_pending",
+      "confidence": "none",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "cd120_authority_not_yet_retained",
+        "do_not_assume_cd119_continuity_for_2026"
+      ],
+      "rowSha256": "5dfa58fe9e3a9b0d45e94d3d40d83ace46caf06f1ec370d86e2a10db2c56bd91"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:03:democratic",
+      "contestSha256": "13cac08bcc74593269bd3f09c52544f1e6eaa5e7fc164a76efa31496228c6a65",
+      "seatCycleId": "seat_house_or_03_current",
+      "districtCode": "03",
+      "cycleYear": 2026,
+      "targetCd119Geoid": "4103",
+      "historicalCongressSession": "120",
+      "historicalGeoid": null,
+      "compatibilityDisposition": "unassessed_cd120_authority_collection_pending",
+      "evidenceClass": "authority_pending",
+      "confidence": "none",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "cd120_authority_not_yet_retained",
+        "do_not_assume_cd119_continuity_for_2026"
+      ],
+      "rowSha256": "f1f4eea827a68b0ed9de6d08f908c287aa7c0e84aadbc56d8a54701f69118080"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:04:democratic",
+      "contestSha256": "3430f6d52bba5d46fe31e120b9f283d0f5b2df95b8274ee25a467e518ca9ea65",
+      "seatCycleId": "seat_house_or_04_current",
+      "districtCode": "04",
+      "cycleYear": 2026,
+      "targetCd119Geoid": "4104",
+      "historicalCongressSession": "120",
+      "historicalGeoid": null,
+      "compatibilityDisposition": "unassessed_cd120_authority_collection_pending",
+      "evidenceClass": "authority_pending",
+      "confidence": "none",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "cd120_authority_not_yet_retained",
+        "do_not_assume_cd119_continuity_for_2026"
+      ],
+      "rowSha256": "31320bb5acec07c377387f8adea61863eb7a24bf32d74be4ba522f2ecb7d18c3"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:05:democratic",
+      "contestSha256": "f68e86aed23f7842308ec38bef50b14ecd289f2bd6b327d47fb07d987404252a",
+      "seatCycleId": "seat_house_or_05_current",
+      "districtCode": "05",
+      "cycleYear": 2026,
+      "targetCd119Geoid": "4105",
+      "historicalCongressSession": "120",
+      "historicalGeoid": null,
+      "compatibilityDisposition": "unassessed_cd120_authority_collection_pending",
+      "evidenceClass": "authority_pending",
+      "confidence": "none",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "cd120_authority_not_yet_retained",
+        "do_not_assume_cd119_continuity_for_2026"
+      ],
+      "rowSha256": "4c6b9cb1bfad0bd8f417387c19675e7d7a738d59162cf8f6222b38f6164b5c1a"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:06:democratic",
+      "contestSha256": "a35c72392fc27b197a7cd3e0be3bca4e5a2c39be23af7d5e4223a4e9ae8a9f73",
+      "seatCycleId": "seat_house_or_06_current",
+      "districtCode": "06",
+      "cycleYear": 2026,
+      "targetCd119Geoid": "4106",
+      "historicalCongressSession": "120",
+      "historicalGeoid": null,
+      "compatibilityDisposition": "unassessed_cd120_authority_collection_pending",
+      "evidenceClass": "authority_pending",
+      "confidence": "none",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_historical_geography_and_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "cd120_authority_not_yet_retained",
+        "do_not_assume_cd119_continuity_for_2026"
+      ],
+      "rowSha256": "ead49cc3c525611e0cc27546fe07ef0947ab7db56ee327d40cbcdc65c79d6695"
+    }
+  ],
+  "rowSetSha256": "c57f4f405d4806eb05687a8ecd85cd5b26f2225dd502adfd54386724b71c32a0",
+  "decisionSupport": {
+    "informsDecisionId": "approve-historical-district-cd119-compatibility-v1",
+    "analysisConclusion": "official_evidence_supports_or_cd118_to_cd119_plan_continuity_and_exact_cd119_keys_while_cd120_remains_unassessed",
+    "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+  },
+  "packageSha256": "8e8354e5dd6ddabcf3a97c3049015556b7262a0308df9d9e2cc3aae2995b06be"
+}
