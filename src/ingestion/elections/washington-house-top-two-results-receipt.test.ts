@@ -9,6 +9,8 @@ import { parseWashingtonHouseTopTwoResultsReceipt, validateWashingtonHouseTopTwo
 const input = () => ({
   2022: readFileSync(resolve("data/source/elections/primary-results/wa-2022-house-primary.csv")),
   2024: readFileSync(resolve("data/source/elections/primary-results/wa-2024-house-primary.csv")),
+  certification2022: readFileSync(resolve("data/source/elections/primary-results/wa-2022-primary-certification.pdf")),
+  certification2024: readFileSync(resolve("data/source/elections/primary-results/wa-2024-primary-certification.pdf")),
 });
 
 describe("Washington House top-two raw-results receipt", () => {
@@ -25,8 +27,9 @@ describe("Washington House top-two raw-results receipt", () => {
   });
 
   it("is a reviewer-only top-two receipt with no score-eligible or public evaluator values", () => {
-    const receipt = parseWashingtonHouseTopTwoResultsReceipt({ 2022: input()[2022].toString("utf8"), 2024: input()[2024] });
-    expect(receipt).toMatchObject({ reviewerOnly: true, publicationEligible: false, originalPublisher: "Washington Secretary of State", certificationStatus: "official_final_uncertified", nominationSystem: "top_two", formulaApplicability: "confirmed_incompatible", methodologyParent: { disposition: "excluded_methodology", packageSha256: "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb" } });
+    const receipt = parseWashingtonHouseTopTwoResultsReceipt({ ...input(), 2022: input()[2022].toString("utf8") });
+    expect(receipt).toMatchObject({ reviewerOnly: true, publicationEligible: false, originalPublisher: "Washington Secretary of State", certificationStatus: "certified", nominationSystem: "top_two", formulaApplicability: "confirmed_incompatible", methodologyParent: { disposition: "excluded_methodology", packageSha256: "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb" } });
+    expect(receipt.certifications).toHaveLength(2);
     expect(receipt.contests.every((contest) => !contest.scoreEligible && contest.evaluatorValues.priorPrimaryMargin === null && contest.evaluatorValues.priorDemocraticPrimaryVotes === null && contest.evaluatorValues.priorProgressivePrimaryShare === null)).toBe(true);
     expect(new Set(receipt.sources.map((source) => source.sourceSha256)).size).toBe(2);
     expect(new Set(receipt.contests.map((contest) => contest.contestSha256)).size).toBe(20);
@@ -36,6 +39,8 @@ describe("Washington House top-two raw-results receipt", () => {
     const files = input();
     const altered = Buffer.from(files[2022]); altered[10] ^= 1;
     expect(() => parseWashingtonHouseTopTwoResultsReceipt({ ...files, 2022: altered })).toThrow("SOURCE_FILE_RECEIPT_MISMATCH");
+    const alteredCertification = Buffer.from(files.certification2024); alteredCertification[100] ^= 1;
+    expect(() => parseWashingtonHouseTopTwoResultsReceipt({ ...files, certification2024: alteredCertification })).toThrow("CERTIFICATION_FILE_RECEIPT_MISMATCH");
     const receipt = parseWashingtonHouseTopTwoResultsReceipt(files);
     const total = structuredClone(receipt); (total.contests[0]! as { contestTotalVotes: number }).contestTotalVotes += 1;
     expect(() => validateWashingtonHouseTopTwoResultsReceipt(total)).toThrow("PACKAGE_INVARIANT_INVALID");
@@ -51,7 +56,7 @@ describe("Washington House top-two raw-results receipt", () => {
     const lock = JSON.parse(readFileSync(resolve("data/source-lock.json"), "utf8")) as { entries: { id: string; retainedPath: string | null; byteSize: number; sha256: string; kind: string; parentIds: string[] }[] };
     const entry = lock.entries.find((row) => row.id === "washington-house-top-two-results-receipt-20220802-20240806-v1")!;
     expect(entry).toMatchObject({ retainedPath: artifactPath, byteSize: artifactBytes.byteLength, sha256: createHash("sha256").update(artifactBytes).digest("hex"), kind: "review_proposal" });
-    expect(new Set(entry.parentIds)).toEqual(new Set(["wa-2022-house-primary-results", "wa-2024-house-primary-results", "house-democratic-primary-source-selection-proposal-20260804-v1"]));
-    expect(artifact.packageSha256).toBe("1d124e8d8f2476b311f3e4a26f453f2fd99104f4f206d6088a8357888207aef4");
+    expect(new Set(entry.parentIds)).toEqual(new Set(["wa-2022-house-primary-results", "wa-2024-house-primary-results", "wa-2022-primary-certification", "wa-2024-primary-certification", "house-democratic-primary-source-selection-proposal-20260804-v1"]));
+    expect(artifact.packageSha256).toBe("a930a28888f3892f0b4459063b0d0a2c195bfada26960b705757124a403e5e13");
   });
 });
