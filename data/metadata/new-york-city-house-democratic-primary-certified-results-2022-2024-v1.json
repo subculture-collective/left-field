@@ -1,0 +1,4028 @@
+{
+  "schema": "new-york-city-house-democratic-primary-certified-results-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T16:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "originalPublisher": "Board of Elections in the City of New York",
+  "status": "local_certified_result_candidate",
+  "sources": [
+    {
+      "id": "nyc-2022-house-democratic-primary-cd-07-certified-recap",
+      "url": "https://www.vote.nyc/sites/default/files/pdf/election_results/2022/20220823Primary%20Election/01001800007Crossover%20Democratic%20Representative%20in%20Congress%207th%20Congressional%20District%20Recap.csv",
+      "retainedPath": "data/source/elections/primary-results/new-york-city/2022/nyc-cd-07-certified-recap.csv",
+      "retainedStatus": "retained",
+      "byteSize": 192229,
+      "sha256": "ab2bde5c3815b602bc821c6bd9c18441ac713cc0bfe47580d7bf5186037b701e",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nyc-2022-house-democratic-primary-cd-08-certified-recap",
+      "url": "https://www.vote.nyc/sites/default/files/pdf/election_results/2022/20220823Primary%20Election/01301800008Kings%20Democratic%20Representative%20in%20Congress%208th%20Congressional%20District%20Recap.csv",
+      "retainedPath": "data/source/elections/primary-results/new-york-city/2022/nyc-cd-08-certified-recap.csv",
+      "retainedStatus": "retained",
+      "byteSize": 170372,
+      "sha256": "2a1102e8ade7c17f3b55f90ff93e6ee0a787110bd02ea682903ffe15fc4d3d74",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nyc-2022-house-democratic-primary-cd-10-certified-recap",
+      "url": "https://www.vote.nyc/sites/default/files/pdf/election_results/2022/20220823Primary%20Election/01001800010Crossover%20Democratic%20Representative%20in%20Congress%2010th%20Congressional%20District%20Recap.csv",
+      "retainedPath": "data/source/elections/primary-results/new-york-city/2022/nyc-cd-10-certified-recap.csv",
+      "retainedStatus": "retained",
+      "byteSize": 105457,
+      "sha256": "60f1ddce68bbeee9d206e4979e97b5907d9073effefdb8c6b2f8b6f3ccd48352",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nyc-2022-house-democratic-primary-cd-11-certified-recap",
+      "url": "https://www.vote.nyc/sites/default/files/pdf/election_results/2022/20220823Primary%20Election/01001800011Crossover%20Democratic%20Representative%20in%20Congress%2011th%20Congressional%20District%20Recap.csv",
+      "retainedPath": "data/source/elections/primary-results/new-york-city/2022/nyc-cd-11-certified-recap.csv",
+      "retainedStatus": "retained",
+      "byteSize": 101668,
+      "sha256": "7f228a7627950ef12c2f9c35f19ba67043e09f165c58d590bb847d2ea21c7aec",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nyc-2022-house-democratic-primary-cd-12-certified-recap",
+      "url": "https://www.vote.nyc/sites/default/files/pdf/election_results/2022/20220823Primary%20Election/01101800012New%20York%20Democratic%20Representative%20in%20Congress%2012th%20Congressional%20District%20Recap.csv",
+      "retainedPath": "data/source/elections/primary-results/new-york-city/2022/nyc-cd-12-certified-recap.csv",
+      "retainedStatus": "retained",
+      "byteSize": 149954,
+      "sha256": "1e41b2682b87b124b9ea12ef156a53869992c846eca15cf3811d6a84ff531cb9",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nyc-2022-house-democratic-primary-cd-13-certified-recap",
+      "url": "https://www.vote.nyc/sites/default/files/pdf/election_results/2022/20220823Primary%20Election/01001800013Crossover%20Democratic%20Representative%20in%20Congress%2013th%20Congressional%20District%20Recap.csv",
+      "retainedPath": "data/source/elections/primary-results/new-york-city/2022/nyc-cd-13-certified-recap.csv",
+      "retainedStatus": "retained",
+      "byteSize": 318918,
+      "sha256": "a0cdda6716bb7579ae0f88bef569051cda850797bca4c9bc68c61fbf5580b61c",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nyc-2024-house-democratic-primary-cd-10-certified-recap",
+      "url": "https://www.vote.nyc/sites/default/files/pdf/election_results/2024/20240625Primary%20Election/01001900010Crossover%20Democratic%20Representative%20in%20Congress%2010th%20Congressional%20District%20Recap.csv",
+      "retainedPath": "data/source/elections/primary-results/new-york-city/2024/nyc-cd-10-certified-recap.csv",
+      "retainedStatus": "retained",
+      "byteSize": 211521,
+      "sha256": "52b9aa19e0b800822a584430f368dd9f01b18b6e38180a8009be4524f3d7f3b7",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nyc-2024-house-democratic-primary-cd-14-certified-recap",
+      "url": "https://www.vote.nyc/sites/default/files/pdf/election_results/2024/20240625Primary%20Election/01001900014Crossover%20Democratic%20Representative%20in%20Congress%2014th%20Congressional%20District%20Recap.csv",
+      "retainedPath": "data/source/elections/primary-results/new-york-city/2024/nyc-cd-14-certified-recap.csv",
+      "retainedStatus": "retained",
+      "byteSize": 69147,
+      "sha256": "0b3ad7e36d7387151a339e7b9402c5ad42912aadec7600561b2b6803608a25d6",
+      "kind": "source",
+      "parentIds": []
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "nyc:2022:us-house:07:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "districtCode": "07",
+      "resultScope": "whole_district_crossover",
+      "sourceLockId": "nyc-2022-house-democratic-primary-cd-07-certified-recap",
+      "sourceFileSha256": "ab2bde5c3815b602bc821c6bd9c18441ac713cc0bfe47580d7bf5186037b701e",
+      "authority": "Board of Elections in the City of New York",
+      "resultStatus": "local_canvassing_board_certified_candidate",
+      "certificationAttestationDate": "2022-09-13",
+      "ballotCandidates": [
+        {
+          "optionName": "Paperboy Love Prince",
+          "votes": 4303
+        },
+        {
+          "optionName": "Nydia M. Velazquez",
+          "votes": 22797
+        }
+      ],
+      "writeInOptions": [
+        {
+          "optionName": "ADEN BROWN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ADRIENNE GANTT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "AJA DAVIS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ALEXANDRIA OCASIO-CORTEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ALEXANDRIA OCOSIO- CORTEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "AMANDA LASKEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANA J MOSSAAD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANDREW SLOAT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANGELA GLOVER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANN MARIE DOLPHIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANTHONY BACKER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANTHONY FIGLIOLA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANTHONY L. HERBERT (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "ARON LOV (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BERNARD SANDERS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BERNIE SANDERS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BILL DE BLASIO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BILL DEBLASIO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BOBBY BROWN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BORIS JOHNSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BRIAN DENTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BRYCE BOLDEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CARMEN S. BLANCO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CAROLYN MALONEY (Write-In)",
+          "votes": 8
+        },
+        {
+          "optionName": "CHARLES IVES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHRISTOPHER W. BURGIS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CRISTEN GONZALEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CURTIS SLIWA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAN GOLDMAN (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "DANIEL GOLDMAN (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "DANIEL VOGELBACH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANIELLE ADEW (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVID NIEDERMAN (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "DEALICE FULLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DESI CUELLAR (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DONALD TRUMP (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "DUA LIPA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DUSTIN FLANNERY MORA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ELEONORA CHOREKCHAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ELIZABETH CHENEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ELIZABETH S. CROWLEY (Write-In)",
+          "votes": 5
+        },
+        {
+          "optionName": "ELIZABETH ZADAE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "EMILY GALLAGHER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "ERIC COLON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ERIK M.DILAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GARY S. BUSH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GEORGE S. PATTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GERARDINA DENTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GETZEL FALKAVITZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GRACE MENG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GREGORY BARON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HAKEEM JEFFRIES (Write-In)",
+          "votes": 21
+        },
+        {
+          "optionName": "HERSHEL NEIMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAMES P. PEPUY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JEFFREY GUYTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JENIFER RAJKUMAR (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JEROLD NADER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "JERROLD NADLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JESSIE VENTURA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JILLIAN NULTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JIMMY LI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOE CROWLEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOE PINION (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOEL BRAITHWAIDE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHN R. MARINO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JON B. RENTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOSEPH FELDMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOSEPH HYNES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOSEPH R LENTOL (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "JOSEPH SEGRETTI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOSH BOWEN (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "JUAN PAGAN (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "JULIA SALAZAR (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "JUNE PARODI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KARL A BROWN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KATE FAITH EHRENBERG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KEIR STAPLE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KELLAN JOHNSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KELVIN C. BIAS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KEVIN CHEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KRISTEN GONZALEZ (Write-In)",
+          "votes": 6
+        },
+        {
+          "optionName": "LEON TROTSKY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LUCAS GREEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LUCY LAO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LUTHER VANDROSS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MADELINE GOMEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MAR GUTMAH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARIAH LOPEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARILOU PUSUNG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARK KIM (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "MARLENE DODES-CALLAHAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARY ANN JAUIO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MATTHEW AHRENS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MAYA HANDA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MELANIE D'MIGO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MENDY SALAMON (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "MESHE NEDERMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICKEY MOUSE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MITT ROMNEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MONDAIRE JONES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MOSES FRIEDMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MOSES HOFFMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NATHAN RUBIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NINA POLSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NORMAN BECKER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ORLANDO LACRO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "QUEEN JOHNSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RABBI A MILLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RACHEL BRAGA JONES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAFAEL ESPINEAL JR. (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAFEAL L ESPINAL JR. (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAIZY DASKALOWITZ (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "RANA ABDELHAMID (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "RAQUEL NAMUCHE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RICHARD SIEMER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ROBERT HOLDEN (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "ROBERT P. MIELE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ROBERT R. MIRAGLIA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RONALDO FELIPE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ROSS PEROT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SAM O'DRISCOLL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SARA FREUND (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SCOTT SOLISH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SEAN M BLACKWELL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SEBASTIAN DINATALE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SHIMON WEISER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SHULEM ROSENFELD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SIMON WEISER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SURAJ PATEL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TED LASSO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "THEODORE L. ILALATESTO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "THOMAS JOHNSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "THOMAS SUOZZI (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "TURD FERGUSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "UNATTRIBUTABLE WRITE-IN (Write-In)",
+          "votes": 147
+        },
+        {
+          "optionName": "UNCOUNTED WRITE-IN PER STATUTE (Write-In)",
+          "votes": 6
+        },
+        {
+          "optionName": "VICTORIA CAMBRABA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "VICTORIA CAMBRANES (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "VICTORIA STEWART (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "VLADIMIR ILLICH LENIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "WALTER HOFFMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YISROL RINGEL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YOSEF GOLDMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YOSSI GESTETNER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "ZEV PERL (Write-In)",
+          "votes": 1
+        }
+      ],
+      "ballotCandidateVotes": 27100,
+      "writeInVotes": 363,
+      "totalVotes": 27463,
+      "unrecorded": 449,
+      "totalBallots": 27912,
+      "optionReconciliation": "exact",
+      "ballotReconciliation": "exact",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f54daa79626df4ee9be30207b7a3da72f0eaddd6395628d096c396c8f38fc2af"
+    },
+    {
+      "contestId": "nyc:2022:us-house:08:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "districtCode": "08",
+      "resultScope": "single_county_whole_district",
+      "sourceLockId": "nyc-2022-house-democratic-primary-cd-08-certified-recap",
+      "sourceFileSha256": "2a1102e8ade7c17f3b55f90ff93e6ee0a787110bd02ea682903ffe15fc4d3d74",
+      "authority": "Board of Elections in the City of New York",
+      "resultStatus": "local_canvassing_board_certified_candidate",
+      "certificationAttestationDate": "2022-09-13",
+      "ballotCandidates": [
+        {
+          "optionName": "Hakeem S. Jeffries",
+          "votes": 23145
+        },
+        {
+          "optionName": "Queen Johnson",
+          "votes": 3402
+        }
+      ],
+      "writeInOptions": [
+        {
+          "optionName": "ABRAHAM WEISS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ALAN DWECK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ALEX GERSHMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ALEX MILOV (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ALEXANDRA CUBALESKI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ALLIYAH ARORIDENE-BIDDY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "AMELIA HAWKINS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANDREW GOUNARDES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANDREW GREENBERG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANDREW YANG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANGIE PIERRI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANN ELIZABETH RUBIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANTHONY WEINER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ARTHUR GETMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ASSETO SHAKER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BARACK OBAMA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BERNIE SANDERS (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "CAROLYN MALONEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHANA WEISS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHARLES BARRON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHE OSSE (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "CHRISLINA HENVERSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CONRAD B. TILLARD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "COREY POLK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANIEL GOLDMAN (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "DANNY TARTABLE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVID JEMAL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DENNIS PASSALACQUA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DON BOLDMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DONALD BOLDUC (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DONALD CRANSTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DONALD J. TRUMP (Write-In)",
+          "votes": 5
+        },
+        {
+          "optionName": "EMERSON BERTA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "FELIX KARACHUN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "FELIX KARECBAUM (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "FRANTZ CONTY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GAUZALES MESUN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HERMAN FEKETE (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "JADE CARGILL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JANNY LENROS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JIMMY LI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOEL GOLD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHN MATLAND (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHN MCWILLIAMS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHN MILLER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "JOLANI MOSHARIKI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JUMAANE WILLIAMS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KAMILLAH HANKS (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "KARA CLARK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KERON ALLEYNE (Write-In)",
+          "votes": 5
+        },
+        {
+          "optionName": "LARISA MAR (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "LEE ZELDIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARIE MARTORANO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARTY GOLDEN (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "MARTY MARKOWITZ (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "MAX ROSE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHAEL FLEISCHER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MILTON ODELL JEMMOTT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MITCH PADLA SHPELFGGEL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MOSHE GELBSTEIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NG WAI LIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NYDIA VELASQUEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PAPERBOY LOVE PRINCE (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "PARDEEP SINGH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PETER MCMAHON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PETER T. BROWN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PIERRE A CHARLES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RABBI A MILLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RABBI AVIGDER MILLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "REGINALD SWINEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SCOTT MCCARTHY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SEAN JENKINS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SHERRY L. MALDONADO (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "SIMCHA FELDER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "STANLEY SCUTT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "STEVE WELLA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "STEVEN ROBBIAS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TERRY DORNER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TRISTIAN ANTONIO PHILLIP (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "UNATTRIBUTABLE WRITE-IN (Write-In)",
+          "votes": 55
+        },
+        {
+          "optionName": "UNCOUNTED WRITE-IN PER STATUTE (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "VALERIA SOWELL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "VLADIMIR ILYICH ULYANOV (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "VLADIMIR POKACYUK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YOSSI GESHTETNER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YUH-CHA NIOU (Write-In)",
+          "votes": 1
+        }
+      ],
+      "ballotCandidateVotes": 26547,
+      "writeInVotes": 163,
+      "totalVotes": 26710,
+      "unrecorded": 251,
+      "totalBallots": 26961,
+      "optionReconciliation": "exact",
+      "ballotReconciliation": "exact",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "046d38f7a1de1deb2f73d668b4a29af99227b22d4e8407a5fa9875d160e29ac2"
+    },
+    {
+      "contestId": "nyc:2022:us-house:10:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "districtCode": "10",
+      "resultScope": "whole_district_crossover",
+      "sourceLockId": "nyc-2022-house-democratic-primary-cd-10-certified-recap",
+      "sourceFileSha256": "60f1ddce68bbeee9d206e4979e97b5907d9073effefdb8c6b2f8b6f3ccd48352",
+      "authority": "Board of Elections in the City of New York",
+      "resultStatus": "local_canvassing_board_certified_candidate",
+      "certificationAttestationDate": "2022-09-13",
+      "ballotCandidates": [
+        {
+          "optionName": "Mondaire L. Jones",
+          "votes": 12933
+        },
+        {
+          "optionName": "Jo Anne Simon",
+          "votes": 4389
+        },
+        {
+          "optionName": "Peter J. Gleason",
+          "votes": 162
+        },
+        {
+          "optionName": "Yan Xiong",
+          "votes": 742
+        },
+        {
+          "optionName": "Daniel Goldman",
+          "votes": 18505
+        },
+        {
+          "optionName": "Jimmy Li",
+          "votes": 1170
+        },
+        {
+          "optionName": "Maud Maron",
+          "votes": 625
+        },
+        {
+          "optionName": "Bill de Blasio",
+          "votes": 519
+        },
+        {
+          "optionName": "Elizabeth Holtzman",
+          "votes": 3140
+        },
+        {
+          "optionName": "Yuh-Line Niou",
+          "votes": 16826
+        },
+        {
+          "optionName": "Carlina Rivera",
+          "votes": 11810
+        },
+        {
+          "optionName": "Quanda Francis",
+          "votes": 129
+        },
+        {
+          "optionName": "Brian Robinson",
+          "votes": 341
+        }
+      ],
+      "writeInOptions": [
+        {
+          "optionName": "ALAN SCHWAB (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ARLYNE WISHNER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ARON GOLDSTEIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ASHEL KLIEDLEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BARBARA R LEE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BELLA BORNSTEIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BENINE HANDAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BRAD HOYLMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BRIAN ROBINSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHAIM UNGAR (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "COREY JOHNSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CURTIS WHITE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANYEAL EGOROV (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVID ALEXIS (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "DAVID SCHWARTZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DENNIS KLUESENER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DONALD J. TRUMP (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "DONALD TRUMP (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "DONNA H . LEE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "EFRAIN GREENFELD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ELISE STEFANIK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ERIN SILVERS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "FELIX ORTIZ (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "GRACE LEE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HERSHI TISHLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HON. MICHAEL J. GERSTEIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "IAN GUTHOFF (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ILLAPA SAIRITUPAC (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JERROLD L. NADLER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "JOAQUIN ROCA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KATHY HOCHUL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LAURA THOMAS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LEE ZELDIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LOREE SUTTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARC MOLINARO (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "MATT DAMON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHAEL BLOOMBERG (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "MOSHE M OBERLANDER (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "NACHMAN CALLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NAFTALI REINER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NYDIA VELASQUEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NYDIA VELAZQUEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PAPERBOY LOVE PRINCE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PETER MARONE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ROBERT F. KENNEDY JR. (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ROBERT SAWYER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SARAH BLAS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SHIMON HEINIFELD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SIMCHA FELDER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "STEPHEN BISHOP SEELY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SURAJ PATEL (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "UNATTRIBUTABLE WRITE-IN (Write-In)",
+          "votes": 24
+        },
+        {
+          "optionName": "UNCOUNTED WRITE-IN PER STATUTE (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "VALERIE FENIMORE (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "VITTORIA FARIELLO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YASS GASTETNER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YOSSI GESTETNER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "YOSSIE BEAR (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ZEV KRAUS (Write-In)",
+          "votes": 1
+        }
+      ],
+      "ballotCandidateVotes": 71291,
+      "writeInVotes": 100,
+      "totalVotes": 71391,
+      "unrecorded": 277,
+      "totalBallots": 71668,
+      "optionReconciliation": "exact",
+      "ballotReconciliation": "exact",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "b1d6185215761db00fe565fa95f5ea494dbf08fff7403636dd7157c7701f2cbc"
+    },
+    {
+      "contestId": "nyc:2022:us-house:11:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "districtCode": "11",
+      "resultScope": "whole_district_crossover",
+      "sourceLockId": "nyc-2022-house-democratic-primary-cd-11-certified-recap",
+      "sourceFileSha256": "7f228a7627950ef12c2f9c35f19ba67043e09f165c58d590bb847d2ea21c7aec",
+      "authority": "Board of Elections in the City of New York",
+      "resultStatus": "local_canvassing_board_certified_candidate",
+      "certificationAttestationDate": "2022-09-13",
+      "ballotCandidates": [
+        {
+          "optionName": "Max N. Rose",
+          "votes": 16439
+        },
+        {
+          "optionName": "Brittany Ramos Debarros",
+          "votes": 4625
+        },
+        {
+          "optionName": "Komi Agoda-Koussema",
+          "votes": 932
+        }
+      ],
+      "writeInOptions": [
+        {
+          "optionName": "ALEX MARANO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANDREW GOUNARDES (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "ANDY LI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "AUGUST CARDELLA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BIANCA RAJPERSAUD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CARMAN H BAEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHERYL PELLETTERS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHRIS COPPA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CLAUDIA DIGIANNA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CURTIS SLIWA (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "DANI DIMPERIO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANIEL GOLDMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANIELLE TRUMP (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVID PATTERSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DONALD J. TRUMP (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "DONALD J. TRUMP JR. (Write-In)",
+          "votes": 0
+        },
+        {
+          "optionName": "EDWARD GARCIA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "FRANK J. DISALVO (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "FRANK SEDDIO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JEFF SMITH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JERRY NAMER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JIMMY LI (Write-In)",
+          "votes": 12
+        },
+        {
+          "optionName": "JOE CALDERESA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHN E. REHA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHN M. MIGLIORI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHN MATLAND (Write-In)",
+          "votes": 11
+        },
+        {
+          "optionName": "JOHN SMITH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOSEPH C. BORELLI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KALMAN YEGER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KATHY C. HOCHUL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KEITH CUMMINGS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KYLE KRAMER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LEXES WHITE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LI. JIANG HUA (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "LISA LISS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LOIS NICOTRA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LORA NICHI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARIETTA CANNING (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARTY GOLDEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARVIN BEN ARON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHAEL DECILLIS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHAEL E. MCMAHON (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "MICHAEL J. BIFIRICH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHAEL J. CUSICK (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "MICHAEL PRICE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHELE SAVIANO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NICOLE MALLIOTAKIS (Write-In)",
+          "votes": 51
+        },
+        {
+          "optionName": "NIDHI KHAMLA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NINA TURNER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NONNA MORRZELLA (Write-In)",
+          "votes": 0
+        },
+        {
+          "optionName": "PAMELA SILVESTRI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PETER J AMAT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RACHEL AMAR (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAFAEL J. BIFIRRICK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAJIV S. GOWDA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RICHARD LUTHMANN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RICHARD NICOTRA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ROLAND GORTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "STEVE CAMBRIA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TERRY LINBQUIST (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "THOMAS FERRAMOSLA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "UNATTRIBUTABLE WRITE-IN (Write-In)",
+          "votes": 45
+        },
+        {
+          "optionName": "UNCOUNTED WRITE-IN PER STATUTE (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "VINCENT J. GENTILE (Write-In)",
+          "votes": 5
+        },
+        {
+          "optionName": "VITO FOSSELLA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "VITO LABELLA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YAN XIANG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YAN XIONG (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "YAN YU LIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YUH-LINE NOU (Write-In)",
+          "votes": 1
+        }
+      ],
+      "ballotCandidateVotes": 21996,
+      "writeInVotes": 202,
+      "totalVotes": 22198,
+      "unrecorded": 205,
+      "totalBallots": 22403,
+      "optionReconciliation": "exact",
+      "ballotReconciliation": "exact",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6cddd69567c0f2ec49d5cdfaa03dd53eca94157c5e6e50ceba88f9b5a08a1978"
+    },
+    {
+      "contestId": "nyc:2022:us-house:12:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "districtCode": "12",
+      "resultScope": "single_county_whole_district",
+      "sourceLockId": "nyc-2022-house-democratic-primary-cd-12-certified-recap",
+      "sourceFileSha256": "1e41b2682b87b124b9ea12ef156a53869992c846eca15cf3811d6a84ff531cb9",
+      "authority": "Board of Elections in the City of New York",
+      "resultStatus": "local_canvassing_board_certified_candidate",
+      "certificationAttestationDate": "2022-09-13",
+      "ballotCandidates": [
+        {
+          "optionName": "Carolyn B. Maloney",
+          "votes": 21916
+        },
+        {
+          "optionName": "Ashmi Sheth",
+          "votes": 937
+        },
+        {
+          "optionName": "Jerrold L. Nadler",
+          "votes": 49744
+        },
+        {
+          "optionName": "Suraj Patel",
+          "votes": 17011
+        }
+      ],
+      "writeInOptions": [
+        {
+          "optionName": "ADRIANO ESPAILLAT (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "ALLEN WIEDERSPIEL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANDREW FINE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANDREW GIULIANI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANTHONY WEINER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BARACK OBAMA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BEVERLY H. KOLBER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CARLINA RIVERA (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "CATHERINE PARKER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CLAIRE TEMPELMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "COBY O'BRIEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CORDELL CLEARE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CURTIS SLIWA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAN GOLDMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAN QUART (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANIEL DROMM (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANIEL GOLDMAN (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "DONALD TRUMP (Write-In)",
+          "votes": 6
+        },
+        {
+          "optionName": "EINDY YUEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ELIZABETH HOLTZMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ELLIOT GATAY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "FAY SALZMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GALE BREWER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GERALDINE MILLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HEATHER LEIJON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HELEN ROSENTHAL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HENRY NASS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAMES R. PLATT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAMES SALZMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JASON SCHWALBE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JEFFREY M. SEROTHER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "JIM GERAGHTY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JIMMY LI (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "KATRINA JACKSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KEVIN CHAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KRISTEN GONZALEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LEAN THOMAS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LEE ZELDIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LISA IMMITT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LOUIS A. BERTOT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARIA DANZILO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARIO MATERA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHAEL BLOOMBERG (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "MICHAEL EVANS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MIKE ZUMBLUSKAS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MILLARD FILMORE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PARIS HILTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PHIL PHILLIPS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PHILLIP ELLISON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PHILP SCHNOSS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PREET BHARARA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RALPH NADER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RANA ABDELHAMID (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RENEE KEITT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RICHARD GOLDSTEIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ROBERT COTTER JR. (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RON DESANTIS (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "SCOTT LEEMON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SCOTT RADEMAKER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SEAN HANNITY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SEAN MAGERS (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "SLAYTON UNDERWOOD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TAINA BORRERO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "UNATTRIBUTABLE WRITE-IN (Write-In)",
+          "votes": 42
+        },
+        {
+          "optionName": "UNCOUNTED WRITE-IN PER STATUTE (Write-In)",
+          "votes": 5
+        },
+        {
+          "optionName": "VICKY HAUSMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YUH-LINE NIOU (Write-In)",
+          "votes": 2
+        }
+      ],
+      "ballotCandidateVotes": 89608,
+      "writeInVotes": 128,
+      "totalVotes": 89736,
+      "unrecorded": 249,
+      "totalBallots": 89985,
+      "optionReconciliation": "exact",
+      "ballotReconciliation": "exact",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "ed7f03ef35f60218080566f573a7ceb5ebd361014e822f51647c76c5b07a9a2c"
+    },
+    {
+      "contestId": "nyc:2022:us-house:13:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "districtCode": "13",
+      "resultScope": "whole_district_crossover",
+      "sourceLockId": "nyc-2022-house-democratic-primary-cd-13-certified-recap",
+      "sourceFileSha256": "a0cdda6716bb7579ae0f88bef569051cda850797bca4c9bc68c61fbf5580b61c",
+      "authority": "Board of Elections in the City of New York",
+      "resultStatus": "local_canvassing_board_certified_candidate",
+      "certificationAttestationDate": "2022-09-13",
+      "ballotCandidates": [
+        {
+          "optionName": "Francisco A. Spies",
+          "votes": 2411
+        },
+        {
+          "optionName": "Adriano Espaillat",
+          "votes": 31582
+        },
+        {
+          "optionName": "Michael Hano",
+          "votes": 5041
+        }
+      ],
+      "writeInOptions": [
+        {
+          "optionName": "ABBY COOK-MARK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ABRAHAM LINCOLN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ADAM J. SHAPIRO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ADOLFO ABREU (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "AL TAYLOR (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "ALEXANDRIA OCASIO-CORTEZ (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "AMY CROSSMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANA ORZCO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANDREW CUOMO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANDREW YANG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANGELA FERNANDEZ (Write-In)",
+          "votes": 5
+        },
+        {
+          "optionName": "ANTONIA HOUSE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "APRYL MCNEIL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ARON TENNENT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ATHENA MOORE (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "AUDREY H. JAMES BELLFORD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "AVT GARELICK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BARACK OBAMA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BELCALIS ALMANAZAR (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BEN DICKENSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BERNIE SANDERS (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "BEVERLY SOLOW (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BEVERLY TILLERY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BILL DE BLASIO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BRIAN FORD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BRIAN LEHRER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "BRIAN MCORNUCK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BRODIE ENOCH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BRYAN LIFF (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CARA MCILWDINE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CARLA C. ZANONI (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "CARLINA RIVERA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CARLY MAREADY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CARMEN DE LA ROSA (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "CAROLINE GOLDRICK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CAROLYN B. MALONEY (Write-In)",
+          "votes": 9
+        },
+        {
+          "optionName": "CASSIE HAZELIP (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CELESTINE GREENE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CELESTINE LEWIS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHARLES BARON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHARLES RANGEL (Write-In)",
+          "votes": 8
+        },
+        {
+          "optionName": "CHERAMIE MONDESIRE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHRIS BOBER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHUCK SCHUMER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CLIFTON POOLE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CLYDE WILLIAMS (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "CORDELL CLEARE (Write-In)",
+          "votes": 6
+        },
+        {
+          "optionName": "CRISEL CRUZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAN GOLDMAN (Write-In)",
+          "votes": 5
+        },
+        {
+          "optionName": "DANIEL ARSHACK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANIEL GOLDMAN (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "DANIEL GONZALES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANIEL O'DONNELL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANIEL PADERNAK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANIELLE HERBERT GUGGENHEIM (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVID KATZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVID MARION (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVID SOULES (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "DAWN SANDERS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DELSENIA GLOVER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DEREK JETER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DERRICK WAYNE HENIX (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DIANE E. LACEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DONALD SKINNER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "DONALD TRUMP (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DORCA REYNOSO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DWAYNE NASH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DYLAN J. STEIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DYLAN PENN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "EDDIE BURCH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "EDWARD GIBBS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "EDWARD K. SHANAITH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ELIOT ENGEL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ELIZABETH ORTEGA BAILEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ELVIS DE LEON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "EMILIA DECAMDIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "EMMA WOODHOWS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ERIC SONNENSCHEIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ESTEVAN NEMBHARD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "EUGENE TANNENBAUM (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "EVELYN ROMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "EVERETT STEMBRIDGE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "FABIO FULSENCIO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "FORREST R. TAYLOR (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "FRANCISCO PAULINO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GABRIEL D. BLAU (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GALE BREWER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "GARY REUBEN RICHARDS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GAURAV SHARMA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GEORGE ESPINAL (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "GINA COSTELLO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GWEN GOODWIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HENRY WINKLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HILDA FRIEDMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "IRWIN L JOHNSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAAMAL BRYANT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JACQULINE MARTELL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAHANY ROBERTS (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "JAMAAL BOWMAN (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "JAMES E. INIGUEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAMES FELTON KEITH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAMES K. BRYANT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAMES MCGILL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAMES MCKENNA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAMES TAICHI COLLINS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAMILAH B. ABDUL-MAJID (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JASINTA DE LA CRUZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JASINTA DELACRUZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JASON CRUZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JEFFREY DINOWITZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JEFFREY H. GLADSTONE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JERMANY MONTANO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JERROLD L. NADLER (Write-In)",
+          "votes": 14
+        },
+        {
+          "optionName": "JERRY NADLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JO GUS SIMON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOANNA NOBBE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHANNA GARCIA (Write-In)",
+          "votes": 10
+        },
+        {
+          "optionName": "JOHANNA GRACIA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHN MAITLAND (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHN MATLAND (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOSE BAEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOSE MIGUEL ARRIYO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOSE SERRANO (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "JOYCE BLOCK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JUAN ALONZO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KALIRIS SALAS-RAMIREZ (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "KANYE WEST (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "KARA CLARKE (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "KARL MARX (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "KEITH CORBETT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KEITH L. T. WRIGHT (Write-In)",
+          "votes": 12
+        },
+        {
+          "optionName": "KEVIN NOONAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KEVIN PURCE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KIM HAMILTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KRISTIN RICHARDSON JORDAN (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "LANDON WICKHAM JR. (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LEILANI IRVIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LENA CHARLTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LIFANG FENG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LIN-MANUEL MIRANDA (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "LISA PEARSON (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "LIZ CHENEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LIZ HOLTZMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LUCAS LARSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LUIS A. MIRANDA JR. (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LUIS CORTES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MANSITA DIAWARA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARA BRAGG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARCUS JONES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARIA LUNA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARIA SANTIAGO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARIT LARSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARK LEVINE (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "MARTIN COLLINS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARY BETH TERRY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MAUD MARON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MAX MARKHAM (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "MAX SARINSKY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MAYA ANGELOU (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MAYA WILEY (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "MELANIE J. WRIGHT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHAEL BLOOMBERG (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "MICHAEL GARNER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHAEL S. LOPEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHELLE RAZARIO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHELLE WATERS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MIGUELINA CAMILO (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "MONDAIRE JONES (Write-In)",
+          "votes": 10
+        },
+        {
+          "optionName": "NAN FAESSLER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "NATHAN FIELDER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NAYMA SILVER MATOS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NOBLES CRAWFORD (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "OSMAN MIRZA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "OWEN CHARLES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PAPERBOY LOVE PRINCE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PARPUH SANTANACHETE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PASTOR MICHAEL WALROND JR. (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PAUL STEWART-STRAND (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PEDRO A DOMINGUEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PETER KERR (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PETER SHIRE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PHILLIP ANDERSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RABBI MORDECHAI WILLING (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RACHEL CROW (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAFAEL BURGOS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAFAEL L. HERNANDEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAFEEQ RAHEEM (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAMON RAMOS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAPHAEL WARNOCK GEORGIA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAY G. SEVERINO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "REV. RONALD SULIVAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RICHARD FUHRMANN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RICHARD JAMES (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "RITCHIE TORRES (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "ROBERT A. REED JR. (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ROBERT JACKSON (Write-In)",
+          "votes": 18
+        },
+        {
+          "optionName": "ROBERT KUCHINOV (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ROBERT REED (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "ROBYN SCHWARTZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RODNEY S. CAPEL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RONALD CURRIE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ROSE PIERRE-LOUIS (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "RYAN SPASS (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "SADAY ELLIS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SANDRA NIELSEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SAUL NIEVES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SCOTT STRINGER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SEAN ABREU (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "SEAN FARZOW (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SHAH ABUDEEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SHANA G. HARMONGOFF (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "SHAWN FOLZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SHELLY MAY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SHENINAQUE SEAN BUTLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SIMON MORALES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "STEPHEN A. GREEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "STEPHEN A. KNIGHT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "STEPHEN BETTS (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "STEPHEN GREEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SURAJ PATEL (Write-In)",
+          "votes": 6
+        },
+        {
+          "optionName": "SWAN SALAMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TAHIR KHALID (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TANESHE GRANT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TANYA BONNER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TANYA BRUNETT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TARA STRONG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TED LEE RECITAS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "THERESA E. HASSLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "THOMAS F. HICKEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TIMOTHY BRUTUS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TINA FORTE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TONI FRANCO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TRISH ANDERTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "UNATTRIBUTABLE WRITE-IN (Write-In)",
+          "votes": 113
+        },
+        {
+          "optionName": "UNCOUNTED WRITE-IN PER STATUTE (Write-In)",
+          "votes": 5
+        },
+        {
+          "optionName": "WEEKES ALTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "WENDY FRANK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "WENDY L. OLIVO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "WILL BRIGHTBILL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "WILLIAM ALLEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "WILLIAM HARGRAVES 3RD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YADALIS MORAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YAQIU WANG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YODALIS MORAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YUH-LINE NIOU (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YUSF SALAAM (Write-In)",
+          "votes": 1
+        }
+      ],
+      "ballotCandidateVotes": 39034,
+      "writeInVotes": 508,
+      "totalVotes": 39542,
+      "unrecorded": 1246,
+      "totalBallots": 40788,
+      "optionReconciliation": "exact",
+      "ballotReconciliation": "exact",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f089d817ab4be6edfb2a261885f9112b14c985a7fce33d95ca1c8ddc64634df0"
+    },
+    {
+      "contestId": "nyc:2024:us-house:10:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "districtCode": "10",
+      "resultScope": "whole_district_crossover",
+      "sourceLockId": "nyc-2024-house-democratic-primary-cd-10-certified-recap",
+      "sourceFileSha256": "52b9aa19e0b800822a584430f368dd9f01b18b6e38180a8009be4524f3d7f3b7",
+      "authority": "Board of Elections in the City of New York",
+      "resultStatus": "local_canvassing_board_certified_candidate",
+      "certificationAttestationDate": "2024-07-16",
+      "ballotCandidates": [
+        {
+          "optionName": "Bruno Grandsard",
+          "votes": 3792
+        },
+        {
+          "optionName": "Evan Hutchison",
+          "votes": 8412
+        },
+        {
+          "optionName": "Daniel Goldman",
+          "votes": 23595
+        }
+      ],
+      "writeInOptions": [
+        {
+          "optionName": "AARON KOFFMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ABU AMMAR (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ADAM GAZA (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "ADAM GRUMBACKA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "AL ALSTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ALEX ZHANG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ALEXA AVILES (Write-In)",
+          "votes": 4
+        },
+        {
+          "optionName": "AMEYA BIRADAVOLU (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "AMY PLUMB OPPENHEIMER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ANTHONY PONZIO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BANZOIN A HALBERTAM (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BENJAMIN GRUBER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BENY BERMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BENZIOH UNGER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BERK SAWYER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BRAD LANDERS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BRIAN KIRKPATRICK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BRIDGET BREEN-RITTAR (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BRITTNEY ERAZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "BULSHER SILVERMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CARLINA RIVERA (Write-In)",
+          "votes": 5
+        },
+        {
+          "optionName": "CARLOS MENCHACHA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CAROLINA RIVERA (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "CHAIM GOLDBERG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHAYA KISS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHAYA SIRHIS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHRISTINA BATTEGO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CHRISTOPHER LONGO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CLARK KENT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CRYSTAL HUDSON (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "CURTIS SLIWA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DALLAS J. SHORT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANIEL GOLDMAN (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "DANIEL NEWCOMBE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DANIEL TURKEWITZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVID ALQOIST (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVID BROOMES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVID GURIEN -PECK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVID HURSKAY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVID JEBRIEL MICHELSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DEBORAH GERSHENOWITZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DONALD J. TRUMP (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "DONALD TRUMP (Write-In)",
+          "votes": 6
+        },
+        {
+          "optionName": "EDEN ALFASI (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "ELISABETH HOLTEMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ELIZABETH HOLTZMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ELIZABETH WARREN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ERIC ADAMS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ERIC BOTTCHER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ERIC RASSI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ESTEBAN CHAVEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ETHAN MULLIGAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "FELIX W. ORTIZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "FRADEL HAMMER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GABRIELLA WALLACK (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GARRET LINN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GEORGE COMINSKI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GERSH KUNTZMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GREG PAK (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "HARRY ROSSMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HAUD MARON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HILLARY CLINTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HIND RAJAB (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HOWARD GRAEBARD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "IAN MURPHY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ISABELLA CORREA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JACOB SCHINDELHEIM (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAKE WOLFF (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JALEN BRONSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAMAAL BOWMAN (Write-In)",
+          "votes": 16
+        },
+        {
+          "optionName": "JEROME BOEMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JEROME LAFAYETTE NARRAMORE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JERRY NADLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JO ANNE SIMON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOANNE NICHOLAS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOANNE SIMON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHN BLACKTHORNE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHN TARLETEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHN TARLETON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOSH TYRANGIEL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOSHUA IAN PEACHY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JULIE PENA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JULIE RASKIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JULIO PENA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JULIUS MARX (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KALMAN YEGER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KATHENINE DIXON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KATHRYN GIOIOSA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KEVIN JACOBS (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "KIM DAVIS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KIRSTEN ORTIZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KLARA CARAMES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KRISTINA BOERSKY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LAURA EDIDIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LAVSEN GLANT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LEONARD WHITE (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "LINCOLN RESTLER (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "LINDA SARSOUR (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LOUISE ROBINSON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LUCINDA M. ALBINO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MADELIN NOV (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MAHIR RAHMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MANDI SCHMETAMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARGARETH DOMINIQUE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARIA DEL CARMEN DIAZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARY ELIZABETH BARTHOLOMEW (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MATT YUST (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MAX FERGUSON NEUMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MELIACH STROM (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MI KYUNG LEE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHAEL GURAL-MAIELLO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHAEL KANE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHAEL M. HONDA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MICHEAL J. COPPOTELLI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MIKE BLOOMBERG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MONA ALLFORD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MOTAZ AZAIZA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MUSTAFA BARGHOUTI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NEDIA VELOZAEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NORA CARROLL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "OSWALDO RODRIGUEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PAUL NEWELL (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "PAULINA BOROWSKY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PETER MENZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "PETER THEIL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAINY LEHMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RASHIDA TLAIB (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "REBECCA DAVIS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "REGINA DOWNEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RICHARD SILVER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RICHIE TORRES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ROGER RICKLEFS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RON LUBIN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RYDER KESSLER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SAM ALBERTI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SAMUEL BACHNER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SAMUEL Z FISCHER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SANDIA KHALID (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SCOTT FOUST (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SHABARA HANI (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SHAHANA HANIF (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "SHAREEN ABU AKLEH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SHEHAB CHOWDHARY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SIMCHA FELDER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SIRISHA VARIGONDA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SONYA LEVITOVA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SPENCER CAPLAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "STEPH SALOMONSEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SUSAN CHAPMAN HUGHS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SUSAN KENT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SUSAN LEE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "SUSAN T. LEE (Write-In)",
+          "votes": 9
+        },
+        {
+          "optionName": "TED WEISS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TERRY DORNER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TEVIN WILLIAMS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "TODD FRANCES (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "UNATTRIBUTABLE WRITE-IN (Write-In)",
+          "votes": 298
+        },
+        {
+          "optionName": "UNCOUNTED WRITE-IN PER STATUTE (Write-In)",
+          "votes": 5
+        },
+        {
+          "optionName": "WAYNE MURATORE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "WENDY LI (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "YASSER ARAFAT (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YOSSI GESTSTNER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "YUH LINE NIOU (Write-In)",
+          "votes": 24
+        },
+        {
+          "optionName": "YUH-LINE NIOU (Write-In)",
+          "votes": 19
+        }
+      ],
+      "ballotCandidateVotes": 35799,
+      "writeInVotes": 557,
+      "totalVotes": 36356,
+      "unrecorded": 1041,
+      "totalBallots": 37397,
+      "optionReconciliation": "exact",
+      "ballotReconciliation": "exact",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "140749a061824ccd55aac059e82830d2460455628a2fab33ccc08a62351ebc6e"
+    },
+    {
+      "contestId": "nyc:2024:us-house:14:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "districtCode": "14",
+      "resultScope": "whole_district_crossover",
+      "sourceLockId": "nyc-2024-house-democratic-primary-cd-14-certified-recap",
+      "sourceFileSha256": "0b3ad7e36d7387151a339e7b9402c5ad42912aadec7600561b2b6803608a25d6",
+      "authority": "Board of Elections in the City of New York",
+      "resultStatus": "local_canvassing_board_certified_candidate",
+      "certificationAttestationDate": "2024-07-16",
+      "ballotCandidates": [
+        {
+          "optionName": "Martin W. Dolan",
+          "votes": 4355
+        },
+        {
+          "optionName": "Alexandria Ocasio-Cortez",
+          "votes": 20136
+        }
+      ],
+      "writeInOptions": [
+        {
+          "optionName": "ADAM GAZA (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "AGHA SALEH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ALBA SHARON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ALEXANDRIA OCASIO CORTEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "CATALINA RAMOS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "DAVE MANILOW (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ED CHRISTMAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ELMER J. FUDD (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ERIC ADAMS III (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ERIC ANDRE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ESHAWN HALL (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "FIONA APPLE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GEORGE LATIMER (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "GERALD F FIELDS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "GRACE MENG (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HILLARY CLINTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "HIND RAJAB (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "J.DOYLE (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAMAAL BOWMAN (Write-In)",
+          "votes": 3
+        },
+        {
+          "optionName": "JAMAL BAILEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAMES A GREEN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JAYDEN OLUSSY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOE CROWLEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOE CROWNEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOHANNA CARMONA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOSEPH CROWLEY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOSH ABRAMS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JOVONY WOODY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JULIE HURWITZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "JULIE MILNER (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KATHRYN MADIGAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KEVIN MONTALVO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "KIM MULLARKEY PEREZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LANDON DAIS (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LESLIE LOPEZ HERNANDEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "LILIANA MARTINEZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARK A. KOUACH (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "MARTIN W. DOLAN (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "NUALA O'DOHERTY NARANJO (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RAFAEL SALAMARCA (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RICARDO HATTON (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "RICARDO PACHECO (Write-In)",
+          "votes": 2
+        },
+        {
+          "optionName": "ROBERT MAY (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "ROSA M PEREZ (Write-In)",
+          "votes": 1
+        },
+        {
+          "optionName": "UNATTRIBUTABLE WRITE-IN (Write-In)",
+          "votes": 62
+        },
+        {
+          "optionName": "WENDY C. LI (Write-In)",
+          "votes": 1
+        }
+      ],
+      "ballotCandidateVotes": 24491,
+      "writeInVotes": 113,
+      "totalVotes": 24604,
+      "unrecorded": 439,
+      "totalBallots": 25043,
+      "optionReconciliation": "exact",
+      "ballotReconciliation": "exact",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "9d737f80634967b21a8c1a8f49ba2f2bf960e410c56cbb37bac871b5b0ec00aa"
+    }
+  ],
+  "summary": {
+    "contests": 8,
+    "contests2022": 6,
+    "contests2024": 2,
+    "ballotCandidates": 32,
+    "writeInOptions": 883,
+    "ballotCandidateVotes": 335866,
+    "writeInVotes": 2134,
+    "totalVotes": 338000,
+    "unrecorded": 4157,
+    "totalBallots": 342157,
+    "contestSetSha256": "fc4dc4bbe36e4e1d44369f314e430d9b1e8d7a69b7e598d4966a7adc355d2212",
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0
+  },
+  "limitations": [
+    "This receipt covers only the eight retained NYC Democratic House contests; absence from the NYC result index is not an uncontested or no-primary disposition.",
+    "Crossover recaps supply whole-district totals assembled across NYC counties; CD08 in 2022 is a Kings County whole-district recap and CD12 in 2022 is a New York County whole-district recap.",
+    "Named and unattributable write-in options are retained as reported options but are not identity reviewed or progressive classified.",
+    "No result is public, evaluator-integrated, current-incumbent bound, or historical-geography approved."
+  ],
+  "unresolvedGates": [
+    "integrate_local_reported_contests_into_state_disposition_v2",
+    "retain_remaining_county_ballot_and_result_authority",
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_progressive_candidate_classification"
+  ],
+  "packageSha256": "4bee26afe8ba815659bd45331aa72963043c78f3f6b61b7f63fdd479165732e3"
+}

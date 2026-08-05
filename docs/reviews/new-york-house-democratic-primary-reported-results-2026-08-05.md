@@ -38,6 +38,8 @@ Five gates remain before scoring or publication:
 
 Every evaluator value is null, every contest is score-ineligible, and the package is publication-ineligible.
 
+The later NYC certified-result receipt supplies direct local authority for eight additional contests that are outside this state-result corpus. The two receipts remain independently versioned; neither silently rewrites the other. Their eventual integration belongs in a new disposition version with explicit duplicate and set-equality checks.
+
 ## Reproduction
 
 ```bash

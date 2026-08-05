@@ -27,3 +27,7 @@ The 2022 certification is the signed June 29, 2022, 51-page document at `ny-2022
 4. Obtain human data review and explicit publication approval before any evaluator integration.
 
 Until those gates close, this artifact is an auditable disposition candidate only.
+
+## Later local-authority receipt
+
+The separately retained NYC certified-result receipt adds direct local result authority for eight rows that this immutable v1 matrix leaves unresolved: 2022 districts 07, 08, 10, 11, 12, and 13, plus 2024 districts 10 and 14. It does not retroactively change this artifact. A future v2 integration may derive 19 reported, 15 explicitly certified-uncontested, and 18 unresolved district-years after validating exact row replacement and provenance.
