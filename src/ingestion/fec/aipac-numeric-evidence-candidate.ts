@@ -91,11 +91,12 @@ export const aipacNumericEvidenceCandidateSchema = z.strictObject({
 });
 export type AipacNumericEvidenceCandidate = z.infer<typeof aipacNumericEvidenceCandidateSchema>;
 
-type Filing = Readonly<{ cycleYear: number; fileNumber: number; amendmentChain: number[]; receiptDate: string; formType: string }>;
-type Relationship = z.infer<typeof aipacEvidenceFoundationCandidateSchema>["relationships"][number];
-type DirectRow = Readonly<{ cycleYear: number; fileNumber: number; receiptDate: string; transactionIdSha256: string; sourceRecordIdentitySha256: string; transactionType: string; transactionPgi: string; transactionDate: string; amountCents: bigint; recipientCommitteeId: string; candidateId: string; memoCode: string | null }>;
-type EvidenceWithReceipt = Readonly<{ evidence: AipacEvidence; receipt: z.infer<typeof evidenceReceipt> }>;
-type TransactionReceipt = z.infer<typeof evidenceReceipt>["transactionReceipts"][number];
+export type AipacNumericFiling = Readonly<{ cycleYear: number; fileNumber: number; amendmentChain: number[]; receiptDate: string; formType: string }>;
+export type AipacNumericRelationship = Pick<z.infer<typeof aipacEvidenceFoundationCandidateSchema>["relationships"][number], "candidateId" | "seatCycleId" | "relationship" | "effectiveCycleYears" | "authorizedCommitteeIdsByCycle" | "evaluatorUse">;
+export type AipacNumericDirectRow = Readonly<{ cycleYear: number; fileNumber: number; receiptDate: string; transactionIdSha256: string; sourceRecordIdentitySha256: string; transactionType: string; transactionPgi: string; transactionDate: string; amountCents: bigint; recipientCommitteeId: string; candidateId: string; memoCode: string | null }>;
+export type AipacNumericEvidenceReceipt = z.infer<typeof evidenceReceipt>;
+export type AipacNumericEvidenceWithReceipt = Readonly<{ evidence: AipacEvidence; receipt: AipacNumericEvidenceReceipt }>;
+type TransactionReceipt = AipacNumericEvidenceReceipt["transactionReceipts"][number];
 
 const hashBytes = (value: Uint8Array): string => createHash("sha256").update(value).digest("hex");
 const digest = (domain: string, value: unknown): string => createHash("sha256").update(domain).update(canonicalJson(value)).digest("hex");
@@ -115,7 +116,7 @@ const cents = (raw: string): bigint => {
 };
 const dollars = (value: bigint): number => Number(value) / 100;
 
-function terminalFilings(rows: readonly Filing[], committee: string): Map<number, Filing> {
+export function aipacNumericTerminalFilings(rows: readonly AipacNumericFiling[], committee: string): Map<number, AipacNumericFiling> {
   const byFile = new Map(rows.map((row) => [row.fileNumber, row]));
   if (byFile.size !== rows.length) throw new Error(`AIPAC_NUMERIC_${committee}_LEDGER_DUPLICATE`);
   const superseded = new Set<number>();
@@ -129,8 +130,8 @@ function terminalFilings(rows: readonly Filing[], committee: string): Map<number
   return new Map(rows.filter((row) => !superseded.has(row.fileNumber)).map((row) => [row.fileNumber, row]));
 }
 
-function parsePas2(text: string, cycleYear: number, terminal: Map<number, Filing>): DirectRow[] {
-  const rows: DirectRow[] = [];
+export function aipacNumericParsePas2(text: string, cycleYear: number, terminal: Map<number, AipacNumericFiling>): AipacNumericDirectRow[] {
+  const rows: AipacNumericDirectRow[] = [];
   for (const line of text.split(/\r?\n/)) {
     if (!line) continue;
     const f = line.split("|");
@@ -148,8 +149,8 @@ function parsePas2(text: string, cycleYear: number, terminal: Map<number, Filing
   return rows;
 }
 
-function selectLatestDirect(rows: readonly DirectRow[]): DirectRow[] {
-  const groups = new Map<string, DirectRow[]>();
+export function aipacNumericSelectLatestDirect(rows: readonly AipacNumericDirectRow[]): AipacNumericDirectRow[] {
+  const groups = new Map<string, AipacNumericDirectRow[]>();
   for (const row of rows) { const key = `${row.cycleYear}:${row.transactionIdSha256}`; groups.set(key, [...(groups.get(key) ?? []), row]); }
   return [...groups.values()].map((group) => {
     const latestReceipt = group.map((row) => row.receiptDate).sort().at(-1)!;
@@ -162,7 +163,7 @@ function selectLatestDirect(rows: readonly DirectRow[]): DirectRow[] {
   });
 }
 
-function selectUniqueUdpRows(schedule: readonly any[], terminalUdp: Map<number, Filing>): { record: any; sourceRecordIdentitySha256s: string[] }[] {
+export function aipacNumericSelectUniqueUdpRows(schedule: readonly any[], terminalUdp: Map<number, AipacNumericFiling>): { record: any; sourceRecordIdentitySha256s: string[] }[] {
   const terminalRows = schedule.filter((row) => terminalUdp.has(row.fileNumber) && row.candidateId && row.electionType === `P${row.cycleYear}` && !row.memoedSubtotal && row.memoCode !== "X");
   const txGroups = new Map<string, any[]>();
   for (const row of terminalRows) { const key = `${row.cycleYear}:${row.transactionIdSha256}`; txGroups.set(key, [...(txGroups.get(key) ?? []), row]); }
@@ -176,8 +177,8 @@ function selectUniqueUdpRows(schedule: readonly any[], terminalUdp: Map<number, 
   });
 }
 
-function buildEvidence(direct: readonly DirectRow[], schedule: readonly any[], relationships: readonly Relationship[], terminalUdp: Map<number, Filing>, classificationSnapshots: readonly string[]): Map<string, EvidenceWithReceipt[]> {
-  const result = new Map<string, EvidenceWithReceipt[]>();
+export function aipacNumericBuildEvidence(direct: readonly AipacNumericDirectRow[], schedule: readonly any[], relationships: readonly AipacNumericRelationship[], terminalUdp: Map<number, AipacNumericFiling>, classificationSnapshots: readonly string[]): Map<string, AipacNumericEvidenceWithReceipt[]> {
+  const result = new Map<string, AipacNumericEvidenceWithReceipt[]>();
   const usable = relationships.filter((row) => row.evaluatorUse === "reviewer_only_candidate");
   const add = (seatId: string, evidence: AipacEvidence, transactionReceipts: TransactionReceipt[], selectionRule: z.infer<typeof evidenceReceipt>["selectionRule"]) => result.set(seatId, [...(result.get(seatId) ?? []), { evidence, receipt: evidenceReceipt.parse({ evidenceSha256: digest("dsa-seats:aipac-evaluator-evidence:v1\0", evidence), transactionReceipts: [...transactionReceipts].sort((a, b) => bytewise(a.transactionIdentitySha256, b.transactionIdentitySha256)), selectionRule }) }]);
   for (const relation of usable.filter((row) => row.relationship === "incumbent")) {
@@ -189,7 +190,7 @@ function buildEvidence(direct: readonly DirectRow[], schedule: readonly any[], r
       add(relation.seatCycleId, evidence, selected.map((row) => ({ transactionIdentitySha256: row.transactionIdSha256, sourceRecordIdentitySha256s: [row.sourceRecordIdentitySha256], corroboration: "single_terminal_record" as const })), "pas2_latest_terminal_transaction_revision");
     }
   }
-  const uniqueUdp = selectUniqueUdpRows(schedule, terminalUdp);
+  const uniqueUdp = aipacNumericSelectUniqueUdpRows(schedule, terminalUdp);
   for (const relation of usable) {
     for (const cycleYear of relation.effectiveCycleYears) {
       const direction = relation.relationship === "incumbent" ? "S" : "O";
@@ -204,7 +205,7 @@ function buildEvidence(direct: readonly DirectRow[], schedule: readonly any[], r
   return result;
 }
 
-export const aipacNumericEvidenceCandidateTestHooks = { selectLatestDirect, selectUniqueUdpRows };
+export const aipacNumericEvidenceCandidateTestHooks = { selectLatestDirect: aipacNumericSelectLatestDirect, selectUniqueUdpRows: aipacNumericSelectUniqueUdpRows };
 
 export type NumericCandidatePaths = Readonly<{ closure: string; foundation: string; projection: string; roster: string; sourceReceipts: string; pas2ZipByCycle: Readonly<Record<number, string>> }>;
 
@@ -212,20 +213,20 @@ export function buildAipacNumericEvidenceCandidateFromFiles(paths: NumericCandid
   const bytes = { closure: readFileSync(paths.closure), foundation: readFileSync(paths.foundation), projection: readFileSync(paths.projection), roster: readFileSync(paths.roster), sourceReceipts: readFileSync(paths.sourceReceipts) };
   for (const [name, expected] of Object.entries(PARENT_HASHES)) if (hashBytes(bytes[name as keyof typeof bytes]) !== expected) throw new Error(`AIPAC_NUMERIC_PARENT_HASH_MISMATCH:${name}`);
   const closure: any = parseJson(bytes.closure), foundation = aipacEvidenceFoundationCandidateSchema.parse(parseJson(bytes.foundation)), projection: any = parseJson(bytes.projection), roster: any = parseJson(bytes.roster), receipts: any = parseJson(bytes.sourceReceipts);
-  const aipacFilings = closure.filingLedgers.find((row: any) => row.committeeId === "C00797670")?.filings as Filing[] | undefined;
-  const udpFilings = closure.filingLedgers.find((row: any) => row.committeeId === "C00799031")?.filings as Filing[] | undefined;
+  const aipacFilings = closure.filingLedgers.find((row: any) => row.committeeId === "C00797670")?.filings as AipacNumericFiling[] | undefined;
+  const udpFilings = closure.filingLedgers.find((row: any) => row.committeeId === "C00799031")?.filings as AipacNumericFiling[] | undefined;
   if (!aipacFilings || !udpFilings || closure.sourceCutoff !== SOURCE_CUTOFF || closure.scheduleE.records.length !== 1145) throw new Error("AIPAC_NUMERIC_CLOSURE_INVALID");
-  const terminalAipac = terminalFilings(aipacFilings, "AIPAC"), terminalUdp = terminalFilings(udpFilings, "UDP");
-  const direct: DirectRow[] = [];
+  const terminalAipac = aipacNumericTerminalFilings(aipacFilings, "AIPAC"), terminalUdp = aipacNumericTerminalFilings(udpFilings, "UDP");
+  const direct: AipacNumericDirectRow[] = [];
   for (const cycle of CYCLES) {
     const zip = readFileSync(paths.pas2ZipByCycle[cycle]!);
     if (hashBytes(zip) !== PAS2_HASHES[cycle]) throw new Error(`AIPAC_NUMERIC_PAS2_HASH_MISMATCH:${cycle}`);
     const text = execFileSync("unzip", ["-p", paths.pas2ZipByCycle[cycle]!, "itpas2.txt"], { encoding: "utf8", maxBuffer: 256 * 1024 * 1024 });
-    direct.push(...parsePas2(text, cycle, terminalAipac));
+    direct.push(...aipacNumericParsePas2(text, cycle, terminalAipac));
   }
-  const latestDirect = selectLatestDirect(direct);
+  const latestDirect = aipacNumericSelectLatestDirect(direct);
   const classificationSnapshots = ["aipac-politics", "fec-aipac-pac", "fec-udp"];
-  const evidenceBySeat = buildEvidence(latestDirect, closure.scheduleE.records, foundation.relationships, terminalUdp, classificationSnapshots);
+  const evidenceBySeat = aipacNumericBuildEvidence(latestDirect, closure.scheduleE.records, foundation.relationships, terminalUdp, classificationSnapshots);
   const rosterIds = new Set(roster.rows.map((row: any) => row.seatCycleId));
   if (projection.seats.length !== 212 || rosterIds.size !== 212 || projection.seats.some((row: any) => !rosterIds.has(row.seatCycleId))) throw new Error("AIPAC_NUMERIC_SEAT_UNIVERSE_MISMATCH");
   const conflictSeats = new Set(foundation.relationships.filter((row) => row.evaluatorUse === "excluded_conflict").map((row) => row.seatCycleId));
