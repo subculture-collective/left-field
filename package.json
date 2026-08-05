@@ -53,6 +53,8 @@
     "generate:house-democratic-primary-source-selection-proposal": "tsx scripts/generate-house-democratic-primary-source-selection-proposal.ts",
     "fetch:wa-house-primary-results": "node scripts/fetch-wa-house-primary-results.mjs",
     "generate:wa-house-top-two-results-receipt": "tsx scripts/generate-washington-house-top-two-results-receipt.ts",
+    "fetch:il-house-primary-results": "node scripts/fetch-il-house-democratic-primary-results.mjs",
+    "generate:il-house-primary-results-receipt": "tsx scripts/generate-illinois-house-democratic-primary-results-receipt.ts",
     "bootstrap:fec-bulk": "tsx scripts/bootstrap-fec-bulk.ts",
     "reconcile:fec-bulk": "tsx scripts/reconcile-fec-bulk.ts",
     "db:generate": "drizzle-kit generate",

@@ -1,0 +1,2341 @@
+{
+  "schema": "illinois-house-democratic-primary-results-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T13:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "methodologyParent": {
+    "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb",
+    "disposition": "new_versioned_state_result_candidate"
+  },
+  "originalPublisher": "Illinois State Board of Elections",
+  "status": "official_result_candidate",
+  "certificationStatus": "not_retained",
+  "sourceListings": [
+    {
+      "id": "il-2022-house-primary-listing",
+      "url": "https://www.elections.il.gov/electionoperations/ElectionVoteTotals.aspx?ID=63aIZoIunYs%3D&OfficeType=LpWf6lpbWOfBN3kEuxRi3A%3D%3D",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/official-house-listing.html",
+      "retainedStatus": "retained",
+      "byteSize": 257959,
+      "sha256": "3dff54ff68936c49494cfd89b61e943895c15b439434a96a33c43419b01b5947",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "il-2024-house-primary-listing",
+      "url": "https://www.elections.il.gov/electionoperations/ElectionVoteTotals.aspx?ID=rfZ%2BuidMSDY%3D&OfficeType=LpWf6lpbWOfBN3kEuxRi3A%3D%3D",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/official-house-listing.html",
+      "retainedStatus": "retained",
+      "byteSize": 192684,
+      "sha256": "c0869aaefe3ad162808c0a3f9922543faff243767c6e2280c518b3cb0460db72",
+      "kind": "source",
+      "parentIds": []
+    }
+  ],
+  "sources": [
+    {
+      "id": "il-2022-house-primary-district-01",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-250-1ST%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-01.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1408550,
+      "sha256": "894e4c5c416b2a6676b1fa3265a6d3006f3b41e15d286662ad6c3f8d28969005",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-02",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-260-2ND%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-02.csv",
+      "retainedStatus": "retained",
+      "byteSize": 470048,
+      "sha256": "987ea4091c08333602d7b3afaaa815bd6c9947ddaa7b41d06bd86f67f49f5a6f",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-03",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-270-3RD%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-03.csv",
+      "retainedStatus": "retained",
+      "byteSize": 619395,
+      "sha256": "f3bfe85dcd771b8008ed08efa5812e486765180d05b273cac3a6b6509e7e0790",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-04",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-280-4TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-04.csv",
+      "retainedStatus": "retained",
+      "byteSize": 282580,
+      "sha256": "4eef569cf53a3b82568ae1aa18c5a566645577fe330fcb0df8a563f5f336b3fd",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-05",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-290-5TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-05.csv",
+      "retainedStatus": "retained",
+      "byteSize": 474586,
+      "sha256": "09e65d4054028a42e177e742ba51e856c44fb95b0c85550b3b226a635e88f0a0",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-06",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-300-6TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-06.csv",
+      "retainedStatus": "retained",
+      "byteSize": 952610,
+      "sha256": "225f89fd34ccf62d0fdbc549c586c759249016b0a92b990998ce15ce12eb92f2",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-07",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-310-7TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-07.csv",
+      "retainedStatus": "retained",
+      "byteSize": 443171,
+      "sha256": "b31e865aa0327233bc4cf737f5d169804cac4db8bb8ecf95e5fbcce76c77dd8d",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-08",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-320-8TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-08.csv",
+      "retainedStatus": "retained",
+      "byteSize": 558918,
+      "sha256": "25e1419b23f41b0df0d02a7be06b76a9c2d0cde0d7de04feaa935292f833c043",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-09",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-330-9TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-09.csv",
+      "retainedStatus": "retained",
+      "byteSize": 304963,
+      "sha256": "2ff0f42213800d8732c5ae8bcf325772a0d500bb25a48985d254c8958841b8e9",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-10",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-340-10TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-10.csv",
+      "retainedStatus": "retained",
+      "byteSize": 307963,
+      "sha256": "af7c7e69a28c84898dcde7a414783d5d9029080acf6e63ac9e4c2387e7c043a5",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-11",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-350-11TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-11.csv",
+      "retainedStatus": "retained",
+      "byteSize": 610170,
+      "sha256": "c33043bd6868f82cb2d16f5a31326486f38179b386c1c6d768b2b0539b7d8dac",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-12",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-360-12TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-12.csv",
+      "retainedStatus": "retained",
+      "byteSize": 585250,
+      "sha256": "7101a704be6e45eafdfedff090e95bd06a5c90fecc9ad64646b2ca4b75099446",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-13",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-370-13TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-13.csv",
+      "retainedStatus": "retained",
+      "byteSize": 491902,
+      "sha256": "d81a97f4bed1288fe80290edd96bcea08ab91d5a12a1cc930b013ffe237f8f2d",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-14",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-380-14TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-14.csv",
+      "retainedStatus": "retained",
+      "byteSize": 323754,
+      "sha256": "cf89b75247f2f5af3ae7706168ce5108e9dfb94ad93ba22057f5466a223c1979",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-15",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-390-15TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-15.csv",
+      "retainedStatus": "retained",
+      "byteSize": 656189,
+      "sha256": "af891ca6b7cc547d4db38a8389f34ae5903af02b3d471ed6740a32bb4d4ba329",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-16",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-400-16TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-16.csv",
+      "retainedStatus": "retained",
+      "byteSize": 622706,
+      "sha256": "f5dfaa72c8f42e9fb0f06c5d46897eac29192bd69fdecf20db0cc7a4ae0e2049",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2022-house-primary-district-17",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/61/61-410-17TH%20CONGRESS-2022GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2022/il-17.csv",
+      "retainedStatus": "retained",
+      "byteSize": 923385,
+      "sha256": "a87200801d260e0293a50a45abfca9f6491fb0289dfc4b05a674b20931b67338",
+      "kind": "source",
+      "parentIds": [
+        "il-2022-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-01",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-250-1ST%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-01.csv",
+      "retainedStatus": "retained",
+      "byteSize": 455857,
+      "sha256": "3ce90d74467a4f8507e637ae2b531d5b43935336a615d4321657a36b7398bfc0",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-02",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-260-2ND%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-02.csv",
+      "retainedStatus": "retained",
+      "byteSize": 407324,
+      "sha256": "a78c730a4e131b0e8f4741ca814d4866ed20821d84316b1bd195404d4e0d1382",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-03",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-270-3RD%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-03.csv",
+      "retainedStatus": "retained",
+      "byteSize": 320273,
+      "sha256": "2be3be8e03299a8bbe1b55589083a75ab18eab73d9360b565c48972b81af4987",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-04",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-280-4TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-04.csv",
+      "retainedStatus": "retained",
+      "byteSize": 232407,
+      "sha256": "0d7964a54f607b155349a8c3f8aafc1ec6f5d74cecebf301c3759bf4ecb33c51",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-05",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-290-5TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-05.csv",
+      "retainedStatus": "retained",
+      "byteSize": 328144,
+      "sha256": "50d77fa55e6be6a9ebef051742b7c8573d3739eec726077d85270bccc36feaf6",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-06",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-300-6TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-06.csv",
+      "retainedStatus": "retained",
+      "byteSize": 488102,
+      "sha256": "2d81783ff7799d81eb6557803d3101f81125822ecc34da9d8c86390ce115baa8",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-07",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-310-7TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-07.csv",
+      "retainedStatus": "retained",
+      "byteSize": 466653,
+      "sha256": "b2577ddec6f2f76dceb877ceda6853962b4413dbf99e5e5279ddc803ac1b623a",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-08",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-320-8TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-08.csv",
+      "retainedStatus": "retained",
+      "byteSize": 347846,
+      "sha256": "c92baebb461946c47ec060e5d2a128ad45561611fcde24b951a644588692a300",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-09",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-330-9TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-09.csv",
+      "retainedStatus": "retained",
+      "byteSize": 239830,
+      "sha256": "4000b0962f9f0b8a9e298bc1fd3d98921b8741852ea8a22ffc4483aff2c06a42",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-10",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-340-10TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-10.csv",
+      "retainedStatus": "retained",
+      "byteSize": 277824,
+      "sha256": "a8c0fcba9d164a04bdfb20c5c47839daa5251532b820d1172517d6828544887f",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-11",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-350-11TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-11.csv",
+      "retainedStatus": "retained",
+      "byteSize": 571104,
+      "sha256": "7d170494369e42d0a307114b8e68ad9137ee339272debe1ca4384822784af117",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-12",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-360-12TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-12.csv",
+      "retainedStatus": "retained",
+      "byteSize": 896727,
+      "sha256": "c2da7baff69f9b54b33b47aeb4c982c24f559a035390cfbd5d92c6ae26e39e41",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-13",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-370-13TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-13.csv",
+      "retainedStatus": "retained",
+      "byteSize": 360987,
+      "sha256": "5da2510bc6394b4ce9b826789d231760890a2a0dd19e76cc28259866ef8ba262",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-14",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-380-14TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-14.csv",
+      "retainedStatus": "retained",
+      "byteSize": 560925,
+      "sha256": "40738758c160866211a8f6e851fa69fa18e05e63259e0fd72f014151f25c0784",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-15",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-390-15TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-15.csv",
+      "retainedStatus": "retained",
+      "byteSize": 568657,
+      "sha256": "6fcda8f43deb20a95742b8f35ad2061dd6b817d0619ea43e4ef76fcb6d414bb3",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-16",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-400-16TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-16.csv",
+      "retainedStatus": "retained",
+      "byteSize": 445606,
+      "sha256": "5737f91217fdce609b9c451c8f55e3a52d929d1d8af3f35f855d2d1eb9d9a5ac",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    },
+    {
+      "id": "il-2024-house-primary-district-17",
+      "url": "https://www.elections.il.gov/Downloads/ElectionOperations/ElectionResults/ByOffice/65/65-410-17TH%20CONGRESS-2024GP.csv",
+      "retainedPath": "data/source/elections/primary-results/illinois/2024/il-17.csv",
+      "retainedStatus": "retained",
+      "byteSize": 584030,
+      "sha256": "3f2fb625e78998ee3b87e2949b004022418696f07f97c78f5222b95f96151e41",
+      "kind": "source",
+      "parentIds": [
+        "il-2024-house-primary-listing"
+      ]
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "il:2022:us-house:01:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "01",
+      "sourceLockId": "il-2022-house-primary-district-01",
+      "sourceFileSha256": "894e4c5c416b2a6676b1fa3265a6d3006f3b41e15d286662ad6c3f8d28969005",
+      "authorityContestId": "250",
+      "authorityContestName": "1ST CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "305",
+          "candidateName": "CHRIS BUTLER",
+          "votes": 4141,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "310",
+          "candidateName": "PAT DOWELL",
+          "votes": 14594,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "315",
+          "candidateName": "JAHMAL COLE",
+          "votes": 4045,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "320",
+          "candidateName": "JONATHAN L. JACKSON",
+          "votes": 21607,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "325",
+          "candidateName": "MICHAEL A. THOMPSON JR.",
+          "votes": 1680,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "330",
+          "candidateName": "KARIN NORINGTON-REAVES",
+          "votes": 10825,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "335",
+          "candidateName": "MARCUS LEWIS",
+          "votes": 901,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "340",
+          "candidateName": "CASSANDRA GOODRUM",
+          "votes": 1422,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "345",
+          "candidateName": "JACQUELINE \"JACQUI\" COLLINS",
+          "votes": 9299,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "360",
+          "candidateName": "TERRE LAYNG ROSNER",
+          "votes": 780,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "365",
+          "candidateName": "ROBERT A. PALMER",
+          "votes": 899,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "370",
+          "candidateName": "KIRBY BIRGANS",
+          "votes": 511,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "375",
+          "candidateName": "STEVEN DeJOIE",
+          "votes": 251,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "385",
+          "candidateName": "NYKEA PIPPION McGRIFF",
+          "votes": 892,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "390",
+          "candidateName": "AMEENA MATTHEWS",
+          "votes": 686,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "395",
+          "candidateName": "CHARISE A. WILLIAMS",
+          "votes": 1601,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "400",
+          "candidateName": "JONATHAN T. SWAIN",
+          "votes": 2554,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "50000",
+          "candidateName": "WRITE-IN",
+          "votes": 28,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50001",
+          "candidateName": "WRITE-IN",
+          "votes": 7,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50004",
+          "candidateName": "WRITE-IN",
+          "votes": 13,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50006",
+          "candidateName": "WRITE-IN",
+          "votes": 79,
+          "isWriteIn": true
+        }
+      ],
+      "candidateVotes": 76815,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 4254,
+        "overVotes": 742
+      },
+      "democraticBallotsAccounted": 81811,
+      "precincts": 609,
+      "democraticSourceRows": 9451,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "7a0cc0fb81da5213d0312ab0ee2315cc3e67a351a76ee8e13cb105e9fe93da02"
+    },
+    {
+      "contestId": "il:2022:us-house:02:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "02",
+      "sourceLockId": "il-2022-house-primary-district-02",
+      "sourceFileSha256": "987ea4091c08333602d7b3afaaa815bd6c9947ddaa7b41d06bd86f67f49f5a6f",
+      "authorityContestId": "260",
+      "authorityContestName": "2ND CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "420",
+          "candidateName": "ROBIN KELLY",
+          "votes": 56606,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "50001",
+          "candidateName": "WRITE-IN",
+          "votes": 14,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50009",
+          "candidateName": "WRITE-IN",
+          "votes": 98,
+          "isWriteIn": true
+        }
+      ],
+      "candidateVotes": 56718,
+      "administrativeVotes": {
+        "blankBallots": 48,
+        "underVotes": 4403,
+        "overVotes": 4
+      },
+      "democraticBallotsAccounted": 61173,
+      "precincts": 579,
+      "democraticSourceRows": 1849,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "cd1bd467c181144416a233944a0d9a97a44d081f450381fb98ae45f7d21ba22f"
+    },
+    {
+      "contestId": "il:2022:us-house:03:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "03",
+      "sourceLockId": "il-2022-house-primary-district-03",
+      "sourceFileSha256": "f3bfe85dcd771b8008ed08efa5812e486765180d05b273cac3a6b6509e7e0790",
+      "authorityContestId": "270",
+      "authorityContestName": "3RD CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "435",
+          "candidateName": "DELIA RAMIREZ",
+          "votes": 37296,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "440",
+          "candidateName": "GILBERT \"GIL\" VILLEGAS",
+          "votes": 12990,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "445",
+          "candidateName": "JUAN ENRIQUE AGUIRRE",
+          "votes": 2175,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "450",
+          "candidateName": "IYMEN H CHEHADE",
+          "votes": 3719,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 56180,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 2720,
+        "overVotes": 79
+      },
+      "democraticBallotsAccounted": 58979,
+      "precincts": 615,
+      "democraticSourceRows": 3653,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "50a422241697c768ac1dcde42b212841859a375ab9f7b24b5d7365f693a4253d"
+    },
+    {
+      "contestId": "il:2022:us-house:04:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "04",
+      "sourceLockId": "il-2022-house-primary-district-04",
+      "sourceFileSha256": "4eef569cf53a3b82568ae1aa18c5a566645577fe330fcb0df8a563f5f336b3fd",
+      "authorityContestId": "280",
+      "authorityContestName": "4TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "460",
+          "candidateName": "JESUS \"CHUY\" GARCIA",
+          "votes": 37499,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 37499,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 4921,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 42420,
+      "precincts": 433,
+      "democraticSourceRows": 1299,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d981ceaf97978ba41137cd8a16479043deda74c18678f6b23277a308f6d43f75"
+    },
+    {
+      "contestId": "il:2022:us-house:05:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "05",
+      "sourceLockId": "il-2022-house-primary-district-05",
+      "sourceFileSha256": "09e65d4054028a42e177e742ba51e856c44fb95b0c85550b3b226a635e88f0a0",
+      "authorityContestId": "290",
+      "authorityContestName": "5TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "480",
+          "candidateName": "MIKE QUIGLEY",
+          "votes": 82490,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "50014",
+          "candidateName": "WRITE-IN",
+          "votes": 465,
+          "isWriteIn": true
+        }
+      ],
+      "candidateVotes": 82955,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 8638,
+        "overVotes": 10
+      },
+      "democraticBallotsAccounted": 91603,
+      "precincts": 565,
+      "democraticSourceRows": 1935,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "38a77a88eac93560c9146740cc3ad55ed2a7fa6d0cb3768633a020fa31be1a2d"
+    },
+    {
+      "contestId": "il:2022:us-house:06:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "06",
+      "sourceLockId": "il-2022-house-primary-district-06",
+      "sourceFileSha256": "225f89fd34ccf62d0fdbc549c586c759249016b0a92b990998ce15ce12eb92f2",
+      "authorityContestId": "300",
+      "authorityContestName": "6TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "520",
+          "candidateName": "SEAN CASTEN",
+          "votes": 45654,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "525",
+          "candidateName": "MARIE NEWMAN",
+          "votes": 19726,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "530",
+          "candidateName": "CHARLES M. HUGHES",
+          "votes": 2085,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 67465,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 1799,
+        "overVotes": 37
+      },
+      "democraticBallotsAccounted": 69301,
+      "precincts": 716,
+      "democraticSourceRows": 3562,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "1d941e5746fb6d299e87f5464f8d95f9814e5af5f4e6eda6415a72947f50f222"
+    },
+    {
+      "contestId": "il:2022:us-house:07:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "07",
+      "sourceLockId": "il-2022-house-primary-district-07",
+      "sourceFileSha256": "b31e865aa0327233bc4cf737f5d169804cac4db8bb8ecf95e5fbcce76c77dd8d",
+      "authorityContestId": "310",
+      "authorityContestName": "7TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "535",
+          "candidateName": "KINA COLLINS",
+          "votes": 34574,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "540",
+          "candidateName": "DANNY K. DAVIS",
+          "votes": 39230,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "545",
+          "candidateName": "DENARVIS C. MENDENHALL",
+          "votes": 1808,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 75612,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 3592,
+        "overVotes": 97
+      },
+      "democraticBallotsAccounted": 79301,
+      "precincts": 570,
+      "democraticSourceRows": 2741,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "dafcd4e4efc44717e104eb3e2dd86584a46633300a5ae8fb26062df385976d78"
+    },
+    {
+      "contestId": "il:2022:us-house:08:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "08",
+      "sourceLockId": "il-2022-house-primary-district-08",
+      "sourceFileSha256": "25e1419b23f41b0df0d02a7be06b76a9c2d0cde0d7de04feaa935292f833c043",
+      "authorityContestId": "320",
+      "authorityContestName": "8TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "580",
+          "candidateName": "JUNAID AHMED",
+          "votes": 12627,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "585",
+          "candidateName": "RAJA KRISHNAMOORTHI",
+          "votes": 29933,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 42560,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 924,
+        "overVotes": 12
+      },
+      "democraticBallotsAccounted": 43496,
+      "precincts": 507,
+      "democraticSourceRows": 2026,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e3755293d803a5676385ac1844f3ecd2cd9fd97d01e705e8fb5a991deb9fe1b8"
+    },
+    {
+      "contestId": "il:2022:us-house:09:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "09",
+      "sourceLockId": "il-2022-house-primary-district-09",
+      "sourceFileSha256": "2ff0f42213800d8732c5ae8bcf325772a0d500bb25a48985d254c8958841b8e9",
+      "authorityContestId": "330",
+      "authorityContestName": "9TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "600",
+          "candidateName": "JANICE D. SCHAKOWSKY",
+          "votes": 76956,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 76956,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 7350,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 84306,
+      "precincts": 500,
+      "democraticSourceRows": 1373,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "bce387208a2996e62cda0c5be079783e90e888b3554f904363ce99fb801b5d55"
+    },
+    {
+      "contestId": "il:2022:us-house:10:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "10",
+      "sourceLockId": "il-2022-house-primary-district-10",
+      "sourceFileSha256": "af7c7e69a28c84898dcde7a414783d5d9029080acf6e63ac9e4c2387e7c043a5",
+      "authorityContestId": "340",
+      "authorityContestName": "10TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "50000",
+          "candidateName": "WRITE-IN",
+          "votes": 216,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50002",
+          "candidateName": "WRITE-IN",
+          "votes": 6,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "615",
+          "candidateName": "BRAD SCHNEIDER",
+          "votes": 52624,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 52846,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 2551,
+        "overVotes": 6
+      },
+      "democraticBallotsAccounted": 55403,
+      "precincts": 459,
+      "democraticSourceRows": 1719,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3374b3f55cba3e802ab4bfad37c260f5c8048209abba9fa792dce788d4f4499e"
+    },
+    {
+      "contestId": "il:2022:us-house:11:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "11",
+      "sourceLockId": "il-2022-house-primary-district-11",
+      "sourceFileSha256": "c33043bd6868f82cb2d16f5a31326486f38179b386c1c6d768b2b0539b7d8dac",
+      "authorityContestId": "350",
+      "authorityContestName": "11TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "655",
+          "candidateName": "BILL FOSTER",
+          "votes": 44096,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 44096,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 2386,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 46482,
+      "precincts": 587,
+      "democraticSourceRows": 1455,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d3006b2e3cb4ee651f7d17c873d0bea519197c5068b6917e43b835c563d39235"
+    },
+    {
+      "contestId": "il:2022:us-house:12:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "12",
+      "sourceLockId": "il-2022-house-primary-district-12",
+      "sourceFileSha256": "7101a704be6e45eafdfedff090e95bd06a5c90fecc9ad64646b2ca4b75099446",
+      "authorityContestId": "360",
+      "authorityContestName": "12TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "665",
+          "candidateName": "HOMER \"CHIP\" MARKEL",
+          "votes": 11068,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "670",
+          "candidateName": "JOSHUA QUALLS",
+          "votes": 8438,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 19506,
+      "administrativeVotes": {
+        "blankBallots": 567,
+        "underVotes": 2143,
+        "overVotes": 6
+      },
+      "democraticBallotsAccounted": 22222,
+      "precincts": 969,
+      "democraticSourceRows": 3346,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6d8059a1a6365012e45ebebe93ce02127fc6fb006a3cab08048824cd1442aa81"
+    },
+    {
+      "contestId": "il:2022:us-house:13:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "13",
+      "sourceLockId": "il-2022-house-primary-district-13",
+      "sourceFileSha256": "d81a97f4bed1288fe80290edd96bcea08ab91d5a12a1cc930b013ffe237f8f2d",
+      "authorityContestId": "370",
+      "authorityContestName": "13TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "695",
+          "candidateName": "NIKKI BUDZINSKI",
+          "votes": 31593,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "700",
+          "candidateName": "DAVID PALMER",
+          "votes": 10216,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 41809,
+      "administrativeVotes": {
+        "blankBallots": 13,
+        "underVotes": 2474,
+        "overVotes": 23
+      },
+      "democraticBallotsAccounted": 44319,
+      "precincts": 615,
+      "democraticSourceRows": 1655,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "aab5aedefca18e468ed7d301b3b7cb7190a86a8b73fe1f69ffddb7a83033f7a3"
+    },
+    {
+      "contestId": "il:2022:us-house:14:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "14",
+      "sourceLockId": "il-2022-house-primary-district-14",
+      "sourceFileSha256": "cf89b75247f2f5af3ae7706168ce5108e9dfb94ad93ba22057f5466a223c1979",
+      "authorityContestId": "380",
+      "authorityContestName": "14TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "740",
+          "candidateName": "LAUREN UNDERWOOD",
+          "votes": 37780,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 37780,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 1674,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 39454,
+      "precincts": 454,
+      "democraticSourceRows": 605,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f6646b23a13b5d1beb6326d35ae7fee3753640b6c4963c564170bfe439f3c09e"
+    },
+    {
+      "contestId": "il:2022:us-house:15:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "15",
+      "sourceLockId": "il-2022-house-primary-district-15",
+      "sourceFileSha256": "af891ca6b7cc547d4db38a8389f34ae5903af02b3d471ed6740a32bb4d4ba329",
+      "authorityContestId": "390",
+      "authorityContestName": "15TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "755",
+          "candidateName": "PAUL J. LANGE",
+          "votes": 21433,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 21433,
+      "administrativeVotes": {
+        "blankBallots": 373,
+        "underVotes": 2652,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 24458,
+      "precincts": 942,
+      "democraticSourceRows": 2748,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2f67ba2f2d325686b339ba942e791b78ecf7a344ff7aa90b9d7df451a3734a59"
+    },
+    {
+      "contestId": "il:2022:us-house:16:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "16",
+      "sourceLockId": "il-2022-house-primary-district-16",
+      "sourceFileSha256": "f5dfaa72c8f42e9fb0f06c5d46897eac29192bd69fdecf20db0cc7a4ae0e2049",
+      "authorityContestId": "400",
+      "authorityContestName": "16TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "no_democratic_candidate_rows",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [],
+      "candidateVotes": 0,
+      "administrativeVotes": {
+        "blankBallots": 14209,
+        "underVotes": 6553,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 20762,
+      "precincts": 636,
+      "democraticSourceRows": 1435,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "25c029cd1ab0b664872dab6dccab0308e602d929b7168d74f07a2f2da681730f"
+    },
+    {
+      "contestId": "il:2022:us-house:17:democratic",
+      "cycleYear": 2022,
+      "stateCode": "IL",
+      "districtCode": "17",
+      "sourceLockId": "il-2022-house-primary-district-17",
+      "sourceFileSha256": "a87200801d260e0293a50a45abfca9f6491fb0289dfc4b05a674b20931b67338",
+      "authorityContestId": "410",
+      "authorityContestName": "17TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "50000",
+          "candidateName": "WRITE-IN",
+          "votes": 40,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50001",
+          "candidateName": "WRITE-IN",
+          "votes": 34,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50002",
+          "candidateName": "WRITE-IN",
+          "votes": 0,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50003",
+          "candidateName": "WRITE-IN",
+          "votes": 1,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50005",
+          "candidateName": "WRITE-IN",
+          "votes": 6,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50006",
+          "candidateName": "WRITE-IN",
+          "votes": 0,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "790",
+          "candidateName": "ANGIE NORMOYLE",
+          "votes": 4818,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "795",
+          "candidateName": "ERIC SORENSEN",
+          "votes": 14702,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "800",
+          "candidateName": "LITESA WALLACE",
+          "votes": 9103,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "810",
+          "candidateName": "MARSHA WILLIAMS",
+          "votes": 2701,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "815",
+          "candidateName": "JACQUELINE McGOWAN",
+          "votes": 2040,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "820",
+          "candidateName": "JONATHAN KLARER LOGEMANN",
+          "votes": 5628,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 39073,
+      "administrativeVotes": {
+        "blankBallots": 585,
+        "underVotes": 1074,
+        "overVotes": 63
+      },
+      "democraticBallotsAccounted": 40795,
+      "precincts": 678,
+      "democraticSourceRows": 5779,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "91001cb8e46726318934b2eeb1472aee5eee839fa9571477e04b884a5325843c"
+    },
+    {
+      "contestId": "il:2024:us-house:01:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "01",
+      "sourceLockId": "il-2024-house-primary-district-01",
+      "sourceFileSha256": "3ce90d74467a4f8507e637ae2b531d5b43935336a615d4321657a36b7398bfc0",
+      "authorityContestId": "250",
+      "authorityContestName": "1ST CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "145",
+          "candidateName": "JONATHAN L. JACKSON",
+          "votes": 72420,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 72420,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 9478,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 81898,
+      "precincts": 561,
+      "democraticSourceRows": 1705,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "964f327c20bc749962a4140f225d2b210560d0682280b978ba00e4badc4e89bf"
+    },
+    {
+      "contestId": "il:2024:us-house:02:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "02",
+      "sourceLockId": "il-2024-house-primary-district-02",
+      "sourceFileSha256": "a78c730a4e131b0e8f4741ca814d4866ed20821d84316b1bd195404d4e0d1382",
+      "authorityContestId": "260",
+      "authorityContestName": "2ND CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "160",
+          "candidateName": "ROBIN KELLY",
+          "votes": 56323,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 56323,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 4600,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 60923,
+      "precincts": 615,
+      "democraticSourceRows": 1895,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2c5cdacb139996948f530facd25d02b03063c752e7d2580bc5db8b34663eb0d8"
+    },
+    {
+      "contestId": "il:2024:us-house:03:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "03",
+      "sourceLockId": "il-2024-house-primary-district-03",
+      "sourceFileSha256": "2be3be8e03299a8bbe1b55589083a75ab18eab73d9360b565c48972b81af4987",
+      "authorityContestId": "270",
+      "authorityContestName": "3RD CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "170",
+          "candidateName": "DELIA RAMIREZ",
+          "votes": 52644,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 52644,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 8996,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 61640,
+      "precincts": 484,
+      "democraticSourceRows": 1452,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "5b2a77ab9b06c236bfc8e951b0baf2e9ff701cb8cb2f141d47e4e2a8c286f44a"
+    },
+    {
+      "contestId": "il:2024:us-house:04:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "04",
+      "sourceLockId": "il-2024-house-primary-district-04",
+      "sourceFileSha256": "0d7964a54f607b155349a8c3f8aafc1ec6f5d74cecebf301c3759bf4ecb33c51",
+      "authorityContestId": "280",
+      "authorityContestName": "4TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "180",
+          "candidateName": "JESUS \"CHUY\" GARCIA",
+          "votes": 30443,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "185",
+          "candidateName": "RAYMOND A. LOPEZ",
+          "votes": 13286,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 43729,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 1409,
+        "overVotes": 28
+      },
+      "democraticBallotsAccounted": 45166,
+      "precincts": 360,
+      "democraticSourceRows": 1440,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "40f449ab4987bc84ecef718d88c714bcb63a74e870994ddc84469a4f9a91f3ee"
+    },
+    {
+      "contestId": "il:2024:us-house:05:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "05",
+      "sourceLockId": "il-2024-house-primary-district-05",
+      "sourceFileSha256": "50d77fa55e6be6a9ebef051742b7c8573d3739eec726077d85270bccc36feaf6",
+      "authorityContestId": "290",
+      "authorityContestName": "5TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "195",
+          "candidateName": "MIKE QUIGLEY",
+          "votes": 87002,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "50001",
+          "candidateName": "WRITE-IN",
+          "votes": 7,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50008",
+          "candidateName": "WRITE-IN",
+          "votes": 2175,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50022",
+          "candidateName": "WRITE-IN",
+          "votes": 236,
+          "isWriteIn": true
+        }
+      ],
+      "candidateVotes": 89420,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 12441,
+        "overVotes": 6
+      },
+      "democraticBallotsAccounted": 101867,
+      "precincts": 434,
+      "democraticSourceRows": 1664,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "ac32114cf4c7ac4f8c062808d6440c65423ff5974059ccd21979df8f17bead32"
+    },
+    {
+      "contestId": "il:2024:us-house:06:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "06",
+      "sourceLockId": "il-2024-house-primary-district-06",
+      "sourceFileSha256": "2d81783ff7799d81eb6557803d3101f81125822ecc34da9d8c86390ce115baa8",
+      "authorityContestId": "300",
+      "authorityContestName": "6TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "210",
+          "candidateName": "SEAN CASTEN",
+          "votes": 56750,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "215",
+          "candidateName": "CHARLES M. HUGHES",
+          "votes": 6366,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "220",
+          "candidateName": "MAHNOOR AHMAD",
+          "votes": 10483,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 73599,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 3567,
+        "overVotes": 23
+      },
+      "democraticBallotsAccounted": 77189,
+      "precincts": 587,
+      "democraticSourceRows": 2929,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "04791004db8b84894095f578d14d642c9b39323efb0a20934f7c0e9a5b6ea441"
+    },
+    {
+      "contestId": "il:2024:us-house:07:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "07",
+      "sourceLockId": "il-2024-house-primary-district-07",
+      "sourceFileSha256": "b2577ddec6f2f76dceb877ceda6853962b4413dbf99e5e5279ddc803ac1b623a",
+      "authorityContestId": "310",
+      "authorityContestName": "7TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "230",
+          "candidateName": "MELISSA CONYEARS-ERVIN",
+          "votes": 17154,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "235",
+          "candidateName": "DANNY K. DAVIS",
+          "votes": 42248,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "240",
+          "candidateName": "KOURI MARSHALL",
+          "votes": 2156,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "245",
+          "candidateName": "NIKHIL BHATIA",
+          "votes": 3808,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "250",
+          "candidateName": "KINA COLLINS",
+          "votes": 15188,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "50010",
+          "candidateName": "WRITE-IN",
+          "votes": 202,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50024",
+          "candidateName": "WRITE-IN",
+          "votes": 54,
+          "isWriteIn": true
+        }
+      ],
+      "candidateVotes": 80810,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 4467,
+        "overVotes": 169
+      },
+      "democraticBallotsAccounted": 85446,
+      "precincts": 394,
+      "democraticSourceRows": 2849,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "dc5edf48d19ba85cfc235031b767101dee1a5f368f9b01fa009a458f0c08392d"
+    },
+    {
+      "contestId": "il:2024:us-house:08:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "08",
+      "sourceLockId": "il-2024-house-primary-district-08",
+      "sourceFileSha256": "c92baebb461946c47ec060e5d2a128ad45561611fcde24b951a644588692a300",
+      "authorityContestId": "320",
+      "authorityContestName": "8TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "265",
+          "candidateName": "RAJA KRISHNAMOORTHI",
+          "votes": 34640,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 34640,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 2661,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 37301,
+      "precincts": 574,
+      "democraticSourceRows": 1722,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f36647a90711825f137cccca4d31d1390426872e3cef130cd079f4916ca971bc"
+    },
+    {
+      "contestId": "il:2024:us-house:09:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "09",
+      "sourceLockId": "il-2024-house-primary-district-09",
+      "sourceFileSha256": "4000b0962f9f0b8a9e298bc1fd3d98921b8741852ea8a22ffc4483aff2c06a42",
+      "authorityContestId": "330",
+      "authorityContestName": "9TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "280",
+          "candidateName": "JANICE D. SCHAKOWSKY",
+          "votes": 75106,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 75106,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 10983,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 86089,
+      "precincts": 435,
+      "democraticSourceRows": 1305,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "67b172d8fd6f91aece09da8eaf5a4de89b449f68b0984bceaa7ab7e51c59d75d"
+    },
+    {
+      "contestId": "il:2024:us-house:10:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "10",
+      "sourceLockId": "il-2024-house-primary-district-10",
+      "sourceFileSha256": "a8c0fcba9d164a04bdfb20c5c47839daa5251532b820d1172517d6828544887f",
+      "authorityContestId": "340",
+      "authorityContestName": "10TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "285",
+          "candidateName": "BRAD SCHNEIDER",
+          "votes": 37538,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 37538,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 2418,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 39956,
+      "precincts": 458,
+      "democraticSourceRows": 1374,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "33c4832e89d2dc975cec024b38a4cd70109fc589488a4f433030348ad3da9442"
+    },
+    {
+      "contestId": "il:2024:us-house:11:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "11",
+      "sourceLockId": "il-2024-house-primary-district-11",
+      "sourceFileSha256": "7d170494369e42d0a307114b8e68ad9137ee339272debe1ca4384822784af117",
+      "authorityContestId": "350",
+      "authorityContestName": "11TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "295",
+          "candidateName": "BILL FOSTER",
+          "votes": 35159,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "300",
+          "candidateName": "QASIM RASHID",
+          "votes": 10754,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 45913,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 980,
+        "overVotes": 18
+      },
+      "democraticBallotsAccounted": 46911,
+      "precincts": 597,
+      "democraticSourceRows": 2405,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "844b30f30dadb0487c46f02c6e8f6aecc4a9f5fab2916b3b42ddf62987d0c45d"
+    },
+    {
+      "contestId": "il:2024:us-house:12:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "12",
+      "sourceLockId": "il-2024-house-primary-district-12",
+      "sourceFileSha256": "c2da7baff69f9b54b33b47aeb4c982c24f559a035390cfbd5d92c6ae26e39e41",
+      "authorityContestId": "360",
+      "authorityContestName": "12TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "325",
+          "candidateName": "PRESTON GABRIEL NELSON",
+          "votes": 7151,
+          "isWriteIn": false
+        },
+        {
+          "candidateAuthorityId": "330",
+          "candidateName": "BRIAN ROBERTS",
+          "votes": 10775,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 17926,
+      "administrativeVotes": {
+        "blankBallots": 119,
+        "underVotes": 2308,
+        "overVotes": 21
+      },
+      "democraticBallotsAccounted": 20374,
+      "precincts": 1040,
+      "democraticSourceRows": 4205,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "b5566c954576f75c1c79a6c88855fd8a9c90dd102e2052477c03cfd062dbb21a"
+    },
+    {
+      "contestId": "il:2024:us-house:13:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "13",
+      "sourceLockId": "il-2024-house-primary-district-13",
+      "sourceFileSha256": "5da2510bc6394b4ce9b826789d231760890a2a0dd19e76cc28259866ef8ba262",
+      "authorityContestId": "370",
+      "authorityContestName": "13TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "345",
+          "candidateName": "NIKKI BUDZINSKI",
+          "votes": 32314,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 32314,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 3835,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 36149,
+      "precincts": 538,
+      "democraticSourceRows": 1413,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "604f0adc1bf1802d284614401f82710c0767bd49ad49ee440e6932cefb1573c6"
+    },
+    {
+      "contestId": "il:2024:us-house:14:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "14",
+      "sourceLockId": "il-2024-house-primary-district-14",
+      "sourceFileSha256": "40738758c160866211a8f6e851fa69fa18e05e63259e0fd72f014151f25c0784",
+      "authorityContestId": "380",
+      "authorityContestName": "14TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "360",
+          "candidateName": "LAUREN UNDERWOOD",
+          "votes": 32400,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 32400,
+      "administrativeVotes": {
+        "blankBallots": 0,
+        "underVotes": 1643,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 34043,
+      "precincts": 669,
+      "democraticSourceRows": 2125,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "040b13e2ad84f33b711c1582612214b1701e7d50a0a587196c9a1753671cfd4f"
+    },
+    {
+      "contestId": "il:2024:us-house:15:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "15",
+      "sourceLockId": "il-2024-house-primary-district-15",
+      "sourceFileSha256": "6fcda8f43deb20a95742b8f35ad2061dd6b817d0619ea43e4ef76fcb6d414bb3",
+      "authorityContestId": "390",
+      "authorityContestName": "15TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "50000",
+          "candidateName": "WRITE-IN",
+          "votes": 285,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50001",
+          "candidateName": "WRITE-IN",
+          "votes": 316,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50003",
+          "candidateName": "WRITE-IN",
+          "votes": 53,
+          "isWriteIn": true
+        },
+        {
+          "candidateAuthorityId": "50006",
+          "candidateName": "WRITE-IN",
+          "votes": 40,
+          "isWriteIn": true
+        }
+      ],
+      "candidateVotes": 694,
+      "administrativeVotes": {
+        "blankBallots": 12049,
+        "underVotes": 10151,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 22894,
+      "precincts": 959,
+      "democraticSourceRows": 2155,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "07d69993faca58ae136058fba61f91c4f3c07f2072fead4fe08de97ee296d3e4"
+    },
+    {
+      "contestId": "il:2024:us-house:16:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "16",
+      "sourceLockId": "il-2024-house-primary-district-16",
+      "sourceFileSha256": "5737f91217fdce609b9c451c8f55e3a52d929d1d8af3f35f855d2d1eb9d9a5ac",
+      "authorityContestId": "400",
+      "authorityContestName": "16TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "no_democratic_candidate_rows",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [],
+      "candidateVotes": 0,
+      "administrativeVotes": {
+        "blankBallots": 18305,
+        "underVotes": 296,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 18601,
+      "precincts": 774,
+      "democraticSourceRows": 1754,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "67282ba43c2267c5b18ceac6b530801179e60adbc396e67c54279d355c09b24d"
+    },
+    {
+      "contestId": "il:2024:us-house:17:democratic",
+      "cycleYear": 2024,
+      "stateCode": "IL",
+      "districtCode": "17",
+      "sourceLockId": "il-2024-house-primary-district-17",
+      "sourceFileSha256": "3f2fb625e78998ee3b87e2949b004022418696f07f97c78f5222b95f96151e41",
+      "authorityContestId": "410",
+      "authorityContestName": "17TH CONGRESS",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "party": "Democratic",
+      "contestDisposition": "candidate_rows_retained",
+      "officialResultStatus": "retained_candidate_unverified_certification",
+      "certificationStatus": "not_retained",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "candidates": [
+        {
+          "candidateAuthorityId": "390",
+          "candidateName": "ERIC SORENSEN",
+          "votes": 28533,
+          "isWriteIn": false
+        }
+      ],
+      "candidateVotes": 28533,
+      "administrativeVotes": {
+        "blankBallots": 340,
+        "underVotes": 1479,
+        "overVotes": 0
+      },
+      "democraticBallotsAccounted": 30352,
+      "precincts": 720,
+      "democraticSourceRows": 2398,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "306c433b77c10ed01859a550216aa97f7f71999e8d04779ceb733787817d040d"
+    }
+  ],
+  "unresolvedGates": [
+    "retain_final_state_canvass_or_certification",
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_progressive_candidate_classification"
+  ],
+  "summary": {
+    "cycles": 2,
+    "districtsPerCycle": 17,
+    "contests": 34,
+    "contestsWithCandidateRows": 32,
+    "noDemocraticCandidateRowContests": 2,
+    "listingSources": 2,
+    "resultSources": 34,
+    "democraticSourceRows": 81421,
+    "candidates": 95,
+    "candidateVotes": 1603312,
+    "administrativeVotes": 189772,
+    "contestSetSha256": "eaff782dec77a454d943125c2256d6b6f10121522510a4ec5a43c9e1058e52af",
+    "certificationReceipts": 0,
+    "incumbentIdentityMappings": 0,
+    "geographyApprovals": 0,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0
+  },
+  "packageSha256": "4c0f7bc0505b9e02d03585d8acd0fe47d6599b194f6efcdbcd6e40896d6a663f"
+}
