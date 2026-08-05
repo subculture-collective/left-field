@@ -110,6 +110,7 @@
     "generate:ca-current-incumbent-primary-linkage-v1": "tsx scripts/generate-california-current-incumbent-primary-linkage-candidate.ts",
     "generate:ca-primary-joint-review-v1": "tsx scripts/generate-california-primary-identity-geography-review-package.ts",
     "import:or-primary-abstracts": "node scripts/import-oregon-primary-abstracts.mjs",
+    "generate:or-house-primary-results-receipt": "tsx scripts/generate-oregon-house-democratic-primary-results-receipt.ts",
     "generate:md-house-primary-results-receipt": "tsx scripts/generate-maryland-house-democratic-primary-results-receipt.ts",
     "fetch:ct-house-primary-event-results": "node scripts/fetch-ct-house-democratic-primary-event-results.mjs",
     "generate:ct-house-primary-event-dispositions": "tsx scripts/generate-connecticut-house-democratic-primary-event-dispositions-receipt.ts",

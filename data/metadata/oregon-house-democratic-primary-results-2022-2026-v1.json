@@ -1,0 +1,1109 @@
+{
+  "schema": "oregon-house-democratic-primary-results-2022-2026-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T23:45:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "parentProposal": {
+    "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "decisionSupport": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    }
+  ],
+  "inheritedDecisionResolutions": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "resolution": null
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "resolution": null
+    }
+  ],
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "status": "official_statewide_abstract_retained",
+      "resultRowsRetained": 6
+    },
+    {
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "status": "official_statewide_abstract_retained",
+      "resultRowsRetained": 6
+    },
+    {
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "status": "official_statewide_abstract_retained",
+      "resultRowsRetained": 6
+    }
+  ],
+  "sources": [
+    {
+      "id": "or-2022-primary-official-abstract-pdf",
+      "url": "https://records.sos.state.or.us/ORSOSCMSearch/Search/RecordViewer.aspx?uri=13735452",
+      "retainedPath": "data/source/elections/primary-results/oregon/2022/official-primary-abstract.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 894875,
+      "sha256": "dd885013df98d584488091ffdf69d359a3a7fe494f037276fcda60f03e15beca",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "or-2022-primary-official-abstract-text",
+      "url": "urn:dsa-seats:or-2022-primary-official-abstract-pdf:pdftotext-layout-26.07.0",
+      "retainedPath": "data/source/elections/primary-results/oregon/2022/official-primary-abstract.txt",
+      "retainedStatus": "retained",
+      "byteSize": 100865,
+      "sha256": "f54548a8d62c374dd7324c8de6b5146d6a72e5e65c6a43d12dd5b28b9b509b14",
+      "kind": "derived_extract",
+      "parentIds": [
+        "or-2022-primary-official-abstract-pdf"
+      ]
+    },
+    {
+      "id": "or-2024-primary-official-abstract-pdf",
+      "url": "https://records.sos.state.or.us/ORSOSCMSearch/Search/RecordViewer.aspx?uri=13735456",
+      "retainedPath": "data/source/elections/primary-results/oregon/2024/official-primary-abstract.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 1124897,
+      "sha256": "a3d68250380c4b49fbd8a7a98548822c0c0ad870cd61b90aa98b737f259c876d",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "or-2024-primary-official-abstract-text",
+      "url": "urn:dsa-seats:or-2024-primary-official-abstract-pdf:pdftotext-layout-26.07.0",
+      "retainedPath": "data/source/elections/primary-results/oregon/2024/official-primary-abstract.txt",
+      "retainedStatus": "retained",
+      "byteSize": 105541,
+      "sha256": "eb745e0d5c1e854c73a7a8b7007b8dc0ca14eb2458bf82490cb40a6102d375ba",
+      "kind": "derived_extract",
+      "parentIds": [
+        "or-2024-primary-official-abstract-pdf"
+      ]
+    },
+    {
+      "id": "or-2026-primary-official-abstract-pdf",
+      "url": "https://records.sos.state.or.us/ORSOSCMSearch/Search/RecordViewer.aspx?uri=16180585",
+      "retainedPath": "data/source/elections/primary-results/oregon/2026/official-primary-abstract.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 1370223,
+      "sha256": "19e936d34a664062ef0cbb89b273d87ddf3f9b3e5b994c091bf4919428d2ae3e",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "or-2026-primary-official-abstract-text",
+      "url": "urn:dsa-seats:or-2026-primary-official-abstract-pdf:pdftotext-layout-26.07.0",
+      "retainedPath": "data/source/elections/primary-results/oregon/2026/official-primary-abstract.txt",
+      "retainedStatus": "retained",
+      "byteSize": 95691,
+      "sha256": "96222841056651bbe4e3cc638f995e5b9fc67518c9eba23c469a3552e4b9050a",
+      "kind": "derived_extract",
+      "parentIds": [
+        "or-2026-primary-official-abstract-pdf"
+      ]
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "or:2022:regular:us-house:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "OR",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2022-primary-official-abstract-pdf",
+        "or-2022-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 1st District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Christian Robertson",
+          "votes": 2625,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Scott Phillips",
+          "votes": 7832,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Suzanne Bonamici",
+          "votes": 80317,
+          "sourceNomineeMarker": "*"
+        }
+      ],
+      "aggregateMiscVotes": 287,
+      "sourceTotalVotes": 91061,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Suzanne Bonamici",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "da57c38963ae74c903c5c09c5c88170924e7f51ca3b129d699c018b2b0c7c50f"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "OR",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2022-primary-official-abstract-pdf",
+        "or-2022-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 2nd District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Adam Prine",
+          "votes": 11669,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Joe Yetter",
+          "votes": 27814,
+          "sourceNomineeMarker": "*"
+        }
+      ],
+      "aggregateMiscVotes": 788,
+      "sourceTotalVotes": 40271,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Joe Yetter",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "faf17db04e3010265f45fd9342fbc7643c72d5adca81cf5d462521c2e4eab6b9"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "OR",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2022-primary-official-abstract-pdf",
+        "or-2022-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 3rd District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jonathan E Polhemus",
+          "votes": 5392,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Earl Blumenauer",
+          "votes": 96386,
+          "sourceNomineeMarker": "*"
+        }
+      ],
+      "aggregateMiscVotes": 428,
+      "sourceTotalVotes": 102206,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Earl Blumenauer",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "ff2a29a5d29b3479ea59c1ca167be81c6cf7a72260ef8269cb65d132f92687e6"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:04:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "OR",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2022-primary-official-abstract-pdf",
+        "or-2022-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 4th District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Sami Al-Abdrabbuh",
+          "votes": 6080,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "G Tommy Smith",
+          "votes": 1278,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "John S Selker",
+          "votes": 4738,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Steve William Laible",
+          "votes": 292,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Val Hoyle",
+          "votes": 56153,
+          "sourceNomineeMarker": "*"
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jake Matthews",
+          "votes": 607,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Doyle E Canning",
+          "votes": 14245,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Andrew Kalloch",
+          "votes": 4322,
+          "sourceNomineeMarker": null
+        }
+      ],
+      "aggregateMiscVotes": 663,
+      "sourceTotalVotes": 88378,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Val Hoyle",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f673c47c783daa8b45d39eefcc266f719c5dd63cacc079ad66a8ceda9c60eaef"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:05:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "OR",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2022-primary-official-abstract-pdf",
+        "or-2022-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 5th District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Kurt Schrader",
+          "votes": 38726,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jamie McLeod-Skinner",
+          "votes": 47148,
+          "sourceNomineeMarker": "*"
+        }
+      ],
+      "aggregateMiscVotes": 537,
+      "sourceTotalVotes": 86411,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Jamie McLeod-Skinner",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "ae3c4593da7544c9d6b10b911eacf6403d2995ad8e6530683ac56bb57af1dcac"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:06:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "OR",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2022-primary-official-abstract-pdf",
+        "or-2022-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 6th District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Cody Reynolds",
+          "votes": 7951,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Teresa Alonso Leon",
+          "votes": 4626,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Andrea Salinas",
+          "votes": 26101,
+          "sourceNomineeMarker": "*"
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Loretta Smith",
+          "votes": 7064,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Kathleen Harder",
+          "votes": 5510,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Matt West",
+          "votes": 5658,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Greg Goodwin",
+          "votes": 217,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Carrick Flynn",
+          "votes": 13052,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Ricky Barajas",
+          "votes": 292,
+          "sourceNomineeMarker": null
+        }
+      ],
+      "aggregateMiscVotes": 508,
+      "sourceTotalVotes": 70979,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Andrea Salinas",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "dc3150bb97760ac3f437a9c7814e745f862c8df7840ef4a16d5557ef6411249e"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "stateCode": "OR",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2024-primary-official-abstract-pdf",
+        "or-2024-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 1st District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Suzanne Bonamici",
+          "votes": 75577,
+          "sourceNomineeMarker": "*"
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jamil O Ahmad",
+          "votes": 5007,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Courtney E Casgraux (Moore)",
+          "votes": 2500,
+          "sourceNomineeMarker": null
+        }
+      ],
+      "aggregateMiscVotes": 383,
+      "sourceTotalVotes": 83467,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Suzanne Bonamici",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "abeb73814f38a822bff5dd8a5106580532af850e92543dd6661f8362d4a18889"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "stateCode": "OR",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2024-primary-official-abstract-pdf",
+        "or-2024-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 2nd District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Steve William Laible",
+          "votes": 5325,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Dan Ruby",
+          "votes": 33585,
+          "sourceNomineeMarker": "*"
+        }
+      ],
+      "aggregateMiscVotes": 620,
+      "sourceTotalVotes": 39530,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Dan Ruby",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4f9de887a2a032875d406b6d5b52139aa87e3204f84016356eddae5a3bdbba34"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "stateCode": "OR",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2024-primary-official-abstract-pdf",
+        "or-2024-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 3rd District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Maxine E Dexter",
+          "votes": 47254,
+          "sourceNomineeMarker": "*"
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Ricardo Barajas",
+          "votes": 649,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Nolan Bylenga",
+          "votes": 2138,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Rachel Lydia Rand",
+          "votes": 856,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Michael Jonas",
+          "votes": 2359,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Susheela Jayapal",
+          "votes": 32793,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Eddy Morales",
+          "votes": 13391,
+          "sourceNomineeMarker": null
+        }
+      ],
+      "aggregateMiscVotes": 430,
+      "sourceTotalVotes": 99870,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Maxine E Dexter",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e3303a1b332e0c75c3274c895f30ae4a8725c4be3b06768a0e74c709fb059447"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:04:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "stateCode": "OR",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2024-primary-official-abstract-pdf",
+        "or-2024-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 4th District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Val Hoyle",
+          "votes": 73444,
+          "sourceNomineeMarker": "*"
+        }
+      ],
+      "aggregateMiscVotes": 1212,
+      "sourceTotalVotes": 74656,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Val Hoyle",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "15ef635bca7460aa6b7120fe24125d1397f1643340bc49426b40dd3f503a79d7"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:05:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "stateCode": "OR",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2024-primary-official-abstract-pdf",
+        "or-2024-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 5th District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Janelle S Bynum",
+          "votes": 55473,
+          "sourceNomineeMarker": "*"
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jamie McLeod-Skinner",
+          "votes": 23905,
+          "sourceNomineeMarker": null
+        }
+      ],
+      "aggregateMiscVotes": 510,
+      "sourceTotalVotes": 79888,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Janelle S Bynum",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "525d495b97b93cc6c503bf3facf521c75e24c5962c8a2fd7adbe51f195d3b00a"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:06:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "stateCode": "OR",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2024-primary-official-abstract-pdf",
+        "or-2024-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 6th District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Cody Reynolds",
+          "votes": 7463,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Andrea Salinas",
+          "votes": 52509,
+          "sourceNomineeMarker": "*"
+        }
+      ],
+      "aggregateMiscVotes": 330,
+      "sourceTotalVotes": 60302,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Andrea Salinas",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2626911e98c88b0899829760b4a674c1aa456c54bad4513f025712909284dad3"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:01:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "stateCode": "OR",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2026-primary-official-abstract-pdf",
+        "or-2026-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 1st District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jamil O Ahmad",
+          "votes": 11458,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Suzanne Bonamici",
+          "votes": 77306,
+          "sourceNomineeMarker": "*"
+        }
+      ],
+      "aggregateMiscVotes": 497,
+      "sourceTotalVotes": 89261,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Suzanne Bonamici",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e5f7535a6e2d1cd7e541728e7e070c0dbac5decd5c554a08ed66a63cdd409841"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:02:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "stateCode": "OR",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2026-primary-official-abstract-pdf",
+        "or-2026-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 2nd District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Chris Beck",
+          "votes": 15951,
+          "sourceNomineeMarker": "*"
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Mary Doyle",
+          "votes": 9101,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Rebecca Mueller",
+          "votes": 8357,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Patty Snow",
+          "votes": 4224,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Dawn Rasmussen",
+          "votes": 6880,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Peter Quince",
+          "votes": 1258,
+          "sourceNomineeMarker": null
+        }
+      ],
+      "aggregateMiscVotes": 610,
+      "sourceTotalVotes": 46381,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Chris Beck",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6e48f3b588f35dda6fa9b88f367198e223350cff6716ac5692b98290084e306a"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:03:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "stateCode": "OR",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2026-primary-official-abstract-pdf",
+        "or-2026-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 3rd District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Andrew Castilleja",
+          "votes": 2082,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Maxine E Dexter",
+          "votes": 81643,
+          "sourceNomineeMarker": "*"
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jessica Salas",
+          "votes": 7513,
+          "sourceNomineeMarker": null
+        }
+      ],
+      "aggregateMiscVotes": 352,
+      "sourceTotalVotes": 91590,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Maxine E Dexter",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "13cac08bcc74593269bd3f09c52544f1e6eaa5e7fc164a76efa31496228c6a65"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:04:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "stateCode": "OR",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2026-primary-official-abstract-pdf",
+        "or-2026-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 4th District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Daniel B Bahlen",
+          "votes": 2259,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Melissa Bird",
+          "votes": 19850,
+          "sourceNomineeMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Val Hoyle",
+          "votes": 68900,
+          "sourceNomineeMarker": "*"
+        }
+      ],
+      "aggregateMiscVotes": 676,
+      "sourceTotalVotes": 91685,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Val Hoyle",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3430f6d52bba5d46fe31e120b9f283d0f5b2df95b8274ee25a467e518ca9ea65"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:05:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "stateCode": "OR",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2026-primary-official-abstract-pdf",
+        "or-2026-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 5th District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Janelle S Bynum",
+          "votes": 70294,
+          "sourceNomineeMarker": "*"
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Zeva Rosenbaum",
+          "votes": 14951,
+          "sourceNomineeMarker": null
+        }
+      ],
+      "aggregateMiscVotes": 468,
+      "sourceTotalVotes": 85713,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Janelle S Bynum",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f68e86aed23f7842308ec38bef50b14ecd289f2bd6b327d47fb07d987404252a"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:06:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "stateCode": "OR",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "or-2026-primary-official-abstract-pdf",
+        "or-2026-primary-official-abstract-text"
+      ],
+      "sourceContestTitle": "US Representative 6th District - Democrat",
+      "resultAuthorityStatus": "official_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_statewide_total",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Andrea Salinas",
+          "votes": 62532,
+          "sourceNomineeMarker": "*"
+        }
+      ],
+      "aggregateMiscVotes": 797,
+      "sourceTotalVotes": 63329,
+      "voteReconciliation": "named_candidate_plus_misc_sum_equals_source_party_total",
+      "sourceNomineeStatus": "marked_by_source",
+      "nomineeSourceCandidateName": "Andrea Salinas",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a35c72392fc27b197a7cd3e0be3bca4e5a2c39be23af7d5e4223a4e9ae8a9f73"
+    }
+  ],
+  "summary": {
+    "districtCycleRows": 18,
+    "reportedContests": 18,
+    "contests2022": 6,
+    "contests2024": 6,
+    "contests2026": 6,
+    "namedCandidates": 60,
+    "namedCandidateVotes": 1374882,
+    "aggregateMiscVotes": 10096,
+    "totalVotes": 1384978,
+    "sourceMarkedNominees": 18,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0,
+    "contestSetSha256": "4d9eedd708ebe4687d3aeeb0821448e2bf9939031e4a24317aa0c019c76e9ca1"
+  },
+  "limitations": [
+    "Candidate display names are reconstructed from the official abstract's fixed-width multi-line headers; every reconstruction is bound to the exact source block, header tokens, candidate order, and parsed Total row.",
+    "The source's Misc. column is preserved as an aggregate channel and is not converted into a named candidate, write-in identity, or zero.",
+    "A source nominee marker is a direct primary-result fact; it does not establish current-incumbent identity, historical-geography compatibility, progressive classification, selection, or evaluator applicability."
+  ],
+  "unresolvedGates": [
+    "Independent reviewer approval is required before factual promotion.",
+    "Current identity and historical-to-current district geography must be resolved before evaluator use.",
+    "Progressive-candidate classification and evaluator applicability remain separately reviewable decisions."
+  ],
+  "packageSha256": "e27397dec36c7804ca220bd19647d5c18112f8a0b02f505b4ff443660bd1c25f"
+}
