@@ -7,6 +7,12 @@ const isoDateTime = z.iso.datetime({ offset: true });
 const cycles = z.union([z.literal(2022), z.literal(2024), z.literal(2026)]);
 const proposedReview = z.strictObject({ status: z.literal("proposed"), reviewer: z.null(), reviewedAt: z.null() });
 
+export function officialBulkUrl(file: string): string {
+  const match = /^(?:cn|cm|ccl)(22|24|26)\.zip$/.exec(file);
+  if (!match) throw new Error(`FEC_BULK_FILE_NAME_INVALID:${file}`);
+  return `https://www.fec.gov/files/bulk-downloads/20${match[1]}/${file}`;
+}
+
 const sourceArtifact = z.strictObject({
   id: z.string().min(1),
   kind: z.string().min(1),

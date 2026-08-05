@@ -1,7 +1,7 @@
 import { describe, expect, it } from "vitest";
 import { readFileSync } from "node:fs";
 import { resolve } from "node:path";
-import { attachAndValidatePackageSha256, packageSha256, validateProposedPackage } from "./aipac-proposed-packages";
+import { attachAndValidatePackageSha256, officialBulkUrl, packageSha256, validateProposedPackage } from "./aipac-proposed-packages";
 
 describe("AIPAC proposed package contract", () => {
   it("hashes canonical keys deterministically", () => {
@@ -10,6 +10,18 @@ describe("AIPAC proposed package contract", () => {
 
   it("rejects unknown package shapes and hash mutations", () => {
     expect(() => validateProposedPackage(attachAndValidatePackageSha256({ schema: "unknown" }))).toThrow("AIPAC_PROPOSED_PACKAGE_INVALID");
+  });
+
+  it.each([
+    ["cn22.zip", "2022"],
+    ["cm24.zip", "2024"],
+    ["ccl26.zip", "2026"],
+  ])("derives the official FEC bulk cycle for %s", (file, cycle) => {
+    expect(officialBulkUrl(file)).toBe(`https://www.fec.gov/files/bulk-downloads/${cycle}/${file}`);
+  });
+
+  it("rejects an unrecognized FEC bulk filename", () => {
+    expect(() => officialBulkUrl("ccl-current.zip")).toThrow("FEC_BULK_FILE_NAME_INVALID");
   });
 
   it.each([

@@ -6,6 +6,7 @@ import { join, resolve } from "node:path";
 import {
   attachAndValidatePackageSha256,
   canonicalJson,
+  officialBulkUrl,
   sha256Text,
   validateProposedPackage,
 } from "../src/ingestion/fec/aipac-proposed-packages";
@@ -52,7 +53,7 @@ async function sourceArtifact(root: string, file: string, kind: string, member: 
   return {
     id: file.replace(/\.[^.]+$/, ""), kind,
     url: file.endsWith(".zip")
-      ? `https://www.fec.gov/files/bulk-downloads/20${file.slice(2, 4)}/${file}`
+      ? officialBulkUrl(file)
       : `urn:dsa-seats:review-input:${file}`,
     byteSize: bytes.byteLength, sha256: sha(bytes), memberName: member,
     memberByteSize: memberBytes?.byteLength ?? null, memberSha256: memberBytes ? sha(memberBytes) : null,

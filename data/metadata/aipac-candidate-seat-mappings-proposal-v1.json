@@ -30,7 +30,7 @@
     {
       "id": "ccl22",
       "kind": "fec_ccl_archive",
-      "url": "https://www.fec.gov/files/bulk-downloads/20l2/ccl22.zip",
+      "url": "https://www.fec.gov/files/bulk-downloads/2022/ccl22.zip",
       "byteSize": 84031,
       "sha256": "dcbf0c872fe47ab7ca32a52b281b978a9a0c035e770f6b24b7704c4d5ff502fd",
       "memberName": "ccl.txt",
@@ -63,7 +63,7 @@
     {
       "id": "ccl24",
       "kind": "fec_ccl_archive",
-      "url": "https://www.fec.gov/files/bulk-downloads/20l2/ccl24.zip",
+      "url": "https://www.fec.gov/files/bulk-downloads/2024/ccl24.zip",
       "byteSize": 94262,
       "sha256": "2b931c217f600080f5d9afc537bfa7aabe65ab634a8bf8469553e006ed4c3575",
       "memberName": "ccl.txt",
@@ -96,7 +96,7 @@
     {
       "id": "ccl26",
       "kind": "fec_ccl_archive",
-      "url": "https://www.fec.gov/files/bulk-downloads/20l2/ccl26.zip",
+      "url": "https://www.fec.gov/files/bulk-downloads/2026/ccl26.zip",
       "byteSize": 85723,
       "sha256": "0b1bc62a4817c888bc28e3a9e4f166a33de22beb0e42bf62336363b9bf1cc3b1",
       "memberName": "ccl.txt",
@@ -10723,5 +10723,5 @@
     "reviewer": null,
     "reviewedAt": null
   },
-  "packageSha256": "769c75f801fa8b5df3ac4bfdb979be017d8d7fced79d04c3670ab86bb5edb242"
+  "packageSha256": "cf0ca5162ea7fe67a9d5ab80a5590880fdbb3689ddec4c4677e58a3135b9e105"
 }
