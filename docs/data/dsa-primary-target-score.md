@@ -85,6 +85,8 @@ The following acquisitions are required for complete v0.1 rankings:
 
 Aggregate primary turnout and prior progressive-challenger performance are formula inputs, but remain missing until nationwide, geography-compatible sources are selected. Local DSA chapter capacity, endorsements, candidate quality, polling, and field strength should be maintained as separate reviewer inputs; they describe a campaign and organization, not an intrinsic seat condition.
 
+The first cross-source current-incumbent linkage candidate now accounts for all 41 NJ/PA current-target seat-cycle observations available in retained state receipts. It proposes 18 exact-name, nine mechanically derived, and six explicitly inferred relationships while preserving eight historical nonappearances. It automatically approves no identity, selects no contest, resolves no historical geography, and supplies no evaluator number. It supports the existing historic-candidate identity decision rather than creating a new decision. See [`current-incumbent-primary-candidate-linkage-candidate-v1-2026-08-05.md`](../reviews/current-incumbent-primary-candidate-linkage-candidate-v1-2026-08-05.md).
+
 ## Current factual projection status
 
 The immutable v1 reviewer report evaluates the exact 212-seat eligible universe from published release `rel_full_20260804_v2`. It has a compatible 2024 presidential margin for 212/212 seats and current cash-on-hand for 210/212. Its other factors remain explicitly missing.

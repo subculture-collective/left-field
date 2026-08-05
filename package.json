@@ -60,6 +60,7 @@
     "generate:dsa-target-review-v5": "tsx scripts/generate-dsa-target-review-report-v5.ts",
     "generate:dsa-target-review-v6": "tsx scripts/generate-dsa-target-review-report-v6.ts",
     "generate:dsa-target-score-sensitivity-v1": "tsx scripts/generate-dsa-target-score-sensitivity-v1.ts",
+    "generate:current-incumbent-primary-linkage-v1": "tsx scripts/generate-current-incumbent-primary-candidate-linkage-candidate.ts",
     "generate:dsa-target-review-report": "tsx scripts/generate-dsa-target-review-report.ts",
     "generate:dsa-target-review-report-v2": "tsx scripts/generate-dsa-target-review-report-v2.ts",
     "generate:presidential-current-boundary-proposal": "tsx scripts/generate-presidential-current-boundary-proposal.ts",

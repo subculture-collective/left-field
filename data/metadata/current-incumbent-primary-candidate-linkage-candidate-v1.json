@@ -1,0 +1,1508 @@
+{
+  "schema": "current-incumbent-primary-candidate-linkage-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T01:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "parentSourceCutoff": "2026-08-04",
+  "parentSuperseded": false,
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_authorized_identity_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "roster": {
+      "sourceLockId": "dsa-target-incumbent-roster-20260804-v1",
+      "fileSha256": "8ae9bb3423e6160d00b5395186c42550e28811b817a482650875d87de71079e1",
+      "packageSha256": "cf068848595dee99882ae74a6bef2b76061597fe0daa3c86b30c71bdcae18fee"
+    },
+    "sourceSelectionProposal": {
+      "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb",
+      "informedDecisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+      "decisionUnresolved": true
+    },
+    "officialHouseMembers": {
+      "sourceLockId": "house-xml",
+      "fileSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+    },
+    "congressCurrentIdentityAliases": {
+      "sourceLockId": "congress-legislators-current-20260804",
+      "fileSha256": "bc48cccd12df96164e5a2415fc41e838ca255fe85c297731515529692f7982cf"
+    },
+    "newJersey": {
+      "sourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+      "fileSha256": "f605cbdcb6c20694df4daf3dd9bd9be21489518d3aa3cb48bd8a8f5037ba060e",
+      "packageSha256": "946205e381d17d6351f2f86867da9fd54280b5d8680c8a34ac7bde7914293157",
+      "contestSetSha256": "5f06d436f125403cf12a7aa0531a9d9e4348f9b4f7c8925ab86714072ec72946"
+    },
+    "pennsylvania": {
+      "sourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+      "fileSha256": "5815a8ed7e5cadb59c63f27598e0afbc9ec3fa469ecf3837ae0bf3b533920644",
+      "packageSha256": "2cfc554133dcdcde38e345c2af67636f7cb5b1ec1c5290f5db27dab11be2f6eb",
+      "contestSetSha256": "82e392e32a1520bb58f74603f64ccb24af1edf89914554c4559a58f56dcc96b1"
+    }
+  },
+  "methodology": {
+    "scope": "all_41_nj_pa_target_seat_cycle_observations_present_in_retained_receipts",
+    "normalization": "nfkd_ascii_alphanumeric_spaces_uppercase_strip_suffix_v1",
+    "exactNameIsIdentityApproval": false,
+    "researchIdentityAliasIsIdentityApproval": false,
+    "inferredNameIsIdentityApproval": false,
+    "sourceIncumbentMarkerIsIdentityApproval": false,
+    "sourceCandidateNumberIsBioguideBridge": false,
+    "automaticApprovals": 0,
+    "evaluatorNumericValues": 0
+  },
+  "privacy": {
+    "candidateAddressesExcluded": true,
+    "phoneEmailDobExcluded": true,
+    "donorRecordsExcluded": true,
+    "rawSourceTextExcluded": true
+  },
+  "summary": {
+    "targetSeats": 16,
+    "seatCycleObservations": 41,
+    "proposedLinks": 33,
+    "exactNameLinks": 18,
+    "derivedNameLinks": 9,
+    "inferredNameLinks": 6,
+    "unresolvedObservations": 8,
+    "automaticallyApprovedLinks": 0,
+    "scoreEligibleLinks": 0
+  },
+  "links": [
+    {
+      "linkageId": "nj:2022:us-house:01:democratic:N000188",
+      "seatCycleId": "seat_house_nj_01_current",
+      "stateCode": "NJ",
+      "districtCode": "01",
+      "cycleYear": 2022,
+      "contestId": "nj:2022:us-house:01:democratic",
+      "contestSha256": "4b19f87965ba0813a244b7215e1ff498fd63d003e349dfab027bf965b22b1fdf",
+      "rosterIdentity": {
+        "bioguideId": "N000188",
+        "rosterRowSha256": "c82b500b12e8a42d02f8093e6bb82f8db1095c0809db61b683d21dccf3989289",
+        "officialHouseName": "Donald Norcross",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "DONALD W NORCROSS",
+        "sourceCandidateName": "DONALD W. NORCROSS",
+        "sourceCandidateNumber": null,
+        "votes": 44985,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 2,
+      "matchMethod": "derived_transparent_official_name_token_variation",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "transparent_official_name_token_variation"
+      ],
+      "rowSha256": "d9d90835b692f40666cb0574962e4e02f6e20a1c086c51051f51f6f41ea0750b"
+    },
+    {
+      "linkageId": "nj:2022:us-house:03:democratic:C001136",
+      "seatCycleId": "seat_house_nj_03_current",
+      "stateCode": "NJ",
+      "districtCode": "03",
+      "cycleYear": 2022,
+      "contestId": "nj:2022:us-house:03:democratic",
+      "contestSha256": "5f43338305825a3c1b45cf3585bd6fd0adf04003e430aee4428690887fd05dab",
+      "rosterIdentity": {
+        "bioguideId": "C001136",
+        "rosterRowSha256": "9db6f5a6b6626a52b71600dd172912cc51005db05c8fb6fa27eb3ddf3c59f2a3",
+        "officialHouseName": "Herbert C. Conaway, Jr.",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": null,
+      "candidateCount": 2,
+      "matchMethod": "no_unique_candidate_match",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_unique_candidate",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "historical_nonappearance_no_unique_current_incumbent_candidate",
+        "do_not_substitute_prior_officeholder"
+      ],
+      "rowSha256": "504271b097d9eae25d1cef02676165ed571701ffa8625e5b3b2309e0cb4fb845"
+    },
+    {
+      "linkageId": "nj:2022:us-house:05:democratic:G000583",
+      "seatCycleId": "seat_house_nj_05_current",
+      "stateCode": "NJ",
+      "districtCode": "05",
+      "cycleYear": 2022,
+      "contestId": "nj:2022:us-house:05:democratic",
+      "contestSha256": "4771de045d4123b2eddce2dfc7536835d7f3d0c232a0d2ab393e8db9f12062b7",
+      "rosterIdentity": {
+        "bioguideId": "G000583",
+        "rosterRowSha256": "288102c0b313e4835a9a91412eeda5accb929b4c49335d1d73d8b293632436de",
+        "officialHouseName": "Josh Gottheimer",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "JOSH GOTTHEIMER",
+        "sourceCandidateName": "JOSH GOTTHEIMER",
+        "sourceCandidateNumber": null,
+        "votes": 31142,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 1,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "f8651dcb709c8cd08d9821c4854864901e51cb2126f086f5d7a4edd6ef814128"
+    },
+    {
+      "linkageId": "nj:2022:us-house:06:democratic:P000034",
+      "seatCycleId": "seat_house_nj_06_current",
+      "stateCode": "NJ",
+      "districtCode": "06",
+      "cycleYear": 2022,
+      "contestId": "nj:2022:us-house:06:democratic",
+      "contestSha256": "2dfb605215e157b3667e61c33bedb923fe2622f8211abd9701d0589de46d6d6c",
+      "rosterIdentity": {
+        "bioguideId": "P000034",
+        "rosterRowSha256": "b9409fba88250849eed0a32f4e85e837409d3b2fe090ac6939c331b33cb4926c",
+        "officialHouseName": "Frank Pallone, Jr.",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "FRANK PALLONE",
+        "sourceCandidateName": "FRANK PALLONE JR.",
+        "sourceCandidateNumber": null,
+        "votes": 30534,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 1,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "8546f9601236479fcae061b1d182dad8f7e75c59e3513f6a130d2073a8028589"
+    },
+    {
+      "linkageId": "nj:2022:us-house:08:democratic:M001226",
+      "seatCycleId": "seat_house_nj_08_current",
+      "stateCode": "NJ",
+      "districtCode": "08",
+      "cycleYear": 2022,
+      "contestId": "nj:2022:us-house:08:democratic",
+      "contestSha256": "4581eecb478d807ab770033bbbfa2ee81e0de1362e8d2fdf681658d7e3b86dad",
+      "rosterIdentity": {
+        "bioguideId": "M001226",
+        "rosterRowSha256": "3fa69e664b8f55d62cb3026aaf8c42acc17f88c5352d0ede3afdb21dcd9f861f",
+        "officialHouseName": "Robert Menendez",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "ROBERT J MENENDEZ",
+        "sourceCandidateName": "ROBERT J. MENENDEZ",
+        "sourceCandidateNumber": null,
+        "votes": 26490,
+        "winnerMarker": true,
+        "incumbentMarker": false
+      },
+      "candidateCount": 3,
+      "matchMethod": "inferred_unique_first_initial_and_official_surname_token_same_district",
+      "evidenceClass": "inferred_name_relationship",
+      "confidence": "medium",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "unique_first_initial_and_official_surname_token"
+      ],
+      "rowSha256": "c3a454287494b9e31829bfcfc7bb27ee86b33abbf177d323ae243c22295eee43"
+    },
+    {
+      "linkageId": "nj:2022:us-house:09:democratic:P000621",
+      "seatCycleId": "seat_house_nj_09_current",
+      "stateCode": "NJ",
+      "districtCode": "09",
+      "cycleYear": 2022,
+      "contestId": "nj:2022:us-house:09:democratic",
+      "contestSha256": "6c9069ffeeecb506d2b695b98971b8526d40e9414d82a1b43625fb021e957b1b",
+      "rosterIdentity": {
+        "bioguideId": "P000621",
+        "rosterRowSha256": "3dc9777e094b3e271f729d45476eb49d468515fd4eb1894110efe7a1f43db753",
+        "officialHouseName": "Nellie Pou",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": null,
+      "candidateCount": 1,
+      "matchMethod": "no_unique_candidate_match",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_unique_candidate",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "historical_nonappearance_no_unique_current_incumbent_candidate",
+        "do_not_substitute_prior_officeholder"
+      ],
+      "rowSha256": "8dad75ac491b43890d8c9c65329f691082666d458a9ae9d1b59598cb78eb5ae3"
+    },
+    {
+      "linkageId": "nj:2022:us-house:10:democratic:M001229",
+      "seatCycleId": "seat_house_nj_10_current",
+      "stateCode": "NJ",
+      "districtCode": "10",
+      "cycleYear": 2022,
+      "contestId": "nj:2022:us-house:10:democratic",
+      "contestSha256": "3b6002afdac6f5d601fdebe96ed57c084e54d482a1c2f245973c8b352fc08150",
+      "rosterIdentity": {
+        "bioguideId": "M001229",
+        "rosterRowSha256": "a40a12d8ec1ff5870fc289a4c968aae89bed3b01e90cff5eb4c80a72ff09d271",
+        "officialHouseName": "LaMonica McIver",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": null,
+      "candidateCount": 3,
+      "matchMethod": "no_unique_candidate_match",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_unique_candidate",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "historical_nonappearance_no_unique_current_incumbent_candidate",
+        "do_not_substitute_prior_officeholder"
+      ],
+      "rowSha256": "fb5827a5ab28c9ef3c7e24c22c179b218641bef51c32c59275b9835fc37f8b7f"
+    },
+    {
+      "linkageId": "nj:2022:us-house:11:democratic:M001246",
+      "seatCycleId": "seat_house_nj_11_current",
+      "stateCode": "NJ",
+      "districtCode": "11",
+      "cycleYear": 2022,
+      "contestId": "nj:2022:us-house:11:democratic",
+      "contestSha256": "126e1ff769252c4fb4d65569671e687e1f6e5c4e7e88217c41ec5fa5f2ae64b9",
+      "rosterIdentity": {
+        "bioguideId": "M001246",
+        "rosterRowSha256": "814ab8d7dd58a3ec8372f9d9cbe0d1437b0822ec515d08a8e495ab0ab282d6d5",
+        "officialHouseName": "Analilia Mejia",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": null,
+      "candidateCount": 1,
+      "matchMethod": "no_unique_candidate_match",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_unique_candidate",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "historical_nonappearance_no_unique_current_incumbent_candidate",
+        "do_not_substitute_prior_officeholder"
+      ],
+      "rowSha256": "94c2209061e5505cc7d5513b41748fe61b448b89d3821e881759faae71c49a05"
+    },
+    {
+      "linkageId": "nj:2022:us-house:12:democratic:W000822",
+      "seatCycleId": "seat_house_nj_12_current",
+      "stateCode": "NJ",
+      "districtCode": "12",
+      "cycleYear": 2022,
+      "contestId": "nj:2022:us-house:12:democratic",
+      "contestSha256": "e9b3a2e6cce33829008a28d3c4d3745dd0c032eccf9315801eee3fab50dd6034",
+      "rosterIdentity": {
+        "bioguideId": "W000822",
+        "rosterRowSha256": "b770ecd6890b09da346871f506d6573e87ba0e84d8968ae3d8166305cba9ba93",
+        "officialHouseName": "Bonnie Watson Coleman",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "BONNIE WATSON COLEMAN",
+        "sourceCandidateName": "BONNIE WATSON COLEMAN",
+        "sourceCandidateNumber": null,
+        "votes": 37440,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 1,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "a0be2c909da53d0db7cb581b2de19670cffc70bd72f97161932ea2611f07204b"
+    },
+    {
+      "linkageId": "nj:2024:us-house:01:democratic:N000188",
+      "seatCycleId": "seat_house_nj_01_current",
+      "stateCode": "NJ",
+      "districtCode": "01",
+      "cycleYear": 2024,
+      "contestId": "nj:2024:us-house:01:democratic",
+      "contestSha256": "59e3840ca49a2f43941be2422b0f66a3c2d3263942d96458220fc5c4c6d5e04d",
+      "rosterIdentity": {
+        "bioguideId": "N000188",
+        "rosterRowSha256": "c82b500b12e8a42d02f8093e6bb82f8db1095c0809db61b683d21dccf3989289",
+        "officialHouseName": "Donald Norcross",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "DONALD NORCROSS",
+        "sourceCandidateName": "DONALD NORCROSS",
+        "sourceCandidateNumber": null,
+        "votes": 61308,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 1,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "9127855ff84de1763f3ed434f0c9309e92f87627fedaab1134815206c352cab3"
+    },
+    {
+      "linkageId": "nj:2024:us-house:03:democratic:C001136",
+      "seatCycleId": "seat_house_nj_03_current",
+      "stateCode": "NJ",
+      "districtCode": "03",
+      "cycleYear": 2024,
+      "contestId": "nj:2024:us-house:03:democratic",
+      "contestSha256": "29af28cbc6ce7bb2a0a4e1ae4284be5f4bae1f6c1ea8420304eb0cfcad076937",
+      "rosterIdentity": {
+        "bioguideId": "C001136",
+        "rosterRowSha256": "9db6f5a6b6626a52b71600dd172912cc51005db05c8fb6fa27eb3ddf3c59f2a3",
+        "officialHouseName": "Herbert C. Conaway, Jr.",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "HERB CONAWAY",
+        "sourceCandidateName": "HERB CONAWAY",
+        "sourceCandidateNumber": null,
+        "votes": 27528,
+        "winnerMarker": true,
+        "incumbentMarker": false
+      },
+      "candidateCount": 5,
+      "matchMethod": "derived_transparent_official_name_token_variation",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "retained_congress_current_identity_alias"
+      ],
+      "rowSha256": "f497db24c61cd6e4770be91cfa64f790506dc108c3364fdd1887e4d84cb13eee"
+    },
+    {
+      "linkageId": "nj:2024:us-house:05:democratic:G000583",
+      "seatCycleId": "seat_house_nj_05_current",
+      "stateCode": "NJ",
+      "districtCode": "05",
+      "cycleYear": 2024,
+      "contestId": "nj:2024:us-house:05:democratic",
+      "contestSha256": "4c9196d61ffce3eb29ffbd7ad660f6a409e31542bb93308d98a376a9cdd268a9",
+      "rosterIdentity": {
+        "bioguideId": "G000583",
+        "rosterRowSha256": "288102c0b313e4835a9a91412eeda5accb929b4c49335d1d73d8b293632436de",
+        "officialHouseName": "Josh Gottheimer",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "JOSH GOTTHEIMER",
+        "sourceCandidateName": "JOSH GOTTHEIMER",
+        "sourceCandidateNumber": null,
+        "votes": 42819,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 1,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "60b36423aae7f7176a30aaaf523a7214cd5c00389c557b09b802e4c83223dd04"
+    },
+    {
+      "linkageId": "nj:2024:us-house:06:democratic:P000034",
+      "seatCycleId": "seat_house_nj_06_current",
+      "stateCode": "NJ",
+      "districtCode": "06",
+      "cycleYear": 2024,
+      "contestId": "nj:2024:us-house:06:democratic",
+      "contestSha256": "072a800fc6f353098a2d9751ab6696750633abeb03b54a3678a2922f3d12bbd0",
+      "rosterIdentity": {
+        "bioguideId": "P000034",
+        "rosterRowSha256": "b9409fba88250849eed0a32f4e85e837409d3b2fe090ac6939c331b33cb4926c",
+        "officialHouseName": "Frank Pallone, Jr.",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "FRANK PALLONE",
+        "sourceCandidateName": "FRANK PALLONE JR.",
+        "sourceCandidateNumber": null,
+        "votes": 36649,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 2,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "62217447579f213f804a78b229afcf2f8d0a153b1aeb9298b01f622d3b612bc8"
+    },
+    {
+      "linkageId": "nj:2024:us-house:08:democratic:M001226",
+      "seatCycleId": "seat_house_nj_08_current",
+      "stateCode": "NJ",
+      "districtCode": "08",
+      "cycleYear": 2024,
+      "contestId": "nj:2024:us-house:08:democratic",
+      "contestSha256": "cdc452b7a5d0599e281fd10e5e93861818abaebd3350fc03ac4c380d8548a14b",
+      "rosterIdentity": {
+        "bioguideId": "M001226",
+        "rosterRowSha256": "3fa69e664b8f55d62cb3026aaf8c42acc17f88c5352d0ede3afdb21dcd9f861f",
+        "officialHouseName": "Robert Menendez",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "ROB MENENDEZ",
+        "sourceCandidateName": "ROB MENENDEZ",
+        "sourceCandidateNumber": null,
+        "votes": 22465,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 3,
+      "matchMethod": "derived_transparent_official_name_token_variation",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "retained_congress_current_identity_alias"
+      ],
+      "rowSha256": "3a9a181a665a7c977cff4ff6c004724f7aa93186e7f6220d1817b1f702b4cbde"
+    },
+    {
+      "linkageId": "nj:2024:us-house:09:democratic:P000621",
+      "seatCycleId": "seat_house_nj_09_current",
+      "stateCode": "NJ",
+      "districtCode": "09",
+      "cycleYear": 2024,
+      "contestId": "nj:2024:us-house:09:democratic",
+      "contestSha256": "822b27e12d0aa9e322831c3d767d33ea60f6d4d88e048b83c25518425675fa7b",
+      "rosterIdentity": {
+        "bioguideId": "P000621",
+        "rosterRowSha256": "3dc9777e094b3e271f729d45476eb49d468515fd4eb1894110efe7a1f43db753",
+        "officialHouseName": "Nellie Pou",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": null,
+      "candidateCount": 2,
+      "matchMethod": "no_unique_candidate_match",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_unique_candidate",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "historical_nonappearance_no_unique_current_incumbent_candidate",
+        "do_not_substitute_prior_officeholder"
+      ],
+      "rowSha256": "91c77e0bedc806e92ebc4cc6e76e892e2bb47a021e1fcdaaa797855fce1fedcb"
+    },
+    {
+      "linkageId": "nj:2024:us-house:10:democratic:M001229",
+      "seatCycleId": "seat_house_nj_10_current",
+      "stateCode": "NJ",
+      "districtCode": "10",
+      "cycleYear": 2024,
+      "contestId": "nj:2024:us-house:10:democratic",
+      "contestSha256": "1637a39be92746605ba014a94cea0391be082e8e32ba1ed23fc549555d7148f7",
+      "rosterIdentity": {
+        "bioguideId": "M001229",
+        "rosterRowSha256": "a40a12d8ec1ff5870fc289a4c968aae89bed3b01e90cff5eb4c80a72ff09d271",
+        "officialHouseName": "LaMonica McIver",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": null,
+      "candidateCount": 1,
+      "matchMethod": "no_unique_candidate_match",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_unique_candidate",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "historical_nonappearance_no_unique_current_incumbent_candidate",
+        "do_not_substitute_prior_officeholder"
+      ],
+      "rowSha256": "bf4f028f6aa42fbd59c4a059944a28fc2ad0902069934fb0f37eb9a1e14df2f1"
+    },
+    {
+      "linkageId": "nj:2024:us-house:11:democratic:M001246",
+      "seatCycleId": "seat_house_nj_11_current",
+      "stateCode": "NJ",
+      "districtCode": "11",
+      "cycleYear": 2024,
+      "contestId": "nj:2024:us-house:11:democratic",
+      "contestSha256": "077473c0742c9f0db8eb1157a1e549040d46ffb8bbb780078567245f9f51d09e",
+      "rosterIdentity": {
+        "bioguideId": "M001246",
+        "rosterRowSha256": "814ab8d7dd58a3ec8372f9d9cbe0d1437b0822ec515d08a8e495ab0ab282d6d5",
+        "officialHouseName": "Analilia Mejia",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": null,
+      "candidateCount": 2,
+      "matchMethod": "no_unique_candidate_match",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_unique_candidate",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "historical_nonappearance_no_unique_current_incumbent_candidate",
+        "do_not_substitute_prior_officeholder"
+      ],
+      "rowSha256": "325fc1af8599e9a1bca1e8e0addf0aa5f0e5b292089f819c1a3050f7f112fc35"
+    },
+    {
+      "linkageId": "nj:2024:us-house:12:democratic:W000822",
+      "seatCycleId": "seat_house_nj_12_current",
+      "stateCode": "NJ",
+      "districtCode": "12",
+      "cycleYear": 2024,
+      "contestId": "nj:2024:us-house:12:democratic",
+      "contestSha256": "eb237cc0ada634e31acab75c17b07207a301774f946d70fce559d8a3fca5b04b",
+      "rosterIdentity": {
+        "bioguideId": "W000822",
+        "rosterRowSha256": "b770ecd6890b09da346871f506d6573e87ba0e84d8968ae3d8166305cba9ba93",
+        "officialHouseName": "Bonnie Watson Coleman",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "BONNIE WATSON COLEMAN",
+        "sourceCandidateName": "BONNIE WATSON COLEMAN",
+        "sourceCandidateNumber": null,
+        "votes": 43510,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 2,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "2f117dd866fb57950f68c36f0670bdf864db5e972842d0306d01ae0bba2b59cf"
+    },
+    {
+      "linkageId": "nj:2026:us-house:01:democratic:N000188",
+      "seatCycleId": "seat_house_nj_01_current",
+      "stateCode": "NJ",
+      "districtCode": "01",
+      "cycleYear": 2026,
+      "contestId": "nj:2026:us-house:01:democratic",
+      "contestSha256": "a7e6a3c98b14e6f740bced781b1efa6abdb2dac6ff325b030f8d3838f4739e56",
+      "rosterIdentity": {
+        "bioguideId": "N000188",
+        "rosterRowSha256": "c82b500b12e8a42d02f8093e6bb82f8db1095c0809db61b683d21dccf3989289",
+        "officialHouseName": "Donald Norcross",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "DONALD NORCROSS",
+        "sourceCandidateName": "DONALD NORCROSS",
+        "sourceCandidateNumber": null,
+        "votes": 66059,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 1,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "9072fd5f2634bd94bcb2a78403fff52f78f643c80e3aa18074123b2baf84f6cc"
+    },
+    {
+      "linkageId": "nj:2026:us-house:03:democratic:C001136",
+      "seatCycleId": "seat_house_nj_03_current",
+      "stateCode": "NJ",
+      "districtCode": "03",
+      "cycleYear": 2026,
+      "contestId": "nj:2026:us-house:03:democratic",
+      "contestSha256": "72f0bf4b6ff0334fc769a3bdf4ee6f15d96e8e353a3ef67003ce96fd8ad80cd7",
+      "rosterIdentity": {
+        "bioguideId": "C001136",
+        "rosterRowSha256": "9db6f5a6b6626a52b71600dd172912cc51005db05c8fb6fa27eb3ddf3c59f2a3",
+        "officialHouseName": "Herbert C. Conaway, Jr.",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "HERB CONAWAY",
+        "sourceCandidateName": "HERB CONAWAY",
+        "sourceCandidateNumber": null,
+        "votes": 50437,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 1,
+      "matchMethod": "derived_transparent_official_name_token_variation",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "retained_congress_current_identity_alias"
+      ],
+      "rowSha256": "6cb5b9ce113bf41ef4a8f5f8f1118053aefcbc73a17636ad62db110583c5bf49"
+    },
+    {
+      "linkageId": "nj:2026:us-house:05:democratic:G000583",
+      "seatCycleId": "seat_house_nj_05_current",
+      "stateCode": "NJ",
+      "districtCode": "05",
+      "cycleYear": 2026,
+      "contestId": "nj:2026:us-house:05:democratic",
+      "contestSha256": "2b0d9de042903103bda69e85b055d516f02ba7d7a207618024f8e1fab97bf3c1",
+      "rosterIdentity": {
+        "bioguideId": "G000583",
+        "rosterRowSha256": "288102c0b313e4835a9a91412eeda5accb929b4c49335d1d73d8b293632436de",
+        "officialHouseName": "Josh Gottheimer",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "JOSH GOTTHEIMER",
+        "sourceCandidateName": "JOSH GOTTHEIMER",
+        "sourceCandidateNumber": null,
+        "votes": 38077,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 1,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "ee5eb06684f2c8a53c3d2e4248f49ee6d6e244182df4cddd7d85235d755a828b"
+    },
+    {
+      "linkageId": "nj:2026:us-house:06:democratic:P000034",
+      "seatCycleId": "seat_house_nj_06_current",
+      "stateCode": "NJ",
+      "districtCode": "06",
+      "cycleYear": 2026,
+      "contestId": "nj:2026:us-house:06:democratic",
+      "contestSha256": "d55a8b5801c4951fcc3086c9040a073d6ca257d860acd78abd90f9f30f9c4134",
+      "rosterIdentity": {
+        "bioguideId": "P000034",
+        "rosterRowSha256": "b9409fba88250849eed0a32f4e85e837409d3b2fe090ac6939c331b33cb4926c",
+        "officialHouseName": "Frank Pallone, Jr.",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "FRANK PALLONE",
+        "sourceCandidateName": "FRANK PALLONE JR.",
+        "sourceCandidateNumber": null,
+        "votes": 32761,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 3,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "3734429b62f29c0b68eb6f27ce929c7c054dc4455302ef602bd17aa5eab9da2f"
+    },
+    {
+      "linkageId": "nj:2026:us-house:08:democratic:M001226",
+      "seatCycleId": "seat_house_nj_08_current",
+      "stateCode": "NJ",
+      "districtCode": "08",
+      "cycleYear": 2026,
+      "contestId": "nj:2026:us-house:08:democratic",
+      "contestSha256": "fe7d876760915ef59ac58254af39244a6f8366a1c582be1ef0b44a8659e6c003",
+      "rosterIdentity": {
+        "bioguideId": "M001226",
+        "rosterRowSha256": "3fa69e664b8f55d62cb3026aaf8c42acc17f88c5352d0ede3afdb21dcd9f861f",
+        "officialHouseName": "Robert Menendez",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "ROB MENENDEZ",
+        "sourceCandidateName": "ROB MENENDEZ",
+        "sourceCandidateNumber": null,
+        "votes": 28509,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 2,
+      "matchMethod": "derived_transparent_official_name_token_variation",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "retained_congress_current_identity_alias"
+      ],
+      "rowSha256": "187b5631e4c6ce19be11a066609965366381e03d545949a6b65b9021b0676d69"
+    },
+    {
+      "linkageId": "nj:2026:us-house:09:democratic:P000621",
+      "seatCycleId": "seat_house_nj_09_current",
+      "stateCode": "NJ",
+      "districtCode": "09",
+      "cycleYear": 2026,
+      "contestId": "nj:2026:us-house:09:democratic",
+      "contestSha256": "2876c041ed03015ae5f1b088551719768484c1a96ae83d617681c9a80882b17a",
+      "rosterIdentity": {
+        "bioguideId": "P000621",
+        "rosterRowSha256": "3dc9777e094b3e271f729d45476eb49d468515fd4eb1894110efe7a1f43db753",
+        "officialHouseName": "Nellie Pou",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "NELIDA POU",
+        "sourceCandidateName": "NELIDA POU",
+        "sourceCandidateNumber": null,
+        "votes": 27790,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 1,
+      "matchMethod": "inferred_unique_first_initial_and_official_surname_token_same_district",
+      "evidenceClass": "inferred_name_relationship",
+      "confidence": "medium",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "unique_first_initial_and_official_surname_token"
+      ],
+      "rowSha256": "9318745c4575f606f5f4f2172c13b6f24c556848bc07d2db009b8bd8f8d6e318"
+    },
+    {
+      "linkageId": "nj:2026:us-house:10:democratic:M001229",
+      "seatCycleId": "seat_house_nj_10_current",
+      "stateCode": "NJ",
+      "districtCode": "10",
+      "cycleYear": 2026,
+      "contestId": "nj:2026:us-house:10:democratic",
+      "contestSha256": "19eb61f20f8eb233acf13c92fac27976154684ff2e87a68071b595f372c9fdcd",
+      "rosterIdentity": {
+        "bioguideId": "M001229",
+        "rosterRowSha256": "a40a12d8ec1ff5870fc289a4c968aae89bed3b01e90cff5eb4c80a72ff09d271",
+        "officialHouseName": "LaMonica McIver",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "LAMONICA R MCIVER",
+        "sourceCandidateName": "LAMONICA R. MCIVER",
+        "sourceCandidateNumber": null,
+        "votes": 38769,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 2,
+      "matchMethod": "derived_transparent_official_name_token_variation",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "transparent_official_name_token_variation"
+      ],
+      "rowSha256": "de693e05a9145eb7f246e9f592e378ac698c4195a8962a909d761f077f6fb3f9"
+    },
+    {
+      "linkageId": "nj:2026:us-house:11:democratic:M001246",
+      "seatCycleId": "seat_house_nj_11_current",
+      "stateCode": "NJ",
+      "districtCode": "11",
+      "cycleYear": 2026,
+      "contestId": "nj:2026:us-house:11:democratic",
+      "contestSha256": "1a620320a6102232f2df9cc202bccfb650501bb4aa4ca90d4969ca22b7568658",
+      "rosterIdentity": {
+        "bioguideId": "M001246",
+        "rosterRowSha256": "814ab8d7dd58a3ec8372f9d9cbe0d1437b0822ec515d08a8e495ab0ab282d6d5",
+        "officialHouseName": "Analilia Mejia",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "ANALILIA MEJIA",
+        "sourceCandidateName": "ANALILIA MEJIA",
+        "sourceCandidateNumber": null,
+        "votes": 52908,
+        "winnerMarker": true,
+        "incumbentMarker": true
+      },
+      "candidateCount": 4,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "3aefab13368bf1ef846be25bcf6b3e5a6ed46d8ea35bca490750c06678b81d06"
+    },
+    {
+      "linkageId": "nj:2026:us-house:12:democratic:W000822",
+      "seatCycleId": "seat_house_nj_12_current",
+      "stateCode": "NJ",
+      "districtCode": "12",
+      "cycleYear": 2026,
+      "contestId": "nj:2026:us-house:12:democratic",
+      "contestSha256": "c1079c5a1bc2f9c3db209b10c23891d4740df945450715b0870e2d48de935f0b",
+      "rosterIdentity": {
+        "bioguideId": "W000822",
+        "rosterRowSha256": "b770ecd6890b09da346871f506d6573e87ba0e84d8968ae3d8166305cba9ba93",
+        "officialHouseName": "Bonnie Watson Coleman",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": null,
+      "candidateCount": 13,
+      "matchMethod": "no_unique_candidate_match",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_unique_candidate",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "historical_nonappearance_no_unique_current_incumbent_candidate",
+        "do_not_substitute_prior_officeholder"
+      ],
+      "rowSha256": "530da50d57fb1db019184318555271ae0b8475b88587e651450efdd6ac02a624"
+    },
+    {
+      "linkageId": "pa:2022:us-house:02:democratic:B001296",
+      "seatCycleId": "seat_house_pa_02_current",
+      "stateCode": "PA",
+      "districtCode": "02",
+      "cycleYear": 2022,
+      "contestId": "pa:2022:us-house:02:democratic",
+      "contestSha256": "96d2083f2a422e4f0e3336a0644fad43f090fb18e55b7954dd21e6194c62cab3",
+      "rosterIdentity": {
+        "bioguideId": "B001296",
+        "rosterRowSha256": "b9cb41e7238e0171243bfbf13ddfc6c0fa299c9fb2b69dbe0aa7c2ee0a31738a",
+        "officialHouseName": "Brendan F. Boyle",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2022C0194",
+        "sourceCandidateName": "BRENDAN F BOYLE",
+        "sourceCandidateNumber": "2022C0194",
+        "votes": 53632,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 1,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "a4d9cc959e8aadaa20f14b63871589b57b31258ad5ac3921751ea2bbfbc044ba"
+    },
+    {
+      "linkageId": "pa:2022:us-house:03:democratic:E000296",
+      "seatCycleId": "seat_house_pa_03_current",
+      "stateCode": "PA",
+      "districtCode": "03",
+      "cycleYear": 2022,
+      "contestId": "pa:2022:us-house:03:democratic",
+      "contestSha256": "afb6c9a69d9efc8af577de3d0565676cce01028f24c7775a2115a4d9776c858c",
+      "rosterIdentity": {
+        "bioguideId": "E000296",
+        "rosterRowSha256": "bdadf181dc5a3c944fc4c98ac65bb959a365d2b48730fd74b77b4d9338d421b1",
+        "officialHouseName": "Dwight Evans",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2022C0172",
+        "sourceCandidateName": "DWIGHT EVANS",
+        "sourceCandidateNumber": "2022C0172",
+        "votes": 97615,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 3,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "3ef6d22388a4d7ca6eb348570cd31775060e842066d657afd8e8a8bd7fe9238b"
+    },
+    {
+      "linkageId": "pa:2022:us-house:04:democratic:D000631",
+      "seatCycleId": "seat_house_pa_04_current",
+      "stateCode": "PA",
+      "districtCode": "04",
+      "cycleYear": 2022,
+      "contestId": "pa:2022:us-house:04:democratic",
+      "contestSha256": "00bc5b8c8ff9dbc554665441bf84b4c52b598df2eedd81025572cd0cec5c1cc3",
+      "rosterIdentity": {
+        "bioguideId": "D000631",
+        "rosterRowSha256": "53f4af4fb83c176bcf8ac2a33a6695695c5186aebd18a4ebb1aef244904e8f74",
+        "officialHouseName": "Madeleine Dean",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2022C0168",
+        "sourceCandidateName": "MADELEINE D CUNNANE",
+        "sourceCandidateNumber": "2022C0168",
+        "votes": 96732,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 1,
+      "matchMethod": "inferred_unique_official_first_name_same_district",
+      "evidenceClass": "inferred_name_relationship",
+      "confidence": "medium",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "unique_official_first_name_only_low_specificity"
+      ],
+      "rowSha256": "ff772b2bed8a776516612be033c59356bd3140ded06b3c49f2bb603d93bb6ad5"
+    },
+    {
+      "linkageId": "pa:2022:us-house:05:democratic:S001205",
+      "seatCycleId": "seat_house_pa_05_current",
+      "stateCode": "PA",
+      "districtCode": "05",
+      "cycleYear": 2022,
+      "contestId": "pa:2022:us-house:05:democratic",
+      "contestSha256": "093b3fd70022a73b5e21237bb37a319ab73de7a1946a94013d41faeb4aaafdec",
+      "rosterIdentity": {
+        "bioguideId": "S001205",
+        "rosterRowSha256": "c1b9fabfcbb17e8e2293e0d32e9ae481a09ea86db6d2f918232fc7b33646b390",
+        "officialHouseName": "Mary Gay Scanlon",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2022C0164",
+        "sourceCandidateName": "MARY GAY SCANLON",
+        "sourceCandidateNumber": "2022C0164",
+        "votes": 79815,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 1,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "ee404ca60fa1d8f311ed85d2a2a0ddd1af9a634e55c3d2f20b5c9ce5c4405ca8"
+    },
+    {
+      "linkageId": "pa:2022:us-house:06:democratic:H001085",
+      "seatCycleId": "seat_house_pa_06_current",
+      "stateCode": "PA",
+      "districtCode": "06",
+      "cycleYear": 2022,
+      "contestId": "pa:2022:us-house:06:democratic",
+      "contestSha256": "13ed4d18e21a321f82de6bcfe046c0e49cf8f9bec2722586c315c263198c4140",
+      "rosterIdentity": {
+        "bioguideId": "H001085",
+        "rosterRowSha256": "bb8f8a60098a81444a4cb78def21e5b81e9a90d29b2d11feca33711088d9144a",
+        "officialHouseName": "Chrissy Houlahan",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2022C0143",
+        "sourceCandidateName": "CHRISTINA JAMPOLER HOULAHAN",
+        "sourceCandidateNumber": "2022C0143",
+        "votes": 71652,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 1,
+      "matchMethod": "inferred_unique_first_initial_and_official_surname_token_same_district",
+      "evidenceClass": "inferred_name_relationship",
+      "confidence": "medium",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "unique_first_initial_and_official_surname_token"
+      ],
+      "rowSha256": "3dbbd8d59d07bfc18f559dc862480f065899f97b0b7465d8f39ff86de79c9384"
+    },
+    {
+      "linkageId": "pa:2022:us-house:12:democratic:L000602",
+      "seatCycleId": "seat_house_pa_12_current",
+      "stateCode": "PA",
+      "districtCode": "12",
+      "cycleYear": 2022,
+      "contestId": "pa:2022:us-house:12:democratic",
+      "contestSha256": "1db9cd025a152598a163e543d490112389bb775cb825833c38eff3c8cc1bbdb3",
+      "rosterIdentity": {
+        "bioguideId": "L000602",
+        "rosterRowSha256": "db907cf78fdcb38f4ee4dbccc698dc1d23b9a5b8bec180a299ee070bbafb6674",
+        "officialHouseName": "Summer L. Lee",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2022C0236",
+        "sourceCandidateName": "SUMMER LEE",
+        "sourceCandidateNumber": "2022C0236",
+        "votes": 48002,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 5,
+      "matchMethod": "derived_transparent_official_name_token_variation",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "retained_congress_current_identity_alias"
+      ],
+      "rowSha256": "b059fc1aa133e23b7ce8edf3499d1fe2ed3b6ecbb76bcbee7f596bb54c0bf195"
+    },
+    {
+      "linkageId": "pa:2022:us-house:17:democratic:D000530",
+      "seatCycleId": "seat_house_pa_17_current",
+      "stateCode": "PA",
+      "districtCode": "17",
+      "cycleYear": 2022,
+      "contestId": "pa:2022:us-house:17:democratic",
+      "contestSha256": "376a54834df3271c502cca6d20f76a4d40e323ff9421fd367c8b7a252b26fd66",
+      "rosterIdentity": {
+        "bioguideId": "D000530",
+        "rosterRowSha256": "63649760c3066cf1e621bb22811e3e0264059a91f3688e8322e50b57a83beb2a",
+        "officialHouseName": "Christopher R. Deluzio",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2022C0186",
+        "sourceCandidateName": "CHRISTOPHER DELUZIO",
+        "sourceCandidateNumber": "2022C0186",
+        "votes": 61878,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 2,
+      "matchMethod": "inferred_unique_first_initial_and_official_surname_token_same_district",
+      "evidenceClass": "inferred_name_relationship",
+      "confidence": "medium",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "unique_first_initial_and_official_surname_token"
+      ],
+      "rowSha256": "8d039377a1fec5248a5d382241a570b5670783aed721f17420703545ba09d1df"
+    },
+    {
+      "linkageId": "pa:2024:us-house:02:democratic:B001296",
+      "seatCycleId": "seat_house_pa_02_current",
+      "stateCode": "PA",
+      "districtCode": "02",
+      "cycleYear": 2024,
+      "contestId": "pa:2024:us-house:02:democratic",
+      "contestSha256": "2cf0996035e490ff121327c0ff7061e3ab44bfdc070e5f428b8b18e9dabe9e20",
+      "rosterIdentity": {
+        "bioguideId": "B001296",
+        "rosterRowSha256": "b9cb41e7238e0171243bfbf13ddfc6c0fa299c9fb2b69dbe0aa7c2ee0a31738a",
+        "officialHouseName": "Brendan F. Boyle",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2024C0280",
+        "sourceCandidateName": "BRENDAN F BOYLE",
+        "sourceCandidateNumber": "2024C0280",
+        "votes": 43989,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 1,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "7e839eb538d5ab93f81978c30222cdf6a00b7ca4fa5074bc655e686233b5903f"
+    },
+    {
+      "linkageId": "pa:2024:us-house:03:democratic:E000296",
+      "seatCycleId": "seat_house_pa_03_current",
+      "stateCode": "PA",
+      "districtCode": "03",
+      "cycleYear": 2024,
+      "contestId": "pa:2024:us-house:03:democratic",
+      "contestSha256": "8732357a3f2e1585abda1b1d9c7a622be4bf9b65b339f82d22e99f9804090fc4",
+      "rosterIdentity": {
+        "bioguideId": "E000296",
+        "rosterRowSha256": "bdadf181dc5a3c944fc4c98ac65bb959a365d2b48730fd74b77b4d9338d421b1",
+        "officialHouseName": "Dwight Evans",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2024C0363",
+        "sourceCandidateName": "DWIGHT EVANS",
+        "sourceCandidateNumber": "2024C0363",
+        "votes": 93936,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 2,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "103550d92d44dd72d26567c197739cdab39e97ad25c0c232c63e41d621d5c0f2"
+    },
+    {
+      "linkageId": "pa:2024:us-house:04:democratic:D000631",
+      "seatCycleId": "seat_house_pa_04_current",
+      "stateCode": "PA",
+      "districtCode": "04",
+      "cycleYear": 2024,
+      "contestId": "pa:2024:us-house:04:democratic",
+      "contestSha256": "581c1224b46c930847a40ff93c6592ab5c143f8100d2a990fb2a80b6ee807bc7",
+      "rosterIdentity": {
+        "bioguideId": "D000631",
+        "rosterRowSha256": "53f4af4fb83c176bcf8ac2a33a6695695c5186aebd18a4ebb1aef244904e8f74",
+        "officialHouseName": "Madeleine Dean",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2024C0075",
+        "sourceCandidateName": "MADELEINE DEAN CUNNANE",
+        "sourceCandidateNumber": "2024C0075",
+        "votes": 78235,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 1,
+      "matchMethod": "derived_transparent_official_name_token_variation",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "transparent_official_name_token_variation"
+      ],
+      "rowSha256": "1cf88c0227888aff3026ede9f1fd08996f6d793ccae63f96d747fbafbaca3cc2"
+    },
+    {
+      "linkageId": "pa:2024:us-house:05:democratic:S001205",
+      "seatCycleId": "seat_house_pa_05_current",
+      "stateCode": "PA",
+      "districtCode": "05",
+      "cycleYear": 2024,
+      "contestId": "pa:2024:us-house:05:democratic",
+      "contestSha256": "d18f83775ed34fe16fb22a52d98e40217ae387e335936c4c304231d443f744e2",
+      "rosterIdentity": {
+        "bioguideId": "S001205",
+        "rosterRowSha256": "c1b9fabfcbb17e8e2293e0d32e9ae481a09ea86db6d2f918232fc7b33646b390",
+        "officialHouseName": "Mary Gay Scanlon",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2024C0215",
+        "sourceCandidateName": "MARY GAY SCANLON",
+        "sourceCandidateNumber": "2024C0215",
+        "votes": 70068,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 1,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "16060314c2a9ec7764b5be607337c4d07b5416383305efbc1fe5067112f9711e"
+    },
+    {
+      "linkageId": "pa:2024:us-house:06:democratic:H001085",
+      "seatCycleId": "seat_house_pa_06_current",
+      "stateCode": "PA",
+      "districtCode": "06",
+      "cycleYear": 2024,
+      "contestId": "pa:2024:us-house:06:democratic",
+      "contestSha256": "2170a75498ba5760599f2dc086f8abb1c59f3ea4b355f5e04573e8e352df7fc0",
+      "rosterIdentity": {
+        "bioguideId": "H001085",
+        "rosterRowSha256": "bb8f8a60098a81444a4cb78def21e5b81e9a90d29b2d11feca33711088d9144a",
+        "officialHouseName": "Chrissy Houlahan",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2024C0149",
+        "sourceCandidateName": "CHRISTINA JAMPOLER HOULAHAN",
+        "sourceCandidateNumber": "2024C0149",
+        "votes": 58552,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 1,
+      "matchMethod": "inferred_unique_first_initial_and_official_surname_token_same_district",
+      "evidenceClass": "inferred_name_relationship",
+      "confidence": "medium",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "unique_first_initial_and_official_surname_token"
+      ],
+      "rowSha256": "6dc729ed8e92bcedae65730eaae2d62899a5d6b2342afbff394a2bd8e7467246"
+    },
+    {
+      "linkageId": "pa:2024:us-house:12:democratic:L000602",
+      "seatCycleId": "seat_house_pa_12_current",
+      "stateCode": "PA",
+      "districtCode": "12",
+      "cycleYear": 2024,
+      "contestId": "pa:2024:us-house:12:democratic",
+      "contestSha256": "01db77638456ff256237d26006a8833bd8d5b198deb769c17aa7128cd19151f2",
+      "rosterIdentity": {
+        "bioguideId": "L000602",
+        "rosterRowSha256": "db907cf78fdcb38f4ee4dbccc698dc1d23b9a5b8bec180a299ee070bbafb6674",
+        "officialHouseName": "Summer L. Lee",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2024C0730",
+        "sourceCandidateName": "SUMMER LYNN LEE",
+        "sourceCandidateNumber": "2024C0730",
+        "votes": 64594,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 2,
+      "matchMethod": "derived_transparent_official_name_token_variation",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "transparent_official_name_token_variation"
+      ],
+      "rowSha256": "61c9909ef19e1b062485b973f508d2d16d1228e891a5e02ed8758142cb5d718e"
+    },
+    {
+      "linkageId": "pa:2024:us-house:17:democratic:D000530",
+      "seatCycleId": "seat_house_pa_17_current",
+      "stateCode": "PA",
+      "districtCode": "17",
+      "cycleYear": 2024,
+      "contestId": "pa:2024:us-house:17:democratic",
+      "contestSha256": "49afaf2de672efeac42149bf0818f1c9728561e5b04aaa2b7b7c5b5af811ff75",
+      "rosterIdentity": {
+        "bioguideId": "D000530",
+        "rosterRowSha256": "63649760c3066cf1e621bb22811e3e0264059a91f3688e8322e50b57a83beb2a",
+        "officialHouseName": "Christopher R. Deluzio",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateKey": "2024C0556",
+        "sourceCandidateName": "CHRISTOPHER R DELUZIO",
+        "sourceCandidateNumber": "2024C0556",
+        "votes": 85265,
+        "winnerMarker": null,
+        "incumbentMarker": null
+      },
+      "candidateCount": 1,
+      "matchMethod": "exact_normalized_official_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "evaluatorUse": "excluded_pending_authorized_identity_review",
+      "historicalGeographyStatus": "unassessed",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_state_district_cycle",
+        "normalized_official_house_name_equivalence"
+      ],
+      "rowSha256": "15e3fe1ca34ec6e182729426034d30909c622dbd818794b013c0fc43328317ca"
+    }
+  ],
+  "linkSetSha256": "96939a1e8ea480299a5bd34b6756c25367be092d4e26f8929ed1779cc437741c",
+  "decisionSupport": {
+    "informsDecisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+    "analysisConclusion": "name_and_same_district_evidence_can_prioritize_review_but_does_not_authoritatively_bridge_state_candidate_identity_to_bioguide",
+    "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+  },
+  "packageSha256": "cea679fcc77960acf076de64d1d8fe4bbac668a024af7e345332f1effa76a4f4"
+}
