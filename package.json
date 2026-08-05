@@ -114,6 +114,7 @@
     "fetch:or-primary-geography-authority": "node scripts/fetch-oregon-primary-geography-authority.mjs",
     "generate:or-primary-geography-v1": "tsx scripts/generate-oregon-primary-geography-compatibility-candidate.ts",
     "generate:or-current-incumbent-primary-linkage-v1": "tsx scripts/generate-oregon-current-incumbent-primary-linkage-candidate.ts",
+    "generate:or-primary-joint-review-v1": "tsx scripts/generate-oregon-primary-identity-geography-review-package.ts",
     "generate:md-house-primary-results-receipt": "tsx scripts/generate-maryland-house-democratic-primary-results-receipt.ts",
     "fetch:ct-house-primary-event-results": "node scripts/fetch-ct-house-democratic-primary-event-results.mjs",
     "generate:ct-house-primary-event-dispositions": "tsx scripts/generate-connecticut-house-democratic-primary-event-dispositions-receipt.ts",
