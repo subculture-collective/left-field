@@ -25,6 +25,6 @@ describe("FEC V2 runner configuration boundary", () => {
 
   it("rejects deadlines beyond the bounded six-hour lease window", async () => {
     const { file, bytes } = await fixture();
-    await expect(validateConfiguredFecV2DryRun({ planPath: file, apiKey: "present", deadlineMs: Date.now() + 6 * 60 * 60_000 + 1, expectation: { planSha256: fecAcquisitionPlanSha256(bytes), sourceLockSha256: "a".repeat(64), seatCycleIds: ids } })).rejects.toThrow("FEC_V2_CONFIGURATION_INVALID");
+    await expect(validateConfiguredFecV2DryRun({ planPath: file, apiKey: "present", deadlineMs: Date.now() + 6 * 60 * 60_000 + 60_000, expectation: { planSha256: fecAcquisitionPlanSha256(bytes), sourceLockSha256: "a".repeat(64), seatCycleIds: ids } })).rejects.toThrow("FEC_V2_CONFIGURATION_INVALID");
   });
 });

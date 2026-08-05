@@ -22,7 +22,7 @@ The machine-readable result endpoint is an undocumented public crosstab interfac
 
 ## Completeness boundary
 
-New York had 26 congressional districts in each retained cycle, but the official reported-result corpus contains only nine Democratic House contests for 2022 and two for 2024. The remaining 17 and 24 districts are `unclassified`, not zero and not automatically uncontested. Separate official ballot, candidate-list, or canvass authority must classify each as reported, uncontested, no Democratic primary, no Democratic candidate, or another exact disposition.
+New York had 26 congressional districts in each retained cycle, but the official reported-result corpus contains only nine Democratic House contests for 2022 and two for 2024. In this result-only receipt, the remaining 17 and 24 districts are `unclassified`, not zero and not automatically uncontested. The separate ballot-disposition candidate now resolves 4 of those 2022 absences and 11 of those 2024 absences as explicitly certified `Uncontested`; district 01 and districts 04 through 15 remain unresolved in both cycles because they fall outside the state certification's scope.
 
 Research indicates that the June 28, 2022 primary did not include U.S. House contests and that congressional primaries occurred August 23. That conclusion is recorded only as `researched_not_source_locked_do_not_use` until adequate statewide authority is retained. The August source also overlaps special-election activity, so the package binds only result-system contests explicitly identified as Democratic primaries for Representative in Congress.
 

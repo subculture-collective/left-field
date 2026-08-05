@@ -57,6 +57,8 @@
     "generate:il-house-primary-results-receipt": "tsx scripts/generate-illinois-house-democratic-primary-results-receipt.ts",
     "fetch:ny-house-primary-reported-results": "node scripts/fetch-ny-house-democratic-primary-reported-results.mjs",
     "generate:ny-house-primary-reported-results": "tsx scripts/generate-new-york-house-democratic-primary-reported-results-receipt.ts",
+    "import:ny-house-primary-ballot-certifications": "node scripts/import-ny-house-primary-ballot-certifications.mjs",
+    "generate:ny-house-primary-dispositions": "tsx scripts/generate-new-york-house-democratic-primary-dispositions-receipt.ts",
     "bootstrap:fec-bulk": "tsx scripts/bootstrap-fec-bulk.ts",
     "reconcile:fec-bulk": "tsx scripts/reconcile-fec-bulk.ts",
     "db:generate": "drizzle-kit generate",

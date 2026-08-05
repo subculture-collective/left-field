@@ -1,0 +1,1121 @@
+{
+  "schema": "new-york-house-democratic-primary-dispositions-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T15:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "originalPublisher": "New York State Board of Elections",
+  "authorityScope": "state-certified multi-county congressional districts only",
+  "ballotCertifications": [
+    {
+      "id": "ny-2022-house-primary-ballot-certification",
+      "url": "https://elections.ny.gov/system/files/documents/2023/12/2022aug232022primarycertification.pdf",
+      "retainedPath": "data/source/elections/primary-results/new-york/2022/official-primary-ballot-certification.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 459911,
+      "sha256": "ad7c4d99a0a561ac7bff1c4888c776ea921f5b0b08cebb85246f3c7f6cbdb53d",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "ny-2024-house-primary-ballot-certification",
+      "url": "https://elections.ny.gov/system/files/documents/2024/05/june-25-2024-primary-certification-05.01.2024.pdf",
+      "retainedPath": "data/source/elections/primary-results/new-york/2024/official-primary-ballot-certification.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 1369420,
+      "sha256": "9b102d07b67f5dea488c22bf4d3be03d6459c39cd7e36b651fd2bbb27982d5eb",
+      "kind": "source",
+      "parentIds": []
+    }
+  ],
+  "reportedResultsParent": {
+    "sourceLockId": "new-york-house-democratic-primary-reported-results-2022-2024-v1",
+    "packageSha256": "5ba3280bd2a837281877a0fb70979b42501afd6e7e9d8567149e1b22942e125b"
+  },
+  "extraction": {
+    "tool": "pdftotext",
+    "toolVersion": "26.07.0",
+    "layoutMode": true,
+    "independentlyReviewedPages": true,
+    "candidateAddressesNotRetained": true
+  },
+  "rows": [
+    {
+      "seatCycleId": "ny:2022:us-house:01:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "7a88353e50d38f8b72f56c8974ed4c7e7f768ee279480c48e62fd2f15cd0cf1f"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:02:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 3,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "b0b41c5bbf3d715ac738fd384ad8d82526b10601207f7216eb80694889f498b5"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:03:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "reported_contest",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 4,
+      "reportedContestId": "ny:2022:us-house:03:democratic",
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "80d9bb64fba791e95a5d2cfe88d048d74d199606290be0f906dfc2f3e4bf7549"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:04:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "2977f55e10fc872277516ea6bc870107edd3ff1be014d8a9b09baa53425661a2"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:05:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "9c471089ecb72c9492ec45024a37f0174ae46e00945acb6f59484c7fc3797bb2"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:06:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "48ea6521b5fe465b4985d5ccb41c3f616bf548d1adcf03dab511c418401db248"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:07:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "dcf8f313bae0b5b4810441f626bfa43e5629b274ff374cb80c366cfe467fe418"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:08:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "2693017427b8295f5d9b3c669fafe178b64a553ef1370a0a6884c2395ac423d8"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:09:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "0fbab7a13dd4962ec8fd3c6d7fa880ab68867d059c2b7bd878d0f07d74776991"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:10:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "d12bf05a8c85a5338dfde33c01da9f5deb4691839da4e8f73bb90b08db71ae89"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:11:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "0f092eab3e1d1e788f66ac11dc193c4310876d4c3ab5f56d482e101ee3592456"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:12:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "12",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "1db4a019205cf62bb8101e73354f251d29256faece5774ee0e1c6b6a2897eaa3"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:13:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "13",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "24821d92c53b7ac6c04120634d595624a74111dd58400814655bc6a5469eebdb"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:14:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "14",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "b8dbd1be67e91ec3d29bcc6d263fe381ae86c9e10e98805e8974d595d30d5ee0"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:15:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "15",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "84e28cea6e46776a63ef7b910e759821653bd12c4a6ff61c28275dfb52fd7fbb"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:16:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "16",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "reported_contest",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 5,
+      "reportedContestId": "ny:2022:us-house:16:democratic",
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "e25032e184f273b0102dd34b2f94e13c04731d4052438859ca62c32d14c25faf"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:17:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "17",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "reported_contest",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 6,
+      "reportedContestId": "ny:2022:us-house:17:democratic",
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "7770fc2e5d9362af2f4132d83f6e59c3a3131559ea3be1c697035e60a4c6de95"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:18:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "18",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "reported_contest",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 7,
+      "reportedContestId": "ny:2022:us-house:18:democratic",
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "281af9d2ec4369809c41ba9097c7b609a92d045587dca59996d457f53b7d999b"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:19:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "19",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "reported_contest",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 8,
+      "reportedContestId": "ny:2022:us-house:19:democratic",
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "40d4985d343465e9c592b9184936f479e536dab5af0913e0fa3909cc11931d21"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:20:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "20",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "reported_contest",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 9,
+      "reportedContestId": "ny:2022:us-house:20:democratic",
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "14ca0bd0869422e1874d1bb73c6e0840baaff99e0682048511b178861604f816"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:21:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "21",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "reported_contest",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 10,
+      "reportedContestId": "ny:2022:us-house:21:democratic",
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "e71e5960db32dee132b0ac5b8440f2d9eddfd67355dcf1acbec76bfb651473b3"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:22:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "22",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "reported_contest",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 11,
+      "reportedContestId": "ny:2022:us-house:22:democratic",
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "babc25412d282a59f4c6bf8d3b23bbf7a2457bfc8a612c0411070cfa6048b80a"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:23:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "23",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 12,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "dc25f46b957e39a280d94bc0cc251f69b9732fa2b2f5b06f67d2964b39f0f490"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:24:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "24",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 12,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "d73dedc3d353a36859328bfff9c023f3461d5aa52c68bd88fdc343da1f37ad4d"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:25:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "25",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 13,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "5adb23abf37fff7d084fb477cbae11c319e1d9b79bc54499fbdb5944606d5da8"
+    },
+    {
+      "seatCycleId": "ny:2022:us-house:26:democratic",
+      "cycleYear": 2022,
+      "stateCode": "NY",
+      "districtCode": "26",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "reported_contest",
+      "ballotCertificationSourceLockId": "ny-2022-house-primary-ballot-certification",
+      "ballotCertificationPage": 14,
+      "reportedContestId": "ny:2022:us-house:26:democratic",
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "344455388e562eaf6ce34da0c20f8f88a80ae821a0eb7fb74f9e063b5b7cae80"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:01:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "2bec7fe0c41d595b833ef7d9ec3815365298d5a260aa9c856795f5858af451e4"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:02:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 4,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "279cab416c9821dace0f398fb50b712f2e046652d975045e89d3e2bf40e39fc2"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:03:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 5,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "85796bb27a819256eb9108cbc6c05fcb9e10dfa01fd86581c124f1ba09f02741"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:04:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "66e17712f07ba3c1b32dfd22957910bd21de654872205f69b5247806f3f803e1"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:05:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "366739cfc4c112e84b52982253b82d632bf86ca877144b9a9af85f0bcc9bbee6"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:06:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "988c3fd609f1a9c53c200ba7c8030bd8741a814f021f5d12a6ecabdeab48a88a"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:07:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "65c21e40ec2cd45a136a60564814a96dc2ac86850199f7b9246085b7de52e2c1"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:08:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "e955406678a3eab2659c0fbf2000d88da70b6a2403a147d39b1220a263139219"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:09:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "219f15c11302d0a12ce4761d4edb2d9ecf3b571da6a9b50636de318720638575"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:10:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "ad3602caeb9d4da8a1f5f6ee45d916ced3ee25860b7bb8b2df517fa7ce7bc369"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:11:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "c7e29be478b606fc5b8012391175f330c7cf92563a75583b5bb13ab044ed4360"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:12:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "12",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "32a6cdea68c881b082194fd1d07bca45e8b42f1b435be958475d8d9134bc2a75"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:13:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "13",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "65664d5cdbc9050d9991c3943f081ce1d486522ceb969ea3f1238f6350c7fc2d"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:14:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "14",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "39be091affa315686821fd2d052dcd280344e47d5928bf5c3db757d7f2149560"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:15:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "15",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "unresolved_outside_state_certification_scope",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": null,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "7f36636950e1d5e4ab0f656eea5c86d0bdf26dc1baea7503b964b173e5cc8fb9"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:16:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "16",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "reported_contest",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 6,
+      "reportedContestId": "ny:2024:us-house:16:democratic",
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "a1b01dd43fe36eb4504c7e58ea22fae82bdb62bfab57ee611326ee9e6ec6c82e"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:17:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "17",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 7,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "c4c47bf8fb131a7f94403066b98595161083489a80b75e7eaa2bc8490c83c15a"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:18:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "18",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 9,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "afbf7ab2e676ce6eb201a08eb8d7a3c91609493c2d5dec81e0cb809a23559a50"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:19:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "19",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 10,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "3c865e2ad44132669e64c8c0d2c0ec3cf947c5c6a2936d577e1d6ed6cc3d5f8e"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:20:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "20",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 11,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "eace1000f167b8bc3e18efc04b2bf97c71000f63a95352bbf09670689a366f9c"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:21:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "21",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 13,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "acd80922bbfc2a7b2b67ac2c847898c4154a309245bc05ada94cfb924f4d8c1a"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:22:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "22",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "reported_contest",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 14,
+      "reportedContestId": "ny:2024:us-house:22:democratic",
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "ffe1bfbe7289c747c6ee3ed53981e94562469373986741fbbe6c2fae95732e6e"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:23:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "23",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 15,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "5952e2b4ad1bcbdc3a1eb9d5f915d0159849774dfa18ffeea76c7f06507225da"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:24:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "24",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 16,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "453b226e0e2c8a64377ee8c0bd32472ffbf9a362521993b1a3ad6301f9561bf1"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:25:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "25",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 17,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "b5e61a87fe6a0d4187337dd6d5056a10612e93e20509d12898b6ede3440dcb7c"
+    },
+    {
+      "seatCycleId": "ny:2024:us-house:26:democratic",
+      "cycleYear": 2024,
+      "stateCode": "NY",
+      "districtCode": "26",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "certified_uncontested",
+      "ballotCertificationSourceLockId": "ny-2024-house-primary-ballot-certification",
+      "ballotCertificationPage": 18,
+      "reportedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "6e3b9197e939ce8998c4bdd5a8464eaad80ad82a77466702b6d3bbeca4d2862f"
+    }
+  ],
+  "summary": {
+    "seatCycles": 52,
+    "reportedContests": 11,
+    "certifiedUncontested": 15,
+    "unresolved": 26,
+    "resolvedByCycle": {
+      "2022": 13,
+      "2024": 13
+    },
+    "unresolvedByCycle": {
+      "2022": 13,
+      "2024": 13
+    },
+    "dispositionSetSha256": "2493dd4ceab7616be7dc544c3c4f6e3e8abc121c4dcefde9b54ac958d209f69e",
+    "evaluatorNumericValues": 0,
+    "scoreEligibleRows": 0
+  },
+  "limitations": [
+    "The two ballot certifications cover only congressional districts 02, 03, and 16 through 26 because those districts cross county boundaries; they do not establish a disposition for districts 01 or 04 through 15.",
+    "Certified uncontested means the signed ballot certification explicitly labels the Democratic entry Uncontested; it is not a zero-vote result and carries no vote value.",
+    "Reported-contest values remain governed by the separate reported-results receipt and are not duplicated here.",
+    "No row is published, score eligible, identity reviewed, geography reviewed, or progressively classified."
+  ],
+  "unresolvedGates": [
+    "retain_county_board_authority_for_districts_01_and_04_through_15",
+    "retain_independent_final_result_certification",
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_progressive_candidate_classification"
+  ],
+  "packageSha256": "3c3b88e1d235ef89f8022456e16e2259294cfb62de3c0778a497c3fcc51d8a78"
+}
