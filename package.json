@@ -60,6 +60,7 @@
     "generate:ny-house-primary-reported-results": "tsx scripts/generate-new-york-house-democratic-primary-reported-results-receipt.ts",
     "import:ny-house-primary-ballot-certifications": "node scripts/import-ny-house-primary-ballot-certifications.mjs",
     "generate:ny-house-primary-dispositions": "tsx scripts/generate-new-york-house-democratic-primary-dispositions-receipt.ts",
+    "generate:ny-house-primary-dispositions-v2": "tsx scripts/generate-new-york-house-democratic-primary-dispositions-v2-receipt.ts",
     "generate:nyc-house-primary-certified-results": "tsx scripts/generate-new-york-city-house-democratic-primary-certified-results-receipt.ts",
     "bootstrap:fec-bulk": "tsx scripts/bootstrap-fec-bulk.ts",
     "reconcile:fec-bulk": "tsx scripts/reconcile-fec-bulk.ts",

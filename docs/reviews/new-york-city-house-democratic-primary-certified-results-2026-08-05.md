@@ -25,7 +25,7 @@ Every certified-recap option total is summed and reconciled to the recap's recor
 
 ## Integration boundary
 
-The immutable statewide v1 disposition matrix still records 26 unresolved district-years because it predates this local-authority package. A future versioned integration can conservatively replace eight of those unresolved rows with locally reported contests. Combined authority would then account for 19 reported contests, 15 explicitly state-certified uncontested entries, and 18 unresolved district-years (7 in 2022 and 11 in 2024). Those combined counts are a proposed v2 derivation, not a mutation or publication claim.
+The immutable statewide v1 disposition matrix still records 26 unresolved district-years because it predates this local-authority package. The separately versioned v2 composition conservatively replaces eight of those unresolved rows with locally reported contests and accounts for 19 reported contests, 15 explicitly state-certified uncontested entries, and 18 unresolved district-years (7 in 2022 and 11 in 2024). V2 is a reviewer candidate, not a mutation or publication claim.
 
 District 01 and district 04 in both cycles, plus districts 05 through 09 and 14 through 15 where not directly supported by this package, remain unresolved. Suffolk's current candidate-list evidence and unavailable archived result bytes are not substituted for a certified numeric result; Nassau's current results page is not an archival source for these cycles.
 
