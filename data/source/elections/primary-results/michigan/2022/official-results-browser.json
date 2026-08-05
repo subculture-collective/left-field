@@ -1,0 +1,304 @@
+{
+  "captureKind": "browser_rendered_official_results",
+  "contests": [
+    {
+      "candidates": [
+        {
+          "name": "LORINSER, BOB",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 67251
+        }
+      ],
+      "district": 1,
+      "party": "Democratic",
+      "partyTotalVotes": 67251,
+      "title": "1ST DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "HILLIARD, JERRY",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 40952
+        }
+      ],
+      "district": 2,
+      "party": "Democratic",
+      "partyTotalVotes": 40952,
+      "title": "2ND DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "SCHOLTEN, HILLARY",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 59661
+        }
+      ],
+      "district": 3,
+      "party": "Democratic",
+      "partyTotalVotes": 59661,
+      "title": "3RD DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "ALFONSO, JOSEPH",
+          "party": "DEMOCRATIC WRITE-IN",
+          "percent": "100%",
+          "votes": 10992
+        }
+      ],
+      "district": 4,
+      "party": "Democratic",
+      "partyTotalVotes": 10992,
+      "title": "4TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "GOLDBERG, BART",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 39971
+        }
+      ],
+      "district": 5,
+      "party": "Democratic",
+      "partyTotalVotes": 39971,
+      "title": "5TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "DINGELL, DEBBIE",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 102859
+        }
+      ],
+      "district": 6,
+      "party": "Democratic",
+      "partyTotalVotes": 102859,
+      "title": "6TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "SLOTKIN, ELISSA",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 77826
+        }
+      ],
+      "district": 7,
+      "party": "Democratic",
+      "partyTotalVotes": 77826,
+      "title": "7TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "KILDEE, DANIEL T.",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 70791
+        }
+      ],
+      "district": 8,
+      "party": "Democratic",
+      "partyTotalVotes": 70791,
+      "title": "8TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "JAYE, BRIAN",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 48802
+        }
+      ],
+      "district": 9,
+      "party": "Democratic",
+      "partyTotalVotes": 48802,
+      "title": "9TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "ARRAF, HUWAIDA",
+          "party": "DEMOCRATIC",
+          "percent": "12.95%",
+          "votes": 8846
+        },
+        {
+          "name": "MARLINGA, CARL J.",
+          "party": "DEMOCRATIC",
+          "percent": "47.82%",
+          "votes": 32653
+        },
+        {
+          "name": "POWELL, RHONDA",
+          "party": "DEMOCRATIC",
+          "percent": "16.69%",
+          "votes": 11396
+        },
+        {
+          "name": "ROGENSUES, ANGELA",
+          "party": "DEMOCRATIC",
+          "percent": "13.92%",
+          "votes": 9503
+        },
+        {
+          "name": "YANEZ, HENRY",
+          "party": "DEMOCRATIC",
+          "percent": "8.63%",
+          "votes": 5891
+        }
+      ],
+      "district": 10,
+      "party": "Democratic",
+      "partyTotalVotes": 68289,
+      "title": "10TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "LEVIN, ANDY",
+          "party": "DEMOCRATIC",
+          "percent": "40.06%",
+          "votes": 47117
+        },
+        {
+          "name": "STEVENS, HALEY",
+          "party": "DEMOCRATIC",
+          "percent": "59.94%",
+          "votes": 70508
+        }
+      ],
+      "district": 11,
+      "party": "Democratic",
+      "partyTotalVotes": 117625,
+      "title": "11TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION FILES IN OAKLAND COUNTY"
+    },
+    {
+      "candidates": [
+        {
+          "name": "GARRETT, KELLY",
+          "party": "DEMOCRATIC",
+          "percent": "8.63%",
+          "votes": 8334
+        },
+        {
+          "name": "JACKSON, SHANELLE",
+          "party": "DEMOCRATIC",
+          "percent": "5.10%",
+          "votes": 4927
+        },
+        {
+          "name": "TLAIB, RASHIDA",
+          "party": "DEMOCRATIC",
+          "percent": "63.85%",
+          "votes": 61635
+        },
+        {
+          "name": "WINFREY, JANICE",
+          "party": "DEMOCRATIC",
+          "percent": "22.41%",
+          "votes": 21636
+        }
+      ],
+      "district": 12,
+      "party": "Democratic",
+      "partyTotalVotes": 96532,
+      "title": "12TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "CONYERS, JOHN",
+          "party": "DEMOCRATIC",
+          "percent": "8.60%",
+          "votes": 6778
+        },
+        {
+          "name": "GAY-DAGNOGO, SHERRY",
+          "party": "DEMOCRATIC",
+          "percent": "8.17%",
+          "votes": 6440
+        },
+        {
+          "name": "GRIFFIE, MICHAEL",
+          "party": "DEMOCRATIC",
+          "percent": "4.61%",
+          "votes": 3636
+        },
+        {
+          "name": "HOLLIER, ADAM",
+          "party": "DEMOCRATIC",
+          "percent": "23.50%",
+          "votes": 18517
+        },
+        {
+          "name": "MCPHAIL, SHARON",
+          "party": "DEMOCRATIC",
+          "percent": "6.40%",
+          "votes": 5043
+        },
+        {
+          "name": "RIDDLE, SAM",
+          "party": "DEMOCRATIC",
+          "percent": "2.34%",
+          "votes": 1841
+        },
+        {
+          "name": "ROBERSON, PORTIA",
+          "party": "DEMOCRATIC",
+          "percent": "16.90%",
+          "votes": 13318
+        },
+        {
+          "name": "RUTLEDGE, LORRIE",
+          "party": "DEMOCRATIC",
+          "percent": "1.16%",
+          "votes": 916
+        },
+        {
+          "name": "THANEDAR, SHRI",
+          "party": "DEMOCRATIC",
+          "percent": "28.31%",
+          "votes": 22314
+        },
+        {
+          "name": "LANDIN, ROGELIO",
+          "party": "DEMOCRATIC WRITE-IN",
+          "percent": "0.00%",
+          "votes": 3
+        },
+        {
+          "name": "TAN, BORATHA",
+          "party": "DEMOCRATIC WRITE-IN",
+          "percent": "0.00%",
+          "votes": 3
+        }
+      ],
+      "district": 13,
+      "party": "Democratic",
+      "partyTotalVotes": 78809,
+      "title": "13TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION FILES IN WAYNE COUNTY"
+    }
+  ],
+  "countiesReported": 83,
+  "countiesTotal": 83,
+  "electionDate": "8/2/2022",
+  "electionType": "STATE PRIMARY",
+  "sourceUrl": "https://mvic.sos.state.mi.us/votehistory/Index?electionDate=8-2-2022&type=C",
+  "status": "OFFICIAL",
+  "title": "2022 Michigan Election Results",
+  "updatedAt": "1/1/2024 12:00:00 AM",
+  "captureMethod": "Codex in-app browser DOM projection from #tab-target-voteResults; direct download endpoint was Cloudflare-blocked"
+}

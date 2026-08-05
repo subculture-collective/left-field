@@ -1,0 +1,1613 @@
+{
+  "schema": "michigan-house-democratic-primary-results-2022-2026-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T18:30:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "parentProposal": {
+    "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "decisionSupport": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    }
+  ],
+  "inheritedDecisionResolutions": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "resolution": null
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "resolution": null
+    }
+  ],
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "status": "official_results_and_event_certification_retained",
+      "resultRowsRetained": 13,
+      "candidateRowsRetained": 31,
+      "countiesReported": 83,
+      "countiesTotal": 83
+    },
+    {
+      "cycleYear": 2024,
+      "status": "official_results_and_event_certification_retained",
+      "resultRowsRetained": 13,
+      "candidateRowsRetained": 23,
+      "aggregateWriteInChannels": 2,
+      "countiesReported": 83,
+      "countiesTotal": 83
+    },
+    {
+      "cycleYear": 2026,
+      "status": "unofficial_results_not_retained_pending_county_and_state_canvass",
+      "resultRowsRetained": 0,
+      "candidateRowsRetained": 0,
+      "observedHouseContestCount": 12,
+      "observedCandidateRows": 26,
+      "countiesReported": 82,
+      "countiesTotal": 83,
+      "countyCanvassDeadline": "2026-08-18",
+      "stateCanvassDeadline": "2026-08-24"
+    }
+  ],
+  "sources": [
+    {
+      "id": "mi-2022-house-democratic-primary-results-browser",
+      "url": "https://mvic.sos.state.mi.us/votehistory/Index?electionDate=8-2-2022&type=C",
+      "retainedPath": "data/source/elections/primary-results/michigan/2022/official-results-browser.json",
+      "retainedStatus": "retained",
+      "byteSize": 7798,
+      "sha256": "3616cfc7cf96a7c56badf36f53a080ca43549a72e58d5c3c21d7532eabfeb813",
+      "kind": "browser_rendered_source",
+      "parentIds": []
+    },
+    {
+      "id": "mi-2022-primary-board-certification-html",
+      "url": "https://www.michigan.gov/sos/resources/news/2022/08/19/board-of-state-canvassers-certifies-primary-elections",
+      "retainedPath": "data/source/elections/primary-results/michigan/2022/board-certification-20220819.html",
+      "retainedStatus": "retained",
+      "byteSize": 363123,
+      "sha256": "7e70d9c9a00b4422639a29297ad604aef24027ddf4febeef94e932c5e295ba7b",
+      "kind": "source_snapshot",
+      "parentIds": []
+    },
+    {
+      "id": "mi-2024-house-democratic-primary-results-browser",
+      "url": "https://mvic.sos.state.mi.us/votehistory/Index?electionDate=8-6-2024&type=C",
+      "retainedPath": "data/source/elections/primary-results/michigan/2024/official-results-browser.json",
+      "retainedStatus": "retained",
+      "byteSize": 6861,
+      "sha256": "e9a469840c98f9a583e4ad599c9fa5ba52b0a4ea0b32aada1857ce204d6d49ee",
+      "kind": "browser_rendered_source",
+      "parentIds": []
+    },
+    {
+      "id": "mi-2024-primary-board-signed-minutes-pdf",
+      "url": "https://www.michigan.gov/sos/-/media/Project/Websites/sos/BSC-Meeting-Minutes/2024/August-26-2024-Signed-BSC-Minutes.pdf?hash=075A98A50AB2C24A4B4EE050E4E98620&rev=f1420286bcdb474ea11a44b1036cac58",
+      "retainedPath": "data/source/elections/primary-results/michigan/2024/board-signed-minutes-20240826.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 78686,
+      "sha256": "bafbce4fa43b6d6dd9e4070dbd37e16c3a62ed22293c05441bb5d885c1d8aaa1",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "mi-2024-primary-board-signed-minutes-text",
+      "url": "urn:dsa-seats:mi-2024-primary-board-signed-minutes-pdf:pdftotext-layout",
+      "retainedPath": "data/source/elections/primary-results/michigan/2024/board-signed-minutes-20240826.txt",
+      "retainedStatus": "retained",
+      "byteSize": 4984,
+      "sha256": "58595e6c8652e5d81f0123082de99cd356e8e6432ac3f3da435b2405f954b3f0",
+      "kind": "derived_extract",
+      "parentIds": [
+        "mi-2024-primary-board-signed-minutes-pdf"
+      ]
+    },
+    {
+      "id": "mi-2026-election-dates-pdf",
+      "url": "https://www.michigan.gov/sos/-/media/Project/Websites/sos/Election-Administrators/Election-Dates.pdf?hash=F0FBD11679BF8C04E25673B229C7D7AF&rev=7ace12d9ec324db0988852b06d996d79",
+      "retainedPath": "data/source/elections/primary-results/michigan/authority/2026-election-dates.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 2378428,
+      "sha256": "865ddeb9d94fd700ebb3a0b7f0ed180e0a23a3d1cc40e5a72dfc585ac3062f74",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "mi-2026-election-dates-text",
+      "url": "urn:dsa-seats:mi-2026-election-dates-pdf:pdftotext-layout",
+      "retainedPath": "data/source/elections/primary-results/michigan/authority/2026-election-dates.txt",
+      "retainedStatus": "retained",
+      "byteSize": 63723,
+      "sha256": "d53be9da0af24e1e7e59e3dd9745331378f5a87f4b8f1c72d2d6a1b4a00b4f7e",
+      "kind": "derived_extract",
+      "parentIds": [
+        "mi-2026-election-dates-pdf"
+      ]
+    },
+    {
+      "id": "mi-2026-primary-unofficial-boundary-browser-20260805",
+      "url": "https://mvic.sos.state.mi.us/votehistory/Index?electionDate=8-4-2026&type=C",
+      "retainedPath": "data/source/elections/primary-results/michigan/2026/unofficial-boundary-browser-20260805.json",
+      "retainedStatus": "retained",
+      "byteSize": 651,
+      "sha256": "a570693f064ff1d6f422d77f9731ebd3c746ac2aad08972d939febb54dc4da5c",
+      "kind": "browser_rendered_source",
+      "parentIds": []
+    },
+    {
+      "id": "mi-canvass-certification-authority-snapshot-20260805",
+      "url": "https://www.michigan.gov/sos/elections/security",
+      "retainedPath": "data/source/elections/primary-results/michigan/authority/canvass-certification-authority-20260805.html",
+      "retainedStatus": "retained",
+      "byteSize": 440181,
+      "sha256": "d5cfba8c05a6dcb6f5631cabb5bebfbd67a7ae791b7d23115cc8e37a2fa9389f",
+      "kind": "source_snapshot",
+      "parentIds": []
+    },
+    {
+      "id": "mi-primary-results-catalog-snapshot-20260805",
+      "url": "https://www.michigan.gov/sos/elections/election-results-and-data",
+      "retainedPath": "data/source/elections/primary-results/michigan/authority/results-catalog-20260805.html",
+      "retainedStatus": "retained",
+      "byteSize": 421271,
+      "sha256": "0930816d6ca5105737b7f188160570ea436b4555ee868af4783fdfa1f125aa00",
+      "kind": "source_snapshot",
+      "parentIds": []
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "mi:2022:regular:us-house:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "1ST DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "LORINSER, BOB",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 67251,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 67251,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "8bc46b626b462138b8915c5c7652024931de991644a0170a0ef74a88f5c30ad8"
+    },
+    {
+      "contestId": "mi:2022:regular:us-house:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "2ND DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "HILLIARD, JERRY",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 40952,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 40952,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "46e08487d5ab87f4146a2b16b9dc75082e79c8af973a1ac7552a84f9a0865fbc"
+    },
+    {
+      "contestId": "mi:2022:regular:us-house:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "3RD DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "SCHOLTEN, HILLARY",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 59661,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 59661,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "160404f149186ebf0f6894567c916396beda00ceade47248643131079a02cf58"
+    },
+    {
+      "contestId": "mi:2022:regular:us-house:04:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "4TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "ALFONSO, JOSEPH",
+          "sourceBallotParty": "DEMOCRATIC WRITE-IN",
+          "sourceVotePercent": "100%",
+          "votes": 10992,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 10992,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "483098db7a51e7994c52c462187625dca3b6a18ea9d13fdf7a89c911323f3e84"
+    },
+    {
+      "contestId": "mi:2022:regular:us-house:05:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "5TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "GOLDBERG, BART",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 39971,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 39971,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "46322c2dfa0a9540e318daffdfd348d1bf1f0ef2dd48617f2e29be7cb1b46890"
+    },
+    {
+      "contestId": "mi:2022:regular:us-house:06:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "6TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "DINGELL, DEBBIE",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 102859,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 102859,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "18ab54a773d238966a0ed8881dabd2b02628c21bf86754f1baf8e72123c65346"
+    },
+    {
+      "contestId": "mi:2022:regular:us-house:07:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "7TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "SLOTKIN, ELISSA",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 77826,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 77826,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f9a354c448dcee4dfef36561a301dd7f83c47aec2b6019f265b54dbb340a3280"
+    },
+    {
+      "contestId": "mi:2022:regular:us-house:08:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "8TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "KILDEE, DANIEL T.",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 70791,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 70791,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "ed4c8b481a77dbdea7552ee590beb3a3fd3a39c1d337f2634f17bbfbff8f9164"
+    },
+    {
+      "contestId": "mi:2022:regular:us-house:09:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "9TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "JAYE, BRIAN",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 48802,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 48802,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3eebc9ce03d1e2f260e29704e066e3070cce497d1164b48a1ab1c45901d75e49"
+    },
+    {
+      "contestId": "mi:2022:regular:us-house:10:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "10TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "ARRAF, HUWAIDA",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "12.95%",
+          "votes": 8846,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "MARLINGA, CARL J.",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "47.82%",
+          "votes": 32653,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "POWELL, RHONDA",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "16.69%",
+          "votes": 11396,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "ROGENSUES, ANGELA",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "13.92%",
+          "votes": 9503,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "YANEZ, HENRY",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "8.63%",
+          "votes": 5891,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 68289,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d5a41647766d56cf52676cb397f94f446c6f7a6a7ac830cb085269306c372920"
+    },
+    {
+      "contestId": "mi:2022:regular:us-house:11:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "11TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION FILES IN OAKLAND COUNTY",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "LEVIN, ANDY",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "40.06%",
+          "votes": 47117,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "STEVENS, HALEY",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "59.94%",
+          "votes": 70508,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 117625,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e9adeb3a9b4cd747adbc2d15e273e2e2ef43f4e1a0b94cdc51c20a3cfed99dac"
+    },
+    {
+      "contestId": "mi:2022:regular:us-house:12:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "12",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "12TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "GARRETT, KELLY",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "8.63%",
+          "votes": 8334,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "JACKSON, SHANELLE",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "5.10%",
+          "votes": 4927,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "TLAIB, RASHIDA",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "63.85%",
+          "votes": 61635,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "WINFREY, JANICE",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "22.41%",
+          "votes": 21636,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 96532,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "1f1aa9d1638e159aaa88848d868246f3f4f1e98c06287965463479bd9938df3a"
+    },
+    {
+      "contestId": "mi:2022:regular:us-house:13:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "MI",
+      "districtCode": "13",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2022-house-democratic-primary-results-browser",
+        "mi-2022-primary-board-certification-html",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "13TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION FILES IN WAYNE COUNTY",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "CONYERS, JOHN",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "8.60%",
+          "votes": 6778,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "GAY-DAGNOGO, SHERRY",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "8.17%",
+          "votes": 6440,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "GRIFFIE, MICHAEL",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "4.61%",
+          "votes": 3636,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "HOLLIER, ADAM",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "23.50%",
+          "votes": 18517,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "MCPHAIL, SHARON",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "6.40%",
+          "votes": 5043,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "RIDDLE, SAM",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "2.34%",
+          "votes": 1841,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "ROBERSON, PORTIA",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "16.90%",
+          "votes": 13318,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "RUTLEDGE, LORRIE",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "1.16%",
+          "votes": 916,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "THANEDAR, SHRI",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "28.31%",
+          "votes": 22314,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "LANDIN, ROGELIO",
+          "sourceBallotParty": "DEMOCRATIC WRITE-IN",
+          "sourceVotePercent": "0.00%",
+          "votes": 3,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "TAN, BORATHA",
+          "sourceBallotParty": "DEMOCRATIC WRITE-IN",
+          "sourceVotePercent": "0.00%",
+          "votes": 3,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 78809,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f8f0f76d51b6906917103b117419750d3ac2cf2b4a05907bcccb3b0741b74fd6"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "1ST DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "BARR, CALLIE",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "58.50%",
+          "votes": 40787,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "LORINSER, BOB",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "41.50%",
+          "votes": 28936,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 69723,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4be2906d2253a58c613f98aab9376ff39ce2a595e38fe760f6eb7f97d253c286"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "2ND DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "LYNCH, MICHAEL",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 39503,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 39503,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3d828cd7b0966967a3f27efcc01692d55ffb0dcbd4a0914c75a19210f7505ca4"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "3RD DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "AL-SHATEL, SALIM",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "9.36%",
+          "votes": 6665,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "SCHOLTEN, HILLARY",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "90.64%",
+          "votes": 64546,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 71211,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "ab61bd0bfa7f0c4a8fa6083a974a37740c055b2373997b3dcf60dae1dfa04f72"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:04:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "4TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "SWARTZ, JESSICA",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 49169,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 49169,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "647f55640f2de68d945c224adc75fedf2d919568c06aa6aa6aac19a5f60f78dc"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:05:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "5TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "URBAN, LIBBI",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 36087,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 36087,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "0e7339ec9cc456317ef71050209e286f4d2e5450e65abd5e1f37e4ed8d722972"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:06:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "6TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "DINGELL, DEBBIE",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 101234,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 101234,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "eab53f18e752cfd30a197379b0987a57bdad46ac7f8b0846e31cab8218110371"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:07:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "7TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "HERTEL, CURTIS",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 72083,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 72083,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d688a95a933503e8b93a65c0730632ac2e588faa797d20ccf6764b32d66a63f1"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:08:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "8TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "COLLIER, MATT",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "26.39%",
+          "votes": 21482,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "MCDONALD RIVET, KRISTEN",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "53.31%",
+          "votes": 43393,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "PUGH, PAMELA",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "20.30%",
+          "votes": 16525,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 81400,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "562452b721c7523109f8e9674141f31c013e0d566c766149787b779ec5baf69a"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:09:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "9TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "ST MOSLEY, CLINTON",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "100%",
+          "votes": 41492,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 41492,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "c43c35058f144ee3329ffeeef96224194531fff51cd40000a02c33680837a11d"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:10:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "10TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "BUSCH, EMILY",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "12.80%",
+          "votes": 8541,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "MARLINGA, CARL J.",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "48.81%",
+          "votes": 32561,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "TILLEY, TIFFANY",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "13.28%",
+          "votes": 8861,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "YOUNG, DIANE",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "24.41%",
+          "votes": 16282,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 464,
+      "sourceTotalVotes": 66709,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "9425da55d8424cf7f8b42a80bea8ec18ecd486bb4932cf0af6958eee49675bd6"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:11:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "11TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "GHANIM, AHMED",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "12.91%",
+          "votes": 12391,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "STEVENS, HALEY",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "87.09%",
+          "votes": 83571,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 95962,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f19faf8b0fd4d120c7c16f6518bb61b39c68da4f543f5b6a0d0feba363f81815"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:12:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "12",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "12TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "TLAIB, RASHIDA",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "99.87%",
+          "votes": 84138,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 108,
+      "sourceTotalVotes": 84246,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a4ffbb9837dd0273a1e3260aefdf534ca25e95cb1ed3aadb06a165da80f20ce2"
+    },
+    {
+      "contestId": "mi:2024:regular:us-house:13:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "stateCode": "MI",
+      "districtCode": "13",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "mi-2024-house-democratic-primary-results-browser",
+        "mi-2024-primary-board-signed-minutes-pdf",
+        "mi-2024-primary-board-signed-minutes-text",
+        "mi-primary-results-catalog-snapshot-20260805",
+        "mi-canvass-certification-authority-snapshot-20260805"
+      ],
+      "sourceContestTitle": "13TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "state_board_event_certification_retained",
+      "reportingCompleteness": "83_of_83_counties_official",
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "HAWKINS, SHAKIRA LYNN",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "11.30%",
+          "votes": 9171,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "THANEDAR, SHRI",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "54.91%",
+          "votes": 44546,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "WATERS, MARY",
+          "sourceBallotParty": "DEMOCRATIC",
+          "sourceVotePercent": "33.78%",
+          "votes": 27408,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 81125,
+      "voteReconciliation": "named_candidate_plus_aggregate_write_in_sum_equals_source_party_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "b612e06e091723fe84b9c248931a703082471ae97d16ab62b1b1184a79e81e2f"
+    }
+  ],
+  "summary": {
+    "districtCycleRows": 26,
+    "reportedContests": 26,
+    "contests2022": 13,
+    "contests2024": 13,
+    "contests2026": 0,
+    "namedCandidates": 54,
+    "namedCandidateVotes": 1769732,
+    "aggregateWriteInVotes": 572,
+    "totalVotes": 1770304,
+    "officialContests": 26,
+    "unofficialResultRowsRetained": 0,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0,
+    "contestSetSha256": "7ea71a3fa253949ad111d8eea53d9c4986cc5a5ead2d42222243b27e98240f25"
+  },
+  "limitations": [
+    "The MVIC download route rejected unattended retrieval, so result evidence is a deterministic structured projection of the complete browser-rendered official statewide result page rather than the raw downloadable file.",
+    "Official result pages do not mark winners in the retained projection; no winner is inferred from vote rank.",
+    "Current candidate identity, district-geography comparability, ideology, incumbency, and evaluator applicability remain unreviewed.",
+    "The August 5, 2026 observation was unofficial at 82 of 83 counties; its 26 observed candidate rows are boundary evidence only and are not retained as results."
+  ],
+  "unresolvedGates": [
+    "Independent reviewer approval is required before factual promotion.",
+    "Current identity and historical-to-current district geography must be resolved before evaluator use.",
+    "A separately versioned 2026 package may be acquired only after county and state canvassing and certification."
+  ],
+  "packageSha256": "6572ccc3e4a9e40e36efaa33e02347330687fd8886b62887b9d095723b1492c3"
+}

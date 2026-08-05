@@ -1,0 +1,16 @@
+{
+  "captureKind": "browser_rendered_unofficial_boundary",
+  "captureMethod": "Codex in-app browser DOM projection; vote rows intentionally excluded",
+  "sourceUrl": "https://mvic.sos.state.mi.us/votehistory/Index?electionDate=8-4-2026&type=C",
+  "title": "2026 Michigan Election Results",
+  "electionDate": "8/4/2026",
+  "electionType": "STATE PRIMARY",
+  "status": "UNOFFICIAL",
+  "updatedAt": "8/5/2026 1:47:07 PM",
+  "countiesReported": 82,
+  "countiesTotal": 83,
+  "observedHouseContestCount": 12,
+  "observedCandidateRows": 26,
+  "retainedResultRows": 0,
+  "retentionReason": "unofficial_results_not_retained_pending_county_and_state_canvass"
+}

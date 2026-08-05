@@ -1,0 +1,268 @@
+{
+  "captureKind": "browser_rendered_official_results",
+  "contests": [
+    {
+      "candidates": [
+        {
+          "name": "BARR, CALLIE",
+          "party": "DEMOCRATIC",
+          "percent": "58.50%",
+          "votes": 40787
+        },
+        {
+          "name": "LORINSER, BOB",
+          "party": "DEMOCRATIC",
+          "percent": "41.50%",
+          "votes": 28936
+        }
+      ],
+      "district": 1,
+      "party": "Democratic",
+      "partyTotalVotes": 69723,
+      "title": "1ST DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "LYNCH, MICHAEL",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 39503
+        }
+      ],
+      "district": 2,
+      "party": "Democratic",
+      "partyTotalVotes": 39503,
+      "title": "2ND DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "AL-SHATEL, SALIM",
+          "party": "DEMOCRATIC",
+          "percent": "9.36%",
+          "votes": 6665
+        },
+        {
+          "name": "SCHOLTEN, HILLARY",
+          "party": "DEMOCRATIC",
+          "percent": "90.64%",
+          "votes": 64546
+        }
+      ],
+      "district": 3,
+      "party": "Democratic",
+      "partyTotalVotes": 71211,
+      "title": "3RD DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "SWARTZ, JESSICA",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 49169
+        }
+      ],
+      "district": 4,
+      "party": "Democratic",
+      "partyTotalVotes": 49169,
+      "title": "4TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "URBAN, LIBBI",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 36087
+        }
+      ],
+      "district": 5,
+      "party": "Democratic",
+      "partyTotalVotes": 36087,
+      "title": "5TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "DINGELL, DEBBIE",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 101234
+        }
+      ],
+      "district": 6,
+      "party": "Democratic",
+      "partyTotalVotes": 101234,
+      "title": "6TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "HERTEL, CURTIS",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 72083
+        }
+      ],
+      "district": 7,
+      "party": "Democratic",
+      "partyTotalVotes": 72083,
+      "title": "7TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "COLLIER, MATT",
+          "party": "DEMOCRATIC",
+          "percent": "26.39%",
+          "votes": 21482
+        },
+        {
+          "name": "MCDONALD RIVET, KRISTEN",
+          "party": "DEMOCRATIC",
+          "percent": "53.31%",
+          "votes": 43393
+        },
+        {
+          "name": "PUGH, PAMELA",
+          "party": "DEMOCRATIC",
+          "percent": "20.30%",
+          "votes": 16525
+        }
+      ],
+      "district": 8,
+      "party": "Democratic",
+      "partyTotalVotes": 81400,
+      "title": "8TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "ST MOSLEY, CLINTON",
+          "party": "DEMOCRATIC",
+          "percent": "100%",
+          "votes": 41492
+        }
+      ],
+      "district": 9,
+      "party": "Democratic",
+      "partyTotalVotes": 41492,
+      "title": "9TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "BUSCH, EMILY",
+          "party": "DEMOCRATIC",
+          "percent": "12.80%",
+          "votes": 8541
+        },
+        {
+          "name": "MARLINGA, CARL J.",
+          "party": "DEMOCRATIC",
+          "percent": "48.81%",
+          "votes": 32561
+        },
+        {
+          "name": "TILLEY, TIFFANY",
+          "party": "DEMOCRATIC",
+          "percent": "13.28%",
+          "votes": 8861
+        },
+        {
+          "name": "WRITE-IN",
+          "party": "DEMOCRATIC",
+          "percent": "0.70%",
+          "votes": 464
+        },
+        {
+          "name": "YOUNG, DIANE",
+          "party": "DEMOCRATIC",
+          "percent": "24.41%",
+          "votes": 16282
+        }
+      ],
+      "district": 10,
+      "party": "Democratic",
+      "partyTotalVotes": 66709,
+      "title": "10TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "GHANIM, AHMED",
+          "party": "DEMOCRATIC",
+          "percent": "12.91%",
+          "votes": 12391
+        },
+        {
+          "name": "STEVENS, HALEY",
+          "party": "DEMOCRATIC",
+          "percent": "87.09%",
+          "votes": 83571
+        }
+      ],
+      "district": 11,
+      "party": "Democratic",
+      "partyTotalVotes": 95962,
+      "title": "11TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "TLAIB, RASHIDA",
+          "party": "DEMOCRATIC",
+          "percent": "99.87%",
+          "votes": 84138
+        },
+        {
+          "name": "WRITE-IN",
+          "party": "DEMOCRATIC",
+          "percent": "0.13%",
+          "votes": 108
+        }
+      ],
+      "district": 12,
+      "party": "Democratic",
+      "partyTotalVotes": 84246,
+      "title": "12TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    },
+    {
+      "candidates": [
+        {
+          "name": "HAWKINS, SHAKIRA LYNN",
+          "party": "DEMOCRATIC",
+          "percent": "11.30%",
+          "votes": 9171
+        },
+        {
+          "name": "THANEDAR, SHRI",
+          "party": "DEMOCRATIC",
+          "percent": "54.91%",
+          "votes": 44546
+        },
+        {
+          "name": "WATERS, MARY",
+          "party": "DEMOCRATIC",
+          "percent": "33.78%",
+          "votes": 27408
+        }
+      ],
+      "district": 13,
+      "party": "Democratic",
+      "partyTotalVotes": 81125,
+      "title": "13TH DISTRICT REPRESENTATIVE IN CONGRESS 2 YEAR TERM (1) POSITION"
+    }
+  ],
+  "countiesReported": 83,
+  "countiesTotal": 83,
+  "electionDate": "8/6/2024",
+  "electionType": "STATE PRIMARY",
+  "sourceUrl": "https://mvic.sos.state.mi.us/votehistory/Index?electionDate=8-6-2024&type=C",
+  "status": "OFFICIAL",
+  "title": "2024 Michigan Election Results",
+  "updatedAt": "8/26/2024 3:28:01 PM",
+  "captureMethod": "Codex in-app browser DOM projection from #tab-target-voteResults; direct download endpoint was Cloudflare-blocked"
+}
