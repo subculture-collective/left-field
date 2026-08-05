@@ -107,6 +107,7 @@
     "extract:ca-house-top-two-results": "python scripts/extract-california-house-top-two-results.py --input-dir data/source/elections/primary-results/california --output data/source/elections/primary-results/california/normalized/house-candidate-totals.tsv",
     "generate:ca-house-top-two-results-receipt": "tsx scripts/generate-california-house-top-two-results-receipt.ts",
     "generate:ca-primary-geography-v1": "tsx scripts/generate-california-primary-geography-compatibility-candidate.ts",
+    "generate:ca-current-incumbent-primary-linkage-v1": "tsx scripts/generate-california-current-incumbent-primary-linkage-candidate.ts",
     "generate:md-house-primary-results-receipt": "tsx scripts/generate-maryland-house-democratic-primary-results-receipt.ts",
     "fetch:ct-house-primary-event-results": "node scripts/fetch-ct-house-democratic-primary-event-results.mjs",
     "generate:ct-house-primary-event-dispositions": "tsx scripts/generate-connecticut-house-democratic-primary-event-dispositions-receipt.ts",
