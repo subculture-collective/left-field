@@ -1,0 +1,552 @@
+ State Board of
+ Elections
+ Annual Report
+(January 1, 2024 – December 31, 2024)
+
+
+
+
+March 4, 2025
+
+Virginia Department of Elections
+
+
+
+                                        2024 State Board of Elections Annual Report 1
+Contents
+Executive Summary ....................................................................................................4
+Introduction ...............................................................................................................5
+   Summary of Actions ................................................................................................5
+Regulations.................................................................................................................5
+   Amending Existing Regulations ...............................................................................6
+       1VAC20-100-10 Definitions..................................................................................6
+       1VAC20-100-50 Ranked choice voting tabulation ................................................6
+   Emergency Regulation ............................................................................................6
+       1VAC20-90-40 Campaign Finance and Political Advertisements ..........................6
+Election Administration ..............................................................................................7
+   Certification of Elections .........................................................................................7
+   Ballot Order ............................................................................................................8
+   Party Abbreviations ................................................................................................8
+   Split Precinct Waivers .............................................................................................8
+   Electronic Participation in Meetings Policy..............................................................9
+   Updating the Voter Registration Application...........................................................9
+Election Security .........................................................................................................9
+   Voting System Certification ...................................................................................10
+       Hart InterCivic Verity Voting 2.7 ........................................................................10
+       Clear Ballot ClearVote 2.4..................................................................................10
+   Electronic Pollbook Certification ...........................................................................10
+       Knowink PollPad 3.4.8 .......................................................................................10
+       Election Systems and Software ExpressPoll 7.2.6.0 ...........................................11
+   Experimental Use of a Certified Voting System .....................................................11
+   Locality Election Security Standards ......................................................................11
+   Risk-Limiting Audits ..............................................................................................12
+
+                                                         2024 State Board of Elections Annual Report 2
+       November 2024 General Election RLAs ..............................................................12
+Campaign Finance.....................................................................................................13
+   Stand by Your Ad Citations....................................................................................13
+       March 19, 2024 .................................................................................................13
+       April 10, 2024 ....................................................................................................13
+   Campaign Finance Reports and Records Review ...................................................13
+Miscellaneous ...........................................................................................................14
+   Delegations of Authority .......................................................................................14
+   Request to Remove a Local Electoral Board Member ............................................14
+   Lynchburg City Drop-off Ballots and CAP Processing for the June Primary Election15
+Conclusion ................................................................................................................15
+
+
+
+
+                                                         2024 State Board of Elections Annual Report 3
+Executive Summary
+Under the Code of Virginia §24.2-103(J) the State Board of Elections (the Board), through the
+Department of Elections (ELECT), is pleased to provide the State Board of Elections Annual Report to
+the Governor and the Virginia General Assembly. Pursuant to §24.2-103 of the Code of Virginia, the
+Board supervises, coordinates, and adopts regulations governing the work of local electoral boards,
+registrars, and officers of election to ensure secure, uniform, and trustworthy elections. During the
+2024 calendar year (January 1, 2024 – December 31, 2024), the Board met fourteen times, certifying
+four elections, approving one emergency regulation, amending two existing regulations, and
+attending to several election administrative and election security matters.
+
+
+
+
+                                               2024 State Board of Elections Annual Report 4
+Introduction
+The Virginia State Board of Elections (the Board) was created in 1946 as a non-political agency
+responsible for ensuring fairness, accuracy, and uniformity in all elections in the Commonwealth of
+Virginia. The Board promotes the proper administration of election laws, campaign finance disclosure
+compliance, and voter registration processes in the state by promulgating rules, amending
+regulations, issuing instructions, and providing information to local electoral boards and general
+registrars. The Department of Elections (ELECT) was formed in 2014 to conduct the Board’s
+administrative operations and other duties consistent with its delegated authority.
+
+The Board consists of five members who are appointed by the Governor and confirmed by the
+General Assembly.1 Three members are from the same political party as the Governor. Two members
+are from the political party with the next highest number of votes during the last preceding
+gubernatorial race. The current members can be found on ELECT’s website. 2 ELECT is led by a
+commissioner who is appointed by the Governor and confirmed by the General Assembly.3
+
+Summary of Actions
+In 2024, ELECT proposed approximately forty-three memorandums to the Board summarized in the
+table below.
+
+                                     Topic                  Number of Memorandums
+                                  Regulations                          4
+                           Election Administration                     9
+                          Certification of Elections                   4
+                               Election Security                      11
+                          Risk-Limiting Audits (RLA)                   4
+                          Stand by Your Ad (SBYA)                      4
+                                Miscellaneous                          7
+                                     Total                            43
+
+
+Regulations
+Pursuant to Virginia Code §24.2-103, the Board has the authority to make rules and regulations, issue
+instructions, and provide information consistent with election laws to the electoral boards and
+
+
+
+
+1
+  Code of Virginia §24.2-102.
+2
+  ELECT, About Us.
+3
+  Code of Virginia §24.2-102.
+                                                   2024 State Board of Elections Annual Report 5
+general registrars (registrars). 4 Electoral Boards and registrars must adhere to the rules and
+regulations of the Board, ensuring compliance with Virginia and federal laws. The Board approved
+amendments to two existing regulations and one emergency regulation was approved, which will be
+made permanent in 2025.
+
+
+Amending Existing Regulations
+1VAC20-100-10 Definitions 5
+Previously, the ranked choice voting (“RCV”) regulations (1VAC20-100-10 et seq.) required the
+elimination of one candidate in each round of the RCV tabulation process. In races with many
+candidates, including independents and write-ins, this could lead to extended tabulation during the
+canvass. To address this issue, many jurisdictions utilize batch elimination of multiple candidates for
+whom it is mathematically impossible to be elected. ELECT proposed additions to the definitions in
+the RCV regulations including the definition of “Batch Elimination” and “Mathematically impossible to
+be elected.” The Board unanimously approved the addition of these definitions on July 2, 2024.
+
+1VAC20-100-50 Ranked choice voting tabulation 6
+Along with the regulation above, ELECT proposed a change in the tabulation of ranked choice voting.
+The proposed change to the existing RCV regulation would allow the option for batch elimination of
+multiple candidates in a round of instant runoff (single winner) RCV races where it is mathematically
+impossible for the eliminated candidates to be elected. The Board unanimously approved the
+addition of these definitions on July 2, 2024.
+
+
+Emergency Regulation
+1VAC20-90-40 Campaign Finance and Political Advertisements 7
+Pursuant to Chapter 557 of the 2020 Acts of Assembly, this regulation was promulgated to guarantee
+that disclosure statements on certain political print media advertisements are displayed
+conspicuously and proportionate to the size of the advertisement.8 The mandating statute allowed a
+delayed effective date for the requirements of July 1, 2024. The Board provided a further delayed
+enforcement of the new advertising standards until January 1, 2025. The requirements in the
+
+
+
+
+4
+  Code of Virginia §24.2-103.
+5
+  Administrative Code of Virginia 1VAC20-100-10.
+6
+  Administrative Code of Virginia 1VAC20-100-50.
+7
+  See Emergency Text for 1VAC20-90-40.
+8
+  2020 Acts of Assembly Chapter 557.
+                                                   2024 State Board of Elections Annual Report 6
+regulation were consistent with federal print media advertisement requirements established by the
+Federal Election Commission under 11 CFR § 110.11. 9
+
+The regulation requires a disclosure statement on a political advertisement to (i) be a sufficient font
+size to be clearly readable by the recipient of the communication; (ii) be contained in a printed box
+set apart from the other contents of the communication; and (iii) have a reasonable degree of color
+contrast with the advertisement background. The Board held a public hearing for public comment on
+this regulation on August 20, 2024. Once the regulation has completed the final stage, this regulation
+will become permanent in 2025.
+
+
+Election Administration
+Election Administration encompasses the proper administration of election laws, campaign finance
+disclosure compliance, and voter registration processes in Virginia. This includes creating rules,
+issuing instructions, and providing information consistent with state and federal election laws to
+promote the proper administration of elections and to obtain uniformity in the practices of election
+officials. The Board reviewed proposals from ELECT regarding election administration during the 2024
+calendar year. Below is a summarization of items proposed to the Board including revisions to
+documents, certification of elections, and the form of ballots used in elections throughout the
+Commonwealth.
+
+Certification of Elections
+During the 2024 Calendar year, the Board certified four elections. The Board certifies federal and
+state elections including but not limited to the U.S. President, the U.S. Congress, and the Governor;
+local electoral boards certify local elections including but not limited to city councils, boards of
+supervisors, and mayors.10
+
+     •   January 17, 2024: The Board certified the results of the January 9, 2024, Special Elections for
+         House of Delegates District 48 and Senate of Virginia District 9, pursuant to Virginia Code
+         §§24.2-679 and 24.2-680. 11
+
+     •   March 19, 2024: The Board certified the results of the March 5, 2024, Presidential Primaries
+         for both the Republican and Democratic parties. The winners were declared the nominees of
+         their respective parties.
+
+
+
+9
+  See Code of Federal Regulations 11 CFR §110.11.
+10
+   Code of Virginia §§24.2-676 and 24.2-679.
+11
+   Code of Virginia §§24.2-679 and 24.2-680.
+                                                    2024 State Board of Elections Annual Report 7
+     •   July 2, 2024: The Board certified the results of the June 18, 2024, U.S. Senate and U.S. House
+         of Representatives Primaries for both the Republican and Democratic parties. The winners
+         were declared the nominees of their respective parties.
+
+     •   December 2, 2024: The Board certified the results of the November 5, 2024, General Election.
+         The Board certified the results of the elections for U.S. President, U.S. Vice President, U.S.
+         Senate, and all eleven Congressional Districts.
+
+Ballot Order
+If two or more candidates file simultaneously, the order of the filing is determined by the electoral
+board or the Board, pursuant to Virginia Code §24.2-529. 12 Additionally, the Board must determine
+by lot the order of political parties, pursuant to Virginia Code §24.2-613.13 On April 10, 2024, the
+Board certified the order of candidates on the ballot for the primary elections held on June 18, 2024.
+On July 2, 2024, the Board certified the order of candidates on the ballot for all general and special
+elections being held between August 1, 2024, through July 31, 2025.
+
+
+Party Abbreviations
+Pursuant to §24.2-613(A), the ballots used in the Commonwealth must comply with the standards set
+forth by the Board including the approval of party abbreviations. 14 ELECT staff proposed using the
+current abbreviations for various parties for all general and special elections held from August 20,
+2024, to July 1, 2025. The Board unanimously approved the party abbreviations on July 2, 2024.
+
+
+Split Precinct Waivers
+Pursuant to Virginia Code §24.2-307, “If a governing body is unable to establish a precinct with the
+minimum number of registered voters without splitting the precinct between two or more
+congressional districts, Senate districts, House of Delegates districts, or local election districts, it shall
+apply to the State Board for a waiver to administer a split precinct. The State Board may grant the
+waiver or direct the governing body to establish a precinct with fewer than the minimum number of
+registered voters as permitted by § 24.2-309.” 15 The minimum number of voters for a county
+precinct is one hundred, and the minimum for a city precinct is five hundred. Split precinct waivers
+
+
+
+12
+   Code of Virginia §24.2-529.
+13
+   Code of Virginia §24.2-613.
+14
+   Id.
+15
+   Code of Virginia §24.2-307.
+                                                   2024 State Board of Elections Annual Report 8
+must be renewed by the governing body each year. The Board granted six split precinct waivers for
+various counties and cities. During its July 2, 2024, meeting, the Board delegated the granting of split
+precinct waivers to ELECT. 16
+
+
+Electronic Participation in Meetings Policy17
+2024 Acts of Assembly Chapter 56 amended the number of all-virtual public meetings of public bodies
+from 25% or two total of all meetings in a calendar year to 50% or two total of all meetings in a
+calendar year, whichever is greater. 18 Further, the law also amended the participation criteria for
+such meetings; when audio-visual technology is available, a member of a public body shall, for
+purposes of a quorum, be considered absent from any portion of the meeting during which visual
+communication with the member is voluntarily disconnected or otherwise fails or during which audio
+communication involuntarily fails. ELECT proposed these amendments to the Board’s Electronic
+Participation Policy as well as an additional provision requiring members of the public to show their
+faces while providing comments virtually unless their face is covered for a religious purpose, like the
+policies adopted by the General Assembly.19 The Board unanimously approved these changes on May
+28, 2024.
+
+
+Updating the Voter Registration Application
+2024 Act of Assembly Chapter 309 amended Virginia Code §24.2-418 to allow current and former
+Board members, Commissioners of Elections, ELECT staff, general registrars, electoral board
+members, and officers of election to provide PO Boxes when registering to vote. 20 As such, the
+Virginia Voter Registration Application needed to be revised. The effective date of the changes was
+set to July 1, 2024, when the law requiring the change would come into effect. The Board
+unanimously approved these changes on April 10, 2024.
+
+
+Election Security
+The Board and ELECT consistently work to ensure the integrity and security of every election is upheld
+in the Commonwealth. Throughout the 2024 calendar year, the Board performed its role in election
+
+
+
+
+16
+   State Board of Elections, July 2, 2024, Meeting Agenda.
+17
+   State Board of Elections Policy 2024-001.
+18
+   2024 Acts of Assembly Chapter 56.
+19
+   See Virginia Senate, Senate Virtual Participation Policy. See Virginia House of Delegates, Public Participation in Remote
+Meetings.
+20
+   2024 Acts of Assembly Chapter 309.
+                                                          2024 State Board of Elections Annual Report 9
+security by approving various updates related to pollbooks, voting systems, and voting system
+security.
+
+
+Voting System Certification
+Hart InterCivic Verity Voting 2.7
+On January 17, 2024, ELECT requested the Board certify the use of the Hart InterCivic (Hart) Verity
+Voting 2.7 system. During the preliminary review, the state-designated evaluation agent conducted a
+preliminary analysis of the Technical Data Package and other materials provided and prepared test
+assertions. Hart provided the certification fee, and the testing/evaluation was conducted from
+October 23 through October 26, 2023, at the ELECT facilities in Virginia. In addition, the system was
+successfully tested in a mock election in Essex County on October 27, 2023. The Hart voting system
+presented for certification under 2.7 completed the Virginia Voting Systems State Certification
+requirements. The Board motioned and approved the use of the updated system by a unanimous
+vote.
+
+Clear Ballot ClearVote 2.4
+On May 28, 2024, ELECT requested the Board certify the use of the Clear Ballot ClearVote 2.4 voting
+system. During the preliminary review, the state-designated evaluation agent conducted a
+preliminary analysis of the Technical Data Package and other materials provided and prepared test
+assertions. Dominion provided the certification fee, and the testing/evaluation was conducted from
+January 22 through January 25, 2024, at the ELECT facilities in Virginia. In addition, the system was
+successfully tested in a mock election in Petersburg City on April 24, 2024. The Clear Ballot voting
+system presented for certification under 2.4 completed the Virginia Voting Systems State Certification
+requirements. The Board motioned and approved the use of the updated system by a unanimous
+vote.
+
+Electronic Pollbook Certification
+Knowink PollPad 3.4.8
+On May 28, 2024, ELECT requested the Board certify the use of the Knowink PollPad 3.4.8. During the
+preliminary review, the state-designated evaluation agent conducted a preliminary analysis of the
+Technical Data Package and other materials provided and prepared test assertions. Knowink provided
+the certification fee, and the testing/evaluation was conducted from March 11 through March 13,
+2024, at the ELECT facilities in Virginia. In addition, the system was successfully tested in a Mock
+Election in Chesterfield County on April 26, 2024. The Knowink PollPad presented for certification
+under version 3.4.8 completed the Virginia Electronic Pollbook State Certification requirements. The
+Board motioned and approved the use of the updated electronic pollbook by a unanimous vote.
+
+
+
+                                             2024 State Board of Elections Annual Report 10
+Election Systems and Software ExpressPoll 7.2.6.0
+On May 28, 2024, ELECT requested the Board certify the use of the Election Systems and Software
+(ES&S) ExpressPoll 7.2.6.0. During the preliminary review, the state-designated evaluation agent
+conducted a preliminary analysis of the Technical Data Package and other materials provided and
+prepared test assertions. ES&S provided the certification fee, and the testing/evaluation was
+conducted from March 18 through March 20, 2024, at the ELECT facilities in Virginia. In addition, the
+system was successfully tested in a Mock Election in Chesterfield County on April 26, 2024. The ES&S
+ExpressPoll presented for certification under version 7.2.6.0 completed the Virginia Electronic
+Pollbook State Certification requirements. The Board motioned and approved the use of the updated
+electronic pollbook with three ayes and two nos.
+
+
+Experimental Use of a Certified Voting System
+Pursuant to §24.2-630, experimental use of certified voting systems during an election is permitted
+with the approval of the Board. 21 Winchester City sought permission to use the Unisyn OpenElect
+FreedomVote Scan with software version 2.2 and firmware version 2018 in a test run during the early
+and absentee voting period of the Virginia presidential primary held on March 5, 2024. The Board had
+previously certified this voting system and unanimously approved Winchester City’s request during
+their January 17, 2024, meeting. On August 20, 2024, Winchester City also sought to use the Unisyn
+OpenElect FreedomVote Scan with software version 2.2 and firmware version 2018 for early voting,
+absentee voting, and the central absentee precinct (CAP) during the November General Election; the
+Board unanimously approved Winchester City’s request.
+
+The vendor agreed to participate in these tests to evaluate the purchase of the scanning voting
+equipment for Winchester City. ELECT supports any efforts by localities to test certified voting
+systems not presently used in a locality. Localities may find through such test use cases, better ways
+to manage and improve election efforts and processes in their locality. This is an excellent option
+available to localities to test certified voting equipment before making a purchasing decision.
+
+
+Locality Election Security Standards
+The purpose of the Locality Election Security Standards (LESS) is to ensure that each county and city
+meets election security standards designed to maintain the security and integrity of the Virginia voter
+registration system and supporting technologies through appropriate security controls, policies,
+practices, and procedures. On May 28, 2024, ELECT staff presented information to the Board
+regarding ways to improve the security of localities and available grants to fund such improvements.
+
+
+
+
+21
+     Code of Virginia §24.2-630.
+                                              2024 State Board of Elections Annual Report 11
+On September 3, 2024, ELECT staff presented proposed limited changes to the LESS, focusing on
+efficiency which localities can use to meet baseline requirements. The Board unanimously approved
+the changes to the LESS.
+
+
+Risk-Limiting Audits
+Pursuant to Virginia Code §24.2-671.2(B), the Board must promulgate rules and procedures for the
+conduct of risk-limiting audits (RLA). 22 ELECT staff updated the RLA Manual that encompasses all
+rules and procedures to conduct RLAs in the Commonwealth. This updated Manual was presented to
+the Board on July 2, 2024, and unanimously approved. The RLA Manual can be found on ELECT’s
+website as Chapter 19 of the General Registrar and Electoral Board Handbook. 23
+
+November 2024 General Election RLAs
+The Board had unanimously approved a ballot polling RLA for the U.S. Senate during its September 3,
+2024, meeting. The U.S. Senate race RLA began on Wednesday, November 20, 2024, at 10 AM. 125
+localities out of 133 were selected to audit a random number of ballots. 1,878 ballots were sampled
+across the Commonwealth. The risk limit of 10%, set by the State Board of Elections, was successfully
+met in the first round of the RLA, confirming the voting machines accurately reported the outcome of
+the race.
+
+Pursuant to §24.2-671.2(C)(1), the localities of a randomly selected U.S. Congressional District are
+required to perform an RLA during years when the race occurs on the ballot. 24 The batch comparison
+RLA method for a U.S. Congressional District was unanimously approved during the September 3,
+2024, meeting. U.S. Congressional District 1 was randomly selected by the members of the State
+Board of Elections on Monday, November 18, 2024. This RLA began on Thursday, November 21, 2024,
+at 10 AM. Seven out of eighteen localities audited nineteen randomly selected batches of ballots, a
+total of 137,627 ballots. The risk limit of 10%, set by the State Board of Elections, was successfully
+met in the first round of the RLA, confirming the voting machines accurately reported the outcome of
+the race.
+
+A report regarding these RLAs can be found on ELECT’s Election Security webpage.25
+
+
+
+
+22
+   Code of Virginia §24.2-671.2(B).
+23
+   ELECT, General Registrar and Electoral Board Handbook, Chapter 19 Risk-Limiting Audits.
+24
+   Code of Virginia §24.2-671.2(C).
+25
+   ELECT, Risk-Limiting Audits.
+                                                      2024 State Board of Elections Annual Report 12
+Campaign Finance
+Stand by Your Ad Citations
+Stand by Your Ad (SBYA) is a provision of the 2002 Bipartisan Campaign Reform Act, which requires
+any candidate running for federal political office to identify themselves on and approve any political
+advertisement. Virginia Code §24.2-955 states that any sponsor of print media, radio, television, or
+online platform advertising is required to disclose their sponsorship on said advertisement. 26 If a
+violation of Political Campaign Advertisement occurs, §24.2-955.3 states the penalties and in what
+manner the Board must handle the assessment of the violation.27
+
+For statewide or General Assembly offices, ELECT recommends a one hundred dollar penalty for a
+first-time violation and three hundred dollars thereafter, doubling the value if the violation is within
+fourteen days of the election. For local or constitutional offices, ELECT recommends a fifty dollar
+penalty for a first-time violation, and one hundred dollars thereafter, again doubling the penalty
+within fourteen days of an election. If the Board unanimously agrees that the consequences of the ad
+are low, the Board may address a twenty-five dollar violation so long as the perpetrator is a first-time
+offender.
+
+March 19, 2024
+The Board held a public hearing to assess the violations of Virginia Code §24.2-955 for the November
+2023 general election. The Board heard nineteen cases, finding eighteen guilty, and differing action
+on one. The Board assessed a total of $475 in civil penalties. The Board dismissed the differed case
+and affirmed the rest of their findings on April 10, 2024, during a public meeting.
+
+April 10, 2024
+The Board held a public hearing to assess the violations of Virginia Code §24.2-955 by the
+Williamsburg-James City County Republican Committee. The Board heard the case and found them
+guilty. The Board assessed a one hundred dollar civil penalty. The Board affirmed their findings on
+May 28, 2024, during a public meeting.
+
+Campaign Finance Reports and Records Review
+Pursuant to §24.2-948.5, ELECT has the authority to review the reports and records of the campaign
+committees. ELECT staff worked to create the framework for completing the reviews required by
+
+
+
+
+26
+     Code of Virginia §24.2-955.
+27
+     Code of Virginia §24.2-955.3.
+                                              2024 State Board of Elections Annual Report 13
+§24.2-948.5.28 This includes email notifications to candidate campaign committees. Email reminders
+were issued in the first week of August, September, October, and November. These reminders were
+sent to the contacts on Statements of Organization for the offices for the November general election,
+including losing primary candidates. These reminders simply state what the committees need to have
+ready in the event they are chosen for review. On November 18, 2024, the Board directed ELECT staff
+to draw candidate campaign committees by using tickets in a tumbler. After the drawing, the chosen
+committees were contacted and instructed on how to submit their documents for review. Once the
+documents are received the reviews will begin. A report on those reviews will be made available to
+the Board, the Governor, and the General Assembly by July 1, 2025.
+
+
+Miscellaneous
+Delegations of Authority
+During the 2024 calendar year, the Board also reviewed the Delegations of Authority. The Delegations
+specified the roles and responsibilities of ELECT as delegated by the Board. On July 2, 2024, the Board
+approved the retention of some aspects of authority while delegating some to ELECT. Pursuant to
+2024 Acts of Assembly chapter 801, a new chapter of the Code of Virginia was created dedicated to
+presidential electors, Chapter 2.1 of Title 24.2, consolidating the presidential elector code provisions
+from various chapters into one; the Board retained the same authority as it had before the creation
+of the new chapter as well as delegating the same authorities to ELECT as before. 29 The Board
+retained three authorities regarding procedures for canceling a primary election after the withdrawal
+of a primary election. The Board delegated one authority to ELECT regarding split precincts. A
+previous delegation was removed in Chapter 1 of Title 24.2 regarding the information on ELECT’s
+website due to a change in law. 30 The document containing all delegations of authority from the
+Board to ELECT can be found on ELECT’s website.31
+
+Request to Remove a Local Electoral Board Member
+Pursuant to Virginia Code §24.2-234.1, “Any member of a local electoral board may be removed from
+office by the circuit court in whose jurisdiction he resides upon a petition signed by a majority of the
+members of the State Board as provided in § 24.2-103. The circuit court shall proceed with such
+removal by the provisions of § 24.2-235.” 32 The Board may petition a circuit court for the removal of
+
+
+
+
+28
+   Code of Virginia §24.2-948.5.
+29
+   Code of Virginia Chapter 2.1 of Title 24.2.
+30
+   2024 Acts of Assembly Chapter 989.
+31
+   ELECT, About Us.
+32
+   Code of Virginia §24.2-234.1.
+                                                 2024 State Board of Elections Annual Report 14
+a member of a local electoral board who fails to discharge the duties of his office by law.33 On May
+28, 2024, ELECT presented to the Board a request to remove Maria Kinney from the Charles City
+County Electoral Board. On July 2, 2024, the Board reviewed the materials presented and
+unanimously moved to petition the Circuit Court of Charles City County for the removal of Maria
+Kinney from the Charles City County Electoral Board.
+
+Lynchburg City Drop-off Ballots and CAP Processing for the June
+Primary Election
+The General Registrar of Lynchburg City provides a central drop-off box inside the Registrar's office
+during early voting pursuant to § 24.2-707.1.34 Following the June Primary Election on June 18, 2024,
+seven ballots were found inside the drop-off box; this was in violation of the Code of Virginia and the
+Absentee Ballot Drop-off Location Standards approved by the Board as the drop-off box is meant to
+be cleared on the night of the Election and secured in such a way as to prevent additional ballots
+being submitted past the deadline.35 The chairman of the Lynchburg Electoral Board gave testimony
+and assurances to the Board on August 20, 2024, that procedures will be put in place to ensure this
+situation does not occur in the future.
+
+
+Conclusion
+A wide variety of regulations, amendments, administrative policies and procedures, and election
+security updates were approved by the Board in 2024. The Board certified new voting systems and
+electronic pollbooks by the state certification process. Furthermore, the Board accurately certified
+the election results of multiple primary, general, and special elections. The State Board of Elections,
+through the Department of Elections, will continue to supervise and coordinate the work of elections
+administrators in every locality to promote and support accurate, fair, open, and secure elections for
+the citizens of the Commonwealth.
+
+
+
+
+33
+   Code of Virginia §24.2-103.
+34
+   Code of Virginia §24.2-701.1.
+35
+   ELECT, 2024 Standards for Absentee Ballot Drop Off Locations.
+                                                      2024 State Board of Elections Annual Report 15
+

@@ -1,0 +1,525 @@
+ State Board of
+ Elections
+ Annual Report
+ (January 1, 2022- December 31, 2022)
+
+
+
+
+OCTOBER 1, 2023
+
+Virginia Department of Elections
+Table of Contents
+Executive Summary ....................................................................................................4
+Introduction ...............................................................................................................5
+Regulations.................................................................................................................6
+   New Regulations .....................................................................................................6
+       Request for a Risk-Limiting Audit for a Contested Race within a Jurisdiction
+       (1VAC20-60-80) ...................................................................................................6
+       Required Training for Virginia Voter Registration System Users. (1VAC20-20-90) 6
+   Amendments to Existing Regulations ......................................................................6
+       Alternative Processing Procedures for Absentee Ballots Returned before Election
+       Day (1VAC20-70-40) ............................................................................................6
+Election Administration ..............................................................................................7
+       Minority Language Requirements .......................................................................7
+       Split Precinct Waivers..........................................................................................8
+       Certification of Elections .....................................................................................8
+       Ballot Order ........................................................................................................9
+       Party Abbreviations ............................................................................................9
+       Revisions to Virginia Absentee Ballot Application and Virginia Permanent
+       Absentee Voter Change Form..............................................................................9
+       Revision of State Board of Elections Ballot Standards..........................................9
+       Revision of the Board Electronic Meeting Policy ................................................10
+Election Security .......................................................................................................10
+       VRSS Recommendations Regarding Locality Election Security Standards ...........10
+       Ballot On Demand Standards and Certification .................................................11
+       Locality Extensions ............................................................................................11
+       Unisyn Voting Solutions Version 2.2 Certification ..............................................12
+       KNOWiNK Poll Pad 2.58 and 3.0.1 Certification .................................................12
+
+
+                                                                 State Board of Elections Annual Report 2
+       Elections System & Software ExpressPoll 7.2.4.0 Certification...........................12
+       Risk-Limiting Audit ............................................................................................13
+Stand by Your Ad ......................................................................................................13
+   SBYA Citations ......................................................................................................14
+       January 18, 2022 ...............................................................................................14
+       August 16, 2022 ................................................................................................14
+Miscellaneous ...........................................................................................................14
+       Delegations of Authority ...................................................................................14
+       Advisory Review Workgroup .............................................................................14
+Conclusion ................................................................................................................15
+
+
+
+
+                                                                 State Board of Elections Annual Report 3
+Executive Summary
+In accordance with the Code of Virginia §24.2-103(J) the State Board of Elections (the Board), through
+the Department of Elections (ELECT), is pleased to provide to the Governor and the Virginia General
+Assembly the State Board of Elections Annual Report. Pursuant to §24.2-103 of the Code of Virginia,
+the Board supervises, coordinates, and adopts regulations governing the work of local electoral
+boards, registrars, and officers of election to ensure secure, uniform, and trustworthy elections.
+During the 2022 calendar year (January 1, 2022 – December 31, 2022), the Board met a total of
+eleven times, certifying three elections, approving two new regulations, adopting one amendment to
+an existing regulation, assessing and addressing a variety of administrative matters, updating and
+ensuring election security, and defining penalties for Stand By Your Ad (SBYA) violations.
+
+
+
+
+                                                     State Board of Elections Annual Report 4
+Introduction
+The Virginia State Board of Elections (the Board) was created in 1946 as a nonpolitical agency
+responsible for ensuring fairness, accuracy, and uniformity in all elections in the Commonwealth of
+Virginia. The Board promotes the proper administration of election laws, campaign finance disclosure
+compliance, and voter registration processes in the state by promulgating rules, regulations, issuing
+instructions, and providing information to local electoral boards and general registrars. The
+Department of Elections (ELECT) was formed in 2014 to conduct the Board’s administrative
+operations and other duties consistent with its delegated authority. In 2022, ELECT proposed
+approximately 45 memorandums to the Board summarized in the table below.
+
+                                  Type          Number of Memorandum
+                            New Regulations               2
+                         Amended Regulations              1
+                         Election Certification           3
+                        Election Administration           16
+                           Risk-Limiting Audit            7
+                            Election Security             8
+                            Stand By Your Ad              4
+                             Miscellaneous                4
+                                  Total                   45
+
+
+
+
+                                                     State Board of Elections Annual Report 5
+Regulations
+Pursuant to Virginia Code §24.2-103, the Board has the authority to make rules and regulations, issue
+instructions, and provide information consistent with election laws to the electoral boards and
+general registrars. 1 Electoral Boards and registrars must adhere to the rules and regulations of the
+Board, ensuring compliance with Virginia and federal laws.
+
+
+New Regulations
+Request for a Risk-Limiting Audit for a Contested Race within a Jurisdiction (1VAC20-
+60-80)
+As per the Virginia Code §24.2-671.2(D), the Board must promulgate regulations for local electoral
+boards to submit a request to conduct a risk-limiting audit of a contested race within the local
+electoral board’s jurisdiction.2 This regulatory action establishes the process through which a local
+electoral board may request a risk-limiting audit of a contested race in its jurisdiction. The Board
+unanimously passed this regulation on August 16, 2022.
+
+Required Training for Virginia Voter Registration System Users. (1VAC20-20-90)
+As per the Virginia Code §24.2-410.2, the Board is required to “promulgate regulations and standards
+necessary” to ensure the security of the Virginia voter registration system (VERIS). 3 This law also
+requires ELECT to limit access to VERIS to address and resolve security risks or enforce compliance
+with the Locality Election Security Standards. This regulatory action restricts access to VERIS to
+individuals who have enrolled and completed security awareness training approved or provided by
+ELECT. The Board unanimously passed this regulation on December 5, 2022.
+
+
+Amendments to Existing Regulations
+Alternative Processing Procedures for Absentee Ballots Returned before Election Day
+(1VAC20-70-40)
+This regulatory action sought to formalize the pre-processing steps that localities took during the
+2021 General Election. These processes resulted in the efficient and timely processing and reporting
+of absentee ballots. For the November 2021 General Election, ELECT issued instructions to the local
+general registrars with certain additional requirements for the pre-processing of absentee ballots.
+These additional requirements included mandating at least two pre-processing meetings in the seven
+
+
+
+1
+  See the Code of Virginia, §24.2-103.
+2
+  See the Code of Virginia, §24.2-671.2.
+3
+  See the Code of Virginia, §24.2-410.2.
+
+                                                     State Board of Elections Annual Report 6
+days before Election Day and other requirements. The Board unanimously passed this amendment on
+April 13, 2022.
+
+
+Election Administration
+Election Administration encompasses the proper administration of election laws, campaign finance
+disclosure compliance, and voter registration processes in Virginia. This includes creating rules,
+issuing instructions, and providing information consistent with state and federal election laws to
+promote the proper administration of elections and to obtain uniformity in the practices of election
+officials. The Board reviewed proposals from ELECT regarding election administration during the 2022
+calendar year. Below is a summarization of items proposed to the Board including revisions to
+documents, certification of elections, and the form of ballots used in elections throughout the
+Commonwealth.
+
+
+Minority Language Requirements
+In 2021 the General Assembly passed HB1890, which established minority language accessibility
+requirements for certain localities. Effective September 1, 2021, the State Board of Elections “shall
+designate a county, city or town as a covered locality…” A “covered locality”, as defined by Virginia
+Code §24.2-128, is a locality that has: 4
+
+       (i)      More than five percent of the citizens of voting age of such county, city, or town are
+                members of a single language minority and are unable to speak or understand English
+                adequately enough to participate in the electoral process;
+       (ii)     More than 10,000 of the citizens of voting age of such county, city, or town are members
+                of a single language minority and are unable to speak or understand English adequately
+                enough to participate in the electoral process; or,
+       (iii)    In the case of a county, city, or town containing all or any part of an Indian reservation,
+                more than five percent of the American Indian citizens of voting age within the Indian
+                reservation are members of a single language minority and are unable to speak or
+                understand English adequately enough to participate in the electoral process.
+
+       Any locality that is designated a covered locality pursuant to Virginia Code §24.2-128 will be
+       required to translate into the applicable minority language any voting or election materials
+       available in English. Below is a table showing the localities that were designated on January 18,
+       2022 by the Board as meeting the minority language criteria.
+
+
+
+
+4
+    See the Code of Virginia, §24.2-128.
+
+                                                           State Board of Elections Annual Report 7
+                                         Locality        Language Required
+                                      Manassas City           Spanish
+                                   Manassas Park City         Spanish
+                                  Prince William County       Spanish
+                                      Fairfax County    Spanish, Vietnamese
+
+Split Precinct Waivers
+Pursuant to Virginia Code §24.2-307, “If a governing body is unable to establish a precinct with the
+minimum number of registered voters without splitting the precinct between two or more
+congressional districts, Senate districts, House of Delegates districts, or local election districts, it shall
+apply to the State Board for a waiver to administer a split precinct. 5 The State Board may grant the
+waiver or direct the governing body to establish a precinct with fewer than the minimum number of
+registered voters as permitted by § 24.2-309.” The minimum number of voters for a county precinct
+is 100, and the minimum for a city precinct is 500. Split precinct waivers must be renewed by the
+governing body each year. The Board granted 15 split precinct waivers for various counties and cities.
+
+
+Certification of Elections
+During the 2022 Calendar year, the Board certified 3 elections. On January 18, 2022, the Board
+certified the results of the January 5, 2021 Special Elections for House of Delegates District 89,
+pursuant to Virginia Code §§24.2-679 and 24.2-680. 6
+
+On July 5, 2022, the Board certified the results of the June 21, 2022 Democratic and Republican
+Primaries for United States House of Representatives Districts 2, 3, 6, 7, and 8. The winners of each
+primary were declared as that party's nominee for the November 8, 2022 election, pursuant to
+Virginia Code §24.2-534. 7
+
+Last, on December 5, 2022, the Board completed the certification of the November 8, 2022 General
+Election pursuant to Virginia Code§ 24.2-679.8 The Board certified the election results for the 11 U.S.
+House of Representative Districts.
+
+
+
+
+5
+  See the Code of Virginia, §24.2-307.
+6
+  See the Code of Virginia, §§24.2-679 and 24.2-680.
+7
+  See the Code of Virginia, §24.2-534.
+8
+  See the Code of Virginia, §24.2-679.
+
+                                                         State Board of Elections Annual Report 8
+Ballot Order
+In the event that two or more candidates file simultaneously, the order of the filing is determined by
+the electoral board or the Board, pursuant to Virginia Code §24.2-529.9 Additionally, the Board must
+determine by lot the order of political parties, pursuant to Virginia Code §24.2-613.10
+
+On April 13, 2022, the Board certified the determinations by lot of the order of candidates on the
+ballot for primary elections to be held on June 21, 2022. During the same meeting, the Board
+determined by lot and certified the ballot order for all general and special elections held between
+April 30, 2022 and January 31, 2023.
+
+
+Party Abbreviations
+Pursuant to Virginia Code §24.2-613(A), “[t]he ballots shall comply with…the standards prescribed by
+the Board.” 11 ELECT staff recommended on August 16, 2022 that the Board approve the
+recommended abbreviations for general and special elections being held through April 30, 2023. The
+memorandum included political parties, recognized political parties, and potential abbreviation
+options. The Board approved the party abbreviations by a unanimous vote.
+
+
+Revisions to Virginia Absentee Ballot Application and Virginia Permanent Absentee
+Voter Change Form
+ELECT and a workgroup of general registrars collaborated to revise the Virginia Absentee Ballot
+Application Form (SBE-701/703.1) and the Virginia Permanent Absentee Voter Single Election Change
+Form (SBE-703.1C). The revised forms simplified the process for voters by streamlining the questions,
+refining language for clarity, and addressing formatting issues. The Board unanimously approved the
+revisions on July 5, 2022.
+
+
+Revision of State Board of Elections Ballot Standards
+In the 2022 Session, the General Assembly passed and the Governor signed Senate Bill 3 and House
+Bill 927 requiring reporting of results from the Central Absentee Precinct by precinct. In conversations
+with general registrars and voting system vendors, it was determined that the best and easiest way to
+accomplish this legislative mandate is to produce a separate “ballot style” for each precinct.
+Previously, if all of the contests and questions for multiple precincts were the same, one “ballot style”
+could be created and used in all of the precincts. However, that does not permit for the separation
+
+
+
+
+9
+  See the Code of Virginia, §24.2-529.
+10
+   See the Code of Virginia, §24.2-613.
+11
+   Id.
+
+                                                       State Board of Elections Annual Report 9
+and reporting of the results from the Central Absentee Precinct by precinct. By creating a separate
+“ballot style” for each precinct, the voting systems can more easily determine in which precinct the
+votes cast for a single ballot can be allocated. On August 16, 2022, ELECT proposed revisions,
+reflecting these conversations, of the State Board of Elections Ballot Standards, and the Board
+unanimously approved the revisions.
+
+Revision of the Board Electronic Meeting Policy
+Acts of Assembly Chapter 597 from the 2022 Session of the General Assembly changed the provisions
+of the Virginia Freedom of Information Act (FOIA) concerning electronic meetings. Prior to September
+1, 2022, the provisions concerning electronic meetings were found in Virginia Code §2.2-3708.2.12 As
+of September 1, 2022, the FOIA provisions concerning electronic meetings are found in §2.2-3708.2
+and §2.2-3708.3. 13 These two Code sections separate electronic meetings into two general
+categories:
+
+           1. Electronic meetings held other than during a declared state of emergency, which includes
+           both remote participation by individual members and all-virtual public meetings, in §2.2-
+           3708.3; and,
+           2. Electronic meetings held during a declared state of emergency, in §2.2-3708.2.
+
+ELECT proposed revisions to reflect these changes, and the Board unanimously approved the
+revisions on September 27, 2022.
+
+
+Election Security
+The Board and ELECT consistently work to ensure the integrity and security of every election is upheld
+in the Commonwealth. Throughout the 2022 calendar year, the Board performed its role in election
+security by approving various updates related to pollbooks, voting systems, and voting system
+security. Additionally, the Board approved the performance of a risk-limiting audit after the general
+election in November 2022.
+
+
+VRSS Recommendations Regarding Locality Election Security Standards
+Pursuant to Virginia Code §24.2-410.2, the Board is required to update the Locality Election Security
+Standards by November 30 annually, after consultation with the Voter Registration System Security
+(VRSS) Advisory Group, a group consisting of ELECT staff, representatives of local government
+
+
+
+
+12
+     See the Code of Virginia, §2.2-3708.2.
+13
+     See the Code of Virginia, §§2.2-3708.2 and 2.2-3708.3
+
+                                                             State Board of Elections Annual Report 10
+information technology professionals, and general registrars. 14 The VRSS reviewed the 2022 Locality
+Election Security Standards (LESS) and made a concerted effort to streamline and clarify the election
+security standards for all localities regardless of size. On November 16, 2022, ELECT and VRSS
+presented revisions to the LESS, and the Board unanimously approved the revisions. Previously, the
+LESS requirements included 446 controls and 23 control families; following the Board's action, these
+requirements for localities were reduced to 163 controls and 14 control families.
+
+
+Ballot On Demand Standards and Certification
+Pursuant to Virginia Code §24.2-101, the definition of a voting system includes Ballot on Demand
+(BOD) systems. 15 Due to this change, the Board must provide a set of standards for the approval and
+certification of BOD, pursuant to Virginia Code §24.2-629. 16 ELECT staff developed certification
+standards to ensure that BOD systems meet all necessary statutory standards. ELECT proposed these
+standards, and the Board unanimously approved the new standards on August 16, 2022.
+
+Based on the BOD Standards approved by the Board, 4 voting systems vendors submitted their
+systems for certification by the Board. On September 27, 2022, the Board unanimously approved and
+certified the following BOD systems for use in the Commonwealth: DemTech Ballot on Demand
+System Certification 1.0, KNOWiNK Ballot of Demand Poll Print System Certification 3.0.1, Elections
+Systems & Software Ballot on Demand Systems Balotar 3.0.5.1 and BOD Printing System 1.0, and Hart
+InterCivic Ballot on Demand Systems Verity Print 2.5 and Verity Build versions.
+
+
+Locality Extensions
+In the Commonwealth, localities have over 8,000 electronic pollbooks (EPBs), which are supported by
+five vendors. In 2020, Electronic PollBook Certification Standards were approved by the State Board
+of Elections with an emphasis on providing secure connectivity for use in satellite locations. At the
+March 1, 2021 State Board of Elections meeting, a recommendation of a timeline for localities to
+upgrade was provided, with all systems to be upgraded by July 21, 2021. The fiscal impact had been
+difficult on localities purchasing upgraded EPBs. Some localities were not prepared to purchase the
+pollbooks in time for the upcoming November election. These localities only used EPBs on Election
+Day. ELECT worked with the localities and vendors to have the necessary upgrades ready by
+December 31, 2022, determining that there would be no impact on the security or connectivity of the
+old EPBs for the November election. ELECT proposed an extension to the upgraded timeline for the
+following localities: Accomack County, Bland County, Caroline County, Cumberland County, Giles
+
+
+
+
+14
+   See the Code of Virginia, §24.2-410.2.
+15
+   See the Code of Virginia, §24.2-101.
+16
+   See the Code of Virginia, §24.2-629.
+
+                                                    State Board of Elections Annual Report 11
+County, Lancaster County, Nelson County, Northampton County, Poquoson City, Portsmouth City,
+Radford City, Roanoke City, Spotsylvania County, and Warren County. The Board unanimously
+approved the extension for these localities on September 27, 2022.
+
+
+Unisyn Voting Solutions Version 2.2 Certification
+On March 1, 2022, ELECT requested the Board certify the use of the Unisyn Voting Solutions 2.2
+voting system. During the preliminary review, the state-designated evaluation agent conducted a
+preliminary analysis of the Technical Data Package and other materials provided and prepared test
+assertions. Unisyn provided the certification fee and the testing/evaluation was conducted on
+February 8 through February 10, 2022 at the ELECT facilities in Virginia. In addition, the system was
+successfully tested in a Mock Election in Loudoun County on February 11, 2022. The Unisyn voting
+system presented for certification under 2.2 successfully completed Virginia Voting Systems State
+Certification requirements. The Board motioned and approved the use of the updated system by a
+unanimous vote.
+
+KNOWiNK Poll Pad 2.58 and 3.0.1 Certification
+On April 13, 2022, ELECT requested the Board certify the use of the KNOWiNK Poll Pad 2.58 and 3.0.1.
+During the preliminary review, the state-designated evaluation agent conducted a preliminary
+analysis of the Technical Data Package and other materials provided and prepared test assertions.
+KNOWiNK provided the certification fee and the testing/evaluation was conducted on March 23 and
+24, 2022 at the ELECT facilities in Virginia. In addition, the system was successfully tested in a Mock
+Election in Fairfax County on March 25, 2022. The KNOWiNK EPBs presented for certification under
+2.5.8 and 3.0.1 successfully completed Virginia Electronic Pollbook State Certification requirements.
+The Board motioned and approved the use of the updated system by a unanimous vote.
+
+
+Elections System & Software ExpressPoll 7.2.4.0 Certification
+On May 24, 2022, ELECT requested the Board certify the use of Elections System & Software(ES&S)
+EPB ExpressPoll 7.2.4.0. SLI Compliance, an independent testing authority, determined that the ES&S
+ExpressPoll met the requirements of the Election Assistance Commission (EAC) Voluntary Voting
+System Guidelines (VVSG). During the preliminary review, the state-designated evaluation agent
+conducted a preliminary analysis of the Technical Data Package and other materials provided and
+prepared test assertions. ES&S provided the certification fee and testing was conducted on May 9-11,
+2022 at ELECT facilities in the Commonwealth. In addition, the system was successfully tested
+in a Mock Election in Richmond County on May 13, 2022. The ES&S ExpressPoll presented for
+certification under 7.2.4.0 successfully completed Virginia Electronic Pollbook State Certification
+requirements. The Board motioned and approved the use of the updated system by a unanimous
+vote.
+
+
+
+                                                     State Board of Elections Annual Report 12
+Risk-Limiting Audit
+Pursuant to Virginia Code §24.2-671.2(B), the Board must promulgate rules and procedures for the
+conduct of risk-limiting audits (RLA). 17 ELECT staff developed an RLA Manual that encompassed all
+rules and procedures to conduct RLAs in the Commonwealth. This Manual was presented to the
+Board on September 27, 2022 and unanimously approved. The RLA Manual can be found on ELECT’s
+website as Chapter 19 of the General Registrar and Electoral Board Handbook. 18
+
+Pursuant to Virginia Code §24.2-671.2(C), ELECT is required to conduct an RLA on certain races after
+each general election. For the November 2022 general election, an RLA of a U.S. House of
+Representatives race was statutorily required. On November 16, 2022, the Board met electronically
+to select the U.S. House of Representatives race, set the risk limit, and generate the random seed
+number. The Commissioner mixed a bowl of film canisters, each containing a U.S. House of
+Representatives race, and the Chairman of the Board selected a film canister. District 9 of the U.S.
+House of Representatives was chosen. The risk limit for the RLA was set by the Board to 10%.
+
+ELECT utilizes an RLA software called Arlo to conduct RLAs. Arlo is an open-source software hosted by
+the non-profit organization VotingWorks. Arlo selected a representative sample of ballots cast in the
+election at random. These ballots were reviewed by hand to verify the accuracy of machine counts.
+The results from the RLA indicated that there was a .0000004864% chance that the audit of the U.S
+House of Representatives 9th District contest was inaccurate, providing election officials with strong
+evidence and confidence in the reported outcome of the election. The audit result fell significantly
+below the 10 percent risk limit, confirming the result for the District 9 race accurately portrayed the
+winner of the election. A full report can be found on ELECT’s website. 19
+
+
+Stand by Your Ad
+Stand by Your Ad (SBYA) is a provision of the 2002 Bipartisan Campaign Reform Act, which requires
+any candidate running for federal political office to identify themselves on and approve any political
+advertisement. Virginia Code §24.2-955 states that any sponsor of print media, radio, television, or
+online platform advertising is required to disclose their sponsorship on said advertisement. 20 If a
+violation of Political Campaign Advertisement occurs, §24.2-955.3 states the penalties and in what
+manner the Board must handle the assessment of the violation.21
+
+
+
+
+17
+   See the Code of Virginia, §24.2-671.2(B).
+18
+   See ELECT, RLA Manual.
+19
+   See ELECT, Risk-limiting Audits.
+20
+   See the Code of Virginia, §24.2-955.
+21
+   See the Code of Virginia, §24.2-955.3.
+
+                                                     State Board of Elections Annual Report 13
+SBYA Citations
+For statewide or General Assembly offices, ELECT recommends a $100 penalty for a first-time
+violation and $300 thereafter, doubling the value if the violation is within 14 days of the election. For
+local or constitutional offices, ELECT recommends a $50 penalty for a first-time violation, and $100
+thereafter, again doubling the penalty within 14 days of an election. If the Board unanimously agrees
+that the consequences of the ad are low, the Board may address a $25 violation so long as the
+perpetrator is a first-time offender.
+
+
+January 18, 2022
+The Board held a public hearing to assess the violations of Virginia Code §24.2-955 for the November
+2021 general election. The Board heard 17 cases, dismissing 1 and finding 16 guilty, assessing a total
+of $3,100 in civil penalties. The Board affirmed their findings on March 1, 2022 during a public
+meeting.
+
+August 16, 2022
+The Board held a public hearing to assess the violations of Virginia Code §24.2-955 for the June 2022
+primary election. The Board heard 2 cases, finding both guilty, and assessed a total of $75 in civil
+penalties. The Board affirmed their findings on September 27, 2022 during a public meeting.
+
+
+Miscellaneous
+Delegations of Authority
+During the 2022 calendar year, the Board also reviewed the Delegations of Authority. The Delegations
+specified the roles and responsibilities of ELECT as delegated by the Board. On March 1, 2022, the
+Board approved retaining the power to approve split precinct waivers. On December 5, 2022, the
+Board approved the retention of some aspects of authority while delegating some to ELECT; the
+document containing all delegations of authority from the Board to ELECT can be found on Virginia
+Regulatory Town Hall.22
+
+Advisory Review Workgroup
+The Board established the Advisory Review Workgroup (“the Workgroup”) by resolution on October
+29, 2019. The resolution expires February 1, 2023. The Workgroup is comprised of three
+representatives from the Virginia Registrars Association, three representatives of the Virginia
+Electoral Board Association, one representative of the Virginia Association of Counties, one
+
+
+
+22
+     See ELECT, State Board of Elections Delegations of Authority.
+
+                                                                 State Board of Elections Annual Report 14
+representative of the Virginia Municipal League, and five citizen members. A citizen member chairs
+the Workgroup. The first assignment the Board gave to the Workgroup was to “develop benchmarks
+to measure the success of elections in Virginia.” The Workgroup submitted the first phase of their
+report on April 25, 2022. The report identifies the key 5 elements of a well-run election: Accessibility,
+Efficiency, Transparency, Security, and Accuracy. The full report can be found in the Board’s agenda
+for May 24, 2022 on Virginia Regulatory Town Hall. 23
+
+
+
+Conclusion
+A wide variety of regulations, amendments, administrative policies and procedures, and election
+security updates were approved by the Board in 2022. The Board-certified new voting systems and
+electronic pollbooks in accordance with the state certification process. Furthermore, the Board
+accurately certified the election results of the 2022 primary and general elections as well as the
+special election for House of Delegates District 89. The elections community will continue to promote
+and support accurate, fair, open, and secure elections for the citizens of the Commonwealth.
+
+
+
+
+23
+     See Virginia Department of Planning and Budget, Virginia Regulatory Town Hall.
+
+                                                                State Board of Elections Annual Report 15
+

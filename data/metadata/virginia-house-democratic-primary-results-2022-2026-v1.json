@@ -1,0 +1,908 @@
+{
+  "schema": "virginia-house-democratic-primary-results-2022-2026-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T17:05:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "parentProposal": {
+    "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "decisionSupport": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    }
+  ],
+  "inheritedDecisionResolutions": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "resolution": null
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "resolution": null
+    }
+  ],
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "electionDate": "2022-06-21",
+      "status": "retained_official_result_with_event_certification"
+    },
+    {
+      "cycleYear": 2024,
+      "electionDate": "2024-06-18",
+      "status": "retained_official_result_with_event_certification"
+    },
+    {
+      "cycleYear": 2026,
+      "electionDate": "2026-08-04",
+      "snapshotAsOf": "2026-08-05T16:54:16.700627Z",
+      "status": "retained_official_source_unofficial_snapshot_pending_certification"
+    }
+  ],
+  "sources": [
+    {
+      "id": "va-2022-house-democratic-primary-congress-json",
+      "url": "https://results.elections.virginia.gov/vaelections/2022%20June%20Democratic%20Primary/Json/Congress.json",
+      "retainedPath": "data/source/elections/primary-results/virginia/2022/congress.json",
+      "retainedStatus": "retained",
+      "byteSize": 523,
+      "sha256": "7ed6e640eaa1b83a22b9023d124494c83d40ed58e00011c76e4a3d2859a3dfed",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "va-2024-democratic-primary-election-metadata-json",
+      "url": "https://enr.elections.virginia.gov/results/public/api/elections/Virginia/2024_June_Democratic_Primary",
+      "retainedPath": "data/source/elections/primary-results/virginia/2024/election-metadata.json",
+      "retainedStatus": "retained",
+      "byteSize": 4860,
+      "sha256": "0a41509109042708b26121b1fddf49f39726a8a750769723338b8a24bfec0aaf",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "va-2024-house-democratic-primary-ballot-items-json",
+      "url": "https://enr.elections.virginia.gov/results/public/api/elections/Virginia/2024_June_Democratic_Primary/ballot-items",
+      "retainedPath": "data/source/elections/primary-results/virginia/2024/ballot-items.json",
+      "retainedStatus": "retained",
+      "byteSize": 60877,
+      "sha256": "f3cbd0fa35fecc514b6d429684c41466e7381a249eca856fbbd394e231826a5e",
+      "kind": "source",
+      "parentIds": [
+        "va-2024-democratic-primary-election-metadata-json"
+      ]
+    },
+    {
+      "id": "va-2026-democratic-primary-unofficial-election-metadata-json",
+      "url": "https://enr.elections.virginia.gov/results/public/api/elections/virginia/2026-August-Democratic-Primary",
+      "retainedPath": "data/source/elections/primary-results/virginia/2026/unofficial-election-metadata-20260805T165416Z.json",
+      "retainedStatus": "retained",
+      "byteSize": 8156,
+      "sha256": "f4a6d7b0b868e9ae2b64653552263d039a23b44a82fe322ef22eeaa12dc3fb3b",
+      "kind": "source_snapshot",
+      "parentIds": []
+    },
+    {
+      "id": "va-2026-house-democratic-primary-unofficial-ballot-items-json",
+      "url": "https://enr.elections.virginia.gov/results/public/api/elections/virginia/2026-August-Democratic-Primary/ballot-items",
+      "retainedPath": "data/source/elections/primary-results/virginia/2026/unofficial-ballot-items-20260805T165416Z.json",
+      "retainedStatus": "retained",
+      "byteSize": 50094,
+      "sha256": "936ed071a4bb03c8d354cb5ee1b101b19d05f937a4c5dd844123008cc99df126",
+      "kind": "source_snapshot",
+      "parentIds": [
+        "va-2026-democratic-primary-unofficial-election-metadata-json"
+      ]
+    },
+    {
+      "id": "va-sbe-2022-annual-report-pdf",
+      "url": "https://www.elections.virginia.gov/media/about/SBE-Report-2022-FINAL.pdf",
+      "retainedPath": "data/source/elections/primary-results/virginia/certification/sbe-2022-annual-report.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 374880,
+      "sha256": "1588228ec443dc0ab65b174873860196b7bd25d52214d40307ca55deaffec1f9",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "va-sbe-2022-annual-report-text",
+      "url": "urn:dsa-seats:va-sbe-2022-annual-report-pdf:pdftotext-layout",
+      "retainedPath": "data/source/elections/primary-results/virginia/certification/sbe-2022-annual-report.txt",
+      "retainedStatus": "retained",
+      "byteSize": 31925,
+      "sha256": "026621af0a21b831b3f068a035d2a9efd08bb61b503c17b77515aab9abc96542",
+      "kind": "derived_extract",
+      "parentIds": [
+        "va-sbe-2022-annual-report-pdf"
+      ]
+    },
+    {
+      "id": "va-sbe-2024-annual-report-pdf",
+      "url": "https://www.elections.virginia.gov/media/about/SBE-Annual-Report-2024_FINAL.pdf",
+      "retainedPath": "data/source/elections/primary-results/virginia/certification/sbe-2024-annual-report.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 358016,
+      "sha256": "e41364d5a76ff2e21e38bde58bdbaeccbd4b3c2430d3f9972539913d35e32c2d",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "va-sbe-2024-annual-report-text",
+      "url": "urn:dsa-seats:va-sbe-2024-annual-report-pdf:pdftotext-layout",
+      "retainedPath": "data/source/elections/primary-results/virginia/certification/sbe-2024-annual-report.txt",
+      "retainedStatus": "retained",
+      "byteSize": 33287,
+      "sha256": "189ab25ef098541719f400d3f72af5a1c84575c2217b174be87d354c8f3a019f",
+      "kind": "derived_extract",
+      "parentIds": [
+        "va-sbe-2024-annual-report-pdf"
+      ]
+    }
+  ],
+  "contests": [
+    {
+      "stateCode": "VA",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "va:2022:regular:us-house:08:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-21",
+      "districtCode": "08",
+      "sourceLockId": "va-2022-house-democratic-primary-congress-json",
+      "sourceContestId": null,
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "event_level_board_certification_retained_no_individual_certificate",
+      "reportingCompleteness": "182_of_182_precincts_reported",
+      "reportingUnits": null,
+      "totalReportingUnits": null,
+      "reportingAsOf": null,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Victoria I. Virasingh",
+          "votes": 11583,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Donald S. Beyer, Jr.",
+          "votes": 39062,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 50645,
+      "voteReconciliation": "candidate_sum_equals_source_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "contestSha256": "aaec2c7e4a295c8054dbf4ee2181719024d809c5c077b5ff728d7061476e1214"
+    },
+    {
+      "stateCode": "VA",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "va:2024:regular:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-18",
+      "districtCode": "01",
+      "sourceLockId": "va-2024-house-democratic-primary-ballot-items-json",
+      "sourceContestId": "feacd61a-b69f-4224-a9f9-4eadb7bb6907",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "event_level_board_certification_retained_no_individual_certificate",
+      "reportingCompleteness": "official_api_vote_total_reconciled",
+      "reportingUnits": null,
+      "totalReportingUnits": null,
+      "reportingAsOf": null,
+      "candidates": [
+        {
+          "sourceCandidateId": "cs29",
+          "sourceCandidateName": "Leslie C. Mehta",
+          "votes": 15253,
+          "sourceWinnerMarker": true
+        },
+        {
+          "sourceCandidateId": "cs30",
+          "sourceCandidateName": "Herbert C. Jones, Jr",
+          "votes": 7653,
+          "sourceWinnerMarker": false
+        }
+      ],
+      "sourceTotalVotes": 22906,
+      "voteReconciliation": "candidate_sum_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Leslie C. Mehta",
+      "contestSha256": "d747d87195cebb47ffb6c4092f5c7bfb4f562e672e69556fe031278ce0274dd0"
+    },
+    {
+      "stateCode": "VA",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "va:2024:regular:us-house:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-18",
+      "districtCode": "02",
+      "sourceLockId": "va-2024-house-democratic-primary-ballot-items-json",
+      "sourceContestId": "41bd9b64-037e-4e50-a4df-a0c0cdca59c5",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "event_level_board_certification_retained_no_individual_certificate",
+      "reportingCompleteness": "official_api_vote_total_reconciled",
+      "reportingUnits": null,
+      "totalReportingUnits": null,
+      "reportingAsOf": null,
+      "candidates": [
+        {
+          "sourceCandidateId": "cs83",
+          "sourceCandidateName": "Jeremiah A. \"Jake\" Denton IV",
+          "votes": 8732,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs84",
+          "sourceCandidateName": "Missy Cotter Smasal",
+          "votes": 20480,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "sourceTotalVotes": 29212,
+      "voteReconciliation": "candidate_sum_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Missy Cotter Smasal",
+      "contestSha256": "8286784274cc3fa8ac177053de9c06802053f7ee8f10d53e516c44de9c8f95ec"
+    },
+    {
+      "stateCode": "VA",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "va:2024:regular:us-house:05:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-18",
+      "districtCode": "05",
+      "sourceLockId": "va-2024-house-democratic-primary-ballot-items-json",
+      "sourceContestId": "b43e9c43-6019-4b01-a943-58a8a5c1e15c",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "event_level_board_certification_retained_no_individual_certificate",
+      "reportingCompleteness": "official_api_vote_total_reconciled",
+      "reportingUnits": null,
+      "totalReportingUnits": null,
+      "reportingAsOf": null,
+      "candidates": [
+        {
+          "sourceCandidateId": "cs31",
+          "sourceCandidateName": "Gloria Tinsley Witt",
+          "votes": 14188,
+          "sourceWinnerMarker": true
+        },
+        {
+          "sourceCandidateId": "cs32",
+          "sourceCandidateName": "Paul A. Riley",
+          "votes": 5063,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs33",
+          "sourceCandidateName": "Gary L. Terry",
+          "votes": 5566,
+          "sourceWinnerMarker": false
+        }
+      ],
+      "sourceTotalVotes": 24817,
+      "voteReconciliation": "candidate_sum_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Gloria Tinsley Witt",
+      "contestSha256": "2abf7cef097a63054804a2bd9b87ef7d2902aa6a0a71d483a49a9f9e378383a5"
+    },
+    {
+      "stateCode": "VA",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "va:2024:regular:us-house:07:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-18",
+      "districtCode": "07",
+      "sourceLockId": "va-2024-house-democratic-primary-ballot-items-json",
+      "sourceContestId": "214232b4-acb2-45f4-b7b9-d936fb4b40c8",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "event_level_board_certification_retained_no_individual_certificate",
+      "reportingCompleteness": "official_api_vote_total_reconciled",
+      "reportingUnits": null,
+      "totalReportingUnits": null,
+      "reportingAsOf": null,
+      "candidates": [
+        {
+          "sourceCandidateId": "cs41",
+          "sourceCandidateName": "Eugene S. Vindman",
+          "votes": 17263,
+          "sourceWinnerMarker": true
+        },
+        {
+          "sourceCandidateId": "cs42",
+          "sourceCandidateName": "Briana D. Sewell",
+          "votes": 4706,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs43",
+          "sourceCandidateName": "Elizabeth R. Guzman",
+          "votes": 5283,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs44",
+          "sourceCandidateName": "Carl B. Bedell",
+          "votes": 738,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs45",
+          "sourceCandidateName": "Cliff D. Heinzer",
+          "votes": 621,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs46",
+          "sourceCandidateName": "Margaret Angela Franklin",
+          "votes": 2034,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs47",
+          "sourceCandidateName": "Andrea O. Bailey",
+          "votes": 4381,
+          "sourceWinnerMarker": false
+        }
+      ],
+      "sourceTotalVotes": 35026,
+      "voteReconciliation": "candidate_sum_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Eugene S. Vindman",
+      "contestSha256": "a81e98fb3fc15c214abd9006c88fbcaf2a647273282f04820654fb04df4c492d"
+    },
+    {
+      "stateCode": "VA",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "va:2024:regular:us-house:10:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-18",
+      "districtCode": "10",
+      "sourceLockId": "va-2024-house-democratic-primary-ballot-items-json",
+      "sourceContestId": "a65acc5e-d894-4f85-bbca-66889c737e42",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "event_level_board_certification_retained_no_individual_certificate",
+      "reportingCompleteness": "official_api_vote_total_reconciled",
+      "reportingUnits": null,
+      "totalReportingUnits": null,
+      "reportingAsOf": null,
+      "candidates": [
+        {
+          "sourceCandidateId": "cs59",
+          "sourceCandidateName": "Eileen Filler-Corn",
+          "votes": 4131,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs60",
+          "sourceCandidateName": "Suhas Subramanyam",
+          "votes": 13504,
+          "sourceWinnerMarker": true
+        },
+        {
+          "sourceCandidateId": "cs61",
+          "sourceCandidateName": "Atif M. Qarni",
+          "votes": 4768,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs62",
+          "sourceCandidateName": "Dan I. Helmer",
+          "votes": 11784,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs63",
+          "sourceCandidateName": "Marion Devoe Sr. ",
+          "votes": 386,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs64",
+          "sourceCandidateName": "Krystle Veda Kaul",
+          "votes": 982,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs65",
+          "sourceCandidateName": "Jennifer B. Boysko",
+          "votes": 4016,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs66",
+          "sourceCandidateName": "Adrian A. Pokharel",
+          "votes": 1028,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs67",
+          "sourceCandidateName": "Michelle-Ann E. Lopes Maldonado",
+          "votes": 1412,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs68",
+          "sourceCandidateName": "Mark D. Leighton",
+          "votes": 224,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs69",
+          "sourceCandidateName": "David A. Reid",
+          "votes": 1419,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs70",
+          "sourceCandidateName": "Travis S. Nembhard",
+          "votes": 722,
+          "sourceWinnerMarker": false
+        }
+      ],
+      "sourceTotalVotes": 44376,
+      "voteReconciliation": "candidate_sum_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Suhas Subramanyam",
+      "contestSha256": "350d022c64f16205f32a14029f8efcb7782ea3efd5ebea431517823fdd2e910d"
+    },
+    {
+      "stateCode": "VA",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "va:2024:regular:us-house:11:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-18",
+      "districtCode": "11",
+      "sourceLockId": "va-2024-house-democratic-primary-ballot-items-json",
+      "sourceContestId": "888c5e5a-382d-4165-9d11-b5e5e467afb9",
+      "resultAuthorityStatus": "official_result_retained",
+      "certificationStatus": "event_level_board_certification_retained_no_individual_certificate",
+      "reportingCompleteness": "official_api_vote_total_reconciled",
+      "reportingUnits": null,
+      "totalReportingUnits": null,
+      "reportingAsOf": null,
+      "candidates": [
+        {
+          "sourceCandidateId": "cs81",
+          "sourceCandidateName": "Ahsan M. Nasar",
+          "votes": 6270,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateId": "cs82",
+          "sourceCandidateName": "Gerald E. \"Gerry\" Connolly",
+          "votes": 37378,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "sourceTotalVotes": 43648,
+      "voteReconciliation": "candidate_sum_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Gerald E. \"Gerry\" Connolly",
+      "contestSha256": "a760c76d17fb2a64bcb7f0d20bc1419749330fde6c28bccd4fe76cabb4d26e8c"
+    },
+    {
+      "stateCode": "VA",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "va:2026:regular:us-house:01:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-08-04",
+      "districtCode": "01",
+      "sourceLockId": "va-2026-house-democratic-primary-unofficial-ballot-items-json",
+      "sourceContestId": "01000000-e686-b49a-0201-08deddbf55f4",
+      "resultAuthorityStatus": "unofficial_result_snapshot_retained",
+      "certificationStatus": "not_certified_at_source_cutoff",
+      "reportingCompleteness": "returned_contest_reporting_units_complete_but_still_unofficial",
+      "reportingUnits": 18,
+      "totalReportingUnits": 18,
+      "reportingAsOf": "2026-08-05T16:54:16.700627Z",
+      "candidates": [
+        {
+          "sourceCandidateId": "cs17",
+          "sourceCandidateName": "Salaam Bhatti",
+          "votes": 9224,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs18",
+          "sourceCandidateName": "Shannon L. Taylor",
+          "votes": 24916,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs19",
+          "sourceCandidateName": "Jason S. Knapp",
+          "votes": 4696,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs20",
+          "sourceCandidateName": "Mel E. Tull, III",
+          "votes": 2016,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs21",
+          "sourceCandidateName": "Elizabeth Dempsey Beggs",
+          "votes": 3351,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs22",
+          "sourceCandidateName": "Ericka W. Kopp",
+          "votes": 1307,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs23",
+          "sourceCandidateName": "Tim S. Cywinski",
+          "votes": 1402,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 46912,
+      "voteReconciliation": "candidate_sum_equals_source_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "contestSha256": "4a8c1df20716919a5ce6d47ac860149bb4c58e0aa3e8b3d7577e8412db98f1ab"
+    },
+    {
+      "stateCode": "VA",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "va:2026:regular:us-house:02:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-08-04",
+      "districtCode": "02",
+      "sourceLockId": "va-2026-house-democratic-primary-unofficial-ballot-items-json",
+      "sourceContestId": "01000000-e686-b49a-ddc7-08deddbf55f0",
+      "resultAuthorityStatus": "unofficial_result_snapshot_retained",
+      "certificationStatus": "not_certified_at_source_cutoff",
+      "reportingCompleteness": "returned_contest_reporting_units_complete_but_still_unofficial",
+      "reportingUnits": 8,
+      "totalReportingUnits": 8,
+      "reportingAsOf": "2026-08-05T16:54:16.700627Z",
+      "candidates": [
+        {
+          "sourceCandidateId": "cs8",
+          "sourceCandidateName": "Elaine G. Luria",
+          "votes": 32885,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs9",
+          "sourceCandidateName": "S. \"Dr. Nila\" Devanath",
+          "votes": 6623,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs10",
+          "sourceCandidateName": "Patrick B. Mosolf",
+          "votes": 552,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs11",
+          "sourceCandidateName": "William W. \"Bill\" Fleming",
+          "votes": 830,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 40890,
+      "voteReconciliation": "candidate_sum_equals_source_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "contestSha256": "34699a7bd1e7bd81f8c29de05dc6fbe5e2544995e9b872b51e0fca24cc6e765e"
+    },
+    {
+      "stateCode": "VA",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "va:2026:regular:us-house:05:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-08-04",
+      "districtCode": "05",
+      "sourceLockId": "va-2026-house-democratic-primary-unofficial-ballot-items-json",
+      "sourceContestId": "01000000-e686-b49a-5fde-08deddbf55e9",
+      "resultAuthorityStatus": "unofficial_result_snapshot_retained",
+      "certificationStatus": "not_certified_at_source_cutoff",
+      "reportingCompleteness": "returned_contest_reporting_units_complete_but_still_unofficial",
+      "reportingUnits": 24,
+      "totalReportingUnits": 24,
+      "reportingAsOf": "2026-08-05T16:54:16.700627Z",
+      "candidates": [
+        {
+          "sourceCandidateId": "cs5",
+          "sourceCandidateName": "Rob W. \"T-ski\" Tracinski",
+          "votes": 2130,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs6",
+          "sourceCandidateName": "Suzanne K. \"Dr. K\" Krzyzanowski",
+          "votes": 5327,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs7",
+          "sourceCandidateName": "Tom S. P. Perriello",
+          "votes": 29611,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 37068,
+      "voteReconciliation": "candidate_sum_equals_source_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "contestSha256": "9c7f7f56b6a0228d66e3b6c53cd445d3717cc1771fdaef120a858bec6ec48db4"
+    },
+    {
+      "stateCode": "VA",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "va:2026:regular:us-house:08:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-08-04",
+      "districtCode": "08",
+      "sourceLockId": "va-2026-house-democratic-primary-unofficial-ballot-items-json",
+      "sourceContestId": "01000000-e686-b49a-eb65-08deddbf55f2",
+      "resultAuthorityStatus": "unofficial_result_snapshot_retained",
+      "certificationStatus": "not_certified_at_source_cutoff",
+      "reportingCompleteness": "returned_contest_reporting_units_complete_but_still_unofficial",
+      "reportingUnits": 4,
+      "totalReportingUnits": 4,
+      "reportingAsOf": "2026-08-05T16:54:16.700627Z",
+      "candidates": [
+        {
+          "sourceCandidateId": "cs12",
+          "sourceCandidateName": "Mo Seifeldein",
+          "votes": 10351,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs13",
+          "sourceCandidateName": "Michael Christian Duffin",
+          "votes": 1901,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs14",
+          "sourceCandidateName": "Donald S. Beyer, Jr.",
+          "votes": 39714,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs15",
+          "sourceCandidateName": "Adam M. Dunigan",
+          "votes": 5267,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs16",
+          "sourceCandidateName": "Lorena Thorne Bruner",
+          "votes": 1516,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 58749,
+      "voteReconciliation": "candidate_sum_equals_source_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "contestSha256": "18f7d3f4fbb69f8e68eb5179a3c7a209d0139a27402e92ea702389fba14fa19e"
+    },
+    {
+      "stateCode": "VA",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "va:2026:regular:us-house:09:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-08-04",
+      "districtCode": "09",
+      "sourceLockId": "va-2026-house-democratic-primary-unofficial-ballot-items-json",
+      "sourceContestId": "01000000-e686-b49a-90dd-08deddbf55f8",
+      "resultAuthorityStatus": "unofficial_result_snapshot_retained",
+      "certificationStatus": "not_certified_at_source_cutoff",
+      "reportingCompleteness": "returned_contest_reporting_units_complete_but_still_unofficial",
+      "reportingUnits": 28,
+      "totalReportingUnits": 28,
+      "reportingAsOf": "2026-08-05T16:54:16.700627Z",
+      "candidates": [
+        {
+          "sourceCandidateId": "cs27",
+          "sourceCandidateName": "Joy A. Powers",
+          "votes": 9378,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs28",
+          "sourceCandidateName": "Adam Grayson Murphy",
+          "votes": 6565,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": "cs29",
+          "sourceCandidateName": "Douglas E. Crockett",
+          "votes": 2203,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 18146,
+      "voteReconciliation": "candidate_sum_equals_source_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "contestSha256": "238d90e0174ad4b1d26ff28088cb337322713e50075d28d9eb119ec851b50307"
+    }
+  ],
+  "summary": {
+    "contests": 12,
+    "contests2022": 1,
+    "contests2024": 6,
+    "contests2026": 5,
+    "candidates": 52,
+    "candidateVotes": 452395,
+    "officialContests": 7,
+    "unofficialSnapshotContests": 5,
+    "sourceMarkedWinners": 6,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0,
+    "contestSetSha256": "6e9d5e82b2439029333b8b5f3188324f0e6e57946f5e88d2d176cfa5cebf43dd"
+  },
+  "limitations": [
+    "The 2022 and 2024 State Board annual reports establish event-level certification and nominee declaration, not an individual signed per-contest certificate or detailed tabulation.",
+    "The August 5, 2026 snapshot is explicitly unofficial even where returned contests report all configured units; mailed, provisional, post-election, and State Board certification processes remained open.",
+    "Districts absent from a Democratic result response are not converted into zero, no-candidate, uncontested, or no-primary dispositions.",
+    "Source candidate names and winner markers do not establish current-incumbent identity, historical-geography compatibility, progressive classification, selection, or scoring."
+  ],
+  "unresolvedGates": [
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "decide_nonstandard_primary_disposition_treatment",
+    "review_progressive_candidate_classification",
+    "replace_2026_unofficial_snapshot_with_separately_versioned_certified_result",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "0048f27a17220816e7aeaf0f8abcd4760608cfbf889bcac681b7f2cbb60b300d"
+}
