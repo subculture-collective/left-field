@@ -1,0 +1,536 @@
+{
+  "schema": "north-carolina-current-incumbent-primary-linkage-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T02:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_authorized_identity_and_historical_geography_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "roster": {
+      "sourceLockId": "dsa-target-incumbent-roster-20260804-v1",
+      "fileSha256": "8ae9bb3423e6160d00b5395186c42550e28811b817a482650875d87de71079e1",
+      "rosterSha256": "cf068848595dee99882ae74a6bef2b76061597fe0daa3c86b30c71bdcae18fee"
+    },
+    "proposal": {
+      "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb",
+      "identityDecisionUnresolved": true,
+      "dispositionDecisionUnresolved": true
+    },
+    "houseClerk": {
+      "sourceLockId": "house-xml",
+      "fileSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+    },
+    "congressLegislators": {
+      "sourceLockId": "congress-legislators-current-20260804",
+      "fileSha256": "bc48cccd12df96164e5a2415fc41e838ca255fe85c297731515529692f7982cf"
+    },
+    "receipt": {
+      "sourceLockId": "north-carolina-house-democratic-primary-results-2022-2026-v1",
+      "fileSha256": "a171f1940bf9445413a9b0ff88889408271779c954e00dbd0b4b52013e1f5d7b",
+      "packageSha256": "8bf12709c58542550b29f94c36ae9337100755bb0d04a4459eef77a845908480",
+      "contestSetSha256": "a806b720b724df1b40a6570e4316c5f5c479a0f0e9fdeae31dd6342355e816dc"
+    },
+    "sourcePrecedenceDecision": {
+      "sourceLockId": "north-carolina-primary-source-precedence-decision-v1",
+      "fileSha256": "8e319f999027bc30cb0c6a22f01700e2c4982459709e3122e34c80a051ab99d6",
+      "packageSha256": "ac12f3e95d0e3dab4a7e94c0b2b2b552e62790abac59d32b10ac16e89f9b01eb",
+      "status": "proposed_unresolved",
+      "affectedContestIds": [
+        "nc:2022:regular:us-house:03:democratic",
+        "nc:2022:regular:us-house:11:democratic"
+      ],
+      "affectsTargetIdentityRows": false
+    }
+  },
+  "methodology": {
+    "scope": "four_current_north_carolina_democratic_target_seats_times_three_cycles",
+    "observationPartition": "one_reported_contest_or_explicit_unreported_block_per_seat_cycle",
+    "directIdentifierBridgeAvailable": false,
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "targetSeats": 4,
+    "districtCycleObservations": 12,
+    "reportedContestObservations": 6,
+    "unreportedDistrictCycleObservations": 6,
+    "exactNameObservations": 4,
+    "derivedNameRelationships": 2,
+    "proposedIdentityLinks": 6,
+    "directIdentifierBridges": 0,
+    "automaticallyApprovedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "observations": [
+    {
+      "observationId": "nc:identity:2022:01",
+      "seatCycleId": "seat_house_nc_01_current",
+      "districtCode": "01",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "D000230",
+        "officialHouseName": "Donald G. Davis",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "identityApproved": false,
+      "sourcePrecedenceStatus": "unresolved_conflict_outside_this_observation",
+      "historicalGeographyStatus": "separate_redraw_review_required",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "sourceObservation": {
+        "kind": "reported_contest",
+        "contestId": "nc:2022:regular:us-house:01:democratic",
+        "contestSha256": "6121b37104df57ef69ce99bf3cb9d26153ca8124060e2d1773c86a24763d9e9c",
+        "contestSourceLockIds": [
+          "nc-2022-primary-official-results-archive",
+          "nc-2022-primary-state-canvass-by-contest"
+        ],
+        "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+        "candidateCount": 4,
+        "sourceCandidateName": "Don Davis",
+        "sourceCandidateId": null,
+        "votes": 42693,
+        "sourceWinnerStatus": "not_marked_by_source"
+      },
+      "matchMethod": "derived_common_short_form_same_district",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "rationaleCodes": [
+        "derived_common_short_form_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_status_not_marked",
+        "parent_source_conflict_affects_other_contests_only"
+      ],
+      "rowSha256": "299ce6f137ab71ca926779692a08c629c19992dc275fedf649c4f41b623f6930"
+    },
+    {
+      "observationId": "nc:identity:2022:02",
+      "seatCycleId": "seat_house_nc_02_current",
+      "districtCode": "02",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "R000305",
+        "officialHouseName": "Deborah K. Ross",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "identityApproved": false,
+      "sourcePrecedenceStatus": "unresolved_conflict_outside_this_observation",
+      "historicalGeographyStatus": "separate_redraw_review_required",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "sourceObservation": {
+        "kind": "unreported_district_cycle_block",
+        "districtCycleId": "nc:2022:us-house:02:democratic",
+        "status": "unresolved_no_reported_contest_in_complete_archive"
+      },
+      "matchMethod": "not_applicable_unreported_district_cycle",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_reported_contest",
+      "rationaleCodes": [
+        "complete_archive_contains_no_reported_contest_for_district_cycle",
+        "do_not_infer_uncontested_or_no_primary",
+        "no_source_candidate_to_link"
+      ],
+      "rowSha256": "38fb49387a9218cb3adbaee34503795dd09ca6ba98a2865f4701cb209335c78b"
+    },
+    {
+      "observationId": "nc:identity:2022:04",
+      "seatCycleId": "seat_house_nc_04_current",
+      "districtCode": "04",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "F000477",
+        "officialHouseName": "Valerie P. Foushee",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "identityApproved": false,
+      "sourcePrecedenceStatus": "unresolved_conflict_outside_this_observation",
+      "historicalGeographyStatus": "separate_redraw_review_required",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "sourceObservation": {
+        "kind": "reported_contest",
+        "contestId": "nc:2022:regular:us-house:04:democratic",
+        "contestSha256": "4461cfd2e96abcfc049d9f4c0fdf6e8e1980a65ddd1087535248546b80bdaca8",
+        "contestSourceLockIds": [
+          "nc-2022-primary-official-results-archive",
+          "nc-2022-primary-state-canvass-by-contest"
+        ],
+        "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+        "candidateCount": 8,
+        "sourceCandidateName": "Valerie P. Foushee",
+        "sourceCandidateId": null,
+        "votes": 40806,
+        "sourceWinnerStatus": "not_marked_by_source"
+      },
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_status_not_marked",
+        "parent_source_conflict_affects_other_contests_only"
+      ],
+      "rowSha256": "d0ed404b5aff895bf7370a8bab6b591a5c36488a23384a6adfb04ba68f655aa2"
+    },
+    {
+      "observationId": "nc:identity:2022:12",
+      "seatCycleId": "seat_house_nc_12_current",
+      "districtCode": "12",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "A000370",
+        "officialHouseName": "Alma S. Adams",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "identityApproved": false,
+      "sourcePrecedenceStatus": "unresolved_conflict_outside_this_observation",
+      "historicalGeographyStatus": "separate_redraw_review_required",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "sourceObservation": {
+        "kind": "reported_contest",
+        "contestId": "nc:2022:regular:us-house:12:democratic",
+        "contestSha256": "0bc99e13ca76dddab42fb3be10ba76b46d0739e4fbc9acccba7c8146b46c13ce",
+        "contestSourceLockIds": [
+          "nc-2022-primary-official-results-archive",
+          "nc-2022-primary-state-canvass-by-contest"
+        ],
+        "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+        "candidateCount": 2,
+        "sourceCandidateName": "Alma S. Adams",
+        "sourceCandidateId": null,
+        "votes": 37984,
+        "sourceWinnerStatus": "not_marked_by_source"
+      },
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_status_not_marked",
+        "parent_source_conflict_affects_other_contests_only"
+      ],
+      "rowSha256": "d504445167dd38004b73849f779cc279ffc677912ec51ef987188d754e52298d"
+    },
+    {
+      "observationId": "nc:identity:2024:01",
+      "seatCycleId": "seat_house_nc_01_current",
+      "districtCode": "01",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "D000230",
+        "officialHouseName": "Donald G. Davis",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "identityApproved": false,
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "historicalGeographyStatus": "separate_redraw_review_required",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "sourceObservation": {
+        "kind": "unreported_district_cycle_block",
+        "districtCycleId": "nc:2024:us-house:01:democratic",
+        "status": "unresolved_no_reported_contest_in_complete_archive"
+      },
+      "matchMethod": "not_applicable_unreported_district_cycle",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_reported_contest",
+      "rationaleCodes": [
+        "complete_archive_contains_no_reported_contest_for_district_cycle",
+        "do_not_infer_uncontested_or_no_primary",
+        "no_source_candidate_to_link"
+      ],
+      "rowSha256": "b1d73ac03e2f9cd70b71d1c066db11c68aa2a819b0a0ed0c5ebd8961ebed62af"
+    },
+    {
+      "observationId": "nc:identity:2024:02",
+      "seatCycleId": "seat_house_nc_02_current",
+      "districtCode": "02",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "R000305",
+        "officialHouseName": "Deborah K. Ross",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "identityApproved": false,
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "historicalGeographyStatus": "separate_redraw_review_required",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "sourceObservation": {
+        "kind": "reported_contest",
+        "contestId": "nc:2024:regular:us-house:02:democratic",
+        "contestSha256": "16eb9fa9e1c11c91b2d3ed0e76692d754393287b0988711a2ab3fda6d25f90e6",
+        "contestSourceLockIds": [
+          "nc-2024-primary-official-results-archive",
+          "nc-2024-primary-state-canvass-by-contest"
+        ],
+        "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+        "candidateCount": 2,
+        "sourceCandidateName": "Deborah K. Ross",
+        "sourceCandidateId": null,
+        "votes": 69564,
+        "sourceWinnerStatus": "not_marked_by_source"
+      },
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_status_not_marked",
+        "parent_cycle_has_no_source_precedence_conflict"
+      ],
+      "rowSha256": "1ccd5b52bc417a3a757e3270ef5dc6767e452c95a484310305a8657c58f22e9b"
+    },
+    {
+      "observationId": "nc:identity:2024:04",
+      "seatCycleId": "seat_house_nc_04_current",
+      "districtCode": "04",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "F000477",
+        "officialHouseName": "Valerie P. Foushee",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "identityApproved": false,
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "historicalGeographyStatus": "separate_redraw_review_required",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "sourceObservation": {
+        "kind": "unreported_district_cycle_block",
+        "districtCycleId": "nc:2024:us-house:04:democratic",
+        "status": "unresolved_no_reported_contest_in_complete_archive"
+      },
+      "matchMethod": "not_applicable_unreported_district_cycle",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_reported_contest",
+      "rationaleCodes": [
+        "complete_archive_contains_no_reported_contest_for_district_cycle",
+        "do_not_infer_uncontested_or_no_primary",
+        "no_source_candidate_to_link"
+      ],
+      "rowSha256": "b3fc4d52ade369b3c6538fbd393e3572b54b942f1cf7f5df83b5bb0c2c6c68bf"
+    },
+    {
+      "observationId": "nc:identity:2024:12",
+      "seatCycleId": "seat_house_nc_12_current",
+      "districtCode": "12",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "A000370",
+        "officialHouseName": "Alma S. Adams",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "identityApproved": false,
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "historicalGeographyStatus": "separate_redraw_review_required",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "sourceObservation": {
+        "kind": "unreported_district_cycle_block",
+        "districtCycleId": "nc:2024:us-house:12:democratic",
+        "status": "unresolved_no_reported_contest_in_complete_archive"
+      },
+      "matchMethod": "not_applicable_unreported_district_cycle",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_reported_contest",
+      "rationaleCodes": [
+        "complete_archive_contains_no_reported_contest_for_district_cycle",
+        "do_not_infer_uncontested_or_no_primary",
+        "no_source_candidate_to_link"
+      ],
+      "rowSha256": "210318fa112b6938ffa49a55f62c4e1100f1da17d7f452067a75a613a62112a3"
+    },
+    {
+      "observationId": "nc:identity:2026:01",
+      "seatCycleId": "seat_house_nc_01_current",
+      "districtCode": "01",
+      "cycleYear": 2026,
+      "rosterIdentity": {
+        "bioguideId": "D000230",
+        "officialHouseName": "Donald G. Davis",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "identityApproved": false,
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "historicalGeographyStatus": "separate_redraw_review_required",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "sourceObservation": {
+        "kind": "unreported_district_cycle_block",
+        "districtCycleId": "nc:2026:us-house:01:democratic",
+        "status": "unresolved_no_reported_contest_in_complete_archive"
+      },
+      "matchMethod": "not_applicable_unreported_district_cycle",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_reported_contest",
+      "rationaleCodes": [
+        "complete_archive_contains_no_reported_contest_for_district_cycle",
+        "do_not_infer_uncontested_or_no_primary",
+        "no_source_candidate_to_link"
+      ],
+      "rowSha256": "33d54d1edca824bc2922c307df4b57839f42a4d55ee5141bfc6512cb27e2941e"
+    },
+    {
+      "observationId": "nc:identity:2026:02",
+      "seatCycleId": "seat_house_nc_02_current",
+      "districtCode": "02",
+      "cycleYear": 2026,
+      "rosterIdentity": {
+        "bioguideId": "R000305",
+        "officialHouseName": "Deborah K. Ross",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "identityApproved": false,
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "historicalGeographyStatus": "separate_redraw_review_required",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "sourceObservation": {
+        "kind": "unreported_district_cycle_block",
+        "districtCycleId": "nc:2026:us-house:02:democratic",
+        "status": "unresolved_no_reported_contest_in_complete_archive"
+      },
+      "matchMethod": "not_applicable_unreported_district_cycle",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_reported_contest",
+      "rationaleCodes": [
+        "complete_archive_contains_no_reported_contest_for_district_cycle",
+        "do_not_infer_uncontested_or_no_primary",
+        "no_source_candidate_to_link"
+      ],
+      "rowSha256": "0ebd47db18f8cf0806337b305ba455674bfc5c69bdf5c56d9440f1a23cfeb499"
+    },
+    {
+      "observationId": "nc:identity:2026:04",
+      "seatCycleId": "seat_house_nc_04_current",
+      "districtCode": "04",
+      "cycleYear": 2026,
+      "rosterIdentity": {
+        "bioguideId": "F000477",
+        "officialHouseName": "Valerie P. Foushee",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "identityApproved": false,
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "historicalGeographyStatus": "separate_redraw_review_required",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "sourceObservation": {
+        "kind": "reported_contest",
+        "contestId": "nc:2026:regular:us-house:04:democratic",
+        "contestSha256": "6d96517857fefb804754a16a2e477986800a840609b21d518b68902de1446f21",
+        "contestSourceLockIds": [
+          "nc-2026-primary-official-results-archive"
+        ],
+        "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+        "candidateCount": 3,
+        "sourceCandidateName": "Valerie P. Foushee",
+        "sourceCandidateId": null,
+        "votes": 61776,
+        "sourceWinnerStatus": "not_marked_by_source"
+      },
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_status_not_marked",
+        "parent_cycle_has_no_source_precedence_conflict"
+      ],
+      "rowSha256": "4e555bf04b5cd3d97cfb2da590dcd157a5f899862e06ac1c26feca3badeff4e9"
+    },
+    {
+      "observationId": "nc:identity:2026:12",
+      "seatCycleId": "seat_house_nc_12_current",
+      "districtCode": "12",
+      "cycleYear": 2026,
+      "rosterIdentity": {
+        "bioguideId": "A000370",
+        "officialHouseName": "Alma S. Adams",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "identityApproved": false,
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "historicalGeographyStatus": "separate_redraw_review_required",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "sourceObservation": {
+        "kind": "reported_contest",
+        "contestId": "nc:2026:regular:us-house:12:democratic",
+        "contestSha256": "1b8dd2ad697e25443c3e746bcd0e8918cc8892996ba6f331490782143acf095e",
+        "contestSourceLockIds": [
+          "nc-2026-primary-official-results-archive"
+        ],
+        "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+        "candidateCount": 2,
+        "sourceCandidateName": "Alma Shealey Adams",
+        "sourceCandidateId": null,
+        "votes": 54630,
+        "sourceWinnerStatus": "not_marked_by_source"
+      },
+      "matchMethod": "derived_middle_name_expansion_same_district",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "rationaleCodes": [
+        "derived_middle_name_expansion_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_status_not_marked",
+        "parent_cycle_has_no_source_precedence_conflict"
+      ],
+      "rowSha256": "1c941aef7406b415dd8e12a953785e67f59ef57b533c76492c9e7695890e934d"
+    }
+  ],
+  "observationSetSha256": "b587a7f2b181d11d24be10404ecd7f79879522b434a521ebf08065c6b88d4ba0",
+  "decisionSupport": {
+    "informsDecisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+    "analysisConclusion": "four_exact_and_two_derived_identity_links_proposed_six_unreported_cycles_preserved_unresolved",
+    "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+  },
+  "packageSha256": "12fbecfa848ba85aa39d426d94a8be4ab3f77fc1356f6c0a288514037f9c4d76"
+}
