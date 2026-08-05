@@ -64,6 +64,8 @@
     "fetch:nj-pa-primary-geography-authority": "node scripts/fetch-nj-pa-primary-geography-authority.mjs",
     "generate:nj-pa-primary-geography-v1": "tsx scripts/generate-nj-pa-primary-geography-compatibility-candidate.ts",
     "generate:nj-pa-primary-joint-review-v1": "tsx scripts/generate-nj-pa-primary-identity-geography-review-package.ts",
+    "fetch:nj-pa-primary-certification-authority": "node scripts/fetch-nj-pa-primary-certification-authority.mjs",
+    "generate:nj-pa-primary-certification-availability-v1": "tsx scripts/generate-nj-pa-primary-certification-availability-assessment.ts",
     "generate:dsa-target-review-report": "tsx scripts/generate-dsa-target-review-report.ts",
     "generate:dsa-target-review-report-v2": "tsx scripts/generate-dsa-target-review-report-v2.ts",
     "generate:presidential-current-boundary-proposal": "tsx scripts/generate-presidential-current-boundary-proposal.ts",

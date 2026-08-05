@@ -30,6 +30,8 @@ The 2022 and 2024 district 12 Democratic sections wrap Bonnie Watson Coleman's `
 
 The source family is stronger than an election-night presentation because the Division explicitly publishes these as official primary results. This receipt nevertheless records `division_labeled_official_result_not_separate_seal`: a separate signed or sealed cycle-level certification instrument has not been retained and reconciled. Candidate names and printed incumbent markers are source observations, not current-incumbent BioGuide bindings or progressive classifications. Historical-district compatibility, candidate identity, classification, human review, and publication approval remain open.
 
+The additive certification-availability assessment now retains N.J.S.A. 19:23-57, which requires a distinct Secretary canvass of county-clerk statements for the state or portions thereof involving more than a single county or congressional district and a certificate for each person shown to have been nominated. It therefore preserves all three official lists as strong result candidates without treating them as the separate post-canvass certificate. See [`nj-pa-primary-certification-availability-assessment-v1-2026-08-05.md`](./nj-pa-primary-certification-availability-assessment-v1-2026-08-05.md).
+
 The official PDFs include candidate mailing or street addresses. Those bytes are retained only as part of the original public source documents; the derived receipt excludes every address field and retains only candidate name, votes, `(w)` marker, and `*` incumbent marker.
 
 Official sources:

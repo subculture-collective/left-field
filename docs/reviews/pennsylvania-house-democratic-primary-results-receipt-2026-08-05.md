@@ -22,6 +22,8 @@ The 2022 file uses quoted integral values; the 2024 file uses integral decimal s
 
 The official historical-data index states that Department returns remain unofficial until certified and distinguishes state-tabulated official countywide returns from precinct returns maintained by counties. The exact retained files are therefore labeled `department_extract_not_independently_verified_certified`. The 2024 statewide primary was separately certified, but that announcement does not cryptographically bind this exact extract. A cycle-specific certification artifact must be retained and reconciled before promotion.
 
+The additive certification-availability assessment now source-locks that 2024 announcement, the 2026 certification announcement, and the Department's countywide-versus-precinct authority boundary. It records election-level certification context while leaving both exact extract reconciliation and 2026 result acquisition open. See [`nj-pa-primary-certification-availability-assessment-v1-2026-08-05.md`](./nj-pa-primary-certification-availability-assessment-v1-2026-08-05.md).
+
 Official sources:
 
 - [Pennsylvania historical election data](https://www.pa.gov/agencies/dos/resources/voting-and-elections-resources/voting-and-election-statistics/election-data)
