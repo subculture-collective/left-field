@@ -1,0 +1,7 @@
+import { createHash } from "node:crypto";
+import { readFile, writeFile } from "node:fs/promises";
+import { resolve } from "node:path";
+import { buildAipacIncumbentResolutionDispositionsV3 } from "../src/ingestion/fec/aipac-incumbent-resolution-dispositions-v3";
+const load = async (path: string) => { const bytes = await readFile(resolve(path)); return { value: JSON.parse(bytes.toString("utf8")), sha256: createHash("sha256").update(bytes).digest("hex") }; };
+async function main(): Promise<void> { const prior = await load("data/metadata/aipac-incumbent-resolution-dispositions-v2.json"), receipt = await load("data/metadata/ca31-terminal-fec-chain-receipt-v1.json"); const value = buildAipacIncumbentResolutionDispositionsV3({ dispositionsV2: prior.value, dispositionsV2FileSha256: prior.sha256, receipt: receipt.value, receiptFileSha256: receipt.sha256 }); const output = resolve("data/metadata/aipac-incumbent-resolution-dispositions-v3.json"), bytes = Buffer.from(`${JSON.stringify(value, null, 2)}\n`); try { await writeFile(output, bytes, { flag: "wx", mode: 0o644 }); } catch (error) { if ((error as NodeJS.ErrnoException).code !== "EEXIST" || !(await readFile(output)).equals(bytes)) throw new Error("AIPAC_INCUMBENT_DISPOSITIONS_V3_OUTPUT_CONFLICT"); } process.stdout.write(`${JSON.stringify({ output, summary: value.summary, packageSha256: value.packageSha256 }, null, 2)}\n`); }
+main().catch((error) => { process.stderr.write(`${error instanceof Error ? error.message : "AIPAC_INCUMBENT_DISPOSITIONS_V3_GENERATION_FAILED"}\n`); process.exitCode = 1; });

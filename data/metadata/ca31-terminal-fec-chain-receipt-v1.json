@@ -1,0 +1,211 @@
+{
+  "schema": "ca31-terminal-fec-chain-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T22:15:00.000Z",
+  "sourceCutoff": "2026-08-04",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "privacy": {
+    "rawApiResponsesRetained": false,
+    "rawFilingPdfsRetained": false,
+    "retainedFields": "identifiers_dates_form_relationship_pagination_and_content_hashes_only"
+  },
+  "acquisition": {
+    "method": "live_hash_checked_openfec_json_and_pdftotext_projection",
+    "observedProjectionSha256": "9c8bf272d44a261cf1ced82ac8b8b2c38a37610b708596b31eea8c7e085682f3"
+  },
+  "sources": {
+    "h8Form2Page1": {
+      "sourceLockId": "openfec-ca31-h8-form2-cutoff-page1",
+      "sha256": "8756704ba117be927bd4713ba6bbcda4ce885af9b08cae8058a1740e8ec8f973",
+      "byteSize": 13245
+    },
+    "h8Form2TerminalPage": {
+      "sourceLockId": "openfec-ca31-h8-form2-cutoff-page2",
+      "sha256": "665675f2388822696c0995353a9e1b7d469c8de5ef205db470bc2f26229587cd",
+      "byteSize": 116
+    },
+    "h4Form2Page1": {
+      "sourceLockId": "openfec-ca31-h4-form2-cutoff-page1",
+      "sha256": "606d2de1acd6801422e7afe71f034ecbebe14ae036c6c9ac0b280de50ca6aa7c",
+      "byteSize": 116
+    },
+    "h4Form2TerminalPage": {
+      "sourceLockId": "openfec-ca31-h4-form2-cutoff-page2",
+      "sha256": "caa0a11b4baa918f09573a700beec1e1f5c78ba48f2ef636231e35a6fa1688f4",
+      "byteSize": 116
+    },
+    "committeeForm1Page1": {
+      "sourceLockId": "openfec-ca31-committee-form1-cutoff-page1",
+      "sha256": "d090f7ec614cb4d71e2dd85e6270c7f9538660d6a07cb5f30b0a376a37f0c619",
+      "byteSize": 3963
+    },
+    "committeeForm1TerminalPage": {
+      "sourceLockId": "openfec-ca31-committee-form1-cutoff-page2",
+      "sha256": "70c9fada93b72d7d1da7874944af2b156f6b6d0b7778eecd8a7b8f8393b995d1",
+      "byteSize": 116
+    },
+    "form2Election2024Pdf": {
+      "sourceLockId": "fec-form2-ca31-20230912",
+      "sha256": "745afc3642b231dc9c4d6e1810c01c7f49f48dcdabacdd9eb7500f9dc483469f",
+      "byteSize": 12485
+    },
+    "form2Election2026Pdf": {
+      "sourceLockId": "fec-form2-1818491",
+      "sha256": "07f6e5ea56aa7170d57d311a4f5df851200e1f5535d523bc89fd270c53a24ab3",
+      "byteSize": 12776
+    },
+    "form1InitialPdf": {
+      "sourceLockId": "fec-form1-1724934",
+      "sha256": "c83f9252e9699bfc80b4f56b6715e86ac9380a96c53665182add2af4241b5568",
+      "byteSize": 60742
+    },
+    "form1TerminalPdf": {
+      "sourceLockId": "fec-form1-1814721",
+      "sha256": "288cedd1da118063a926326c7794a29d4219cce739d94a11b864e87f12000433",
+      "byteSize": 60760
+    }
+  },
+  "pagination": {
+    "h8Form2Page1": {
+      "count": 7,
+      "page": 1,
+      "pages": 1,
+      "perPage": 100,
+      "resultCount": 7,
+      "terminal": false
+    },
+    "h8Form2Page2": {
+      "count": 7,
+      "page": 2,
+      "pages": 1,
+      "perPage": 100,
+      "resultCount": 0,
+      "terminal": true
+    },
+    "h4Form2Page1": {
+      "count": 0,
+      "page": 1,
+      "pages": 0,
+      "perPage": 100,
+      "resultCount": 0,
+      "terminal": true
+    },
+    "h4Form2Page2": {
+      "count": 0,
+      "page": 2,
+      "pages": 0,
+      "perPage": 100,
+      "resultCount": 0,
+      "terminal": true
+    },
+    "committeeForm1Page1": {
+      "count": 2,
+      "page": 1,
+      "pages": 1,
+      "perPage": 100,
+      "resultCount": 2,
+      "terminal": false
+    },
+    "committeeForm1Page2": {
+      "count": 2,
+      "page": 2,
+      "pages": 1,
+      "perPage": 100,
+      "resultCount": 0,
+      "terminal": true
+    }
+  },
+  "chronology": [
+    {
+      "date": "2023-09-12",
+      "form": "F1",
+      "fileNumber": 1724934,
+      "amendmentIndicator": "N",
+      "amendmentVersion": 0,
+      "committeeId": "C00850420",
+      "committeeName": "CISNEROS FOR CONGRESS",
+      "mostRecentAtCutoff": false,
+      "sourceLockId": "fec-form1-1724934"
+    },
+    {
+      "date": "2023-09-12",
+      "form": "F2",
+      "fileNumber": -1150856,
+      "amendmentIndicator": "N",
+      "amendmentVersion": 5,
+      "electionYear": 2024,
+      "apiCandidateId": "H8CA39174",
+      "signedFormCandidateId": "H4CA31170",
+      "office": "House",
+      "state": "CA",
+      "district": "31",
+      "principalCommitteeName": "Cisneros for Congress",
+      "sourceLockId": "fec-form2-ca31-20230912"
+    },
+    {
+      "date": "2024-09-10",
+      "form": "F1",
+      "fileNumber": 1814721,
+      "previousFileNumber": 1724934,
+      "amendmentChain": [
+        1724934,
+        1814721
+      ],
+      "amendmentIndicator": "A",
+      "amendmentVersion": 1,
+      "committeeId": "C00850420",
+      "committeeName": "CISNEROS FOR CONGRESS",
+      "mostRecentAtCutoff": true,
+      "sourceLockId": "fec-form1-1814721"
+    },
+    {
+      "date": "2024-11-15",
+      "form": "F2",
+      "fileNumber": -1150858,
+      "amendmentIndicator": "N",
+      "amendmentVersion": 6,
+      "electionYear": 2026,
+      "apiCandidateId": "H8CA39174",
+      "signedFormCandidateId": "H4CA31170",
+      "office": "House",
+      "state": "CA",
+      "district": "31",
+      "principalCommitteeName": "Cisneros for Congress",
+      "mostRecentAtCutoff": true,
+      "sourceLockId": "fec-form2-1818491"
+    }
+  ],
+  "conclusion": {
+    "seatCycleId": "seat_house_ca_31_current",
+    "cycleYear": 2024,
+    "canonicalCandidateId": "H8CA39174",
+    "signedFormCandidateId": "H4CA31170",
+    "committeeId": "C00850420",
+    "disposition": "auto_verified_house_relationship",
+    "provenanceKind": "direct_cross_surface",
+    "confidence": "certain_relationship_with_unresolved_cross_surface_identifier_discrepancy",
+    "closureScope": "person_seat_cycle_and_committee_relationship_only",
+    "identifierMappingResolved": false,
+    "unresolvedIdentifierConflict": true,
+    "relationshipBasis": "the_2024_form2_names_cisneros_for_congress_and_the_same_day_initial_form1_identifies_that_committee_as_C00850420_while_the_terminal_form1_amendment_preserves_the_relationship",
+    "identifierTreatment": "preserve_H8CA39174_as_roster_and_openfec_index_id_and_H4CA31170_as_the_conflicting_signed_form_value_without_claiming_the_ids_are_identical",
+    "supersessionFinding": "no_later_form1_for_C00850420_or_form2_in_the_queried_H8_H4_indexes_through_cutoff_changes_the_observed_relationship",
+    "rationaleCodes": [
+      "CYCLE_2024_FORM2_DIRECT_COMMITTEE_NAME",
+      "SAME_DAY_FORM1_EXACT_COMMITTEE_ID",
+      "TERMINAL_FORM1_CHAIN_PRESERVES_RELATIONSHIP",
+      "FORM2_TERMINAL_PAGE_EXHAUSTIVE",
+      "H8_H4_CROSS_SURFACE_IDENTIFIER_DISCREPANCY_RETAINED"
+    ]
+  },
+  "automaticDecisionClosure": {
+    "decisionId": "aipac-mapping-precedence:incumbent:seat_house_ca_31_current:2024:H8CA39174",
+    "closureKind": "mechanically_verified_official_evidence",
+    "reviewerAction": false,
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "evidenceSetSha256": "539ed96bbfa5e6058d5a3f9085b9d3d804616c3615c9613b265f6952228fe3c8",
+  "packageSha256": "8201a54aa4894163bda0a24b214c10166ade3fe4fcbe31b6e0667d7094b11cee"
+}
