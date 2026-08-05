@@ -30,6 +30,17 @@ Official sources:
 
 No source-stated reuse license was found, so `licenseOrReuseTerms` remains `not_stated_by_source`.
 
+## 2026 acquisition status
+
+Pennsylvania separately announced that the May 19, 2026 primary was certified on June 17, 2026. As checked on 2026-08-05, the Department's historical election-data page labels two controls `Download the 2026 General Primary Returns Data` and `Download the 2026 General Primary Election Returns Precinct Data`, but both AEM embed components render as plain text with no anchor or download URL. A fully executed browser DOM has the same result. The publisher's read-only DAM listing for `/content/dam/copapwp-pagov/en/dos/resources/voting-and-elections/bulk-data/2026-general-primary` contains four summary spreadsheets and the `vr` folder, but no returns artifact or `er` folder.
+
+Consequently, no 2026 result file is retained or inferred. Certification of the election does not substitute for the missing exact extract, and missing published bytes cannot be interpreted as a zero, uncontested race, or no-reported-row disposition. Acquisition may resume only when the Department publishes a resolvable official returns asset whose bytes and schema can be pinned.
+
+Additional official evidence:
+
+- [2026 primary certification announcement](https://www.pa.gov/agencies/dos/newsroom/secretary-of-the-commonwealth-certifies-2026-primary-election-re)
+- [2026 bulk-data DAM inventory](https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/voting-and-elections/bulk-data/2026-general-primary.1.json)
+
 ## Reproduction
 
 ```bash
