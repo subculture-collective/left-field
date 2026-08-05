@@ -1,6 +1,9 @@
 import { describe, expect, it } from "vitest";
 import { DSA_ROUTE_WEIGHTS, evaluateDsaTarget } from "./dsa-target-evaluator";
 
+const artifactSha256 = "a".repeat(64);
+const transactionSha256 = "b".repeat(64);
+
 const complete = {
   metadata: { seatCycleId: "seat_house_ny_00_current", incumbentFecCandidateId: "H6NY00001", sourceCutoff: "2026-08-04", currentCycleYear: 2026, inputSnapshotIds: ["release-snapshot"] },
   seat: { chamber: "house", officeKind: "house_voting", electionType: "regular", occupancy: "occupied", incumbentParty: "democratic" },
@@ -17,9 +20,9 @@ const complete = {
     priorProgressivePrimaryShare: { kind: "value", value: 32, observedAt: "2026-08-01", inputSnapshotIds: ["release-snapshot"], methodologyVersion: "progressive-share-v1" },
   },
   aipac: { evidence: [], coverage: [
-    { cycleYear: 2022, directContributionsComplete: true, independentExpendituresComplete: true, directContributionSnapshotIds: ["release-snapshot"], independentExpenditureSnapshotIds: ["release-snapshot"] },
-    { cycleYear: 2024, directContributionsComplete: true, independentExpendituresComplete: true, directContributionSnapshotIds: ["release-snapshot"], independentExpenditureSnapshotIds: ["release-snapshot"] },
-    { cycleYear: 2026, directContributionsComplete: true, independentExpendituresComplete: true, directContributionSnapshotIds: ["release-snapshot"], independentExpenditureSnapshotIds: ["release-snapshot"] },
+    { cycleYear: 2022, directContributionsComplete: true, independentExpendituresComplete: true, directContributionSnapshotIds: ["release-snapshot"], independentExpenditureSnapshotIds: ["release-snapshot"], directContributionArtifactSha256s: [artifactSha256], independentExpenditureArtifactSha256s: [artifactSha256] },
+    { cycleYear: 2024, directContributionsComplete: true, independentExpendituresComplete: true, directContributionSnapshotIds: ["release-snapshot"], independentExpenditureSnapshotIds: ["release-snapshot"], directContributionArtifactSha256s: [artifactSha256], independentExpenditureArtifactSha256s: [artifactSha256] },
+    { cycleYear: 2026, directContributionsComplete: true, independentExpendituresComplete: true, directContributionSnapshotIds: ["release-snapshot"], independentExpenditureSnapshotIds: ["release-snapshot"], directContributionArtifactSha256s: [artifactSha256], independentExpenditureArtifactSha256s: [artifactSha256] },
   ] },
 } as const;
 
@@ -36,8 +39,8 @@ describe("DSA primary target evaluator", () => {
       ...complete,
       electoral: { presidentialDemocraticMargins: complete.electoral.presidentialDemocraticMargins.map((row) => ({ ...row, marginPoints: row.year === 2020 ? 11 : 13 })) },
       aipac: { ...complete.aipac, evidence: [
-        { committeeId: "C00797670", kind: "direct_contribution", netAmount: 10_000, cycleYear: 2026, observedAt: "2026-07-01", inputSnapshotIds: ["release-snapshot"], sourceTransactionIds: ["aipac-direct-1"], latestRevisionFileNumber: 1, revisionStatus: "latest_net_positive", recipientCommitteeId: "C00900001", recipientCandidateId: "H6NY00001", recipientRelationship: "authorized" },
-        { committeeId: "C00799031", kind: "independent_support_incumbent", netAmount: 750_000, cycleYear: 2026, observedAt: "2026-07-15", inputSnapshotIds: ["release-snapshot"], sourceTransactionIds: ["udp-ie-1"], latestRevisionFileNumber: 2, revisionStatus: "latest_net_positive", targetCandidateId: "H6NY00001", targetSeatCycleId: "seat_house_ny_00_current", electionType: "primary", supportOppose: "S", targetRelationship: "incumbent", networkClassificationId: "org-classification-aipac-network-v1", classificationSnapshotIds: ["release-snapshot"] },
+        { committeeId: "C00797670", kind: "direct_contribution", netAmount: 10_000, cycleYear: 2026, observedAt: "2026-07-01", inputSnapshotIds: ["release-snapshot"], sourceTransactionIdSha256s: [transactionSha256], latestRevisionFileNumber: 1, revisionStatus: "latest_net_positive", recipientCommitteeId: "C00900001", recipientCandidateId: "H6NY00001", recipientRelationship: "authorized" },
+        { committeeId: "C00799031", kind: "independent_support_incumbent", netAmount: 750_000, cycleYear: 2026, observedAt: "2026-07-15", inputSnapshotIds: ["release-snapshot"], sourceTransactionIdSha256s: [transactionSha256], latestRevisionFileNumber: 2, revisionStatus: "latest_net_positive", targetCandidateId: "H6NY00001", targetSeatCycleId: "seat_house_ny_00_current", electionType: "primary", supportOppose: "S", targetRelationship: "incumbent", networkClassificationId: "org-classification-aipac-network-v1", classificationSnapshotIds: ["release-snapshot"] },
       ] },
     });
     expect(DSA_ROUTE_WEIGHTS.aipac.aipacSupport).toBe(60);
@@ -50,7 +53,7 @@ describe("DSA primary target evaluator", () => {
     const result = evaluateDsaTarget({
       ...complete,
       electoral: { presidentialDemocraticMargins: complete.electoral.presidentialDemocraticMargins.map((row) => ({ ...row, marginPoints: 4 })) },
-      aipac: { ...complete.aipac, evidence: [{ committeeId: "C00799031", kind: "independent_oppose_challenger", netAmount: 2_000_000, cycleYear: 2026, observedAt: "2026-07-15", inputSnapshotIds: ["release-snapshot"], sourceTransactionIds: ["udp-ie-2"], latestRevisionFileNumber: 3, revisionStatus: "latest_net_positive", targetCandidateId: "H6NY00002", targetSeatCycleId: "seat_house_ny_00_current", electionType: "primary", supportOppose: "O", targetRelationship: "democratic_primary_challenger", networkClassificationId: "org-classification-aipac-network-v1", classificationSnapshotIds: ["release-snapshot"] }] },
+      aipac: { ...complete.aipac, evidence: [{ committeeId: "C00799031", kind: "independent_oppose_challenger", netAmount: 2_000_000, cycleYear: 2026, observedAt: "2026-07-15", inputSnapshotIds: ["release-snapshot"], sourceTransactionIdSha256s: [transactionSha256], latestRevisionFileNumber: 3, revisionStatus: "latest_net_positive", targetCandidateId: "H6NY00002", targetSeatCycleId: "seat_house_ny_00_current", electionType: "primary", supportOppose: "O", targetRelationship: "democratic_primary_challenger", networkClassificationId: "org-classification-aipac-network-v1", classificationSnapshotIds: ["release-snapshot"] }] },
     });
     expect(result).toMatchObject({ status: "not_qualified", selectedRoute: null, targetScore: null });
   });
@@ -69,24 +72,37 @@ describe("DSA primary target evaluator", () => {
   });
 
   it("rejects unsupported committee relationships, duplicate years, and future evidence", () => {
-    expect(() => evaluateDsaTarget({ ...complete, aipac: { ...complete.aipac, evidence: [{ committeeId: "C00799031", kind: "direct_contribution", netAmount: 5_000, cycleYear: 2026, observedAt: "2026-07-01", inputSnapshotIds: ["release-snapshot"], sourceTransactionIds: ["bad"], latestRevisionFileNumber: 1, revisionStatus: "latest_net_positive", recipientCommitteeId: "C00900001", recipientCandidateId: "H6NY00001", recipientRelationship: "authorized" }] } })).toThrow();
+    expect(() => evaluateDsaTarget({ ...complete, aipac: { ...complete.aipac, evidence: [{ committeeId: "C00799031", kind: "direct_contribution", netAmount: 5_000, cycleYear: 2026, observedAt: "2026-07-01", inputSnapshotIds: ["release-snapshot"], sourceTransactionIdSha256s: [transactionSha256], latestRevisionFileNumber: 1, revisionStatus: "latest_net_positive", recipientCommitteeId: "C00900001", recipientCandidateId: "H6NY00001", recipientRelationship: "authorized" }] } })).toThrow();
     expect(() => evaluateDsaTarget({ ...complete, electoral: { presidentialDemocraticMargins: [complete.electoral.presidentialDemocraticMargins[0], complete.electoral.presidentialDemocraticMargins[0]] } })).toThrow("unique");
-    expect(() => evaluateDsaTarget({ ...complete, aipac: { ...complete.aipac, evidence: [{ committeeId: "C00797670", kind: "direct_contribution", netAmount: 5_000, cycleYear: 2026, observedAt: "2026-08-05", inputSnapshotIds: ["release-snapshot"], sourceTransactionIds: ["future"], latestRevisionFileNumber: 1, revisionStatus: "latest_net_positive", recipientCommitteeId: "C00900001", recipientCandidateId: "H6NY00001", recipientRelationship: "authorized" }] } })).toThrow("source cutoff");
+    expect(() => evaluateDsaTarget({ ...complete, aipac: { ...complete.aipac, evidence: [{ committeeId: "C00797670", kind: "direct_contribution", netAmount: 5_000, cycleYear: 2026, observedAt: "2026-08-05", inputSnapshotIds: ["release-snapshot"], sourceTransactionIdSha256s: [transactionSha256], latestRevisionFileNumber: 1, revisionStatus: "latest_net_positive", recipientCommitteeId: "C00900001", recipientCandidateId: "H6NY00001", recipientRelationship: "authorized" }] } })).toThrow("source cutoff");
   });
 
   it("keeps absent AIPAC evidence unknown until all required cycles and channels are collected", () => {
-    const result = evaluateDsaTarget({ ...complete, aipac: { evidence: [], coverage: [{ cycleYear: 2026, directContributionsComplete: false, independentExpendituresComplete: true, directContributionSnapshotIds: [], independentExpenditureSnapshotIds: ["release-snapshot"] }] } });
+    const result = evaluateDsaTarget({ ...complete, aipac: { evidence: [], coverage: [{ cycleYear: 2026, directContributionsComplete: false, independentExpendituresComplete: true, directContributionSnapshotIds: [], independentExpenditureSnapshotIds: ["release-snapshot"], directContributionArtifactSha256s: [], independentExpenditureArtifactSha256s: [artifactSha256] }] } });
     expect(result.components.aipacSupport).toMatchObject({ score: null, missingReason: "not_collected", inferred: true });
   });
 
   it("rejects unrelated candidate evidence and presidential margins outside 2020/2024", () => {
-    const unrelated = { committeeId: "C00797670", kind: "direct_contribution", netAmount: 10_000, cycleYear: 2026, observedAt: "2026-07-01", inputSnapshotIds: ["release-snapshot"], sourceTransactionIds: ["other-candidate"], latestRevisionFileNumber: 1, revisionStatus: "latest_net_positive", recipientCommitteeId: "C00900002", recipientCandidateId: "H6CA00001", recipientRelationship: "authorized" } as const;
+    const unrelated = { committeeId: "C00797670", kind: "direct_contribution", netAmount: 10_000, cycleYear: 2026, observedAt: "2026-07-01", inputSnapshotIds: ["release-snapshot"], sourceTransactionIdSha256s: [transactionSha256], latestRevisionFileNumber: 1, revisionStatus: "latest_net_positive", recipientCommitteeId: "C00900002", recipientCandidateId: "H6CA00001", recipientRelationship: "authorized" } as const;
     expect(() => evaluateDsaTarget({ ...complete, aipac: { ...complete.aipac, evidence: [unrelated] } })).toThrow("incumbent candidate");
     expect(() => evaluateDsaTarget({ ...complete, electoral: { presidentialDemocraticMargins: [{ ...complete.electoral.presidentialDemocraticMargins[0], year: 2016 }] } })).toThrow("Only compatible 2020 and 2024");
     expect(() => evaluateDsaTarget({ ...complete, aipac: { ...complete.aipac, evidence: [{ ...unrelated, recipientCandidateId: "H6NY00001", cycleYear: 2020 }] } })).toThrow("current or two prior cycles");
   });
 
   it("requires snapshot proof before a coverage channel can be called complete", () => {
-    expect(() => evaluateDsaTarget({ ...complete, aipac: { evidence: [], coverage: [{ cycleYear: 2026, directContributionsComplete: true, independentExpendituresComplete: false, directContributionSnapshotIds: [], independentExpenditureSnapshotIds: [] }] } })).toThrow("requires a source snapshot");
+    expect(() => evaluateDsaTarget({ ...complete, aipac: { evidence: [], coverage: [{ cycleYear: 2026, directContributionsComplete: true, independentExpendituresComplete: false, directContributionSnapshotIds: [], independentExpenditureSnapshotIds: [], directContributionArtifactSha256s: [], independentExpenditureArtifactSha256s: [] }] } })).toThrow("requires a source snapshot and artifact hash");
+  });
+
+  it("does not allow positive evidence to qualify an incompletely collected AIPAC route", () => {
+    const result = evaluateDsaTarget({
+      ...complete,
+      electoral: { presidentialDemocraticMargins: complete.electoral.presidentialDemocraticMargins.map((row) => ({ ...row, marginPoints: 12 })) },
+      aipac: {
+        evidence: [{ committeeId: "C00797670", kind: "direct_contribution", netAmount: 10_000, cycleYear: 2026, observedAt: "2026-07-01", inputSnapshotIds: ["release-snapshot"], sourceTransactionIdSha256s: [transactionSha256], latestRevisionFileNumber: 1, revisionStatus: "latest_net_positive", recipientCommitteeId: "C00900001", recipientCandidateId: "H6NY00001", recipientRelationship: "authorized" }],
+        coverage: [complete.aipac.coverage[2]],
+      },
+    });
+    expect(result.components.aipacSupport).toMatchObject({ score: null, missingReason: "not_collected" });
+    expect(result.selectedRoute).toBeNull();
   });
 });

@@ -36,7 +36,7 @@ const evidenceBase = {
   cycleYear: z.number().int().min(2022).max(2100),
   observedAt: z.iso.date(),
   inputSnapshotIds: z.array(z.string().min(1)).min(1),
-  sourceTransactionIds: z.array(z.string().min(1)).min(1),
+  sourceTransactionIdSha256s: z.array(z.string().regex(/^[a-f0-9]{64}$/)).min(1),
   latestRevisionFileNumber: z.number().int().positive(),
   revisionStatus: z.literal("latest_net_positive"),
 } as const;
@@ -88,9 +88,11 @@ export const dsaTargetInputSchema = z.strictObject({
       independentExpendituresComplete: z.boolean(),
       directContributionSnapshotIds: z.array(z.string().min(1)),
       independentExpenditureSnapshotIds: z.array(z.string().min(1)),
+      directContributionArtifactSha256s: z.array(z.string().regex(/^[a-f0-9]{64}$/)),
+      independentExpenditureArtifactSha256s: z.array(z.string().regex(/^[a-f0-9]{64}$/)),
     }).superRefine((row, ctx) => {
-      if (row.directContributionsComplete && row.directContributionSnapshotIds.length === 0) ctx.addIssue({ code: "custom", message: "Complete direct-contribution coverage requires a source snapshot" });
-      if (row.independentExpendituresComplete && row.independentExpenditureSnapshotIds.length === 0) ctx.addIssue({ code: "custom", message: "Complete independent-expenditure coverage requires a source snapshot" });
+      if (row.directContributionsComplete && (row.directContributionSnapshotIds.length === 0 || row.directContributionArtifactSha256s.length === 0)) ctx.addIssue({ code: "custom", message: "Complete direct-contribution coverage requires a source snapshot and artifact hash" });
+      if (row.independentExpendituresComplete && (row.independentExpenditureSnapshotIds.length === 0 || row.independentExpenditureArtifactSha256s.length === 0)) ctx.addIssue({ code: "custom", message: "Complete independent-expenditure coverage requires a source snapshot and artifact hash" });
     })),
   }),
 }).superRefine((input, ctx) => {
@@ -200,7 +202,7 @@ function aipacSupport(input: DsaTargetInput): Component {
   const byYear = new Map(input.aipac.coverage.map((row) => [row.cycleYear, row]));
   const requiredYears = [input.metadata.currentCycleYear, input.metadata.currentCycleYear - 2, input.metadata.currentCycleYear - 4];
   const coverage = requiredYears.reduce((sum, year) => { const row = byYear.get(year); return sum + Number(row?.directContributionsComplete ?? false) + Number(row?.independentExpendituresComplete ?? false); }, 0) / (requiredYears.length * 2);
-  if (signals.length === 0 && coverage < 1) return { score: null, coverage: rounded(coverage), inferred: true, missingReason: "not_collected" };
+  if (coverage < 1) return { score: null, coverage: rounded(coverage), inferred: true, missingReason: "not_collected" };
   return { score: rounded(combined * 100), coverage: rounded(coverage), inferred: coverage < 1 };
 }
 
