@@ -1,0 +1,523 @@
+{
+  "schema": "oregon-current-incumbent-primary-linkage-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T01:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_authorized_identity_and_historical_geography_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "roster": {
+      "sourceLockId": "dsa-target-incumbent-roster-20260804-v1",
+      "fileSha256": "8ae9bb3423e6160d00b5395186c42550e28811b817a482650875d87de71079e1"
+    },
+    "proposal": {
+      "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+    },
+    "houseClerk": {
+      "sourceLockId": "house-xml",
+      "fileSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+    },
+    "congressLegislators": {
+      "sourceLockId": "congress-legislators-current-20260804",
+      "fileSha256": "bc48cccd12df96164e5a2415fc41e838ca255fe85c297731515529692f7982cf"
+    },
+    "receipt": {
+      "sourceLockId": "oregon-house-democratic-primary-results-2022-2026-v1",
+      "fileSha256": "11c2da1823c1b56753375b906bbc004c6c06de7d5379147b1f566e838db71449",
+      "packageSha256": "e27397dec36c7804ca220bd19647d5c18112f8a0b02f505b4ff443660bd1c25f",
+      "contestSetSha256": "4d9eedd708ebe4687d3aeeb0821448e2bf9939031e4a24317aa0c019c76e9ca1"
+    }
+  },
+  "methodology": {
+    "scope": "five_current_oregon_democratic_target_seats_times_three_cycles",
+    "directIdentifierBridgeAvailable": false,
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "targetSeats": 5,
+    "contestObservations": 15,
+    "exactNameObservations": 8,
+    "derivedNameRelationships": 5,
+    "unresolvedObservations": 2,
+    "proposedIdentityLinks": 13,
+    "directIdentifierBridges": 0,
+    "automaticallyApprovedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "links": [
+    {
+      "contestId": "or:2022:regular:us-house:01:democratic",
+      "contestSha256": "da57c38963ae74c903c5c09c5c88170924e7f51ca3b129d699c018b2b0c7c50f",
+      "seatCycleId": "seat_house_or_01_current",
+      "districtCode": "01",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "B001278",
+        "officialHouseName": "Suzanne Bonamici",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Suzanne Bonamici",
+        "votes": 80317,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "b956e0f3bd2b96aaf6b7c98ece78afe099f6199ae9fc330b4a9b2a9dbb428db4"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:03:democratic",
+      "contestSha256": "ff2a29a5d29b3479ea59c1ca167be81c6cf7a72260ef8269cb65d132f92687e6",
+      "seatCycleId": "seat_house_or_03_current",
+      "districtCode": "03",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "D000635",
+        "officialHouseName": "Maxine Dexter",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": null,
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "no_unique_candidate_match",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_unique_candidate",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "no_unique_official_alias_match_same_district",
+        "do_not_map_predecessor_to_current_incumbent"
+      ],
+      "rowSha256": "663cb372be00d409444ce2aa3a6d0577587402c772a749d7dc424ee2126fe382"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:04:democratic",
+      "contestSha256": "f673c47c783daa8b45d39eefcc266f719c5dd63cacc079ad66a8ceda9c60eaef",
+      "seatCycleId": "seat_house_or_04_current",
+      "districtCode": "04",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "H001094",
+        "officialHouseName": "Val T. Hoyle",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Val Hoyle",
+        "votes": 56153,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "derived_official_alias_same_district",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "derived_official_alias_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "64e6a05139c396f7cd9092e5f23d824ab6a0754680db854f394fb2dd176e292f"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:05:democratic",
+      "contestSha256": "ae3c4593da7544c9d6b10b911eacf6403d2995ad8e6530683ac56bb57af1dcac",
+      "seatCycleId": "seat_house_or_05_current",
+      "districtCode": "05",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "B001326",
+        "officialHouseName": "Janelle S. Bynum",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": null,
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "no_unique_candidate_match",
+      "evidenceClass": "unresolved",
+      "confidence": "none",
+      "relationshipDisposition": "not_linked_no_unique_candidate",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "no_unique_official_alias_match_same_district",
+        "do_not_map_predecessor_to_current_incumbent"
+      ],
+      "rowSha256": "b17bc4e81a04da6a3ce0264159c2492b327516fd96e6d72f1c63288f9d0d63cc"
+    },
+    {
+      "contestId": "or:2022:regular:us-house:06:democratic",
+      "contestSha256": "dc3150bb97760ac3f437a9c7814e745f862c8df7840ef4a16d5557ef6411249e",
+      "seatCycleId": "seat_house_or_06_current",
+      "districtCode": "06",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "S001226",
+        "officialHouseName": "Andrea Salinas",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Andrea Salinas",
+        "votes": 26101,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "f59446efda7856d348efe273fd0d46c3e4e77005b728444fe7b506d9aeb05950"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:01:democratic",
+      "contestSha256": "abeb73814f38a822bff5dd8a5106580532af850e92543dd6661f8362d4a18889",
+      "seatCycleId": "seat_house_or_01_current",
+      "districtCode": "01",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "B001278",
+        "officialHouseName": "Suzanne Bonamici",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Suzanne Bonamici",
+        "votes": 75577,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "053bcf24492bdfbd67585ab86b302f06fc94287e0c375fdabbf378fd14537a07"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:03:democratic",
+      "contestSha256": "e3303a1b332e0c75c3274c895f30ae4a8725c4be3b06768a0e74c709fb059447",
+      "seatCycleId": "seat_house_or_03_current",
+      "districtCode": "03",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "D000635",
+        "officialHouseName": "Maxine Dexter",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Maxine E Dexter",
+        "votes": 47254,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "derived_official_alias_same_district",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "derived_official_alias_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "bcf6dd2742f260e22dc2bea1856bb16f486e6a9b6af0c268c70ea0db1292e305"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:04:democratic",
+      "contestSha256": "15ef635bca7460aa6b7120fe24125d1397f1643340bc49426b40dd3f503a79d7",
+      "seatCycleId": "seat_house_or_04_current",
+      "districtCode": "04",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "H001094",
+        "officialHouseName": "Val T. Hoyle",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Val Hoyle",
+        "votes": 73444,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "derived_official_alias_same_district",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "derived_official_alias_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "ffa49f7f5dcb6bb333b821ab25fa9ac42e56b22d1aabe20f9c7c7aac202f327e"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:05:democratic",
+      "contestSha256": "525d495b97b93cc6c503bf3facf521c75e24c5962c8a2fd7adbe51f195d3b00a",
+      "seatCycleId": "seat_house_or_05_current",
+      "districtCode": "05",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "B001326",
+        "officialHouseName": "Janelle S. Bynum",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Janelle S Bynum",
+        "votes": 55473,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "e6feb15f250930a44610f5ab173553b18fe84f61104efdb965a032df0d43ee3f"
+    },
+    {
+      "contestId": "or:2024:regular:us-house:06:democratic",
+      "contestSha256": "2626911e98c88b0899829760b4a674c1aa456c54bad4513f025712909284dad3",
+      "seatCycleId": "seat_house_or_06_current",
+      "districtCode": "06",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "S001226",
+        "officialHouseName": "Andrea Salinas",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Andrea Salinas",
+        "votes": 52509,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "0b47db8309de508307eb975d73ef6477c1f8dd1a8706046069e1238420d66417"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:01:democratic",
+      "contestSha256": "e5f7535a6e2d1cd7e541728e7e070c0dbac5decd5c554a08ed66a63cdd409841",
+      "seatCycleId": "seat_house_or_01_current",
+      "districtCode": "01",
+      "cycleYear": 2026,
+      "rosterIdentity": {
+        "bioguideId": "B001278",
+        "officialHouseName": "Suzanne Bonamici",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Suzanne Bonamici",
+        "votes": 77306,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "fdb1bb7cc3d445bbf5bdf3ff592f5aaebef601dc8260c4aaec00f20998c1a87a"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:03:democratic",
+      "contestSha256": "13cac08bcc74593269bd3f09c52544f1e6eaa5e7fc164a76efa31496228c6a65",
+      "seatCycleId": "seat_house_or_03_current",
+      "districtCode": "03",
+      "cycleYear": 2026,
+      "rosterIdentity": {
+        "bioguideId": "D000635",
+        "officialHouseName": "Maxine Dexter",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Maxine E Dexter",
+        "votes": 81643,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "derived_official_alias_same_district",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "derived_official_alias_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "d0a778b40593e2b36875dead4ac32fe585581ee78d23c6a624a57feec72a6765"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:04:democratic",
+      "contestSha256": "3430f6d52bba5d46fe31e120b9f283d0f5b2df95b8274ee25a467e518ca9ea65",
+      "seatCycleId": "seat_house_or_04_current",
+      "districtCode": "04",
+      "cycleYear": 2026,
+      "rosterIdentity": {
+        "bioguideId": "H001094",
+        "officialHouseName": "Val T. Hoyle",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Val Hoyle",
+        "votes": 68900,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "derived_official_alias_same_district",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "derived_official_alias_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "f7197301c8feec2f3ebbdd9d08257d1f586d4a7d2fb04c9c52e93599d081cacf"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:05:democratic",
+      "contestSha256": "f68e86aed23f7842308ec38bef50b14ecd289f2bd6b327d47fb07d987404252a",
+      "seatCycleId": "seat_house_or_05_current",
+      "districtCode": "05",
+      "cycleYear": 2026,
+      "rosterIdentity": {
+        "bioguideId": "B001326",
+        "officialHouseName": "Janelle S. Bynum",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Janelle S Bynum",
+        "votes": 70294,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "609b9e3ccf4e1d9de9108427c840b6a13db2bd11a60ac81fefa1ffd9c560e3ac"
+    },
+    {
+      "contestId": "or:2026:regular:us-house:06:democratic",
+      "contestSha256": "a35c72392fc27b197a7cd3e0be3bca4e5a2c39be23af7d5e4223a4e9ae8a9f73",
+      "seatCycleId": "seat_house_or_06_current",
+      "districtCode": "06",
+      "cycleYear": 2026,
+      "rosterIdentity": {
+        "bioguideId": "S001226",
+        "officialHouseName": "Andrea Salinas",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Andrea Salinas",
+        "votes": 62532,
+        "sourceNomineeMarker": "*"
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "source_candidate_has_no_direct_person_identifier"
+      ],
+      "rowSha256": "20fb0393ecdb6001685ed7f77da623b4e9234b53ecb61a04506985b419dfca79"
+    }
+  ],
+  "linkSetSha256": "6828464efe30848b43e864e0f76e6d6eb61c4ee786b87b055de78833469001de",
+  "decisionSupport": {
+    "informsDecisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+    "analysisConclusion": "official_name_and_alias_evidence_proposes_thirteen_links_and_preserves_two_predecessor_cycles_unresolved",
+    "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+  },
+  "packageSha256": "e9732e4983604a1f4f1660036a8fb8357430c1fcdf9ec5694a93bb7fc65a1061"
+}
