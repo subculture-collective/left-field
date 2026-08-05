@@ -93,6 +93,8 @@ The additive v2 report uses 212/212 cumulative recorded House-service values und
 
 Both reports produce 117 deep-blue qualifications and 95 non-qualifications, but v2 recalculates feasibility scores and ranks after adding tenure. These are partial reviewer evidence only. They are not public, publication-eligible, complete comparisons, or AIPAC-informed scores. All four AIPAC proposal packages are hash-bound as excluded inputs; both reports contain zero AIPAC numeric evidence rows and zero AIPAC route selections. See [`dsa-target-evaluation-review-report-2026-08-04.md`](../reviews/dsa-target-evaluation-review-report-2026-08-04.md) and [`incumbent-tenure-review-proposal-2026-08-04.md`](../reviews/incumbent-tenure-review-proposal-2026-08-04.md).
 
+The retained FEC 2026 congressional calendar now supplies a complete 38-state discovery enumeration for filing deadlines, but zero filing-runway values enter the evaluator. The FEC says dates may change and disclaims state election administration authority, so every numeric fact still requires retained state authority. The authority proposal also identifies a formula-scope defect: California, Louisiana, and Washington account for 52 target seats but use top-two/open paths that do not fit v0.1's `partisan_primary_general` contract. See [`house-filing-runway-authority-proposal-2026-08-04.md`](../reviews/house-filing-runway-authority-proposal-2026-08-04.md).
+
 ## Interpretation
 
 - The score measures target attractiveness under this strategy, not incumbent ideology and not win probability.

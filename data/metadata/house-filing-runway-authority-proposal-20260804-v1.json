@@ -1,0 +1,3308 @@
+{
+  "schema": "house-filing-runway-authority-proposal-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T06:30:00.000Z",
+  "sourceCutoff": "2026-08-04",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "scope": {
+    "releaseId": "rel_full_20260804_v2",
+    "universeDefinition": "occupied regular Democratic voting U.S. House seats",
+    "targetStates": 38,
+    "targetSeats": 212
+  },
+  "inputs": {
+    "projectionSourceLockId": "dsa-target-factual-projection-20260804-v1",
+    "projectionFileSha256": "e1c2ab02cafb2ee438ec1a1c936f903e38cc19553d187b6b2d1dca55dc99d3ec",
+    "projectionSha256": "5ff3416817d062bafff21a8ad7e7ff2c87e39b627638f55646de8a540af80edd",
+    "fecDiscoverySourceLockId": "fec-2026-congressional-primary-dates",
+    "fecDiscoveryFileSha256": "9a5d4ec0ba2b69daf2f510ef79bca0ca381ab699255ac5adb971b9672d517251",
+    "fecDiscoveryByteSize": 226820,
+    "fecChartDataAsOf": "2026-05-18",
+    "fecAuthorityRole": "nationwide_discovery_and_drift_detection_not_state_election_authority"
+  },
+  "methodology": {
+    "proposedMetric": "nonnegative_calendar_days_to_final_standard_ballot_access_deadline",
+    "calendarArithmetic": "max_zero_utc_date_difference",
+    "prospectiveCandidatePath": "non_incumbent_standard_path_for_exact_seat",
+    "passedConfirmedDeadlineMeansZero": true,
+    "unknownDeadlineNeverMeansZero": true,
+    "independentMinorWriteInDeadlinesExcluded": true,
+    "stateElectionAuthorityRequiredForNumericUse": true,
+    "formulaCompatibilityRequiredForNumericUse": true
+  },
+  "summary": {
+    "states": 38,
+    "seats": 212,
+    "fecDiscoveryDeadlines": 38,
+    "fecDiscoveryZeroDaySeats": 210,
+    "fecDiscoveryPositiveDaySeats": 2,
+    "stateAuthorityConfirmedSeats": 0,
+    "evaluatorNumericValues": 0,
+    "missingStateAuthoritySeats": 212,
+    "proposedFormulaIncompatibleSeats": 52,
+    "pathSpecificReviewSeats": 13,
+    "unassessedFormulaSeats": 147,
+    "decisions": 4
+  },
+  "states": [
+    {
+      "stateCode": "AL",
+      "targetSeats": 2,
+      "fecPrimaryBallotAccessDeadline": "2026-01-23",
+      "fecDeadlineSelection": "district_specific_conflict",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "note": "FEC statewide discovery date does not encode the later target-district special-primary qualifying calendar.",
+      "stateRowSha256": "517c46562997dd5237088a6cdcfd38ec5b8b24e98780f6de45a042b5350eebb2"
+    },
+    {
+      "stateCode": "AZ",
+      "targetSeats": 3,
+      "fecPrimaryBallotAccessDeadline": "2026-03-23",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "4982f90c92cccc6d2e7902ae01461956605e2bde833caade304aed7a4ca966df"
+    },
+    {
+      "stateCode": "CA",
+      "targetSeats": 42,
+      "fecPrimaryBallotAccessDeadline": "2026-03-06",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "note": "Live official discovery identifies a voter-nominated top-two system and district-specific extension possibility.",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849"
+    },
+    {
+      "stateCode": "CO",
+      "targetSeats": 4,
+      "fecPrimaryBallotAccessDeadline": "2026-03-18",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "b5816be7fe9620d9c60efd3978696a408705642735bc350715e4d41006f3a5b1"
+    },
+    {
+      "stateCode": "CT",
+      "targetSeats": 5,
+      "fecPrimaryBallotAccessDeadline": "2026-06-09",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "note": "Party endorsement, eligibility, and petition paths require structured state-authority review.",
+      "stateRowSha256": "5f14b1b5e73612224129c763ae2e43a86f2ff0a0dcaa0ebde80527f4d573ea54"
+    },
+    {
+      "stateCode": "DE",
+      "targetSeats": 1,
+      "fecPrimaryBallotAccessDeadline": "2026-07-14",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "2952f81131b2b6531c0897370b9f78f053bd77a635da1259b07492574e632b19"
+    },
+    {
+      "stateCode": "FL",
+      "targetSeats": 7,
+      "fecPrimaryBallotAccessDeadline": "2026-04-24",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "7e24f19efd6b0dfa1fb409265322fa1f9ec55203755261b85b7acf9531816fa2"
+    },
+    {
+      "stateCode": "GA",
+      "targetSeats": 4,
+      "fecPrimaryBallotAccessDeadline": "2026-03-06",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "35045340a7ab305e014780146ae2aa7b32aaf6d1aff1bfeb71f9150c303b4ead"
+    },
+    {
+      "stateCode": "HI",
+      "targetSeats": 2,
+      "fecPrimaryBallotAccessDeadline": "2026-06-02",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "bf23e2b96fd76b12b9bb1b9524007ab7426d3bed835d3cb121d049212fd92cc7"
+    },
+    {
+      "stateCode": "IL",
+      "targetSeats": 14,
+      "fecPrimaryBallotAccessDeadline": "2025-11-03",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2"
+    },
+    {
+      "stateCode": "IN",
+      "targetSeats": 2,
+      "fecPrimaryBallotAccessDeadline": "2026-02-06",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "FEC specifies noon; time-zone and office-hours metadata require state authority.",
+      "stateRowSha256": "2f144f556d94003144bda4ded213be1b63ced71c0716494058cdaf58022f51a5"
+    },
+    {
+      "stateCode": "KS",
+      "targetSeats": 1,
+      "fecPrimaryBallotAccessDeadline": "2026-06-01",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "e53c83ca21da29f1b203ee66a0168bb30aa6e7481622da22043fa20a093b629c"
+    },
+    {
+      "stateCode": "KY",
+      "targetSeats": 1,
+      "fecPrimaryBallotAccessDeadline": "2026-01-09",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "900e4260af429e8cc4d6a3bde6657e5a1fd8f16024f591276f535a4025c7a37a"
+    },
+    {
+      "stateCode": "LA",
+      "targetSeats": 2,
+      "fecPrimaryBallotAccessDeadline": "2026-08-07",
+      "fecDeadlineSelection": "house",
+      "fecDiscoveryRunwayDays": 3,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "note": "Live official discovery identifies a November open primary rather than a Democratic partisan primary.",
+      "stateRowSha256": "618fe709277a45f6b34213273611f0a47dc3fb45de8aa0989eab746960cdcefe"
+    },
+    {
+      "stateCode": "MA",
+      "targetSeats": 9,
+      "fecPrimaryBallotAccessDeadline": "2026-06-02",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "aa701d5faec0ef11289d10cdccd06b8c9672bf956f3e81aa0a5e56474503a635"
+    },
+    {
+      "stateCode": "MD",
+      "targetSeats": 7,
+      "fecPrimaryBallotAccessDeadline": "2026-02-24",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "8bf1cfa39c65d481e65daa0ff259634031445783364002c2f1bbbe8565373099"
+    },
+    {
+      "stateCode": "ME",
+      "targetSeats": 2,
+      "fecPrimaryBallotAccessDeadline": "2026-03-16",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "28a65b76707cddb5a597fc799c8f4f5abac1199cd24f8aed78c9608db36b9687"
+    },
+    {
+      "stateCode": "MI",
+      "targetSeats": 6,
+      "fecPrimaryBallotAccessDeadline": "2026-04-21",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "c85382019b0987478da0d428ceacdf88614b0dd8cdfbc7dbc6e61470a781c6af"
+    },
+    {
+      "stateCode": "MN",
+      "targetSeats": 4,
+      "fecPrimaryBallotAccessDeadline": "2026-06-02",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "07c170176a38f7cf387a2108f5aeb39e3e016231abdc16c8caab8a63970d3faa"
+    },
+    {
+      "stateCode": "MO",
+      "targetSeats": 2,
+      "fecPrimaryBallotAccessDeadline": "2026-03-31",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "ec2d054f4c31838d64ad4657e3f2f9eaec23de4f653920bc790a65e6eb99034e"
+    },
+    {
+      "stateCode": "MS",
+      "targetSeats": 1,
+      "fecPrimaryBallotAccessDeadline": "2025-12-26",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "c167c94562c53cf8919ea37ba369b69e20e26375b100dcac9b13ec921008532b"
+    },
+    {
+      "stateCode": "NC",
+      "targetSeats": 4,
+      "fecPrimaryBallotAccessDeadline": "2025-12-19",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "630c0033dfc7c8551fa2b766ea0af18d944db881cc133e01b3ec761feb3ec330"
+    },
+    {
+      "stateCode": "NH",
+      "targetSeats": 2,
+      "fecPrimaryBallotAccessDeadline": "2026-06-12",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "b2faadd6e51ff80417bc7c78d3f7c9c54cc7d5b82e29ea8b0838bd20b0cb2b35"
+    },
+    {
+      "stateCode": "NJ",
+      "targetSeats": 9,
+      "fecPrimaryBallotAccessDeadline": "2026-03-23",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "6264a87d923c068c2c6c10afa26b66a959e24912ca537d8d77eec179d66f7ab9"
+    },
+    {
+      "stateCode": "NM",
+      "targetSeats": 3,
+      "fecPrimaryBallotAccessDeadline": "2026-02-03",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "f59924b594dd10e02ef01c5bae4efc5e548e5f9f586bf2f9f4c784b3b717688b"
+    },
+    {
+      "stateCode": "NV",
+      "targetSeats": 3,
+      "fecPrimaryBallotAccessDeadline": "2026-03-13",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "df40eb3d79b92c31b57e7bd81dfd1c4012fe6b055e60583c614c0c507743486c"
+    },
+    {
+      "stateCode": "NY",
+      "targetSeats": 19,
+      "fecPrimaryBallotAccessDeadline": "2026-04-06",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00"
+    },
+    {
+      "stateCode": "OH",
+      "targetSeats": 5,
+      "fecPrimaryBallotAccessDeadline": "2026-02-04",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "ecb9392d1d7cd4bf5935c0ba3117e3574ba13426ea42bb9a77bd86bdcb603239"
+    },
+    {
+      "stateCode": "OR",
+      "targetSeats": 5,
+      "fecPrimaryBallotAccessDeadline": "2026-03-10",
+      "fecDeadlineSelection": "all_others",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "Uses the FEC non-incumbent deadline, not the incumbent deadline.",
+      "stateRowSha256": "d851b38beb6f4ec0a1187d96f8f0bb6c6419178cddc1fe92769aa1b26c74ce93"
+    },
+    {
+      "stateCode": "PA",
+      "targetSeats": 7,
+      "fecPrimaryBallotAccessDeadline": "2026-03-10",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "04a2677c678922ef9f9c60c2fd3a7124648cadc5459ca67eb4ab3072b8017441"
+    },
+    {
+      "stateCode": "RI",
+      "targetSeats": 2,
+      "fecPrimaryBallotAccessDeadline": "2026-06-24",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "325e31ac464ba449a60ddd7b05bf3e90abf9705da7301ca91cf3ed82ca67453f"
+    },
+    {
+      "stateCode": "SC",
+      "targetSeats": 1,
+      "fecPrimaryBallotAccessDeadline": "2026-03-30",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "FEC specifies noon; time-zone and office-hours metadata require state authority.",
+      "stateRowSha256": "c560daf1d1e9b4a586d82cd5b4c9f660c2ddc7735f3695fde4c64ee505904a06"
+    },
+    {
+      "stateCode": "TN",
+      "targetSeats": 1,
+      "fecPrimaryBallotAccessDeadline": "2026-03-10",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "FEC specifies noon; time-zone and office-hours metadata require state authority.",
+      "stateRowSha256": "1102ba83b3dc58ad44e4116b1dc61a41a533801ef55a7bd49c1ee7aa5a483996"
+    },
+    {
+      "stateCode": "TX",
+      "targetSeats": 13,
+      "fecPrimaryBallotAccessDeadline": "2025-12-08",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6"
+    },
+    {
+      "stateCode": "VA",
+      "targetSeats": 6,
+      "fecPrimaryBallotAccessDeadline": "2026-05-26",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "note": "Party nomination method and district applicability require state-authority review.",
+      "stateRowSha256": "f5f9f43871f69752a15720064470fcfd6fb5f01a04aa27a72efb7be3d4a99f3a"
+    },
+    {
+      "stateCode": "VT",
+      "targetSeats": 1,
+      "fecPrimaryBallotAccessDeadline": "2026-05-28",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "9bc9486a1dfa1321a7f0510afdb06350010672d873db6208498ceb33d8674c14"
+    },
+    {
+      "stateCode": "WA",
+      "targetSeats": 8,
+      "fecPrimaryBallotAccessDeadline": "2026-05-08",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "note": "Live official discovery identifies a top-two system rather than a Democratic partisan primary.",
+      "stateRowSha256": "d998cb1bac5e84eea538805cbf906d9b295d8853668b9562a39831827e263105"
+    },
+    {
+      "stateCode": "WI",
+      "targetSeats": 2,
+      "fecPrimaryBallotAccessDeadline": "2026-06-01",
+      "fecDeadlineSelection": "standard",
+      "fecDiscoveryRunwayDays": 0,
+      "stateAuthorityStatus": "not_retained",
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "note": "State authority not retained.",
+      "stateRowSha256": "85b04e4a6d63d7b179c7b4278de4d8058a718f00cc18482a01600c63b797d6ed"
+    }
+  ],
+  "seats": [
+    {
+      "seatCycleId": "seat_house_al_02_current",
+      "stateCode": "AL",
+      "stateRowSha256": "517c46562997dd5237088a6cdcfd38ec5b8b24e98780f6de45a042b5350eebb2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "ed2c89cd8fc306b523c25e2141f9461c90a191345e35526e91bda0bcf8f158a0"
+    },
+    {
+      "seatCycleId": "seat_house_al_07_current",
+      "stateCode": "AL",
+      "stateRowSha256": "517c46562997dd5237088a6cdcfd38ec5b8b24e98780f6de45a042b5350eebb2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "95b5a34ce4247587b3658f785cd48d6511aef4e7738e9fb67c17936df6299df3"
+    },
+    {
+      "seatCycleId": "seat_house_az_03_current",
+      "stateCode": "AZ",
+      "stateRowSha256": "4982f90c92cccc6d2e7902ae01461956605e2bde833caade304aed7a4ca966df",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "b8f8ac3883920cd2731230833662cdbcd51af68b038ad7f5204b38488ac14598"
+    },
+    {
+      "seatCycleId": "seat_house_az_04_current",
+      "stateCode": "AZ",
+      "stateRowSha256": "4982f90c92cccc6d2e7902ae01461956605e2bde833caade304aed7a4ca966df",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "b1e85eb092f02012bb02eed13fedb50e8f6b2f7a69e6976ae19c34e3e5d1a97f"
+    },
+    {
+      "seatCycleId": "seat_house_az_07_current",
+      "stateCode": "AZ",
+      "stateRowSha256": "4982f90c92cccc6d2e7902ae01461956605e2bde833caade304aed7a4ca966df",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "4ee9e7cd4a815e65fc90cd8042ca4da2bc43046a3b48b06c9dd1e3c059a12b44"
+    },
+    {
+      "seatCycleId": "seat_house_ca_02_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "fe163efc4e7be93bcf6826b37c8717be6ceda32eb0ebf124eac8622cebc701c7"
+    },
+    {
+      "seatCycleId": "seat_house_ca_04_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "6034450bb8b38bf9300221177fbf8930faa1fd4e6192938c6fdf4c70426978d8"
+    },
+    {
+      "seatCycleId": "seat_house_ca_06_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "28e583a0db6118ac0e0daba329f05ddba1d3911e793a9f9c57dc59448ce20065"
+    },
+    {
+      "seatCycleId": "seat_house_ca_07_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "c1ef6bc6b0dc2a54b7bba2c01051721d4d9827a57c8600c4ccbe593b26da0122"
+    },
+    {
+      "seatCycleId": "seat_house_ca_08_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "d47c29fa6dad763dcd23697d7f90399e1bf1c21f4cc83f530f30dd6fef2fc73a"
+    },
+    {
+      "seatCycleId": "seat_house_ca_09_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "735df42a68d555879b7c5a369dc18f2434d355fc6a89f5d684eefb4294d7f068"
+    },
+    {
+      "seatCycleId": "seat_house_ca_10_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "9ca8e4f0ec81bee20ee271fe3a0a0813f0f15c517b08bddb9a08e6db99519320"
+    },
+    {
+      "seatCycleId": "seat_house_ca_11_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "c398e68b3d221f41b6328712e445e7a299365fb2afb3043c0a4ab689093736b8"
+    },
+    {
+      "seatCycleId": "seat_house_ca_12_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "5f820dea433dba927d1365b242c499440191a39d4370248968aa6a9dcc8d1e55"
+    },
+    {
+      "seatCycleId": "seat_house_ca_13_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "9dc1c92fbf5f89dce30c999c46587461dd83c63835aa90a40403adf16d25f978"
+    },
+    {
+      "seatCycleId": "seat_house_ca_15_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "c249ca2d0b2007615c2a57c2d0079ebde271dbd0671abcc95e24c305c16a8fa1"
+    },
+    {
+      "seatCycleId": "seat_house_ca_16_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "346642c9d5b2fb0e20ceffb550097baf0d629613029ca58f62a836e6b0d0c91d"
+    },
+    {
+      "seatCycleId": "seat_house_ca_17_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "c2a7714f8a0f5b9ede997ea18746026ccaa0bc321a09fcbaecc9f8830a8803c0"
+    },
+    {
+      "seatCycleId": "seat_house_ca_18_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "15e120774e9612905f9c561d2b0db8176391c00b0a7d56209c6c8d7d0c5b1765"
+    },
+    {
+      "seatCycleId": "seat_house_ca_19_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "6e99d98dd5942a6eeffca18a7c1a1a2c9395c35c54056f5e7c739eece1264ed3"
+    },
+    {
+      "seatCycleId": "seat_house_ca_21_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "f0e11d0bd8541cd5758d1012158b1be0987f3f30c0f5b1ece993de2add5020c6"
+    },
+    {
+      "seatCycleId": "seat_house_ca_24_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "1b6064d42d01c3ad4eea0603d0d60d7e8e8819abd61eb9a4491b7e95c0d4cf8e"
+    },
+    {
+      "seatCycleId": "seat_house_ca_25_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "b5713e4c5b69655f8f91ea718867699be90888bb537788159b6975b8d85f7172"
+    },
+    {
+      "seatCycleId": "seat_house_ca_26_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "ed1741431a3649e11a0eba951ab37784547c75d5196ef1f6bcc58cc19c9ffbb0"
+    },
+    {
+      "seatCycleId": "seat_house_ca_27_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "29746c7b3f46e2a8b936da9e299c0a1f9dd0d2afc909d5b4110d2629ce15c0ff"
+    },
+    {
+      "seatCycleId": "seat_house_ca_28_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "2270ec82128182103062032694164b41c51af505100d378ea5d28ea545b95164"
+    },
+    {
+      "seatCycleId": "seat_house_ca_29_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "378176ee79de7c7c6447dad459dee9e79f5cf5928154a823ec16bb1b83af1399"
+    },
+    {
+      "seatCycleId": "seat_house_ca_30_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "1d3f6f5ecab7c3d19f244408001b6726d3317388dcf61c9ba675b11d73f9a91d"
+    },
+    {
+      "seatCycleId": "seat_house_ca_31_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "4a29d13265f03c15527a64190f76fcbb4ad672771b65ca0aa98b3be0682fb2d4"
+    },
+    {
+      "seatCycleId": "seat_house_ca_32_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "23cbac17875c720f2ef84b9b1adec3de83ca44f278a871bc652213c95e43c354"
+    },
+    {
+      "seatCycleId": "seat_house_ca_33_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "6aa3fe52301cc0f1e54c0e46076286e792e55ebc902437cbefc2710ddbcdb2e3"
+    },
+    {
+      "seatCycleId": "seat_house_ca_34_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "7ae32e5b22d1516012030786d2321c7cfebf5f32b19f76276ed040457080b3f3"
+    },
+    {
+      "seatCycleId": "seat_house_ca_35_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "578cb3862532ac3ea8ad3968809ef3c2827d2c5dd55648dea4281700111558d7"
+    },
+    {
+      "seatCycleId": "seat_house_ca_36_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "c6dc0bbc30c63cc1c6a06a5dbf38b9deca7dd515200ae5e1b308cfcb6fbc3e66"
+    },
+    {
+      "seatCycleId": "seat_house_ca_37_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "bc84fbf21cdbca48afdba601b966af247716bae56d15a8bd64b2155205257932"
+    },
+    {
+      "seatCycleId": "seat_house_ca_38_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "d80e71e83e9cb3439a5a677bbf3e5c4fad4909104dfadbd7d395a24cc37451e0"
+    },
+    {
+      "seatCycleId": "seat_house_ca_39_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "b632c7563607f13e347dc5414a9793ca1ae79d172ded273cdaf8c5448a7fbb25"
+    },
+    {
+      "seatCycleId": "seat_house_ca_42_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "c7640bb491a28711e0d32fb6c8783ec69d3775a4b31173d156ca2fcc07c79d91"
+    },
+    {
+      "seatCycleId": "seat_house_ca_43_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "f21147e71692bc938898a957f58f64d86d224e72bc4e0d4208ff00d2594c5e71"
+    },
+    {
+      "seatCycleId": "seat_house_ca_44_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "a8a0840d2a61bcafd455beab475e8e63034f98bd7f8d9a2e6a783524657a4e7a"
+    },
+    {
+      "seatCycleId": "seat_house_ca_45_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "e5959ce26460222bd10cafcf35b1a719ba3f84655031490e418dcd8c80f0e2b4"
+    },
+    {
+      "seatCycleId": "seat_house_ca_46_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "c7e573312ea788daad8bd3b30ea73e24347565cf374966ceb43aff7b3667039d"
+    },
+    {
+      "seatCycleId": "seat_house_ca_47_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "e0f0f276ec5fa1e122e39f7dbe140843831605c9f9079a2842bf7b9ac9464d07"
+    },
+    {
+      "seatCycleId": "seat_house_ca_49_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "2f231ac4150e5d400138eff5e9227f58964adfde996e76274b01de44c723051c"
+    },
+    {
+      "seatCycleId": "seat_house_ca_50_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "aba4da41c8b2bba40548dbef3329d814707a3af13d750c03b550d8631f2c8bef"
+    },
+    {
+      "seatCycleId": "seat_house_ca_51_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "107afb696f78330a9a932fe27a79dbcb90107ef1703acbd79c1e0feb2a47a7f7"
+    },
+    {
+      "seatCycleId": "seat_house_ca_52_current",
+      "stateCode": "CA",
+      "stateRowSha256": "d87cd0f8f19ab3a7ae8369254c0c4fcce72e9a6f290806d298e8a0d5a3fab849",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "c0290b7cb689ced4ef8e517c380a92f2619ba0112510c21570f454dfe3e5d0f3"
+    },
+    {
+      "seatCycleId": "seat_house_co_01_current",
+      "stateCode": "CO",
+      "stateRowSha256": "b5816be7fe9620d9c60efd3978696a408705642735bc350715e4d41006f3a5b1",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "d80aa7220186e15789ed9569213cd7f89b089a4e7526dfcf7a8b14a16a7a8f79"
+    },
+    {
+      "seatCycleId": "seat_house_co_02_current",
+      "stateCode": "CO",
+      "stateRowSha256": "b5816be7fe9620d9c60efd3978696a408705642735bc350715e4d41006f3a5b1",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "386c548b749c0e8b0dc16259fd5794d6aa84b42f9311285453d219c420a821c4"
+    },
+    {
+      "seatCycleId": "seat_house_co_06_current",
+      "stateCode": "CO",
+      "stateRowSha256": "b5816be7fe9620d9c60efd3978696a408705642735bc350715e4d41006f3a5b1",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "46ba25ae572c464f472dc096c0907f68ee339ac746032d92e18137bfdf698567"
+    },
+    {
+      "seatCycleId": "seat_house_co_07_current",
+      "stateCode": "CO",
+      "stateRowSha256": "b5816be7fe9620d9c60efd3978696a408705642735bc350715e4d41006f3a5b1",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "60196337d02096b875ee4cba691ea169102d96c0b0b6ea29969ae65edc9c7604"
+    },
+    {
+      "seatCycleId": "seat_house_ct_01_current",
+      "stateCode": "CT",
+      "stateRowSha256": "5f14b1b5e73612224129c763ae2e43a86f2ff0a0dcaa0ebde80527f4d573ea54",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "99f795ee62a4036f83e53ab6a00f2bb42704c3b4caf6d465957f78a89109d057"
+    },
+    {
+      "seatCycleId": "seat_house_ct_02_current",
+      "stateCode": "CT",
+      "stateRowSha256": "5f14b1b5e73612224129c763ae2e43a86f2ff0a0dcaa0ebde80527f4d573ea54",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "64e148b449d834c08158e84d79f9efd7592cf13d34b58d021d61a5408647a858"
+    },
+    {
+      "seatCycleId": "seat_house_ct_03_current",
+      "stateCode": "CT",
+      "stateRowSha256": "5f14b1b5e73612224129c763ae2e43a86f2ff0a0dcaa0ebde80527f4d573ea54",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "cc556758a434f94f5214b20231b29cad17e428825bf4b8ea381e2074f63cce93"
+    },
+    {
+      "seatCycleId": "seat_house_ct_04_current",
+      "stateCode": "CT",
+      "stateRowSha256": "5f14b1b5e73612224129c763ae2e43a86f2ff0a0dcaa0ebde80527f4d573ea54",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "99634216e008edfbcc0c86fff3c13413315bc19a1602ad420e9b390c7242bb72"
+    },
+    {
+      "seatCycleId": "seat_house_ct_05_current",
+      "stateCode": "CT",
+      "stateRowSha256": "5f14b1b5e73612224129c763ae2e43a86f2ff0a0dcaa0ebde80527f4d573ea54",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "107db30ff79e3be2681b5624f07667bf14dab84070754144b64f97a7cb96bd99"
+    },
+    {
+      "seatCycleId": "seat_house_de_al_current",
+      "stateCode": "DE",
+      "stateRowSha256": "2952f81131b2b6531c0897370b9f78f053bd77a635da1259b07492574e632b19",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "b1c06e9c37b80c458be33f3bec5fb4c9d151a9d99d1f382e0712be6e94f696d4"
+    },
+    {
+      "seatCycleId": "seat_house_fl_09_current",
+      "stateCode": "FL",
+      "stateRowSha256": "7e24f19efd6b0dfa1fb409265322fa1f9ec55203755261b85b7acf9531816fa2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "a368a18410299827d85260a81673f817749d1de49d6c5ed1b9cc4bc55cf7fbbf"
+    },
+    {
+      "seatCycleId": "seat_house_fl_10_current",
+      "stateCode": "FL",
+      "stateRowSha256": "7e24f19efd6b0dfa1fb409265322fa1f9ec55203755261b85b7acf9531816fa2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "06fdedf93c307ddc83a39c48fd15b6ae8d66100169441b65c1600e911a76cd16"
+    },
+    {
+      "seatCycleId": "seat_house_fl_14_current",
+      "stateCode": "FL",
+      "stateRowSha256": "7e24f19efd6b0dfa1fb409265322fa1f9ec55203755261b85b7acf9531816fa2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "78ee4d5dadb847e7dd9a9c9645faecd06db52c811def30c699591fe6d42773c1"
+    },
+    {
+      "seatCycleId": "seat_house_fl_22_current",
+      "stateCode": "FL",
+      "stateRowSha256": "7e24f19efd6b0dfa1fb409265322fa1f9ec55203755261b85b7acf9531816fa2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "c9c8c09d2847f1667848588d6da8024b116168569cb2335f9bf1092239292e05"
+    },
+    {
+      "seatCycleId": "seat_house_fl_23_current",
+      "stateCode": "FL",
+      "stateRowSha256": "7e24f19efd6b0dfa1fb409265322fa1f9ec55203755261b85b7acf9531816fa2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "081129f5c611c9db12dff498f2cc04c4d8d00901f97a89c854f0ebfc844eaf7d"
+    },
+    {
+      "seatCycleId": "seat_house_fl_24_current",
+      "stateCode": "FL",
+      "stateRowSha256": "7e24f19efd6b0dfa1fb409265322fa1f9ec55203755261b85b7acf9531816fa2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "e1b3cf6edceb92b1c5a1c9284db7ec995b1b334457ebbfb1d63a26ad644b25a6"
+    },
+    {
+      "seatCycleId": "seat_house_fl_25_current",
+      "stateCode": "FL",
+      "stateRowSha256": "7e24f19efd6b0dfa1fb409265322fa1f9ec55203755261b85b7acf9531816fa2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "7f53fca1f934babc0bb102003cd343f43eae00b87b0aed2b91d4a402e3553bf4"
+    },
+    {
+      "seatCycleId": "seat_house_ga_02_current",
+      "stateCode": "GA",
+      "stateRowSha256": "35045340a7ab305e014780146ae2aa7b32aaf6d1aff1bfeb71f9150c303b4ead",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "e63321396632233e9f26253027814f085c6f4e991c7e7d28bfd8bcb4bd4df1ad"
+    },
+    {
+      "seatCycleId": "seat_house_ga_04_current",
+      "stateCode": "GA",
+      "stateRowSha256": "35045340a7ab305e014780146ae2aa7b32aaf6d1aff1bfeb71f9150c303b4ead",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "73438b80068c8af87af69456e7bf5efadb0db96afbe0da5a685574fe0c8ba3a3"
+    },
+    {
+      "seatCycleId": "seat_house_ga_05_current",
+      "stateCode": "GA",
+      "stateRowSha256": "35045340a7ab305e014780146ae2aa7b32aaf6d1aff1bfeb71f9150c303b4ead",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "e77a3cc1dbac2c91e8a0ace8342b6f21f47fd6211d3400919212386c704283fe"
+    },
+    {
+      "seatCycleId": "seat_house_ga_06_current",
+      "stateCode": "GA",
+      "stateRowSha256": "35045340a7ab305e014780146ae2aa7b32aaf6d1aff1bfeb71f9150c303b4ead",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "95e5653c40c396e6807382e393332537dfe2f362ecb873233fddb0bb9a920120"
+    },
+    {
+      "seatCycleId": "seat_house_hi_01_current",
+      "stateCode": "HI",
+      "stateRowSha256": "bf23e2b96fd76b12b9bb1b9524007ab7426d3bed835d3cb121d049212fd92cc7",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "0c474b841460b947b0b1a5383c99930d26a1defd0db50442759d2bb2738ce174"
+    },
+    {
+      "seatCycleId": "seat_house_hi_02_current",
+      "stateCode": "HI",
+      "stateRowSha256": "bf23e2b96fd76b12b9bb1b9524007ab7426d3bed835d3cb121d049212fd92cc7",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "04d3aea7c811fb92b7298904fd1c0b2c5ec38ff99d600f4ecd3a12b01e91e133"
+    },
+    {
+      "seatCycleId": "seat_house_il_01_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "bb4b0341e8076f6936d4283c25a1dd033b2ec1166fa54445d321df537fcef3b7"
+    },
+    {
+      "seatCycleId": "seat_house_il_02_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "6af9f46d9ae90f18fb37a4ed63356536f831cd0b9f51eb0c292d9e8b3491ea7e"
+    },
+    {
+      "seatCycleId": "seat_house_il_03_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "bbd57208c108958c7f891daef45dc46cc39fdfd83e9e5cace2bd795494945bbe"
+    },
+    {
+      "seatCycleId": "seat_house_il_04_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "e67f6dcac8ba91ce8ec9493db5469f752a5f2425be2b3e466d6daf7346c16395"
+    },
+    {
+      "seatCycleId": "seat_house_il_05_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "8ecc4ce6a54461342d548b8b49f7aba6393c98934145b30a6c2d528bedbb7f4e"
+    },
+    {
+      "seatCycleId": "seat_house_il_06_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "65e8146be35eb6444fda02b1fff465b37b2a051d6d981f908c42e947ec733b74"
+    },
+    {
+      "seatCycleId": "seat_house_il_07_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "fde7d3c7ad993e4854658e4c210e066e3da23b943f729b38a96b0dc660561a04"
+    },
+    {
+      "seatCycleId": "seat_house_il_08_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "8e0b22a01169804664eb38d9365e2b2bbda7fa0ccbaa8f65662ada7f802107a5"
+    },
+    {
+      "seatCycleId": "seat_house_il_09_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "faf3bb465091ba24f35f97e6df9f3a98fee8fd2d0af6d4cab39c436fdbdfa3d7"
+    },
+    {
+      "seatCycleId": "seat_house_il_10_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "3601201ac4e0d013a7bd6a66dfd5c44b4dab8f08a59702cfb34d73591312676f"
+    },
+    {
+      "seatCycleId": "seat_house_il_11_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "0f22a1605b9fd23a627cb982cc6a224378ffe1a1610df85f51947a8ba44dd754"
+    },
+    {
+      "seatCycleId": "seat_house_il_13_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "5ab128c58aa3f4acc4f52c37d34880dd6c3175d4da687c61f4a6909bf66fc0ff"
+    },
+    {
+      "seatCycleId": "seat_house_il_14_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "6143d0ff8f81216a5cff37a4ebc2be2dc2389be153dcabb26b4c09e54caea923"
+    },
+    {
+      "seatCycleId": "seat_house_il_17_current",
+      "stateCode": "IL",
+      "stateRowSha256": "1fbcbf8a5a34590746137df6d23da37b3c986e62ee432eef094dd6ed758cf1a2",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "d919d85b1e132c3364a29ac441b40b40b441278095359f669395bfbf5dcb21c3"
+    },
+    {
+      "seatCycleId": "seat_house_in_01_current",
+      "stateCode": "IN",
+      "stateRowSha256": "2f144f556d94003144bda4ded213be1b63ced71c0716494058cdaf58022f51a5",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "8dadb8e16fa4a3b3460deabf97676065a63a57a19dad5befbab97d3f1d280f93"
+    },
+    {
+      "seatCycleId": "seat_house_in_07_current",
+      "stateCode": "IN",
+      "stateRowSha256": "2f144f556d94003144bda4ded213be1b63ced71c0716494058cdaf58022f51a5",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "65a162a7c60d335d8d5e14972074d00a93a3767485bfa7c36b3b0bc759093d83"
+    },
+    {
+      "seatCycleId": "seat_house_ks_03_current",
+      "stateCode": "KS",
+      "stateRowSha256": "e53c83ca21da29f1b203ee66a0168bb30aa6e7481622da22043fa20a093b629c",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "5ac6b2725e94af3c6fb8a8b4fc0baaaa3472a59db70fcefbb745279b8a126c37"
+    },
+    {
+      "seatCycleId": "seat_house_ky_03_current",
+      "stateCode": "KY",
+      "stateRowSha256": "900e4260af429e8cc4d6a3bde6657e5a1fd8f16024f591276f535a4025c7a37a",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "8328429a861994736be32b6cbc4dee8d393586c8147c3b7e5cd196d4bc0da400"
+    },
+    {
+      "seatCycleId": "seat_house_la_02_current",
+      "stateCode": "LA",
+      "stateRowSha256": "618fe709277a45f6b34213273611f0a47dc3fb45de8aa0989eab746960cdcefe",
+      "fecDiscoveryRunwayDays": 3,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "916f8e532419f1a10375e33999f72be846f8de761bd7eb58a2e898d9ac29faca"
+    },
+    {
+      "seatCycleId": "seat_house_la_06_current",
+      "stateCode": "LA",
+      "stateRowSha256": "618fe709277a45f6b34213273611f0a47dc3fb45de8aa0989eab746960cdcefe",
+      "fecDiscoveryRunwayDays": 3,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "266dcb3a03b8b00b1fe0cef757c677139998aca0f27936f0cf098315d33c8127"
+    },
+    {
+      "seatCycleId": "seat_house_ma_01_current",
+      "stateCode": "MA",
+      "stateRowSha256": "aa701d5faec0ef11289d10cdccd06b8c9672bf956f3e81aa0a5e56474503a635",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "9745346633a2e8883ab58d99f89ca943bd2deb9df7c6dbf13613c9b5058e02cc"
+    },
+    {
+      "seatCycleId": "seat_house_ma_02_current",
+      "stateCode": "MA",
+      "stateRowSha256": "aa701d5faec0ef11289d10cdccd06b8c9672bf956f3e81aa0a5e56474503a635",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "7487537d08a5959d005689b965ee26bcd42bc6538bf19d564d5c8bba790b6fa4"
+    },
+    {
+      "seatCycleId": "seat_house_ma_03_current",
+      "stateCode": "MA",
+      "stateRowSha256": "aa701d5faec0ef11289d10cdccd06b8c9672bf956f3e81aa0a5e56474503a635",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "cbe17213754f3cc7987344b7ac6aa346f45a59536d2e2af6faff6ea7ced3210b"
+    },
+    {
+      "seatCycleId": "seat_house_ma_04_current",
+      "stateCode": "MA",
+      "stateRowSha256": "aa701d5faec0ef11289d10cdccd06b8c9672bf956f3e81aa0a5e56474503a635",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "c24c40fbd4cc7a1ea4461b53ac3bdc5390fe75b9d018723b0e28979ad3273f12"
+    },
+    {
+      "seatCycleId": "seat_house_ma_05_current",
+      "stateCode": "MA",
+      "stateRowSha256": "aa701d5faec0ef11289d10cdccd06b8c9672bf956f3e81aa0a5e56474503a635",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "6f98dab68d15e101369b8387e3a7ce3502095f6cef1b64ff1582c6abfafbdeb6"
+    },
+    {
+      "seatCycleId": "seat_house_ma_06_current",
+      "stateCode": "MA",
+      "stateRowSha256": "aa701d5faec0ef11289d10cdccd06b8c9672bf956f3e81aa0a5e56474503a635",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "4cd156ab95226fb871cbf85b8e489f6636717ed44b408d60f61e7b12bc98ddc7"
+    },
+    {
+      "seatCycleId": "seat_house_ma_07_current",
+      "stateCode": "MA",
+      "stateRowSha256": "aa701d5faec0ef11289d10cdccd06b8c9672bf956f3e81aa0a5e56474503a635",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "21a847c14c5e0b58d4c1de2a8fa23601b594c2022870fe6ee3afc4482ea2686f"
+    },
+    {
+      "seatCycleId": "seat_house_ma_08_current",
+      "stateCode": "MA",
+      "stateRowSha256": "aa701d5faec0ef11289d10cdccd06b8c9672bf956f3e81aa0a5e56474503a635",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "6136c89dff9f4c42fe053b4f59fee7da87d0f8881ece5a3c0a7820a4d7399748"
+    },
+    {
+      "seatCycleId": "seat_house_ma_09_current",
+      "stateCode": "MA",
+      "stateRowSha256": "aa701d5faec0ef11289d10cdccd06b8c9672bf956f3e81aa0a5e56474503a635",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "1d6129a579e657fd1057ea364679aada269b88409933d94a567e053c61b335e0"
+    },
+    {
+      "seatCycleId": "seat_house_md_02_current",
+      "stateCode": "MD",
+      "stateRowSha256": "8bf1cfa39c65d481e65daa0ff259634031445783364002c2f1bbbe8565373099",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "5b7d878be839e5dcca6a851909d75f420365cc8f5e277c81423c53043b421e1a"
+    },
+    {
+      "seatCycleId": "seat_house_md_03_current",
+      "stateCode": "MD",
+      "stateRowSha256": "8bf1cfa39c65d481e65daa0ff259634031445783364002c2f1bbbe8565373099",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "019bc260f9426ea412ec5b86e56d5fab76f386f7ad178f73ce32f76b7ec1ddec"
+    },
+    {
+      "seatCycleId": "seat_house_md_04_current",
+      "stateCode": "MD",
+      "stateRowSha256": "8bf1cfa39c65d481e65daa0ff259634031445783364002c2f1bbbe8565373099",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "73bcaa00e61a14d0bd615d3c98d129cc74615d941103bbe3a9a01bca51d05bcf"
+    },
+    {
+      "seatCycleId": "seat_house_md_05_current",
+      "stateCode": "MD",
+      "stateRowSha256": "8bf1cfa39c65d481e65daa0ff259634031445783364002c2f1bbbe8565373099",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "34e5c90d330506514dda3f7fa58e37bc8ee926984e61e2c89475448a5902843f"
+    },
+    {
+      "seatCycleId": "seat_house_md_06_current",
+      "stateCode": "MD",
+      "stateRowSha256": "8bf1cfa39c65d481e65daa0ff259634031445783364002c2f1bbbe8565373099",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "eec4e186e4e2bd780779637437b219cdeb7cd66db824aa5a0bf1d37339b0cf9c"
+    },
+    {
+      "seatCycleId": "seat_house_md_07_current",
+      "stateCode": "MD",
+      "stateRowSha256": "8bf1cfa39c65d481e65daa0ff259634031445783364002c2f1bbbe8565373099",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "32bfd359ca25c8daff3530de1db22a1e57dc0b1b328531b0dd058ae48dd343a8"
+    },
+    {
+      "seatCycleId": "seat_house_md_08_current",
+      "stateCode": "MD",
+      "stateRowSha256": "8bf1cfa39c65d481e65daa0ff259634031445783364002c2f1bbbe8565373099",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "3494239f494fa98de3bafaced61ac5fa5a759b9ac296ea5859b7be92a7ff816b"
+    },
+    {
+      "seatCycleId": "seat_house_me_01_current",
+      "stateCode": "ME",
+      "stateRowSha256": "28a65b76707cddb5a597fc799c8f4f5abac1199cd24f8aed78c9608db36b9687",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "52d73cee049d0c25280ffc42316e4a4f8299074ffbaded3367cb713c38674b22"
+    },
+    {
+      "seatCycleId": "seat_house_me_02_current",
+      "stateCode": "ME",
+      "stateRowSha256": "28a65b76707cddb5a597fc799c8f4f5abac1199cd24f8aed78c9608db36b9687",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "1e3c3fd45ae10bbabb9b5ac00175b5a072de2f310dfe35299d2fa9464704668b"
+    },
+    {
+      "seatCycleId": "seat_house_mi_03_current",
+      "stateCode": "MI",
+      "stateRowSha256": "c85382019b0987478da0d428ceacdf88614b0dd8cdfbc7dbc6e61470a781c6af",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "cd37b8f30be9664df5eb0addf7f8e7296fd12a8122392fd2a69328df85f13380"
+    },
+    {
+      "seatCycleId": "seat_house_mi_06_current",
+      "stateCode": "MI",
+      "stateRowSha256": "c85382019b0987478da0d428ceacdf88614b0dd8cdfbc7dbc6e61470a781c6af",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "200652a1b2a7874779e2b183d3ac4e40df4ddb9dd31f5028ae1409cd504de6d2"
+    },
+    {
+      "seatCycleId": "seat_house_mi_08_current",
+      "stateCode": "MI",
+      "stateRowSha256": "c85382019b0987478da0d428ceacdf88614b0dd8cdfbc7dbc6e61470a781c6af",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "0f360d7139705fa6a31f370dc20418b9e986da4864fd2f6a8ea8311fcedd3c8e"
+    },
+    {
+      "seatCycleId": "seat_house_mi_11_current",
+      "stateCode": "MI",
+      "stateRowSha256": "c85382019b0987478da0d428ceacdf88614b0dd8cdfbc7dbc6e61470a781c6af",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "ddd4bada2b833cfad921fcffae605c5a14381e67fa370e76e0cb6146de1d684b"
+    },
+    {
+      "seatCycleId": "seat_house_mi_12_current",
+      "stateCode": "MI",
+      "stateRowSha256": "c85382019b0987478da0d428ceacdf88614b0dd8cdfbc7dbc6e61470a781c6af",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "c87b879a2af2ffdf15b3c9b4200df81fc551865d0c0dc997ce94b5e9e930969f"
+    },
+    {
+      "seatCycleId": "seat_house_mi_13_current",
+      "stateCode": "MI",
+      "stateRowSha256": "c85382019b0987478da0d428ceacdf88614b0dd8cdfbc7dbc6e61470a781c6af",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "9281a8f95d0747df21a12724ac09b08347291c4328d4302781496431fc0eff03"
+    },
+    {
+      "seatCycleId": "seat_house_mn_02_current",
+      "stateCode": "MN",
+      "stateRowSha256": "07c170176a38f7cf387a2108f5aeb39e3e016231abdc16c8caab8a63970d3faa",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "80895effab43e913221f1bf8185c5358ea6b249b71d26dece5a8c9e395de8a09"
+    },
+    {
+      "seatCycleId": "seat_house_mn_03_current",
+      "stateCode": "MN",
+      "stateRowSha256": "07c170176a38f7cf387a2108f5aeb39e3e016231abdc16c8caab8a63970d3faa",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "5fb63c0cc315c838e6ebbb17147828a8d8bc0f6ae1088e023dd233425ca7abd8"
+    },
+    {
+      "seatCycleId": "seat_house_mn_04_current",
+      "stateCode": "MN",
+      "stateRowSha256": "07c170176a38f7cf387a2108f5aeb39e3e016231abdc16c8caab8a63970d3faa",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "695ea437389efaed6a462424a15f3e27af77e06803ddf42a95a4631453ec2ea9"
+    },
+    {
+      "seatCycleId": "seat_house_mn_05_current",
+      "stateCode": "MN",
+      "stateRowSha256": "07c170176a38f7cf387a2108f5aeb39e3e016231abdc16c8caab8a63970d3faa",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "2861796d4e20dc46f7e8bd723b94cbfa2da26404b9de70360ae6ad4deae4a246"
+    },
+    {
+      "seatCycleId": "seat_house_mo_01_current",
+      "stateCode": "MO",
+      "stateRowSha256": "ec2d054f4c31838d64ad4657e3f2f9eaec23de4f653920bc790a65e6eb99034e",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "774a136ed8411eb18b71fe30c813863de9090d31cce16d438c13d3807d062e73"
+    },
+    {
+      "seatCycleId": "seat_house_mo_05_current",
+      "stateCode": "MO",
+      "stateRowSha256": "ec2d054f4c31838d64ad4657e3f2f9eaec23de4f653920bc790a65e6eb99034e",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "759dd33d09aa70399fe51a27508d5beff76a11414bbe0ed712060bf773284ec6"
+    },
+    {
+      "seatCycleId": "seat_house_ms_02_current",
+      "stateCode": "MS",
+      "stateRowSha256": "c167c94562c53cf8919ea37ba369b69e20e26375b100dcac9b13ec921008532b",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "8fbfaacb9ff81e60b34666ba352068b8f17b82b3df7b8dd0a6cf1bb8771064ee"
+    },
+    {
+      "seatCycleId": "seat_house_nc_01_current",
+      "stateCode": "NC",
+      "stateRowSha256": "630c0033dfc7c8551fa2b766ea0af18d944db881cc133e01b3ec761feb3ec330",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "bd4dfed930d531846795b159b4b1d36bcad388fd48520e1b74e1fa5eff86fd15"
+    },
+    {
+      "seatCycleId": "seat_house_nc_02_current",
+      "stateCode": "NC",
+      "stateRowSha256": "630c0033dfc7c8551fa2b766ea0af18d944db881cc133e01b3ec761feb3ec330",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "b564c6dd9d5f75b2def7292e7285cfc7ba282bd098277a0f8a74d372325eb9a6"
+    },
+    {
+      "seatCycleId": "seat_house_nc_04_current",
+      "stateCode": "NC",
+      "stateRowSha256": "630c0033dfc7c8551fa2b766ea0af18d944db881cc133e01b3ec761feb3ec330",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "7ba8052e7d826b46da5ee6570fa45a5267cd8917f4463f48087dd3d24ec3b697"
+    },
+    {
+      "seatCycleId": "seat_house_nc_12_current",
+      "stateCode": "NC",
+      "stateRowSha256": "630c0033dfc7c8551fa2b766ea0af18d944db881cc133e01b3ec761feb3ec330",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "fbc4cc55e7520f1f3ec1c38a35ce9201bcef9e1ed1ed6cf071a12b8d156ee23c"
+    },
+    {
+      "seatCycleId": "seat_house_nh_01_current",
+      "stateCode": "NH",
+      "stateRowSha256": "b2faadd6e51ff80417bc7c78d3f7c9c54cc7d5b82e29ea8b0838bd20b0cb2b35",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "f3c17f2c4e8a7efdb10023035740f3874d67f72226bd6aba68c9a9d5728cfd22"
+    },
+    {
+      "seatCycleId": "seat_house_nh_02_current",
+      "stateCode": "NH",
+      "stateRowSha256": "b2faadd6e51ff80417bc7c78d3f7c9c54cc7d5b82e29ea8b0838bd20b0cb2b35",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "d75afb45401a78408a058075ba50fabda383f201da9b4545bb63fa8ad985b6d8"
+    },
+    {
+      "seatCycleId": "seat_house_nj_01_current",
+      "stateCode": "NJ",
+      "stateRowSha256": "6264a87d923c068c2c6c10afa26b66a959e24912ca537d8d77eec179d66f7ab9",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "0ea67291636cdd16bf316fff1a9ca774136f1d618cf10f95386452cde25eaff1"
+    },
+    {
+      "seatCycleId": "seat_house_nj_03_current",
+      "stateCode": "NJ",
+      "stateRowSha256": "6264a87d923c068c2c6c10afa26b66a959e24912ca537d8d77eec179d66f7ab9",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "f4e645a64d288cfa9f86ce9970ea398aac58e2fdb0589e21f48e4d55acf22cff"
+    },
+    {
+      "seatCycleId": "seat_house_nj_05_current",
+      "stateCode": "NJ",
+      "stateRowSha256": "6264a87d923c068c2c6c10afa26b66a959e24912ca537d8d77eec179d66f7ab9",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "033780de2bc742e0d50cd7922a69706bf1bda652f8700645f08110f0af9a1509"
+    },
+    {
+      "seatCycleId": "seat_house_nj_06_current",
+      "stateCode": "NJ",
+      "stateRowSha256": "6264a87d923c068c2c6c10afa26b66a959e24912ca537d8d77eec179d66f7ab9",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "d06fdd2e41a34331a6b4983eed5289ef0ce551d2f50d10315ae2006d3205c929"
+    },
+    {
+      "seatCycleId": "seat_house_nj_08_current",
+      "stateCode": "NJ",
+      "stateRowSha256": "6264a87d923c068c2c6c10afa26b66a959e24912ca537d8d77eec179d66f7ab9",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "47b7cade7ad0b22dbec533e1a57ab9799093bff86e7cba086b90705d43bd6bde"
+    },
+    {
+      "seatCycleId": "seat_house_nj_09_current",
+      "stateCode": "NJ",
+      "stateRowSha256": "6264a87d923c068c2c6c10afa26b66a959e24912ca537d8d77eec179d66f7ab9",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "1c92c462a3fb0f7270cf0e15102d6b6cd2fc774a2bad6f2659fca353523b49c9"
+    },
+    {
+      "seatCycleId": "seat_house_nj_10_current",
+      "stateCode": "NJ",
+      "stateRowSha256": "6264a87d923c068c2c6c10afa26b66a959e24912ca537d8d77eec179d66f7ab9",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "536b67d697f023f453a9b9dba8eccecec6626d4dd690dcb12a8426f8b419c608"
+    },
+    {
+      "seatCycleId": "seat_house_nj_11_current",
+      "stateCode": "NJ",
+      "stateRowSha256": "6264a87d923c068c2c6c10afa26b66a959e24912ca537d8d77eec179d66f7ab9",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "d5af313f23cc913dd6e1e0abb1d3ef8bcb2d5b7dc9f083557b0aba4cdf1cea86"
+    },
+    {
+      "seatCycleId": "seat_house_nj_12_current",
+      "stateCode": "NJ",
+      "stateRowSha256": "6264a87d923c068c2c6c10afa26b66a959e24912ca537d8d77eec179d66f7ab9",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "dbf1f528beec546cf99bce837e62bedc721aa4a4c9a83d4b0bfd96439eec7ada"
+    },
+    {
+      "seatCycleId": "seat_house_nm_01_current",
+      "stateCode": "NM",
+      "stateRowSha256": "f59924b594dd10e02ef01c5bae4efc5e548e5f9f586bf2f9f4c784b3b717688b",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "c3878d089f51e06228eb246108a70068d25816adade84e600fcff2e2d17fe966"
+    },
+    {
+      "seatCycleId": "seat_house_nm_02_current",
+      "stateCode": "NM",
+      "stateRowSha256": "f59924b594dd10e02ef01c5bae4efc5e548e5f9f586bf2f9f4c784b3b717688b",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "bb4a5509576c97dde1018dd3240dd90af9a5dd095c9532d1663ae051d63b63c2"
+    },
+    {
+      "seatCycleId": "seat_house_nm_03_current",
+      "stateCode": "NM",
+      "stateRowSha256": "f59924b594dd10e02ef01c5bae4efc5e548e5f9f586bf2f9f4c784b3b717688b",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "c9ddc34beba82036702b50df69f84f3edfdd505427b0db164ca39b5c3f28c5f5"
+    },
+    {
+      "seatCycleId": "seat_house_nv_01_current",
+      "stateCode": "NV",
+      "stateRowSha256": "df40eb3d79b92c31b57e7bd81dfd1c4012fe6b055e60583c614c0c507743486c",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "3a68ba0ab954f2dc9ac1b75e35c0369d1e1d96cc4fe2ea2b9eb88c71f147cd8b"
+    },
+    {
+      "seatCycleId": "seat_house_nv_03_current",
+      "stateCode": "NV",
+      "stateRowSha256": "df40eb3d79b92c31b57e7bd81dfd1c4012fe6b055e60583c614c0c507743486c",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "377fbbf4dbbfd0662ebec1d4cd922e883c6410c65ca7c01ddffa36a854721bfd"
+    },
+    {
+      "seatCycleId": "seat_house_nv_04_current",
+      "stateCode": "NV",
+      "stateRowSha256": "df40eb3d79b92c31b57e7bd81dfd1c4012fe6b055e60583c614c0c507743486c",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "9069a1703247378c1a99fff6aee604c8aad6f40e227fd54a3fee6bc6755a70c4"
+    },
+    {
+      "seatCycleId": "seat_house_ny_03_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "9de171c016b51ad3f6d3e5ef68c79d812ef337d40d250e8daee7b9d460f6bfdc"
+    },
+    {
+      "seatCycleId": "seat_house_ny_04_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "d78f3f902bcbbfbd09eaf67dba62e08e112e7ef665d3309e8b2b1f384324dfde"
+    },
+    {
+      "seatCycleId": "seat_house_ny_05_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "d00b7d7c378ec4bb5e74440f441e33ec7b7a54a609bc6c9c6fe42c985fc57223"
+    },
+    {
+      "seatCycleId": "seat_house_ny_06_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "18ebbb487b74b2b93d3b22012fd557fa2a2e56fcf0b69699501bc51fb7bae9b7"
+    },
+    {
+      "seatCycleId": "seat_house_ny_07_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "e7be39108bf82d711f702562895a4de67f6bf1b47c07f6eac6c6b28fed7c2290"
+    },
+    {
+      "seatCycleId": "seat_house_ny_08_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "a48b344e9b2c6e9eda0d6757cc2e2dfe9f14bb605d42d00365a45c1f2c822500"
+    },
+    {
+      "seatCycleId": "seat_house_ny_09_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "c7c2de9a5da69859600ec7bbe6bff2fce6c3a75b8f81cf84c8f8266db4abeb4e"
+    },
+    {
+      "seatCycleId": "seat_house_ny_10_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "b45164fbac200cebf096bde30353d2f1d86a1acb1503e4ac371f07d79450da16"
+    },
+    {
+      "seatCycleId": "seat_house_ny_12_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "2ecc37bb4bead65b3965e2afc528a39eeaffea69d895a6e2b464326d4283c14a"
+    },
+    {
+      "seatCycleId": "seat_house_ny_13_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "5b7a62c08bda7293368481c8299da647a0a0509a15d2401b4af15f5a306f559d"
+    },
+    {
+      "seatCycleId": "seat_house_ny_14_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "68833acac80d5d37309e6d6454e3ab199aafb655002b9f1a7f2567b816df2d11"
+    },
+    {
+      "seatCycleId": "seat_house_ny_15_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "07c87e8b92ef756411052931fdeab43b7b9907cf0ee07ea8f5439f543a2e79cd"
+    },
+    {
+      "seatCycleId": "seat_house_ny_16_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "79f5f185e876c199862895e423b033d497ca4e0568d877538538a7df9e4ee56c"
+    },
+    {
+      "seatCycleId": "seat_house_ny_18_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "7dc8e1286b51b3d3ddb0fba3eae7222f690eebc1f6ced5263f16940b44301713"
+    },
+    {
+      "seatCycleId": "seat_house_ny_19_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "83867f98a63bf369cb1139bcec7eea6f6f982a165f446741c88f35730c033059"
+    },
+    {
+      "seatCycleId": "seat_house_ny_20_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "8bc57fed61bd982af4b56d2217532d7b4b254041536ebd9e3b75fa827b9e7848"
+    },
+    {
+      "seatCycleId": "seat_house_ny_22_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "f921cfec83072663afba8850c131c095519d199268eeb2c16f442402c77f37c4"
+    },
+    {
+      "seatCycleId": "seat_house_ny_25_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "a57ce10af46f1eda563744d6dff4984ebedb981322e3a614556f145cb8be022a"
+    },
+    {
+      "seatCycleId": "seat_house_ny_26_current",
+      "stateCode": "NY",
+      "stateRowSha256": "bd9751a74e7ffdda6de4ed033c44465f1bed45098df671197ddeb5ed62e11a00",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "28e66dc5c9021c0aa377e4132ce9043563ed9e5e11b5adcc845ba4b9c0d55422"
+    },
+    {
+      "seatCycleId": "seat_house_oh_01_current",
+      "stateCode": "OH",
+      "stateRowSha256": "ecb9392d1d7cd4bf5935c0ba3117e3574ba13426ea42bb9a77bd86bdcb603239",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "36355241b10684c5022c38c0e875f483b1506f9dcbafae2e85fce189aed0f89b"
+    },
+    {
+      "seatCycleId": "seat_house_oh_03_current",
+      "stateCode": "OH",
+      "stateRowSha256": "ecb9392d1d7cd4bf5935c0ba3117e3574ba13426ea42bb9a77bd86bdcb603239",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "88ebe643617e5b36014e844b0878108d7df404656e7e209ce775cbeaf7efd255"
+    },
+    {
+      "seatCycleId": "seat_house_oh_09_current",
+      "stateCode": "OH",
+      "stateRowSha256": "ecb9392d1d7cd4bf5935c0ba3117e3574ba13426ea42bb9a77bd86bdcb603239",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "2372411a3de881581c3dfb1c97be1f9e306c20c234d52d82460df8e5785fc6ca"
+    },
+    {
+      "seatCycleId": "seat_house_oh_11_current",
+      "stateCode": "OH",
+      "stateRowSha256": "ecb9392d1d7cd4bf5935c0ba3117e3574ba13426ea42bb9a77bd86bdcb603239",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "f0798484ab9afb237a5391c0c5fb3838298af9cadff602010d7692d21e99f43f"
+    },
+    {
+      "seatCycleId": "seat_house_oh_13_current",
+      "stateCode": "OH",
+      "stateRowSha256": "ecb9392d1d7cd4bf5935c0ba3117e3574ba13426ea42bb9a77bd86bdcb603239",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "ce6f83267b96cb6ce9545ff9d1d3f05b30493f6f8c00bc49329d4c96be931bef"
+    },
+    {
+      "seatCycleId": "seat_house_or_01_current",
+      "stateCode": "OR",
+      "stateRowSha256": "d851b38beb6f4ec0a1187d96f8f0bb6c6419178cddc1fe92769aa1b26c74ce93",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "da5bae5f0e7a78a095981b96ec823da528bb79c094ac163cf377e1f79768b8dd"
+    },
+    {
+      "seatCycleId": "seat_house_or_03_current",
+      "stateCode": "OR",
+      "stateRowSha256": "d851b38beb6f4ec0a1187d96f8f0bb6c6419178cddc1fe92769aa1b26c74ce93",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "7bc871271d5aedc4cb530afc8f12f939c406e96781469d99284fe7dd7964e1e1"
+    },
+    {
+      "seatCycleId": "seat_house_or_04_current",
+      "stateCode": "OR",
+      "stateRowSha256": "d851b38beb6f4ec0a1187d96f8f0bb6c6419178cddc1fe92769aa1b26c74ce93",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "2ebf1f46d637f0b6f0b4ff7c82bc415e7c0dd3ff3a3725ecb7287b6bc0eb987e"
+    },
+    {
+      "seatCycleId": "seat_house_or_05_current",
+      "stateCode": "OR",
+      "stateRowSha256": "d851b38beb6f4ec0a1187d96f8f0bb6c6419178cddc1fe92769aa1b26c74ce93",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "c965e569f0ab6e600fb3081b74192e1a723122a6db555736bdedceb615c52290"
+    },
+    {
+      "seatCycleId": "seat_house_or_06_current",
+      "stateCode": "OR",
+      "stateRowSha256": "d851b38beb6f4ec0a1187d96f8f0bb6c6419178cddc1fe92769aa1b26c74ce93",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "705ac97fc67f6145813a6f41e300ac27d697726662be0ce5780c25c1ce290a8b"
+    },
+    {
+      "seatCycleId": "seat_house_pa_02_current",
+      "stateCode": "PA",
+      "stateRowSha256": "04a2677c678922ef9f9c60c2fd3a7124648cadc5459ca67eb4ab3072b8017441",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "d8b40181b86b922c6c9643c0f32372a99ed150184714a86df2c089d56cf9e622"
+    },
+    {
+      "seatCycleId": "seat_house_pa_03_current",
+      "stateCode": "PA",
+      "stateRowSha256": "04a2677c678922ef9f9c60c2fd3a7124648cadc5459ca67eb4ab3072b8017441",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "23db5fbbab4bdb6ac271a81481292626cf947ffca85f5f8dcb6884abd38049c8"
+    },
+    {
+      "seatCycleId": "seat_house_pa_04_current",
+      "stateCode": "PA",
+      "stateRowSha256": "04a2677c678922ef9f9c60c2fd3a7124648cadc5459ca67eb4ab3072b8017441",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "8fa811b333376f5a26bfd5584939e2700704982b351bb34fe64ecd5cdaf6f94d"
+    },
+    {
+      "seatCycleId": "seat_house_pa_05_current",
+      "stateCode": "PA",
+      "stateRowSha256": "04a2677c678922ef9f9c60c2fd3a7124648cadc5459ca67eb4ab3072b8017441",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "8db2d345b9134aed08be873123184be038c1d1959bc58ceb5536e1c474a636c6"
+    },
+    {
+      "seatCycleId": "seat_house_pa_06_current",
+      "stateCode": "PA",
+      "stateRowSha256": "04a2677c678922ef9f9c60c2fd3a7124648cadc5459ca67eb4ab3072b8017441",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "460fe1d8bb9574113da8de7bd5228ad3259a57748145cbd621b07dd0850d03be"
+    },
+    {
+      "seatCycleId": "seat_house_pa_12_current",
+      "stateCode": "PA",
+      "stateRowSha256": "04a2677c678922ef9f9c60c2fd3a7124648cadc5459ca67eb4ab3072b8017441",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "77bb79bb076a365242073b2398f4f8a54fab41685e4439dbd92f62cebc5ff98c"
+    },
+    {
+      "seatCycleId": "seat_house_pa_17_current",
+      "stateCode": "PA",
+      "stateRowSha256": "04a2677c678922ef9f9c60c2fd3a7124648cadc5459ca67eb4ab3072b8017441",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "a1058f468ebead71b1ba1cc91af1584c6db72db596c783d33cdf65dc1afc8216"
+    },
+    {
+      "seatCycleId": "seat_house_ri_01_current",
+      "stateCode": "RI",
+      "stateRowSha256": "325e31ac464ba449a60ddd7b05bf3e90abf9705da7301ca91cf3ed82ca67453f",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "87219c36d6d0e0893d0fd75fdab71f333bbf2bc41f7cdb8a293c19f1b2cf93bf"
+    },
+    {
+      "seatCycleId": "seat_house_ri_02_current",
+      "stateCode": "RI",
+      "stateRowSha256": "325e31ac464ba449a60ddd7b05bf3e90abf9705da7301ca91cf3ed82ca67453f",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "537f9f138a73b13d463a86173d2e2c71b0110f00b4518d5cc23521b03249fab1"
+    },
+    {
+      "seatCycleId": "seat_house_sc_06_current",
+      "stateCode": "SC",
+      "stateRowSha256": "c560daf1d1e9b4a586d82cd5b4c9f660c2ddc7735f3695fde4c64ee505904a06",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "ccccb547124cc1c22f0697138816162da667423cf712703a9c93fce5f660e312"
+    },
+    {
+      "seatCycleId": "seat_house_tn_09_current",
+      "stateCode": "TN",
+      "stateRowSha256": "1102ba83b3dc58ad44e4116b1dc61a41a533801ef55a7bd49c1ee7aa5a483996",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "cc567afb06f96976422e3ab6a2ffdea867dadd8a9f674075a6fdf21fd88a304a"
+    },
+    {
+      "seatCycleId": "seat_house_tx_07_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "27b322917eb31940a23ecd3348fb56d14ed64aff935bc8bdf5bd7400b84c5975"
+    },
+    {
+      "seatCycleId": "seat_house_tx_09_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "58447d7bb11e9630e82d752b78d4fdfe836c5dec4b9bac05d8f04c6e19cb4fad"
+    },
+    {
+      "seatCycleId": "seat_house_tx_16_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "720b5e9b68fec56d9404e671a0d6e71a1fed506666b8e9cd59e53b45219bae08"
+    },
+    {
+      "seatCycleId": "seat_house_tx_18_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "5209aefdac7d4cbc647def0d53b9b7011803c3ffc458f7b5021bfb096c781407"
+    },
+    {
+      "seatCycleId": "seat_house_tx_20_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "531941d54a0ba5cabfc170ec83512da18989c22ddfd5e04b87e508fdf681dd38"
+    },
+    {
+      "seatCycleId": "seat_house_tx_28_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "ac1f22cc6b6f1037af774022f2d866c5562b29b0634fb90f37b63e539c2e2ba4"
+    },
+    {
+      "seatCycleId": "seat_house_tx_29_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "d0c6092093b656b7ac5881e17dff82600501375c8e4eefb3a2d81a5c045d0ea5"
+    },
+    {
+      "seatCycleId": "seat_house_tx_30_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "00f4d988511727a285fd8e06282debb11382de3a96c9797220010950cd21a437"
+    },
+    {
+      "seatCycleId": "seat_house_tx_32_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "c054d2441be815ad185d8c55cfa4589030fbff8550a48ab8896b4cedb7e7465b"
+    },
+    {
+      "seatCycleId": "seat_house_tx_33_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "bf48f005a877dd7c82b5b6087e7250c1bf90cd5315a2ee0f11b1e9ab927e6141"
+    },
+    {
+      "seatCycleId": "seat_house_tx_34_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "f24058aead26e91ef2e4b91575d1bf4adb951c077910e8ed93a02df7c7b0f470"
+    },
+    {
+      "seatCycleId": "seat_house_tx_35_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "3a2b7c439ef1be3456895e19f22e24c078ccfe4f81824218d3cd491909f84f44"
+    },
+    {
+      "seatCycleId": "seat_house_tx_37_current",
+      "stateCode": "TX",
+      "stateRowSha256": "c15ae3abfb986450efa1d93e2b9b2cfa6accbe003a2f9db8aec2f107d89a73e6",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "b1f046cf6e63cbe4193d10620122c3c82d9c8e70c1edd5a55ff3bfb843339d6b"
+    },
+    {
+      "seatCycleId": "seat_house_va_03_current",
+      "stateCode": "VA",
+      "stateRowSha256": "f5f9f43871f69752a15720064470fcfd6fb5f01a04aa27a72efb7be3d4a99f3a",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "42563eb8693ab40b0fd1b52f69eae3073c10775dfb95a5f714e079accf8753a7"
+    },
+    {
+      "seatCycleId": "seat_house_va_04_current",
+      "stateCode": "VA",
+      "stateRowSha256": "f5f9f43871f69752a15720064470fcfd6fb5f01a04aa27a72efb7be3d4a99f3a",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "dcaa44916fef99f55010c0b28c1f393b31905ad3ae2b3886acb71a572cbec795"
+    },
+    {
+      "seatCycleId": "seat_house_va_07_current",
+      "stateCode": "VA",
+      "stateRowSha256": "f5f9f43871f69752a15720064470fcfd6fb5f01a04aa27a72efb7be3d4a99f3a",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "0b012534ea61d394723e94a4a7a2cca98ad0a23a4a69c7da0a673c3fb01b32bc"
+    },
+    {
+      "seatCycleId": "seat_house_va_08_current",
+      "stateCode": "VA",
+      "stateRowSha256": "f5f9f43871f69752a15720064470fcfd6fb5f01a04aa27a72efb7be3d4a99f3a",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "ce78560bd967e07f0b4f4fb5ab73e887d1dd93d23afe92bdbe62fff33ed6a73e"
+    },
+    {
+      "seatCycleId": "seat_house_va_10_current",
+      "stateCode": "VA",
+      "stateRowSha256": "f5f9f43871f69752a15720064470fcfd6fb5f01a04aa27a72efb7be3d4a99f3a",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "d431efff3788a71c3679c6344f3183165f7d3a7f20d52d2a2ad569fbe31e1fba"
+    },
+    {
+      "seatCycleId": "seat_house_va_11_current",
+      "stateCode": "VA",
+      "stateRowSha256": "f5f9f43871f69752a15720064470fcfd6fb5f01a04aa27a72efb7be3d4a99f3a",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "path_specific_review",
+      "scoreEligible": false,
+      "seatRowSha256": "b3821c67096687a279359bf6fcfba3b5effaa134f5b88c8e4c5b3e29524c450d"
+    },
+    {
+      "seatCycleId": "seat_house_vt_al_current",
+      "stateCode": "VT",
+      "stateRowSha256": "9bc9486a1dfa1321a7f0510afdb06350010672d873db6208498ceb33d8674c14",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "dd31bf96093a0ac4ed837b9583b912cd948f25410f3ce8a327f731409d2c37f1"
+    },
+    {
+      "seatCycleId": "seat_house_wa_01_current",
+      "stateCode": "WA",
+      "stateRowSha256": "d998cb1bac5e84eea538805cbf906d9b295d8853668b9562a39831827e263105",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "1df30ddb29ebea3d10e4e9c8457fa153adf1c9ac1ae52ebd1552d579a0aba30c"
+    },
+    {
+      "seatCycleId": "seat_house_wa_02_current",
+      "stateCode": "WA",
+      "stateRowSha256": "d998cb1bac5e84eea538805cbf906d9b295d8853668b9562a39831827e263105",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "77fe4733135897ea2e8b4a68abab3b20e1636e31526ec95168b61fe9dc22915c"
+    },
+    {
+      "seatCycleId": "seat_house_wa_03_current",
+      "stateCode": "WA",
+      "stateRowSha256": "d998cb1bac5e84eea538805cbf906d9b295d8853668b9562a39831827e263105",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "f52e4612ac96a6c1308ef92273111b6056e5fc6a94b555e963497b78a6fd773c"
+    },
+    {
+      "seatCycleId": "seat_house_wa_06_current",
+      "stateCode": "WA",
+      "stateRowSha256": "d998cb1bac5e84eea538805cbf906d9b295d8853668b9562a39831827e263105",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "5b922b0862063538a76b1afea13732b99783edb00a0afda10fe23c4acc9125de"
+    },
+    {
+      "seatCycleId": "seat_house_wa_07_current",
+      "stateCode": "WA",
+      "stateRowSha256": "d998cb1bac5e84eea538805cbf906d9b295d8853668b9562a39831827e263105",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "e1709961671461c08740469a5311c0fa629cf68e8b0b555d71cf35b29aec50f0"
+    },
+    {
+      "seatCycleId": "seat_house_wa_08_current",
+      "stateCode": "WA",
+      "stateRowSha256": "d998cb1bac5e84eea538805cbf906d9b295d8853668b9562a39831827e263105",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "6d725a988a1ac8d91eac5b3cc44c40bbbcfc9c0b5673a365c2fbc972dc2d7465"
+    },
+    {
+      "seatCycleId": "seat_house_wa_09_current",
+      "stateCode": "WA",
+      "stateRowSha256": "d998cb1bac5e84eea538805cbf906d9b295d8853668b9562a39831827e263105",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "3d6990652956d45273d7f5d7de7270dd52ea70186aafd60fa89ce8ffc06628ad"
+    },
+    {
+      "seatCycleId": "seat_house_wa_10_current",
+      "stateCode": "WA",
+      "stateRowSha256": "d998cb1bac5e84eea538805cbf906d9b295d8853668b9562a39831827e263105",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "proposed_incompatible",
+      "scoreEligible": false,
+      "seatRowSha256": "fadc7992308876bc06ffa771283cf0c9c465f803a0b2b0ad2bc8b2af8ae7681e"
+    },
+    {
+      "seatCycleId": "seat_house_wi_02_current",
+      "stateCode": "WI",
+      "stateRowSha256": "85b04e4a6d63d7b179c7b4278de4d8058a718f00cc18482a01600c63b797d6ed",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "05696a86198cc851603be1b52f6369a078d897809abf1bd9a06be0659b82a144"
+    },
+    {
+      "seatCycleId": "seat_house_wi_04_current",
+      "stateCode": "WI",
+      "stateRowSha256": "85b04e4a6d63d7b179c7b4278de4d8058a718f00cc18482a01600c63b797d6ed",
+      "fecDiscoveryRunwayDays": 0,
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "state_authority_not_retained"
+      },
+      "formulaApplicability": "unassessed",
+      "scoreEligible": false,
+      "seatRowSha256": "d5b86aed7395517a94980b63980bf6d3163dfd05f5fff24d8a1f90efb732e2eb"
+    }
+  ],
+  "decisions": [
+    {
+      "decisionId": "approve-fec-calendar-discovery-role-v1",
+      "question": "Should the FEC national chart be retained only as a discovery enumerator and drift detector?",
+      "recommendedDecision": "approve discovery-only use because the chart disclaims state election authority and says dates may change",
+      "defaultReversibleAssumption": "retain_discovery_exclude_from_evaluator_and_publication",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "resolution": null
+    },
+    {
+      "decisionId": "approve-filing-runway-calendar-method-v1",
+      "question": "Should filing runway use nonnegative UTC calendar days to the final standard non-incumbent ballot-access deadline?",
+      "recommendedDecision": "approve with zero only for a confirmed passed deadline and missing for unknown authority",
+      "defaultReversibleAssumption": "retain_discovery_exclude_from_evaluator_and_publication",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "resolution": null
+    },
+    {
+      "decisionId": "classify-nonpartisan-open-primary-formula-scope-v1",
+      "question": "Should CA, LA, and WA remain in the all-seat report but be ineligible for the partisan-primary v0.1 formula?",
+      "recommendedDecision": "approve after retaining current state authority; do not force top-two or open-primary seats through a Democratic-primary formula",
+      "defaultReversibleAssumption": "retain_discovery_exclude_from_evaluator_and_publication",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "resolution": null
+    },
+    {
+      "decisionId": "collect-target-state-filing-authority-v1",
+      "question": "Should state authority be retained for all 38 target states before any filing-runway value enters evaluation?",
+      "recommendedDecision": "approve full authority closure, with path-specific records for AL, CT, and VA and district-specific extension review where applicable",
+      "defaultReversibleAssumption": "retain_discovery_exclude_from_evaluator_and_publication",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "resolution": null
+    }
+  ],
+  "packageSha256": "15e5ce40af1e66792f15c83939301e79cfb82dab8b721949d2b4979a74fabc85"
+}

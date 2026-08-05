@@ -42,6 +42,8 @@
     "generate:dsa-target-review-report-v2": "tsx scripts/generate-dsa-target-review-report-v2.ts",
     "generate:presidential-current-boundary-proposal": "tsx scripts/generate-presidential-current-boundary-proposal.ts",
     "generate:incumbent-tenure-candidate": "tsx scripts/generate-incumbent-tenure-factual-candidate.ts",
+    "fetch:fec-2026-primary-calendar": "node scripts/fetch-fec-2026-primary-calendar.mjs",
+    "generate:filing-runway-authority-proposal": "tsx scripts/generate-house-filing-runway-authority-proposal.ts",
     "bootstrap:fec-bulk": "tsx scripts/bootstrap-fec-bulk.ts",
     "reconcile:fec-bulk": "tsx scripts/reconcile-fec-bulk.ts",
     "db:generate": "drizzle-kit generate",
