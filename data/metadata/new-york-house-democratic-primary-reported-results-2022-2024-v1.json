@@ -1,0 +1,1331 @@
+{
+  "schema": "new-york-house-democratic-primary-reported-results-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T14:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "methodologyParent": {
+    "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "originalPublisher": "New York State Board of Elections result system",
+  "status": "reported_contest_corpus_candidate",
+  "certificationStatus": "not_independently_retained",
+  "resultDocuments": [
+    {
+      "id": "ny-2022-house-primary-official-results-document",
+      "url": "https://ny.elstats-staging.com/eng/files/serve/132",
+      "retainedPath": "data/source/elections/primary-results/new-york/2022/official-primary-results-document.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 223185,
+      "sha256": "f447e20c9b87a99ec615aef60758f1e3d7136ccb6b05ea84f756ea1fef8ae13d",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "ny-2024-house-primary-official-results-document",
+      "url": "https://ny.elstats-staging.com/eng/files/serve/472",
+      "retainedPath": "data/source/elections/primary-results/new-york/2024/official-primary-results-document.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 72053,
+      "sha256": "0a8fe8217c4d20e66856994b6dee088caadd8b675e7a4312b2dbd2e636603c00",
+      "kind": "source",
+      "parentIds": []
+    }
+  ],
+  "sources": [
+    {
+      "id": "ny-2022-house-democratic-primary-cd-03-contest-258",
+      "url": "https://ny.elstats3.civera.com/api/download_contest/258_table.csv?split_party=false",
+      "retainedPath": "data/source/elections/primary-results/new-york/2022/ny-cd-03-contest-258.csv",
+      "retainedStatus": "retained",
+      "byteSize": 355,
+      "sha256": "d05f384e9bc6925c79de530bdd57357ac7a9c8ef1bdaa05b0a3d2a67cf05f6c9",
+      "kind": "source",
+      "parentIds": [
+        "ny-2022-house-primary-official-results-document"
+      ]
+    },
+    {
+      "id": "ny-2022-house-democratic-primary-cd-16-contest-259",
+      "url": "https://ny.elstats3.civera.com/api/download_contest/259_table.csv?split_party=false",
+      "retainedPath": "data/source/elections/primary-results/new-york/2022/ny-cd-16-contest-259.csv",
+      "retainedStatus": "retained",
+      "byteSize": 300,
+      "sha256": "c073b50ed9dd06436092f0ac26e75dc6df167152d9647abd8577a9a4d284cb88",
+      "kind": "source",
+      "parentIds": [
+        "ny-2022-house-primary-official-results-document"
+      ]
+    },
+    {
+      "id": "ny-2022-house-democratic-primary-cd-17-contest-260",
+      "url": "https://ny.elstats3.civera.com/api/download_contest/260_table.csv?split_party=false",
+      "retainedPath": "data/source/elections/primary-results/new-york/2022/ny-cd-17-contest-260.csv",
+      "retainedStatus": "retained",
+      "byteSize": 317,
+      "sha256": "e1b0cd810fce8da96af48c311c6872966c749ed32eef50a9c1ea45a5160287b7",
+      "kind": "source",
+      "parentIds": [
+        "ny-2022-house-primary-official-results-document"
+      ]
+    },
+    {
+      "id": "ny-2022-house-democratic-primary-cd-18-contest-263",
+      "url": "https://ny.elstats3.civera.com/api/download_contest/263_table.csv?split_party=false",
+      "retainedPath": "data/source/elections/primary-results/new-york/2022/ny-cd-18-contest-263.csv",
+      "retainedStatus": "retained",
+      "byteSize": 303,
+      "sha256": "a99cd4988b7ed5f77fbc59c5e9a44574b726feb004a0fedc3a08a8d39e1c547c",
+      "kind": "source",
+      "parentIds": [
+        "ny-2022-house-primary-official-results-document"
+      ]
+    },
+    {
+      "id": "ny-2022-house-democratic-primary-cd-19-contest-264",
+      "url": "https://ny.elstats3.civera.com/api/download_contest/264_table.csv?split_party=false",
+      "retainedPath": "data/source/elections/primary-results/new-york/2022/ny-cd-19-contest-264.csv",
+      "retainedStatus": "retained",
+      "byteSize": 557,
+      "sha256": "7a768ebd10737d9ff0c79d23ee03e59cd9b18539e4642403e120f5cc5b813136",
+      "kind": "source",
+      "parentIds": [
+        "ny-2022-house-primary-official-results-document"
+      ]
+    },
+    {
+      "id": "ny-2022-house-democratic-primary-cd-20-contest-265",
+      "url": "https://ny.elstats3.civera.com/api/download_contest/265_table.csv?split_party=false",
+      "retainedPath": "data/source/elections/primary-results/new-york/2022/ny-cd-20-contest-265.csv",
+      "retainedStatus": "retained",
+      "byteSize": 301,
+      "sha256": "10b997bb0391a3cadd4134ef53400e75bab693be3ed0e76747f229365b0b34f0",
+      "kind": "source",
+      "parentIds": [
+        "ny-2022-house-primary-official-results-document"
+      ]
+    },
+    {
+      "id": "ny-2022-house-democratic-primary-cd-21-contest-266",
+      "url": "https://ny.elstats3.civera.com/api/download_contest/266_table.csv?split_party=false",
+      "retainedPath": "data/source/elections/primary-results/new-york/2022/ny-cd-21-contest-266.csv",
+      "retainedStatus": "retained",
+      "byteSize": 676,
+      "sha256": "23841afa411fb9a9b2cc6cd4b46223eae351bead9a7774b9d6c5e1fb255b0580",
+      "kind": "source",
+      "parentIds": [
+        "ny-2022-house-primary-official-results-document"
+      ]
+    },
+    {
+      "id": "ny-2022-house-democratic-primary-cd-22-contest-267",
+      "url": "https://ny.elstats3.civera.com/api/download_contest/267_table.csv?split_party=false",
+      "retainedPath": "data/source/elections/primary-results/new-york/2022/ny-cd-22-contest-267.csv",
+      "retainedStatus": "retained",
+      "byteSize": 370,
+      "sha256": "64d12c4a91592a9516e36533e046f672b02a1be26b85be523cfdc9c5a19dc543",
+      "kind": "source",
+      "parentIds": [
+        "ny-2022-house-primary-official-results-document"
+      ]
+    },
+    {
+      "id": "ny-2022-house-democratic-primary-cd-26-contest-271",
+      "url": "https://ny.elstats3.civera.com/api/download_contest/271_table.csv?split_party=false",
+      "retainedPath": "data/source/elections/primary-results/new-york/2022/ny-cd-26-contest-271.csv",
+      "retainedStatus": "retained",
+      "byteSize": 225,
+      "sha256": "c6e9d393cf686f57d509aded019f10437a387f8e94cfe33401fd5cf857d0ccce",
+      "kind": "source",
+      "parentIds": [
+        "ny-2022-house-primary-official-results-document"
+      ]
+    },
+    {
+      "id": "ny-2024-house-democratic-primary-cd-16-contest-5580",
+      "url": "https://ny.elstats3.civera.com/api/download_contest/5580_table.csv?split_party=false",
+      "retainedPath": "data/source/elections/primary-results/new-york/2024/ny-cd-16-contest-5580.csv",
+      "retainedStatus": "retained",
+      "byteSize": 233,
+      "sha256": "607ec9216464c5c0a568c4ba44030f8d10a1c229ef402e304dab1aff2218c30a",
+      "kind": "source",
+      "parentIds": [
+        "ny-2024-house-primary-official-results-document"
+      ]
+    },
+    {
+      "id": "ny-2024-house-democratic-primary-cd-22-contest-5567",
+      "url": "https://ny.elstats3.civera.com/api/download_contest/5567_table.csv?split_party=false",
+      "retainedPath": "data/source/elections/primary-results/new-york/2024/ny-cd-22-contest-5567.csv",
+      "retainedStatus": "retained",
+      "byteSize": 329,
+      "sha256": "ae47deb4c60b45cf62b66c6408cb9155dc0e808ec448ad57d94eecd12c9cc620",
+      "kind": "source",
+      "parentIds": [
+        "ny-2024-house-primary-official-results-document"
+      ]
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "ny:2022:us-house:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "NY",
+      "districtCode": "03",
+      "authorityContestId": "258",
+      "sourceLockId": "ny-2022-house-democratic-primary-cd-03-contest-258",
+      "sourceFileSha256": "d05f384e9bc6925c79de530bdd57357ac7a9c8ef1bdaa05b0a3d2a67cf05f6c9",
+      "resultDocumentSourceLockId": "ny-2022-house-primary-official-results-document",
+      "office": "U.S. Representative",
+      "stage": "primary",
+      "party": "Democratic",
+      "resultStatus": "official_reported_contest_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "candidateName": "Robert P. Zimmerman",
+          "votes": 10074
+        },
+        {
+          "candidateName": "Jon Kaiman",
+          "votes": 7242
+        },
+        {
+          "candidateName": "Joshua Alexander Lafazan",
+          "votes": 5554
+        },
+        {
+          "candidateName": "Melanie D'Arrigo",
+          "votes": 4519
+        },
+        {
+          "candidateName": "Reema Rasool",
+          "votes": 738
+        }
+      ],
+      "scattering": 51,
+      "blank": 142,
+      "void": 274,
+      "totalVotes": 28594,
+      "counties": [
+        {
+          "countyName": "Nassau",
+          "candidateVotes": [
+            7092,
+            5671,
+            4647,
+            3223,
+            472
+          ],
+          "scattering": 27,
+          "blank": 142,
+          "void": 257,
+          "totalVotes": 21531
+        },
+        {
+          "countyName": "Queens",
+          "candidateVotes": [
+            2982,
+            1571,
+            907,
+            1296,
+            266
+          ],
+          "scattering": 24,
+          "blank": 0,
+          "void": 17,
+          "totalVotes": 7063
+        }
+      ],
+      "horizontalReconciliation": "exact",
+      "verticalReconciliation": "exact",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "fd9f22f6b99222edb441bc0f342e9dbe48e9c176789675db9e7e125a87137198"
+    },
+    {
+      "contestId": "ny:2022:us-house:16:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "NY",
+      "districtCode": "16",
+      "authorityContestId": "259",
+      "sourceLockId": "ny-2022-house-democratic-primary-cd-16-contest-259",
+      "sourceFileSha256": "c073b50ed9dd06436092f0ac26e75dc6df167152d9647abd8577a9a4d284cb88",
+      "resultDocumentSourceLockId": "ny-2022-house-primary-official-results-document",
+      "office": "U.S. Representative",
+      "stage": "primary",
+      "party": "Democratic",
+      "resultStatus": "official_reported_contest_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "candidateName": "Jamaal Bowman",
+          "votes": 21643
+        },
+        {
+          "candidateName": "Vedat Gashi",
+          "votes": 10009
+        },
+        {
+          "candidateName": "Catherine F. Parker",
+          "votes": 7503
+        },
+        {
+          "candidateName": "Mark Jaffe",
+          "votes": 608
+        }
+      ],
+      "scattering": 36,
+      "blank": 146,
+      "void": 16,
+      "totalVotes": 39961,
+      "counties": [
+        {
+          "countyName": "Bronx",
+          "candidateVotes": [
+            2290,
+            122,
+            64,
+            26
+          ],
+          "scattering": 3,
+          "blank": 0,
+          "void": 16,
+          "totalVotes": 2521
+        },
+        {
+          "countyName": "Westchester",
+          "candidateVotes": [
+            19353,
+            9887,
+            7439,
+            582
+          ],
+          "scattering": 33,
+          "blank": 146,
+          "void": 0,
+          "totalVotes": 37440
+        }
+      ],
+      "horizontalReconciliation": "exact",
+      "verticalReconciliation": "exact",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "b575c96a2534c6d5eda4d1c52f526057b2472e26d8f822b6021abf8db32e3021"
+    },
+    {
+      "contestId": "ny:2022:us-house:17:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "NY",
+      "districtCode": "17",
+      "authorityContestId": "260",
+      "sourceLockId": "ny-2022-house-democratic-primary-cd-17-contest-260",
+      "sourceFileSha256": "e1b0cd810fce8da96af48c311c6872966c749ed32eef50a9c1ea45a5160287b7",
+      "resultDocumentSourceLockId": "ny-2022-house-primary-official-results-document",
+      "office": "U.S. Representative",
+      "stage": "primary",
+      "party": "Democratic",
+      "resultStatus": "official_reported_contest_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "candidateName": "Sean Patrick Maloney",
+          "votes": 24535
+        },
+        {
+          "candidateName": "Alessandra Biaggi",
+          "votes": 12266
+        }
+      ],
+      "scattering": 203,
+      "blank": 145,
+      "void": 19,
+      "totalVotes": 37168,
+      "counties": [
+        {
+          "countyName": "Dutchess",
+          "candidateVotes": [
+            1009,
+            384
+          ],
+          "scattering": 5,
+          "blank": 0,
+          "void": 0,
+          "totalVotes": 1398
+        },
+        {
+          "countyName": "Putnam",
+          "candidateVotes": [
+            2917,
+            1009
+          ],
+          "scattering": 13,
+          "blank": 10,
+          "void": 0,
+          "totalVotes": 3949
+        },
+        {
+          "countyName": "Rockland",
+          "candidateVotes": [
+            8744,
+            4440
+          ],
+          "scattering": 159,
+          "blank": 71,
+          "void": 19,
+          "totalVotes": 13433
+        },
+        {
+          "countyName": "Westchester",
+          "candidateVotes": [
+            11865,
+            6433
+          ],
+          "scattering": 26,
+          "blank": 64,
+          "void": 0,
+          "totalVotes": 18388
+        }
+      ],
+      "horizontalReconciliation": "exact",
+      "verticalReconciliation": "exact",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "94411987406a789a366ab5495f0e25f5066d03321c2eda51719e10bab4587f24"
+    },
+    {
+      "contestId": "ny:2022:us-house:18:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "NY",
+      "districtCode": "18",
+      "authorityContestId": "263",
+      "sourceLockId": "ny-2022-house-democratic-primary-cd-18-contest-263",
+      "sourceFileSha256": "a99cd4988b7ed5f77fbc59c5e9a44574b726feb004a0fedc3a08a8d39e1c547c",
+      "resultDocumentSourceLockId": "ny-2022-house-primary-official-results-document",
+      "office": "U.S. Representative",
+      "stage": "primary",
+      "party": "Democratic",
+      "resultStatus": "official_reported_contest_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "candidateName": "Pat Ryan",
+          "votes": 30093
+        },
+        {
+          "candidateName": "Aisha Mills",
+          "votes": 4730
+        },
+        {
+          "candidateName": "Moses R. Mugulusi",
+          "votes": 993
+        }
+      ],
+      "scattering": 108,
+      "blank": 166,
+      "void": 50,
+      "totalVotes": 36140,
+      "counties": [
+        {
+          "countyName": "Dutchess",
+          "candidateVotes": [
+            13355,
+            1826,
+            332
+          ],
+          "scattering": 56,
+          "blank": 0,
+          "void": 0,
+          "totalVotes": 15569
+        },
+        {
+          "countyName": "Orange",
+          "candidateVotes": [
+            5129,
+            1894,
+            410
+          ],
+          "scattering": 21,
+          "blank": 21,
+          "void": 24,
+          "totalVotes": 7499
+        },
+        {
+          "countyName": "Ulster",
+          "candidateVotes": [
+            11609,
+            1010,
+            251
+          ],
+          "scattering": 31,
+          "blank": 145,
+          "void": 26,
+          "totalVotes": 13072
+        }
+      ],
+      "horizontalReconciliation": "exact",
+      "verticalReconciliation": "exact",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "8d131e812e5ef095d283f34bb332c11483cd72817b8abf11ff791af83eee325e"
+    },
+    {
+      "contestId": "ny:2022:us-house:19:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "NY",
+      "districtCode": "19",
+      "authorityContestId": "264",
+      "sourceLockId": "ny-2022-house-democratic-primary-cd-19-contest-264",
+      "sourceFileSha256": "7a768ebd10737d9ff0c79d23ee03e59cd9b18539e4642403e120f5cc5b813136",
+      "resultDocumentSourceLockId": "ny-2022-house-primary-official-results-document",
+      "office": "U.S. Representative",
+      "stage": "primary",
+      "party": "Democratic",
+      "resultStatus": "official_reported_contest_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "candidateName": "Josh Riley",
+          "votes": 31193
+        },
+        {
+          "candidateName": "Jamie Cheney",
+          "votes": 18625
+        }
+      ],
+      "scattering": 229,
+      "blank": 1301,
+      "void": 69,
+      "totalVotes": 51417,
+      "counties": [
+        {
+          "countyName": "Broome",
+          "candidateVotes": [
+            5317,
+            2363
+          ],
+          "scattering": 8,
+          "blank": 147,
+          "void": 19,
+          "totalVotes": 7854
+        },
+        {
+          "countyName": "Chenango",
+          "candidateVotes": [
+            289,
+            689
+          ],
+          "scattering": 3,
+          "blank": 5,
+          "void": 3,
+          "totalVotes": 989
+        },
+        {
+          "countyName": "Columbia",
+          "candidateVotes": [
+            4559,
+            3492
+          ],
+          "scattering": 39,
+          "blank": 119,
+          "void": 6,
+          "totalVotes": 8215
+        },
+        {
+          "countyName": "Cortland",
+          "candidateVotes": [
+            1313,
+            355
+          ],
+          "scattering": 32,
+          "blank": 2,
+          "void": 0,
+          "totalVotes": 1702
+        },
+        {
+          "countyName": "Delaware",
+          "candidateVotes": [
+            1520,
+            1050
+          ],
+          "scattering": 12,
+          "blank": 0,
+          "void": 0,
+          "totalVotes": 2582
+        },
+        {
+          "countyName": "Greene",
+          "candidateVotes": [
+            1703,
+            1268
+          ],
+          "scattering": 24,
+          "blank": 89,
+          "void": 5,
+          "totalVotes": 3089
+        },
+        {
+          "countyName": "Otsego",
+          "candidateVotes": [
+            1441,
+            765
+          ],
+          "scattering": 13,
+          "blank": 19,
+          "void": 3,
+          "totalVotes": 2241
+        },
+        {
+          "countyName": "Sullivan",
+          "candidateVotes": [
+            2068,
+            1659
+          ],
+          "scattering": 37,
+          "blank": 79,
+          "void": 4,
+          "totalVotes": 3847
+        },
+        {
+          "countyName": "Tioga",
+          "candidateVotes": [
+            1215,
+            723
+          ],
+          "scattering": 7,
+          "blank": 14,
+          "void": 1,
+          "totalVotes": 1960
+        },
+        {
+          "countyName": "Tompkins",
+          "candidateVotes": [
+            6945,
+            3201
+          ],
+          "scattering": 14,
+          "blank": 625,
+          "void": 8,
+          "totalVotes": 10793
+        },
+        {
+          "countyName": "Ulster",
+          "candidateVotes": [
+            4823,
+            3060
+          ],
+          "scattering": 40,
+          "blank": 202,
+          "void": 20,
+          "totalVotes": 8145
+        }
+      ],
+      "horizontalReconciliation": "exact",
+      "verticalReconciliation": "exact",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "74b1b61bc24bd15fe3f71452677e7602f3413c0cf49fb435b577d3e67ee30127"
+    },
+    {
+      "contestId": "ny:2022:us-house:20:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "NY",
+      "districtCode": "20",
+      "authorityContestId": "265",
+      "sourceLockId": "ny-2022-house-democratic-primary-cd-20-contest-265",
+      "sourceFileSha256": "10b997bb0391a3cadd4134ef53400e75bab693be3ed0e76747f229365b0b34f0",
+      "resultDocumentSourceLockId": "ny-2022-house-primary-official-results-document",
+      "office": "U.S. Representative",
+      "stage": "primary",
+      "party": "Democratic",
+      "resultStatus": "official_reported_contest_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "candidateName": "Paul D. Tonko",
+          "votes": 18251
+        },
+        {
+          "candidateName": "Rostislav Rar",
+          "votes": 2422
+        }
+      ],
+      "scattering": 54,
+      "blank": 79,
+      "void": 59,
+      "totalVotes": 20865,
+      "counties": [
+        {
+          "countyName": "Albany",
+          "candidateVotes": [
+            9436,
+            1200
+          ],
+          "scattering": 21,
+          "blank": 58,
+          "void": 39,
+          "totalVotes": 10754
+        },
+        {
+          "countyName": "Rensselaer",
+          "candidateVotes": [
+            1151,
+            247
+          ],
+          "scattering": 0,
+          "blank": 2,
+          "void": 4,
+          "totalVotes": 1404
+        },
+        {
+          "countyName": "Saratoga",
+          "candidateVotes": [
+            4355,
+            518
+          ],
+          "scattering": 10,
+          "blank": 9,
+          "void": 5,
+          "totalVotes": 4897
+        },
+        {
+          "countyName": "Schenectady",
+          "candidateVotes": [
+            3309,
+            457
+          ],
+          "scattering": 23,
+          "blank": 10,
+          "void": 11,
+          "totalVotes": 3810
+        }
+      ],
+      "horizontalReconciliation": "exact",
+      "verticalReconciliation": "exact",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "631fd2135f159c3c8c508474d0d331cf20ec7e2f62bfbb009933d3d62c03616c"
+    },
+    {
+      "contestId": "ny:2022:us-house:21:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "NY",
+      "districtCode": "21",
+      "authorityContestId": "266",
+      "sourceLockId": "ny-2022-house-democratic-primary-cd-21-contest-266",
+      "sourceFileSha256": "23841afa411fb9a9b2cc6cd4b46223eae351bead9a7774b9d6c5e1fb255b0580",
+      "resultDocumentSourceLockId": "ny-2022-house-primary-official-results-document",
+      "office": "U.S. Representative",
+      "stage": "primary",
+      "party": "Democratic",
+      "resultStatus": "official_reported_contest_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "candidateName": "Matt Castelli",
+          "votes": 19319
+        },
+        {
+          "candidateName": "Matt Putori",
+          "votes": 4528
+        }
+      ],
+      "scattering": 52,
+      "blank": 152,
+      "void": 82,
+      "totalVotes": 24133,
+      "counties": [
+        {
+          "countyName": "Clinton",
+          "candidateVotes": [
+            2503,
+            461
+          ],
+          "scattering": 3,
+          "blank": 2,
+          "void": 5,
+          "totalVotes": 2974
+        },
+        {
+          "countyName": "Essex",
+          "candidateVotes": [
+            1511,
+            355
+          ],
+          "scattering": 1,
+          "blank": 6,
+          "void": 0,
+          "totalVotes": 1873
+        },
+        {
+          "countyName": "Franklin",
+          "candidateVotes": [
+            1157,
+            170
+          ],
+          "scattering": 6,
+          "blank": 2,
+          "void": 2,
+          "totalVotes": 1337
+        },
+        {
+          "countyName": "Fulton",
+          "candidateVotes": [
+            744,
+            170
+          ],
+          "scattering": 0,
+          "blank": 5,
+          "void": 0,
+          "totalVotes": 919
+        },
+        {
+          "countyName": "Hamilton",
+          "candidateVotes": [
+            165,
+            26
+          ],
+          "scattering": 0,
+          "blank": 0,
+          "void": 3,
+          "totalVotes": 194
+        },
+        {
+          "countyName": "Herkimer",
+          "candidateVotes": [
+            686,
+            127
+          ],
+          "scattering": 9,
+          "blank": 0,
+          "void": 9,
+          "totalVotes": 831
+        },
+        {
+          "countyName": "Jefferson",
+          "candidateVotes": [
+            233,
+            52
+          ],
+          "scattering": 0,
+          "blank": 0,
+          "void": 0,
+          "totalVotes": 285
+        },
+        {
+          "countyName": "Lewis",
+          "candidateVotes": [
+            298,
+            60
+          ],
+          "scattering": 0,
+          "blank": 1,
+          "void": 3,
+          "totalVotes": 362
+        },
+        {
+          "countyName": "Montgomery",
+          "candidateVotes": [
+            923,
+            296
+          ],
+          "scattering": 6,
+          "blank": 18,
+          "void": 0,
+          "totalVotes": 1243
+        },
+        {
+          "countyName": "Otsego",
+          "candidateVotes": [
+            1248,
+            125
+          ],
+          "scattering": 5,
+          "blank": 23,
+          "void": 3,
+          "totalVotes": 1404
+        },
+        {
+          "countyName": "Rensselaer",
+          "candidateVotes": [
+            3361,
+            802
+          ],
+          "scattering": 0,
+          "blank": 17,
+          "void": 52,
+          "totalVotes": 4232
+        },
+        {
+          "countyName": "Schoharie",
+          "candidateVotes": [
+            1048,
+            323
+          ],
+          "scattering": 17,
+          "blank": 67,
+          "void": 4,
+          "totalVotes": 1459
+        },
+        {
+          "countyName": "St. Lawrence",
+          "candidateVotes": [
+            2184,
+            479
+          ],
+          "scattering": 3,
+          "blank": 10,
+          "void": 0,
+          "totalVotes": 2676
+        },
+        {
+          "countyName": "Warren",
+          "candidateVotes": [
+            2012,
+            495
+          ],
+          "scattering": 1,
+          "blank": 1,
+          "void": 1,
+          "totalVotes": 2510
+        },
+        {
+          "countyName": "Washington",
+          "candidateVotes": [
+            1246,
+            587
+          ],
+          "scattering": 1,
+          "blank": 0,
+          "void": 0,
+          "totalVotes": 1834
+        }
+      ],
+      "horizontalReconciliation": "exact",
+      "verticalReconciliation": "exact",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "5d44ec5a64179008a7140aadc68b59ecf1b549bc0736ce233d1d60d375fe51f7"
+    },
+    {
+      "contestId": "ny:2022:us-house:22:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "NY",
+      "districtCode": "22",
+      "authorityContestId": "267",
+      "sourceLockId": "ny-2022-house-democratic-primary-cd-22-contest-267",
+      "sourceFileSha256": "64d12c4a91592a9516e36533e046f672b02a1be26b85be523cfdc9c5a19dc543",
+      "resultDocumentSourceLockId": "ny-2022-house-primary-official-results-document",
+      "office": "U.S. Representative",
+      "stage": "primary",
+      "party": "Democratic",
+      "resultStatus": "official_reported_contest_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "candidateName": "Francis Conole",
+          "votes": 10971
+        },
+        {
+          "candidateName": "Sarah Klee Hood",
+          "votes": 9790
+        },
+        {
+          "candidateName": "Sam Roberts",
+          "votes": 3662
+        },
+        {
+          "candidateName": "Chol Majok",
+          "votes": 3315
+        }
+      ],
+      "scattering": 58,
+      "blank": 41,
+      "void": 25,
+      "totalVotes": 27862,
+      "counties": [
+        {
+          "countyName": "Madison",
+          "candidateVotes": [
+            766,
+            940,
+            130,
+            196
+          ],
+          "scattering": 5,
+          "blank": 4,
+          "void": 0,
+          "totalVotes": 2041
+        },
+        {
+          "countyName": "Oneida",
+          "candidateVotes": [
+            1640,
+            2637,
+            508,
+            577
+          ],
+          "scattering": 22,
+          "blank": 12,
+          "void": 2,
+          "totalVotes": 5398
+        },
+        {
+          "countyName": "Onondaga",
+          "candidateVotes": [
+            8562,
+            6211,
+            3024,
+            2542
+          ],
+          "scattering": 31,
+          "blank": 25,
+          "void": 23,
+          "totalVotes": 20418
+        },
+        {
+          "countyName": "Oswego",
+          "candidateVotes": [
+            3,
+            2,
+            0,
+            0
+          ],
+          "scattering": 0,
+          "blank": 0,
+          "void": 0,
+          "totalVotes": 5
+        }
+      ],
+      "horizontalReconciliation": "exact",
+      "verticalReconciliation": "exact",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6bed199b45027460a5255b56997ef23c76e7a13859071bf121c648576325f70a"
+    },
+    {
+      "contestId": "ny:2022:us-house:26:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "NY",
+      "districtCode": "26",
+      "authorityContestId": "271",
+      "sourceLockId": "ny-2022-house-democratic-primary-cd-26-contest-271",
+      "sourceFileSha256": "c6e9d393cf686f57d509aded019f10437a387f8e94cfe33401fd5cf857d0ccce",
+      "resultDocumentSourceLockId": "ny-2022-house-primary-official-results-document",
+      "office": "U.S. Representative",
+      "stage": "primary",
+      "party": "Democratic",
+      "resultStatus": "official_reported_contest_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "candidateName": "Brian Higgins",
+          "votes": 28485
+        },
+        {
+          "candidateName": "Emin Eddie Egriu",
+          "votes": 2731
+        }
+      ],
+      "scattering": 109,
+      "blank": 134,
+      "void": 93,
+      "totalVotes": 31552,
+      "counties": [
+        {
+          "countyName": "Erie",
+          "candidateVotes": [
+            25037,
+            2421
+          ],
+          "scattering": 102,
+          "blank": 112,
+          "void": 91,
+          "totalVotes": 27763
+        },
+        {
+          "countyName": "Niagara",
+          "candidateVotes": [
+            3448,
+            310
+          ],
+          "scattering": 7,
+          "blank": 22,
+          "void": 2,
+          "totalVotes": 3789
+        }
+      ],
+      "horizontalReconciliation": "exact",
+      "verticalReconciliation": "exact",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "631f5f4d893b55a994661b06f1c289abdad2741870b5d72588ae7978b18110f3"
+    },
+    {
+      "contestId": "ny:2024:us-house:16:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "stateCode": "NY",
+      "districtCode": "16",
+      "authorityContestId": "5580",
+      "sourceLockId": "ny-2024-house-democratic-primary-cd-16-contest-5580",
+      "sourceFileSha256": "607ec9216464c5c0a568c4ba44030f8d10a1c229ef402e304dab1aff2218c30a",
+      "resultDocumentSourceLockId": "ny-2024-house-primary-official-results-document",
+      "office": "U.S. Representative",
+      "stage": "primary",
+      "party": "Democratic",
+      "resultStatus": "official_reported_contest_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "candidateName": "George S. Latimer",
+          "votes": 45909
+        },
+        {
+          "candidateName": "Jamaal A. Bowman",
+          "votes": 32440
+        }
+      ],
+      "scattering": 38,
+      "blank": 418,
+      "void": 0,
+      "totalVotes": 78805,
+      "counties": [
+        {
+          "countyName": "Bronx",
+          "candidateVotes": [
+            1355,
+            6839
+          ],
+          "scattering": 9,
+          "blank": 85,
+          "void": 0,
+          "totalVotes": 8288
+        },
+        {
+          "countyName": "Westchester",
+          "candidateVotes": [
+            44554,
+            25601
+          ],
+          "scattering": 29,
+          "blank": 333,
+          "void": 0,
+          "totalVotes": 70517
+        }
+      ],
+      "horizontalReconciliation": "exact",
+      "verticalReconciliation": "exact",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "0796c11bd6b0d823dc12109bd26066b39f58ff734778383de723576f787eabe4"
+    },
+    {
+      "contestId": "ny:2024:us-house:22:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "stateCode": "NY",
+      "districtCode": "22",
+      "authorityContestId": "5567",
+      "sourceLockId": "ny-2024-house-democratic-primary-cd-22-contest-5567",
+      "sourceFileSha256": "ae47deb4c60b45cf62b66c6408cb9155dc0e808ec448ad57d94eecd12c9cc620",
+      "resultDocumentSourceLockId": "ny-2024-house-primary-official-results-document",
+      "office": "U.S. Representative",
+      "stage": "primary",
+      "party": "Democratic",
+      "resultStatus": "official_reported_contest_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "candidateName": "John W. Mannion",
+          "votes": 16624
+        },
+        {
+          "candidateName": "Sarah Klee Hood",
+          "votes": 10373
+        }
+      ],
+      "scattering": 47,
+      "blank": 90,
+      "void": 61,
+      "totalVotes": 27195,
+      "counties": [
+        {
+          "countyName": "Cayuga",
+          "candidateVotes": [
+            1093,
+            468
+          ],
+          "scattering": 1,
+          "blank": 6,
+          "void": 1,
+          "totalVotes": 1569
+        },
+        {
+          "countyName": "Cortland",
+          "candidateVotes": [
+            529,
+            558
+          ],
+          "scattering": 1,
+          "blank": 0,
+          "void": 0,
+          "totalVotes": 1088
+        },
+        {
+          "countyName": "Madison",
+          "candidateVotes": [
+            794,
+            1236
+          ],
+          "scattering": 3,
+          "blank": 0,
+          "void": 2,
+          "totalVotes": 2035
+        },
+        {
+          "countyName": "Oneida",
+          "candidateVotes": [
+            875,
+            2343
+          ],
+          "scattering": 7,
+          "blank": 7,
+          "void": 6,
+          "totalVotes": 3238
+        },
+        {
+          "countyName": "Onondaga",
+          "candidateVotes": [
+            13333,
+            5768
+          ],
+          "scattering": 35,
+          "blank": 77,
+          "void": 52,
+          "totalVotes": 19265
+        }
+      ],
+      "horizontalReconciliation": "exact",
+      "verticalReconciliation": "exact",
+      "incumbentIdentityStatus": "not_reviewed",
+      "historicalGeographyStatus": "not_reviewed",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "accb89d0e94fe12be8bc244bcab266917dbe9fe5190933373eea71d4b535e821"
+    }
+  ],
+  "stateUniverseClosure": {
+    "expectedCongressionalDistrictsPerCycle": 26,
+    "observedReportedContests2022": 9,
+    "observedReportedContests2024": 2,
+    "unclassifiedDistricts2022": 17,
+    "unclassifiedDistricts2024": 24,
+    "status": "incomplete_missing_no_contest_disposition_authority",
+    "absenceNeverMeansZero": true
+  },
+  "june2022Event": {
+    "date": "2022-06-28",
+    "houseContestStatus": "researched_not_source_locked_do_not_use"
+  },
+  "unresolvedGates": [
+    "retain_complete_state_contest_universe_and_no_contest_dispositions",
+    "retain_independent_final_certification",
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_progressive_candidate_classification"
+  ],
+  "summary": {
+    "cycles": 2,
+    "reportedContests": 11,
+    "candidates": 30,
+    "candidateVotes": 399145,
+    "administrativeVotes": 4547,
+    "totalVotes": 403692,
+    "counties": 54,
+    "contestSetSha256": "f0b4ebcae9dee7cb689503dc9a4532d140e963c3df2dcc9ebbdd1cef358447d6",
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0
+  },
+  "packageSha256": "5ba3280bd2a837281877a0fb70979b42501afd6e7e9d8567149e1b22942e125b"
+}
