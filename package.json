@@ -101,6 +101,8 @@
     "generate:az-house-primary-results-receipt": "tsx scripts/generate-arizona-house-democratic-primary-results-receipt.ts",
     "import:mi-house-primary-results": "node scripts/import-mi-house-democratic-primary-results.mjs",
     "generate:mi-house-primary-results-receipt": "tsx scripts/generate-michigan-house-democratic-primary-results-receipt.ts",
+    "import:fl-house-primary-results": "node scripts/import-fl-house-democratic-primary-results.mjs",
+    "generate:fl-house-primary-results-receipt": "tsx scripts/generate-florida-house-democratic-primary-results-receipt.ts",
     "generate:md-house-primary-results-receipt": "tsx scripts/generate-maryland-house-democratic-primary-results-receipt.ts",
     "fetch:ct-house-primary-event-results": "node scripts/fetch-ct-house-democratic-primary-event-results.mjs",
     "generate:ct-house-primary-event-dispositions": "tsx scripts/generate-connecticut-house-democratic-primary-event-dispositions-receipt.ts",

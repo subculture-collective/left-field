@@ -1,0 +1,1788 @@
+{
+  "schema": "florida-house-democratic-primary-results-2022-2026-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T19:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "parentProposal": {
+    "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "decisionSupport": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    }
+  ],
+  "inheritedDecisionResolutions": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "resolution": null
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "resolution": null
+    }
+  ],
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "status": "official_reported_contests_retained_missing_districts_unresolved",
+      "reportedContests": 14,
+      "missingDistricts": [
+        "02",
+        "05",
+        "06",
+        "09",
+        "11",
+        "12",
+        "13",
+        "16",
+        "17",
+        "18",
+        "19",
+        "21",
+        "22",
+        "26"
+      ]
+    },
+    {
+      "cycleYear": 2024,
+      "status": "official_reported_contests_retained_missing_districts_unresolved",
+      "reportedContests": 9,
+      "missingDistricts": [
+        "01",
+        "02",
+        "03",
+        "04",
+        "05",
+        "06",
+        "09",
+        "11",
+        "12",
+        "14",
+        "15",
+        "19",
+        "20",
+        "21",
+        "22",
+        "23",
+        "24",
+        "26",
+        "28"
+      ]
+    },
+    {
+      "cycleYear": 2026,
+      "status": "unofficial_results_not_retained_election_not_yet_held_at_cutoff",
+      "electionDate": "2026-08-18",
+      "certificationDate": "2026-08-27",
+      "resultRowsRetained": 0,
+      "candidateRowsRetained": 0
+    }
+  ],
+  "sources": [
+    {
+      "id": "fl-2022-house-democratic-primary-results-tsv",
+      "url": "https://results.elections.myflorida.com/ResultsExtract.Asp",
+      "retainedPath": "data/source/elections/primary-results/florida/2022/official-results-extract.tsv",
+      "retainedStatus": "retained",
+      "byteSize": 169231,
+      "sha256": "6090922baca4e8648ac2f963423eafe464ddda17f88f203461c4bfd87e2ec418",
+      "kind": "source",
+      "parentIds": [
+        "fl-2022-primary-results-download-html"
+      ]
+    },
+    {
+      "id": "fl-2022-primary-results-download-html",
+      "url": "https://results.elections.myflorida.com/downloadresults.asp?ElectionDate=8/23/2022&DATAMODE=",
+      "retainedPath": "data/source/elections/primary-results/florida/2022/official-results-download.html",
+      "retainedStatus": "retained",
+      "byteSize": 9225,
+      "sha256": "6bf32a63f5f787fc2cbf66edd27ecd1103300909d976085b9a025a05c749f01b",
+      "kind": "source_snapshot",
+      "parentIds": []
+    },
+    {
+      "id": "fl-2024-house-democratic-primary-results-tsv",
+      "url": "https://results.elections.myflorida.com/ResultsExtract.Asp",
+      "retainedPath": "data/source/elections/primary-results/florida/2024/official-results-extract.tsv",
+      "retainedStatus": "retained",
+      "byteSize": 96674,
+      "sha256": "228b0bec5995773272ced4ec5e73ec624483aa75e9bb13883382ff6eece8e2dd",
+      "kind": "source",
+      "parentIds": [
+        "fl-2024-primary-results-download-html"
+      ]
+    },
+    {
+      "id": "fl-2024-primary-results-download-html",
+      "url": "https://results.elections.myflorida.com/downloadresults.asp?ElectionDate=8/20/2024&DATAMODE=",
+      "retainedPath": "data/source/elections/primary-results/florida/2024/official-results-download.html",
+      "retainedStatus": "retained",
+      "byteSize": 9225,
+      "sha256": "c2620055bdd32150252f5c1e1ef5f65ceb25d7a8c69fce973f1349a7ac324b57",
+      "kind": "source_snapshot",
+      "parentIds": []
+    },
+    {
+      "id": "fl-2026-primary-results-reporting-timeline-pdf",
+      "url": "https://dos.fl.gov/media/709429/election-results-reporting-timeline-pe-2026-v-20250821.pdf",
+      "retainedPath": "data/source/elections/primary-results/florida/authority/2026-primary-results-reporting-timeline.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 175344,
+      "sha256": "ed5ecaca43ef9907b607db980fbf4bb2132e5f19ca58fb562f8598cfbc05a51f",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "fl-2026-primary-results-reporting-timeline-text",
+      "url": "urn:dsa-seats:fl-2026-primary-results-reporting-timeline-pdf:pdftotext-layout",
+      "retainedPath": "data/source/elections/primary-results/florida/authority/2026-primary-results-reporting-timeline.txt",
+      "retainedStatus": "retained",
+      "byteSize": 4841,
+      "sha256": "77eb2f53e269c737ce469df060a943db3490d6a4abc907ed0d2f03f96916c08c",
+      "kind": "derived_extract",
+      "parentIds": [
+        "fl-2026-primary-results-reporting-timeline-pdf"
+      ]
+    },
+    {
+      "id": "fl-election-dates-snapshot-20260805",
+      "url": "https://dos.fl.gov/elections/for-voters/election-dates/",
+      "retainedPath": "data/source/elections/primary-results/florida/authority/election-dates-20260805.html",
+      "retainedStatus": "retained",
+      "byteSize": 30878,
+      "sha256": "eb904f9565378783bd9bf6c5ae528fa521863816a6b60ba246929a2e179d2951",
+      "kind": "source_snapshot",
+      "parentIds": []
+    },
+    {
+      "id": "fl-election-results-archive-snapshot-20260805",
+      "url": "https://dos.fl.gov/elections/data-statistics/elections-data/election-results-archive/",
+      "retainedPath": "data/source/elections/primary-results/florida/authority/results-archive-20260805.html",
+      "retainedStatus": "retained",
+      "byteSize": 25178,
+      "sha256": "0e5e0e3a06453c20109deec173032557d9aec5961f32847a1207b9db9a8dfbaa",
+      "kind": "source_snapshot",
+      "parentIds": []
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "fl:2022:regular:us-house:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 8,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Rebekah Jones",
+          "sourceNameParts": {
+            "last": "Jones",
+            "first": "Rebekah",
+            "middle": null
+          },
+          "votes": 21875,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Peggy Schiller",
+          "sourceNameParts": {
+            "last": "Schiller",
+            "first": "Peggy",
+            "middle": null
+          },
+          "votes": 13091,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 34966,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "de1acc0e6e5494bcf4fe78728c31b945bdafed2f1b7ea4897f7a0132eaf011f1"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 24,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Danielle Hawk",
+          "sourceNameParts": {
+            "last": "Hawk",
+            "first": "Danielle",
+            "middle": null
+          },
+          "votes": 37181,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Tom Wells",
+          "sourceNameParts": {
+            "last": "Wells",
+            "first": "Tom",
+            "middle": null
+          },
+          "votes": 17799,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 54980,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "7b4d7af7d24e2b8618fe1b69a1945c7f3b396a66737a76b61ef0afb58a8089c6"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:04:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 6,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Anthony 'Tony' Hill",
+          "sourceNameParts": {
+            "last": "Hill",
+            "first": "Anthony",
+            "middle": "'Tony'"
+          },
+          "votes": 29145,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "LaShonda 'L.J.' Holloway",
+          "sourceNameParts": {
+            "last": "Holloway",
+            "first": "LaShonda",
+            "middle": "'L.J.'"
+          },
+          "votes": 29352,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 58497,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "ff2b5fff8318f365ec16737b996cefd094adcf6a7ccefe98bd16dca255eb5433"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:07:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 8,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Hilsia 'Tatiana' Fernandez",
+          "sourceNameParts": {
+            "last": "Fernandez",
+            "first": "Hilsia 'Tatiana'",
+            "middle": null
+          },
+          "votes": 10261,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Karen Green",
+          "sourceNameParts": {
+            "last": "Green",
+            "first": "Karen",
+            "middle": null
+          },
+          "votes": 23051,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Al Krulick",
+          "sourceNameParts": {
+            "last": "Krulick",
+            "first": "Al",
+            "middle": null
+          },
+          "votes": 10787,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Allek Pastrana",
+          "sourceNameParts": {
+            "last": "Pastrana",
+            "first": "Allek",
+            "middle": null
+          },
+          "votes": 7289,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 51388,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d95574da2087b1815d7514417f17c74b501fd20718f2d5e2a43ea4939679ab3b"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:08:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 6,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Danelle Dodge",
+          "sourceNameParts": {
+            "last": "Dodge",
+            "first": "Danelle",
+            "middle": null
+          },
+          "votes": 24592,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Joanne Terry",
+          "sourceNameParts": {
+            "last": "Terry",
+            "first": "Joanne",
+            "middle": null
+          },
+          "votes": 29542,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 54134,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e3bbc52e78eb968336e48c6539554801f4257ef5c870286ad612e62a014150e1"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:10:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 10,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jack Achenbach",
+          "sourceNameParts": {
+            "last": "Achenbach",
+            "first": "Jack",
+            "middle": null
+          },
+          "votes": 714,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jeffrey Boone",
+          "sourceNameParts": {
+            "last": "Boone",
+            "first": "Jeffrey",
+            "middle": null
+          },
+          "votes": 1181,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Randolph Bracy",
+          "sourceNameParts": {
+            "last": "Bracy",
+            "first": "Randolph",
+            "middle": null
+          },
+          "votes": 13677,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Corrine Brown",
+          "sourceNameParts": {
+            "last": "Brown",
+            "first": "Corrine",
+            "middle": null
+          },
+          "votes": 5274,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Maxwell Alejandro Frost",
+          "sourceNameParts": {
+            "last": "Frost",
+            "first": "Maxwell",
+            "middle": "Alejandro"
+          },
+          "votes": 19288,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Terence R. Gray",
+          "sourceNameParts": {
+            "last": "Gray",
+            "first": "Terence",
+            "middle": "R."
+          },
+          "votes": 1032,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Alan Grayson",
+          "sourceNameParts": {
+            "last": "Grayson",
+            "first": "Alan",
+            "middle": null
+          },
+          "votes": 8526,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Natalie Jackson",
+          "sourceNameParts": {
+            "last": "Jackson",
+            "first": "Natalie",
+            "middle": null
+          },
+          "votes": 3872,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Khalid Muneer",
+          "sourceNameParts": {
+            "last": "Muneer",
+            "first": "Khalid",
+            "middle": null
+          },
+          "votes": 604,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Teresa Tachon",
+          "sourceNameParts": {
+            "last": "Tachon",
+            "first": "Teresa",
+            "middle": null
+          },
+          "votes": 1301,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 55469,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d5ed103fe2e21a4685903b4502ef2b237f88969d943bd9b15e61f76e9b11de5a"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:14:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "14",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 4,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Christopher Bradley",
+          "sourceNameParts": {
+            "last": "Bradley",
+            "first": "Christopher",
+            "middle": null
+          },
+          "votes": 6684,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Kathy Castor",
+          "sourceNameParts": {
+            "last": "Castor",
+            "first": "Kathy",
+            "middle": null
+          },
+          "votes": 62562,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 69246,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "44495d0782427ee269d1812939914ee10893afa9fb71db779ad075a069604db4"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:15:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "15",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 15,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Gavin Brown",
+          "sourceNameParts": {
+            "last": "Brown",
+            "first": "Gavin",
+            "middle": null
+          },
+          "votes": 10034,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Alan M. Cohn",
+          "sourceNameParts": {
+            "last": "Cohn",
+            "first": "Alan",
+            "middle": "M."
+          },
+          "votes": 14928,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Eddie Geller",
+          "sourceNameParts": {
+            "last": "Geller",
+            "first": "Eddie",
+            "middle": null
+          },
+          "votes": 9859,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Cesar Ramirez",
+          "sourceNameParts": {
+            "last": "Ramirez",
+            "first": "Cesar",
+            "middle": null
+          },
+          "votes": 7817,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "William VanHorn",
+          "sourceNameParts": {
+            "last": "VanHorn",
+            "first": "William",
+            "middle": null
+          },
+          "votes": 2435,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 45073,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e0abd9acb534d5e371cb289ea8d596b88425807f29baa21906f9e36893d0c383"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:20:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "20",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 6,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Sheila Cherfilus-McCormick",
+          "sourceNameParts": {
+            "last": "Cherfilus-McCormick",
+            "first": "Sheila",
+            "middle": null
+          },
+          "votes": 47601,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Dale V.C. Holness",
+          "sourceNameParts": {
+            "last": "Holness",
+            "first": "Dale",
+            "middle": "V.C."
+          },
+          "votes": 20783,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Anika Omphroy",
+          "sourceNameParts": {
+            "last": "Omphroy",
+            "first": "Anika",
+            "middle": null
+          },
+          "votes": 4197,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 72581,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "57dbe7c03c601d211b6b76fcd800368568af8fb89c070c41c0a17deb9100f197"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:23:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "23",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 12,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Allen Ellison",
+          "sourceNameParts": {
+            "last": "Ellison",
+            "first": "Allen",
+            "middle": null
+          },
+          "votes": 3960,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Michaelangelo Collins Hamilton",
+          "sourceNameParts": {
+            "last": "Hamilton",
+            "first": "Michaelangelo",
+            "middle": "Collins"
+          },
+          "votes": 1064,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Hava Holzhauer",
+          "sourceNameParts": {
+            "last": "Holzhauer",
+            "first": "Hava",
+            "middle": null
+          },
+          "votes": 5276,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jared Moskowitz",
+          "sourceNameParts": {
+            "last": "Moskowitz",
+            "first": "Jared",
+            "middle": null
+          },
+          "votes": 38822,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Ben Sorensen",
+          "sourceNameParts": {
+            "last": "Sorensen",
+            "first": "Ben",
+            "middle": null
+          },
+          "votes": 13012,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "W. Michael 'Mike' Trout",
+          "sourceNameParts": {
+            "last": "Trout",
+            "first": "W.",
+            "middle": "Michael 'Mike'"
+          },
+          "votes": 1390,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 63524,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "7a071394da498d048c732ca89c95217cd51483b4f362044a20090db69de230ca"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:24:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "24",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 4,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Kevin C. Harris",
+          "sourceNameParts": {
+            "last": "Harris",
+            "first": "Kevin",
+            "middle": "C."
+          },
+          "votes": 6816,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Frederica Wilson",
+          "sourceNameParts": {
+            "last": "Wilson",
+            "first": "Frederica",
+            "middle": null
+          },
+          "votes": 56776,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 63592,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2911d72a6149f42ada14594738c89eb692b932f4254c4588ce8387e48466c9fe"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:25:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "25",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 2,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Robert Millwee",
+          "sourceNameParts": {
+            "last": "Millwee",
+            "first": "Robert",
+            "middle": null
+          },
+          "votes": 6241,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Debbie Wasserman Schultz",
+          "sourceNameParts": {
+            "last": "Schultz",
+            "first": "Debbie",
+            "middle": "Wasserman"
+          },
+          "votes": 50554,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 56795,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a7a79ceb01cdeed4cbc7a769bb869c35e0db5ca1447f8ef454015769dca82a7d"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:27:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "27",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 3,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Angel Montalvo",
+          "sourceNameParts": {
+            "last": "Montalvo",
+            "first": "Angel",
+            "middle": null
+          },
+          "votes": 2493,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Ken Russell",
+          "sourceNameParts": {
+            "last": "Russell",
+            "first": "Ken",
+            "middle": null
+          },
+          "votes": 10337,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Annette Taddeo",
+          "sourceNameParts": {
+            "last": "Taddeo",
+            "first": "Annette",
+            "middle": null
+          },
+          "votes": 27015,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 39845,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "fc5b1bca8c9ef7e899bee26b5eef9f54c2cbdc1d57629892954b6101de298937"
+    },
+    {
+      "contestId": "fl:2022:regular:us-house:28:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-23",
+      "stateCode": "FL",
+      "districtCode": "28",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2022-house-democratic-primary-results-tsv",
+        "fl-2022-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 4,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Robert Asencio",
+          "sourceNameParts": {
+            "last": "Asencio",
+            "first": "Robert",
+            "middle": null
+          },
+          "votes": 18504,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Juan Paredes",
+          "sourceNameParts": {
+            "last": "Paredes",
+            "first": "Juan",
+            "middle": null
+          },
+          "votes": 8217,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 26721,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "82da9fb26c469451560b90fde70bf6a298e4bf6194b2cc8926759340490f1741"
+    },
+    {
+      "contestId": "fl:2024:regular:us-house:07:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-20",
+      "stateCode": "FL",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2024-house-democratic-primary-results-tsv",
+        "fl-2024-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 6,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jennifer Adams",
+          "sourceNameParts": {
+            "last": "Adams",
+            "first": "Jennifer",
+            "middle": null
+          },
+          "votes": 23191,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Tatiana Fernandez",
+          "sourceNameParts": {
+            "last": "Fernandez",
+            "first": "Tatiana",
+            "middle": null
+          },
+          "votes": 5982,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Allek Pastrana",
+          "sourceNameParts": {
+            "last": "Pastrana",
+            "first": "Allek",
+            "middle": null
+          },
+          "votes": 7844,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 37017,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "374015f49ea937c3072af998fc83cb0863de0a28ccacec5d6ee575afeafba34f"
+    },
+    {
+      "contestId": "fl:2024:regular:us-house:08:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-20",
+      "stateCode": "FL",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2024-house-democratic-primary-results-tsv",
+        "fl-2024-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 6,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Sandy Kennedy",
+          "sourceNameParts": {
+            "last": "Kennedy",
+            "first": "Sandy",
+            "middle": null
+          },
+          "votes": 24701,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Daniel McDow",
+          "sourceNameParts": {
+            "last": "McDow",
+            "first": "Daniel",
+            "middle": null
+          },
+          "votes": 15999,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 40700,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "dd7662eba03376db9a6df7630d63bad788426e95fb8855ace72bcad0f38ed01d"
+    },
+    {
+      "contestId": "fl:2024:regular:us-house:10:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-20",
+      "stateCode": "FL",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2024-house-democratic-primary-results-tsv",
+        "fl-2024-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 3,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Wade Darius",
+          "sourceNameParts": {
+            "last": "Darius",
+            "first": "Wade",
+            "middle": null
+          },
+          "votes": 5106,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Maxwell Alejandro Frost",
+          "sourceNameParts": {
+            "last": "Frost",
+            "first": "Maxwell",
+            "middle": "Alejandro"
+          },
+          "votes": 33208,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "V. 'Issa' White",
+          "sourceNameParts": {
+            "last": "White",
+            "first": "V. 'Issa'",
+            "middle": null
+          },
+          "votes": 2295,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 40609,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "5ff1f68326caadd7c2a06a11d9f8240c9bf1a89ba65c0bfd4e10dce1cbc7bbd7"
+    },
+    {
+      "contestId": "fl:2024:regular:us-house:13:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-20",
+      "stateCode": "FL",
+      "districtCode": "13",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2024-house-democratic-primary-results-tsv",
+        "fl-2024-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 5,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Sabrina Bousbar",
+          "sourceNameParts": {
+            "last": "Bousbar",
+            "first": "Sabrina",
+            "middle": null
+          },
+          "votes": 8929,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Liz Dahan",
+          "sourceNameParts": {
+            "last": "Dahan",
+            "first": "Liz",
+            "middle": null
+          },
+          "votes": 6904,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Whitney Fox",
+          "sourceNameParts": {
+            "last": "Fox",
+            "first": "Whitney",
+            "middle": null
+          },
+          "votes": 29678,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "John William Liccione",
+          "sourceNameParts": {
+            "last": "Liccione",
+            "first": "John",
+            "middle": "William"
+          },
+          "votes": 2013,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Mark Weinkrantz",
+          "sourceNameParts": {
+            "last": "Weinkrantz",
+            "first": "Mark",
+            "middle": null
+          },
+          "votes": 3697,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 51221,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3b58803d99d4c232b96880539e290e59197aedc4691ad5880ab637cfe5a818b6"
+    },
+    {
+      "contestId": "fl:2024:regular:us-house:16:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-20",
+      "stateCode": "FL",
+      "districtCode": "16",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2024-house-democratic-primary-results-tsv",
+        "fl-2024-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 4,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Trent Miller",
+          "sourceNameParts": {
+            "last": "Miller",
+            "first": "Trent",
+            "middle": null
+          },
+          "votes": 12395,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jan Schneider",
+          "sourceNameParts": {
+            "last": "Schneider",
+            "first": "Jan",
+            "middle": null
+          },
+          "votes": 23701,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 36096,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d84e2c9030567d3bd5305ab31adff908918fc8e43223a07cdcb85bb9ee5243b8"
+    },
+    {
+      "contestId": "fl:2024:regular:us-house:17:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-20",
+      "stateCode": "FL",
+      "districtCode": "17",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2024-house-democratic-primary-results-tsv",
+        "fl-2024-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 6,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Manny Lopez",
+          "sourceNameParts": {
+            "last": "Lopez",
+            "first": "Manny",
+            "middle": null
+          },
+          "votes": 25017,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Matthew Montavon",
+          "sourceNameParts": {
+            "last": "Montavon",
+            "first": "Matthew",
+            "middle": null
+          },
+          "votes": 22244,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 47261,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "c3059f907ee6e51d5b2ba71dab96ffc2cd1fffaaadeb381cf960ebfb9def25a2"
+    },
+    {
+      "contestId": "fl:2024:regular:us-house:18:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-20",
+      "stateCode": "FL",
+      "districtCode": "18",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2024-house-democratic-primary-results-tsv",
+        "fl-2024-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 16,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Peter A. Braunston",
+          "sourceNameParts": {
+            "last": "Braunston",
+            "first": "Peter",
+            "middle": "A."
+          },
+          "votes": 8291,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Andrea Doria Kale",
+          "sourceNameParts": {
+            "last": "Kale",
+            "first": "Andrea",
+            "middle": "Doria"
+          },
+          "votes": 16778,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 25069,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a47c577bda8276552892d03626c47d73ab614ad570b462fabbb8f89543654159"
+    },
+    {
+      "contestId": "fl:2024:regular:us-house:25:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-20",
+      "stateCode": "FL",
+      "districtCode": "25",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2024-house-democratic-primary-results-tsv",
+        "fl-2024-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 2,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Jennifer 'Jen' Perelman",
+          "sourceNameParts": {
+            "last": "Perelman",
+            "first": "Jennifer",
+            "middle": "'Jen'"
+          },
+          "votes": 7349,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Debbie Wasserman Schultz",
+          "sourceNameParts": {
+            "last": "Wasserman Schultz",
+            "first": "Debbie",
+            "middle": null
+          },
+          "votes": 36479,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 43828,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "db6c282e321bc92120bf2a2c13022cf6af54b6028e8c96f53c07af3619ed45d4"
+    },
+    {
+      "contestId": "fl:2024:regular:us-house:27:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-20",
+      "stateCode": "FL",
+      "districtCode": "27",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "fl-2024-house-democratic-primary-results-tsv",
+        "fl-2024-primary-results-download-html",
+        "fl-election-results-archive-snapshot-20260805"
+      ],
+      "resultAuthorityStatus": "division_official_results_extract_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_returned_county_precinct_counts_reconciled",
+      "sourceCandidateCountyRows": 2,
+      "candidates": [
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Lucia Baez-Geller",
+          "sourceNameParts": {
+            "last": "Baez-Geller",
+            "first": "Lucia",
+            "middle": null
+          },
+          "votes": 18591,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateId": null,
+          "sourceCandidateName": "Mike Davey",
+          "sourceNameParts": {
+            "last": "Davey",
+            "first": "Mike",
+            "middle": null
+          },
+          "votes": 15738,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "sourceTotalVotes": 34329,
+      "voteReconciliation": "county_candidate_sum_equals_contest_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "disposition": "reported_contest",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a45782560075176802ff2d42e66f411fa01611428bfd7eb342bbf7513b987a89"
+    }
+  ],
+  "summary": {
+    "reportedContests": 23,
+    "contests2022": 14,
+    "contests2024": 9,
+    "contests2026": 0,
+    "namedCandidates": 70,
+    "candidateVotes": 1102941,
+    "officialExtractContests": 23,
+    "unreportedDistrictCycleBlocks": 33,
+    "unofficialResultRowsRetained": 0,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0,
+    "contestSetSha256": "c866bf532a678bfe92c72b734386b2ae9318589e690ee96f0e4f1180e6a1df40"
+  },
+  "limitations": [
+    "The Division extract is marked OfficialResults=Y, but no separately signed post-meeting certification certificate is retained.",
+    "Districts absent from the official extract are unresolved and do not imply no candidate, no primary, uncontested nomination, or zero votes.",
+    "The precinct ZIP/recount file overlay was researched but is not adopted in this v1 receipt because its 2022 congressional recount interpretation has not been reconciled to the Division statewide extract.",
+    "No source winner field is retained; vote rank is not converted into a source-declared winner.",
+    "Identity, district-geography compatibility, incumbency, ideology, and evaluator applicability remain unreviewed."
+  ],
+  "unresolvedGates": [
+    "Independent reviewer approval is required before factual promotion.",
+    "Absent district-cycle dispositions and current identity/geography mappings remain unresolved.",
+    "The precinct ZIP and 2022 congressional recount overlay require a separate reconciliation package before use."
+  ],
+  "packageSha256": "1240cd10778f3bf37acce392353b0dcc0d2deaad18b3cad5b753284cc874a2e8"
+}
