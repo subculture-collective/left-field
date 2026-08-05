@@ -1,0 +1,358 @@
+{
+  "schema": "aipac-numeric-review-package-v2",
+  "version": 2,
+  "generatedAt": "2026-08-05T20:00:00.000Z",
+  "sourceCutoff": "2026-08-04",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "inputs": {
+    "foundation": {
+      "fileSha256": "e4e2bfe3818fdbb99bbb0b92671a3419656d38f4d0679eb132a5c17e2b443686",
+      "packageSha256": "034d940df8f36c890c742ca94820836738fd242a37e62476b57d9bb266d2f178"
+    },
+    "candidate": {
+      "fileSha256": "a02fa77b1caefc3fbfeb99035d648f4fe9934b374797b524498530f03a2ea12d",
+      "packageSha256": "c2e864ee17fe3c264c0a3e49ca2d24bc9fef2498ec998aae90b61920ebaf00ab"
+    },
+    "report": {
+      "fileSha256": "f50c8a445b9e0e441a67004ded8929982c1fb35b5cc0aba2bf59189b3c5da808",
+      "reportSha256": "e428fc823ab5f6efa3eacd8f5191fabcb4580a7c4775b0bcae74518917523db9"
+    }
+  },
+  "summary": {
+    "totalDecisions": 10,
+    "mappingResolutions": 6,
+    "methodologyDecisions": 3,
+    "promotionDecisions": 1,
+    "automaticallyAcceptedRelationships": 1,
+    "automaticallyRejectedInvalidOrigins": 1,
+    "safeDefault": "retain_reviewer_candidate_exclude_from_publication"
+  },
+  "decisions": [
+    {
+      "decisionId": "aipac-mapping-resolution:incumbent:seat_house_ca_31_current:H8CA39174",
+      "component": "mapping_resolution",
+      "affectedSeatCycleId": "seat_house_ca_31_current",
+      "question": "Should the evidence-specific cycle mapping for seat_house_ca_31_current be accepted?",
+      "recommendedDecision": "Accept the cycle-specific resolution candidate only after confirming its identifier, party, committee, and office-change evidence.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Defer this relationship and keep all six AIPAC coverage cells blocked.",
+        "Reject the proposed resolution and request a separately sourced correction."
+      ],
+      "consequences": [
+        "Acceptance allows only the approved House cycle relationships into a later numeric build.",
+        "Office-change cycles remain not applicable rather than zero.",
+        "Deferral leaves this relationship excluded and does not block other seats."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "Official filing evidence was retained by hash without donor or contact details.",
+        "Numeric v2 blocks this seat while every unrelated seat remains usable."
+      ],
+      "evidenceSha256s": [
+        "eded37acf3bbd8e21bb65fa4fbfcb3e1cb8e1ad0704ec6f1ffa401d033f947d4",
+        "f4dfdebb9aa22cb1a5f36566042787f7ffe51b058a26643a94b9ea5db6f51a2b"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "fea91b6bb18e1470305de9c45b23924f260fecdfdba08e429bc76d26c96fcbb3"
+    },
+    {
+      "decisionId": "aipac-mapping-resolution:incumbent:seat_house_ma_06_current:H4MA06090",
+      "component": "mapping_resolution",
+      "affectedSeatCycleId": "seat_house_ma_06_current",
+      "question": "Should the evidence-specific cycle mapping for seat_house_ma_06_current be accepted?",
+      "recommendedDecision": "Accept the cycle-specific resolution candidate only after confirming its identifier, party, committee, and office-change evidence.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Defer this relationship and keep all six AIPAC coverage cells blocked.",
+        "Reject the proposed resolution and request a separately sourced correction."
+      ],
+      "consequences": [
+        "Acceptance allows only the approved House cycle relationships into a later numeric build.",
+        "Office-change cycles remain not applicable rather than zero.",
+        "Deferral leaves this relationship excluded and does not block other seats."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "Official filing evidence was retained by hash without donor or contact details.",
+        "Numeric v2 blocks this seat while every unrelated seat remains usable."
+      ],
+      "evidenceSha256s": [
+        "8e8fd11b9e14a9da707da441a424b84e6c7dc0674b8ff6f710150a149f764bcf",
+        "5a0624086533d61466e263417adcf8e556509ebf95b4dd2e8800ad25ef4a0509"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "52050c8da0335af19e5a1b93f933fce8eb73ee5bd054c91b91e7f9de88da47a6"
+    },
+    {
+      "decisionId": "aipac-mapping-resolution:incumbent:seat_house_md_04_current:H2MD04315",
+      "component": "mapping_resolution",
+      "affectedSeatCycleId": "seat_house_md_04_current",
+      "question": "Should the evidence-specific cycle mapping for seat_house_md_04_current be accepted?",
+      "recommendedDecision": "Accept the cycle-specific resolution candidate only after confirming its identifier, party, committee, and office-change evidence.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Defer this relationship and keep all six AIPAC coverage cells blocked.",
+        "Reject the proposed resolution and request a separately sourced correction."
+      ],
+      "consequences": [
+        "Acceptance allows only the approved House cycle relationships into a later numeric build.",
+        "Office-change cycles remain not applicable rather than zero.",
+        "Deferral leaves this relationship excluded and does not block other seats."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "Official filing evidence was retained by hash without donor or contact details.",
+        "Numeric v2 blocks this seat while every unrelated seat remains usable."
+      ],
+      "evidenceSha256s": [
+        "eecf2a35bf1f851d650d39e170a9ac4d58b19bc192c8012f79460746f44ab04d",
+        "59a46e6cc4b813d5039a40f39e2836275d20b703aab6ce212ad4e9345c6c9dca"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "d7f51af50c5921869fcc4fb41b412bbcd212e679de82b62bc90223e18d916ea3"
+    },
+    {
+      "decisionId": "aipac-mapping-resolution:incumbent:seat_house_mn_03_current:H4MN03118",
+      "component": "mapping_resolution",
+      "affectedSeatCycleId": "seat_house_mn_03_current",
+      "question": "Should the evidence-specific cycle mapping for seat_house_mn_03_current be accepted?",
+      "recommendedDecision": "Accept the cycle-specific resolution candidate only after confirming its identifier, party, committee, and office-change evidence.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Defer this relationship and keep all six AIPAC coverage cells blocked.",
+        "Reject the proposed resolution and request a separately sourced correction."
+      ],
+      "consequences": [
+        "Acceptance allows only the approved House cycle relationships into a later numeric build.",
+        "Office-change cycles remain not applicable rather than zero.",
+        "Deferral leaves this relationship excluded and does not block other seats."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "Official filing evidence was retained by hash without donor or contact details.",
+        "Numeric v2 blocks this seat while every unrelated seat remains usable."
+      ],
+      "evidenceSha256s": [
+        "ad5252cefbbec7fd55ddc8ad8820269f67f709a45d598c2e0218e955283b9bbf",
+        "6b0ece7abbb65af64f416f07f4345cae0985b47fc56a4a502b3cf1de64d58c94"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "1a9c8421e6e692226e4347fc56af1428ac586867a95eaa31192940ead1f36e15"
+    },
+    {
+      "decisionId": "aipac-mapping-resolution:incumbent:seat_house_nh_01_current:H8NH01210",
+      "component": "mapping_resolution",
+      "affectedSeatCycleId": "seat_house_nh_01_current",
+      "question": "Should the evidence-specific cycle mapping for seat_house_nh_01_current be accepted?",
+      "recommendedDecision": "Accept the cycle-specific resolution candidate only after confirming its identifier, party, committee, and office-change evidence.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Defer this relationship and keep all six AIPAC coverage cells blocked.",
+        "Reject the proposed resolution and request a separately sourced correction."
+      ],
+      "consequences": [
+        "Acceptance allows only the approved House cycle relationships into a later numeric build.",
+        "Office-change cycles remain not applicable rather than zero.",
+        "Deferral leaves this relationship excluded and does not block other seats."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "Official filing evidence was retained by hash without donor or contact details.",
+        "Numeric v2 blocks this seat while every unrelated seat remains usable."
+      ],
+      "evidenceSha256s": [
+        "3b5dddf4975ccbc1a53fda30a03f9552a31db7f69616baddab4c56129610d8f0",
+        "41a38f39d0bcd102d79d51b7b0fbe187abce9a18695219e2694343975042a7fd"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "93b778733244a4de66514e3ca276e0bcc18357466f64384eb3cc91456b6a638c"
+    },
+    {
+      "decisionId": "aipac-mapping-resolution:incumbent:seat_house_ny_04_current:H4NY04158",
+      "component": "mapping_resolution",
+      "affectedSeatCycleId": "seat_house_ny_04_current",
+      "question": "Should the evidence-specific cycle mapping for seat_house_ny_04_current be accepted?",
+      "recommendedDecision": "Accept the cycle-specific resolution candidate only after confirming its identifier, party, committee, and office-change evidence.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Defer this relationship and keep all six AIPAC coverage cells blocked.",
+        "Reject the proposed resolution and request a separately sourced correction."
+      ],
+      "consequences": [
+        "Acceptance allows only the approved House cycle relationships into a later numeric build.",
+        "Office-change cycles remain not applicable rather than zero.",
+        "Deferral leaves this relationship excluded and does not block other seats."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "Official filing evidence was retained by hash without donor or contact details.",
+        "Numeric v2 blocks this seat while every unrelated seat remains usable."
+      ],
+      "evidenceSha256s": [
+        "020823efd1cd6e8a5fa219b5b652b525b0299b20a2b5ca7549cd579e75731faf",
+        "51726d4f7838c06d933661a635001308607dc7beb8d61e4813cf970691c93bc8"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "b6f7d73563de97beb54789f3e8ad8dc25fa01b304daee2b6b65be81e41e6030e"
+    },
+    {
+      "decisionId": "aipac-numeric:accept-labeled-udp-inferences-v2",
+      "component": "inferred_udp_relationships",
+      "affectedSeatCycleId": null,
+      "question": "Should the 16 usable UDP challenger relationships remain explicitly labeled inferences in a future reviewed release?",
+      "recommendedDecision": "Accept them only with their exact inference or resolution provenance, confidence, same-seat primary rationale, and correction path; never relabel them as direct mappings.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Require individual review of all 16 relationships.",
+        "Exclude all challenger-opposition evidence."
+      ],
+      "consequences": [
+        "Acceptance preserves reviewer-visible challenger-opposition evidence without claiming direct observation.",
+        "Rejection requires regenerated numeric and report artifacts."
+      ],
+      "confidence": "medium",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "All inferred relationships remain labeled and hash-bound.",
+        "The single invalid-origin association is rejected and six incumbent mappings remain pending."
+      ],
+      "evidenceSha256s": [
+        "034d940df8f36c890c742ca94820836738fd242a37e62476b57d9bb266d2f178",
+        "74d145ce6fd968d8b7f64aac43bc64c71056b87aba2e777d9e68e592e82f6914"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "af9bcb2cbad044a3b22f38cdfa76947d52bef0b11b32c18f702c25beb500da88"
+    },
+    {
+      "decisionId": "aipac-numeric:accept-lineage-methodology-v2",
+      "component": "numeric_lineage_methodology",
+      "affectedSeatCycleId": null,
+      "question": "Should the cutoff-ledger, terminal-revision, signed-net, relationship-resolution, and transaction-receipt methodology be accepted for a future reviewed factual release?",
+      "recommendedDecision": "Accept the reproducible v2 methodology after regenerating its exact hash-bound package; preserve every pending, invalid-origin, and no-House-candidacy state.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Request a corrected transaction or coverage rule.",
+        "Reject numeric use and keep AIPAC not collected."
+      ],
+      "consequences": [
+        "Acceptance permits this exact method, not automatic publication, to enter a later reviewed release.",
+        "Deferral leaves report v4 available only for reviewer analysis."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "All source rows were joined to cutoff-valid filing chains and 2,449 transaction receipts bind 2,673 hashed source records to 274 evidence groups.",
+        "Six pending mappings emit no evidence and California 47 retains its rejected-origin diagnostic."
+      ],
+      "evidenceSha256s": [
+        "c2e864ee17fe3c264c0a3e49ca2d24bc9fef2498ec998aae90b61920ebaf00ab",
+        "f81797f604cefdc5fe835757cec66f837708f40ce0030ebcf46aad81451248b1",
+        "718f175c934ca76f0db8b5ba54ae0376a35067af7a77ee6c1f1d6184da64edfd"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "a1e7819bfa5d2177219a36fa9aaaf7e2dcc95969f14a0ff348f9c6cc5b008b83"
+    },
+    {
+      "decisionId": "aipac-numeric:accept-v01-score-use-v2",
+      "component": "scoring_model",
+      "affectedSeatCycleId": null,
+      "question": "Should formula dsa-primary-target-v0.1 use the candidate AIPAC component at 60% of the AIPAC route for a future reviewed release?",
+      "recommendedDecision": "Accept v0.1 as an explainable initial reviewer model, retain decomposed components, and require a separately versioned formula for any weight change.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Choose a lower AIPAC-route weight and regenerate sensitivity results.",
+        "Keep the component visible but exclude it from ranking."
+      ],
+      "consequences": [
+        "Acceptance preserves 52 AIPAC-route selections in the formula-compatible candidate universe.",
+        "A different weight changes ranks and requires a new report hash."
+      ],
+      "confidence": "medium",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "Report v4 preserves component, route, rank, coverage, and resolution-state decomposition for all 212 seats.",
+        "Six pending and eight Washington seats cannot receive an AIPAC component or route."
+      ],
+      "evidenceSha256s": [
+        "e428fc823ab5f6efa3eacd8f5191fabcb4580a7c4775b0bcae74518917523db9",
+        "c2e864ee17fe3c264c0a3e49ca2d24bc9fef2498ec998aae90b61920ebaf00ab"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "3d0aa5cb11766cff9d8131814190ff8f54df23f8499155284a74a08beabf05b8"
+    },
+    {
+      "decisionId": "aipac-numeric:promote-factual-release-v2",
+      "component": "publication_promotion",
+      "affectedSeatCycleId": null,
+      "question": "Should numeric candidate v2 and report v4 be promoted to a new public factual release?",
+      "recommendedDecision": "Defer promotion until the three methodology decisions and six mapping resolutions are decided, then generate a distinct approved release rather than mutating either proposal.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Approve a corrected subset and regenerate every downstream artifact.",
+        "Reject promotion while retaining the research artifacts."
+      ],
+      "consequences": [
+        "Approval after prerequisite resolution enables public score and evidence UI work.",
+        "Deferral leaves the deployed application and published release unchanged and truthful."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "Foundation v2, numeric v2, report v4, source closure, privacy minimization, and public firewall are complete.",
+        "No reviewer identity, approval timestamp, promotion, or public deployment was fabricated."
+      ],
+      "evidenceSha256s": [
+        "034d940df8f36c890c742ca94820836738fd242a37e62476b57d9bb266d2f178",
+        "c2e864ee17fe3c264c0a3e49ca2d24bc9fef2498ec998aae90b61920ebaf00ab",
+        "e428fc823ab5f6efa3eacd8f5191fabcb4580a7c4775b0bcae74518917523db9"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "cd1341c2b05fa14a7b56ac17349f5c3b61e4a5bc6338105ce06316f366b34415"
+    }
+  ],
+  "decisionSetSha256": "3d2c3733bf9a9b5ea725f095b0add09b2614e7470e71988e8a50b53c221b322f",
+  "packageSha256": "408780bf094982c95b48549593efd1c3ed2e8f894449c61d47fd989204681d52"
+}

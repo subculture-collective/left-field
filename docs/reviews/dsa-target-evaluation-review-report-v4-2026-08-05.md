@@ -39,3 +39,5 @@ Artifact: `data/metadata/dsa-target-evaluation-review-report-20260805-v4.json`
 - Status: `proposed`
 - Reviewer: null
 - Publication eligible: false
+
+The current concise human-review handoff is [`aipac-numeric-review-package-v2-2026-08-05.md`](./aipac-numeric-review-package-v2-2026-08-05.md). It contains ten unresolved decisions: six evidence-specific incumbent resolutions, three methodology/model choices, and one separately gated promotion choice.
