@@ -4,4 +4,5 @@ data/source/elections/primary-results/new-york-city/** -text -diff
 data/source/elections/primary-results/maryland/** -text -diff
 data/source/elections/primary-results/geography/** -text -diff
 data/source/elections/primary-results/certification/** -text -diff
+data/source/elections/primary-results/texas/**/*.pdf -text -diff
 data/source/rapid/county-demographics/acsdt5y2024-b01001.dat filter=lfs diff=lfs merge=lfs -text
