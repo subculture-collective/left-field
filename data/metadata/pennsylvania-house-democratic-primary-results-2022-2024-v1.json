@@ -1,0 +1,1180 @@
+{
+  "schema": "pennsylvania-house-democratic-primary-results-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T20:30:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "originalPublisher": "Pennsylvania Department of State",
+  "status": "official_department_extract_candidate",
+  "licenseOrReuseTerms": "not_stated_by_source",
+  "sources": [
+    {
+      "id": "pa-2022-primary-precinct-returns",
+      "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/voting-and-elections/bulk-data/ElectionReturns_2022_Primary_PrecinctReturns.txt",
+      "retainedPath": "data/source/elections/primary-results/pennsylvania/2022/precinct-returns.txt",
+      "retainedStatus": "retained",
+      "byteSize": 56032507,
+      "sha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "kind": "source",
+      "parentIds": [
+        "pa-2022-primary-returns-readme"
+      ]
+    },
+    {
+      "id": "pa-2022-primary-returns-readme",
+      "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/voting-and-elections/bulk-data/ElectionReturns_2022_Primary_ReadMeFile.txt",
+      "retainedPath": "data/source/elections/primary-results/pennsylvania/2022/readme.txt",
+      "retainedStatus": "retained",
+      "byteSize": 4437,
+      "sha256": "4ebc90ca1cd9609f95c06ac9f7faafb5f8e443759e856a75bce91c00f9ff0d66",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "pa-2024-primary-precinct-returns",
+      "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/voting-and-elections/bulk-data/electionreturns_2024_primary_precinctreturns.txt",
+      "retainedPath": "data/source/elections/primary-results/pennsylvania/2024/precinct-returns.txt",
+      "retainedStatus": "retained",
+      "byteSize": 63882614,
+      "sha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "kind": "source",
+      "parentIds": [
+        "pa-2024-primary-returns-readme"
+      ]
+    },
+    {
+      "id": "pa-2024-primary-returns-readme",
+      "url": "https://www.pa.gov/content/dam/copapwp-pagov/en/dos/resources/voting-and-elections/bulk-data/electionreturns_2024_primary_readme.txt",
+      "retainedPath": "data/source/elections/primary-results/pennsylvania/2024/readme.txt",
+      "retainedStatus": "retained",
+      "byteSize": 5316,
+      "sha256": "18785dce8d2f11be33c117f7d264244a6234291a6396f144523d8da89be98ceb",
+      "kind": "source",
+      "parentIds": []
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "pa:2022:us-house:01:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0156",
+          "sourceCandidateName": "ASHLEY EHASZ",
+          "votes": 79546,
+          "precinctRows": 361
+        }
+      ],
+      "candidateVotes": 79546,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "5a2e5a81f9bd42f7b5f8dc6ea4d6a1c75c740d79765bd6e810cb6e06fca87b12"
+    },
+    {
+      "contestId": "pa:2022:us-house:02:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0194",
+          "sourceCandidateName": "BRENDAN F BOYLE",
+          "votes": 53632,
+          "precinctRows": 735
+        }
+      ],
+      "candidateVotes": 53632,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "96d2083f2a422e4f0e3336a0644fad43f090fb18e55b7954dd21e6194c62cab3"
+    },
+    {
+      "contestId": "pa:2022:us-house:03:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0136",
+          "sourceCandidateName": "ALEXANDRA MARGUERITE HUNT",
+          "votes": 25682,
+          "precinctRows": 885
+        },
+        {
+          "sourceCandidateNumber": "2022C0172",
+          "sourceCandidateName": "DWIGHT EVANS",
+          "votes": 97615,
+          "precinctRows": 885
+        },
+        {
+          "sourceCandidateNumber": "2022C0196",
+          "sourceCandidateName": "MICHAEL S COGBILL",
+          "votes": 5716,
+          "precinctRows": 885
+        }
+      ],
+      "candidateVotes": 129013,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "afb6c9a69d9efc8af577de3d0565676cce01028f24c7775a2115a4d9776c858c"
+    },
+    {
+      "contestId": "pa:2022:us-house:04:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0168",
+          "sourceCandidateName": "MADELEINE D CUNNANE",
+          "votes": 96732,
+          "precinctRows": 386
+        }
+      ],
+      "candidateVotes": 96732,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "00bc5b8c8ff9dbc554665441bf84b4c52b598df2eedd81025572cd0cec5c1cc3"
+    },
+    {
+      "contestId": "pa:2022:us-house:05:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0164",
+          "sourceCandidateName": "MARY GAY SCANLON",
+          "votes": 79815,
+          "precinctRows": 573
+        }
+      ],
+      "candidateVotes": 79815,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "093b3fd70022a73b5e21237bb37a319ab73de7a1946a94013d41faeb4aaafdec"
+    },
+    {
+      "contestId": "pa:2022:us-house:06:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0143",
+          "sourceCandidateName": "CHRISTINA JAMPOLER HOULAHAN",
+          "votes": 71652,
+          "precinctRows": 337
+        }
+      ],
+      "candidateVotes": 71652,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "13ed4d18e21a321f82de6bcfe046c0e49cf8f9bec2722586c315c263198c4140"
+    },
+    {
+      "contestId": "pa:2022:us-house:07:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0200",
+          "sourceCandidateName": "SUSAN ELLIS WILD",
+          "votes": 63817,
+          "precinctRows": 369
+        }
+      ],
+      "candidateVotes": 63817,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "851027ca241168063ea9dfc571516ee3512f44945820ca61d0fc97bdc4f3cdd0"
+    },
+    {
+      "contestId": "pa:2022:us-house:08:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0183",
+          "sourceCandidateName": "MATTHEW A CARTWRIGHT",
+          "votes": 68535,
+          "precinctRows": 425
+        }
+      ],
+      "candidateVotes": 68535,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "8c3c6a5b830700ef985aaa9d9b73ac64ac6748d4754b532109e7488db24d2498"
+    },
+    {
+      "contestId": "pa:2022:us-house:09:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0235",
+          "sourceCandidateName": "AMANDA R WALDMAN",
+          "votes": 41535,
+          "precinctRows": 562
+        }
+      ],
+      "candidateVotes": 41535,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "560f0ba3b4481131250c70852e8d46a59f63a2f233da7eabe315f108bab3b0e8"
+    },
+    {
+      "contestId": "pa:2022:us-house:10:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0215",
+          "sourceCandidateName": "SHAMAINE ANDREA DANIELS",
+          "votes": 32260,
+          "precinctRows": 341
+        },
+        {
+          "sourceCandidateNumber": "2022C0231",
+          "sourceCandidateName": "RICHARD CHASE COPLEN",
+          "votes": 29128,
+          "precinctRows": 341
+        }
+      ],
+      "candidateVotes": 61388,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4a5c76c2e8bcc8b3de4b23c7d3f7f594677c615a79318adbfcbcd2cf40dff9a4"
+    },
+    {
+      "contestId": "pa:2022:us-house:11:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0177",
+          "sourceCandidateName": "ROBERT M HOLLISTER II",
+          "votes": 46038,
+          "precinctRows": 328
+        }
+      ],
+      "candidateVotes": 46038,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "1063b52b7d0267baba32c501e67de237a86651c3ab49ede2298d16747b8877ff"
+    },
+    {
+      "contestId": "pa:2022:us-house:12:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "12",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0146",
+          "sourceCandidateName": "STEVEN DANE IRWIN",
+          "votes": 47014,
+          "precinctRows": 871
+        },
+        {
+          "sourceCandidateNumber": "2022C0227",
+          "sourceCandidateName": "GERALD DICKINSON",
+          "votes": 12440,
+          "precinctRows": 871
+        },
+        {
+          "sourceCandidateNumber": "2022C0236",
+          "sourceCandidateName": "SUMMER LEE",
+          "votes": 48002,
+          "precinctRows": 871
+        },
+        {
+          "sourceCandidateNumber": "2022C0248",
+          "sourceCandidateName": "JEFFREY D WOODARD",
+          "votes": 5454,
+          "precinctRows": 871
+        },
+        {
+          "sourceCandidateNumber": "2022C0251",
+          "sourceCandidateName": "WILLIAM PARKER",
+          "votes": 1670,
+          "precinctRows": 871
+        }
+      ],
+      "candidateVotes": 114580,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "1db9cd025a152598a163e543d490112389bb775cb825833c38eff3c8cc1bbdb3"
+    },
+    {
+      "contestId": "pa:2022:us-house:16:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "16",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0199",
+          "sourceCandidateName": "RICHARD E TELESZ",
+          "votes": 19788,
+          "precinctRows": 495
+        },
+        {
+          "sourceCandidateNumber": "2022C0222",
+          "sourceCandidateName": "DANIEL PASTORE",
+          "votes": 44262,
+          "precinctRows": 495
+        }
+      ],
+      "candidateVotes": 64050,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2a1d5681d3e07b0a5df4c2c6d1749b0c9c89e794904e00e226a1471b92e648ee"
+    },
+    {
+      "contestId": "pa:2022:us-house:17:democratic",
+      "cycleYear": 2022,
+      "stateCode": "PA",
+      "districtCode": "17",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2022-primary-precinct-returns",
+      "sourceFileSha256": "1086f75db02d6862ef5ed4405c0fe96fe11b1acfceb0234f307d8d65d4b517bb",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2022C0186",
+          "sourceCandidateName": "CHRISTOPHER DELUZIO",
+          "votes": 61878,
+          "precinctRows": 665
+        },
+        {
+          "sourceCandidateNumber": "2022C0221",
+          "sourceCandidateName": "SEAN MICHAEL MELOY",
+          "votes": 35298,
+          "precinctRows": 665
+        }
+      ],
+      "candidateVotes": 97176,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "376a54834df3271c502cca6d20f76a4d40e323ff9421fd367c8b7a252b26fd66"
+    },
+    {
+      "contestId": "pa:2024:us-house:01:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0268",
+          "sourceCandidateName": "ASHLEY EHASZ",
+          "votes": 68489,
+          "precinctRows": 361
+        }
+      ],
+      "candidateVotes": 68489,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "8ca1417ff250d274f7b8ff3f39ae02a4e53fac0f4b2fbf2830c048a3bb63e7cf"
+    },
+    {
+      "contestId": "pa:2024:us-house:02:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0280",
+          "sourceCandidateName": "BRENDAN F BOYLE",
+          "votes": 43989,
+          "precinctRows": 737
+        }
+      ],
+      "candidateVotes": 43989,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2cf0996035e490ff121327c0ff7061e3ab44bfdc070e5f428b8b18e9dabe9e20"
+    },
+    {
+      "contestId": "pa:2024:us-house:03:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0022",
+          "sourceCandidateName": "TRACEY L GORDON",
+          "votes": 13165,
+          "precinctRows": 884
+        },
+        {
+          "sourceCandidateNumber": "2024C0363",
+          "sourceCandidateName": "DWIGHT EVANS",
+          "votes": 93936,
+          "precinctRows": 884
+        }
+      ],
+      "candidateVotes": 107101,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "8732357a3f2e1585abda1b1d9c7a622be4bf9b65b339f82d22e99f9804090fc4"
+    },
+    {
+      "contestId": "pa:2024:us-house:04:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0075",
+          "sourceCandidateName": "MADELEINE DEAN CUNNANE",
+          "votes": 78235,
+          "precinctRows": 386
+        }
+      ],
+      "candidateVotes": 78235,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "581c1224b46c930847a40ff93c6592ab5c143f8100d2a990fb2a80b6ee807bc7"
+    },
+    {
+      "contestId": "pa:2024:us-house:05:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0215",
+          "sourceCandidateName": "MARY GAY SCANLON",
+          "votes": 70068,
+          "precinctRows": 572
+        }
+      ],
+      "candidateVotes": 70068,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d18f83775ed34fe16fb22a52d98e40217ae387e335936c4c304231d443f744e2"
+    },
+    {
+      "contestId": "pa:2024:us-house:06:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0149",
+          "sourceCandidateName": "CHRISTINA JAMPOLER HOULAHAN",
+          "votes": 58552,
+          "precinctRows": 337
+        }
+      ],
+      "candidateVotes": 58552,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2170a75498ba5760599f2dc086f8abb1c59f3ea4b355f5e04573e8e352df7fc0"
+    },
+    {
+      "contestId": "pa:2024:us-house:07:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0405",
+          "sourceCandidateName": "SUSAN ELLIS WILD",
+          "votes": 55259,
+          "precinctRows": 369
+        }
+      ],
+      "candidateVotes": 55259,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "0266e4ad882600ec6390a0b7f34fd9806c68796dcfaa44e6871565ed237ab64b"
+    },
+    {
+      "contestId": "pa:2024:us-house:08:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0455",
+          "sourceCandidateName": "MATTHEW ALTON CARTWRIGHT",
+          "votes": 58573,
+          "precinctRows": 427
+        }
+      ],
+      "candidateVotes": 58573,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "00a22f2e3ab5d34cc9cab2723ebf257b3d34d976e2748492b8f9276a5f29b0a4"
+    },
+    {
+      "contestId": "pa:2024:us-house:09:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0577",
+          "sourceCandidateName": "AMANDA R WALDMAN",
+          "votes": 34851,
+          "precinctRows": 562
+        }
+      ],
+      "candidateVotes": 34851,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "efecd1c5de998c7dfc882794936c4376a2e875c92571c47975a102382399a7c5"
+    },
+    {
+      "contestId": "pa:2024:us-house:10:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0174",
+          "sourceCandidateName": "MICHAEL J O'BRIEN",
+          "votes": 14103,
+          "precinctRows": 340
+        },
+        {
+          "sourceCandidateNumber": "2024C0244",
+          "sourceCandidateName": "JANELLE STELSON",
+          "votes": 26591,
+          "precinctRows": 340
+        },
+        {
+          "sourceCandidateNumber": "2024C0443",
+          "sourceCandidateName": "SHAMAINE ANDREA DANIELS",
+          "votes": 8773,
+          "precinctRows": 340
+        },
+        {
+          "sourceCandidateNumber": "2024C0747",
+          "sourceCandidateName": "RICHARD C COPLEN",
+          "votes": 5464,
+          "precinctRows": 340
+        },
+        {
+          "sourceCandidateNumber": "2024C0806",
+          "sourceCandidateName": "BLAKE LYNCH",
+          "votes": 3388,
+          "precinctRows": 340
+        },
+        {
+          "sourceCandidateNumber": "2024C0827",
+          "sourceCandidateName": "JOHN FRANCIS BROADHURST",
+          "votes": 2322,
+          "precinctRows": 340
+        }
+      ],
+      "candidateVotes": 60641,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "788469377a8e2c0b18fe67d6ad7922f81dd88e7d96f7bf6e70a6fe3840a7c05b"
+    },
+    {
+      "contestId": "pa:2024:us-house:11:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0678",
+          "sourceCandidateName": "JAMES F ATKINSON",
+          "votes": 38559,
+          "precinctRows": 328
+        }
+      ],
+      "candidateVotes": 38559,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d439fcb6899ed81bdb91e0b8b6204217ab5ff8a50a94c6e624a9ad02c4c9718f"
+    },
+    {
+      "contestId": "pa:2024:us-house:12:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "12",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0551",
+          "sourceCandidateName": "BHAVINI PATEL",
+          "votes": 41902,
+          "precinctRows": 863
+        },
+        {
+          "sourceCandidateNumber": "2024C0730",
+          "sourceCandidateName": "SUMMER LYNN LEE",
+          "votes": 64594,
+          "precinctRows": 863
+        }
+      ],
+      "candidateVotes": 106496,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "01db77638456ff256237d26006a8833bd8d5b198deb769c17aa7128cd19151f2"
+    },
+    {
+      "contestId": "pa:2024:us-house:13:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "13",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0495",
+          "sourceCandidateName": "ELIZABETH R FARNHAM",
+          "votes": 32568,
+          "precinctRows": 541
+        }
+      ],
+      "candidateVotes": 32568,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "65d28911ec3486bab507ca37cdbb7a4b60b5dfae4745ad69dfa091cb632de142"
+    },
+    {
+      "contestId": "pa:2024:us-house:14:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "14",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0285",
+          "sourceCandidateName": "KENNETH JAMES BACH",
+          "votes": 27193,
+          "precinctRows": 651
+        },
+        {
+          "sourceCandidateNumber": "2024C0535",
+          "sourceCandidateName": "CHRISTOPHER RYAN DZIADOS",
+          "votes": 29268,
+          "precinctRows": 651
+        }
+      ],
+      "candidateVotes": 56461,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "04b9bd69b5baf1ef54f992cabbb55a14138eaa65a645f8fccc8a505af8ca4295"
+    },
+    {
+      "contestId": "pa:2024:us-house:15:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "15",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0446",
+          "sourceCandidateName": "ZACHERAY WILLIAM WOMER",
+          "votes": 35574,
+          "precinctRows": 662
+        }
+      ],
+      "candidateVotes": 35574,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "fa4e9956b609b7f7820968c31981453051aba166315698be699b666325a7e32a"
+    },
+    {
+      "contestId": "pa:2024:us-house:16:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "16",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0565",
+          "sourceCandidateName": "PRESTON A NOURI",
+          "votes": 49283,
+          "precinctRows": 490
+        }
+      ],
+      "candidateVotes": 49283,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "244cbd80f852584b43a8cdac48e7aa46c7b6cc3437710c239935c0ecd0b6a38e"
+    },
+    {
+      "contestId": "pa:2024:us-house:17:democratic",
+      "cycleYear": 2024,
+      "stateCode": "PA",
+      "districtCode": "17",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "pa-2024-primary-precinct-returns",
+      "sourceFileSha256": "98be2859553825262f8f724599a33921960fdb31af5e3549d603e333792eb07b",
+      "authority": "Pennsylvania Department of State",
+      "resultStatus": "department_published_precinct_return_candidate",
+      "certificationStatus": "department_extract_not_independently_verified_certified",
+      "candidates": [
+        {
+          "sourceCandidateNumber": "2024C0556",
+          "sourceCandidateName": "CHRISTOPHER R DELUZIO",
+          "votes": 85265,
+          "precinctRows": 677
+        }
+      ],
+      "candidateVotes": 85265,
+      "candidateReconciliation": "exact_precinct_sum_by_source_candidate_number",
+      "winnerSourceCandidateNumber": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "49afaf2de672efeac42149bf0818f1c9728561e5b04aaa2b7b7c5b5af811ff75"
+    }
+  ],
+  "unresolvedDistricts": [
+    {
+      "cycleYear": 2022,
+      "districtCode": "13",
+      "disposition": "no_reported_democratic_us_house_rows_in_department_extract",
+      "numericUse": "unresolved_not_zero"
+    },
+    {
+      "cycleYear": 2022,
+      "districtCode": "14",
+      "disposition": "no_reported_democratic_us_house_rows_in_department_extract",
+      "numericUse": "unresolved_not_zero"
+    },
+    {
+      "cycleYear": 2022,
+      "districtCode": "15",
+      "disposition": "no_reported_democratic_us_house_rows_in_department_extract",
+      "numericUse": "unresolved_not_zero"
+    }
+  ],
+  "summary": {
+    "sourceRows2022": 353742,
+    "sourceRows2024": 368555,
+    "mechanicallyRepairedSourceRows2024": 35,
+    "acceptedPrecinctRows2022": 14088,
+    "acceptedPrecinctRows2024": 13285,
+    "contests": 31,
+    "contests2022": 14,
+    "contests2024": 17,
+    "candidateGroups": 48,
+    "candidateVotes": 2107473,
+    "unresolvedNoRowDistricts": 3,
+    "contestSetSha256": "82e392e32a1520bb58f74603f64ccb24af1edf89914554c4559a58f56dcc96b1",
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0
+  },
+  "limitations": [
+    "The retained statewide files are complete Pennsylvania Department of State precinct-return extracts, but neither file is itself an independently retained signed or sealed certification artifact.",
+    "The 2022 readme reports an election-day extraction date; the 2024 readme reports a later extraction date. Extraction timing does not establish certification status for either exact file.",
+    "Thirty-five 2024 rows contain the exact unquoted municipality text MANOR X MANOR,NEW. The parser repairs only that known extra delimiter to restore the documented 37-field shape and rejects any other shape deviation.",
+    "The 2022 extract contains no Democratic U.S. House rows for districts 13, 14, or 15. Those districts remain unresolved and are never interpreted as zero, uncontested, or no candidate.",
+    "Candidate names and source candidate numbers are retained as reported for grouping only; they are not current-incumbent identity bindings or progressive classifications.",
+    "No source-stated reuse license was found. No contest is public, score eligible, historical-geography approved, or evaluator integrated."
+  ],
+  "unresolvedGates": [
+    "retain_and_reconcile_election_specific_certification_authority",
+    "resolve_2022_no_row_district_dispositions",
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "2cfc554133dcdcde38e345c2af67636f7cb5b1ec1c5290f5db27dab11be2f6eb"
+}

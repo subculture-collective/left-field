@@ -69,6 +69,8 @@
     "generate:ny-house-primary-dispositions-v2": "tsx scripts/generate-new-york-house-democratic-primary-dispositions-v2-receipt.ts",
     "generate:nyc-house-primary-certified-results": "tsx scripts/generate-new-york-city-house-democratic-primary-certified-results-receipt.ts",
     "fetch:md-house-primary-results": "node scripts/fetch-md-house-democratic-primary-results.mjs",
+    "fetch:pa-house-primary-results": "node scripts/fetch-pa-house-democratic-primary-results.mjs",
+    "generate:pa-house-primary-results-receipt": "tsx scripts/generate-pennsylvania-house-democratic-primary-results-receipt.ts",
     "generate:md-house-primary-results-receipt": "tsx scripts/generate-maryland-house-democratic-primary-results-receipt.ts",
     "fetch:ct-house-primary-event-results": "node scripts/fetch-ct-house-democratic-primary-event-results.mjs",
     "generate:ct-house-primary-event-dispositions": "tsx scripts/generate-connecticut-house-democratic-primary-event-dispositions-receipt.ts",
