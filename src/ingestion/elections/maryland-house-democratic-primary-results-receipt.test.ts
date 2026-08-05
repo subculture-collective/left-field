@@ -1,0 +1,19 @@
+import { createHash } from "node:crypto";
+import { readFileSync } from "node:fs";
+import { resolve } from "node:path";
+import { describe, expect, it } from "vitest";
+
+import { canonicalJson } from "../fec/aipac-proposed-packages";
+import { buildMarylandPrimaryResultsReceipt, validateMarylandPrimaryResultsReceipt, type MarylandPrimaryResultsReceipt } from "./maryland-house-democratic-primary-results-receipt";
+import type { NewYorkSourceEntry } from "./new-york-house-democratic-primary-reported-results-receipt";
+
+const lock = JSON.parse(readFileSync(resolve("data/source-lock.json"), "utf8")) as { entries: NewYorkSourceEntry[] };
+const inputs = () => lock.entries.filter((entry) => /^md-202[24]-democratic-primary-congressional-breakdown$/.test(entry.id)).map((entry) => ({ entry, bytes: readFileSync(resolve(entry.retainedPath)) }));
+const stored = () => JSON.parse(readFileSync(resolve("data/metadata/maryland-house-democratic-primary-results-2022-2024-v1.json"), "utf8")) as MarylandPrimaryResultsReceipt;
+
+describe("Maryland Democratic House primary result corpus", () => {
+  it("retains every district in both cycles and exactly sums source candidates", () => { const receipt = validateMarylandPrimaryResultsReceipt(buildMarylandPrimaryResultsReceipt(inputs())); expect(receipt.summary).toEqual(expect.objectContaining({ contests: 16, contests2022: 8, contests2024: 8, candidates: 88, candidateVotes: 1304581, evaluatorNumericValues: 0, scoreEligibleContests: 0 })); expect(receipt.contests.map((contest) => contest.contestId)).toEqual([2022, 2024].flatMap((year) => Array.from({ length: 8 }, (_, index) => `md:${year}:us-house:${String(index + 1).padStart(2, "0")}:democratic`))); expect(receipt.contests.every((contest) => contest.candidateVotes === contest.candidates.reduce((sum, candidate) => sum + candidate.votes, 0))).toBe(true); });
+  it("retains one source winner marker and no evaluator values", () => { expect(stored().contests.every((contest) => contest.candidates.filter((candidate) => candidate.winnerMarker).length === 1 && contest.winnerSourceCandidateName === contest.candidates.find((candidate) => candidate.winnerMarker)?.sourceCandidateName && !contest.scoreEligible && Object.values(contest.evaluatorValues).every((value) => value === null))).toBe(true); });
+  it("rejects source drift and fully rehashed semantic tampering", () => { const source = inputs(), changed = Buffer.from(source[0]!.bytes); changed[100] = changed[100]! ^ 1; expect(() => buildMarylandPrimaryResultsReceipt([{ ...source[0]!, bytes: changed }, source[1]!])).toThrow("SOURCE_RECEIPT_INVALID"); const receipt = structuredClone(stored()), contest = receipt.contests[0]!; (contest as unknown as { scoreEligible: boolean }).scoreEligible = true; const row = { ...contest } as Record<string, unknown>; delete row.contestSha256; (contest as unknown as { contestSha256: string }).contestSha256 = createHash("sha256").update("dsa-seats:md-house-democratic-primary-result:v1\0", "ascii").update(canonicalJson(row), "utf8").digest("hex"); (receipt.summary as unknown as { contestSetSha256: string }).contestSetSha256 = createHash("sha256").update("dsa-seats:md-house-democratic-primary-result-set:v1\0", "ascii").update(canonicalJson(receipt.contests.map(({ contestId, contestSha256 }) => ({ contestId, contestSha256 }))), "utf8").digest("hex"); const unsigned = { ...receipt } as Record<string, unknown>; delete unsigned.packageSha256; (receipt as unknown as { packageSha256: string }).packageSha256 = createHash("sha256").update("dsa-seats:md-house-democratic-primary-result-package:v1\0", "ascii").update(canonicalJson(unsigned), "utf8").digest("hex"); expect(() => validateMarylandPrimaryResultsReceipt(receipt)).toThrow("PACKAGE_INVARIANT_INVALID"); });
+  it("matches the canonical checked-in artifact", () => { expect(buildMarylandPrimaryResultsReceipt(inputs())).toEqual(stored()); });
+});

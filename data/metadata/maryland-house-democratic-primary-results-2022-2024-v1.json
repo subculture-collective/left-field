@@ -1,0 +1,919 @@
+{
+  "schema": "maryland-house-democratic-primary-results-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T18:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "originalPublisher": "Maryland State Board of Elections",
+  "status": "official_result_candidate",
+  "sources": [
+    {
+      "id": "md-2022-democratic-primary-congressional-breakdown",
+      "url": "https://elections.maryland.gov/elections/archive/2022/election_data/GP22_CongressionalBreakDownDemocratic.csv",
+      "retainedPath": "data/source/elections/primary-results/maryland/2022/democratic-congressional-breakdown.csv",
+      "retainedStatus": "retained",
+      "byteSize": 121637,
+      "sha256": "b684c50946c5c9222d6a562df7e172fbabfbd5b31deb8d35beeefca9565a95b9",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "md-2024-democratic-primary-congressional-breakdown",
+      "url": "https://elections.maryland.gov/elections/archive/2024/election_data/PP24_CongressionalBreakDownDemocratic.csv",
+      "retainedPath": "data/source/elections/primary-results/maryland/2024/democratic-congressional-breakdown.csv",
+      "retainedStatus": "retained",
+      "byteSize": 32067,
+      "sha256": "6000bfe1ee1f11b34dc64fbe136745cdad88a04132a8a2bed2aab5a3113213d3",
+      "kind": "source",
+      "parentIds": []
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "md:2022:us-house:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-07-19",
+      "stateCode": "MD",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2022-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "b684c50946c5c9222d6a562df7e172fbabfbd5b31deb8d35beeefca9565a95b9",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Heather R. Mizeur",
+          "votes": 34549,
+          "winnerMarker": true
+        },
+        {
+          "sourceCandidateName": "R. David Harden",
+          "votes": 15683,
+          "winnerMarker": false
+        }
+      ],
+      "candidateVotes": 50232,
+      "winnerSourceCandidateName": "Heather R. Mizeur",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "20da9b9b25810c54826862307b57ebc46807ef492b39e5d7f547bfa82d52ad12"
+    },
+    {
+      "contestId": "md:2022:us-house:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-07-19",
+      "stateCode": "MD",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2022-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "b684c50946c5c9222d6a562df7e172fbabfbd5b31deb8d35beeefca9565a95b9",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "C.A. Dutch Ruppersberger",
+          "votes": 62896,
+          "winnerMarker": true
+        },
+        {
+          "sourceCandidateName": "George Croom",
+          "votes": 8465,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Liri Fusha",
+          "votes": 4218,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Marques Dent",
+          "votes": 7728,
+          "winnerMarker": false
+        }
+      ],
+      "candidateVotes": 83307,
+      "winnerSourceCandidateName": "C.A. Dutch Ruppersberger",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2b6d510c1e008004c1446f6fbe36613923cbcb466a774b040bf848975b802bf8"
+    },
+    {
+      "contestId": "md:2022:us-house:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-07-19",
+      "stateCode": "MD",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2022-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "b684c50946c5c9222d6a562df7e172fbabfbd5b31deb8d35beeefca9565a95b9",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Ben R. Beardsley",
+          "votes": 6854,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Jake Pretot",
+          "votes": 4728,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "John Sarbanes",
+          "votes": 63790,
+          "winnerMarker": true
+        }
+      ],
+      "candidateVotes": 75372,
+      "winnerSourceCandidateName": "John Sarbanes",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f7a6cf2cf44b8a5e3877a73a969a744f6248136f75ddc0210b6a226111a8b042"
+    },
+    {
+      "contestId": "md:2022:us-house:04:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-07-19",
+      "stateCode": "MD",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2022-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "b684c50946c5c9222d6a562df7e172fbabfbd5b31deb8d35beeefca9565a95b9",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Angela M. Angel",
+          "votes": 4678,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Donna F. Edwards",
+          "votes": 29114,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Glenn F. Ivey",
+          "votes": 42791,
+          "winnerMarker": true
+        },
+        {
+          "sourceCandidateName": "Gregory Holmes",
+          "votes": 1024,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "James Levi Curtis, Jr.",
+          "votes": 763,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Kim A. Shelton",
+          "votes": 1354,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Matthew F. Fogg",
+          "votes": 663,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Robert K. McGhee",
+          "votes": 549,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Tammy Allison",
+          "votes": 1726,
+          "winnerMarker": false
+        }
+      ],
+      "candidateVotes": 82662,
+      "winnerSourceCandidateName": "Glenn F. Ivey",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "1b4732d62be1ddb690448f4e65483421228af2eeb60ad679b757b155d8a46520"
+    },
+    {
+      "contestId": "md:2022:us-house:05:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-07-19",
+      "stateCode": "MD",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2022-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "b684c50946c5c9222d6a562df7e172fbabfbd5b31deb8d35beeefca9565a95b9",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Keith Washington",
+          "votes": 9222,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "McKayla Wilkes",
+          "votes": 18403,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Steny Hoyer",
+          "votes": 68729,
+          "winnerMarker": true
+        }
+      ],
+      "candidateVotes": 96354,
+      "winnerSourceCandidateName": "Steny Hoyer",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4b9bdbabc88de8181bce857c00c2daaed562a417f3cde1cdc92c219afb7d362f"
+    },
+    {
+      "contestId": "md:2022:us-house:06:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-07-19",
+      "stateCode": "MD",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2022-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "b684c50946c5c9222d6a562df7e172fbabfbd5b31deb8d35beeefca9565a95b9",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Ben Smilowitz",
+          "votes": 8995,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "David J. Trone",
+          "votes": 44370,
+          "winnerMarker": true
+        },
+        {
+          "sourceCandidateName": "George Gluck",
+          "votes": 2789,
+          "winnerMarker": false
+        }
+      ],
+      "candidateVotes": 56154,
+      "winnerSourceCandidateName": "David J. Trone",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "61ae246fde6d54d8d020fa30e45c155600791a7014a199230aec79fa8a55437f"
+    },
+    {
+      "contestId": "md:2022:us-house:07:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-07-19",
+      "stateCode": "MD",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2022-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "b684c50946c5c9222d6a562df7e172fbabfbd5b31deb8d35beeefca9565a95b9",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Elihu Eli El",
+          "votes": 1885,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Kweisi Mfume",
+          "votes": 80118,
+          "winnerMarker": true
+        },
+        {
+          "sourceCandidateName": "Tashi Kimandus Davis",
+          "votes": 7141,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Wayne \"For Freedom\" McNeal",
+          "votes": 4890,
+          "winnerMarker": false
+        }
+      ],
+      "candidateVotes": 94034,
+      "winnerSourceCandidateName": "Kweisi Mfume",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f928a89aee28a3171635c994059813e5720bbd32b6a02a39b18350312a57d997"
+    },
+    {
+      "contestId": "md:2022:us-house:08:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-07-19",
+      "stateCode": "MD",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2022-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "b684c50946c5c9222d6a562df7e172fbabfbd5b31deb8d35beeefca9565a95b9",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Andalib Odulate",
+          "votes": 7075,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Jamie Raskin",
+          "votes": 109055,
+          "winnerMarker": true
+        }
+      ],
+      "candidateVotes": 116130,
+      "winnerSourceCandidateName": "Jamie Raskin",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "8ba1495e86624ebca48b10efcca9d9b0b964fc8b4f6565b7b158440e28e796b1"
+    },
+    {
+      "contestId": "md:2024:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-14",
+      "stateCode": "MD",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2024-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "6000bfe1ee1f11b34dc64fbe136745cdad88a04132a8a2bed2aab5a3113213d3",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Blane H. Miller, III",
+          "votes": 26845,
+          "winnerMarker": true
+        },
+        {
+          "sourceCandidateName": "Blessing T. Oluwadare",
+          "votes": 17289,
+          "winnerMarker": false
+        }
+      ],
+      "candidateVotes": 44134,
+      "winnerSourceCandidateName": "Blane H. Miller, III",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6bdad58f463e262f96dfd54541f858a59f217ff59142454d766725c10011d4af"
+    },
+    {
+      "contestId": "md:2024:us-house:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-14",
+      "stateCode": "MD",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2024-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "6000bfe1ee1f11b34dc64fbe136745cdad88a04132a8a2bed2aab5a3113213d3",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Clint Spellman, Jr.",
+          "votes": 1466,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Harry Bhandari",
+          "votes": 7150,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Jessica Sjoberg",
+          "votes": 1692,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "John \"Johnny O\" Olszewski, Jr.",
+          "votes": 65995,
+          "winnerMarker": true
+        },
+        {
+          "sourceCandidateName": "Sharron Reed-Burns",
+          "votes": 3472,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Sia Kyriakakos",
+          "votes": 4080,
+          "winnerMarker": false
+        }
+      ],
+      "candidateVotes": 83855,
+      "winnerSourceCandidateName": "John \"Johnny O\" Olszewski, Jr.",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "8b1c11e45d1f82ae71c43908fa27d7b5e7bfc01e77340784dd95e4822d1e410e"
+    },
+    {
+      "contestId": "md:2024:us-house:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-14",
+      "stateCode": "MD",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2024-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "6000bfe1ee1f11b34dc64fbe136745cdad88a04132a8a2bed2aab5a3113213d3",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Abigail Diehl",
+          "votes": 1379,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Aisha Khan",
+          "votes": 2199,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Clarence Lam",
+          "votes": 9548,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Danny Craig Rupli",
+          "votes": 34,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Don Quinn",
+          "votes": 408,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Gary Schuman",
+          "votes": 286,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Harry Anthony Dunn",
+          "votes": 20380,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Jake Pretot",
+          "votes": 162,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Jeff Woodard",
+          "votes": 352,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "John H. Morse, III",
+          "votes": 1447,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Juan Dominguez",
+          "votes": 1025,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Kristin Anne Lyman Nabors",
+          "votes": 397,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Lindsay Donahue",
+          "votes": 1213,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Malcolm Thomas Colombo",
+          "votes": 527,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Mark S. Chang",
+          "votes": 4106,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Mark Steven Gosnell",
+          "votes": 221,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Matt Libber",
+          "votes": 159,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Michael Coburn",
+          "votes": 583,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Mike Rogers",
+          "votes": 2147,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Sarah Elfreth",
+          "votes": 29459,
+          "winnerMarker": true
+        },
+        {
+          "sourceCandidateName": "Stewart Fred Silver",
+          "votes": 78,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Terri Hill",
+          "votes": 5318,
+          "winnerMarker": false
+        }
+      ],
+      "candidateVotes": 81428,
+      "winnerSourceCandidateName": "Sarah Elfreth",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "f31cdefc34d2a9d7ad72b43140e2178c0b3f61815117c6c0b8a95f794fcf22e1"
+    },
+    {
+      "contestId": "md:2024:us-house:04:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-14",
+      "stateCode": "MD",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2024-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "6000bfe1ee1f11b34dc64fbe136745cdad88a04132a8a2bed2aab5a3113213d3",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Emmett Johnson",
+          "votes": 3835,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Gabriel Njinimbot",
+          "votes": 4366,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Glenn F. Ivey",
+          "votes": 66659,
+          "winnerMarker": true
+        },
+        {
+          "sourceCandidateName": "Joseph Gomes",
+          "votes": 3673,
+          "winnerMarker": false
+        }
+      ],
+      "candidateVotes": 78533,
+      "winnerSourceCandidateName": "Glenn F. Ivey",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "160987f26975c55e5c19d93a3166d720413af72a5e116c07c5fe18a8c89782cb"
+    },
+    {
+      "contestId": "md:2024:us-house:05:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-14",
+      "stateCode": "MD",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2024-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "6000bfe1ee1f11b34dc64fbe136745cdad88a04132a8a2bed2aab5a3113213d3",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Andrea L. Crooms",
+          "votes": 6955,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "McKayla Wilkes",
+          "votes": 9743,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Quincy Bareebe",
+          "votes": 9970,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Steny Hoyer",
+          "votes": 69723,
+          "winnerMarker": true
+        }
+      ],
+      "candidateVotes": 96391,
+      "winnerSourceCandidateName": "Steny Hoyer",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a344400b5dbca1e83499c9ed3c207e561389d6e2afabc547d40eb4b8469173c3"
+    },
+    {
+      "contestId": "md:2024:us-house:06:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-14",
+      "stateCode": "MD",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2024-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "6000bfe1ee1f11b34dc64fbe136745cdad88a04132a8a2bed2aab5a3113213d3",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Adrian Petrus",
+          "votes": 166,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Altimont Mark Wilks",
+          "votes": 179,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "April McClain Delaney",
+          "votes": 22985,
+          "winnerMarker": true
+        },
+        {
+          "sourceCandidateName": "Ashwani Jain",
+          "votes": 4750,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Destiny Drake West",
+          "votes": 1086,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Geoffrey Grammer",
+          "votes": 651,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "George Gluck",
+          "votes": 437,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Joe Vogel",
+          "votes": 14940,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Joel Rubin",
+          "votes": 820,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Kiambo \"Bo\" White",
+          "votes": 401,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Laurie-Anne Sayles",
+          "votes": 1845,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Lesley J. Lopez",
+          "votes": 2600,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Mohammad S. Mozumder",
+          "votes": 1005,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Peter Choharis",
+          "votes": 818,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Stephen R. McDow, II",
+          "votes": 246,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Tekesha A. Martinez",
+          "votes": 3992,
+          "winnerMarker": false
+        }
+      ],
+      "candidateVotes": 56921,
+      "winnerSourceCandidateName": "April McClain Delaney",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "2e2a52199f8cc33b7d9f0695969fbd3f41324d6859fab437d2380c26cda2c86b"
+    },
+    {
+      "contestId": "md:2024:us-house:07:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-14",
+      "stateCode": "MD",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2024-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "6000bfe1ee1f11b34dc64fbe136745cdad88a04132a8a2bed2aab5a3113213d3",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Kweisi Mfume",
+          "votes": 88727,
+          "winnerMarker": true
+        },
+        {
+          "sourceCandidateName": "Tashi Kimandus Davis",
+          "votes": 11640,
+          "winnerMarker": false
+        }
+      ],
+      "candidateVotes": 100367,
+      "winnerSourceCandidateName": "Kweisi Mfume",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "921634d19a0a7df95b260a074083067f76ddf92406935b2ec77f6981d650e826"
+    },
+    {
+      "contestId": "md:2024:us-house:08:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-14",
+      "stateCode": "MD",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "sourceLockId": "md-2024-democratic-primary-congressional-breakdown",
+      "sourceFileSha256": "6000bfe1ee1f11b34dc64fbe136745cdad88a04132a8a2bed2aab5a3113213d3",
+      "authority": "Maryland State Board of Elections",
+      "resultStatus": "state_board_official_result_candidate",
+      "certificationStatus": "not_independently_retained",
+      "candidates": [
+        {
+          "sourceCandidateName": "Eric Felber",
+          "votes": 5636,
+          "winnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Jamie Raskin",
+          "votes": 103071,
+          "winnerMarker": true
+        }
+      ],
+      "candidateVotes": 108707,
+      "winnerSourceCandidateName": "Jamie Raskin",
+      "candidateReconciliation": "exact_source_rows",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "312f142b816619afb171cb6eae9796d441458791422386254e0058902704b7e6"
+    }
+  ],
+  "summary": {
+    "contests": 16,
+    "contests2022": 8,
+    "contests2024": 8,
+    "candidates": 88,
+    "candidateVotes": 1304581,
+    "contestSetSha256": "320cb49e83fb3df8266ffe0ef3600264a3a934bce4f926aea4d44693ec36d6f9",
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0
+  },
+  "limitations": [
+    "The retained statewide breakdown files are official Maryland State Board of Elections raw result data, but this receipt does not retain a separate signed or sealed final certification artifact.",
+    "The files provide one statewide candidate-total row per Democratic U.S. House candidate; they do not provide a separate supplied contest-total row, so candidateVotes is the exact sum of retained source candidate rows rather than an independently supplied total.",
+    "Source candidate names are retained as reported and are not current-incumbent identity bindings or progressive classifications.",
+    "No contest is public, score eligible, historical-geography approved, or evaluator integrated."
+  ],
+  "unresolvedGates": [
+    "retain_independent_final_result_certification",
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "03876280eeb67b63462e568c243e7f015954ec48584f0c86aa0e03bc78025fae"
+}
