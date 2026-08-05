@@ -87,6 +87,8 @@ Aggregate primary turnout and prior progressive-challenger performance are formu
 
 The first cross-source current-incumbent linkage candidate now accounts for all 41 NJ/PA current-target seat-cycle observations available in retained state receipts. It proposes 18 exact-name, nine mechanically derived, and six explicitly inferred relationships while preserving eight historical nonappearances. It automatically approves no identity, selects no contest, resolves no historical geography, and supplies no evaluator number. It supports the existing historic-candidate identity decision rather than creating a new decision. See [`current-incumbent-primary-candidate-linkage-candidate-v1-2026-08-05.md`](../reviews/current-incumbent-primary-candidate-linkage-candidate-v1-2026-08-05.md).
 
+The sibling NJ/PA geography candidate binds those same 41 observations to exact Census CD118/CD119 archives and the official CD119 redraw-scope statement. It proposes 16 CD118-to-CD119 plan-continuity relationships and 16 exact CD119 session/key relationships; all nine 2026 NJ rows remain unassessed pending authoritative CD120 evidence. It does not equate raw TIGER coordinate vintages, approve geography, mutate identity, or provide an evaluator number. See [`nj-pa-primary-geography-compatibility-candidate-v1-2026-08-05.md`](../reviews/nj-pa-primary-geography-compatibility-candidate-v1-2026-08-05.md).
+
 ## Current factual projection status
 
 The immutable v1 reviewer report evaluates the exact 212-seat eligible universe from published release `rel_full_20260804_v2`. It has a compatible 2024 presidential margin for 212/212 seats and current cash-on-hand for 210/212. Its other factors remain explicitly missing.
