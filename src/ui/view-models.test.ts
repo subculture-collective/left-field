@@ -65,6 +65,11 @@ describe("UI data boundary", () => {
     const enriched = { ...profile, electionDecisions: [{ id: "decision_2020", releaseId: profile.release.id, jurisdictionCode: profile.office.stateCode, electionYear: 2020, status: "unassessed" as const, inputSnapshotIds: [] }, { id: "decision_2022", releaseId: profile.release.id, jurisdictionCode: profile.office.stateCode, electionYear: 2022, status: "unavailable" as const, inputSnapshotIds: [snapshotId] }, { id: "decision_2024", releaseId: profile.release.id, jurisdictionCode: profile.office.stateCode, electionYear: 2024, status: "approved" as const, inputSnapshotIds: [snapshotId] }], electionCoverage: [coverage(2020, "not_collected", "not_collected"), coverage(2022, "unavailable", "not_defensibly_modeled"), coverage(2024, "complete", null)] };
     const model = compileProfilePage(seatProfileSchema.parse(enriched), seat);
     expect(model.electionDecisions.map((item) => item.status)).toEqual(["unassessed", "unavailable", "approved"]);
+    expect(model.electionDecisions.map((item) => item.jurisdictionCode)).toEqual(Array(3).fill(profile.office.stateCode));
+    expect(model.electionDecisions[1]).toMatchObject({ coverage: { scope: { jurisdictionCode: profile.office.stateCode, electionYear: 2022 } }, evidence: [{ id: snapshotId, sourceUrl: profile.snapshots[0]!.sourceUrl }] });
+    expect(model.electionDecisions[0]!.evidence).toEqual([]);
+    const restricted = { ...enriched, snapshots: enriched.snapshots.map((snapshot) => snapshot.id === snapshotId ? { ...snapshot, usageStatus: "review_required" as const } : snapshot) };
+    expect(compileProfilePage(seatProfileSchema.parse(restricted), seat).electionDecisions[1]!.evidence).toEqual([]);
     expect(() => seatProfileSchema.parse({ ...enriched, electionCoverage: enriched.electionCoverage.slice(1) })).toThrow(/close over the same years/);
   });
   it("associates source snapshots without inventing a source", () => {
