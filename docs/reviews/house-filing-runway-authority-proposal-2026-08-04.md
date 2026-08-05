@@ -54,12 +54,25 @@ California, Louisiana, and Washington account for 52 seats and are proposed inco
 
 Every decision defaults to `retain_discovery_exclude_from_evaluator_and_publication`. The proposal blocks publication but not continued state-authority acquisition.
 
+## First exception authority packet
+
+An additive packet retains two byte-stable state authorities:
+
+- Connecticut Secretary of the State 2026 election-calendar PDF: 626,034 bytes, SHA-256 `c3d95d2253b1e6b9e2bbdb64b461ed19871695493eda2df2226eec5f79f1ef55`. It confirms U.S. House endorsement/15-percent/petition paths and a June 9, 2026 4:00 p.m. primary-petition deadline. Five CT seats gain deadline/path authority but remain `path_specific_review` until the standard challenger path is selected.
+- Washington Secretary of State top-two candidate FAQ PDF: 281,871 bytes, SHA-256 `ef08af3d2f4bc5b8184fc7cd3ea7a2eafdbf4785158c147ccbc2f243f4f15ac0`. It confirms that U.S. House uses top-two and that party preference is not party nomination or endorsement. Eight WA seats become `confirmed_incompatible` with v0.1; the packet does not claim a controlling WA deadline.
+
+The packet covers 13 seats, confirms deadline authority for five and formula incompatibility for eight, and still emits zero evaluator values. Package SHA-256 is `f357157df143ab6ae95f2f50bda3b1e052876229646db2f42185080ccd97b513`; file SHA-256 is `8e6495526ac258233a1342840b0e2ac8bcbc5511ba127779126dc78a411982ec`.
+
+Volatile CA/VA/WA calendar HTML was not retained as raw authority because repeated standards-compliant fetches produced different bytes. Alabama's live official PDF failed certificate validation from this environment, and Louisiana's static document paths returned 404 or volatile HTML. TLS verification was not bypassed and cached search bytes were not promoted. Those authorities remain pending.
+
 ## Reproduction
 
 ```bash
 npm run fetch:fec-2026-primary-calendar
 npm run generate:filing-runway-authority-proposal
-npm test -- --run src/ingestion/elections/house-filing-runway-authority-proposal.test.ts
+npm run fetch:filing-runway-exception-authorities
+npm run generate:filing-runway-exception-authority-proposal
+npm test -- --run src/ingestion/elections/house-filing-runway-authority-proposal.test.ts src/ingestion/elections/filing-runway-exception-authority-proposal.test.ts
 npm run data:verify
 ```
 

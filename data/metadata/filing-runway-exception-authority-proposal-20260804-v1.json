@@ -1,0 +1,263 @@
+{
+  "schema": "filing-runway-exception-authority-proposal-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T07:00:00.000Z",
+  "sourceCutoff": "2026-08-04",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "inputs": {
+    "baselineSourceLockId": "house-filing-runway-authority-proposal-20260804-v1",
+    "baselineFileSha256": "c3b4e026d934718d95357863d13bc7a1a218ea710f2ad9361769f7ff93a3f9d3",
+    "baselinePackageSha256": "15e5ce40af1e66792f15c83939301e79cfb82dab8b721949d2b4979a74fabc85",
+    "authorities": [
+      {
+        "sourceLockId": "ct-2026-election-calendar",
+        "fileSha256": "c3d95d2253b1e6b9e2bbdb64b461ed19871695493eda2df2226eec5f79f1ef55",
+        "publisher": "Connecticut Secretary of the State",
+        "use": "deadline_and_path_authority"
+      },
+      {
+        "sourceLockId": "wa-top-two-candidate-faq",
+        "fileSha256": "ef08af3d2f4bc5b8184fc7cd3ea7a2eafdbf4785158c147ccbc2f243f4f15ac0",
+        "publisher": "Washington Secretary of State",
+        "use": "formula_scope_authority"
+      }
+    ]
+  },
+  "summary": {
+    "states": 2,
+    "seats": 13,
+    "deadlineAuthorityConfirmedSeats": 5,
+    "formulaScopeConfirmedIncompatibleSeats": 8,
+    "pathSpecificReviewSeats": 5,
+    "evaluatorNumericValues": 0,
+    "decisions": 2
+  },
+  "states": [
+    {
+      "stateCode": "CT",
+      "targetSeats": 5,
+      "deadlineAuthorityStatus": "confirmed",
+      "confirmedDeadline": "2026-06-09",
+      "confirmedDeadlineTime": "16:00 America/New_York",
+      "electionPath": "party_endorsement_eligibility_or_petition",
+      "formulaApplicability": "path_specific_review",
+      "evaluatorValueEligible": false,
+      "authoritySourceLockIds": [
+        "ct-2026-election-calendar"
+      ],
+      "stateSha256": "83ef2facf4eb2f80613d970b10d1bd1c35fd507dc9d3bfad49499d1cd922df9a"
+    },
+    {
+      "stateCode": "WA",
+      "targetSeats": 8,
+      "deadlineAuthorityStatus": "not_in_packet",
+      "confirmedDeadline": null,
+      "confirmedDeadlineTime": null,
+      "electionPath": "top_two_non_nominating",
+      "formulaApplicability": "confirmed_incompatible",
+      "evaluatorValueEligible": false,
+      "authoritySourceLockIds": [
+        "wa-top-two-candidate-faq"
+      ],
+      "stateSha256": "56531bf808fba6476b3a3304c1baebde972a68341fd2d0f3756d0808b566a38e"
+    }
+  ],
+  "seats": [
+    {
+      "seatCycleId": "seat_house_ct_01_current",
+      "stateCode": "CT",
+      "stateSha256": "83ef2facf4eb2f80613d970b10d1bd1c35fd507dc9d3bfad49499d1cd922df9a",
+      "deadlineAuthorityStatus": "confirmed",
+      "formulaApplicability": "path_specific_review",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "path_specific_review"
+      },
+      "scoreEligible": false,
+      "seatSha256": "7e63a8495f9e0b436790603144696d2aaadd38752f1d07fb2b908f813f8672c9"
+    },
+    {
+      "seatCycleId": "seat_house_ct_02_current",
+      "stateCode": "CT",
+      "stateSha256": "83ef2facf4eb2f80613d970b10d1bd1c35fd507dc9d3bfad49499d1cd922df9a",
+      "deadlineAuthorityStatus": "confirmed",
+      "formulaApplicability": "path_specific_review",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "path_specific_review"
+      },
+      "scoreEligible": false,
+      "seatSha256": "94f4b26f9d70b54033c2251f6b3f80904e02baf36d480ce2f5842ead1c4c1b5b"
+    },
+    {
+      "seatCycleId": "seat_house_ct_03_current",
+      "stateCode": "CT",
+      "stateSha256": "83ef2facf4eb2f80613d970b10d1bd1c35fd507dc9d3bfad49499d1cd922df9a",
+      "deadlineAuthorityStatus": "confirmed",
+      "formulaApplicability": "path_specific_review",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "path_specific_review"
+      },
+      "scoreEligible": false,
+      "seatSha256": "f4d3c3c4c413474153fca9d7a5f69752706cb69f99c08de149b574b74198368e"
+    },
+    {
+      "seatCycleId": "seat_house_ct_04_current",
+      "stateCode": "CT",
+      "stateSha256": "83ef2facf4eb2f80613d970b10d1bd1c35fd507dc9d3bfad49499d1cd922df9a",
+      "deadlineAuthorityStatus": "confirmed",
+      "formulaApplicability": "path_specific_review",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "path_specific_review"
+      },
+      "scoreEligible": false,
+      "seatSha256": "64e69b830b790693ea3c6ac6dd18f0d7314fe6d62f4bc89be778c9bf131c5260"
+    },
+    {
+      "seatCycleId": "seat_house_ct_05_current",
+      "stateCode": "CT",
+      "stateSha256": "83ef2facf4eb2f80613d970b10d1bd1c35fd507dc9d3bfad49499d1cd922df9a",
+      "deadlineAuthorityStatus": "confirmed",
+      "formulaApplicability": "path_specific_review",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "path_specific_review"
+      },
+      "scoreEligible": false,
+      "seatSha256": "ce17aa30c335e766e209ee0e406c18ecbdc019abb9b62b6502257658c73ef5ac"
+    },
+    {
+      "seatCycleId": "seat_house_wa_01_current",
+      "stateCode": "WA",
+      "stateSha256": "56531bf808fba6476b3a3304c1baebde972a68341fd2d0f3756d0808b566a38e",
+      "deadlineAuthorityStatus": "not_in_packet",
+      "formulaApplicability": "confirmed_incompatible",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "formula_not_applicable"
+      },
+      "scoreEligible": false,
+      "seatSha256": "d885062c5786b7da0b8319d557affe8c5896115981c7ed514e12039b7bbb144b"
+    },
+    {
+      "seatCycleId": "seat_house_wa_02_current",
+      "stateCode": "WA",
+      "stateSha256": "56531bf808fba6476b3a3304c1baebde972a68341fd2d0f3756d0808b566a38e",
+      "deadlineAuthorityStatus": "not_in_packet",
+      "formulaApplicability": "confirmed_incompatible",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "formula_not_applicable"
+      },
+      "scoreEligible": false,
+      "seatSha256": "912d84e4a077044c64cf746bd1cc03722052a8b56fcb29ccbf2d8cc7726f0a12"
+    },
+    {
+      "seatCycleId": "seat_house_wa_03_current",
+      "stateCode": "WA",
+      "stateSha256": "56531bf808fba6476b3a3304c1baebde972a68341fd2d0f3756d0808b566a38e",
+      "deadlineAuthorityStatus": "not_in_packet",
+      "formulaApplicability": "confirmed_incompatible",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "formula_not_applicable"
+      },
+      "scoreEligible": false,
+      "seatSha256": "327b7a4d65dfca6467dae911a9b217760c938cb0d979666e808cdc5f4b82914d"
+    },
+    {
+      "seatCycleId": "seat_house_wa_06_current",
+      "stateCode": "WA",
+      "stateSha256": "56531bf808fba6476b3a3304c1baebde972a68341fd2d0f3756d0808b566a38e",
+      "deadlineAuthorityStatus": "not_in_packet",
+      "formulaApplicability": "confirmed_incompatible",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "formula_not_applicable"
+      },
+      "scoreEligible": false,
+      "seatSha256": "9a48b55123c1c6ba12e899995d3ffbef5b4a5a10c857cf50c2d7ecb6b6174e7e"
+    },
+    {
+      "seatCycleId": "seat_house_wa_07_current",
+      "stateCode": "WA",
+      "stateSha256": "56531bf808fba6476b3a3304c1baebde972a68341fd2d0f3756d0808b566a38e",
+      "deadlineAuthorityStatus": "not_in_packet",
+      "formulaApplicability": "confirmed_incompatible",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "formula_not_applicable"
+      },
+      "scoreEligible": false,
+      "seatSha256": "e796f3c521cebfbf911ec0279a313e437a5e917915f72f143b6e73406f5177c9"
+    },
+    {
+      "seatCycleId": "seat_house_wa_08_current",
+      "stateCode": "WA",
+      "stateSha256": "56531bf808fba6476b3a3304c1baebde972a68341fd2d0f3756d0808b566a38e",
+      "deadlineAuthorityStatus": "not_in_packet",
+      "formulaApplicability": "confirmed_incompatible",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "formula_not_applicable"
+      },
+      "scoreEligible": false,
+      "seatSha256": "cf13e21c2ae0f3075d699d33c5d16667db7d29947f383442b6d0d4900d6c9396"
+    },
+    {
+      "seatCycleId": "seat_house_wa_09_current",
+      "stateCode": "WA",
+      "stateSha256": "56531bf808fba6476b3a3304c1baebde972a68341fd2d0f3756d0808b566a38e",
+      "deadlineAuthorityStatus": "not_in_packet",
+      "formulaApplicability": "confirmed_incompatible",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "formula_not_applicable"
+      },
+      "scoreEligible": false,
+      "seatSha256": "b2bda58168435cf65642825b1da614119b5a0cee48b44eb227ef89435ca174ba"
+    },
+    {
+      "seatCycleId": "seat_house_wa_10_current",
+      "stateCode": "WA",
+      "stateSha256": "56531bf808fba6476b3a3304c1baebde972a68341fd2d0f3756d0808b566a38e",
+      "deadlineAuthorityStatus": "not_in_packet",
+      "formulaApplicability": "confirmed_incompatible",
+      "evaluatorValue": {
+        "kind": "missing",
+        "reason": "formula_not_applicable"
+      },
+      "scoreEligible": false,
+      "seatSha256": "5d7bc228d359b87d48efda7cea1689efcdb6de3e49a766abc0446c88d1042a11"
+    }
+  ],
+  "decisions": [
+    {
+      "decisionId": "resolve-connecticut-standard-challenger-path-v1",
+      "question": "Which Connecticut endorsement, 15-percent, or petition path should v0.1 treat as the standard challenger deadline?",
+      "recommendedDecision": "retain party rules and district endorsement facts before selecting a numeric deadline",
+      "defaultReversibleAssumption": "retain_authority_exclude_from_evaluator_and_publication",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "resolution": null
+    },
+    {
+      "decisionId": "exclude-washington-top-two-from-partisan-primary-v01",
+      "question": "Should Washington remain visible but be ineligible for the v0.1 partisan-primary score?",
+      "recommendedDecision": "approve exclusion because the official source states party preference is not nomination or endorsement",
+      "defaultReversibleAssumption": "retain_authority_exclude_from_evaluator_and_publication",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "resolution": null
+    }
+  ],
+  "packageSha256": "f357157df143ab6ae95f2f50bda3b1e052876229646db2f42185080ccd97b513"
+}
