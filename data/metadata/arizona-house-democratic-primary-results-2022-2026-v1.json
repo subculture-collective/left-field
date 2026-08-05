@@ -1,0 +1,954 @@
+{
+  "schema": "arizona-house-democratic-primary-results-2022-2026-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T18:30:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "parentProposal": {
+    "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "decisionSupport": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    }
+  ],
+  "inheritedDecisionResolutions": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "resolution": null
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "resolution": null
+    }
+  ],
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "status": "retained_certified_official_statewide_canvass"
+    },
+    {
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "status": "retained_revised_certified_official_statewide_canvass_with_cd03_final_recount"
+    },
+    {
+      "cycleYear": 2026,
+      "electionDate": "2026-07-21",
+      "status": "unofficial_results_not_retained_official_statewide_canvass_scheduled_after_source_cutoff",
+      "scheduledCanvassDate": "2026-08-06",
+      "resultRowsRetained": 0
+    }
+  ],
+  "sources": [
+    {
+      "id": "az-2022-primary-official-statewide-canvass-pdf",
+      "url": "https://apps.azsos.gov/election/2022/20220822_state_canvass_master_report_signed.pdf",
+      "retainedPath": "data/source/elections/primary-results/arizona/2022/official-statewide-canvass.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 424264,
+      "sha256": "71ea40f491477963a3253df9b2fcc1c724b16f6b4d261747bf0e5c5a7ffdd09d",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "az-2022-primary-official-statewide-canvass-text",
+      "url": "urn:dsa-seats:az-2022-primary-official-statewide-canvass-pdf:pdftotext-layout",
+      "retainedPath": "data/source/elections/primary-results/arizona/2022/official-statewide-canvass.txt",
+      "retainedStatus": "retained",
+      "byteSize": 80796,
+      "sha256": "f603c129861b6bcc1c4512f5f73564066bf338ea21cbf297d4c0eb642a275610",
+      "kind": "derived_extract",
+      "parentIds": [
+        "az-2022-primary-official-statewide-canvass-pdf"
+      ]
+    },
+    {
+      "id": "az-2024-cd03-primary-court-order-ocr",
+      "url": "urn:dsa-seats:az-2024-cd03-primary-court-order-pdf:tesseract-layout",
+      "retainedPath": "data/source/elections/primary-results/arizona/2024/cd03-court-order-ocr.txt",
+      "retainedStatus": "retained",
+      "byteSize": 2981,
+      "sha256": "e47340113ae479a19ed05c51f552e280924d9e10d5240c02633cf51bde355924",
+      "kind": "derived_extract",
+      "parentIds": [
+        "az-2024-cd03-primary-court-order-pdf"
+      ]
+    },
+    {
+      "id": "az-2024-cd03-primary-court-order-pdf",
+      "url": "https://azsos.gov/sites/default/files/docs/Court%20Order%20Results.pdf",
+      "retainedPath": "data/source/elections/primary-results/arizona/2024/cd03-court-order.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 580892,
+      "sha256": "8815120061fcffe445e90f6675d7ea6ea755bb13bbbde9449bb52f2115b631e0",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "az-2024-cd03-primary-final-recount-table-transcription",
+      "url": "urn:dsa-seats:az-2024-cd03-primary-recount-report-pdf:page-7-verified-transcription",
+      "retainedPath": "data/source/elections/primary-results/arizona/2024/cd03-final-recount-table.txt",
+      "retainedStatus": "retained",
+      "byteSize": 227,
+      "sha256": "c5e267eeeae83b8f45af1b2d3987d806609d9e2d2afb2438ee3c482a459396c7",
+      "kind": "derived_extract",
+      "parentIds": [
+        "az-2024-cd03-primary-recount-report-pdf"
+      ]
+    },
+    {
+      "id": "az-2024-cd03-primary-recount-report-ocr",
+      "url": "urn:dsa-seats:az-2024-cd03-primary-recount-report-pdf:tesseract-layout",
+      "retainedPath": "data/source/elections/primary-results/arizona/2024/cd03-recount-report-ocr.txt",
+      "retainedStatus": "retained",
+      "byteSize": 12587,
+      "sha256": "d5dda7b182e97b98604b7624838b0028126775b71574af58961a7575833eb6d9",
+      "kind": "derived_extract",
+      "parentIds": [
+        "az-2024-cd03-primary-recount-report-pdf"
+      ]
+    },
+    {
+      "id": "az-2024-cd03-primary-recount-report-pdf",
+      "url": "https://azsos.gov/sites/default/files/docs/SOS%20Report%20of%20CD3%20Recount.pdf",
+      "retainedPath": "data/source/elections/primary-results/arizona/2024/cd03-recount-report.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 224274,
+      "sha256": "e24e00a9d042a83393c430a2352ee5c7b1678dc5efa31b6067a374e39ea46341",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "az-2024-primary-official-statewide-canvass-ocr",
+      "url": "urn:dsa-seats:az-2024-primary-official-statewide-canvass-pdf:tesseract-rotated-layout",
+      "retainedPath": "data/source/elections/primary-results/arizona/2024/official-statewide-canvass-ocr.txt",
+      "retainedStatus": "retained",
+      "byteSize": 95916,
+      "sha256": "de2aea5dd1c8e2a2dfbe8e42744c22a3d1a4bb5fad2e7618d946f864ce090825",
+      "kind": "derived_extract",
+      "parentIds": [
+        "az-2024-primary-official-statewide-canvass-pdf"
+      ]
+    },
+    {
+      "id": "az-2024-primary-official-statewide-canvass-pdf",
+      "url": "https://azsos.gov/sites/default/files/docs/2024_Primary_Election_Official_Canvass_0815b.pdf",
+      "retainedPath": "data/source/elections/primary-results/arizona/2024/official-statewide-canvass.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 424021,
+      "sha256": "cd1965a958a81709e37b4d47aca3662ba1cab58066eec5bee08eaefbd763b172",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "az-2026-primary-election-info-snapshot-20260805",
+      "url": "https://azsos.gov/elections/election-information/2026-election-info",
+      "retainedPath": "data/source/elections/primary-results/arizona/2026/election-info-20260805.html",
+      "retainedStatus": "retained",
+      "byteSize": 281839,
+      "sha256": "0fbd87e399a923ad01a6913f2776eceb66eb41c491d34c51dfefdf9e246ed11d",
+      "kind": "source_snapshot",
+      "parentIds": []
+    },
+    {
+      "id": "az-post-election-procedures-snapshot-20260805",
+      "url": "https://azsos.gov/elections/about-elections/elections-procedures/post-election-procedures",
+      "retainedPath": "data/source/elections/primary-results/arizona/authority/post-election-procedures-20260805.html",
+      "retainedStatus": "retained",
+      "byteSize": 289147,
+      "sha256": "411cc5d0199ddee6e50da4a66b2145cb5dc2e5716dcd978ea3adde2daa66ec15",
+      "kind": "source_snapshot",
+      "parentIds": []
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "az:2022:regular:us-house:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "AZ",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2022-primary-official-statewide-canvass-pdf",
+        "az-2022-primary-official-statewide-canvass-text"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Jevin D. Hodge",
+          "votes": 46144,
+          "sourceWinnerMarker": true
+        },
+        {
+          "sourceCandidateName": "Adam Metzendorf",
+          "votes": 28267,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Delina DiSanto (Write-In)",
+          "votes": 175,
+          "sourceWinnerMarker": false
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 74586,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Jevin D. Hodge",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a448f15778e20500b4b0336076283c0fa89b087aeefa4f8a514c0e93961c83fa"
+    },
+    {
+      "contestId": "az:2022:regular:us-house:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "AZ",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2022-primary-official-statewide-canvass-pdf",
+        "az-2022-primary-official-statewide-canvass-text"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Tom O'Halleran",
+          "votes": 71391,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 71391,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Tom O'Halleran",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4672ad76d6cce9664f7117625d8d38bd06746672bf6189fa41b043b7971f04a5"
+    },
+    {
+      "contestId": "az:2022:regular:us-house:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "AZ",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2022-primary-official-statewide-canvass-pdf",
+        "az-2022-primary-official-statewide-canvass-text"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Ruben Gallego",
+          "votes": 47972,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 47972,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Ruben Gallego",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4173ed9f88d7abb55c7e19cd72d158628b0a979d60fb29fe240ee644fc143c5e"
+    },
+    {
+      "contestId": "az:2022:regular:us-house:04:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "AZ",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2022-primary-official-statewide-canvass-pdf",
+        "az-2022-primary-official-statewide-canvass-text"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Greg Stanton",
+          "votes": 61319,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 61319,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Greg Stanton",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "deb9f977121cb57804283e5748b22d1bba25bc216437a9600b2f8e2d03a3225e"
+    },
+    {
+      "contestId": "az:2022:regular:us-house:05:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "AZ",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2022-primary-official-statewide-canvass-pdf",
+        "az-2022-primary-official-statewide-canvass-text"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Javier Garcia Ramos",
+          "votes": 50647,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 50647,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Javier Garcia Ramos",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "89635ca4729bffdb0219747887dd607b8f96c1db5540e39680ecbcd4030dd85a"
+    },
+    {
+      "contestId": "az:2022:regular:us-house:06:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "AZ",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2022-primary-official-statewide-canvass-pdf",
+        "az-2022-primary-official-statewide-canvass-text"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Avery Anderson",
+          "votes": 5639,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Kirsten Engel",
+          "votes": 54060,
+          "sourceWinnerMarker": true
+        },
+        {
+          "sourceCandidateName": "Daniel Hernandez",
+          "votes": 31815,
+          "sourceWinnerMarker": false
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 91514,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Kirsten Engel",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4e409ed4fb3fea281f62c088422ceb4f274250b72c4df94f795f0b390b936504"
+    },
+    {
+      "contestId": "az:2022:regular:us-house:07:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "AZ",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2022-primary-official-statewide-canvass-pdf",
+        "az-2022-primary-official-statewide-canvass-text"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Raúl Grijalva",
+          "votes": 62547,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 62547,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Raúl Grijalva",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "496cd08f50e401ca022b8a3ed50ab8170f72277a227aba50078d7981e20850ce"
+    },
+    {
+      "contestId": "az:2022:regular:us-house:08:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "AZ",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2022-primary-official-statewide-canvass-pdf",
+        "az-2022-primary-official-statewide-canvass-text"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "no_democratic_candidate_reported_in_complete_official_district_block",
+      "candidates": [],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 0,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "not_applicable_no_democratic_candidate_row",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "31810ea8415e7c878e93c47335cdbb1fb5ed67906c18e855b728d0f76e571842"
+    },
+    {
+      "contestId": "az:2022:regular:us-house:09:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "stateCode": "AZ",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2022-primary-official-statewide-canvass-pdf",
+        "az-2022-primary-official-statewide-canvass-text"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "David Lucier (Write-In)",
+          "votes": 1319,
+          "sourceWinnerMarker": null
+        },
+        {
+          "sourceCandidateName": "Gene Scharer (Write-In)",
+          "votes": 496,
+          "sourceWinnerMarker": null
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 1815,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6ad6af226fa2169debbda01be8ba78f6952ed01118f4bfd3f6bdb620c3da79c1"
+    },
+    {
+      "contestId": "az:2024:regular:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "stateCode": "AZ",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2024-primary-official-statewide-canvass-pdf",
+        "az-2024-primary-official-statewide-canvass-ocr"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Andrei Cherny",
+          "votes": 15596,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Marlene Galán-Woods",
+          "votes": 15490,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Andrew Home",
+          "votes": 8991,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Kurt Kroemer",
+          "votes": 2356,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Conor O'Callaghan",
+          "votes": 13539,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Amish Shah",
+          "votes": 17214,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 73186,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Amish Shah",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "7de07b43aa23dd868809ea128f34ba498c9663079f62d917699d969343ef9987"
+    },
+    {
+      "contestId": "az:2024:regular:us-house:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "stateCode": "AZ",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2024-primary-official-statewide-canvass-pdf",
+        "az-2024-primary-official-statewide-canvass-ocr"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Jonathan Nez",
+          "votes": 62033,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 62033,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Jonathan Nez",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "c1139888e20c6432b2121cd37816ead161a6da9d53603ef97fa7fc6979397a95"
+    },
+    {
+      "contestId": "az:2024:regular:us-house:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "stateCode": "AZ",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2024-primary-official-statewide-canvass-pdf",
+        "az-2024-primary-official-statewide-canvass-ocr",
+        "az-2024-cd03-primary-recount-report-pdf",
+        "az-2024-cd03-primary-recount-report-ocr",
+        "az-2024-cd03-primary-court-order-pdf",
+        "az-2024-cd03-primary-court-order-ocr",
+        "az-2024-cd03-primary-final-recount-table-transcription"
+      ],
+      "resultAuthorityStatus": "certified_final_recount_and_court_order",
+      "resultRevisionStatus": "final_recount_supersedes_initial_canvass",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Yassamin Ansari",
+          "votes": 19087,
+          "sourceWinnerMarker": true
+        },
+        {
+          "sourceCandidateName": "Raquel Terán",
+          "votes": 19048,
+          "sourceWinnerMarker": false
+        },
+        {
+          "sourceCandidateName": "Duane M. Wooten",
+          "votes": 4686,
+          "sourceWinnerMarker": false
+        }
+      ],
+      "aggregateWriteInVotes": 93,
+      "sourceTotalVotes": 42914,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Yassamin Ansari",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "87e13c99c11bd2e504782a61a3c16e93939662d97930e9799c123638b6feeb15"
+    },
+    {
+      "contestId": "az:2024:regular:us-house:04:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "stateCode": "AZ",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2024-primary-official-statewide-canvass-pdf",
+        "az-2024-primary-official-statewide-canvass-ocr"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Greg Stanton",
+          "votes": 49178,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 49178,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Greg Stanton",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "fb9a86fc32ccf593e0824594fc960e4a8fdf885a694963d058204d184a7d6a73"
+    },
+    {
+      "contestId": "az:2024:regular:us-house:05:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "stateCode": "AZ",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2024-primary-official-statewide-canvass-pdf",
+        "az-2024-primary-official-statewide-canvass-ocr"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Katrina Schaffner",
+          "votes": 42396,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 42396,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Katrina Schaffner",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "c4696f677da9d0954420124b993d5b1b2d6c0faed1a308c2af12ccf98108c9da"
+    },
+    {
+      "contestId": "az:2024:regular:us-house:06:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "stateCode": "AZ",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2024-primary-official-statewide-canvass-pdf",
+        "az-2024-primary-official-statewide-canvass-ocr"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Kirsten Engel",
+          "votes": 78178,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 78178,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Kirsten Engel",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3a64a84f17108c04532fceefed2d72a5cc359e0475478399393c26d9f5044330"
+    },
+    {
+      "contestId": "az:2024:regular:us-house:07:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "stateCode": "AZ",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2024-primary-official-statewide-canvass-pdf",
+        "az-2024-primary-official-statewide-canvass-ocr"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Raúl M. Grijalva",
+          "votes": 55133,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 55133,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Raúl M. Grijalva",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6b1513ab3c417f55ec33516033ce4f3322033a31ac4fb6736ba34c6323a52b15"
+    },
+    {
+      "contestId": "az:2024:regular:us-house:08:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "stateCode": "AZ",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2024-primary-official-statewide-canvass-pdf",
+        "az-2024-primary-official-statewide-canvass-ocr"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Gregory Whitten",
+          "votes": 47406,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 47406,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Gregory Whitten",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "289fd519ecb9b333ee315b8ed49fa6ae7d67dda2b9c617ccb852ed92f1d2af40"
+    },
+    {
+      "contestId": "az:2024:regular:us-house:09:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "stateCode": "AZ",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "az-2024-primary-official-statewide-canvass-pdf",
+        "az-2024-primary-official-statewide-canvass-ocr"
+      ],
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Quacy Smith",
+          "votes": 33784,
+          "sourceWinnerMarker": true
+        }
+      ],
+      "aggregateWriteInVotes": 0,
+      "sourceTotalVotes": 33784,
+      "voteReconciliation": "candidate_sum_plus_aggregate_write_in_equals_source_total",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerSourceCandidateName": "Quacy Smith",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d6cef0058e900593ba52c9322faa0390432f7ef31fa488a462b1df2426c48da2"
+    }
+  ],
+  "summary": {
+    "districtCycleRows": 18,
+    "reportedContests": 17,
+    "explicitNoDemocraticCandidateBlocks": 1,
+    "candidates": 29,
+    "candidateVotes": 945906,
+    "aggregateWriteInVotes": 93,
+    "totalVotes": 945999,
+    "officialContests": 17,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0,
+    "contestSetSha256": "98e56f97d7c18b72c36f89c5132f82de426cff7292437e4fed9dad10e6417548"
+  },
+  "limitations": [
+    "The image-based 2024 canvass, recount, and court order use deterministic OCR only as checked extraction aids; the retained official PDFs remain authoritative.",
+    "The 2024 district 3 final recount supersedes only that contest's initial canvass values: Terán gained three votes, Wooten lost one, and the final table separately reports 93 aggregate write-in votes.",
+    "The complete 2022 district 8 block reports only a Republican row; this is not promoted into a claim that no Democratic primary, candidate, or nominee existed.",
+    "The 2022 district 9 Democratic write-in rows have no source winner marker, so no winner is inferred.",
+    "The August 5, 2026 page labels results unofficial and schedules the official statewide canvass for August 6; no 2026 result rows are retained."
+  ],
+  "unresolvedGates": [
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "decide_nonstandard_primary_disposition_treatment",
+    "review_progressive_candidate_classification",
+    "acquire_separately_versioned_2026_certified_canvass_after_source_cutoff",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "119a76ada904d3d03e121ecce285841492654b02d24572cd3f2b690d974eb752"
+}

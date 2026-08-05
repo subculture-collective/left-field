@@ -1,0 +1,521 @@
+=== page-01 ===
+STATE OF ARIZONA OFFICIAL CANVASS                                     Report Date/Time:8/16/2024 1:48:37 PM
+2024 Primary Election - Jul 30, 2024
+Compiled and [ssued by the Arizona Secretary of State
+Santa
+
+Apache Cochise Coconine         Gila Graham Greenlee     La Paz Maricopa Mohave     Navajo       Pima        Pinal        Cruz  Yavapai       Yuma     TOTAL
+Registration
+Republican                                                           11,176 30,864 22,397 15,968          8,973          1,750          5468 851,227 76,534 25530 175,517 104,200          5,320 86,128 32,914 1,454,966
+Democratic                                         26,729      18,286 33,050       7,765       4,221       1,280       2,014 692,284 17,808 21,759 234298 62,073 13,597 30,858 29,554 1,195,696
+Libertarian                                                                     238              660              700              207              117                51                65 18,837              898              370          4,598          2,168              164           1,238              622 30,934
+Green                                  19       59      154       21       10        2        9     1,878       77       15      865      134       12       48       41     3,344
+No Labels                                              203         521         648         148           81           34         128 18,364         765         349       3,881       2,137         133         974         666 29,032
+Other                                                                           14,027         27,695         27,402           9,000           5,125           1,425           4,249 837,009         43,215         18,184 209,155        97,427         11,633        47,324        42,528 1,395,298
+Total Eligible Registration                              52,392       78,085       84,351       33,108       19,527        4,552       11,933 2,419,609 139,298       66,207 628,314 268,139       30,759 168,670 106,325 4,108,270
+Ballots Cast
+Republican                                                   4,999 17,480 10,951       10,655        5,549           769        2,485 434,041       37,330 13975 87,586 51,996        2,153 57,144       13,780 750,903
+Democratic                                                  10,482        9,048 15,210        3,558        1,353           534           625 298,105        7,815        8,568 108,827 24,775        5667 18,642        7,939 521,158
+Libertarian                                                                       32                83                50                46                17                  2                  7           1,591              101                45              320              253                14              169                44          2,774             |
+Green                                                                 3             16             30               1               2               0               0           356             15              4           177             22              2              9              8           645
+No Labels                                                          14            25             22             13              3               1               0           866             39             18           104             77              4             62             21         1,269          |
+Total Ballots Cast                                 15,540     26,652     26,263     14,273       6,924       1,306       3,127 734,959     45,300     22,610 197,014     77,123       7,840     76,026     21,792 1,276,749
+Percent Turnout
+Voter Turnout Percent                                        2066% 34.13% 31.14% 43.11% 3546% 28.69% 26.20% 30.38% 32.52% 34.15% 31.36% 28.76% 25.49% 4561% 20.50% 31.07%            |
+Precincts
+Total Precincts                                                                 44                55                75                39                23                   6                 11               935                24                21               265              109                24                57                47           1,735
+U.S. Senator
+(REP) Kari Lake *                                      2,686        9,262        6,205        5,561        2,397          396        1,458 236,133     24,054        7,376      51,293      18,754       1,242      34,274       8,158 409,339
+(REP) Mark Lamb                                      1,919        7,134       3,690       4,555        2,895          325          910 167,831 11,667        6,049 29,231       31,658          661      19,506        4,856 292,888
+(REP) Elizabeth Jean Reye                              304          811           770          304          152            38            84 24,056        1,101           389        5,814        1,242          178        2,427          538       38,208
+(REP) Dustin Paul Williams (Write-In)                 9          10            6            2            0            0            0          83           5            1           31            8          12           15            2         184        ‘
+(DEM) Ruben Gallego *                               9,340        8,611      14,300       3,319        1,252          485          585 287,352       7,320        7,854 104,455      23,706       5,089      17,928        7,331 498,827
+(GRN} Arturo Hernandez                                1            5            5            0            2            0            ]           56           4            0           25            8            1            1            0          108
+{GRN} Michael Norton                                  1            3            8            0            0            0            4]         114           4            3          33            7            0            3            4         180
+(GRN) Eduardo Quintana (Write-In) *                 1            4          16            0            o}            0            0         144           3            0         103           4           1            2           4         282
+* Winner
+
+Page 1
+
+=== page-02 ===
+STATE OF ARIZONA OFEFICIAL CANVASS                                           Report Date/Time:8/16/2024 1:48:37 PM          |
+2024 Primary Election - Jul 30, 2024
+Compiled and Issued by the Arizona Secretary of State
+Santa
+
+Apache Cochise Coconino         Gila Graham Greenlee      La Paz Maricopa Mohave      Navajo        Pima        Pinal         Cruz  Yavapai       Yuma      TOTAL          |
+U.S. Representative in Congress - District No. 1                                                                                                                                                                                                                                                  |
+(REP) Robert Backie                                          —             -—_             —             —             —_             —             -        9,854            —             -             —             —            —             —             —         9,854           |
+(REP) Kim George                                      —           —           —           —           —           —           -     27,587          -           -           —           —          —           —           —      27,587         |
+(REP) David Schweikert *                                   —-—             —             —             —_             —             —             — 62,811             -             —             —             —             —             —             —_       62,811           |
+{DEM) Andrei Cherny                                       —            —            —            —            -            -            —      15,596            —            —            —            —            —_            _—            e       15,596
+(DEM) Marlene Galén-Woods                          —           —           e           —           e           ——           ~— 15,490           —           —           —           —           —           —           o      15,490         |
+(DEM) Andrew Home                                  -           —           -           -           -           —           — 8901           -           —           -           —          -           —           - 8991         |
+(DEM) Kurt Kroemer                                          —             —             —             e             —             -             —        2,356            —             —_             —             —_            —             -—             -         2,356           |
+(DEM} Conor O'Callaghan                                   —             —             —             e             ——             —             —       13,539            —             —             —             —            —             —             —       13,539           |
+(DEM) Amish Shah *                                     —           —           —           -           —           —           —      17,214           e           —           —           -           —           —           —      17,214         |
+U.S. Representative in Congress - District No. 2                                                                                                                                                                                                                                       |
+(REP) Eli Crane *                                            3,687              -         7,935         8,135               9              —              -             15             13       10,521              — 14,714             — 44,441              -       89,480           |
+(REP) Jack Smith                                             988             -        2,296         1,797              6             —             —              1              6         2,606             —        3,938             -        8,999             —       21,637           |
+
+(DEM) Jonathan Nez *                                9,961            — 14,358        3,064          111            —            —          126           39        8,070            —        9,299            — 17,005            —      62,033
+U.S. Representative in Congress - District No. 3
+(REP) Jesus David Mendoza                           e           -           —           —           —           —           -       4,840           —           —           —           —           —           —           —       4,840         |
+(REP) Jeff Zink *                                                —             —             —             —             —             —             —        9,243            —             -             ——             -            —             —             —         9,243
+(REP) Nicholas N. Glenn (Write-In)                   —           e           —           —           —           -           —          37          -           —           —           —          —           —           —_           37         |
+(DEM) Yassamin Ansari *                                  —            -            —            e            —            —            —      18,087            —            -            -            -            -            —            —       19,087          |
+(DEM) Raquel Teran                                             —             —             -              -             -             -              — 19,045             —              —              -              -             —             -             — 19,045
+{DEM) Duane M. Wooten                                    —             -             —             —             o             —             -        4,687            —             —_             -             —             —_             —             —         4,687          |
+(GRN) Alan Aversa *                                          —             —             —             —             —             -             —             29            -             —             -             -             —             -             —             29
+U.S. Representative in Congress - District No. 4
+(REP) Kelly Cooper *                                      -            ~—            —            —            o            ~—            — 18,902           —            —            —            —           —            —            —      18,902
+(REP) Jerome Davison                                 —           —           —           —           -           —           — 10,664          —           —           —           —          —           —           — 10,664
+(REP) Dave Giles                                       -           —           —           —           —           —           — 13575          —           —           -           -          -           —           — 13575
+(REP) Zuhdi Jasser                                            -             —             -             -             -             —             — 15929             -             -             -             —             —             —             — 15829
+(DEM) Greg Stanton *                                     -            —            -            -            -            —_            — 49178           —            -            -            -           -            -            - 49178
+{GRN) Vincent Beck-Jones (Write-In) *                  —             —_             —             -             —             —             —             31             —             —             -             —             —             —             —             31
+U.S. Representative in Congress - District No. 5
+(REP) Andy Biggs *                                          —            —            -            —            —            —            — 73,952            —            —            — 17,868            —            —_            —_       91,820          |
+
+(DEM) Katrina Schaffner *                            —          -          —          —          —          —          — 36,024          —          —          -       6,372          -          —          —      42,396
+
+* Winner
+
+Page 2                                                                                                                                   |
+
+=== page-03 ===
+STATE OF ARIZONA OFFICIAL CANVASS                                     Report Date/Time:8/16/2024 1:48:37 PM        |
+2024 Primary Election - Jul 30, 2024                                                                                                                    1
+Compiled and [ssued by the Arizona Secretary of State                                                                                                     |
+Santa                                                     |
+Apache Cochise Coconino          Gila Graham Greenlee      La Paz Maricopa Mohave      Navajo        Pima        Pinal         Cruz  Yavapai       Yuma      TOTAL         |
+U.S. Representative in Congress - District No. 6
+(REP) Juan Ciscomani *                               —       9,862           —           —       3,780         4863           —           —          -           —     38,767       6,149           ~—           —           e~      59,021
+(REP) Kathleen Winn                                        —        5,528            -            —        1,515          252            —            —            —             —      28,903        4,427            —            —_            —      40,625          |
+(DEM) Kirsten Engel *                                     -       5,653            —            —        1,104          457            —            —           e            — 64,936        6,028           —            -            —      78,178
+(GRN) Athena Eastwood (Write-In) *                —           1          -          -           0           0          -          —         -          -          25           0          -          -          —          26        |
+U.S. Representative in Congress ~ District No. 7                                                                                                                                                                                                                                              |
+(REP) Daniel Francis Butierez Sr. *                       —        1,297             -             -             —             —             -        3,010            —             —~ 14,883           514        1,703             o        3,018       24,425           |
+(DEM) Radl M. Grijalva *                             —      2,747          —          -~          —          —          -      5,205          —          -~ 37,608         236      5,020          —      4317     55,133        |
+U.S. Representative in Congress - District No. 8                                                                                                                                                                                                                                                  |
+(REP) Patrick "Pat” Briody                                —_            =            -            —            —            —            —        2,336           —            -            —            —            —            nn            —        2,336          |
+(REP) Trent Franks                                            —             ——~             -             —             —             —             -—       16,714            e             —             —             —            —             —             —       16,714          |
+(REP) Abraham "Abe" Hamadeh *                        —             -             —             —             —             —             — 30,686            —             —             —             -            —             —             —       30,686
+(REP) Anthony Kem                                       —            o            —            —            —            —            —       4,022           —            ——            —            e           —            e            —        4,922          |
+(REP) Blake Masters                                   —           —           —           —           —           —           —     26,422          —           —           —           -          —           o           —      26,422         |
+{REP) Ben Toma                                                —             —             —             —             e             e             —      21,549             —             —             —             -             —             —             —       21,549           |
+{REP) Isiah Gallegos (Write-In)                          —            —            -            -            —            —            —           35           —            —            —            —           —            —            -            35          |
+{DEM) Gregory Whitten *                                     —             —             —             -             —             —             — 47,406             —             —             —             —             —             —             —       47,406           |
+U.S. Representative in Congress ~ District No, 8                                                                                                                                                                                                                                       |
+(REP) Paul Gosar *                                —         —         -         -         -         —      2,176 44,684 33,579         —         o         —         —         -      8,869     89,308
+(DEM) Quacy Smith *                                         —             e             -             —             —             —           536 23,590        6,812             —             —             —             -             —        2,846       33,784           |
+State Senator - District No. 1                                                                                                                                                                                                                                                     |
+(REP) Ken Bennett                                             —             —           139             —             -             —             —             -            —             —             —             —             -—      18,217             -       18,356
+(REP) Mark Finchem *                                —          e         211           —          —          —          e          —          —          —          -          —          —     26,449          -     26,660        |
+(REP) Steve Zipperman                                      —             —             63             —             —             —             —             —            -             —             —             —             — 10,018             - 10,081           |
+(DEM) Mike S. Fogel *                                   —           —         452           —           —           —           -           —           —           —           o           —           -      16,882           —      17,334
+State Senator - District No. 2                                                                                                                                                                                                                                                               |
+(REP) Josh Bamett                                     -           —           —           —           —           —           —       9,018          —           —           —           —          —           —           —       9,018         |
+(REP) Shawnna Bolick *                                    —            e            ——            —            —            —            e      10,469            —            —            —            —            ——            —            —_       10,469          |
+(DEM) Judy Schwiebert *                                    —             —             —             —             —             —             — 14,351             —             —             —             =             —             —             — 14,351           |
+(GRN) Dennis Pugsley *                                     —             —             e             ——             —             —             —_             10            —             —             —             —            —             —             —             10           |
+State Senator - District No. 3
+(REP) John Kavanagh *                                -           -           —           —           —           —           — 43471           —           -           —           -          -           —           — 43471         |
+(DEM) John Skirbst (Write-In)                              —             —             —             —             e             —             —           219            —             —             —             o            —             —             —           219
+* Winner                                                                                                                                                                                                                                                               |
+Page 3
+
+=== page-04 ===
+STATE OF ARIZONA OFFICIAL CANVASS                                                  Report Date/Time:8/16/2024 1:48:37 PM
+2024 Primary Election - Jul 30, 2024
+Compiled and Issued by the Arizona Secretary of State
+Santa                                                          |
+Apache Cochise Coconino          Gila Graham Greenlee       LaPaz Maricopa Mohave      Navajo         Pima         Pinal          Cruz  Yavapai        Yuma      TOTAL          |
+State Senator - District No. 4
+(REP) Kenneth R Bowers Jr.                           —           —           —           —           —           —           e      11,874           —           —           R           —           —           -           —      11,874         |
+(REP) Carine Werner *                                       —             —             —             ——             -             —             —       18,651             —             —             —             —            -             —             —       18,651
+(DEM) Christine Marsh *                                   —            -            -            —            —            —            — 23,558            -            —            —_            -            -            —            -      23,558          |
+State Senator - District No. 5§
+(REP) Joshua Ortega *                                  —           —           —           ——           —           —           - 9,092           —           —           —_           -           —_           —           —        9,092         |
+(DEM) Lela Alston *                                            —             —             —             -—             —             -             - 23,236            —             —             -             —             —             o             —       23,236          |
+State Senator - District No. 6                                                                                                                                                                                                                                                               |
+(DEM) Theresa Hatathlie *                            8,634            —        9,554          199          109            —            —            e           37        5,721             —              0            —          —            —      25,254          |
+State Senator - District No, 7                                                                                                                                                                                                                                                               |
+(REP) David Cook                                              —             —        1,820        4,340             —             ——-             -             ——            —        5,624             ~—        5,959             —             —             —       17,743          |
+(REP) Wendy Rogers *                                      —            —        2,689        5,811             -—            -             -            —            —        6,178            ——        7,300            —            —            —       21,978
+(DEM) Haley Creighton *                                   —            —        2,480        1,402            —            e            -            -            —        1,185            -—        2,937            —            —            —        8,004          |
+(DEM) Roberto Apodaca Reveles                        —            —        1,641         1,628            —            —            —            e            —           865            —        2,721            —            —            v        6,755
+State Senator - District No. 8                                                                                                                                ‘
+{REP) Roxana Holzapfel *                            -          —          e          -          -          -          —_       9,366          —          —          ——          —          —          -—          —       8,366        |
+(DEM) Lauren Kuby *                                      -            —            —            —            —            —            — 14782           —            -            —            —           —            -            —      14,762
+{DEM) lvan Pemberton (Write-In)                            —              -              e              -              -              —              —              13              —              —              -              -              —              —              —               13
+State Senator - District No. 9                                                                                                                                                                                                                                                               |
+(REP) Robert Scantlebury *                                  —             —             —             —             —             —             —         8,778             —             o             —             —             -—             —             -         9,778
+(REP) Christopher Stapley                                 —            —            —            —            —            —            —        5,327            —            —-            e            s            —            —            —        5,327
+{DEM) Eva Burch *                                           —            —            —            —            —            —_            —      11,033            e            —            —            —            —            —_            —       11,033
+State Senator - District No. 10
+(REP) David Christian Farnsworth *                  —          —          e          —          —          —           - 25,961          —           —           —       1,173          —          —          o      27,134        |
+(DEM) Robert Doyle *                                         —             —             —             —             —             -             — 12,946            —             -             -           454             —             —             — 13,400          |
+State Senator - District No. 11
+{REP} Joshua Ayala *                                         —             —             —             —             —             —             —        4,564            —             =             —             —            —             o             -—         4,564
+(DEM) Catherine Miranda *                              —            —            —            —            —            —            —      14,626           —            —            —            —           —            —            —      14,626
+State Senator - District No. 12                                                                                                                                                                                                                                                               |
+(REP) Cara Vicini *                                             —             —             -             —             —             —             — 17,187            —             —             —_             -             —             —_             ——n       17,187          |
+(DEM) Denise "Mitzi" Epstein *                          -            —            —            —            —            —            —      20,221            o            ——            —            —           —            —            —      20,221          |
+* Winner
+Page 4                                                                                                                                               |
+
+=== page-05 ===
+STATE OF ARIZONA OFFICIAL CANVASS                                                     Report Date/Time:8/16/2024 1:48:37 PM
+2024 Primary Election ~ Jul 30, 2024
+Compiled and Issued by the Arizona Secretary of State
+Santa
+Apache Cochise Coconino          Gila Graham Greenlee       La Paz Maricopa Mohave       Navajo         Pima         Pinal          Cruz  Yavapai        Yuma      TOTAL
+State Senator - District No. 13
+(REP) J.D. Mesnard *                                     —            -—            -            —            —            —            ~— 22,669           —            —_            —            -           —            —            —      22,669
+(DEM) Sharon Lee Winters *                                  —              —              —              —              -              —              -       16,619              -              -              -              -              —              —              —        15,619
+State Senator - District No. 14
+(REP) Warren Petersen *                               -           —           —           ——           —           —           —      26,019           -           —           —           —           ——           —           e      26,019
+(DEM) Elizabeth Brown *                                 —            —            —            -            e            —            —      12,112           -            R            —            —           -            —            —      12,112
+State Senator - District No. 15
+(REP) Jake Hoffman *                                                —               -               -               -               —               —               —        18,312              —               ——               —        11,783               —               —               —        30,095
+(DEM) Atan Smith *                                          —            —            —            —            e            —            —        6,862            —             -            —        4,046            —            —            —       11,008
+State Senator - District No. 16
+(REP) Thomas "T.J." Shope Jr. *                          —             —             —_             ——             -             —             —             12            —             -—        3,242       16,376             —             -             —       19,630
+(REP) Judy Nganga (Write-In)                          —           -           —           -           —           —           -             0}           —           —            5           21           —           —           —           28
+(DEM) Stacey Seaman *                                       -             -             -             -              —_              —              —           121             ——              -         4,287         9,827             —             —             —       14,235
+State Senator - District No. 17
+(REP) Venden "Vince” Leach *                                      e                 —                 —                 e                 —                 —_                 —                 —                —                  e         16,853           2,510                 ——                 —                 —         19,363
+(REP) Justine Wadsack                                      -             —             —             —             —             —             —             —            o~             —       15,861         1,548             B             -             —       17,409
+(DEM) John McLean *                                      —            —_            —            —_            —_            —            —            -            —            —      24,278        2,150            ——            —            —_      26,428
+State Senator - District No. 18
+(DEM) Priya Sundareshan *                            —           —           -           —           —           —           —           —           —           —      28,643           —           —           —_           —      29,643
+State Senator - District No. 19
+(REP) David Gowan *                                   —      14,375           —           —       4,837          643           —           —           ——           —      10,084           —         401            ——           -      30,350
+(DEM) Bob Karp *                                        —       6,808           —           —       1,074         446           -           —           -           —       8,097           —         448           —           —      16,873
+State Senator - District No. 20
+(DEM) Sally Ann Gonzales *                                 —             —             —             -             —             —             —             —             —             —       20,253             —_             —             —             —       20,253
+State Senator - District No. 21
+(DEM) Rosanna Gabaldén *                            —       1,485           —           ——           —           -           -           —           —           —      12,504           —       4,573           —           —      18,562         |
+State Senator - District No. 22
+(REP) Steve Robinson *                                 o           —           e           —           e           —           —       5,243           —           —           —           ~—           —           —           —       5,243
+(DEM) Eva Diaz *                                       —           —           —           —           —           —           — 7,826          —           -           —           —          —           —           — 7826
+(DEM) Leezah Sun                                             -             —             -             —             —             —             -        2,446            —             —             —             —             -             —             —         2,446
+* Winner                                                                                                                                                                                                                                                               ‘
+Page 5                                                                                                                                   |
+
+=== page-06 ===
+STATE OF ARIZONA OFFICIAL CANVASS                                        Report Date/Time:8/16/2024 1:48:37 PM         |
+2024 Primary Election - Jul 30, 2024
+Compiled and Issued by the Arizona Secretary of State                                                                                                          |
+Santa                                                           |
+Apache Cochise Coconino        Gila Graham Greeniee     La Paz Maricopa Mohave     Navajo      Pima       Pinal       Cruz  Yavapai      Yuma    TOTAL
+State Senator - District No. 23                                                                                                                                                                                                                                                               |
+(REP) Michelle Altherr >                                      e             ——             -             —_             —             -             -        5,235            —             —        1,399              3             —             —        3,020         8,657           |
+(DEM) Brian Fernandez *                              —           —           —           —           —           —           — 2,443          —           - 1872           24          —           — 2,604       6,943
+(DEM) Jesus Arnulfo Luge Jr.                              -             —             —             —             —             e             o        1,496            e             —        1,301             16             —_             —_        1,748         4,562           |
+State Senator - District No. 24                                                                                                                                                                                                                                                               |
+(DEM) Mario Garcia                                    —           —           —           —           -           e           —       1,313          ——           -           —           —          —           -           —       1,313         |
+(DEM) Analise Ortiz *                                      —            —            —            —            —            —            — 8539           —            —            —            —           —            —            —        8,539          |
+State Senator - District No. 25                                                                                                                                                                                                                                                               |
+(REP) Timothy "Tim" Dunn *                                —             —             ——             ——             —             —             —       16,360            ——             —             -—             —             —_             —        9,218       25,578
+State Senator - District No. 26
+(REP) Victor "Vic" Harris *                                   —             —             -             -             -             —             —        4,285             e             —             -             -             —             —             —_         4,285           |
+(DEM) Flavio Bravo *                                 —          -          e          —_—          —          —          —       8,526          —          —          —          —          —          —          —       8,526        |
+State Senator - District No. 27
+(REP) Kevin Payne *                                     -           -           -           —           —           -           - 20,673           -           -           -           —           —           —           -      20,673
+State Senator ~ District No. 28
+(REP) Frank Carroll *                                          -             -             —             —             -             -             — 40,105            -             -             —             -            -             -             — 40,105
+State Senator - District No. 29
+(REP) Janae Shamp *                                     -            —            —            —            —            —            — 25306           —            -            —            -           —            —            — 25306
+(DEM) Eric Stafford *                                          -             —             —             —             —             -             — 13,408            —             —             -             —             —             —             — 13,498
+State Senator - District No. 30
+(REP) Hildy Angius *                                          -             -             -             -             -             -           909           796 17,795             —             -             —            —           374             — 10,874
+(REP) Ashley Gerich                                          -             —             —             —             —             —           667           525 9,308             —             —             —             —           163             — 10,663
+(REP) Kimberly Zanon                                        —             —             —             —             —             -           502           403        6,927             -             -             —             —           124             —_         7,956
+(DEM) J'aime MorgAine *                              —           —           —           —           -           —         545         365 6,887           —           —           —          —         129           — 7926
+State Representative - District No. 1
+(REP) Selina Bliss *                                    —           —         253           —           —           —           —           —          —           —           —           —          — 33,821           — 34074
+(REP) Quang Nguyen *                               —          —        255          -          o          -          —          —_          —           —_          —          —          ~- 38,009          - 38,264
+(REP) Shawn Dell Wildman                            —           —         112           —           —_           -           —           —          —           —           —           —          — 14,005           —_— 14117
+(DEM) Jay Ruby *                                              -             —           406             -             —             —             —             -            -             —             -             -             — 13,991             — 14397
+(DEM) Marcia Smith *                                  —           -         433           —           —           —           -           —          —_—           —           —           —_          — 16,083           — 16,516         |
+* Winner
+Page 6                                                                                                                                                             |
+
+=== page-07 ===
+STATE OF ARIZONA OFFICIAL CANVASS             Report Date/Time:8/16/2024 1:48:37 PM
+
+2024 Primary Election - Jul 30, 2024
+
+Compiled and Issued by the Arizona Secretary of State                                                                                                           |
+
+Santa                                                     |
+
+Apache Cochise Coconino          Gila Graham Greeniee      La Paz Maricopa Mohave      Navajo        Pima        Pinal         Cruz  Yavapai       Yuma      TOTAL
+
+State Representative - District No. 2                                                                                                                                                                                                                                                               |
+(REP) Ari Daniel Bradshaw *                         —          —          o           —          —          —           —     12,382          —           —_          —           —          —          —_—          -—      12,382         |
+{REP) Justin Wilmeth *                                  —           —           —           -           —_           —           —      14,896           —           —           —           —           —           —           —      14,896
+{REP) Danielle Hagen (Write-In)                     —          —          —          -          —          —          -—          43          -          —          e          —          —          —          —          43         |
+(DEM) Stephanie Simacek *                                —             —             -             —             —             —             — 14,072            o             -             —             —             —             —             —       14,072           |
+State Representative - District No. 3                                                                                                                                                                                                                                                            |
+(REP) Joseph Chaplik *                                      —             -             —             —             -             —             —       37,876            _—             -             -—             -             -             —             e       37,876
+(REP) Alexander Kolodin *                                  -             —             ——             —             -—             —             —       32,368            —             ——             —             -—            —             —             o       32,368
+(DEM) Richard Corles *                                   -            —            —            —            —            —            — 18,040           —            —            —            -           -            —            — 18,040
+State Representative - District No, 4                                                                                                                                                                              |
+(REP) Pamela Carter *                                       —             -             -             —             —             —             —       19,454            -             -             —             —            —             -             e       19,454
+(REP) Matt Gress *                                            e             -             —             —             —             —             —       24,368            -             ——             —             -            —             —             -       24,366
+(DEM) Kelli Butler *                                   —          —          —          —          —          —          — 20,049          —          —          —          —          —          -          — 20949
+(DEM) Karen Gresham *                               -           —           —           —           -           —           — 18,956          -           —           —           —          —           —           — 18,956
+State Representative - District No. 5§
+(REP) Reina "Reina" Patocs (Write-In) *             —           -           —           —           —           —           —       1,450          ~——           —           —           —_          o           —           —       1,450         |
+(REP) Juan Schoville (Write-In)                          —            —            —            —            —            —            .          116            —             —            —            o            —            —_            —           116
+(DEM) Sarah Liguori *                                  -           —           —_           —           —           -           — 17215          —           —           -           —_          —           -           — 17215         |
+(DEM) Charles Walter Lucking                             -             —             —             —             —             —             —        8,342            —             —             -             —            —             -             —         8,342
+(DEM) Aaron Marquez *                                    —            —            —            —            —            —            —      11,334            e            ——            —            —            —            —            —       11,334
+(DEM) Dorri Thyden                                           —             —             —             —             —             —             — 4,051             —             —             —             —             —             —             — 4,051
+State Representative - District No. 6                                                                                                         .
+(REP) Lloyd Johnson *                            2,614          —      3,452          32            )          —          —          —          13       1,099          ~—            0          —          —          —       7,259        |
+(REP) Rich King *                                        3,017            —        3,302            24            12            ——            e            —            11           925            ~—              0            —_            —            —_        7,291
+(DEM) Angela Maloney                            2,091           —       4,484           38           25           —           e           —          10       1,538           —            0           —           —           -       8,166         |
+(DEM} Mae Peshlakai *                                       5,101               —         6,630             131               66               -               e               —              19          3,590               —                0              -               —               —        15,537
+(DEM) Myron Tsosie *                                    6,712             -        5,379           164             83             —             —             —            29         3,591             —              0             —             —             —       15,958           |
+* Winner
+Page 7                                                                                                                                   |
+
+=== page-08 ===
+STATE OF ARIZONA OFFICIAL CANVASS                                   Report Date/Time:8/16/2024 1:48:37 PM        |
+2024 Primary Election - Jul 30, 2024
+Compiled and Issued by the Arizona Secretary of State
+
+Santa                                                     |
+Apache Cochise Coconino          Gila Graham Greenlee      La Paz Maricopa Mohave      Navajo        Pima        Pinal         Cruz  Yavapai       Yuma      TOTAL
+
+State Representative - District No. 7
+{REP) Walter "Walt" Blackman *                           —             e        2,234        4720             —             o             —             —            —        6,545             -—        4,559             —             —             o       18,058
+(REP) Andrew Costanzo                                     —_—             —           714        3,076             —             —             -             —            —         1,840             —        2,949             —             —             —         8,579           |
+{REP) John Fillmore                                    —           —         850       1,889           —           —           —           —          —       2,062           —       3,770           -           —           —       8,571         |
+(REP) Barby Ingle                                          —~            —          549        1,068            —            —            —            —           -          906            —       2,469           -            -            —        4,092          |
+(REP) David Marshall Sr. *                            —           —       1,775       3,712           -—           —_           -           —_          —_       5,781           —       5,065          —_          —          —      16,333         |
+(REP) Steven Slaton                                          —             -        1,179        2,442             -—             -             e             e            ——         2,850             —        2,821             -             —             -         9,292
+(DEM) Kevin Chiquete *                                —_—           —       2,966       2,048           —           —_—           —           -          -       1,441           —       3,957           -           —           — 10412         |
+(DEM) Nancy Hartl *                                    —_—           —       3,700       2,504           —           —           —           —          —       1,857           -       4,810           —           —           — 12,871
+State Representative - District No. 8                                                                                                                                                                                                                                                |
+(REP) Caden Datrow *                                      -            —            —            -            -—            ——            —        9,281            -            —            -            —            —            -—            —        9,281
+(DEM) Janeen Connolly *                                  —            —            —            —            -            —            —        8,856            -            —            —_            —            —            —            —        8,856          |
+(DEM) Brian Garcia *                                          -             -             —             —             -             -             - 9,078             -             —             —             —             —             —             — 9078
+(PEM) Juan Mendez                                   n—           e           e           e           —           e           —       8,510          o           -           -           -           —           —           —       8,510
+(GRN) Tre Rock (Write-In) *                               —            —            —            —            -            —            —              7            -            —            —            —            —            —            e              7
+State Representative - District No. 9                                                                                                                                                                                                                                                            |
+(REP) Kylie Barber *                                    —           —           —           -           —           -           — 10,136          —           —           —           —_          —           —           — 10136
+(REP) Mary Ann Mendoza *                          —          e          e          o          ——          ~—          —     10,429          e          -          ——          —          —          —          -      10,429
+(DEM) Lorena Austin *                                      —            —            ——            —            —            —            —      10,353            -             —            —            —_            —            —            —       10,353
+(DEM) Seth Blattran *                                 —           —           —_           —           -           —           — 8,741           —           -           -           -          —           —           — 8741
+State Representative - District No. 10                                                                                                                                                                                                                                                               |
+(REP) Matt Greer                                               —             —             —             —             —             —             - 11,434            —             —             —           582             —             -             —       12,016
+(REP) Ralph Heap *                                       —            —            —            —            —_—            —            — 15742           —            —            —          593           -            -            —      16,335         |
+(REP) Justin Olson *                                      —            —            ——            -            —            -            - 17,041            -            -            —          705            —            —            —      17,746
+(DEM) Helen Hunter *                               —          —          —          —          —          —_          —_ 13,019          —          -          —        458          —          -          — 13477        |
+{DEM) Stephanie Simmons (Write-In) *                —            —            —            —            —            —            —_          549            —            —            —             6            —            -            —           555
+State Representative - District No. 11                                                                                                                                                                                                                                                     |
+(REP) Cesar lvan Aleman *                                 -             —             -             -             -             —             — 3287            -             -             -             -            —             -             - 3257
+(REP) Joseph Charles Dailey *                           e            -            —            —_—            —            —            —        3,886            —            —            —            —            -—            -            —        3,886          |
+(DEM} Junelie Cavero *                                   —            —            -            -—            —_            —            —        8,922           —            —_            —            —           —            —            e        8,922
+(DEM)} Oscar De Los Santos *                             —             —             —             —             -             —             ——       11,502            -             -             —             —            —             —             ——       11,592          |
+(DEM) Izaak Ruiz                                       —           —           —           —           —           —           —       4,148          —           —           —           —          —           —           -       4,148         |
+* Winner
+Page 8                                                                                                                                   |
+
+=== page-09 ===
+STATE OF ARIZONA OFFICIAL CANVASS                                     Report Date/Time:8/16/2024 1:48:37 PM
+
+2024 Primary Election - Jul 30, 2024
+
+Compiled and Issued by the Arizona Secretary of State                                                                                                   |
+
+Santa                                                     |
+
+Apache Cochise Coconino         Gila Graham Greenlee      LaPaz Maricopa Mohave      Navajo        Pima        Pinal         Cruz  Yavapai       Yuma = TOTAL
+
+State Representative - District No. 12                                                                                                                                                                                                                                                     |
+(REP) Lawrence Hudson *                             —           -           -           —           —           —           ~ 16,793          —           -           -           —          -           —           — 16,793
+(DEM) Patricia "Patty" Contreras *                        —_             —             —             —_             ~—             —             —       18,996            ——             —             -             -             —             —             —_       18,996          |
+(DEM) Anastasia "Stacey" Travers *                     —             —             -             -             —             —             —       17,734            —             —             —             —             —             —             —_       17,734
+State Representative - District No. 13
+(REP) Jeff Weninger *                                          —             —              —             —_              —              -              — 19842             —              —             —             —             -             —             — 19642
+(REP) Julie Willoughby *                                     -             -             -             -             —             -             - 18,867            —             —             -             —             -             -             - 18867
+(DEM) Nicholas Gonzales *                                 —             —             —             -             —             —             —       13,638            —             e             -             -            —             e             -       13,638
+(DEM) Brandy Reese *                                       —             -             —             —             e             —             —       13,986            -             —             —             —_—            —             —_             —       13,986
+(GRN) Cody Hannah (Write-In) *                          —             —             —             —             —             —             e              5            —             -             —             —             ——             —             —               5          |
+State Representative - District No. 14
+(REP) Joel Coen                                         _—           —           —           —           —           —           —       5,038           -           —           —           —           —           —           —        5,038
+(REP) Laurin Hendrix *                                              —               —               —               —               —               -               -        13,611               —               —_               -               —               —               —               _        13,611
+(REP) Latani Hunsaker                                 —           —           —           —           —           -           —       9,324          —           —           —           —          _           —           _       9,324
+(REP) Andrew Jackson                                       —_             -             -             e             -             —             —       10,538            -             —             —             —             —             —             —       10,539
+(REP) Khyl Powell *                                         —            e            nen            -            -—            —            — 11,098            —            —            —            —            —            —            —       11,998
+(DEM) Kristin Clark (Write-In)                         -           —           —           —           —           —           —         356          —           —           —           —          —           -           —         356
+(GRN) Scott Menor (Write-In) *                          —            —            —_            —            —            —            -             3           —            —            ——            —            —            —            —             3
+State Representative - District No. 15
+(REP) Peter Anello                                     —           —           —           —           -           -           -~ 6261           —           -           —  339%          -           -           — 8858
+(REP) Neal Carter *                                              —              —              —             —_              _             —_              —_       11,201             —              —             —         6,989             —             —_             —       18,190
+(REP) Alex Stovall                                             -             -             —             -             —             —             —        5,449            -             —             —        3,651             —             —             -         9,100
+(REP) Michael Way *                                    —           -           —           —           —           —           —       9,266           —           —           —_—       5,831           —           —           —      15,097
+(DEM) Barbara Beneitone *                              —            -            -            —            —            —            - 6822           -            —            — 4015           -            -            -~ 10837
+State Representative - District No. 16
+(REP) Rob Hudelson                                   —           —           —           -           —           —           —            7          -           — 1,733 8,006           -           —           — 0746
+(REP) Chris Lopez *                                   —           e          —          —           —_           —           -            8          -           —       1,480       8,474          ——          —           —       9,962        |
+(REP) Teresa Martinez *                                   —            -            —            —            —            —            -              5            -             —        1,255        9,920            -            -            - 11180
+(REP) Gabriela "Gabby" Saucedo Mercer           —          ——          e          —          —          —          —           4          -           —       1,514       4,267          -          —          —       5,785        |
+(DEM) Keith Seaman *                                      e            o            -            —            —            —            —          112            -            —        4,243        9,732            —            —            —       14,087
+* Winner
+Page 9                                                                                                                                   |
+
+=== page-10 ===
+STATE OF ARIZONA OFFICIAL CANVASS                                     Report Date/Time:8/16/2024 1:48:37 PM
+2024 Primary Election - Jul 30, 2024
+Compiled and Issued by the Arizona Secretary of State                                                                                                     |
+Santa                                                          |
+Apache Cochise Coconino          Gila Graham Greenlee      La Paz Maricopa Mohave      Navajo         Pima         Pinal          Cruz  Yavapai        Yuma      TOTAL
+State Representative - District No. 17                                                                                                                                                                                                                                                     |
+(REP) Rachel Jones *                                         o             ——n             -             -             —             —             -             _            _             -       17226         1,779             _             -             _       19,005
+(REP) Cory McGarr *                                   —           —           —           -           ——           ——           —           —          —           -~ 21,946       2,637           —           —           —      24,583
+(REP) Anna Orth                                                -             -             —             —             —             -             -             -            —             — 14064 2,009             —             -             — 16073
+(DEM) Kevin Volk *                                               —_             —              —             —              —             _              _              _             —              — 24184         2146             _              .             _       26,330
+State Representative - District No. 18
+(REP) Leonard "Len" Rosenblum *                      —            —            —            -            —            ——            —            —            —            — 16,297            -            —            —            —       16,297
+(DEM) Nancy Gutierrez *                                    -             -             -             -             -             -             —             —            —             — 27,718             -             —             —             — 27,718
+(DEM) Chris Mathis *                                            —              —             —             —             —             —              —              —             —              — 24856              —             _              -             — 2485
+State Representative - District No. 19                                                                                                                                                                                                                                               |
+{REP) Lupe Diaz *                                           -~ 10,564            -            -        3,002          438            —            —            —            —        7,062            —          282            —            — 21,348
+(REP) Gail Griffin *                                             — 12,663             —             —        4,615           599             —             —            e             o        8,916             —           361             -             — 27154          |
+(DEM) Gregg Frostrom Jr_*                               —_        6,639            —_            -        1,069          438            —            -            -—            —        8,030            —          440            —            —       16,616
+State Representative - District No. 20
+{DEM) Alma Hemandez *                                      —              —             —              -             —             -              —             —             —_              -       16,604             —             —             —             —       16,604
+(DEM) Betty Villegas *                      —       —       —       -       —       —       —       —       —       — 16,710       e       -       —       —    16,710     |
+State Representative - District No. 21
+(REP) Christopher Kibbey *                                —          834            —            —            —            e            —            -            ——            —        6,630            —        1,282            -            —        8,746
+(DEM) Consuelo Hernandez *                            —          964            —_            —            —            -~            —            -            —            e        9,246            —        3,535            -            —       18,745
+(DEM) Briana "Breezy" Ortega                     —        635         —         —         —         —         —         —         —         —      5,830         —      2,258         —         -      8,723
+(DEM) Stephanie Stahl Hamilton *                        -           953             —             -             —             —             —             —            —             —        6,614             e        1,651             —             —         9,218
+State Representative - District No. 22
+(REP) Blaine "Bj" Griffin Sr. *                               —             —             —             —             —             —             —        4,226            —             —             —             e             —             -             —        4,226
+(REP) Diana Jones *                                          —             —             —             —             —             —             —        3,953            —             -             e             —             —             —             -         3,953          |
+{DEM) Lupe Chavira Contreras *                        —            —            —_            —_            —            —_            o        7,053           e            —            —            —            —            -            —        7,053         |
+(DEM) Elda Luna-Najera *                            —          —          —          —          —          —          —      4,207          ——           o          —          —          —          —_          ——       4,207
+(DEM) Betsy Munoz                                           —             —             —             —             —             —             —        3,887            —             -             —             —            —             -             —         3,887          |
+(DEM) Jen Wynne                                         —            —            —            ~—            -            -            —       2,117           —            —            —            —_           —            —            —        2,117         |
+State Representative - District No. 23
+(REP) Michele Pena *                                  —           —           —           —           —           —           — 5175          —           - 12387            3           —           — 3032 9597
+(DEM) James "Jimmy" Holmes                            —             R             —             —_             —             —             -        1,298            ——             —           759              7             —             —           855         2,918
+(DEM) Matias Rosales *                    —       o       ——       —       —       —_       —    2,236       =       —    1,821       19       —       —    2,735     6,811      |
+{DEM) Mariana Sandoval *                                  oo             —             —             —             —             e             —        3,380            o             e        2,488             30             —             —        3,296         9,194
+* Winner                                                                                                                                                                                                                                                               |
+Page 10
+
+=== page-11 ===
+STATE OF ARIZONA OFFICIAL CANVASS                                          Report Date/Time:8/16/2024 1:48:37 PM
+2024 Primary Election - Jul 30, 2024
+Compiled and Issued by the Arizona Secretary of State                                                                                                     |
+Apache Cochise Coconino          Gila Graham Greenlee       La Paz Maricopa Mohave      Navajo         Pima         Pinal        Sgnmt;     Yavapai        Yuma      TOTAL
+State Representative - District No. 24
+
+{DEM) Anna Abeytia *                                         —             —             —             —_             -             —             —        5,075            -             —             —             —            —             —             —         5,075
+{DEM) Lydia Hermandez *                                  —_            —            -            —            —            _            —        8,014            _            .            -            .            _            _            _        6.014
+(DEM) Hector Jaramillo                                       —_             —             ——             —             —             —             -        4,485            —             —             —             -—            —             —             —         4,486
+State Representative - District No. 26
+(REP} Michael Carbone *                                    -             -             —             —             —             —             —       10,743            —             —             —             -—             —             —        5,423       16,166
+(REP) Gary Garcia Snyder                                    —             —             -             -              ——              —             —         5,216             —              ——              —              —             —             —         3,834         8,050
+{REP} Nickolas "Nick” Kupper *                            —             —             e             -             —             —             —        8,123            —             -             —             —            —             —        4,126       12,249
+(REP) Steve Markegard                                —           —           -           -           —           —           —       4,384          —           mm           —           —          —           —_—       1,872       6,256         |
+(DEM) Witliam "Bill" Peter Olear *                             —               —               o               -—               —               —               —_          7,412               —               -               —               —               —               —          2,848        10,258            |
+State Representative - District No. 26
+(REP) Skyta Edwards *                                  -           -           —           —           —           -           —       3,161           -           -           —           -           —           -           —       3,161         |
+(REP) Frank Roberts *                                    —            —            -            —            -            -            — 372            -            —            —            -           —            -            —_ 3721
+(DEM) Cesar Aguilar *                                        —             —             —             —             B             ——             —        7,848            o             —             —             —             —             —             —         7,848          |
+{DEM) Quanta Crews *                                     —            -            —            —            —            -            ——        5,885            —            —            -—            —            o            —            ——        5,885
+State Representative - District No. 27                                                                                                                                                                                                                                                             |
+(REP) Linda Busam                               —         -         -         —         —         —         —      5,303      -         —         —         —         —         —         —      5,303
+{REP) Lisa Fink *                                           e            —            —            —            —            e            - 12,739           —            ——            -—            —           -            —            e      12,739         |
+{REP) Brian Morris                                    e          e          —          —          —          —          —       9,474          —          —_          —          —          —          —          —       5,474
+{REP) Tony Rivero *                                                —              -              -              —              —              -—              —       10,512              —              —              —              —              -              —              o        10,512            |
+
+{DEM) Deborah Howard *                               —           —           -           —           —           —           —      12,629           —           —           -           —           —           -           —      12,629
+State Representative - District No. 28                                                                                                                                                                                                                                                               |
+(REP) Susan Black                                     -           —           —           -           —           —           — 18470          —           —           —           —          —_           —           - 18470
+(REP) David Livingston *                          —         -         —         -         -         —         — 26914         -         —         —         -         —         -         — 26914       |
+(REP) Beverly Pingerelli *                                —            -            ——            —            o            —            — 26,707           —            —            —            —           —            -            —      26,707         |
+(DEM) Barbara Jean Fike *                                —            —            —            -            e            —            — 18,880            —            —            —            —            —            -            —       18,880          |
+State Representative - District No. 28                                                                                                                                                                                                                                                              |
+(REP) Steve Montenegro *                               —            —            —            ——            —            —            —      22,153           -            —            —            —           o            —            —      22,153
+(REP) James Taylor *                                               —               —               -               —               —               —               —        18,382              —               —               —               —              —_               —               —        18,382            |
+(REP) Amy Heusted (Write-in)                        —           —           —           —           —           -           —          85          —_           —           o           —          e           —           —           85
+(DEM) Tanairi Ochoa-Martinez *                          —             —             —             -             —             ~—-             —       12,373            —             e             —             —            -             -             _—       12,373          |
+(DEM) Tom Tzitzura *                                     -            -            -            —            —            —            — 10,304           -            —            -            —           —            -            — 10,304
+* Winner
+Page 11                                                                                                                          |
+
+=== page-12 ===
+STATE OF AR[ZONA OFF|C|AL CANVASS                                 Report Date/Time:8/16/2024 1:48:37 PM
+2024 Primary Election - Jul 30, 2024
+Compiled and Issued by the Arizona Secretary of State
+Santa
+Apache Cochise Coconino         Gila Graham Greenlee LaPaz Maricopa Mohave      Navajo        Pima        Pinal         Cruz  Yavapai       Yuma  TOTAL
+State Representative - District No. 30
+
+(REP) Leo Biasiucci *                                  —           —           —           -           —           -       1,571       1,288 27,500           -           —           —          -         585           —      30,944
+(REP) John Gillette *                                          -             —             -             —             —             —        1,587        1,449 23,768             —             -             -            —           530             -       27,334          |
+{DEM) Monica Timberlake *                               —            —            —            —            —            ——          548          370       6,926             —            —_—            —            —          127            —        7,971
+Corporation Commissioner
+{REP) Rene Lopez *                                 2,458      11,252       6,047       5,985       3,464         461        1,352 264,442 21,339       7,710 50,050 31,807       1,289 34,740       8,083 450,479         ‘
+(REP) Lea Marquez Peterson *                      2,295      11,040        5,687        5,667        3,388          445        1290 251,348 19,686        7471       50,702 28,703        1,112 33,124        7,852 429,820
+(REP) Rachel Walden *                                  3,035       12,386        6,604        6,960        3,965           502         1,617 300,654 25207         8,150 57,560 35,387        1,238 38,590        9,158 512,104
+(DEM) Ylenia Aguitar *                                             4,878           7,184         11,707           2,707           1,080              420              469 239,841           5,867           5,182        89,304         196,859          4,180         15,242          6,200 414,130
+(DEM) Jonathon Hill *                                    6,450        6,471       11,498        2,499           801           345           438 215,923        5,726         5674 81677 17,882        3,030       14,737        4,763 378,014          |
+(DEM} Joshua Polacheck *                            4,417        6,168      10,654        2,329           847          340          407 208,241        5,289        4,475      78,968      16,835        2,854      14,487        4,524 360,835
+(GRN) Mike Cease {Write-in) *                             1              2            10              0              o]              0              0            73             2              ]            80              §             2              2              2           179          |
+(GRN) Nina Luxenberg (Write-In) *                    1            3          10            0            0            c            0          72           1            ]          80            3           2            3            1          176
+NOL Partisan Notice
+(NOL) Candidate No                                    —           —           —           —           -           —           B            0          -           -           —           —           —           —           —            0
+* Winner                                                                                                                                                                                                                                                               |
+Page 12                                                                                                                                               |
+
+=== page-13 ===
+2024 Write-In and Withdrawn Candidates
+
+WRITE-IN CANDIDATES                                                                                                    :
+
+          :
+                                                  ‘
+                                                  ‘
+                ‘
+          w
+                :
+                ‘
+          ~
+          ‘
+          ;
+*                                                      WITHDRAWN CANDIDATES                                                                                                                     ‘
+@ADRIAN                                                                  |
+
+6/21/2024                                                                    |
+
+=== page-14 ===
+STATE OF ARIZONA OFFICIAL CANVASS                            Report Date/Time:8/16/2024 1:48:37 PM
+2024 Primary Election - Jul 30, 2024
+Compiled and Issued by the Arizona Secretary of State                                                                                                        |
+2024 PRIMARY ELECTION OFFICIAL CANVASS CERTIFICATION
+. ;—;"{( ,—”%w\“\\‘; 8                          |, Adrian Fontes, Arizona Secretary of State, do hereby certify that the foregoing
+,    :?\\;;@V .  "fof.md{f,;;                          canvass is a frue, correct and complete tabulation of the votes cast at the 2024                                  |
+  ﬁ?%\/w&%                     Primary Election held in the State of Arizona on the 30th day of July, 2024. This
+cXy-oEEEERE L g/.; -                    canvass displays the name of each person who appeared on the ballot for a federal                           |
+2 e l‘é«/&i  tema                    and state office in the election and the number of votes received for each person,                              |
+= ,«,:Q:\l”iéi‘iﬂ/,g   EE                    as shown by the tabulations received from the Boards of Supervisors of each
+e  \\:@\\ /***‘%;w : SRS                     county in the State of Arizona.                                                                                            |
+e e Y                     IN WITNESS WHEREOF, | have hereunto set my hand and affixed the Great Seal                          |
+;T"»J,‘j‘\,é\/:}‘s  e e o = 0                         of the State of Arizona, this 15th day of August, 2024, at the Capitol, in Phoenix.
+g            -                        z
+Adrfan Fonte$   ef     t
+Seﬁ@retary of Stat
+Page 13                                                                                                         |
+
