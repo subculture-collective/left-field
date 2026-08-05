@@ -40,6 +40,7 @@
     "generate:aipac-decision-queue": "tsx scripts/generate-aipac-review-decision-queue.ts",
     "generate:aipac-evidence-foundation": "tsx scripts/generate-aipac-evidence-foundation-candidate.ts",
     "generate:aipac-challenger-ambiguity-resolution": "tsx scripts/generate-aipac-challenger-ambiguity-resolution-candidate.ts",
+    "generate:aipac-incumbent-conflict-resolution": "tsx scripts/generate-aipac-incumbent-conflict-resolution-candidate.ts",
     "generate:aipac-numeric-evidence": "tsx scripts/generate-aipac-numeric-evidence-candidate.ts",
     "generate:aipac-numeric-review": "tsx scripts/generate-aipac-numeric-review-package.ts",
     "generate:dsa-target-review-v3": "tsx scripts/generate-dsa-target-review-report-v3.ts",

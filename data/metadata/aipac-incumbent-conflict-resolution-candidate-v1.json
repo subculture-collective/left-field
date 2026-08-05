@@ -1,0 +1,325 @@
+{
+  "schema": "aipac-incumbent-conflict-resolution-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T17:00:00.000Z",
+  "sourceCutoff": "2026-08-04",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_until_each_resolution_is_accepted_by_an_authorized_reviewer",
+  "inputs": {
+    "proposalFileSha256": "6e47107b725e2f92aba68af7f90a4910289d7e2b6356941c242245c5fe5cd8f6",
+    "authorityReceiptFileSha256": "a86ffd899a159db48fe69d61a18f800bc153c1468322ec317e35de901747d485",
+    "partyAliasAuthoritySourceLockId": "mn-dfl-about-party-affiliation-20260805",
+    "partyAliasAuthoritySha256": "6d6ff77809297594b659addf2209ccd1112ae9336702680e0a802bca27f1c799"
+  },
+  "summary": {
+    "inputConflictRelationships": 6,
+    "evidenceSpecificResolutionCandidates": 6,
+    "correctedCandidateIds": 2,
+    "partyAliasCandidates": 1,
+    "sourceScopedAliasOverrideCandidates": 1,
+    "officeChangeExclusions": 2,
+    "pendingAuthorizedMappingDecisions": 6,
+    "automaticallyApprovedRelationships": 0,
+    "remainingMethodologyAndPromotionDecisions": 4
+  },
+  "resolutions": [
+    {
+      "sourceDecisionId": "incumbent:seat_house_ca_31_current:H8CA39174",
+      "seatCycleId": "seat_house_ca_31_current",
+      "sourceCandidateId": "H8CA39174",
+      "canonicalCandidateId": "H8CA39174",
+      "alternateCandidateIds": [
+        "H4CA31170"
+      ],
+      "partyTreatment": "exact_dem",
+      "cycleDispositions": [
+        {
+          "cycleYear": 2024,
+          "disposition": "proposed_house_relationship",
+          "committeeIds": [
+            "C00850420"
+          ],
+          "evidenceRule": "ccl_missing_direct_form_evidence_override",
+          "numericUse": "pending_authorized_review"
+        },
+        {
+          "cycleYear": 2026,
+          "disposition": "proposed_house_relationship",
+          "committeeIds": [
+            "C00850420"
+          ],
+          "evidenceRule": "exact_cn_ccl_principal_match",
+          "numericUse": "pending_authorized_review"
+        }
+      ],
+      "sourceEvidenceRecordSha256s": [
+        "12d9c7f5c0475d4dcec1f17ba8c7d2ea45a7222c03b4a5f3e791553cc9e69367",
+        "d7d8f0d5fa14e828834437a1fcb26166e1af70e68fc1a0692468a88fdc60993d"
+      ],
+      "officialFilingSourceLockIds": [
+        "fec-form1-1814721",
+        "fec-form2-1818491"
+      ],
+      "officialFilingSha256s": [
+        "07f6e5ea56aa7170d57d311a4f5df851200e1f5535d523bc89fd270c53a24ab3",
+        "288cedd1da118063a926326c7794a29d4219cce739d94a11b864e87f12000433"
+      ],
+      "rationaleCodes": [
+        "CANONICAL_ID_PRESERVED",
+        "FORM2_ALTERNATE_ID_RECORDED",
+        "CCL24_MISSING_DIRECT_FORM_EVIDENCE_OVERRIDE_REQUIRES_REVIEW"
+      ],
+      "defaultEvaluatorUse": "excluded_pending_authorized_review",
+      "resolutionSha256": "f4dfdebb9aa22cb1a5f36566042787f7ffe51b058a26643a94b9ea5db6f51a2b"
+    },
+    {
+      "sourceDecisionId": "incumbent:seat_house_ma_06_current:H4MA06090",
+      "seatCycleId": "seat_house_ma_06_current",
+      "sourceCandidateId": "H4MA06090",
+      "canonicalCandidateId": "H4MA06090",
+      "alternateCandidateIds": [
+        "S6MA00296"
+      ],
+      "partyTreatment": "exact_dem",
+      "cycleDispositions": [
+        {
+          "cycleYear": 2022,
+          "disposition": "proposed_house_relationship",
+          "committeeIds": [
+            "C00547240"
+          ],
+          "evidenceRule": "exact_cn_ccl_principal_match",
+          "numericUse": "pending_authorized_review"
+        },
+        {
+          "cycleYear": 2024,
+          "disposition": "proposed_house_relationship",
+          "committeeIds": [
+            "C00547240"
+          ],
+          "evidenceRule": "exact_cn_ccl_principal_match",
+          "numericUse": "pending_authorized_review"
+        },
+        {
+          "cycleYear": 2026,
+          "disposition": "office_changed_to_senate",
+          "committeeIds": [],
+          "evidenceRule": "later_form2_and_form1_different_office",
+          "numericUse": "excluded_not_house_candidacy"
+        }
+      ],
+      "sourceEvidenceRecordSha256s": [
+        "350081bc40725418425c2eab406723a1a28abba30cd6666ea597b51a4bdc781b",
+        "d1ff6540e1e35e9edd7f7fdea5dd3e106c6c4966554566f74b43f1dd0437bf9d",
+        "fd8da89cc72379df8403f036d1f4d3756d627ee356a148553d77f27235db368f"
+      ],
+      "officialFilingSourceLockIds": [
+        "fec-form1-1928061",
+        "fec-form2-1848675",
+        "fec-form2-1921931"
+      ],
+      "officialFilingSha256s": [
+        "0fa7a4579c17b825b17d9216e2251bbe300f268577729091b55bc89ee07f64db",
+        "33d80f4a334ca1657cb12eb1bb65217ac849566943ca35f9ea14074dc97ecb46",
+        "7188d49cb05bef8d442e2320f1ca8546069d0d9d40dbaeaa25036b0fad2d11e6"
+      ],
+      "rationaleCodes": [
+        "HISTORICAL_HOUSE_RELATIONSHIP_EXACT",
+        "2026_OFFICE_CHANGED_TO_SENATE",
+        "2026_HOUSE_ZERO_NOT_INFERRED"
+      ],
+      "defaultEvaluatorUse": "excluded_pending_authorized_review",
+      "resolutionSha256": "5a0624086533d61466e263417adcf8e556509ebf95b4dd2e8800ad25ef4a0509"
+    },
+    {
+      "sourceDecisionId": "incumbent:seat_house_md_04_current:H2MD04315",
+      "seatCycleId": "seat_house_md_04_current",
+      "sourceCandidateId": "H2MD04315",
+      "canonicalCandidateId": "H2MD04232",
+      "alternateCandidateIds": [
+        "H2MD04315"
+      ],
+      "partyTreatment": "exact_dem",
+      "cycleDispositions": [
+        {
+          "cycleYear": 2026,
+          "disposition": "proposed_house_relationship",
+          "committeeIds": [
+            "C00792283"
+          ],
+          "evidenceRule": "corrected_cn_ccl_principal_match",
+          "numericUse": "pending_authorized_review"
+        }
+      ],
+      "sourceEvidenceRecordSha256s": [
+        "8107af5807f1747be6f936e6671a6d3059c6b5d4864fb2679c5fc72d493e8ece"
+      ],
+      "officialFilingSourceLockIds": [
+        "fec-form1-1699615"
+      ],
+      "officialFilingSha256s": [
+        "afbac6aaed36c2eb68fee0c7f0e78119710731628e493e94d52d0de2875a705f"
+      ],
+      "rationaleCodes": [
+        "STALE_ID_REPLACED_BY_NATIVE_FEC_ID",
+        "PRINCIPAL_COMMITTEE_EXACT",
+        "SOURCE_ALIAS_RETAINED"
+      ],
+      "defaultEvaluatorUse": "excluded_pending_authorized_review",
+      "resolutionSha256": "59a46e6cc4b813d5039a40f39e2836275d20b703aab6ce212ad4e9345c6c9dca"
+    },
+    {
+      "sourceDecisionId": "incumbent:seat_house_mn_03_current:H4MN03118",
+      "seatCycleId": "seat_house_mn_03_current",
+      "sourceCandidateId": "H4MN03118",
+      "canonicalCandidateId": "H4MN03118",
+      "alternateCandidateIds": [],
+      "partyTreatment": "explicit_dfl_alias_required",
+      "cycleDispositions": [
+        {
+          "cycleYear": 2024,
+          "disposition": "proposed_house_relationship",
+          "committeeIds": [
+            "C00856062"
+          ],
+          "evidenceRule": "exact_cn_ccl_principal_match_party_alias",
+          "numericUse": "pending_authorized_review"
+        },
+        {
+          "cycleYear": 2026,
+          "disposition": "proposed_house_relationship",
+          "committeeIds": [
+            "C00856062"
+          ],
+          "evidenceRule": "exact_cn_ccl_principal_match_party_alias",
+          "numericUse": "pending_authorized_review"
+        }
+      ],
+      "sourceEvidenceRecordSha256s": [
+        "c3ef164dc639586e8181b3a91b1df5bd9bae39cb9906b8d692c51d133e4d1430"
+      ],
+      "officialFilingSourceLockIds": [
+        "fec-form1-1849438",
+        "fec-form2-1849439"
+      ],
+      "officialFilingSha256s": [
+        "617e578fcff47ce5a940c33a2b43033905431e0bc96ff9d1349e3d33d3fe703f",
+        "e1090b44e30ff927702a1c66c5d355d17298ad3ea11c4a5fd53e796a95ee5078"
+      ],
+      "rationaleCodes": [
+        "CANDIDATE_AND_COMMITTEE_EXACT",
+        "RAW_DFL_PRESERVED",
+        "DFL_TO_DEM_ALIAS_REQUIRES_REVIEW"
+      ],
+      "defaultEvaluatorUse": "excluded_pending_authorized_review",
+      "resolutionSha256": "6b0ece7abbb65af64f416f07f4345cae0985b47fc56a4a502b3cf1de64d58c94"
+    },
+    {
+      "sourceDecisionId": "incumbent:seat_house_nh_01_current:H8NH01210",
+      "seatCycleId": "seat_house_nh_01_current",
+      "sourceCandidateId": "H8NH01210",
+      "canonicalCandidateId": "H8NH01210",
+      "alternateCandidateIds": [
+        "S6NH00141"
+      ],
+      "partyTreatment": "exact_dem",
+      "cycleDispositions": [
+        {
+          "cycleYear": 2022,
+          "disposition": "proposed_house_relationship",
+          "committeeIds": [
+            "C00660464"
+          ],
+          "evidenceRule": "exact_cn_ccl_principal_match",
+          "numericUse": "pending_authorized_review"
+        },
+        {
+          "cycleYear": 2024,
+          "disposition": "proposed_house_relationship",
+          "committeeIds": [
+            "C00660464"
+          ],
+          "evidenceRule": "exact_cn_ccl_principal_match",
+          "numericUse": "pending_authorized_review"
+        },
+        {
+          "cycleYear": 2026,
+          "disposition": "office_changed_to_senate",
+          "committeeIds": [],
+          "evidenceRule": "later_form2_and_form1_different_office",
+          "numericUse": "excluded_not_house_candidacy"
+        }
+      ],
+      "sourceEvidenceRecordSha256s": [
+        "5a0835f4b2208403dcc872c811f06b70ac79b36dc1cdbfacf32a0cc6d11e77e0",
+        "69f7a88090349599cb93f8f4e7aa6db7d9134cef63fbe240abb75356460d8097",
+        "df8a1f72b72a77cb591e5933be517bc8888a4394f24e74e764a2ae40df93a4a9"
+      ],
+      "officialFilingSourceLockIds": [
+        "fec-form1-1997274",
+        "fec-form2-1883191",
+        "fec-form2-1997276"
+      ],
+      "officialFilingSha256s": [
+        "30fc10b909a00b7b253248322c36d78e3d0606e06bb26382833cfa434db5ac59",
+        "78841c38ea71c4a6cff3db769dafa4e637e00cc63ce1b132b583c7b4144e83f0",
+        "e8e94d2aeb0e191e5f608978188fb1a3e836c69652a663ddd2ebfd5ca1fbc343"
+      ],
+      "rationaleCodes": [
+        "HISTORICAL_HOUSE_RELATIONSHIP_EXACT",
+        "2026_OFFICE_CHANGED_TO_SENATE",
+        "2026_HOUSE_ZERO_NOT_INFERRED"
+      ],
+      "defaultEvaluatorUse": "excluded_pending_authorized_review",
+      "resolutionSha256": "41a38f39d0bcd102d79d51b7b0fbe187abce9a18695219e2694343975042a7fd"
+    },
+    {
+      "sourceDecisionId": "incumbent:seat_house_ny_04_current:H4NY04158",
+      "seatCycleId": "seat_house_ny_04_current",
+      "sourceCandidateId": "H4NY04158",
+      "canonicalCandidateId": "H2NY04244",
+      "alternateCandidateIds": [
+        "H4NY04158"
+      ],
+      "partyTreatment": "exact_dem",
+      "cycleDispositions": [
+        {
+          "cycleYear": 2026,
+          "disposition": "proposed_house_relationship",
+          "committeeIds": [
+            "C00840165"
+          ],
+          "evidenceRule": "corrected_cn_ccl_principal_match",
+          "numericUse": "pending_authorized_review"
+        }
+      ],
+      "sourceEvidenceRecordSha256s": [
+        "79534b902c63a21612c5c2233cd7822a26aa72ef10d9242dbd471349b6e368dd"
+      ],
+      "officialFilingSourceLockIds": [
+        "fec-form1-1957310",
+        "fec-form2-1957311"
+      ],
+      "officialFilingSha256s": [
+        "201582486b525cd2c2e3f7f022e898a84445904f6b9db0f75eb57894229bb201",
+        "bd89821be2dabb2ab5bc5bed8b6d7521b32c7a868088d84a94ecc0b48a54d61e"
+      ],
+      "rationaleCodes": [
+        "STALE_ID_REPLACED_BY_NATIVE_FEC_ID",
+        "PRINCIPAL_COMMITTEE_EXACT",
+        "SOURCE_ALIAS_RETAINED",
+        "COMMITTEE_MAPPING_CYCLE_SPECIFIC"
+      ],
+      "defaultEvaluatorUse": "excluded_pending_authorized_review",
+      "resolutionSha256": "51726d4f7838c06d933661a635001308607dc7beb8d61e4813cf970691c93bc8"
+    }
+  ],
+  "resolutionSetSha256": "3806a3b8443c3c366ec3aecad3a0fdb3c9549ac2f7f8366fdd5d7bc28613aa7a",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "packageSha256": "5e7359b73934933ee4cab184f69cf3e18ebaf6b2684ab1d60b9374d3e86c04c8"
+}
