@@ -244,6 +244,15 @@ async function main() {
       district, party: "DEM", authorizedCommitteeIdsByCycle: [{ cycleYear: row.cycleYear, committeeIds: [], principalCommitteeCrosscheck: "missing" }],
       rationaleCodes: ["UDP_SCHEDULE_E_TARGET_EXACT", "DEMOCRATIC_HOUSE_PRIMARY_INFERRED"], inferred: true, evidenceRecordSha256s: [row.recordIdentitySha256] });
   }
+  const seatsByCandidate = new Map<string, Set<string>>();
+  for (const decision of proposedDecisions) {
+    const seats = seatsByCandidate.get(decision.candidateId) ?? new Set<string>();
+    seats.add(decision.seatCycleId); seatsByCandidate.set(decision.candidateId, seats);
+  }
+  for (const decision of proposedDecisions) if ((seatsByCandidate.get(decision.candidateId)?.size ?? 0) > 1) {
+    decision.status = "needs_review";
+    decision.rationaleCodes = [...new Set([...decision.rationaleCodes, "CANDIDATE_ID_MULTIPLE_SEATS_CONFLICT"])];
+  }
   sorted(proposedDecisions, (row) => row.decisionId);
 
   const mapping = attachAndValidatePackageSha256({ schema: "aipac-candidate-seat-mappings-proposal-v1", version: 1,

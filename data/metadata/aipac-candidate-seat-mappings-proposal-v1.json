@@ -164,7 +164,7 @@
     },
     {
       "decisionId": "challenger:seat_house_ca_47_current:H0IL07167",
-      "status": "proposed",
+      "status": "needs_review",
       "candidateId": "H0IL07167",
       "seatCycleId": "seat_house_ca_47_current",
       "relationship": "democratic_primary_challenger",
@@ -184,7 +184,8 @@
       ],
       "rationaleCodes": [
         "UDP_SCHEDULE_E_TARGET_EXACT",
-        "DEMOCRATIC_HOUSE_PRIMARY_INFERRED"
+        "DEMOCRATIC_HOUSE_PRIMARY_INFERRED",
+        "CANDIDATE_ID_MULTIPLE_SEATS_CONFLICT"
       ],
       "inferred": true,
       "evidenceRecordSha256s": [
@@ -222,7 +223,7 @@
     },
     {
       "decisionId": "challenger:seat_house_il_07_current:H0IL07167",
-      "status": "proposed",
+      "status": "needs_review",
       "candidateId": "H0IL07167",
       "seatCycleId": "seat_house_il_07_current",
       "relationship": "democratic_primary_challenger",
@@ -242,7 +243,8 @@
       ],
       "rationaleCodes": [
         "UDP_SCHEDULE_E_TARGET_EXACT",
-        "DEMOCRATIC_HOUSE_PRIMARY_INFERRED"
+        "DEMOCRATIC_HOUSE_PRIMARY_INFERRED",
+        "CANDIDATE_ID_MULTIPLE_SEATS_CONFLICT"
       ],
       "inferred": true,
       "evidenceRecordSha256s": [
@@ -10723,5 +10725,5 @@
     "reviewer": null,
     "reviewedAt": null
   },
-  "packageSha256": "cf0ca5162ea7fe67a9d5ab80a5590880fdbb3689ddec4c4677e58a3135b9e105"
+  "packageSha256": "6ab17a7f25aea70e0b3e0efffcc8d045e0ff50e9a84d9c1f44dd7b7b1718d6eb"
 }
