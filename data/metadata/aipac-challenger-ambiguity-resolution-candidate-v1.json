@@ -1,0 +1,89 @@
+{
+  "schema": "aipac-challenger-ambiguity-resolution-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T10:30:00.000Z",
+  "sourceCutoff": "2026-08-04",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "apply_to_next_reviewer_only_foundation_exclude_from_publication",
+  "rule": "a_negative_or_zero_schedule_e_adjustment_cannot_originate_a_candidate_seat_relationship_when_the_same_candidate_has_a_unique_positive_primary_opposition_jurisdiction",
+  "inputs": {
+    "closureFileSha256": "7b9fd96d102a2367b67e21c969542a9bb2ae5a94a82997ea5baaabdb64d5a15b",
+    "foundationFileSha256": "a0fe151080a0958c6cdddc447d50db4044700e31960d37dd2326ea86d6f7a7b7"
+  },
+  "summary": {
+    "inputConflictRelationships": 2,
+    "mechanicallyResolvedRelationships": 2,
+    "acceptedRelationships": 1,
+    "rejectedRelationships": 1,
+    "remainingFoundationConflictRelationships": 6,
+    "remainingMethodologyAndPromotionDecisions": 4
+  },
+  "dispositions": [
+    {
+      "sourceDecisionId": "challenger:seat_house_ca_47_current:H0IL07167",
+      "seatCycleId": "seat_house_ca_47_current",
+      "candidateId": "H0IL07167",
+      "cycleYear": 2024,
+      "disposition": "auto_reject_negative_adjustment_only_target",
+      "evaluatorUse": "excluded_invalid_origin",
+      "positiveRecordCount": 0,
+      "negativeRecordCount": 1,
+      "zeroRecordCount": 0,
+      "evidenceRecordSha256s": [
+        "48ab109dfdd3f742d621ce08a19ee0ad1b63c55cfd4fd0dd8ee45c9874c4476b"
+      ],
+      "rationaleCodes": [
+        "UDP_NEGATIVE_ADJUSTMENT_ONLY",
+        "NEGATIVE_ADJUSTMENT_CANNOT_ORIGINATE_RELATIONSHIP"
+      ],
+      "dispositionSha256": "bff0f030cbc66f47950e6a2a5d181b4575dfb90a02d40da155cbd1ae2b3eb566"
+    },
+    {
+      "sourceDecisionId": "challenger:seat_house_il_07_current:H0IL07167",
+      "seatCycleId": "seat_house_il_07_current",
+      "candidateId": "H0IL07167",
+      "cycleYear": 2024,
+      "disposition": "auto_accept_unique_positive_target",
+      "evaluatorUse": "reviewer_only_candidate",
+      "positiveRecordCount": 20,
+      "negativeRecordCount": 1,
+      "zeroRecordCount": 0,
+      "evidenceRecordSha256s": [
+        "15ee56bfbd7aa51e7f26aa9f641ea9bc131907db7e08f8ad6e8a24741ccfb72c",
+        "17852bd0cc3163ec71f0cb37f012f6569d5ee1adb42fb95e554046df75a1e215",
+        "1ff9d439603922c114a94cab97a2cb14c31f105bb04042bde60a579f7081be3d",
+        "24dba9a2edfede9341cbb1f7c0ddc96abc4a6262a3eba8d7f707704bcb7767b9",
+        "56a2ebbeba2447cc62ce196ccd9a9539d1879d23b9b0484573b8db566913aba7",
+        "591529bc1bc37ef676e3c49e93a2ad2580d2db17e2fb21b3f45d7c6a4d414609",
+        "6801de3629e6d52b4f672d080bc2fbdfb209dbe8f3132785fc2ba1faa4da1f9b",
+        "8bc9b52c7da1e56d18236caf2d3e2b314732ef4f1af16382afdef3cb668d3aed",
+        "8d49e955c2b9e309d007ffefbe3015e488ca398dfa34b40f564d4cde32c7bde4",
+        "929fdef5c25a708e24d50e626043c60f36cee1f8011de255c54bea5267b2d7c5",
+        "92cafda148150ee63a017a8a366537b31837a2a7fa01c7bfe771da10d04aa38f",
+        "a8c6beb097f89fb8624bb294391f2d48618fb21c2df4ec515cb0f1d269a12451",
+        "aab435c2a10d07237014f0bc836dc89f18a9d510ec0027ce4138a22ad3858cd1",
+        "ac521b75aa3a134998e70bfa501d53bcf3147687e063fa823e637d501cd79f44",
+        "bc013f86f02a0f48e375bd8cd61087873c03eb7d16bafd25dffd49b88a0c776b",
+        "bdcd2e40c99f4d8a4a6b54a3beb443b04ff63d348e5ebfb82ad680744e9658ce",
+        "cbdd13db2ba59183297da2932566df920e70431b41bd8634381efad4b5f161aa",
+        "d6cd26300f0c4be05cf7f3e4e77e53c9bdc5ad538e86c90485fb996376e27943",
+        "d95b76f9cdf2fa546b910853d239376f6f76f0da09017c37eef795fa9b8d3949",
+        "dfe6dfd0d7335f045ac2d2ae61186c636a9914ec4ee35447d46b67200dbef1df",
+        "f035872327e379c333def8ee8bde449a77b1968d41240c1096c65e425b62a693"
+      ],
+      "rationaleCodes": [
+        "UDP_PRIMARY_OPPOSITION_POSITIVE_SOURCE_ROWS",
+        "UNIQUE_POSITIVE_JURISDICTION"
+      ],
+      "dispositionSha256": "c16c6dd33f600794871a0bc3ebe55a000f0cbcde1a9c1c7573918cdb3116adf2"
+    }
+  ],
+  "dispositionSetSha256": "34f99c131308974f29131df1fd877a6064a277e8b0208d58f1c35489591532ea",
+  "review": {
+    "status": "automatic_candidate",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "packageSha256": "46ef7ba344f2ec975b3e1eebdf83f569d7d36f619486ed10e7868dbe4ca08624"
+}
