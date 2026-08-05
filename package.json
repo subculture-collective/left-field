@@ -116,6 +116,7 @@
     "generate:nc-house-primary-results-receipt": "tsx scripts/generate-north-carolina-house-democratic-primary-results-receipt.ts",
     "generate:nc-primary-source-precedence-decision": "tsx scripts/generate-north-carolina-primary-source-precedence-decision.ts",
     "generate:nc-current-incumbent-primary-linkage-v1": "tsx scripts/generate-north-carolina-current-incumbent-primary-linkage-candidate.ts",
+    "fetch:nc-primary-geography-authority": "node scripts/fetch-nc-primary-geography-authority.mjs",
     "generate:or-primary-geography-v1": "tsx scripts/generate-oregon-primary-geography-compatibility-candidate.ts",
     "generate:or-current-incumbent-primary-linkage-v1": "tsx scripts/generate-oregon-current-incumbent-primary-linkage-candidate.ts",
     "generate:or-primary-joint-review-v1": "tsx scripts/generate-oregon-primary-identity-geography-review-package.ts",
