@@ -1,0 +1,522 @@
+{
+  "schema": "north-carolina-primary-geography-compatibility-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T02:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_authorized_identity_geography_and_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "identityCandidate": {
+      "sourceLockId": "north-carolina-current-incumbent-primary-linkage-candidate-v1",
+      "fileSha256": "9a7903755fdceaffb29af2a40fee014ddf7abb63f455d2381a0376046399490c",
+      "packageSha256": "12fbecfa848ba85aa39d426d94a8be4ab3f77fc1356f6c0a288514037f9c4d76",
+      "observationSetSha256": "b587a7f2b181d11d24be10404ecd7f79879522b434a521ebf08065c6b88d4ba0"
+    },
+    "planAuthority": {
+      "sourceLockId": "ncga-congressional-redistricting-authority-20260805",
+      "fileSha256": "8f11ae03c95c6e19e75cef133390c5e1176dc71d7253f72345fbd480504eb001"
+    },
+    "blockAssignments": [
+      {
+        "sourceLockId": "nc-2022-court-congressional-plan-block-assignment",
+        "fileSha256": "95b0e6c0bca9bd18932195649fa23406c28b35f975aab9815c64c3d06cf74b4a"
+      },
+      {
+        "sourceLockId": "nc-2023-enacted-congressional-plan-block-assignment",
+        "fileSha256": "9ff24ce1565750e8677c0c4d5d27f5b6c0f28ccc78b1ad93c53c4565c4d35dfe"
+      },
+      {
+        "sourceLockId": "nc-2025-enacted-congressional-plan-block-assignment",
+        "fileSha256": "f8fc2a273ed86482bd3aec400868f2a47ce91eaab42dd74d3509fc022daf4721"
+      },
+      {
+        "sourceLockId": "census-cd119-block-equivalency-bundle-20260805",
+        "fileSha256": "1433feb5178dc7b4188ee30f5f7f715851f4400740b8fe1ce606a876c6294bd6"
+      },
+      {
+        "sourceLockId": "census-cd119-north-carolina-block-equivalency-extract-20260805",
+        "fileSha256": "e541c8300ea3a3db4cbe26a91ef95749ff8986076f452dab9af7e92769fbb784"
+      }
+    ]
+  },
+  "methodology": {
+    "joinKey": "2020_census_tabulation_block_geoid",
+    "blockUniverse": 236638,
+    "targetPlan": "cd119_sl_2023_145",
+    "blockCountsArePopulationWeighted": false,
+    "overlapThresholdUsed": false,
+    "ppmRounding": "nearest_integer_per_value",
+    "splitShareAggregateTolerancePpm": 1,
+    "exactMembershipRule": "source_and_target_district_block_sets_are_identical",
+    "splitDispositionRule": "crosswalk_review_required",
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "targetObservations": 12,
+    "exactBlockMembershipCandidates": 7,
+    "crosswalkReviewRequired": 5,
+    "automaticallyApprovedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "rows": [
+    {
+      "observationId": "nc:identity:2022:01",
+      "identityObservationSha256": "299ce6f137ab71ca926779692a08c629c19992dc275fedf649c4f41b623f6930",
+      "seatCycleId": "seat_house_nc_01_current",
+      "districtCode": "01",
+      "cycleYear": 2022,
+      "sourcePlan": "court_ordered_2022",
+      "targetPlan": "cd119_sl_2023_145",
+      "sourceBlockCount": 22706,
+      "targetBlockCount": 23945,
+      "sameDistrictBlockCount": 17810,
+      "sourceRetentionPpm": 784374,
+      "targetCoveragePpm": 743788,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 17810,
+          "sourceSharePpm": 784374
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 3381,
+          "sourceSharePpm": 148903
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 1515,
+          "sourceSharePpm": 66722
+        }
+      ],
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "block_counts_are_not_population_or_voter_weights",
+        "no_automatic_crosswalk_threshold"
+      ],
+      "rowSha256": "3e9f0f6d6b26113fc532096e77b37935865103dfb287e765cc0f990525d70023"
+    },
+    {
+      "observationId": "nc:identity:2022:02",
+      "identityObservationSha256": "38fb49387a9218cb3adbaee34503795dd09ca6ba98a2865f4701cb209335c78b",
+      "seatCycleId": "seat_house_nc_02_current",
+      "districtCode": "02",
+      "cycleYear": 2022,
+      "sourcePlan": "court_ordered_2022",
+      "targetPlan": "cd119_sl_2023_145",
+      "sourceBlockCount": 9389,
+      "targetBlockCount": 9220,
+      "sameDistrictBlockCount": 7095,
+      "sourceRetentionPpm": 755672,
+      "targetCoveragePpm": 769523,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 7095,
+          "sourceSharePpm": 755672
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 1403,
+          "sourceSharePpm": 149430
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 891,
+          "sourceSharePpm": 94898
+        }
+      ],
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "block_counts_are_not_population_or_voter_weights",
+        "no_automatic_crosswalk_threshold"
+      ],
+      "rowSha256": "b249ee959b442a2802faf5c1bcbc01a969dde075e946ae79171e235b43801bfa"
+    },
+    {
+      "observationId": "nc:identity:2022:04",
+      "identityObservationSha256": "d0ed404b5aff895bf7370a8bab6b591a5c36488a23384a6adfb04ba68f655aa2",
+      "seatCycleId": "seat_house_nc_04_current",
+      "districtCode": "04",
+      "cycleYear": 2022,
+      "sourcePlan": "court_ordered_2022",
+      "targetPlan": "cd119_sl_2023_145",
+      "sourceBlockCount": 13016,
+      "targetBlockCount": 10902,
+      "sameDistrictBlockCount": 6742,
+      "sourceRetentionPpm": 517978,
+      "targetCoveragePpm": 618419,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 6742,
+          "sourceSharePpm": 517978
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 3594,
+          "sourceSharePpm": 276122
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 2334,
+          "sourceSharePpm": 179318
+        },
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 346,
+          "sourceSharePpm": 26583
+        }
+      ],
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "block_counts_are_not_population_or_voter_weights",
+        "no_automatic_crosswalk_threshold"
+      ],
+      "rowSha256": "f39e39d3caf521f396ad57d40dddb9bb906076a2c3d9b7d78449ada75b19adb5"
+    },
+    {
+      "observationId": "nc:identity:2022:12",
+      "identityObservationSha256": "d504445167dd38004b73849f779cc279ffc677912ec51ef987188d754e52298d",
+      "seatCycleId": "seat_house_nc_12_current",
+      "districtCode": "12",
+      "cycleYear": 2022,
+      "sourcePlan": "court_ordered_2022",
+      "targetPlan": "cd119_sl_2023_145",
+      "sourceBlockCount": 9384,
+      "targetBlockCount": 7419,
+      "sameDistrictBlockCount": 3729,
+      "sourceRetentionPpm": 397379,
+      "targetCoveragePpm": 502628,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 3729,
+          "sourceSharePpm": 397379
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 2172,
+          "sourceSharePpm": 231458
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 1910,
+          "sourceSharePpm": 203538
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 1573,
+          "sourceSharePpm": 167626
+        }
+      ],
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "block_counts_are_not_population_or_voter_weights",
+        "no_automatic_crosswalk_threshold"
+      ],
+      "rowSha256": "7a1dfbabe5bcba7e18dc40d096e79a82e6349394bc6bb2113564846209129d2d"
+    },
+    {
+      "observationId": "nc:identity:2024:01",
+      "identityObservationSha256": "b1d73ac03e2f9cd70b71d1c066db11c68aa2a819b0a0ed0c5ebd8961ebed62af",
+      "seatCycleId": "seat_house_nc_01_current",
+      "districtCode": "01",
+      "cycleYear": 2024,
+      "sourcePlan": "sl_2023_145",
+      "targetPlan": "cd119_sl_2023_145",
+      "sourceBlockCount": 23945,
+      "targetBlockCount": 23945,
+      "sameDistrictBlockCount": 23945,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 23945,
+          "sourceSharePpm": 1000000
+        }
+      ],
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "still_requires_identity_and_geography_review"
+      ],
+      "rowSha256": "0b2b710bf8ccccc4c21b9afcf0cd7a4c37d012bdf11efb11f16301fb15403ad5"
+    },
+    {
+      "observationId": "nc:identity:2024:02",
+      "identityObservationSha256": "1ccd5b52bc417a3a757e3270ef5dc6767e452c95a484310305a8657c58f22e9b",
+      "seatCycleId": "seat_house_nc_02_current",
+      "districtCode": "02",
+      "cycleYear": 2024,
+      "sourcePlan": "sl_2023_145",
+      "targetPlan": "cd119_sl_2023_145",
+      "sourceBlockCount": 9220,
+      "targetBlockCount": 9220,
+      "sameDistrictBlockCount": 9220,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 9220,
+          "sourceSharePpm": 1000000
+        }
+      ],
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "still_requires_identity_and_geography_review"
+      ],
+      "rowSha256": "6388a4d65d4fea5360109969f2747e75222139afcd9f65949ce69400a28694fc"
+    },
+    {
+      "observationId": "nc:identity:2024:04",
+      "identityObservationSha256": "b3fc4d52ade369b3c6538fbd393e3572b54b942f1cf7f5df83b5bb0c2c6c68bf",
+      "seatCycleId": "seat_house_nc_04_current",
+      "districtCode": "04",
+      "cycleYear": 2024,
+      "sourcePlan": "sl_2023_145",
+      "targetPlan": "cd119_sl_2023_145",
+      "sourceBlockCount": 10902,
+      "targetBlockCount": 10902,
+      "sameDistrictBlockCount": 10902,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 10902,
+          "sourceSharePpm": 1000000
+        }
+      ],
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "still_requires_identity_and_geography_review"
+      ],
+      "rowSha256": "c1a25e109c14b3be3e892a1bef3fe971179756d176183642c3df2e957eea0de2"
+    },
+    {
+      "observationId": "nc:identity:2024:12",
+      "identityObservationSha256": "210318fa112b6938ffa49a55f62c4e1100f1da17d7f452067a75a613a62112a3",
+      "seatCycleId": "seat_house_nc_12_current",
+      "districtCode": "12",
+      "cycleYear": 2024,
+      "sourcePlan": "sl_2023_145",
+      "targetPlan": "cd119_sl_2023_145",
+      "sourceBlockCount": 7419,
+      "targetBlockCount": 7419,
+      "sameDistrictBlockCount": 7419,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 7419,
+          "sourceSharePpm": 1000000
+        }
+      ],
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "still_requires_identity_and_geography_review"
+      ],
+      "rowSha256": "641576710b19aa3f2d2921af889f97e76a5ac122e39c711a0606ffb689200c78"
+    },
+    {
+      "observationId": "nc:identity:2026:01",
+      "identityObservationSha256": "33d54d1edca824bc2922c307df4b57839f42a4d55ee5141bfc6512cb27e2941e",
+      "seatCycleId": "seat_house_nc_01_current",
+      "districtCode": "01",
+      "cycleYear": 2026,
+      "sourcePlan": "sl_2025_95",
+      "targetPlan": "cd119_sl_2023_145",
+      "sourceBlockCount": 26755,
+      "targetBlockCount": 23945,
+      "sameDistrictBlockCount": 15937,
+      "sourceRetentionPpm": 595664,
+      "targetCoveragePpm": 665567,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 15937,
+          "sourceSharePpm": 595664
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 10818,
+          "sourceSharePpm": 404336
+        }
+      ],
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "block_counts_are_not_population_or_voter_weights",
+        "no_automatic_crosswalk_threshold"
+      ],
+      "rowSha256": "ac21187e8068eb13be5a512132e6cfdc506cbc3dda4e23d5430e5cead560a4b8"
+    },
+    {
+      "observationId": "nc:identity:2026:02",
+      "identityObservationSha256": "0ebd47db18f8cf0806337b305ba455674bfc5c69bdf5c56d9440f1a23cfeb499",
+      "seatCycleId": "seat_house_nc_02_current",
+      "districtCode": "02",
+      "cycleYear": 2026,
+      "sourcePlan": "sl_2025_95",
+      "targetPlan": "cd119_sl_2023_145",
+      "sourceBlockCount": 9220,
+      "targetBlockCount": 9220,
+      "sameDistrictBlockCount": 9220,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 9220,
+          "sourceSharePpm": 1000000
+        }
+      ],
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "still_requires_identity_and_geography_review"
+      ],
+      "rowSha256": "6ffffbacdb5caeafe5fab639f77117526b15ab0192de5aa9d0d16d308ffaf757"
+    },
+    {
+      "observationId": "nc:identity:2026:04",
+      "identityObservationSha256": "4e555bf04b5cd3d97cfb2da590dcd157a5f899862e06ac1c26feca3badeff4e9",
+      "seatCycleId": "seat_house_nc_04_current",
+      "districtCode": "04",
+      "cycleYear": 2026,
+      "sourcePlan": "sl_2025_95",
+      "targetPlan": "cd119_sl_2023_145",
+      "sourceBlockCount": 10902,
+      "targetBlockCount": 10902,
+      "sameDistrictBlockCount": 10902,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 10902,
+          "sourceSharePpm": 1000000
+        }
+      ],
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "still_requires_identity_and_geography_review"
+      ],
+      "rowSha256": "652fb4202c1cac3bbc3b1584838a07f1eac220e93511beac021d5c310289ce1e"
+    },
+    {
+      "observationId": "nc:identity:2026:12",
+      "identityObservationSha256": "1c941aef7406b415dd8e12a953785e67f59ef57b533c76492c9e7695890e934d",
+      "seatCycleId": "seat_house_nc_12_current",
+      "districtCode": "12",
+      "cycleYear": 2026,
+      "sourcePlan": "sl_2025_95",
+      "targetPlan": "cd119_sl_2023_145",
+      "sourceBlockCount": 7419,
+      "targetBlockCount": 7419,
+      "sameDistrictBlockCount": 7419,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 7419,
+          "sourceSharePpm": 1000000
+        }
+      ],
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "still_requires_identity_and_geography_review"
+      ],
+      "rowSha256": "84c7ae0497f92ea573177a5277d70eddc9eccf1e3f8d9b00c6a5533b3e69896e"
+    }
+  ],
+  "rowSetSha256": "254bb244bfb6d77851aa415e665569047cb1473e1cd689fd6acf030ef6aa0572",
+  "decisionSupport": {
+    "informsDecisionId": "approve-historical-district-cd119-compatibility-v1",
+    "analysisConclusion": "seven_exact_block_membership_candidates_and_five_split_crosswalk_reviews",
+    "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+  },
+  "packageSha256": "838fd6acdb4a780993d9540bd68228cf76ca0b77f9ecab57d8403d85c0ba42df"
+}
