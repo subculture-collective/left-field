@@ -1,0 +1,216 @@
+{
+  "schema": "aipac-numeric-review-package-v3",
+  "version": 3,
+  "generatedAt": "2026-08-05T22:00:00.000Z",
+  "sourceCutoff": "2026-08-04",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "inputs": {
+    "foundation": {
+      "fileSha256": "25dd9e55584e81586413d0d818c3ff6567c1cbdfeb093e1720bb6a36ae97b8dc",
+      "packageSha256": "812a0cf887dff3b268e0fdcc6800eab446e9bd20926508232f1a4c2b4b41ba0f"
+    },
+    "candidate": {
+      "fileSha256": "a2bf17ef05d02b4f35a9bcc5d9da602be14706068e1c5e6f0f8311bf5deb96e0",
+      "packageSha256": "e30956852e24f9cdd9a95f8d978b3c3bdbd5978eae293f6e5aa5c0d57f04eeb8"
+    },
+    "report": {
+      "fileSha256": "c12fa569c15e6752f7fd788331ebd7753963f88616956db4429f5b65fd459ee5",
+      "reportSha256": "10829503f5982014abcba4d8b0eb6238a7710ba273f14f9579324f0493b3509f"
+    }
+  },
+  "summary": {
+    "totalDecisions": 5,
+    "mappingPrecedenceDecisions": 1,
+    "methodologyDecisions": 3,
+    "promotionDecisions": 1,
+    "automaticallyResolvedIncumbentCases": 5,
+    "safeDefault": "retain_reviewer_candidate_exclude_from_publication"
+  },
+  "decisions": [
+    {
+      "decisionId": "aipac-mapping-precedence:incumbent:seat_house_ca_31_current:2024:H8CA39174",
+      "component": "candidate_committee_source_precedence",
+      "affectedSeatCycleId": "seat_house_ca_31_current",
+      "affectedCycleYear": 2024,
+      "question": "Should the 2024 CA-31 relationship use C00850420 when CN24 names stale committee C00650648, CCL24 supplies no link, and the retained direct Form 2 evidence has no cutoff-bounded terminal-amendment-chain receipt?",
+      "recommendedDecision": "Defer the 2024 relationship until a source-locked terminal amendment chain proves which filing controlled at the cutoff; retain the exact 2026 relationship independently.",
+      "defaultReversibleAssumption": "exclude_only_ca31_2024_relationship",
+      "alternatives": [
+        "Accept the direct Form 2 override after retaining terminal-chain evidence.",
+        "Reject the 2024 override and keep the cycle unavailable."
+      ],
+      "consequences": [
+        "Deferral blocks only CA-31's 2024 direct relationship and does not block its exact 2026 mapping.",
+        "Acceptance without the missing precedence receipt would overstate the current evidence closure."
+      ],
+      "confidence": "high_but_insufficiently_closed",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "The 2026 CN/CCL relationship is independently auto-verified.",
+        "Every other incumbent case is resolved from exact or explicitly derived locked evidence."
+      ],
+      "requiredEvidence": [
+        "cutoff_bounded_terminal_form2_amendment_chain_receipt"
+      ],
+      "evidenceSha256s": [
+        "f4dfdebb9aa22cb1a5f36566042787f7ffe51b058a26643a94b9ea5db6f51a2b",
+        "87d6452a8ba066ecb5cdb2cbdeda2efb726292b359b441aa7b2cde1a2e9ab82e"
+      ],
+      "officialFilingSourceLockIds": [
+        "fec-form1-1814721",
+        "fec-form2-1818491"
+      ],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "16cfa87837468d4d88001d4acb70c51a1862a587ef93af688bed13fa650722b2"
+    },
+    {
+      "decisionId": "aipac-numeric:accept-labeled-udp-inferences-v3",
+      "component": "inferred_udp_relationships",
+      "affectedSeatCycleId": null,
+      "affectedCycleYear": null,
+      "question": "Should the 16 usable UDP challenger relationships remain explicitly labeled inferences in a future reviewed release?",
+      "recommendedDecision": "Accept them only with exact inference or automatic-disposition provenance, confidence, same-seat primary rationale, and correction path; never relabel them as direct mappings.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Require individual review of all 16 relationships.",
+        "Exclude all challenger-opposition evidence."
+      ],
+      "consequences": [
+        "Acceptance preserves reviewer-visible challenger-opposition evidence without a direct-observation claim.",
+        "Rejection requires regenerated numeric and report artifacts."
+      ],
+      "confidence": "medium",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "The Illinois 7 positive-origin relationship is mechanically admitted and California 47's invalid origin remains rejected.",
+        "All retained inference relationships remain hash-bound."
+      ],
+      "requiredEvidence": [],
+      "evidenceSha256s": [
+        "812a0cf887dff3b268e0fdcc6800eab446e9bd20926508232f1a4c2b4b41ba0f",
+        "ead741c250f3514588f7d33bcd2aa1766744a61dfe7f7bd50111b187d004a55b"
+      ],
+      "officialFilingSourceLockIds": [],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "48b9c52c9ad3cdca602160cedc9c9ac8db96d449d9f73de9bb75de4469d13b7c"
+    },
+    {
+      "decisionId": "aipac-numeric:accept-lineage-methodology-v3",
+      "component": "numeric_lineage_methodology",
+      "affectedSeatCycleId": null,
+      "affectedCycleYear": null,
+      "question": "Should the cycle-scoped cutoff-ledger, terminal-revision, signed-net, exact/derived relationship-disposition, and transaction-receipt methodology be accepted for a future reviewed factual release?",
+      "recommendedDecision": "Accept only the reproducible v3 method and preserve CA-31 2024 as pending plus all House-cycle non-applicability states.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Request a corrected coverage or transaction rule.",
+        "Reject numeric use and keep AIPAC not collected."
+      ],
+      "consequences": [
+        "Acceptance permits this exact method, not automatic publication, to enter a later reviewed release.",
+        "Deferral leaves report v5 available only for reviewer analysis."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "Numeric v3 retains 278 evidence rows with 261 evaluator-eligible rows while preserving one pending and two not-applicable current-cycle states.",
+        "Every selected transaction remains joined to a cutoff-valid filing chain and receipt."
+      ],
+      "requiredEvidence": [],
+      "evidenceSha256s": [
+        "e30956852e24f9cdd9a95f8d978b3c3bdbd5978eae293f6e5aa5c0d57f04eeb8",
+        "61af3ac2f8b765a04284aefd08d53d185583985870e2f0c9085bb854931645df",
+        "f328eb0cb02d3452526d04e723c6d833c4732fb38eea1e36b90911aa88b5ca9b"
+      ],
+      "officialFilingSourceLockIds": [],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "4c69b9e53cd48a81e888be01dde3571e54223822df3dc215fb272185613ddb8d"
+    },
+    {
+      "decisionId": "aipac-numeric:promote-factual-release-v3",
+      "component": "publication_promotion",
+      "affectedSeatCycleId": null,
+      "affectedCycleYear": null,
+      "question": "Should numeric candidate v3 and report v5 be promoted to a new public factual release?",
+      "recommendedDecision": "Defer promotion until the CA-31 precedence and three methodology decisions are explicitly decided, then generate a distinct approved release rather than mutating any candidate.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Approve a corrected subset and regenerate every downstream artifact.",
+        "Reject promotion while retaining reviewer-only research artifacts."
+      ],
+      "consequences": [
+        "Approval after prerequisites enables public score and evidence UI work.",
+        "Deferral leaves the deployed application and current published release unchanged and truthful."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "Foundation v3, numeric v3, report v5, source closure, privacy minimization, and the public firewall are complete.",
+        "No reviewer identity, approval timestamp, promotion, or public deployment was fabricated."
+      ],
+      "requiredEvidence": [],
+      "evidenceSha256s": [
+        "812a0cf887dff3b268e0fdcc6800eab446e9bd20926508232f1a4c2b4b41ba0f",
+        "e30956852e24f9cdd9a95f8d978b3c3bdbd5978eae293f6e5aa5c0d57f04eeb8",
+        "10829503f5982014abcba4d8b0eb6238a7710ba273f14f9579324f0493b3509f"
+      ],
+      "officialFilingSourceLockIds": [],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "245dc746a0987d17771130259c34a4a2df0fa4dd038e735ef0d252f9af33a6b5"
+    },
+    {
+      "decisionId": "aipac-numeric:retain-v01-no-na-denominator-v3",
+      "component": "scoring_model",
+      "affectedSeatCycleId": null,
+      "affectedCycleYear": null,
+      "question": "Should formula dsa-primary-target-v0.1 retain its six-cell AIPAC coverage denominator, leaving MA-06 and NH-01 AIPAC-score-ineligible when 2026 is not applicable to a House candidacy?",
+      "recommendedDecision": "Retain the v0.1 denominator for this candidate; require a separately versioned methodology, sensitivity analysis, and review package before any not-applicable denominator changes.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Propose a separately versioned not-applicable-denominator formula and regenerate sensitivity results.",
+        "Keep AIPAC evidence visible but exclude it from ranking."
+      ],
+      "consequences": [
+        "Retention keeps MA-06 and NH-01 AIPAC components null rather than converting their 2026 state to zero.",
+        "A new denominator changes eligibility and requires a new report hash."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "Report v5 scores 201 formula-compatible complete-coverage seats and keeps CA-31, MA-06, NH-01, and eight Washington seats from the AIPAC route.",
+        "MD-04, MN-03, and NY-04 are newly scoreable only under their completed v3 closures."
+      ],
+      "requiredEvidence": [],
+      "evidenceSha256s": [
+        "10829503f5982014abcba4d8b0eb6238a7710ba273f14f9579324f0493b3509f",
+        "e30956852e24f9cdd9a95f8d978b3c3bdbd5978eae293f6e5aa5c0d57f04eeb8"
+      ],
+      "officialFilingSourceLockIds": [],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "d26437657de7f464b07d56aa7b3d52aa4ab455ed8a7c7afc8d6876382df02968"
+    }
+  ],
+  "decisionSetSha256": "c01848a1a3df8785e63d3635ce0ca84e66ad1e162a34543d973a3b3700907364",
+  "packageSha256": "bec26cf8af5aa673d6750f2da791b3e715f1d3a3d8f775b3b9d62aba33337d49"
+}
