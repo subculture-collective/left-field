@@ -142,6 +142,41 @@
       "decisionSha256": "4c69b9e53cd48a81e888be01dde3571e54223822df3dc215fb272185613ddb8d"
     },
     {
+      "decisionId": "aipac-numeric:accept-v01-score-contract-v3",
+      "component": "scoring_model",
+      "affectedSeatCycleId": null,
+      "affectedCycleYear": null,
+      "question": "Should formula dsa-primary-target-v0.1 retain its AIPAC-route weights (60% AIPAC support, 25% blue baseline, 15% primary feasibility) and six-cell AIPAC coverage denominator, leaving MA-06 and NH-01 AIPAC-score-ineligible when 2026 is not applicable to a House candidacy?",
+      "recommendedDecision": "Accept the explainable v0.1 weights and denominator for this candidate; require a separately versioned formula, sensitivity analysis, and review package before changing either weights or not-applicable handling.",
+      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
+      "alternatives": [
+        "Propose separately versioned AIPAC-route weights and regenerate sensitivity results.",
+        "Propose a separately versioned not-applicable denominator and regenerate sensitivity results.",
+        "Keep AIPAC evidence visible but exclude it from ranking."
+      ],
+      "consequences": [
+        "Acceptance preserves the 60% AIPAC-route weight while keeping MA-06 and NH-01 AIPAC components null rather than converting their 2026 state to zero.",
+        "Changing either weights or the denominator changes scores or eligibility and requires a new formula and report hash."
+      ],
+      "confidence": "high",
+      "blocksPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": [
+        "Report v5 decomposes the current 60/25/15 AIPAC route for 201 formula-compatible complete-coverage seats and keeps CA-31, MA-06, NH-01, and eight Washington seats from that route.",
+        "MD-04, MN-03, and NY-04 are newly scoreable only under their completed v3 closures."
+      ],
+      "requiredEvidence": [],
+      "evidenceSha256s": [
+        "10829503f5982014abcba4d8b0eb6238a7710ba273f14f9579324f0493b3509f",
+        "e30956852e24f9cdd9a95f8d978b3c3bdbd5978eae293f6e5aa5c0d57f04eeb8"
+      ],
+      "officialFilingSourceLockIds": [],
+      "resolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "decisionSha256": "511130a282ee01798b41eb45cfb819f68fa1f9d83d16b4c9f0752436c4ab3f0a"
+    },
+    {
       "decisionId": "aipac-numeric:promote-factual-release-v3",
       "component": "publication_promotion",
       "affectedSeatCycleId": null,
@@ -175,42 +210,8 @@
       "reviewer": null,
       "reviewedAt": null,
       "decisionSha256": "245dc746a0987d17771130259c34a4a2df0fa4dd038e735ef0d252f9af33a6b5"
-    },
-    {
-      "decisionId": "aipac-numeric:retain-v01-no-na-denominator-v3",
-      "component": "scoring_model",
-      "affectedSeatCycleId": null,
-      "affectedCycleYear": null,
-      "question": "Should formula dsa-primary-target-v0.1 retain its six-cell AIPAC coverage denominator, leaving MA-06 and NH-01 AIPAC-score-ineligible when 2026 is not applicable to a House candidacy?",
-      "recommendedDecision": "Retain the v0.1 denominator for this candidate; require a separately versioned methodology, sensitivity analysis, and review package before any not-applicable denominator changes.",
-      "defaultReversibleAssumption": "retain_reviewer_candidate_exclude_from_publication",
-      "alternatives": [
-        "Propose a separately versioned not-applicable-denominator formula and regenerate sensitivity results.",
-        "Keep AIPAC evidence visible but exclude it from ranking."
-      ],
-      "consequences": [
-        "Retention keeps MA-06 and NH-01 AIPAC components null rather than converting their 2026 state to zero.",
-        "A new denominator changes eligibility and requires a new report hash."
-      ],
-      "confidence": "high",
-      "blocksPublication": true,
-      "blocksOtherWork": false,
-      "workCompletedWhileWaiting": [
-        "Report v5 scores 201 formula-compatible complete-coverage seats and keeps CA-31, MA-06, NH-01, and eight Washington seats from the AIPAC route.",
-        "MD-04, MN-03, and NY-04 are newly scoreable only under their completed v3 closures."
-      ],
-      "requiredEvidence": [],
-      "evidenceSha256s": [
-        "10829503f5982014abcba4d8b0eb6238a7710ba273f14f9579324f0493b3509f",
-        "e30956852e24f9cdd9a95f8d978b3c3bdbd5978eae293f6e5aa5c0d57f04eeb8"
-      ],
-      "officialFilingSourceLockIds": [],
-      "resolution": null,
-      "reviewer": null,
-      "reviewedAt": null,
-      "decisionSha256": "d26437657de7f464b07d56aa7b3d52aa4ab455ed8a7c7afc8d6876382df02968"
     }
   ],
-  "decisionSetSha256": "c01848a1a3df8785e63d3635ce0ca84e66ad1e162a34543d973a3b3700907364",
-  "packageSha256": "bec26cf8af5aa673d6750f2da791b3e715f1d3a3d8f775b3b9d62aba33337d49"
+  "decisionSetSha256": "f3b871698cb9379759e97cd1c51923d6a9268c94fd2f10259f310d52db239108",
+  "packageSha256": "59a3f3c08d247a01996a5710ea5f461e344591c71dd4338533c4329d5dbf62ad"
 }

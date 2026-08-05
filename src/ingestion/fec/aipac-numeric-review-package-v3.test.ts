@@ -23,9 +23,11 @@ describe("AIPAC numeric review package v3", () => {
     expect(value.decisions.find((row) => row.component === "candidate_committee_source_precedence")).toMatchObject({ decisionId: "aipac-mapping-precedence:incumbent:seat_house_ca_31_current:2024:H8CA39174", affectedSeatCycleId: "seat_house_ca_31_current", affectedCycleYear: 2024, defaultReversibleAssumption: "exclude_only_ca31_2024_relationship", confidence: "high_but_insufficiently_closed", requiredEvidence: ["cutoff_bounded_terminal_form2_amendment_chain_receipt"] });
   });
 
-  it("requires a separately versioned policy before changing the v0.1 not-applicable denominator", () => {
+  it("keeps the v0.1 weights and denominator explicit and requires a new version to change either", () => {
     const value = validateAipacNumericReviewPackageV3(load());
-    expect(value.decisions.find((row) => row.decisionId === "aipac-numeric:retain-v01-no-na-denominator-v3")?.consequences.join(" ")).toContain("MA-06 and NH-01 AIPAC components null");
+    const decision = value.decisions.find((row) => row.decisionId === "aipac-numeric:accept-v01-score-contract-v3");
+    expect(decision?.question).toContain("60% AIPAC support, 25% blue baseline, 15% primary feasibility");
+    expect(decision?.consequences.join(" ")).toContain("MA-06 and NH-01 AIPAC components null");
   });
 
   it("rejects a fully rehashed attempt to reintroduce a resolved mapping decision", () => {

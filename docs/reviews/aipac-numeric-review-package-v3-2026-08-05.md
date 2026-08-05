@@ -9,7 +9,7 @@ The concise reviewer queue now contains five decisions, reduced from numeric rev
 | CA-31/2024 source precedence | 1 | Exclude only the affected relationship pending a cutoff-bounded terminal Form 2 amendment-chain receipt |
 | Numeric lineage and receipt methodology | 1 | Retain the exact reviewer-only v3 method |
 | Labeled UDP inference policy | 1 | Retain explicit inference labels and provenance |
-| Formula-v0.1 denominator policy | 1 | Keep current-cycle not-applicable cases AIPAC-score-ineligible pending a separately versioned methodology |
+| Formula-v0.1 score contract | 1 | Retain the explicit 60/25/15 AIPAC-route weights and keep current-cycle not-applicable cases AIPAC-score-ineligible pending a separately versioned methodology |
 | Publication promotion | 1 | Defer and keep all artifacts out of the public release |
 
 ## Sole mapping decision
@@ -30,7 +30,7 @@ The three methodology decisions are intentionally separate:
 
 1. Accept or correct the cycle-scoped cutoff-ledger, terminal-revision, signed-net, relationship-disposition, and transaction-receipt method.
 2. Accept or reject the 16 usable UDP challenger relationships as explicitly labeled inferences rather than direct observations.
-3. Retain formula v0.1's six-cell denominator for this candidate, leaving MA-06 and NH-01 AIPAC-score-ineligible, or require a separately versioned not-applicable denominator with sensitivity analysis.
+3. Accept formula v0.1's explicit AIPAC-route weights—60% AIPAC support, 25% blue baseline, and 15% primary feasibility—and its six-cell denominator for this candidate, or require a separately versioned formula and sensitivity analysis before changing either weights or not-applicable handling.
 
 The promotion decision remains independent. Its recommendation is to defer until CA-31 precedence and all three methodology decisions are explicitly resolved, then generate a distinct approved release rather than modifying any proposal.
 
@@ -45,9 +45,9 @@ npm run data:verify
 
 Artifact: `data/metadata/aipac-numeric-review-package-v3.json`
 
-- Artifact SHA-256: `124af799b72797a97760a0639509a99405a63786eaae678e5ff4027d6f9cb2fa`
-- Decision-set SHA-256: `c01848a1a3df8785e63d3635ce0ca84e66ad1e162a34543d973a3b3700907364`
-- Package SHA-256: `bec26cf8af5aa673d6750f2da791b3e715f1d3a3d8f775b3b9d62aba33337d49`
+- Artifact SHA-256: `8e47d8ac88e66bf91bf22ee4259aef09c612b7786dece147d494741801e54b8d`
+- Decision-set SHA-256: `f3b871698cb9379759e97cd1c51923d6a9268c94fd2f10259f310d52db239108`
+- Package SHA-256: `59a3f3c08d247a01996a5710ea5f461e344591c71dd4338533c4329d5dbf62ad`
 - Status: `proposed`
 - Reviewer: null
 - Publication eligible: false
