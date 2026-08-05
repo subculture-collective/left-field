@@ -12,6 +12,15 @@ export const DSA_ROUTE_WEIGHTS = {
   aipac: { aipacSupport: 60, blueBaseline: 25, primaryFeasibility: 15 },
 } as const;
 
+export const dsaRouteWeightsSchema = z.strictObject({
+  deepBlue: z.strictObject({ blueBaseline: z.number().nonnegative(), primaryFeasibility: z.number().nonnegative() }),
+  aipac: z.strictObject({ aipacSupport: z.number().nonnegative(), blueBaseline: z.number().nonnegative(), primaryFeasibility: z.number().nonnegative() }),
+}).superRefine((weights, ctx) => {
+  if (weights.deepBlue.blueBaseline + weights.deepBlue.primaryFeasibility !== 100) ctx.addIssue({ code: "custom", message: "Deep-blue route weights must sum to 100" });
+  if (weights.aipac.aipacSupport + weights.aipac.blueBaseline + weights.aipac.primaryFeasibility !== 100) ctx.addIssue({ code: "custom", message: "AIPAC route weights must sum to 100" });
+});
+export type DsaRouteWeights = Readonly<z.infer<typeof dsaRouteWeightsSchema>>;
+
 export const DSA_HOUSE_EVALUATION_PROGRAM = evaluationProgramSchema.parse({
   id: "dsa_primary_target",
   version: "0.1",
@@ -127,7 +136,8 @@ export const dsaTargetInputSchema = z.strictObject({
 });
 
 export type DsaTargetInput = Readonly<z.infer<typeof dsaTargetInputSchema>>;
-type Component = Readonly<{ score: number | null; coverage: number; inferred: boolean; missingReason?: "not_collected" }>;
+export type DsaTargetComponent = Readonly<{ score: number | null; coverage: number; inferred: boolean; missingReason?: "not_collected" }>;
+export type DsaTargetComponents = Readonly<{ blueBaseline: DsaTargetComponent & { floor: number }; primaryFeasibility: DsaTargetComponent; aipacSupport: DsaTargetComponent }>;
 export type DsaTargetEvaluation = Readonly<{
   formulaVersion: typeof DSA_TARGET_FORMULA_VERSION;
   seatCycleId: string;
@@ -135,7 +145,7 @@ export type DsaTargetEvaluation = Readonly<{
   selectedRoute: "deep_blue" | "aipac_supported_blue" | null;
   targetScore: number | null;
   routeScores: Readonly<{ deepBlue: number | null; aipacSupportedBlue: number | null }>;
-  components: Readonly<{ blueBaseline: Component; primaryFeasibility: Component; aipacSupport: Component }>;
+  components: DsaTargetComponents;
   dataCoverage: number;
   inferredFromPartialCoverage: boolean;
   qualificationReasons: readonly string[];
@@ -144,7 +154,7 @@ export type DsaTargetEvaluation = Readonly<{
 const clamp = (value: number, minimum = 0, maximum = 100): number => Math.min(maximum, Math.max(minimum, value));
 const rounded = (value: number): number => Math.round(value * 10) / 10;
 
-function blueBaseline(input: DsaTargetInput): Component & { floor: number } {
+function blueBaseline(input: DsaTargetInput): DsaTargetComponent & { floor: number } {
   const rows = input.electoral.presidentialDemocraticMargins;
   const floor = Math.min(...rows.map((row) => row.marginPoints));
   const requiredYears = new Set([2020, 2024]);
@@ -169,7 +179,7 @@ function electorateScale(votes: number): number {
   return 100 * (1 - (Math.log(votes) - Math.log(lower)) / (Math.log(upper) - Math.log(lower)));
 }
 
-function primaryFeasibility(input: DsaTargetInput): Component {
+function primaryFeasibility(input: DsaTargetInput): DsaTargetComponent {
   const definitions = [
     [25, input.feasibility.priorPrimaryMarginPoints, (value: number) => clamp(100 - 2 * value)],
     [20, input.feasibility.incumbentCashOnHand, cashWeakness],
@@ -197,14 +207,38 @@ function aipacSignal(kind: AipacEvidence["kind"], amount: number): number {
   return 0.6 + 0.4 * (1 - Math.exp(-amount / 500_000));
 }
 
-function aipacSupport(input: DsaTargetInput): Component {
-  const signals = input.aipac.evidence.map((row) => clamp(aipacSignal(row.kind, row.netAmount) * evidenceRecency(input.metadata.currentCycleYear, row.cycleYear), 0, 1));
+export function scoreAipacEvidence(evidence: readonly AipacEvidence[], currentCycleYear: number): number {
+  const signals = evidence.map((row) => clamp(aipacSignal(row.kind, row.netAmount) * evidenceRecency(currentCycleYear, row.cycleYear), 0, 1));
   const combined = signals.length === 0 ? 0 : 1 - signals.reduce((remaining, signal) => remaining * (1 - signal), 1);
+  return rounded(combined * 100);
+}
+
+function aipacSupport(input: DsaTargetInput): DsaTargetComponent {
   const byYear = new Map(input.aipac.coverage.map((row) => [row.cycleYear, row]));
   const requiredYears = [input.metadata.currentCycleYear, input.metadata.currentCycleYear - 2, input.metadata.currentCycleYear - 4];
   const coverage = requiredYears.reduce((sum, year) => { const row = byYear.get(year); return sum + Number(row?.directContributionsComplete ?? false) + Number(row?.independentExpendituresComplete ?? false); }, 0) / (requiredYears.length * 2);
   if (coverage < 1) return { score: null, coverage: rounded(coverage), inferred: true, missingReason: "not_collected" };
-  return { score: rounded(combined * 100), coverage: rounded(coverage), inferred: coverage < 1 };
+  return { score: scoreAipacEvidence(input.aipac.evidence, input.metadata.currentCycleYear), coverage: rounded(coverage), inferred: coverage < 1 };
+}
+
+export function scoreDsaTargetRoutes(components: DsaTargetComponents, rawWeights: DsaRouteWeights = DSA_ROUTE_WEIGHTS): Pick<DsaTargetEvaluation, "status" | "selectedRoute" | "targetScore" | "routeScores" | "dataCoverage" | "inferredFromPartialCoverage" | "qualificationReasons"> {
+  const weights = dsaRouteWeightsSchema.parse(rawWeights);
+  const blue = components.blueBaseline, feasibility = components.primaryFeasibility, aipac = components.aipacSupport;
+  const deepQualified = blue.floor >= 20;
+  const aipacQualified = blue.floor >= 8 && aipac.score !== null && aipac.score > 0;
+  const deepBlue = deepQualified ? rounded(blue.score! * weights.deepBlue.blueBaseline / 100 + feasibility.score! * weights.deepBlue.primaryFeasibility / 100) : null;
+  const aipacSupportedBlue = aipacQualified ? rounded(aipac.score! * weights.aipac.aipacSupport / 100 + blue.score! * weights.aipac.blueBaseline / 100 + feasibility.score! * weights.aipac.primaryFeasibility / 100) : null;
+  const selectedRoute = deepBlue === null && aipacSupportedBlue === null ? null : aipacSupportedBlue !== null && (deepBlue === null || aipacSupportedBlue > deepBlue) ? "aipac_supported_blue" as const : "deep_blue" as const;
+  const targetScore = selectedRoute === "aipac_supported_blue" ? aipacSupportedBlue : selectedRoute === "deep_blue" ? deepBlue : null;
+  const dataCoverage = selectedRoute === "aipac_supported_blue"
+    ? aipac.coverage * weights.aipac.aipacSupport / 100 + blue.coverage * weights.aipac.blueBaseline / 100 + feasibility.coverage * weights.aipac.primaryFeasibility / 100
+    : selectedRoute === "deep_blue" ? blue.coverage * weights.deepBlue.blueBaseline / 100 + feasibility.coverage * weights.deepBlue.primaryFeasibility / 100 : 0;
+  const qualificationReasons = [
+    ...(deepQualified ? ["presidential Democratic margin floor is at least 20 points"] : []),
+    ...(aipacQualified ? ["presidential Democratic margin floor is at least 8 points and AIPAC-network support evidence is present"] : []),
+    ...(!deepQualified && !aipacQualified ? ["neither the deep-blue nor AIPAC-supported-blue route qualified"] : []),
+  ];
+  return { status: selectedRoute === null ? "not_qualified" : "qualified", selectedRoute, targetScore, routeScores: { deepBlue, aipacSupportedBlue }, dataCoverage: rounded(dataCoverage), inferredFromPartialCoverage: selectedRoute !== null && dataCoverage < 1, qualificationReasons };
 }
 
 /** Deterministic seat-level targeting evaluation. It never consumes voter, donor-person, or demographic records. */
@@ -213,30 +247,11 @@ export function evaluateDsaTarget(rawInput: unknown): DsaTargetEvaluation {
   const blue = blueBaseline(input);
   const feasibility = primaryFeasibility(input);
   const aipac = aipacSupport(input);
-  const deepQualified = blue.floor >= 20;
-  const aipacQualified = blue.floor >= 8 && aipac.score !== null && aipac.score > 0;
-  const deepBlue = deepQualified ? rounded(blue.score! * 0.7 + feasibility.score! * 0.3) : null;
-  const aipacSupportedBlue = aipacQualified ? rounded(aipac.score! * 0.6 + blue.score! * 0.25 + feasibility.score! * 0.15) : null;
-  const selectedRoute = deepBlue === null && aipacSupportedBlue === null ? null : aipacSupportedBlue !== null && (deepBlue === null || aipacSupportedBlue > deepBlue) ? "aipac_supported_blue" : "deep_blue";
-  const targetScore = selectedRoute === "aipac_supported_blue" ? aipacSupportedBlue : selectedRoute === "deep_blue" ? deepBlue : null;
-  const dataCoverage = selectedRoute === "aipac_supported_blue"
-    ? aipac.coverage * 0.6 + blue.coverage * 0.25 + feasibility.coverage * 0.15
-    : selectedRoute === "deep_blue" ? blue.coverage * 0.7 + feasibility.coverage * 0.3 : 0;
-  const qualificationReasons = [
-    ...(deepQualified ? ["presidential Democratic margin floor is at least 20 points"] : []),
-    ...(aipacQualified ? ["presidential Democratic margin floor is at least 8 points and AIPAC-network support evidence is present"] : []),
-    ...(!deepQualified && !aipacQualified ? ["neither the deep-blue nor AIPAC-supported-blue route qualified"] : []),
-  ];
+  const route = scoreDsaTargetRoutes({ blueBaseline: blue, primaryFeasibility: feasibility, aipacSupport: aipac });
   return {
     formulaVersion: DSA_TARGET_FORMULA_VERSION,
     seatCycleId: input.metadata.seatCycleId,
-    status: selectedRoute === null ? "not_qualified" : "qualified",
-    selectedRoute,
-    targetScore,
-    routeScores: { deepBlue, aipacSupportedBlue },
     components: { blueBaseline: blue, primaryFeasibility: feasibility, aipacSupport: aipac },
-    dataCoverage: rounded(dataCoverage),
-    inferredFromPartialCoverage: selectedRoute !== null && dataCoverage < 1,
-    qualificationReasons,
+    ...route,
   };
 }

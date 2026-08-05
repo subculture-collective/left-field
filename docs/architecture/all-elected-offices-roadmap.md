@@ -65,7 +65,7 @@ Government-unit discovery must never be converted directly into an elected-offic
 
 ### Phase A — federal target evaluation
 
-Complete the House evaluator's missing election and AIPAC transaction inputs, run sensitivity analysis, and publish a reviewer-only ranking before changing the public surface.
+Complete the House evaluator's missing election inputs and publish a reviewed ranking before changing the public surface. The first factual-parent-bound AIPAC weight and denominator sensitivity candidate is complete, reviewer-only, and nonpublishable; its methodology decision remains open.
 
 ### Phase B — state legislative pilot
 
