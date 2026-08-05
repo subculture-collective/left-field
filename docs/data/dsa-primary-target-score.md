@@ -85,6 +85,12 @@ The following acquisitions are required for complete v0.1 rankings:
 
 Aggregate primary turnout and prior progressive-challenger performance are formula inputs, but remain missing until nationwide, geography-compatible sources are selected. Local DSA chapter capacity, endorsements, candidate quality, polling, and field strength should be maintained as separate reviewer inputs; they describe a campaign and organization, not an intrinsic seat condition.
 
+## Current factual projection status
+
+The retained 2026-08-04 reviewer report evaluates the exact 212-seat eligible universe from published release `rel_full_20260804_v2`. It has a compatible 2024 presidential margin for 212/212 seats and current cash-on-hand for 210/212. Every other feasibility factor, every compatible 2020 margin, and every AIPAC transaction factor remains explicitly missing. The two cash outcomes without a numeric value are `not_reported`, not zero.
+
+The resulting 117 deep-blue qualifications and their ranks are partial reviewer evidence only. They are not public, publication-eligible, a complete comparison, or an AIPAC-informed score. All four AIPAC proposal packages are hash-bound as excluded inputs; the report contains zero AIPAC numeric evidence rows and zero AIPAC route selections. See [`dsa-target-evaluation-review-report-2026-08-04.md`](../reviews/dsa-target-evaluation-review-report-2026-08-04.md).
+
 ## Interpretation
 
 - The score measures target attractiveness under this strategy, not incumbent ideology and not win probability.

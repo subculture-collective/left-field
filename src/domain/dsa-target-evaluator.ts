@@ -51,7 +51,7 @@ export type AipacEvidence = Readonly<z.infer<typeof aipacEvidenceSchema>>;
 export const dsaTargetInputSchema = z.strictObject({
   metadata: z.strictObject({
     seatCycleId: z.string().min(1),
-    incumbentFecCandidateId: z.string().min(1),
+    incumbentFecCandidateId: z.string().min(1).nullable(),
     sourceCutoff: z.iso.date(),
     currentCycleYear: z.number().int().min(2022).max(2100),
     inputSnapshotIds: z.array(z.string().min(1)).min(1),
@@ -110,6 +110,7 @@ export const dsaTargetInputSchema = z.strictObject({
   const requiredCoverageYears = new Set([input.metadata.currentCycleYear, input.metadata.currentCycleYear - 2, input.metadata.currentCycleYear - 4]);
   if (coverageYears.some((year) => !requiredCoverageYears.has(year))) ctx.addIssue({ code: "custom", message: "AIPAC coverage may contain only the current and two prior cycles" });
   if (input.aipac.evidence.some((row) => !requiredCoverageYears.has(row.cycleYear))) ctx.addIssue({ code: "custom", message: "AIPAC evidence must be from the current or two prior cycles" });
+  if (input.metadata.incumbentFecCandidateId === null && input.aipac.evidence.length > 0) ctx.addIssue({ code: "custom", message: "AIPAC evidence requires an approved incumbent candidate mapping" });
   for (const evidence of input.aipac.evidence) {
     if (evidence.kind === "direct_contribution" && evidence.recipientCandidateId !== input.metadata.incumbentFecCandidateId) ctx.addIssue({ code: "custom", message: "Direct contribution recipient must map to the incumbent candidate" });
     if (evidence.kind === "independent_support_incumbent" && (evidence.targetCandidateId !== input.metadata.incumbentFecCandidateId || evidence.targetSeatCycleId !== input.metadata.seatCycleId)) ctx.addIssue({ code: "custom", message: "Independent support must target this seat's incumbent" });

@@ -38,6 +38,7 @@
     "inventory:fec-bulk": "tsx scripts/inventory-fec-bulk.ts",
     "generate:aipac-review": "tsx scripts/generate-aipac-proposed-review-packages.ts",
     "generate:aipac-decision-queue": "tsx scripts/generate-aipac-review-decision-queue.ts",
+    "generate:dsa-target-review-report": "tsx scripts/generate-dsa-target-review-report.ts",
     "bootstrap:fec-bulk": "tsx scripts/bootstrap-fec-bulk.ts",
     "reconcile:fec-bulk": "tsx scripts/reconcile-fec-bulk.ts",
     "db:generate": "drizzle-kit generate",

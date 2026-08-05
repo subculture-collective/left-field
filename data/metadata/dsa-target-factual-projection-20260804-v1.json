@@ -1,0 +1,5353 @@
+{
+  "schema": "dsa-target-factual-projection-v1",
+  "version": 1,
+  "generatedAt": "2026-08-04T20:32:58.060Z",
+  "release": {
+    "id": "rel_full_20260804_v2",
+    "label": "Full factual release 2026-08-04 v2",
+    "status": "published",
+    "sourceCutoff": "2026-08-04",
+    "publishedAt": "2026-08-04T20:32:58.060Z"
+  },
+  "universe": {
+    "definition": "occupied regular Democratic voting U.S. House seats",
+    "expected": 212,
+    "observed": 212
+  },
+  "productionReleaseClosure": {
+    "manifest": {
+      "schemaVersion": 2,
+      "canonicalDataChecksumSha256": "f365df475ca0134d7d98dc5b07ebffcd51425a3532a61f1806f1dfd0b2fa5fc1",
+      "geometryChecksumSha256": "c8f32c4071ff7d259d5fa0d26acdde107bb09aab7f9388b47ea293d1adf1a628",
+      "contentChecksumSha256": "435fb6c1cca524dc24ee2cc81113116d2f238cb278b8da3995fd427289950896"
+    },
+    "closureSha256": "3602a80fc16e92e82a214b14ceca9fe4c92e14cc7eea0de59921767b68723ab6"
+  },
+  "snapshots": [
+    {
+      "id": "snap_full_elections",
+      "sourceId": "src_full_elections",
+      "checksumSha256": "938410ae6b42104eb6ee73ff1fcb4de13f39c2aefa607c73b5664eec9ade974e",
+      "parserVersion": "downballot-cd-exact-csv-v1",
+      "usageStatus": "approved",
+      "retrievedAt": "2026-08-04T18:20:00.000Z"
+    },
+    {
+      "id": "snap_full_fec_2024",
+      "sourceId": "src_full_fec_2024",
+      "checksumSha256": "29b82795ca35dd2247bb3bf0b19b00965cae58d734976a33d64496dedc757adb",
+      "parserVersion": "fec-candidate-summary-csv-v2",
+      "usageStatus": "approved",
+      "retrievedAt": "2026-08-04T18:20:00.000Z"
+    },
+    {
+      "id": "snap_full_fec_2026",
+      "sourceId": "src_full_fec_2026",
+      "checksumSha256": "38f14f3094a2c4d1cc6a1b9c13195df08f6090bdaa110d655d80fd7965751313",
+      "parserVersion": "fec-candidate-summary-csv-v2",
+      "usageStatus": "approved",
+      "retrievedAt": "2026-08-04T18:20:00.000Z"
+    }
+  ],
+  "seats": [
+    {
+      "seatCycleId": "seat_house_al_02_current",
+      "stateCode": "AL",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 8.234235414590753,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 655662.08,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_al_07_current",
+      "stateCode": "AL",
+      "districtCode": "07",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 23.360925690770934,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3768636.2,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_az_03_current",
+      "stateCode": "AZ",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 39.751995572689495,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 549682.98,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_az_04_current",
+      "stateCode": "AZ",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 6.667510776792343,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2020288.72,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_az_07_current",
+      "stateCode": "AZ",
+      "districtCode": "07",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 22.12542378898415,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 427976.51,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_02_current",
+      "stateCode": "CA",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 45.15847414234511,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1075956.32,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_04_current",
+      "stateCode": "CA",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 31.220551143262558,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1075630.66,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_06_current",
+      "stateCode": "CA",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 13.867065677544357,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1873371.71,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_07_current",
+      "stateCode": "CA",
+      "districtCode": "07",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 29.749869015970347,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 467455.75,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_08_current",
+      "stateCode": "CA",
+      "districtCode": "08",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 43.57664950406151,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1196018.11,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_09_current",
+      "stateCode": "CA",
+      "districtCode": "09",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -1.7765091807608742,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 4739488.08,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_10_current",
+      "stateCode": "CA",
+      "districtCode": "10",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 33.779693638113315,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 586497.44,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_11_current",
+      "stateCode": "CA",
+      "districtCode": "11",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 67.72015216705152,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2078066.46,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_12_current",
+      "stateCode": "CA",
+      "districtCode": "12",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 73.89740754932691,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 777589.88,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_13_current",
+      "stateCode": "CA",
+      "districtCode": "13",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -5.426898660414353,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2072111.19,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_15_current",
+      "stateCode": "CA",
+      "districtCode": "15",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 47.89194672600543,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 220935.09,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_16_current",
+      "stateCode": "CA",
+      "districtCode": "16",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 48.52164561928705,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2153446.11,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_17_current",
+      "stateCode": "CA",
+      "districtCode": "17",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 37.90400381351604,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 16929752.19,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_18_current",
+      "stateCode": "CA",
+      "districtCode": "18",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 29.503422410545344,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 643340.91,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_19_current",
+      "stateCode": "CA",
+      "districtCode": "19",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 34.39296916706727,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 5109557.79,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_21_current",
+      "stateCode": "CA",
+      "districtCode": "21",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 3.7858799072519393,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 937778.5,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_24_current",
+      "stateCode": "CA",
+      "districtCode": "24",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 25.043582448907742,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3383603.83,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_25_current",
+      "stateCode": "CA",
+      "districtCode": "25",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 2.473207911393667,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2556494.44,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_26_current",
+      "stateCode": "CA",
+      "districtCode": "26",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 13.162679771626799,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 942357.13,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_27_current",
+      "stateCode": "CA",
+      "districtCode": "27",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 3.888355484768012,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2554916.64,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_28_current",
+      "stateCode": "CA",
+      "districtCode": "28",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 26.93537700027533,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3674296.35,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_29_current",
+      "stateCode": "CA",
+      "districtCode": "29",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 34.8005889507714,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 377476.23,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_30_current",
+      "stateCode": "CA",
+      "districtCode": "30",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 41.05507971831484,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 469253.89,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_31_current",
+      "stateCode": "CA",
+      "districtCode": "31",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 16.902905873734433,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 259803.37,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_32_current",
+      "stateCode": "CA",
+      "districtCode": "32",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 31.34690255353258,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2668479.97,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_33_current",
+      "stateCode": "CA",
+      "districtCode": "33",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 8.733106999934396,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3457641.87,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_34_current",
+      "stateCode": "CA",
+      "districtCode": "34",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 50.64254051710878,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 781725.64,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_35_current",
+      "stateCode": "CA",
+      "districtCode": "35",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 10.270642258205905,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 339247.17,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_36_current",
+      "stateCode": "CA",
+      "districtCode": "36",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 39.10741144131528,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1188398.69,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_37_current",
+      "stateCode": "CA",
+      "districtCode": "37",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 60.394089927017234,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 185490.78,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_38_current",
+      "stateCode": "CA",
+      "districtCode": "38",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 16.079924850022213,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 425787.47,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_39_current",
+      "stateCode": "CA",
+      "districtCode": "39",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 9.69461189379572,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 186223.88,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_42_current",
+      "stateCode": "CA",
+      "districtCode": "42",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 32.43099423927372,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1381467.45,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_43_current",
+      "stateCode": "CA",
+      "districtCode": "43",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 48.96419317159621,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 269668.83,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_44_current",
+      "stateCode": "CA",
+      "districtCode": "44",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 33.81719273932124,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1088422.95,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_45_current",
+      "stateCode": "CA",
+      "districtCode": "45",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 1.5350086168891026,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3257397.68,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_46_current",
+      "stateCode": "CA",
+      "districtCode": "46",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 17.72835932992004,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2479554.24,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_47_current",
+      "stateCode": "CA",
+      "districtCode": "47",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 4.166781621245813,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1889359.66,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_49_current",
+      "stateCode": "CA",
+      "districtCode": "49",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 7.761979115332542,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1418236.98,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_50_current",
+      "stateCode": "CA",
+      "districtCode": "50",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 29.557203503681013,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2598275.74,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_51_current",
+      "stateCode": "CA",
+      "districtCode": "51",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 23.498043428220672,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 269452.28,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ca_52_current",
+      "stateCode": "CA",
+      "districtCode": "52",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 21.189788644717233,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 163675.89,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_co_01_current",
+      "stateCode": "CO",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 56.07475103031363,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 290388.74,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_co_02_current",
+      "stateCode": "CO",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 39.7834739617361,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3092918.11,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_co_06_current",
+      "stateCode": "CO",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 19.77736992189344,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2707898.98,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_co_07_current",
+      "stateCode": "CO",
+      "districtCode": "07",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 14.984602400768532,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1105387.56,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ct_01_current",
+      "stateCode": "CT",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 22.881713300237603,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1080105.93,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ct_02_current",
+      "stateCode": "CT",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 7.725039062801659,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 603233.57,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ct_03_current",
+      "stateCode": "CT",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 14.058051503902252,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 349418.43,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ct_04_current",
+      "stateCode": "CT",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 23.359644430784872,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2517676.77,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ct_05_current",
+      "stateCode": "CT",
+      "districtCode": "05",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 5.586162197196791,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1084158.01,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_de_al_current",
+      "stateCode": "DE",
+      "districtCode": "AL",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 14.736650791386307,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2657928.13,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_fl_09_current",
+      "stateCode": "FL",
+      "districtCode": "09",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 3.5131589241759498,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1268859.71,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_fl_10_current",
+      "stateCode": "FL",
+      "districtCode": "10",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 22.705607244141497,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1332681.22,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_fl_14_current",
+      "stateCode": "FL",
+      "districtCode": "14",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 7.670103323469029,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1501762.06,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_fl_22_current",
+      "stateCode": "FL",
+      "districtCode": "22",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 5.568723527504823,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 287321.25,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_fl_23_current",
+      "stateCode": "FL",
+      "districtCode": "23",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 1.9052535133112232,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 349286.7,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_fl_24_current",
+      "stateCode": "FL",
+      "districtCode": "24",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 30.054657738447343,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 497199.62,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_fl_25_current",
+      "stateCode": "FL",
+      "districtCode": "25",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 5.330060737637779,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1057308.92,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ga_02_current",
+      "stateCode": "GA",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 7.619887644356768,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 447807.95,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ga_04_current",
+      "stateCode": "GA",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 52.47381831216516,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 117905.6,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ga_05_current",
+      "stateCode": "GA",
+      "districtCode": "05",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 71.59350984980084,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 76091.81,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ga_06_current",
+      "stateCode": "GA",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 49.93605067020493,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 676348.88,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_hi_01_current",
+      "stateCode": "HI",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 24.731152547821893,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 773637.73,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_hi_02_current",
+      "stateCode": "HI",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 21.594035712552405,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 604526.3,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_01_current",
+      "stateCode": "IL",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 32.04803312123692,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 47162.51,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_02_current",
+      "stateCode": "IL",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 33.11643180192794,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2015110.97,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_03_current",
+      "stateCode": "IL",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 31.39281355214879,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 946222.08,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_04_current",
+      "stateCode": "IL",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 28.32538195036065,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 35835.53,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_05_current",
+      "stateCode": "IL",
+      "districtCode": "05",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 37.11697786240353,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1187817.91,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_06_current",
+      "stateCode": "IL",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 5.491982726146085,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1285017.87,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_07_current",
+      "stateCode": "IL",
+      "districtCode": "07",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 65.38716870034564,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 105728.32,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_08_current",
+      "stateCode": "IL",
+      "districtCode": "08",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 6.908789817189986,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 17111494.43,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_09_current",
+      "stateCode": "IL",
+      "districtCode": "09",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 36.57112495885142,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 847974.18,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_10_current",
+      "stateCode": "IL",
+      "districtCode": "10",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 22.045980080962817,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1699006.68,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_11_current",
+      "stateCode": "IL",
+      "districtCode": "11",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 11.430237442518571,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2505288.27,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_13_current",
+      "stateCode": "IL",
+      "districtCode": "13",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 10.467779163879397,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2625564.76,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_14_current",
+      "stateCode": "IL",
+      "districtCode": "14",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 5.18591173068438,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1106564.38,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_il_17_current",
+      "stateCode": "IL",
+      "districtCode": "17",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 4.744380157450441,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1325642.13,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_in_01_current",
+      "stateCode": "IN",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 0.39592397036837745,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1336695.94,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_in_07_current",
+      "stateCode": "IN",
+      "districtCode": "07",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 41.45741704055713,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 621350.73,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ks_03_current",
+      "stateCode": "KS",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 4.099700696697603,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1695944.12,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ky_03_current",
+      "stateCode": "KY",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 18.93946235588067,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1813759.8,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_la_02_current",
+      "stateCode": "LA",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 31.38185291785551,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 407274.44,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_la_06_current",
+      "stateCode": "LA",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 14.982988278647772,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 436704.72,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ma_01_current",
+      "stateCode": "MA",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 13.622480950801199,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 4055459.61,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ma_02_current",
+      "stateCode": "MA",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 23.67593598529166,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 332099.81,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ma_03_current",
+      "stateCode": "MA",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 18.980882443551955,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1777088.03,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ma_04_current",
+      "stateCode": "MA",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 19.723442071857534,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 7408603.83,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ma_05_current",
+      "stateCode": "MA",
+      "districtCode": "05",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 45.16737058885127,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2212415.88,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ma_06_current",
+      "stateCode": "MA",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 20.682313168416606,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1850338.06,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ma_07_current",
+      "stateCode": "MA",
+      "districtCode": "07",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 63.095139759304416,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 113017.93,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ma_08_current",
+      "stateCode": "MA",
+      "districtCode": "08",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 26.41676187743684,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1241118.45,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ma_09_current",
+      "stateCode": "MA",
+      "districtCode": "09",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 10.763611260393319,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 510082.13,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_md_02_current",
+      "stateCode": "MD",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 18.456652338618127,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 614275.48,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_md_03_current",
+      "stateCode": "MD",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 23.76402019585917,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 335825.84,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_md_04_current",
+      "stateCode": "MD",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 73.62331695375282,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "missing",
+        "reason": "not_reported",
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ]
+      }
+    },
+    {
+      "seatCycleId": "seat_house_md_05_current",
+      "stateCode": "MD",
+      "districtCode": "05",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 33.28824122103221,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 623674.91,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_md_06_current",
+      "stateCode": "MD",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 5.7719335796974,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 307611.31,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_md_07_current",
+      "stateCode": "MD",
+      "districtCode": "07",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 58.939803228326646,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 702809.57,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_md_08_current",
+      "stateCode": "MD",
+      "districtCode": "08",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 56.45349561103157,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 7893446.98,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_me_01_current",
+      "stateCode": "ME",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 21.610177313802048,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 423112.34,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_me_02_current",
+      "stateCode": "ME",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -9.051474695424192,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 126729.88,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_mi_03_current",
+      "stateCode": "MI",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 7.839260183129011,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1395804.86,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_mi_06_current",
+      "stateCode": "MI",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 23.30533130465891,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 447143.83,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_mi_08_current",
+      "stateCode": "MI",
+      "districtCode": "08",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -1.9807892722426657,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 4213976.59,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_mi_11_current",
+      "stateCode": "MI",
+      "districtCode": "11",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 16.08339344219555,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 753735.56,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_mi_12_current",
+      "stateCode": "MI",
+      "districtCode": "12",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 37.96421526437617,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3909639.48,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_mi_13_current",
+      "stateCode": "MI",
+      "districtCode": "13",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 41.06084299559683,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 4682993.3,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_mn_02_current",
+      "stateCode": "MN",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 5.831909194054866,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 23602.41,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_mn_03_current",
+      "stateCode": "MN",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 21.261523027125254,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 413020.79,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_mn_04_current",
+      "stateCode": "MN",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 35.67305318976706,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 568721.07,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_mn_05_current",
+      "stateCode": "MN",
+      "districtCode": "05",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 61.86602207315847,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1572632.9,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_mo_01_current",
+      "stateCode": "MO",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 57.19177646235122,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1908026.9,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_mo_05_current",
+      "stateCode": "MO",
+      "districtCode": "05",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 23.11720469280825,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1143055.15,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ms_02_current",
+      "stateCode": "MS",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 20.36166239025327,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1449521.62,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nc_01_current",
+      "stateCode": "NC",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -3.0955652651408663,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3570365.96,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nc_02_current",
+      "stateCode": "NC",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 33.85363145360418,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1337686.54,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nc_04_current",
+      "stateCode": "NC",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 45.30372398710812,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 47788.08,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nc_12_current",
+      "stateCode": "NC",
+      "districtCode": "12",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 46.202027813740294,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 456593.63,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nh_01_current",
+      "stateCode": "NH",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 2.0011797347781446,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 407584.23,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nh_02_current",
+      "stateCode": "NH",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 3.589095935966296,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2514390.01,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nj_01_current",
+      "stateCode": "NJ",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 18.731750346062594,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2365598.9,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nj_03_current",
+      "stateCode": "NJ",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 8.3558248969067,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 439328.75,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nj_05_current",
+      "stateCode": "NJ",
+      "districtCode": "05",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 1.5132633962039332,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 12773074.82,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nj_06_current",
+      "stateCode": "NJ",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 6.423489701343628,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3066966.5,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nj_08_current",
+      "stateCode": "NJ",
+      "districtCode": "08",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 24.18691420736778,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 679736.74,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nj_09_current",
+      "stateCode": "NJ",
+      "districtCode": "09",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -1.1377159828156027,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1793358.76,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nj_10_current",
+      "stateCode": "NJ",
+      "districtCode": "10",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 50.772033705306306,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 814119.82,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nj_11_current",
+      "stateCode": "NJ",
+      "districtCode": "11",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 8.71446199887289,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 27475.47,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nj_12_current",
+      "stateCode": "NJ",
+      "districtCode": "12",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 23.867264542262554,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 39378.09,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nm_01_current",
+      "stateCode": "NM",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 12.664443942133815,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 416710.64,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nm_02_current",
+      "stateCode": "NM",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -1.8081491870322721,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2378703.24,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nm_03_current",
+      "stateCode": "NM",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 5.204416030944451,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 666975.48,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nv_01_current",
+      "stateCode": "NV",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 2.2593326095515334,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1337524.79,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nv_03_current",
+      "stateCode": "NV",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -0.7370426908418746,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3689228.41,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_nv_04_current",
+      "stateCode": "NV",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 2.316040965575514,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1496222.24,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_03_current",
+      "stateCode": "NY",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -4.278856574905763,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 5679950.24,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_04_current",
+      "stateCode": "NY",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 1.2772177600951158,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "missing",
+        "reason": "not_reported",
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ]
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_05_current",
+      "stateCode": "NY",
+      "districtCode": "05",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 42.15661157024793,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2010349.55,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_06_current",
+      "stateCode": "NY",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 6.4080211323783,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1034068.45,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_07_current",
+      "stateCode": "NY",
+      "districtCode": "07",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 45.88852531562084,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 159566.43,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_08_current",
+      "stateCode": "NY",
+      "districtCode": "08",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 43.97880559659483,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 5000459.66,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_09_current",
+      "stateCode": "NY",
+      "districtCode": "09",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 40.60544212263512,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 30978.15,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_10_current",
+      "stateCode": "NY",
+      "districtCode": "10",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 60.44207592267643,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1158530.28,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_12_current",
+      "stateCode": "NY",
+      "districtCode": "12",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 63.60067600050729,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 194551.65,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_13_current",
+      "stateCode": "NY",
+      "districtCode": "13",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 59.28362695165734,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 54546.48,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_14_current",
+      "stateCode": "NY",
+      "districtCode": "14",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 31.751204934940898,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 15960931.7,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_15_current",
+      "stateCode": "NY",
+      "districtCode": "15",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 48.25626204238921,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 13986720.96,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_16_current",
+      "stateCode": "NY",
+      "districtCode": "16",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 33.10654677625974,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 100662.37,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_18_current",
+      "stateCode": "NY",
+      "districtCode": "18",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 3.3318794223126877,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3116479.19,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_19_current",
+      "stateCode": "NY",
+      "districtCode": "19",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 1.7843178517519727,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3190953.67,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_20_current",
+      "stateCode": "NY",
+      "districtCode": "20",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 14.149288377093283,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 404327.47,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_22_current",
+      "stateCode": "NY",
+      "districtCode": "22",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 7.650060686306963,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1842997.29,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_25_current",
+      "stateCode": "NY",
+      "districtCode": "25",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 18.44471161518901,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 408038.29,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ny_26_current",
+      "stateCode": "NY",
+      "districtCode": "26",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 19.269187076571725,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1213877.96,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_oh_01_current",
+      "stateCode": "OH",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 6.336729064580468,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3610213.67,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_oh_03_current",
+      "stateCode": "OH",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 40.24087236667988,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2776821.02,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_oh_09_current",
+      "stateCode": "OH",
+      "districtCode": "09",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -6.710452907316481,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3491668,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_oh_11_current",
+      "stateCode": "OH",
+      "districtCode": "11",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 55.0655694749451,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1156555.94,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_oh_13_current",
+      "stateCode": "OH",
+      "districtCode": "13",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 0.04628985543905802,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1897462.29,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_or_01_current",
+      "stateCode": "OR",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 37.790626052249046,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 572435.26,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_or_03_current",
+      "stateCode": "OR",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 45.97583265055892,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 173686.59,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_or_04_current",
+      "stateCode": "OR",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 12.06103178910492,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 520839.58,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_or_05_current",
+      "stateCode": "OR",
+      "districtCode": "05",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 8.541120497135644,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2715860.25,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_or_06_current",
+      "stateCode": "OR",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 11.37575919126604,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 611102.62,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_pa_02_current",
+      "stateCode": "PA",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 35.73979237817365,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 5560517.95,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_pa_03_current",
+      "stateCode": "PA",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 77.31529656607701,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 76137.19,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_pa_04_current",
+      "stateCode": "PA",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 15.803571237705565,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1184806.8,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_pa_05_current",
+      "stateCode": "PA",
+      "districtCode": "05",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 28.62996427820971,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 448590.17,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_pa_06_current",
+      "stateCode": "PA",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 11.408244934256494,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 4037759.36,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_pa_12_current",
+      "stateCode": "PA",
+      "districtCode": "12",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 19.18587577205454,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1649287.99,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_pa_17_current",
+      "stateCode": "PA",
+      "districtCode": "17",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 5.5036578749321805,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1073974.67,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ri_01_current",
+      "stateCode": "RI",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 22.157634293209323,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1734227.04,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_ri_02_current",
+      "stateCode": "RI",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 6.786254200850503,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1588340.1,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_sc_06_current",
+      "stateCode": "SC",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 22.675894034238723,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1634792.67,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tn_09_current",
+      "stateCode": "TN",
+      "districtCode": "09",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 43.39703626264815,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1843018.39,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_07_current",
+      "stateCode": "TX",
+      "districtCode": "07",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 20.769401207555532,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1702706.46,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_09_current",
+      "stateCode": "TX",
+      "districtCode": "09",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 44.105035479831514,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 219084.99,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_16_current",
+      "stateCode": "TX",
+      "districtCode": "16",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 16.009290815551264,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 270455.02,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_18_current",
+      "stateCode": "TX",
+      "districtCode": "18",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 39.81128952160238,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 156015.99,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_20_current",
+      "stateCode": "TX",
+      "districtCode": "20",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 21.273862042326535,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 154379.66,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_28_current",
+      "stateCode": "TX",
+      "districtCode": "28",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -7.28892084032271,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1129603.88,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_29_current",
+      "stateCode": "TX",
+      "districtCode": "29",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 20.40374585720525,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 200972.67,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_30_current",
+      "stateCode": "TX",
+      "districtCode": "30",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 46.970244454219824,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1611233.21,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_32_current",
+      "stateCode": "TX",
+      "districtCode": "32",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 23.751641201903375,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 230903.4,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_33_current",
+      "stateCode": "TX",
+      "districtCode": "33",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 33.76887793761243,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1009480.43,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_34_current",
+      "stateCode": "TX",
+      "districtCode": "34",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -4.430732250688867,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 2532412.14,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_35_current",
+      "stateCode": "TX",
+      "districtCode": "35",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 33.64457605517655,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 370838.96,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_tx_37_current",
+      "stateCode": "TX",
+      "districtCode": "37",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 49.33550335017653,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 6227828.08,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2024"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_va_03_current",
+      "stateCode": "VA",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 34.67075325650127,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 169257.69,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_va_04_current",
+      "stateCode": "VA",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 32.70228432767133,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 192446.55,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_va_07_current",
+      "stateCode": "VA",
+      "districtCode": "07",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 2.861063874220591,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 6661973.59,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_va_08_current",
+      "stateCode": "VA",
+      "districtCode": "08",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 49.74722647679762,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 864385.08,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_va_10_current",
+      "stateCode": "VA",
+      "districtCode": "10",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 8.358256808295808,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 609264.1,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_va_11_current",
+      "stateCode": "VA",
+      "districtCode": "11",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 34.28761651131824,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 968203.32,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_vt_al_current",
+      "stateCode": "VT",
+      "districtCode": "AL",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 31.768420995171798,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 598647.5,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_wa_01_current",
+      "stateCode": "WA",
+      "districtCode": "01",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 28.692118259746202,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1595475.93,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_wa_02_current",
+      "stateCode": "WA",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 23.667561667448016,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 669645.13,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_wa_03_current",
+      "stateCode": "WA",
+      "districtCode": "03",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": -3.3012167619571584,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3905263.46,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_wa_06_current",
+      "stateCode": "WA",
+      "districtCode": "06",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 19.26950137092441,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 233738.56,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_wa_07_current",
+      "stateCode": "WA",
+      "districtCode": "07",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 74.99218362054695,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1884717.6,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_wa_08_current",
+      "stateCode": "WA",
+      "districtCode": "08",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 5.777374612828479,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 3450507.8,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_wa_09_current",
+      "stateCode": "WA",
+      "districtCode": "09",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 41.206135808745536,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 1170946.13,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_wa_10_current",
+      "stateCode": "WA",
+      "districtCode": "10",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 18.00431348383844,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 677497.64,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_wi_02_current",
+      "stateCode": "WI",
+      "districtCode": "02",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 40.14726792172469,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 863538.62,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    },
+    {
+      "seatCycleId": "seat_house_wi_04_current",
+      "stateCode": "WI",
+      "districtCode": "04",
+      "incumbentFecCandidateId": null,
+      "presidentialMargin2024": {
+        "kind": "value",
+        "value": 51.55318426710069,
+        "observedAt": "2025-04-23",
+        "inputSnapshotIds": [
+          "snap_full_elections"
+        ],
+        "methodologyVersion": "downballot-cd-2024-exact-v1",
+        "geographyCompatibility": "current_boundary_compatible"
+      },
+      "incumbentCashOnHand": {
+        "kind": "value",
+        "value": 45490.92,
+        "observedAt": "2026-08-04",
+        "inputSnapshotIds": [
+          "snap_full_fec_2026"
+        ],
+        "methodologyVersion": "fec-candidate-summary-bulk-v2"
+      }
+    }
+  ],
+  "projectionSha256": "5ff3416817d062bafff21a8ad7e7ff2c87e39b627638f55646de8a540af80edd"
+}
