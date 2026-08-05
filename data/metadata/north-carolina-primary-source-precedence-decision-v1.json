@@ -1,0 +1,150 @@
+{
+  "schema": "north-carolina-primary-source-precedence-decision-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T00:30:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "decisionId": "nc-2022-primary-archive-canvass-source-precedence-v1",
+  "affectedComponent": "north_carolina_2022_democratic_us_house_primary_candidate_totals",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "scoreEligible": false,
+  "inputs": {
+    "receiptSourceLockId": "north-carolina-house-democratic-primary-results-2022-2026-v1",
+    "receiptFileSha256": "a171f1940bf9445413a9b0ff88889408271779c954e00dbd0b4b52013e1f5d7b",
+    "receiptPackageSha256": "8bf12709c58542550b29f94c36ae9337100755bb0d04a4459eef77a845908480",
+    "receiptContestSetSha256": "a806b720b724df1b40a6570e4316c5f5c479a0f0e9fdeae31dd6342355e816dc",
+    "sources": [
+      {
+        "sourceLockId": "nc-2022-primary-official-results-archive",
+        "url": "https://s3.amazonaws.com/dl.ncsbe.gov/ENRS/2022_05_17/results_pct_20220517.zip",
+        "retainedPath": "data/source/elections/primary-results/north-carolina/2022/official-results.zip",
+        "retainedStatus": "retained",
+        "sha256": "705b203290e4131455d3e1d3bb31cf496260c68c88cbe734b84bda5318ede3c1",
+        "byteSize": 2181778,
+        "kind": "source",
+        "parentIds": []
+      },
+      {
+        "sourceLockId": "nc-2022-primary-state-canvass-by-contest",
+        "url": "https://s3.amazonaws.com/dl.ncsbe.gov/State_Board_Meeting_Docs/2022-06-09/Canvass/State_Composite_Abstract_Report_by_Contest.pdf",
+        "retainedPath": "data/source/elections/primary-results/north-carolina/2022/state-canvass-by-contest.pdf",
+        "retainedStatus": "retained",
+        "sha256": "113d6104e0d75106f9641888c30e5a029de00a2e8755ddb4006e4f21a804c194",
+        "byteSize": 674350,
+        "kind": "source",
+        "parentIds": []
+      }
+    ]
+  },
+  "question": "Which retained official source should control the four conflicting 2022 North Carolina Democratic U.S. House primary candidate totals?",
+  "evidence": {
+    "scope": {
+      "cycleYear": 2022,
+      "reportedContestsInSourceCohort": 9,
+      "affectedContestIds": [
+        "nc:2022:regular:us-house:03:democratic",
+        "nc:2022:regular:us-house:11:democratic"
+      ],
+      "conflictingCandidateRows": 4
+    },
+    "archiveVotes": 424306,
+    "canvassVotes": 424321,
+    "delta": 15,
+    "differenceCount": 4,
+    "differences": [
+      {
+        "contestId": "nc:2022:regular:us-house:03:democratic",
+        "sourceCandidateName": "Barbara D. Gaskins",
+        "archiveVotes": 23042,
+        "canvassVotes": 23051,
+        "delta": 9,
+        "rowSha256": "3bcdffbe6e6e6277d647e85d29d2eda9ad9445ad6e7815a2c217a1c2c22ba7e8"
+      },
+      {
+        "contestId": "nc:2022:regular:us-house:03:democratic",
+        "sourceCandidateName": "Joe Swartz",
+        "archiveVotes": 5492,
+        "canvassVotes": 5495,
+        "delta": 3,
+        "rowSha256": "fc61b9bf7216f639f131d95ea9382f8d8c22db10e8350e7faac436b3a23bbcca"
+      },
+      {
+        "contestId": "nc:2022:regular:us-house:11:democratic",
+        "sourceCandidateName": "Jasmine Beach-Ferrara",
+        "archiveVotes": 32476,
+        "canvassVotes": 32478,
+        "delta": 2,
+        "rowSha256": "1224d3580e1867e6414f0d982597020764c4bc597a18e60d2712021c15c1143a"
+      },
+      {
+        "contestId": "nc:2022:regular:us-house:11:democratic",
+        "sourceCandidateName": "Jay Carey",
+        "archiveVotes": 3857,
+        "canvassVotes": 3858,
+        "delta": 1,
+        "rowSha256": "e5168a2a14f2bb54cc72d06576493197aa32dd9ce8b2434ef5bc65f02bb5d9e5"
+      }
+    ],
+    "conflictSetSha256": "3b69a54736cf44e00b016e6e681bf4396e836b668dede7ee2463add212f1be65",
+    "evidenceSha256": "ae713074767973c696b439f59d119485a32209351453d7d36341e4ff313fabf9"
+  },
+  "recommendedDecision": {
+    "choice": "use_final_state_canvass_for_certified_2022_candidate_totals",
+    "confidence": "high",
+    "rationaleCodes": [
+      "state_canvass_is_final_certification_instrument",
+      "candidate_specific_differences_are_exactly_reconciled",
+      "archive_remains_retained_as_reporting_provenance"
+    ],
+    "consequences": [
+      "four_candidate_totals_in_nc03_and_nc11_would_increase_by_15_votes_in_aggregate",
+      "all_unaffected_2022_archive_candidate_totals_remain_unchanged",
+      "approval_would_authorize_a_successor_candidate_only_not_publication_or_scoring"
+    ]
+  },
+  "defaultReversibleAssumption": {
+    "choice": "exclude_affected_rows_pending_review",
+    "affectedContestIds": [
+      "nc:2022:regular:us-house:03:democratic",
+      "nc:2022:regular:us-house:11:democratic"
+    ],
+    "evaluatorUse": "excluded",
+    "publicationUse": "excluded",
+    "unaffectedRows": "remain_reviewer_only_under_parent_receipt_lifecycle"
+  },
+  "alternatives": [
+    {
+      "choice": "use_archive_totals",
+      "consequence": "preserves_export_values_but_conflicts_with_the_final_state_canvass"
+    },
+    {
+      "choice": "exclude_all_2022_results",
+      "consequence": "avoids_precedence_but_withholds_31_candidate_totals_that_do_not_conflict"
+    }
+  ],
+  "blocks": {
+    "blocksAffectedCandidateTotals": true,
+    "blocksUnrelatedWork": false,
+    "doesNotResolve": [
+      "current_incumbent_identity",
+      "historical_geography",
+      "primary_disposition",
+      "progressive_classification",
+      "evaluator_eligibility",
+      "publication"
+    ]
+  },
+  "workCompletedWhileWaiting": [
+    "retained_both_official_source_files_with_sha256_and_byte_size",
+    "reproduced_all_four_candidate_differences_and_the_15_vote_aggregate_delta",
+    "kept_all_affected_rows_score_and_publication_ineligible"
+  ],
+  "resolution": {
+    "status": "proposed",
+    "decision": null,
+    "reviewer": null,
+    "reviewedAt": null,
+    "rationale": null
+  },
+  "packageSha256": "ac12f3e95d0e3dab4a7e94c0b2b2b552e62790abac59d32b10ac16e89f9b01eb"
+}
