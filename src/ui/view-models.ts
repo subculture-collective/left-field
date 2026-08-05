@@ -18,11 +18,13 @@ export type ElectionResultRowViewModel = Immutable<Pick<ElectionResult, "contest
 export type AcsObservationViewModel = Immutable<Pick<AcsObservation, "variable" | "label" | "estimate" | "marginOfError" | "unit" | "surveyPeriod" | "universe" | "lineage">>;
 export type FinanceSummaryViewModel = Immutable<Pick<FecFilingSummary, "id" | "committeeId" | "reportType" | "reportingPeriodStart" | "reportingPeriodEnd" | "filedAt" | "amendmentNumber" | "amendmentStatus" | "amendsFilingId" | "cashOnHand" | "totalReceipts" | "totalDisbursements" | "lineage">>;
 export type FinanceAggregateViewModel = Immutable<Pick<SeatProfile["financeAggregates"][number], "id" | "asOf" | "coverageThrough" | "cashOnHand" | "receipts" | "disbursements" | "methodologyVersion" | "committeeInputs"> & { includedCommitteeCount: number; missingCommitteeCount: number }>;
-export type ElectionEvidenceViewModel = Readonly<{ id: string; sourceUrl: string; sourceName: string; retrievedAt: string }>;
+export type PublishedEvidenceViewModel = Readonly<{ id: string; sourceUrl: string; sourceName: string; retrievedAt: string }>;
+export type ElectionEvidenceViewModel = PublishedEvidenceViewModel;
 export type ElectionDecisionViewModel = Immutable<Pick<SeatProfile["electionDecisions"][number], "jurisdictionCode" | "electionYear" | "status" | "inputSnapshotIds"> & {
   coverage: SeatProfile["electionCoverage"][number] | null;
   evidence: readonly ElectionEvidenceViewModel[];
 }>;
+export type FinanceAvailabilityViewModel = Immutable<NonNullable<SeatProfile["financeCoverage"]>> & Readonly<{ evidence: readonly PublishedEvidenceViewModel[] }>;
 export type BiographyViewModel = Immutable<Readonly<{ bioguideId: SeatProfile["biographicalFacts"][number]["value"] | null; birthDate: SeatProfile["biographicalFacts"][number]["value"] | null; facts: SeatProfile["biographicalFacts"]; memberCoverage: SeatProfile["memberCoverage"]; committeeAssignmentsNote: string }>>;
 export type ProfilePageViewModel = Readonly<{
   release: ReleaseViewModel;
@@ -34,7 +36,7 @@ export type ProfilePageViewModel = Readonly<{
   electionResults: readonly ElectionResultRowViewModel[];
   demographics: readonly AcsObservationViewModel[];
   acsAvailability: Immutable<SeatProfile["acsAvailability"]>;
-  financeCoverage: Immutable<SeatProfile["financeCoverage"]>;
+  financeAvailability: FinanceAvailabilityViewModel | null;
   financeAggregates: readonly FinanceAggregateViewModel[];
   fundingCategoryAggregates: Immutable<SeatProfile["fundingCategoryAggregates"]>;
   fundingOrganizationAggregates: Immutable<SeatProfile["fundingOrganizationAggregates"]>;
@@ -57,7 +59,7 @@ export function compileBrowsePage(releaseValue: DataRelease, page: SeatPage, app
   return { release: release(releaseValue), appliedQuery: { ...appliedQuery }, rows: page.items.map((row) => ({ ...row })), total: page.total, nextCursor: page.nextCursor, available: { states: unique(facets.states), parties: unique(facets.parties), incumbencyStatuses: unique(facets.incumbencyStatuses), electionYears: unique(facets.electionYears) }, disclosure: { coverage: "Coverage is limited to the active release; missing values retain their stated reason.", rankings: "No rankings or scores are published in this release.", demographicFilters: "Demographics are display-only and cannot filter, order, subset, or rank seats." } };
 }
 
-function compileProfilePageBase(profile: SeatProfile, seat: SeatListItem): Omit<ProfilePageViewModel, "identity" | "biography" | "acsAvailability" | "financeCoverage" | "financeAggregates" | "fundingCategoryAggregates" | "fundingOrganizationAggregates" | "outsideSpendingAggregates" | "committeeAssignments" | "electionDecisions" | "map"> & { identity: Omit<ProfilePageViewModel["identity"], "officeKind" | "jurisdictionPolicy"> } {
+function compileProfilePageBase(profile: SeatProfile, seat: SeatListItem): Omit<ProfilePageViewModel, "identity" | "biography" | "acsAvailability" | "financeAvailability" | "financeAggregates" | "fundingCategoryAggregates" | "fundingOrganizationAggregates" | "outsideSpendingAggregates" | "committeeAssignments" | "electionDecisions" | "map"> & { identity: Omit<ProfilePageViewModel["identity"], "officeKind" | "jurisdictionPolicy"> } {
   const contests = new Map(profile.contests.map((contest) => [contest.id, contest]));
   const options = new Map(profile.resultOptions.map((option) => [option.id, option]));
   const candidacies = new Map(profile.candidacies.map((candidacy) => [candidacy.id, candidacy]));
@@ -71,17 +73,20 @@ export function compileProfilePage(profile: SeatProfile, seat: SeatListItem): Pr
   const committeeNames = new Map(profile.committees.map((committee) => [String(committee.id), committee.name]));
   const snapshots = new Map(profile.snapshots.map((snapshot) => [String(snapshot.id), snapshot]));
   const sources = new Map(profile.sources.map((source) => [String(source.id), source]));
+  const publishedEvidence = (ids: readonly unknown[]): readonly PublishedEvidenceViewModel[] => ids.flatMap((id) => {
+    const snapshot = snapshots.get(String(id));
+    const source = snapshot && sources.get(String(snapshot.sourceId));
+    return snapshot?.usageStatus === "approved" && snapshot.releaseId === profile.release.id && source?.releaseId === profile.release.id ? [{ id: String(snapshot.id), sourceUrl: snapshot.sourceUrl, sourceName: source.name, retrievedAt: snapshot.retrievedAt }] : [];
+  });
   const committeeAssignments = profile.committeeAssignments.map((assignment) => ({ committeeId: String(assignment.committeeId), committeeName: committeeNames.get(String(assignment.committeeId)) ?? String(assignment.committeeId), role: assignment.role, effectiveFrom: assignment.effectiveFrom, effectiveTo: assignment.effectiveTo, inputSnapshotIds: assignment.provenance.map((reference) => String(reference.snapshotId)) }));
   const electionDecisions = profile.electionDecisions.map((decision) => {
     const coverage = profile.electionCoverage.find((candidate) => candidate.scope.kind === "election" && candidate.scope.jurisdictionCode === decision.jurisdictionCode && candidate.scope.electionYear === decision.electionYear) ?? null;
-    const evidence = decision.inputSnapshotIds.flatMap((id) => {
-      const snapshot = snapshots.get(String(id));
-      const source = snapshot && sources.get(String(snapshot.sourceId));
-      return snapshot?.usageStatus === "approved" && source ? [{ id: String(snapshot.id), sourceUrl: snapshot.sourceUrl, sourceName: source.name, retrievedAt: snapshot.retrievedAt }] : [];
-    });
+    const evidence = publishedEvidence(decision.inputSnapshotIds);
     return { jurisdictionCode: decision.jurisdictionCode, electionYear: decision.electionYear, status: decision.status, inputSnapshotIds: decision.inputSnapshotIds, coverage, evidence };
   });
-  return { ...base, identity: { ...base.identity, officeKind: profile.office.kind, jurisdictionPolicy }, map: profile.map, electionDecisions, acsAvailability: profile.acsAvailability, financeCoverage: profile.financeCoverage, financeAggregates: profile.financeAggregates.map((aggregate) => ({ ...aggregate, includedCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "included").length, missingCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "missing").length })), fundingCategoryAggregates: profile.fundingCategoryAggregates, fundingOrganizationAggregates: profile.fundingOrganizationAggregates, outsideSpendingAggregates: profile.outsideSpendingAggregates, committeeAssignments, biography: { bioguideId: fact("bioguide_id"), birthDate: fact("birth_date"), facts: profile.biographicalFacts, memberCoverage: profile.memberCoverage, committeeAssignmentsNote: committeeAssignments.length > 0 ? "Assignments are published from the release-pinned Congress Legislators roster; effective dates reflect the 119th Congress term used by this release." : "Unavailable — no assignment is published; the roster either reports none or does not provide authoritative effective dates." } };
+  const financeCoverage = profile.financeCoverage;
+  const financeAvailability = financeCoverage?.releaseId === profile.release.id && financeCoverage.scope.kind === "funding" && financeCoverage.scope.seatCycleId === profile.seatCycle.id && financeCoverage.scope.fundingKind === "summary" ? { ...financeCoverage, evidence: publishedEvidence(financeCoverage.inputSnapshotIds) } : null;
+  return { ...base, identity: { ...base.identity, officeKind: profile.office.kind, jurisdictionPolicy }, map: profile.map, electionDecisions, acsAvailability: profile.acsAvailability, financeAvailability, financeAggregates: profile.financeAggregates.map((aggregate) => ({ ...aggregate, includedCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "included").length, missingCommitteeCount: aggregate.committeeInputs.filter((input) => input.kind === "missing").length })), fundingCategoryAggregates: profile.fundingCategoryAggregates, fundingOrganizationAggregates: profile.fundingOrganizationAggregates, outsideSpendingAggregates: profile.outsideSpendingAggregates, committeeAssignments, biography: { bioguideId: fact("bioguide_id"), birthDate: fact("birth_date"), facts: profile.biographicalFacts, memberCoverage: profile.memberCoverage, committeeAssignmentsNote: committeeAssignments.length > 0 ? "Assignments are published from the release-pinned Congress Legislators roster; effective dates reflect the 119th Congress term used by this release." : "Unavailable — no assignment is published; the roster either reports none or does not provide authoritative effective dates." } };
 }
 
 export function compileSourcesPage(releaseValue: DataRelease, sources: readonly Source[], snapshots: readonly SourceSnapshot[], coverage: readonly ReleaseCoverageAggregate[] = []): SourcesPageViewModel {

@@ -279,6 +279,8 @@ export const seatProfileSchema = z.object({
     if (profile.acsCoverage.length !== 0) addIssue(["acsCoverage"], "No-observations availability cannot include ACS coverage");
   }
   const aggregatePresent = profile.financeAggregates.length > 0;
+  if (profile.financeCoverage?.scope.kind === "funding" && profile.financeCoverage.scope.seatCycleId !== profile.seatCycle.id) addIssue(["financeCoverage", "scope", "seatCycleId"], "Finance coverage must match the profile seat cycle");
+  if (profile.financeCoverage && profile.financeCoverage.releaseId !== profile.release.id) addIssue(["financeCoverage", "releaseId"], "Finance coverage must match the profile release");
   if (profile.financeCoverage && (aggregatePresent || profile.finance.length > 0) && (!["complete", "partial"].includes(profile.financeCoverage.status) || profile.financeCoverage.observedCount === 0)) addIssue(["financeCoverage"], "Finance coverage must agree with aggregate presence");
   profile.financeAggregates.forEach((aggregate, aggregateIndex) => {
     const missingInput = aggregate.committeeInputs.some((input) => input.kind === "missing");
@@ -294,7 +296,11 @@ export const seatProfileSchema = z.object({
 
   const snapshotIds = new Set(profile.snapshots.map((snapshot) => String(snapshot.id)));
   const sourceIds = new Set(profile.sources.map((source) => String(source.id)));
+  profile.sources.forEach((source, index) => {
+    if (source.releaseId !== profile.release.id) addIssue(["sources", index, "releaseId"], "Profile source must match the profile release");
+  });
   profile.snapshots.forEach((snapshot, index) => {
+    if (snapshot.releaseId !== profile.release.id) addIssue(["snapshots", index, "releaseId"], "Profile snapshot must match the profile release");
     if (!sourceIds.has(String(snapshot.sourceId))) addIssue(["snapshots", index, "sourceId"], "Profile snapshot references a source outside the profile closure");
   });
   collectProfileSnapshotSeedIds(profile).forEach((id) => {

@@ -55,8 +55,17 @@ describe("UI data boundary", () => {
     const profile = projection.profile(canonicalManifest.profileSeatCycleIds[0]!); const seat = profile && projection.list(seatQuerySchema.parse({})).find((row) => row.id === profile.seatCycle.id); if (!profile || !seat) throw new Error("fixture missing");
     const financeCoverage = { releaseId: profile.release.id, domain: "finance" as const, scope: { kind: "funding" as const, seatCycleId: profile.seatCycle.id, fundingKind: "summary" as const }, status: "not_collected" as const, expectedCount: 1, observedCount: 0, missingByReason: [{ reason: "not_collected" as const, count: 1 }], quarantinedCount: 0, incompatibleCount: 0, inputSnapshotIds: [profile.snapshots[0]!.id] };
     const model = compileProfilePage({ ...profile, finance: [], financeCoverage }, seat);
-    expect(model.financeCoverage).toEqual(financeCoverage);
+    expect(model.financeAvailability).toMatchObject({ ...financeCoverage, evidence: [{ id: profile.snapshots[0]!.id, sourceUrl: profile.snapshots[0]!.sourceUrl }] });
     expect(model.finance).toEqual([]);
+    const mismatched = { ...profile, finance: [], financeCoverage: { ...financeCoverage, scope: { ...financeCoverage.scope, seatCycleId: "seat_other" as never } } };
+    expect(compileProfilePage(mismatched, seat).financeAvailability).toBeNull();
+    expect(() => seatProfileSchema.parse(mismatched)).toThrow(/match the profile seat cycle/);
+    const otherReleaseId = "rel_other" as never;
+    const mixedRelease = { ...profile, finance: [], financeCoverage: { ...financeCoverage, releaseId: otherReleaseId }, snapshots: profile.snapshots.map((snapshot, index) => index === 0 ? { ...snapshot, releaseId: otherReleaseId } : snapshot), sources: profile.sources.map((source) => source.id === profile.snapshots[0]!.sourceId ? { ...source, releaseId: otherReleaseId } : source) };
+    expect(compileProfilePage(mixedRelease, seat).financeAvailability).toBeNull();
+    expect(() => seatProfileSchema.parse(mixedRelease)).toThrow(/match the profile release/);
+    const mixedEvidence = { ...profile, finance: [], financeCoverage, snapshots: profile.snapshots.map((snapshot, index) => index === 0 ? { ...snapshot, releaseId: otherReleaseId } : snapshot), sources: profile.sources.map((source) => source.id === profile.snapshots[0]!.sourceId ? { ...source, releaseId: otherReleaseId } : source) };
+    expect(compileProfilePage(mixedEvidence, seat).financeAvailability?.evidence).toEqual([]);
   });
   it("preserves jurisdiction election decisions and distinguishes their stated statuses", () => {
     const profile = projection.profile(canonicalManifest.profileSeatCycleIds[0]!); const seat = profile && projection.list(seatQuerySchema.parse({})).find((row) => row.id === profile.seatCycle.id); if (!profile || !seat) throw new Error("fixture missing");
