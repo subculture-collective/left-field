@@ -1,0 +1,524 @@
+{
+  "schema": "connecticut-house-democratic-primary-event-dispositions-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T19:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "originalPublisher": "Connecticut Secretary of the State historical election database",
+  "status": "official_result_event_enumeration_candidate",
+  "certificationStatus": "not_independently_retained",
+  "licenseStatus": "unassessed",
+  "authorityContextUrls": [
+    "https://portal.ct.gov/sots/election-services/election-results/election-results",
+    "https://electionhistory.ct.gov/",
+    "https://electionhistory.ct.gov/about"
+  ],
+  "sources": [
+    {
+      "id": "ct-2022-primary-event-598-results-response",
+      "url": "https://electionhistory.ct.gov/api/graphql_pr",
+      "retainedPath": "data/source/elections/primary-results/connecticut/2022/event-598-results-response.json",
+      "retainedStatus": "retained",
+      "byteSize": 13201,
+      "sha256": "a7f887fe1de2379cb6a80fdd6437b8524eadec152dde8e883d586f64bc73430e",
+      "kind": "source",
+      "parentIds": [
+        "ct-2022-primary-event-discovery-response"
+      ]
+    },
+    {
+      "id": "ct-2022-primary-event-discovery-response",
+      "url": "https://electionhistory.ct.gov/api/graphql_pr",
+      "retainedPath": "data/source/elections/primary-results/connecticut/2022/event-discovery-response.json",
+      "retainedStatus": "retained",
+      "byteSize": 474,
+      "sha256": "d58b5da59d3e55ee9b13034bc75ae19c4907c39a080fe7fdafa97a77b7564dfa",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "ct-2024-primary-event-583-results-response",
+      "url": "https://electionhistory.ct.gov/api/graphql_pr",
+      "retainedPath": "data/source/elections/primary-results/connecticut/2024/event-583-results-response.json",
+      "retainedStatus": "retained",
+      "byteSize": 17492,
+      "sha256": "f87bef38061705dd986c9ffad05501f0b70858f3481796c3fa7ecc99b8101982",
+      "kind": "source",
+      "parentIds": [
+        "ct-2024-primary-event-discovery-response"
+      ]
+    },
+    {
+      "id": "ct-2024-primary-event-discovery-response",
+      "url": "https://electionhistory.ct.gov/api/graphql_pr",
+      "retainedPath": "data/source/elections/primary-results/connecticut/2024/event-discovery-response.json",
+      "retainedStatus": "retained",
+      "byteSize": 381,
+      "sha256": "27cdef87cfd86d8049097a9b0bb2a86ab377477c002b2d7c69c0a9997575e618",
+      "kind": "source",
+      "parentIds": []
+    }
+  ],
+  "requests": [
+    {
+      "sourceLockId": "ct-2022-primary-event-598-results-response",
+      "method": "POST",
+      "endpoint": "https://electionhistory.ct.gov/api/graphql_pr",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Elstats-Tenant": "ct"
+      },
+      "requestSha256": "b115ea828dd3a82046a44fe2f15e88b1272b6ab59dbb573c0ea76b10ad356cc8",
+      "requestBody": {
+        "operationName": "GetLatestResults",
+        "variables": {
+          "searchFilters": {
+            "global": {
+              "events": [
+                598
+              ]
+            },
+            "ballotQuestions": {
+              "text": "",
+              "types": [],
+              "number": "",
+              "divisions": []
+            },
+            "contests": {
+              "candidates": [],
+              "divisions": [],
+              "offices": []
+            },
+            "specialElectionsOnly": false,
+            "voterStats": false,
+            "stages": []
+          },
+          "pagination": {
+            "page": 1,
+            "size": 100
+          }
+        },
+        "query": "query GetLatestResults($searchFilters: SearchFilters!, $pagination: Pagination!) { search(filters:$searchFilters, pagination:$pagination) { results { id name candidates { displayName nVotes pctCandidateVotes candidate { pseudocandidate } isWinner } eventTypeDisplayName office { name } event { startDate } division { displayName } } } }"
+      }
+    },
+    {
+      "sourceLockId": "ct-2022-primary-event-discovery-response",
+      "method": "POST",
+      "endpoint": "https://electionhistory.ct.gov/api/graphql_pr",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Elstats-Tenant": "ct"
+      },
+      "requestSha256": "1ebf93dc499207082f277295162c70b229e89534020111bac5f642456931ad93",
+      "requestBody": {
+        "operationName": "GetEventSuggestions",
+        "variables": {
+          "suggestionFilters": {
+            "global": {
+              "years": {
+                "from": 2022,
+                "to": 2022
+              }
+            },
+            "ballotQuestions": {
+              "text": "",
+              "types": [],
+              "number": "",
+              "divisions": []
+            },
+            "contests": {
+              "candidates": [],
+              "divisions": [],
+              "offices": []
+            },
+            "specialElectionsOnly": false,
+            "voterStats": false,
+            "stages": []
+          }
+        },
+        "query": "query GetEventSuggestions($suggestionFilters: SearchFilters!) { searchSuggestions(filters:$suggestionFilters) { events { id name group count } } }"
+      }
+    },
+    {
+      "sourceLockId": "ct-2024-primary-event-583-results-response",
+      "method": "POST",
+      "endpoint": "https://electionhistory.ct.gov/api/graphql_pr",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Elstats-Tenant": "ct"
+      },
+      "requestSha256": "c4051f3262bb07aa9aff733f519fb018c5c5de238df91749194b1109dcdd38f4",
+      "requestBody": {
+        "operationName": "GetLatestResults",
+        "variables": {
+          "searchFilters": {
+            "global": {
+              "events": [
+                583
+              ]
+            },
+            "ballotQuestions": {
+              "text": "",
+              "types": [],
+              "number": "",
+              "divisions": []
+            },
+            "contests": {
+              "candidates": [],
+              "divisions": [],
+              "offices": []
+            },
+            "specialElectionsOnly": false,
+            "voterStats": false,
+            "stages": []
+          },
+          "pagination": {
+            "page": 1,
+            "size": 100
+          }
+        },
+        "query": "query GetLatestResults($searchFilters: SearchFilters!, $pagination: Pagination!) { search(filters:$searchFilters, pagination:$pagination) { results { id name candidates { displayName nVotes pctCandidateVotes candidate { pseudocandidate } isWinner } eventTypeDisplayName office { name } event { startDate } division { displayName } } } }"
+      }
+    },
+    {
+      "sourceLockId": "ct-2024-primary-event-discovery-response",
+      "method": "POST",
+      "endpoint": "https://electionhistory.ct.gov/api/graphql_pr",
+      "headers": {
+        "Content-Type": "application/json",
+        "X-Elstats-Tenant": "ct"
+      },
+      "requestSha256": "43466a2db7cd49b9de79e82e303cd9a24a6bde29adcc166c49a8e1a2cd4923d3",
+      "requestBody": {
+        "operationName": "GetEventSuggestions",
+        "variables": {
+          "suggestionFilters": {
+            "global": {
+              "years": {
+                "from": 2024,
+                "to": 2024
+              }
+            },
+            "ballotQuestions": {
+              "text": "",
+              "types": [],
+              "number": "",
+              "divisions": []
+            },
+            "contests": {
+              "candidates": [],
+              "divisions": [],
+              "offices": []
+            },
+            "specialElectionsOnly": false,
+            "voterStats": false,
+            "stages": []
+          }
+        },
+        "query": "query GetEventSuggestions($suggestionFilters: SearchFilters!) { searchSuggestions(filters:$suggestionFilters) { events { id name group count } } }"
+      }
+    }
+  ],
+  "events": [
+    {
+      "cycleYear": 2022,
+      "eventId": 598,
+      "eventName": "2022 Aug 09 - Primary",
+      "eventGroup": "2022",
+      "advertisedResultCount": 17,
+      "enumeratedResultCount": 17,
+      "resultIds": [
+        "44035",
+        "44036",
+        "44037",
+        "44038",
+        "44039",
+        "44040",
+        "44041",
+        "44043",
+        "44044",
+        "44045",
+        "44046",
+        "44047",
+        "44048",
+        "44049",
+        "44050",
+        "44051",
+        "44052"
+      ],
+      "resultSetSha256": "0e029ec57754772084b18aa2d9bffc6c493931d2c462394d292e71277329c2c0",
+      "democraticHouseResultCount": 0,
+      "discoverySourceLockId": "ct-2022-primary-event-discovery-response",
+      "resultsSourceLockId": "ct-2022-primary-event-598-results-response"
+    },
+    {
+      "cycleYear": 2024,
+      "eventId": 583,
+      "eventName": "2024 Aug 13 - Primary",
+      "eventGroup": "2024",
+      "advertisedResultCount": 22,
+      "enumeratedResultCount": 22,
+      "resultIds": [
+        "36592",
+        "36593",
+        "36594",
+        "36595",
+        "36596",
+        "36597",
+        "36598",
+        "36599",
+        "36600",
+        "36601",
+        "36602",
+        "36603",
+        "36604",
+        "36605",
+        "36606",
+        "36607",
+        "36608",
+        "36609",
+        "36610",
+        "36611",
+        "36612",
+        "36613"
+      ],
+      "resultSetSha256": "64b8f4013cd9de50c70d2dcffb389c2691393ddb6e5ca58059022e258cd5cc44",
+      "democraticHouseResultCount": 0,
+      "discoverySourceLockId": "ct-2024-primary-event-discovery-response",
+      "resultsSourceLockId": "ct-2024-primary-event-583-results-response"
+    }
+  ],
+  "rows": [
+    {
+      "seatCycleId": "ct:2022:us-house:01:democratic",
+      "cycleYear": 2022,
+      "stateCode": "CT",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "no_reported_democratic_house_primary_contest_in_complete_official_event",
+      "eventEvidenceId": "ct:2022:primary-event:598",
+      "nominationDisposition": null,
+      "selectedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "c54440d0b1d5669376fe7cdd9e0c3415afaa0760bf51595710731cff391f3749"
+    },
+    {
+      "seatCycleId": "ct:2022:us-house:02:democratic",
+      "cycleYear": 2022,
+      "stateCode": "CT",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "no_reported_democratic_house_primary_contest_in_complete_official_event",
+      "eventEvidenceId": "ct:2022:primary-event:598",
+      "nominationDisposition": null,
+      "selectedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "d2da717b99f48c4c39c27c4a9c963f9a25b47105235092819a965d2ff5ff1255"
+    },
+    {
+      "seatCycleId": "ct:2022:us-house:03:democratic",
+      "cycleYear": 2022,
+      "stateCode": "CT",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "no_reported_democratic_house_primary_contest_in_complete_official_event",
+      "eventEvidenceId": "ct:2022:primary-event:598",
+      "nominationDisposition": null,
+      "selectedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "4e4f3c6bee71ef8a081adaa28191d5ed44c2037d7d418c68d878c499d7377b75"
+    },
+    {
+      "seatCycleId": "ct:2022:us-house:04:democratic",
+      "cycleYear": 2022,
+      "stateCode": "CT",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "no_reported_democratic_house_primary_contest_in_complete_official_event",
+      "eventEvidenceId": "ct:2022:primary-event:598",
+      "nominationDisposition": null,
+      "selectedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "89105999489a0f5e07ee206f041d225cfa2d08796786c0150bb79ef357e99f27"
+    },
+    {
+      "seatCycleId": "ct:2022:us-house:05:democratic",
+      "cycleYear": 2022,
+      "stateCode": "CT",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "no_reported_democratic_house_primary_contest_in_complete_official_event",
+      "eventEvidenceId": "ct:2022:primary-event:598",
+      "nominationDisposition": null,
+      "selectedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "b42e824e616f71fd47588f61cf519e0a2871ccc8cb7ec01e47a71195274bd961"
+    },
+    {
+      "seatCycleId": "ct:2024:us-house:01:democratic",
+      "cycleYear": 2024,
+      "stateCode": "CT",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "no_reported_democratic_house_primary_contest_in_complete_official_event",
+      "eventEvidenceId": "ct:2024:primary-event:583",
+      "nominationDisposition": null,
+      "selectedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "21291e5ee6c3316458652e07bf311de418e6e34daca6191c780106774e0204ad"
+    },
+    {
+      "seatCycleId": "ct:2024:us-house:02:democratic",
+      "cycleYear": 2024,
+      "stateCode": "CT",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "no_reported_democratic_house_primary_contest_in_complete_official_event",
+      "eventEvidenceId": "ct:2024:primary-event:583",
+      "nominationDisposition": null,
+      "selectedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "7717a1d790337f86dd084190ef6e44a220dab070d534cafdf620c5001888bb3a"
+    },
+    {
+      "seatCycleId": "ct:2024:us-house:03:democratic",
+      "cycleYear": 2024,
+      "stateCode": "CT",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "no_reported_democratic_house_primary_contest_in_complete_official_event",
+      "eventEvidenceId": "ct:2024:primary-event:583",
+      "nominationDisposition": null,
+      "selectedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "5526ee2fcf963216ce6d5c703876586b6fd36b6e31db30042579f8443f8f36da"
+    },
+    {
+      "seatCycleId": "ct:2024:us-house:04:democratic",
+      "cycleYear": 2024,
+      "stateCode": "CT",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "no_reported_democratic_house_primary_contest_in_complete_official_event",
+      "eventEvidenceId": "ct:2024:primary-event:583",
+      "nominationDisposition": null,
+      "selectedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "9396693d1ac353fc87341b9e3c4707fd161d0a9b5cb71a5e3d26046af5e8e18d"
+    },
+    {
+      "seatCycleId": "ct:2024:us-house:05:democratic",
+      "cycleYear": 2024,
+      "stateCode": "CT",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "disposition": "no_reported_democratic_house_primary_contest_in_complete_official_event",
+      "eventEvidenceId": "ct:2024:primary-event:583",
+      "nominationDisposition": null,
+      "selectedContestId": null,
+      "voteValues": null,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "e02e40bb10eee1ad077b5143cbe0bef69498fc6343f302e81bbc38cd929b4585"
+    }
+  ],
+  "summary": {
+    "events": 2,
+    "enumeratedResults": 39,
+    "democraticHouseResults": 0,
+    "seatCycles": 10,
+    "noReportedContestRows": 10,
+    "dispositionSetSha256": "5b2f083f3e693d78a7b4b232a7c677007e6c65eb9259109d59c8e45137cc3dcf",
+    "evaluatorNumericValues": 0,
+    "scoreEligibleRows": 0
+  },
+  "limitations": [
+    "The retained event enumerations establish that no Democratic Representative in Congress result is reported in either complete August primary event; they do not establish no nominee, no primary ballot, an uncontested nomination, or zero votes.",
+    "The public GraphQL endpoint is used by the official historical-results frontend but is undocumented; exact request and response bytes are retained because endpoint stability is not promised.",
+    "The historical database says it derives from official source documents, but no separate final canvass or certification artifact is retained here and reuse licensing remains unassessed.",
+    "No row is public, score eligible, identity reviewed, historical-geography approved, or progressively classified."
+  ],
+  "unresolvedGates": [
+    "retain_ballot_or_nomination_authority_for_per_district_disposition",
+    "retain_independent_final_result_certification",
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "7dcaf4cea0d1a817ff863010bfc2c3fd45cafc1880f8ff2c3951cdf6b81cc257"
+}

@@ -64,6 +64,8 @@
     "generate:nyc-house-primary-certified-results": "tsx scripts/generate-new-york-city-house-democratic-primary-certified-results-receipt.ts",
     "fetch:md-house-primary-results": "node scripts/fetch-md-house-democratic-primary-results.mjs",
     "generate:md-house-primary-results-receipt": "tsx scripts/generate-maryland-house-democratic-primary-results-receipt.ts",
+    "fetch:ct-house-primary-event-results": "node scripts/fetch-ct-house-democratic-primary-event-results.mjs",
+    "generate:ct-house-primary-event-dispositions": "tsx scripts/generate-connecticut-house-democratic-primary-event-dispositions-receipt.ts",
     "bootstrap:fec-bulk": "tsx scripts/bootstrap-fec-bulk.ts",
     "reconcile:fec-bulk": "tsx scripts/reconcile-fec-bulk.ts",
     "db:generate": "drizzle-kit generate",
