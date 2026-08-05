@@ -89,6 +89,8 @@ The first cross-source current-incumbent linkage candidate now accounts for all 
 
 The sibling NJ/PA geography candidate binds those same 41 observations to exact Census CD118/CD119 archives and the official CD119 redraw-scope statement. It proposes 16 CD118-to-CD119 plan-continuity relationships and 16 exact CD119 session/key relationships; all nine 2026 NJ rows remain unassessed pending authoritative CD120 evidence. It does not equate raw TIGER coordinate vintages, approve geography, mutate identity, or provide an evaluator number. See [`nj-pa-primary-geography-compatibility-candidate-v1-2026-08-05.md`](../reviews/nj-pa-primary-geography-compatibility-candidate-v1-2026-08-05.md).
 
+The joint NJ/PA reviewer package makes the intersection inspectable without collapsing those gates: 25 rows have both candidates, eight have an identity candidate with CD120 geography pending, seven have a geography candidate with identity unresolved, and one has both states pending. It inherits the two existing unresolved decision IDs from the August 4 proposal, contains no independent or promotion decision, and keeps all 41 rows evaluator-excluded. Candidate names, numbers, votes, and source markers are omitted from the joined queue. See [`nj-pa-primary-identity-geography-review-package-v1-2026-08-05.md`](../reviews/nj-pa-primary-identity-geography-review-package-v1-2026-08-05.md).
+
 ## Current factual projection status
 
 The immutable v1 reviewer report evaluates the exact 212-seat eligible universe from published release `rel_full_20260804_v2`. It has a compatible 2024 presidential margin for 212/212 seats and current cash-on-hand for 210/212. Its other factors remain explicitly missing.
