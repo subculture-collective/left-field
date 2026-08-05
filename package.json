@@ -46,6 +46,7 @@
     "generate:aipac-numeric-evidence-v2": "tsx scripts/generate-aipac-numeric-evidence-candidate-v2.ts",
     "generate:aipac-numeric-review": "tsx scripts/generate-aipac-numeric-review-package.ts",
     "generate:dsa-target-review-v3": "tsx scripts/generate-dsa-target-review-report-v3.ts",
+    "generate:dsa-target-review-v4": "tsx scripts/generate-dsa-target-review-report-v4.ts",
     "generate:dsa-target-review-report": "tsx scripts/generate-dsa-target-review-report.ts",
     "generate:dsa-target-review-report-v2": "tsx scripts/generate-dsa-target-review-report-v2.ts",
     "generate:presidential-current-boundary-proposal": "tsx scripts/generate-presidential-current-boundary-proposal.ts",

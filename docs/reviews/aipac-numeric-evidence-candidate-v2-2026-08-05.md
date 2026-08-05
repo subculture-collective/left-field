@@ -39,4 +39,4 @@ npm run data:verify
 
 Artifact: `data/metadata/aipac-numeric-evidence-candidate-v2.json`
 
-Numeric v2 changes no published release, public route, score, rank, or reviewer decision. Report v4 must consume it as a separate candidate and preserve null AIPAC scoring for every noncomplete seat.
+Numeric v2 changes no published release, public route, or reviewer decision. Additive report v4 consumes it as a separate reviewer-only candidate and preserves null AIPAC scoring for every noncomplete seat; see [`dsa-target-evaluation-review-report-v4-2026-08-05.md`](./dsa-target-evaluation-review-report-v4-2026-08-05.md).
