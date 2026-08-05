@@ -30,7 +30,7 @@ export type DsaTargetFactualProjection = z.infer<typeof dsaTargetFactualProjecti
 
 const excludedProposal = z.strictObject({ sourceLockId: z.enum(["aipac-candidate-seat-mappings-proposal-v1", "aipac-evidence-closure-proposal-v1", "org-classification-aipac-network-proposal-v1", "aipac-review-decision-queue-v1"]), fileSha256: sha256, packageSha256: sha256, reviewStatus: z.literal("proposed"), reason: z.literal("unreviewed_proposal_excluded_from_numeric_evaluation") });
 const component = z.strictObject({ score: z.number().nullable(), coverage: z.number(), inferred: z.boolean(), missingReason: z.literal("not_collected").optional() });
-const evaluation = z.strictObject({
+export const dsaTargetEvaluationSchema = z.strictObject({
   formulaVersion: z.literal(DSA_TARGET_FORMULA_VERSION), seatCycleId: z.string(), status: z.enum(["qualified", "not_qualified"]), selectedRoute: z.enum(["deep_blue", "aipac_supported_blue"]).nullable(), targetScore: z.number().nullable(),
   routeScores: z.strictObject({ deepBlue: z.number().nullable(), aipacSupportedBlue: z.number().nullable() }),
   components: z.strictObject({ blueBaseline: component.extend({ floor: z.number() }), primaryFeasibility: component, aipacSupport: component }), dataCoverage: z.number(), inferredFromPartialCoverage: z.boolean(), qualificationReasons: z.array(z.string()),
@@ -47,7 +47,7 @@ export const dsaTargetReviewReportSchema = z.strictObject({
   seats: z.array(z.strictObject({
     reviewRank: z.number().int().positive().nullable(), seatCycleId: z.string(), stateCode: z.string().length(2), districtCode: z.string(), status: z.enum(["partial_qualified", "partial_not_qualified"]),
     missingFactKeys: z.array(z.enum(["compatible_presidential_margin_2020", "prior_primary_margin", "incumbent_cash_on_hand", "incumbent_tenure", "filing_runway", "prior_democratic_primary_votes", "prior_progressive_primary_share", "aipac_transaction_evidence"])),
-    factualSnapshotIds: z.array(z.string()), aipac: z.strictObject({ status: z.literal("excluded_unreviewed"), numericEvidenceUsed: z.literal(false), componentScore: z.null() }), evaluation,
+    factualSnapshotIds: z.array(z.string()), aipac: z.strictObject({ status: z.literal("excluded_unreviewed"), numericEvidenceUsed: z.literal(false), componentScore: z.null() }), evaluation: dsaTargetEvaluationSchema,
   })).length(212),
   reportSha256: sha256,
 });
@@ -69,7 +69,7 @@ export function validateDsaTargetFactualProjection(value: unknown): DsaTargetFac
   return parsed;
 }
 
-function syntheticSensitivity(): DsaTargetReviewReport["sensitivity"] {
+export function syntheticSensitivity(): DsaTargetReviewReport["sensitivity"] {
   const snapshot = "synthetic_formula_snapshot"; const artifact = "a".repeat(64); const transaction = "b".repeat(64);
   const base = { metadata: { seatCycleId: "synthetic_house", incumbentFecCandidateId: "SYNTHETIC_FEC_ID", sourceCutoff: "2026-08-04", currentCycleYear: 2026, inputSnapshotIds: [snapshot] }, seat: { chamber: "house", officeKind: "house_voting", electionType: "regular", occupancy: "occupied", incumbentParty: "democratic" }, electoral: { presidentialDemocraticMargins: [{ year: 2020, marginPoints: 12, observedAt: "2026-08-01", inputSnapshotIds: [snapshot], geographyCompatibility: "current_boundary_compatible" }, { year: 2024, marginPoints: 12, observedAt: "2026-08-01", inputSnapshotIds: [snapshot], geographyCompatibility: "current_boundary_compatible" }] }, feasibility: { priorPrimaryMarginPoints: { kind: "missing", reason: "not_collected" }, incumbentCashOnHand: { kind: "missing", reason: "not_collected" }, incumbentTenureYears: { kind: "missing", reason: "not_collected" }, filingRunwayDays: { kind: "missing", reason: "not_collected" }, priorDemocraticPrimaryVotes: { kind: "missing", reason: "not_collected" }, priorProgressivePrimaryShare: { kind: "missing", reason: "not_collected" } }, aipac: { evidence: [], coverage: [2022, 2024, 2026].map((cycleYear) => ({ cycleYear, directContributionsComplete: true, independentExpendituresComplete: true, directContributionSnapshotIds: [snapshot], independentExpenditureSnapshotIds: [snapshot], directContributionArtifactSha256s: [artifact], independentExpenditureArtifactSha256s: [artifact] })) } } as const;
   const cases = [1_000, 10_000].map((amount) => {

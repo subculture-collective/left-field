@@ -79,7 +79,7 @@ The following acquisitions are required for complete v0.1 rankings:
 2. Nationwide Democratic House-primary results for at least the 2022, 2024, and current cycles, including uncontested dispositions and vote totals.
 3. AIPAC PAC Schedule B direct contributions keyed from `C00797670` through recipient committee and candidate mappings.
 4. Filing deadlines and election-system rules from state election authorities.
-5. Incumbent tenure derived from pinned service-start evidence already available in the member package.
+5. Reviewer approval of the retained incumbent-tenure methodology candidate; the exact 212-seat candidate now exists and is used only under its reversible reviewer-only default.
 6. Complete current and two-prior-cycle independent-expenditure closure for `C00799031`, preserving support/opposition, primary-election context, candidate identity, latest amendment/file identity, and signed net amount rather than organization totals alone.
 7. A versioned, reviewed organization-classification record establishing why `C00799031` is included in the AIPAC network, with effective dates and correction history.
 
@@ -87,9 +87,11 @@ Aggregate primary turnout and prior progressive-challenger performance are formu
 
 ## Current factual projection status
 
-The retained 2026-08-04 reviewer report evaluates the exact 212-seat eligible universe from published release `rel_full_20260804_v2`. It has a compatible 2024 presidential margin for 212/212 seats and current cash-on-hand for 210/212. Every other feasibility factor, every compatible 2020 margin, and every AIPAC transaction factor remains explicitly missing. The two cash outcomes without a numeric value are `not_reported`, not zero.
+The immutable v1 reviewer report evaluates the exact 212-seat eligible universe from published release `rel_full_20260804_v2`. It has a compatible 2024 presidential margin for 212/212 seats and current cash-on-hand for 210/212. Its other factors remain explicitly missing.
 
-The resulting 117 deep-blue qualifications and their ranks are partial reviewer evidence only. They are not public, publication-eligible, a complete comparison, or an AIPAC-informed score. All four AIPAC proposal packages are hash-bound as excluded inputs; the report contains zero AIPAC numeric evidence rows and zero AIPAC route selections. See [`dsa-target-evaluation-review-report-2026-08-04.md`](../reviews/dsa-target-evaluation-review-report-2026-08-04.md).
+The additive v2 report uses 212/212 cumulative recorded House-service values under one exact reversible default: `use_in_reviewer_only_evaluation_exclude_from_publication`. Service is summed from half-open source-recorded House terms through the inclusive 2026-08-04 cutoff, divided by 365.2425 days per year, and excludes time out of office. BioGuide identity connects district changes; Senate and nonvoting-delegate terms are excluded. The candidate contains nine materially interrupted and 50 district-changing careers, but the report exposes only the aggregate tenure value, fact hash, methodology, and candidate status—not raw career history. The methodology decision remains unresolved and blocks publication.
+
+Both reports produce 117 deep-blue qualifications and 95 non-qualifications, but v2 recalculates feasibility scores and ranks after adding tenure. These are partial reviewer evidence only. They are not public, publication-eligible, complete comparisons, or AIPAC-informed scores. All four AIPAC proposal packages are hash-bound as excluded inputs; both reports contain zero AIPAC numeric evidence rows and zero AIPAC route selections. See [`dsa-target-evaluation-review-report-2026-08-04.md`](../reviews/dsa-target-evaluation-review-report-2026-08-04.md) and [`incumbent-tenure-review-proposal-2026-08-04.md`](../reviews/incumbent-tenure-review-proposal-2026-08-04.md).
 
 ## Interpretation
 

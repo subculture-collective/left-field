@@ -1,0 +1,887 @@
+{
+  "schema": "dsa-target-incumbent-roster-v1",
+  "version": 1,
+  "generatedAt": "2026-08-04T20:32:58.060Z",
+  "release": {
+    "id": "rel_full_20260804_v2",
+    "label": "Full factual release 2026-08-04 v2",
+    "status": "published",
+    "sourceCutoff": "2026-08-04",
+    "publishedAt": "2026-08-04T20:32:58.060Z"
+  },
+  "universe": {
+    "definition": "occupied regular Democratic voting U.S. House seats",
+    "expected": 212,
+    "observed": 212
+  },
+  "productionReleaseClosure": {
+    "manifest": {
+      "schemaVersion": 2,
+      "canonicalDataChecksumSha256": "f365df475ca0134d7d98dc5b07ebffcd51425a3532a61f1806f1dfd0b2fa5fc1",
+      "geometryChecksumSha256": "c8f32c4071ff7d259d5fa0d26acdde107bb09aab7f9388b47ea293d1adf1a628",
+      "contentChecksumSha256": "435fb6c1cca524dc24ee2cc81113116d2f238cb278b8da3995fd427289950896"
+    },
+    "snapshot": {
+      "id": "snap_full_legislators",
+      "sourceId": "src_full_legislators",
+      "sourceUrl": "https://unitedstates.github.io/congress-legislators/legislators-current.json",
+      "checksumSha256": "bc48cccd12df96164e5a2415fc41e838ca255fe85c297731515529692f7982cf",
+      "parserVersion": "congress-legislators-json-v1",
+      "license": "CC0-1.0",
+      "usageStatus": "approved",
+      "retrievedAt": "2026-08-04T18:20:00.000Z"
+    },
+    "closureSha256": "037fa63c4a5115c3a45688e4466f97c4f2b55c2ad25f4256b700647c5117a9c7"
+  },
+  "rows": [
+    {
+      "seatCycleId": "seat_house_al_02_current",
+      "bioguideId": "F000481"
+    },
+    {
+      "seatCycleId": "seat_house_al_07_current",
+      "bioguideId": "S001185"
+    },
+    {
+      "seatCycleId": "seat_house_az_03_current",
+      "bioguideId": "A000381"
+    },
+    {
+      "seatCycleId": "seat_house_az_04_current",
+      "bioguideId": "S001211"
+    },
+    {
+      "seatCycleId": "seat_house_az_07_current",
+      "bioguideId": "G000606"
+    },
+    {
+      "seatCycleId": "seat_house_ca_02_current",
+      "bioguideId": "H001068"
+    },
+    {
+      "seatCycleId": "seat_house_ca_04_current",
+      "bioguideId": "T000460"
+    },
+    {
+      "seatCycleId": "seat_house_ca_06_current",
+      "bioguideId": "B001287"
+    },
+    {
+      "seatCycleId": "seat_house_ca_07_current",
+      "bioguideId": "M001163"
+    },
+    {
+      "seatCycleId": "seat_house_ca_08_current",
+      "bioguideId": "G000559"
+    },
+    {
+      "seatCycleId": "seat_house_ca_09_current",
+      "bioguideId": "H001090"
+    },
+    {
+      "seatCycleId": "seat_house_ca_10_current",
+      "bioguideId": "D000623"
+    },
+    {
+      "seatCycleId": "seat_house_ca_11_current",
+      "bioguideId": "P000197"
+    },
+    {
+      "seatCycleId": "seat_house_ca_12_current",
+      "bioguideId": "S001231"
+    },
+    {
+      "seatCycleId": "seat_house_ca_13_current",
+      "bioguideId": "G000605"
+    },
+    {
+      "seatCycleId": "seat_house_ca_15_current",
+      "bioguideId": "M001225"
+    },
+    {
+      "seatCycleId": "seat_house_ca_16_current",
+      "bioguideId": "L000607"
+    },
+    {
+      "seatCycleId": "seat_house_ca_17_current",
+      "bioguideId": "K000389"
+    },
+    {
+      "seatCycleId": "seat_house_ca_18_current",
+      "bioguideId": "L000397"
+    },
+    {
+      "seatCycleId": "seat_house_ca_19_current",
+      "bioguideId": "P000613"
+    },
+    {
+      "seatCycleId": "seat_house_ca_21_current",
+      "bioguideId": "C001059"
+    },
+    {
+      "seatCycleId": "seat_house_ca_24_current",
+      "bioguideId": "C001112"
+    },
+    {
+      "seatCycleId": "seat_house_ca_25_current",
+      "bioguideId": "R000599"
+    },
+    {
+      "seatCycleId": "seat_house_ca_26_current",
+      "bioguideId": "B001285"
+    },
+    {
+      "seatCycleId": "seat_house_ca_27_current",
+      "bioguideId": "W000830"
+    },
+    {
+      "seatCycleId": "seat_house_ca_28_current",
+      "bioguideId": "C001080"
+    },
+    {
+      "seatCycleId": "seat_house_ca_29_current",
+      "bioguideId": "R000620"
+    },
+    {
+      "seatCycleId": "seat_house_ca_30_current",
+      "bioguideId": "F000483"
+    },
+    {
+      "seatCycleId": "seat_house_ca_31_current",
+      "bioguideId": "C001123"
+    },
+    {
+      "seatCycleId": "seat_house_ca_32_current",
+      "bioguideId": "S000344"
+    },
+    {
+      "seatCycleId": "seat_house_ca_33_current",
+      "bioguideId": "A000371"
+    },
+    {
+      "seatCycleId": "seat_house_ca_34_current",
+      "bioguideId": "G000585"
+    },
+    {
+      "seatCycleId": "seat_house_ca_35_current",
+      "bioguideId": "T000474"
+    },
+    {
+      "seatCycleId": "seat_house_ca_36_current",
+      "bioguideId": "L000582"
+    },
+    {
+      "seatCycleId": "seat_house_ca_37_current",
+      "bioguideId": "K000400"
+    },
+    {
+      "seatCycleId": "seat_house_ca_38_current",
+      "bioguideId": "S001156"
+    },
+    {
+      "seatCycleId": "seat_house_ca_39_current",
+      "bioguideId": "T000472"
+    },
+    {
+      "seatCycleId": "seat_house_ca_42_current",
+      "bioguideId": "G000598"
+    },
+    {
+      "seatCycleId": "seat_house_ca_43_current",
+      "bioguideId": "W000187"
+    },
+    {
+      "seatCycleId": "seat_house_ca_44_current",
+      "bioguideId": "B001300"
+    },
+    {
+      "seatCycleId": "seat_house_ca_45_current",
+      "bioguideId": "T000491"
+    },
+    {
+      "seatCycleId": "seat_house_ca_46_current",
+      "bioguideId": "C001110"
+    },
+    {
+      "seatCycleId": "seat_house_ca_47_current",
+      "bioguideId": "M001241"
+    },
+    {
+      "seatCycleId": "seat_house_ca_49_current",
+      "bioguideId": "L000593"
+    },
+    {
+      "seatCycleId": "seat_house_ca_50_current",
+      "bioguideId": "P000608"
+    },
+    {
+      "seatCycleId": "seat_house_ca_51_current",
+      "bioguideId": "J000305"
+    },
+    {
+      "seatCycleId": "seat_house_ca_52_current",
+      "bioguideId": "V000130"
+    },
+    {
+      "seatCycleId": "seat_house_co_01_current",
+      "bioguideId": "D000197"
+    },
+    {
+      "seatCycleId": "seat_house_co_02_current",
+      "bioguideId": "N000191"
+    },
+    {
+      "seatCycleId": "seat_house_co_06_current",
+      "bioguideId": "C001121"
+    },
+    {
+      "seatCycleId": "seat_house_co_07_current",
+      "bioguideId": "P000620"
+    },
+    {
+      "seatCycleId": "seat_house_ct_01_current",
+      "bioguideId": "L000557"
+    },
+    {
+      "seatCycleId": "seat_house_ct_02_current",
+      "bioguideId": "C001069"
+    },
+    {
+      "seatCycleId": "seat_house_ct_03_current",
+      "bioguideId": "D000216"
+    },
+    {
+      "seatCycleId": "seat_house_ct_04_current",
+      "bioguideId": "H001047"
+    },
+    {
+      "seatCycleId": "seat_house_ct_05_current",
+      "bioguideId": "H001081"
+    },
+    {
+      "seatCycleId": "seat_house_de_al_current",
+      "bioguideId": "M001238"
+    },
+    {
+      "seatCycleId": "seat_house_fl_09_current",
+      "bioguideId": "S001200"
+    },
+    {
+      "seatCycleId": "seat_house_fl_10_current",
+      "bioguideId": "F000476"
+    },
+    {
+      "seatCycleId": "seat_house_fl_14_current",
+      "bioguideId": "C001066"
+    },
+    {
+      "seatCycleId": "seat_house_fl_22_current",
+      "bioguideId": "F000462"
+    },
+    {
+      "seatCycleId": "seat_house_fl_23_current",
+      "bioguideId": "M001217"
+    },
+    {
+      "seatCycleId": "seat_house_fl_24_current",
+      "bioguideId": "W000808"
+    },
+    {
+      "seatCycleId": "seat_house_fl_25_current",
+      "bioguideId": "W000797"
+    },
+    {
+      "seatCycleId": "seat_house_ga_02_current",
+      "bioguideId": "B000490"
+    },
+    {
+      "seatCycleId": "seat_house_ga_04_current",
+      "bioguideId": "J000288"
+    },
+    {
+      "seatCycleId": "seat_house_ga_05_current",
+      "bioguideId": "W000788"
+    },
+    {
+      "seatCycleId": "seat_house_ga_06_current",
+      "bioguideId": "M001208"
+    },
+    {
+      "seatCycleId": "seat_house_hi_01_current",
+      "bioguideId": "C001055"
+    },
+    {
+      "seatCycleId": "seat_house_hi_02_current",
+      "bioguideId": "T000487"
+    },
+    {
+      "seatCycleId": "seat_house_il_01_current",
+      "bioguideId": "J000309"
+    },
+    {
+      "seatCycleId": "seat_house_il_02_current",
+      "bioguideId": "K000385"
+    },
+    {
+      "seatCycleId": "seat_house_il_03_current",
+      "bioguideId": "R000617"
+    },
+    {
+      "seatCycleId": "seat_house_il_04_current",
+      "bioguideId": "G000586"
+    },
+    {
+      "seatCycleId": "seat_house_il_05_current",
+      "bioguideId": "Q000023"
+    },
+    {
+      "seatCycleId": "seat_house_il_06_current",
+      "bioguideId": "C001117"
+    },
+    {
+      "seatCycleId": "seat_house_il_07_current",
+      "bioguideId": "D000096"
+    },
+    {
+      "seatCycleId": "seat_house_il_08_current",
+      "bioguideId": "K000391"
+    },
+    {
+      "seatCycleId": "seat_house_il_09_current",
+      "bioguideId": "S001145"
+    },
+    {
+      "seatCycleId": "seat_house_il_10_current",
+      "bioguideId": "S001190"
+    },
+    {
+      "seatCycleId": "seat_house_il_11_current",
+      "bioguideId": "F000454"
+    },
+    {
+      "seatCycleId": "seat_house_il_13_current",
+      "bioguideId": "B001315"
+    },
+    {
+      "seatCycleId": "seat_house_il_14_current",
+      "bioguideId": "U000040"
+    },
+    {
+      "seatCycleId": "seat_house_il_17_current",
+      "bioguideId": "S001225"
+    },
+    {
+      "seatCycleId": "seat_house_in_01_current",
+      "bioguideId": "M001214"
+    },
+    {
+      "seatCycleId": "seat_house_in_07_current",
+      "bioguideId": "C001072"
+    },
+    {
+      "seatCycleId": "seat_house_ks_03_current",
+      "bioguideId": "D000629"
+    },
+    {
+      "seatCycleId": "seat_house_ky_03_current",
+      "bioguideId": "M001220"
+    },
+    {
+      "seatCycleId": "seat_house_la_02_current",
+      "bioguideId": "C001125"
+    },
+    {
+      "seatCycleId": "seat_house_la_06_current",
+      "bioguideId": "F000110"
+    },
+    {
+      "seatCycleId": "seat_house_ma_01_current",
+      "bioguideId": "N000015"
+    },
+    {
+      "seatCycleId": "seat_house_ma_02_current",
+      "bioguideId": "M000312"
+    },
+    {
+      "seatCycleId": "seat_house_ma_03_current",
+      "bioguideId": "T000482"
+    },
+    {
+      "seatCycleId": "seat_house_ma_04_current",
+      "bioguideId": "A000148"
+    },
+    {
+      "seatCycleId": "seat_house_ma_05_current",
+      "bioguideId": "C001101"
+    },
+    {
+      "seatCycleId": "seat_house_ma_06_current",
+      "bioguideId": "M001196"
+    },
+    {
+      "seatCycleId": "seat_house_ma_07_current",
+      "bioguideId": "P000617"
+    },
+    {
+      "seatCycleId": "seat_house_ma_08_current",
+      "bioguideId": "L000562"
+    },
+    {
+      "seatCycleId": "seat_house_ma_09_current",
+      "bioguideId": "K000375"
+    },
+    {
+      "seatCycleId": "seat_house_md_02_current",
+      "bioguideId": "O000176"
+    },
+    {
+      "seatCycleId": "seat_house_md_03_current",
+      "bioguideId": "E000301"
+    },
+    {
+      "seatCycleId": "seat_house_md_04_current",
+      "bioguideId": "I000058"
+    },
+    {
+      "seatCycleId": "seat_house_md_05_current",
+      "bioguideId": "H000874"
+    },
+    {
+      "seatCycleId": "seat_house_md_06_current",
+      "bioguideId": "M001232"
+    },
+    {
+      "seatCycleId": "seat_house_md_07_current",
+      "bioguideId": "M000687"
+    },
+    {
+      "seatCycleId": "seat_house_md_08_current",
+      "bioguideId": "R000606"
+    },
+    {
+      "seatCycleId": "seat_house_me_01_current",
+      "bioguideId": "P000597"
+    },
+    {
+      "seatCycleId": "seat_house_me_02_current",
+      "bioguideId": "G000592"
+    },
+    {
+      "seatCycleId": "seat_house_mi_03_current",
+      "bioguideId": "S001221"
+    },
+    {
+      "seatCycleId": "seat_house_mi_06_current",
+      "bioguideId": "D000624"
+    },
+    {
+      "seatCycleId": "seat_house_mi_08_current",
+      "bioguideId": "M001237"
+    },
+    {
+      "seatCycleId": "seat_house_mi_11_current",
+      "bioguideId": "S001215"
+    },
+    {
+      "seatCycleId": "seat_house_mi_12_current",
+      "bioguideId": "T000481"
+    },
+    {
+      "seatCycleId": "seat_house_mi_13_current",
+      "bioguideId": "T000488"
+    },
+    {
+      "seatCycleId": "seat_house_mn_02_current",
+      "bioguideId": "C001119"
+    },
+    {
+      "seatCycleId": "seat_house_mn_03_current",
+      "bioguideId": "M001234"
+    },
+    {
+      "seatCycleId": "seat_house_mn_04_current",
+      "bioguideId": "M001143"
+    },
+    {
+      "seatCycleId": "seat_house_mn_05_current",
+      "bioguideId": "O000173"
+    },
+    {
+      "seatCycleId": "seat_house_mo_01_current",
+      "bioguideId": "B001324"
+    },
+    {
+      "seatCycleId": "seat_house_mo_05_current",
+      "bioguideId": "C001061"
+    },
+    {
+      "seatCycleId": "seat_house_ms_02_current",
+      "bioguideId": "T000193"
+    },
+    {
+      "seatCycleId": "seat_house_nc_01_current",
+      "bioguideId": "D000230"
+    },
+    {
+      "seatCycleId": "seat_house_nc_02_current",
+      "bioguideId": "R000305"
+    },
+    {
+      "seatCycleId": "seat_house_nc_04_current",
+      "bioguideId": "F000477"
+    },
+    {
+      "seatCycleId": "seat_house_nc_12_current",
+      "bioguideId": "A000370"
+    },
+    {
+      "seatCycleId": "seat_house_nh_01_current",
+      "bioguideId": "P000614"
+    },
+    {
+      "seatCycleId": "seat_house_nh_02_current",
+      "bioguideId": "G000604"
+    },
+    {
+      "seatCycleId": "seat_house_nj_01_current",
+      "bioguideId": "N000188"
+    },
+    {
+      "seatCycleId": "seat_house_nj_03_current",
+      "bioguideId": "C001136"
+    },
+    {
+      "seatCycleId": "seat_house_nj_05_current",
+      "bioguideId": "G000583"
+    },
+    {
+      "seatCycleId": "seat_house_nj_06_current",
+      "bioguideId": "P000034"
+    },
+    {
+      "seatCycleId": "seat_house_nj_08_current",
+      "bioguideId": "M001226"
+    },
+    {
+      "seatCycleId": "seat_house_nj_09_current",
+      "bioguideId": "P000621"
+    },
+    {
+      "seatCycleId": "seat_house_nj_10_current",
+      "bioguideId": "M001229"
+    },
+    {
+      "seatCycleId": "seat_house_nj_11_current",
+      "bioguideId": "M001246"
+    },
+    {
+      "seatCycleId": "seat_house_nj_12_current",
+      "bioguideId": "W000822"
+    },
+    {
+      "seatCycleId": "seat_house_nm_01_current",
+      "bioguideId": "S001218"
+    },
+    {
+      "seatCycleId": "seat_house_nm_02_current",
+      "bioguideId": "V000136"
+    },
+    {
+      "seatCycleId": "seat_house_nm_03_current",
+      "bioguideId": "L000273"
+    },
+    {
+      "seatCycleId": "seat_house_nv_01_current",
+      "bioguideId": "T000468"
+    },
+    {
+      "seatCycleId": "seat_house_nv_03_current",
+      "bioguideId": "L000590"
+    },
+    {
+      "seatCycleId": "seat_house_nv_04_current",
+      "bioguideId": "H001066"
+    },
+    {
+      "seatCycleId": "seat_house_ny_03_current",
+      "bioguideId": "S001201"
+    },
+    {
+      "seatCycleId": "seat_house_ny_04_current",
+      "bioguideId": "G000602"
+    },
+    {
+      "seatCycleId": "seat_house_ny_05_current",
+      "bioguideId": "M001137"
+    },
+    {
+      "seatCycleId": "seat_house_ny_06_current",
+      "bioguideId": "M001188"
+    },
+    {
+      "seatCycleId": "seat_house_ny_07_current",
+      "bioguideId": "V000081"
+    },
+    {
+      "seatCycleId": "seat_house_ny_08_current",
+      "bioguideId": "J000294"
+    },
+    {
+      "seatCycleId": "seat_house_ny_09_current",
+      "bioguideId": "C001067"
+    },
+    {
+      "seatCycleId": "seat_house_ny_10_current",
+      "bioguideId": "G000599"
+    },
+    {
+      "seatCycleId": "seat_house_ny_12_current",
+      "bioguideId": "N000002"
+    },
+    {
+      "seatCycleId": "seat_house_ny_13_current",
+      "bioguideId": "E000297"
+    },
+    {
+      "seatCycleId": "seat_house_ny_14_current",
+      "bioguideId": "O000172"
+    },
+    {
+      "seatCycleId": "seat_house_ny_15_current",
+      "bioguideId": "T000486"
+    },
+    {
+      "seatCycleId": "seat_house_ny_16_current",
+      "bioguideId": "L000606"
+    },
+    {
+      "seatCycleId": "seat_house_ny_18_current",
+      "bioguideId": "R000579"
+    },
+    {
+      "seatCycleId": "seat_house_ny_19_current",
+      "bioguideId": "R000622"
+    },
+    {
+      "seatCycleId": "seat_house_ny_20_current",
+      "bioguideId": "T000469"
+    },
+    {
+      "seatCycleId": "seat_house_ny_22_current",
+      "bioguideId": "M001231"
+    },
+    {
+      "seatCycleId": "seat_house_ny_25_current",
+      "bioguideId": "M001206"
+    },
+    {
+      "seatCycleId": "seat_house_ny_26_current",
+      "bioguideId": "K000402"
+    },
+    {
+      "seatCycleId": "seat_house_oh_01_current",
+      "bioguideId": "L000601"
+    },
+    {
+      "seatCycleId": "seat_house_oh_03_current",
+      "bioguideId": "B001281"
+    },
+    {
+      "seatCycleId": "seat_house_oh_09_current",
+      "bioguideId": "K000009"
+    },
+    {
+      "seatCycleId": "seat_house_oh_11_current",
+      "bioguideId": "B001313"
+    },
+    {
+      "seatCycleId": "seat_house_oh_13_current",
+      "bioguideId": "S001223"
+    },
+    {
+      "seatCycleId": "seat_house_or_01_current",
+      "bioguideId": "B001278"
+    },
+    {
+      "seatCycleId": "seat_house_or_03_current",
+      "bioguideId": "D000635"
+    },
+    {
+      "seatCycleId": "seat_house_or_04_current",
+      "bioguideId": "H001094"
+    },
+    {
+      "seatCycleId": "seat_house_or_05_current",
+      "bioguideId": "B001326"
+    },
+    {
+      "seatCycleId": "seat_house_or_06_current",
+      "bioguideId": "S001226"
+    },
+    {
+      "seatCycleId": "seat_house_pa_02_current",
+      "bioguideId": "B001296"
+    },
+    {
+      "seatCycleId": "seat_house_pa_03_current",
+      "bioguideId": "E000296"
+    },
+    {
+      "seatCycleId": "seat_house_pa_04_current",
+      "bioguideId": "D000631"
+    },
+    {
+      "seatCycleId": "seat_house_pa_05_current",
+      "bioguideId": "S001205"
+    },
+    {
+      "seatCycleId": "seat_house_pa_06_current",
+      "bioguideId": "H001085"
+    },
+    {
+      "seatCycleId": "seat_house_pa_12_current",
+      "bioguideId": "L000602"
+    },
+    {
+      "seatCycleId": "seat_house_pa_17_current",
+      "bioguideId": "D000530"
+    },
+    {
+      "seatCycleId": "seat_house_ri_01_current",
+      "bioguideId": "A000380"
+    },
+    {
+      "seatCycleId": "seat_house_ri_02_current",
+      "bioguideId": "M001223"
+    },
+    {
+      "seatCycleId": "seat_house_sc_06_current",
+      "bioguideId": "C000537"
+    },
+    {
+      "seatCycleId": "seat_house_tn_09_current",
+      "bioguideId": "C001068"
+    },
+    {
+      "seatCycleId": "seat_house_tx_07_current",
+      "bioguideId": "F000468"
+    },
+    {
+      "seatCycleId": "seat_house_tx_09_current",
+      "bioguideId": "G000553"
+    },
+    {
+      "seatCycleId": "seat_house_tx_16_current",
+      "bioguideId": "E000299"
+    },
+    {
+      "seatCycleId": "seat_house_tx_18_current",
+      "bioguideId": "M001245"
+    },
+    {
+      "seatCycleId": "seat_house_tx_20_current",
+      "bioguideId": "C001091"
+    },
+    {
+      "seatCycleId": "seat_house_tx_28_current",
+      "bioguideId": "C001063"
+    },
+    {
+      "seatCycleId": "seat_house_tx_29_current",
+      "bioguideId": "G000587"
+    },
+    {
+      "seatCycleId": "seat_house_tx_30_current",
+      "bioguideId": "C001130"
+    },
+    {
+      "seatCycleId": "seat_house_tx_32_current",
+      "bioguideId": "J000310"
+    },
+    {
+      "seatCycleId": "seat_house_tx_33_current",
+      "bioguideId": "V000131"
+    },
+    {
+      "seatCycleId": "seat_house_tx_34_current",
+      "bioguideId": "G000581"
+    },
+    {
+      "seatCycleId": "seat_house_tx_35_current",
+      "bioguideId": "C001131"
+    },
+    {
+      "seatCycleId": "seat_house_tx_37_current",
+      "bioguideId": "D000399"
+    },
+    {
+      "seatCycleId": "seat_house_va_03_current",
+      "bioguideId": "S000185"
+    },
+    {
+      "seatCycleId": "seat_house_va_04_current",
+      "bioguideId": "M001227"
+    },
+    {
+      "seatCycleId": "seat_house_va_07_current",
+      "bioguideId": "V000138"
+    },
+    {
+      "seatCycleId": "seat_house_va_08_current",
+      "bioguideId": "B001292"
+    },
+    {
+      "seatCycleId": "seat_house_va_10_current",
+      "bioguideId": "S001230"
+    },
+    {
+      "seatCycleId": "seat_house_va_11_current",
+      "bioguideId": "W000831"
+    },
+    {
+      "seatCycleId": "seat_house_vt_al_current",
+      "bioguideId": "B001318"
+    },
+    {
+      "seatCycleId": "seat_house_wa_01_current",
+      "bioguideId": "D000617"
+    },
+    {
+      "seatCycleId": "seat_house_wa_02_current",
+      "bioguideId": "L000560"
+    },
+    {
+      "seatCycleId": "seat_house_wa_03_current",
+      "bioguideId": "G000600"
+    },
+    {
+      "seatCycleId": "seat_house_wa_06_current",
+      "bioguideId": "R000621"
+    },
+    {
+      "seatCycleId": "seat_house_wa_07_current",
+      "bioguideId": "J000298"
+    },
+    {
+      "seatCycleId": "seat_house_wa_08_current",
+      "bioguideId": "S001216"
+    },
+    {
+      "seatCycleId": "seat_house_wa_09_current",
+      "bioguideId": "S000510"
+    },
+    {
+      "seatCycleId": "seat_house_wa_10_current",
+      "bioguideId": "S001159"
+    },
+    {
+      "seatCycleId": "seat_house_wi_02_current",
+      "bioguideId": "P000607"
+    },
+    {
+      "seatCycleId": "seat_house_wi_04_current",
+      "bioguideId": "M001160"
+    }
+  ],
+  "rosterSha256": "cf068848595dee99882ae74a6bef2b76061597fe0daa3c86b30c71bdcae18fee"
+}
