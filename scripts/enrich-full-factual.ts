@@ -131,7 +131,7 @@ const records = (input: string): Json[] => {
   return rows.map((row) => Object.fromEntries(header.map((key, index) => [key, row[index] ?? ""])));
 };
 
-export type PresidentialDistrict = { state: string; district: string; harris: number; trump: number; total: number };
+export type PresidentialDistrict = { state: string; district: string; harris: number; trump: number; total: number; biden2020: number; trump2020: number; total2020: number };
 export function parsePresidentialDistricts(input: string): PresidentialDistrict[] {
   const rows = parseCsv(input);
   const headerIndex = rows.findIndex((row) => row[0] === "District" && row.includes("2024"));
@@ -140,8 +140,9 @@ export function parsePresidentialDistricts(input: string): PresidentialDistrict[
   const result = data.map((row) => {
     const [state, district] = row[0]!.split("-") as [string, string];
     const harris = number(row[3]), trump = number(row[4]), total = number(row[5]);
-    if (harris === null || trump === null || total === null || harris + trump > total) throw new Error(`ELECTION_ROW_INVALID:${row[0]}`);
-    return { state, district, harris, trump, total };
+    const biden2020 = number(row[10]), trump2020 = number(row[11]), total2020 = number(row[12]);
+    if (harris === null || trump === null || total === null || harris + trump > total || biden2020 === null || trump2020 === null || total2020 === null || biden2020 + trump2020 > total2020) throw new Error(`ELECTION_ROW_INVALID:${row[0]}`);
+    return { state, district, harris, trump, total, biden2020, trump2020, total2020 };
   });
   if (result.length !== 435 || new Set(result.map((row) => `${row.state}-${row.district}`)).size !== 435) throw new Error("ELECTION_DISTRICT_CLOSURE_INVALID");
   return result;

@@ -22,7 +22,7 @@ describe("accelerated full factual import", () => {
   });
 
   it("rejects a partial presidential district package", () => {
-    const csv = "District,Incumbent,Party,2024,,,2020,,\n,,,Harris,Trump,Total,Biden,Trump,Total\nAL-01,Member,(R),10,20,31,0,0,0\n";
+    const csv = "District,Incumbent,Party,2024,,,,,,,2020,,,\n,,,Harris,Trump,Total,Harris %,Trump %,Margin,,Biden,Trump,Total\nAL-01,Member,(R),10,20,31,,,,,11,19,31\n";
     expect(() => parsePresidentialDistricts(csv)).toThrow("ELECTION_DISTRICT_CLOSURE_INVALID");
   });
 
