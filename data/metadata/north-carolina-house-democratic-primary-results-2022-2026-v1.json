@@ -1,0 +1,1388 @@
+{
+  "schema": "north-carolina-house-democratic-primary-results-2022-2026-v1",
+  "version": 1,
+  "generatedAt": "2026-08-05T23:55:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "parentProposal": {
+    "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "decisionSupport": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    }
+  ],
+  "sources": [
+    {
+      "id": "nc-2022-primary-official-results-archive",
+      "url": "https://s3.amazonaws.com/dl.ncsbe.gov/ENRS/2022_05_17/results_pct_20220517.zip",
+      "retainedPath": "data/source/elections/primary-results/north-carolina/2022/official-results.zip",
+      "retainedStatus": "retained",
+      "byteSize": 2181778,
+      "sha256": "705b203290e4131455d3e1d3bb31cf496260c68c88cbe734b84bda5318ede3c1",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nc-2022-primary-state-canvass-by-contest",
+      "url": "https://s3.amazonaws.com/dl.ncsbe.gov/State_Board_Meeting_Docs/2022-06-09/Canvass/State_Composite_Abstract_Report_by_Contest.pdf",
+      "retainedPath": "data/source/elections/primary-results/north-carolina/2022/state-canvass-by-contest.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 674350,
+      "sha256": "113d6104e0d75106f9641888c30e5a029de00a2e8755ddb4006e4f21a804c194",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nc-2024-primary-official-results-archive",
+      "url": "https://s3.amazonaws.com/dl.ncsbe.gov/ENRS/2024_03_05/results_pct_20240305.zip",
+      "retainedPath": "data/source/elections/primary-results/north-carolina/2024/official-results.zip",
+      "retainedStatus": "retained",
+      "byteSize": 4464845,
+      "sha256": "0b0475a6df5ecd0d47a21ee51c96782934de768f8ef60eb3a9ae7d83021fea30",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nc-2024-primary-state-canvass-by-contest",
+      "url": "https://s3.amazonaws.com/dl.ncsbe.gov/State_Board_Meeting_Docs/2024-03-26/Canvass/Canvass%20Certification%20of%20State%20Jurisdiction%20Contests%20032624.pdf",
+      "retainedPath": "data/source/elections/primary-results/north-carolina/2024/state-canvass-by-contest.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 324231,
+      "sha256": "1c5259b244ee50474d7105c28b1fd50ff3b8ef76c697759a06dbc9d812e20b00",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "nc-2026-primary-official-results-archive",
+      "url": "https://s3.amazonaws.com/dl.ncsbe.gov/ENRS/2026_03_03/results_pct_20260303.zip",
+      "retainedPath": "data/source/elections/primary-results/north-carolina/2026/official-results.zip",
+      "retainedStatus": "retained",
+      "byteSize": 1427371,
+      "sha256": "d5450bfad8386ab12cf69f558776c79bc2301f89d33cce510de0fb7a26add484",
+      "kind": "source",
+      "parentIds": []
+    }
+  ],
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "reportedContests": 9,
+      "certificationStatus": "source_conflict_unresolved"
+    },
+    {
+      "cycleYear": 2024,
+      "reportedContests": 2,
+      "certificationStatus": "archive_reconciled_to_state_canvass"
+    },
+    {
+      "cycleYear": 2026,
+      "reportedContests": 11,
+      "certificationStatus": "not_closed_by_retained_instrument"
+    }
+  ],
+  "canvassComparisons": [
+    {
+      "cycleYear": 2022,
+      "status": "source_conflict_unresolved",
+      "comparedCandidates": 35,
+      "differenceCount": 4,
+      "archiveVotes": 424306,
+      "canvassVotes": 424321,
+      "differences": [
+        {
+          "contestId": "nc:2022:regular:us-house:03:democratic",
+          "sourceCandidateName": "Barbara D. Gaskins",
+          "archiveVotes": 23042,
+          "canvassVotes": 23051,
+          "delta": 9
+        },
+        {
+          "contestId": "nc:2022:regular:us-house:03:democratic",
+          "sourceCandidateName": "Joe Swartz",
+          "archiveVotes": 5492,
+          "canvassVotes": 5495,
+          "delta": 3
+        },
+        {
+          "contestId": "nc:2022:regular:us-house:11:democratic",
+          "sourceCandidateName": "Jasmine Beach-Ferrara",
+          "archiveVotes": 32476,
+          "canvassVotes": 32478,
+          "delta": 2
+        },
+        {
+          "contestId": "nc:2022:regular:us-house:11:democratic",
+          "sourceCandidateName": "Jay Carey",
+          "archiveVotes": 3857,
+          "canvassVotes": 3858,
+          "delta": 1
+        }
+      ]
+    },
+    {
+      "cycleYear": 2024,
+      "status": "archive_reconciled_to_state_canvass",
+      "comparedCandidates": 4,
+      "differenceCount": 0,
+      "archiveVotes": 107835,
+      "canvassVotes": 107835,
+      "differences": []
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "nc:2022:regular:us-house:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "NC",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2090",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 01 (DEM)",
+      "sourceLockIds": [
+        "nc-2022-primary-official-results-archive",
+        "nc-2022-primary-state-canvass-by-contest"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 1316,
+      "candidates": [
+        {
+          "sourceCandidateName": "Don Davis",
+          "votes": 42693,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Erica D. Smith",
+          "votes": 21012,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Jason Albert Spriggs",
+          "votes": 2123,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Jullian C. Bishop, Sr.",
+          "votes": 1752,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 67580,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6121b37104df57ef69ce99bf3cb9d26153ca8124060e2d1773c86a24763d9e9c"
+    },
+    {
+      "contestId": "nc:2022:regular:us-house:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "NC",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2096",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 03 (DEM)",
+      "sourceLockIds": [
+        "nc-2022-primary-official-results-archive",
+        "nc-2022-primary-state-canvass-by-contest"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 542,
+      "candidates": [
+        {
+          "sourceCandidateName": "Barbara D. Gaskins",
+          "votes": 23042,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Joe Swartz",
+          "votes": 5492,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 28534,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e7d6738ddf02d52636afcdec93e946745fc718a26f8b9ba066797fcfdc388775"
+    },
+    {
+      "contestId": "nc:2022:regular:us-house:04:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "NC",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2099",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 04 (DEM)",
+      "sourceLockIds": [
+        "nc-2022-primary-official-results-archive",
+        "nc-2022-primary-state-canvass-by-contest"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 1480,
+      "candidates": [
+        {
+          "sourceCandidateName": "Ashley Ward",
+          "votes": 4767,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Clay Aiken",
+          "votes": 6529,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Crystal Cavalier",
+          "votes": 1116,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Matt Grooms",
+          "votes": 435,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Nida Allam",
+          "votes": 32731,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Richard L. Watkins",
+          "votes": 1155,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Stephen J. Valentine",
+          "votes": 1023,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Valerie P. Foushee",
+          "votes": 40806,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 88562,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4461cfd2e96abcfc049d9f4c0fdf6e8e1980a65ddd1087535248546b80bdaca8"
+    },
+    {
+      "contestId": "nc:2022:regular:us-house:07:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "NC",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2108",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 07 (DEM)",
+      "sourceLockIds": [
+        "nc-2022-primary-official-results-archive",
+        "nc-2022-primary-state-canvass-by-contest"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 940,
+      "candidates": [
+        {
+          "sourceCandidateName": "Charles E. Evans",
+          "votes": 12263,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Charles Graham",
+          "votes": 13054,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Steve Miller",
+          "votes": 9744,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Yushonda Midgette",
+          "votes": 6738,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 41799,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "0fe8b5b35055721d36a1d4f4df2da84ea76d870b9598b6b64459365cee909883"
+    },
+    {
+      "contestId": "nc:2022:regular:us-house:10:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "NC",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2117",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 10 (DEM)",
+      "sourceLockIds": [
+        "nc-2022-primary-official-results-archive",
+        "nc-2022-primary-state-canvass-by-contest"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 380,
+      "candidates": [
+        {
+          "sourceCandidateName": "Michael Felder",
+          "votes": 3790,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Pam Genant",
+          "votes": 13028,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 16818,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "b366cf42174c4b15adba48e10d65cc17197ccf46d141980ea6ba5050f829bc3e"
+    },
+    {
+      "contestId": "nc:2022:regular:us-house:11:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "NC",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2120",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 11 (DEM)",
+      "sourceLockIds": [
+        "nc-2022-primary-official-results-archive",
+        "nc-2022-primary-state-canvass-by-contest"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 1914,
+      "candidates": [
+        {
+          "sourceCandidateName": "Bo Hess",
+          "votes": 2082,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Bynum M. Lunsford",
+          "votes": 1002,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Jasmine Beach-Ferrara",
+          "votes": 32476,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Jay Carey",
+          "votes": 3857,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Katie Dean",
+          "votes": 13957,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Marco Gutierrez",
+          "votes": 1040,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 54414,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e327890c6bdf8779e29010cde631f3372f86e5571447853ac5493c136d75d9f4"
+    },
+    {
+      "contestId": "nc:2022:regular:us-house:12:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "NC",
+      "districtCode": "12",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2123",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 12 (DEM)",
+      "sourceLockIds": [
+        "nc-2022-primary-official-results-archive",
+        "nc-2022-primary-state-canvass-by-contest"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 240,
+      "candidates": [
+        {
+          "sourceCandidateName": "Alma S. Adams",
+          "votes": 37984,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "John Sharkey",
+          "votes": 3460,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 41444,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "0bc99e13ca76dddab42fb3be10ba76b46d0739e4fbc9acccba7c8146b46c13ce"
+    },
+    {
+      "contestId": "nc:2022:regular:us-house:13:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "NC",
+      "districtCode": "13",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2126",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 13 (DEM)",
+      "sourceLockIds": [
+        "nc-2022-primary-official-results-archive",
+        "nc-2022-primary-state-canvass-by-contest"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 790,
+      "candidates": [
+        {
+          "sourceCandidateName": "Denton Lee",
+          "votes": 3311,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Ms. Jamie Campbell Bowles",
+          "votes": 4217,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Nathan Click",
+          "votes": 3866,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Sam Searcy",
+          "votes": 10284,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Wiley Nickel",
+          "votes": 23155,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 44833,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "722d8027718269922f615de3a54d329509e1eb71797933e5daa835c8f978d8bd"
+    },
+    {
+      "contestId": "nc:2022:regular:us-house:14:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "stateCode": "NC",
+      "districtCode": "14",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2129",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 14 (DEM)",
+      "sourceLockIds": [
+        "nc-2022-primary-official-results-archive",
+        "nc-2022-primary-state-canvass-by-contest"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 320,
+      "candidates": [
+        {
+          "sourceCandidateName": "Jeff Jackson",
+          "votes": 34724,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Ram Mammadov",
+          "votes": 5598,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 40322,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6efbbd03f1664670a55c6c070f70382e2fe86a56621ffdda0a9dda7f238dea6d"
+    },
+    {
+      "contestId": "nc:2024:regular:us-house:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-05",
+      "stateCode": "NC",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2517",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 02 (DEM)",
+      "sourceLockIds": [
+        "nc-2024-primary-official-results-archive",
+        "nc-2024-primary-state-canvass-by-contest"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 342,
+      "candidates": [
+        {
+          "sourceCandidateName": "Deborah K. Ross",
+          "votes": 69564,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Michael Camero",
+          "votes": 4761,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 74325,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "16eb9fa9e1c11c91b2d3ed0e76692d754393287b0988711a2ab3fda6d25f90e6"
+    },
+    {
+      "contestId": "nc:2024:regular:us-house:14:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-05",
+      "stateCode": "NC",
+      "districtCode": "14",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2565",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 14 (DEM)",
+      "sourceLockIds": [
+        "nc-2024-primary-official-results-archive",
+        "nc-2024-primary-state-canvass-by-contest"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_and_state_canvass_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 322,
+      "candidates": [
+        {
+          "sourceCandidateName": "Brendan K. Maginnis",
+          "votes": 13121,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Pam Genant",
+          "votes": 20389,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 33510,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a29d77dc02453adc0ad74c7ccdb6bae278bfa30b6e970fd96bac297dbee53ff2"
+    },
+    {
+      "contestId": "nc:2026:regular:us-house:03:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-03-03",
+      "stateCode": "NC",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2111",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 03 (DEM)",
+      "sourceLockIds": [
+        "nc-2026-primary-official-results-archive"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 424,
+      "candidates": [
+        {
+          "sourceCandidateName": "Allison Jaslow",
+          "votes": 18020,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Raymond Smith",
+          "votes": 23552,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 41572,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e3713838c07009b68c0389590815fab5000106a82007153969592dff049df417"
+    },
+    {
+      "contestId": "nc:2026:regular:us-house:04:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-03-03",
+      "stateCode": "NC",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2114",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 04 (DEM)",
+      "sourceLockIds": [
+        "nc-2026-primary-official-results-archive"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 531,
+      "candidates": [
+        {
+          "sourceCandidateName": "Mary Patterson",
+          "votes": 3274,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Nida Allam",
+          "votes": 60605,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Valerie P. Foushee",
+          "votes": 61776,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 125655,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6d96517857fefb804754a16a2e477986800a840609b21d518b68902de1446f21"
+    },
+    {
+      "contestId": "nc:2026:regular:us-house:05:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-03-03",
+      "stateCode": "NC",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2117",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 05 (DEM)",
+      "sourceLockIds": [
+        "nc-2026-primary-official-results-archive"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 528,
+      "candidates": [
+        {
+          "sourceCandidateName": "Chuck Hubbard",
+          "votes": 25655,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Kyah Creekmore",
+          "votes": 19585,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 45240,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "17f12f3ba40036038690253109d6321b9f0c59d010c1d78a4d1849547f1a99ad"
+    },
+    {
+      "contestId": "nc:2026:regular:us-house:06:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-03-03",
+      "stateCode": "NC",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2120",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 06 (DEM)",
+      "sourceLockIds": [
+        "nc-2026-primary-official-results-archive"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 824,
+      "candidates": [
+        {
+          "sourceCandidateName": "Alysa Kassay",
+          "votes": 13316,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Beau Blair",
+          "votes": 3848,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Cyril Jefferson",
+          "votes": 15274,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Keith Davenport",
+          "votes": 6569,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 39007,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4c1bd5d96b662e21c8ae7af697cae22eff40d270b4f02b152c6e68105aadbe7a"
+    },
+    {
+      "contestId": "nc:2026:regular:us-house:08:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-03-03",
+      "stateCode": "NC",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2126",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 08 (DEM)",
+      "sourceLockIds": [
+        "nc-2026-primary-official-results-archive"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 645,
+      "candidates": [
+        {
+          "sourceCandidateName": "Colby Watson",
+          "votes": 18272,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Jesse Oppenheim",
+          "votes": 5693,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Kevin Clark",
+          "votes": 14167,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 38132,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6917648262afc08f06c8b5a4f35c9f4d614145c862a9c6d4660c30693eafc03b"
+    },
+    {
+      "contestId": "nc:2026:regular:us-house:09:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-03-03",
+      "stateCode": "NC",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2129",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 09 (DEM)",
+      "sourceLockIds": [
+        "nc-2026-primary-official-results-archive"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 712,
+      "candidates": [
+        {
+          "sourceCandidateName": "Lent C. Carr II",
+          "votes": 6968,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Loren Bibler",
+          "votes": 6960,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Nigel W. Bristow",
+          "votes": 11824,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Richard N. Ojeda II",
+          "votes": 18469,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 44221,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "470f706e791b55eb3d2110208cf73dcc5535d7d9c1ca938935d8b4634418b04a"
+    },
+    {
+      "contestId": "nc:2026:regular:us-house:10:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-03-03",
+      "stateCode": "NC",
+      "districtCode": "10",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2132",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 10 (DEM)",
+      "sourceLockIds": [
+        "nc-2026-primary-official-results-archive"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 1194,
+      "candidates": [
+        {
+          "sourceCandidateName": "Ashley Bell",
+          "votes": 19472,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Harry Morley",
+          "votes": 4672,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Marcus Pearson",
+          "votes": 4070,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Mir Yarfitz",
+          "votes": 3952,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Ralph Scott, Jr.",
+          "votes": 2591,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "West Caudle",
+          "votes": 6404,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 41161,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "6f5b4fc96e9ad7401f5dd36a42a61d64207c75a22b018035d64715d2024c70ff"
+    },
+    {
+      "contestId": "nc:2026:regular:us-house:11:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-03-03",
+      "stateCode": "NC",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2135",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 11 (DEM)",
+      "sourceLockIds": [
+        "nc-2026-primary-official-results-archive"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 1520,
+      "candidates": [
+        {
+          "sourceCandidateName": "Jamie Ager",
+          "votes": 49193,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Lee Whipple",
+          "votes": 1078,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Paul Maddox",
+          "votes": 3857,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Richard Hudspeth",
+          "votes": 12063,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Zelda Briarwood",
+          "votes": 9893,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 76084,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "43c1fdd5ed3520a2c09980daf4b8769732bb08f32d282e0efbb141424101df05"
+    },
+    {
+      "contestId": "nc:2026:regular:us-house:12:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-03-03",
+      "stateCode": "NC",
+      "districtCode": "12",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2138",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 12 (DEM)",
+      "sourceLockIds": [
+        "nc-2026-primary-official-results-archive"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 296,
+      "candidates": [
+        {
+          "sourceCandidateName": "Alma Shealey Adams",
+          "votes": 54630,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Monaca Maye Williamson",
+          "votes": 14589,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 69219,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "1b8dd2ad697e25443c3e746bcd0e8918cc8892996ba6f331490782143acf095e"
+    },
+    {
+      "contestId": "nc:2026:regular:us-house:13:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-03-03",
+      "stateCode": "NC",
+      "districtCode": "13",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2141",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 13 (DEM)",
+      "sourceLockIds": [
+        "nc-2026-primary-official-results-archive"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 495,
+      "candidates": [
+        {
+          "sourceCandidateName": "Alexander Nicholi",
+          "votes": 5800,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Frank Pierce",
+          "votes": 14794,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Paul Barringer",
+          "votes": 29743,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 50337,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e4a5c9de1a81303c89efc78e669ae3eddbd23497564bc9534edbd2b53a850318"
+    },
+    {
+      "contestId": "nc:2026:regular:us-house:14:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-03-03",
+      "stateCode": "NC",
+      "districtCode": "14",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceContestGroupId": "2144",
+      "sourceContestTitle": "US HOUSE OF REPRESENTATIVES DISTRICT 14 (DEM)",
+      "sourceLockIds": [
+        "nc-2026-primary-official-results-archive"
+      ],
+      "resultAuthorityStatus": "official_statewide_archive_retained_certification_instrument_not_retained",
+      "reportingCompleteness": "complete_statewide_archive_rows_reconciled_by_candidate",
+      "sourceRows": 468,
+      "candidates": [
+        {
+          "sourceCandidateName": "Ahmid Kargbo",
+          "votes": 2361,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Brent Caldwell",
+          "votes": 16513,
+          "sourceCandidateId": null
+        },
+        {
+          "sourceCandidateName": "Lakesha Womack",
+          "votes": 20641,
+          "sourceCandidateId": null
+        }
+      ],
+      "sourceTotalVotes": 39515,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3d7bf051bcb54929c780703701638f2c0ab5207a2baaedb08fe67eaac8e19ade"
+    }
+  ],
+  "unresolvedBlocks": [
+    {
+      "districtCycleId": "nc:2022:us-house:02:democratic",
+      "cycleYear": 2022,
+      "districtCode": "02",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2022:us-house:05:democratic",
+      "cycleYear": 2022,
+      "districtCode": "05",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2022:us-house:06:democratic",
+      "cycleYear": 2022,
+      "districtCode": "06",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2022:us-house:08:democratic",
+      "cycleYear": 2022,
+      "districtCode": "08",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2022:us-house:09:democratic",
+      "cycleYear": 2022,
+      "districtCode": "09",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2024:us-house:01:democratic",
+      "cycleYear": 2024,
+      "districtCode": "01",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2024:us-house:03:democratic",
+      "cycleYear": 2024,
+      "districtCode": "03",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2024:us-house:04:democratic",
+      "cycleYear": 2024,
+      "districtCode": "04",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2024:us-house:05:democratic",
+      "cycleYear": 2024,
+      "districtCode": "05",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2024:us-house:06:democratic",
+      "cycleYear": 2024,
+      "districtCode": "06",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2024:us-house:07:democratic",
+      "cycleYear": 2024,
+      "districtCode": "07",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2024:us-house:08:democratic",
+      "cycleYear": 2024,
+      "districtCode": "08",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2024:us-house:09:democratic",
+      "cycleYear": 2024,
+      "districtCode": "09",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2024:us-house:10:democratic",
+      "cycleYear": 2024,
+      "districtCode": "10",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2024:us-house:11:democratic",
+      "cycleYear": 2024,
+      "districtCode": "11",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2024:us-house:12:democratic",
+      "cycleYear": 2024,
+      "districtCode": "12",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2024:us-house:13:democratic",
+      "cycleYear": 2024,
+      "districtCode": "13",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2026:us-house:01:democratic",
+      "cycleYear": 2026,
+      "districtCode": "01",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2026:us-house:02:democratic",
+      "cycleYear": 2026,
+      "districtCode": "02",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    },
+    {
+      "districtCycleId": "nc:2026:us-house:07:democratic",
+      "cycleYear": 2026,
+      "districtCode": "07",
+      "status": "unresolved_no_reported_contest_in_complete_archive",
+      "scoreEligible": false
+    }
+  ],
+  "summary": {
+    "districtCycleUniverse": 42,
+    "reportedContests": 22,
+    "unreportedDistrictCycleBlocks": 20,
+    "contests2022": 9,
+    "contests2024": 2,
+    "contests2026": 11,
+    "sourceRows": 16223,
+    "namedCandidates": 76,
+    "namedCandidateVotes": 1142284,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0,
+    "contestSetSha256": "a806b720b724df1b40a6570e4316c5f5c479a0f0e9fdeae31dd6342355e816dc"
+  },
+  "limitations": [
+    "The 2022 archive and state canvass differ on four candidate totals by 15 votes; the exact conflict is retained and unresolved.",
+    "An absent district-cycle contest remains unresolved and is not converted into a zero, uncontested, or no-primary disposition.",
+    "The 2026 archive is official result evidence, but this package does not claim a retained contest-level certification instrument."
+  ],
+  "unresolvedGates": [
+    "The 2022 archive-versus-canvass source conflict requires reviewer resolution before factual promotion.",
+    "Current identity, historical geography, disposition, progressive classification, and evaluator applicability remain unresolved."
+  ],
+  "packageSha256": "8bf12709c58542550b29f94c36ae9337100755bb0d04a4459eef77a845908480"
+}
