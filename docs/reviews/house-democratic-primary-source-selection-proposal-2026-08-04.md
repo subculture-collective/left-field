@@ -13,7 +13,7 @@ The exact target is the 212 occupied regular Democratic voting U.S. House seats 
 - The FEC 2026 congressional calendar is discovery and drift-detection evidence only. It is not state result or certification authority.
 - Current CD119 geometry is a target reference only. It is not evidence that a historical district with the same number had identical boundaries, and it is not an approved allocation method.
 
-No retained repository bytes currently constitute official certified 2022, 2024, or 2026 state House-primary results, a complete official candidate roster, or an approved historical-district crosswalk. FEC finance and proposed AIPAC/UDP challenger relationships are not election-result substitutes and cannot satisfy those requirements.
+The repository now retains certified Washington 2022 and 2024 top-two House results, but they are not partisan Democratic-primary evidence and remain formula-incompatible. No nationwide, formula-compatible cohort, complete official historical candidate roster, or approved historical-district crosswalk exists. FEC finance and proposed AIPAC/UDP challenger relationships are not election-result substitutes and cannot satisfy those requirements.
 
 ## Proposed future selection rule
 

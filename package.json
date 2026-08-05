@@ -38,6 +38,7 @@
     "inventory:fec-bulk": "tsx scripts/inventory-fec-bulk.ts",
     "generate:aipac-review": "tsx scripts/generate-aipac-proposed-review-packages.ts",
     "generate:aipac-decision-queue": "tsx scripts/generate-aipac-review-decision-queue.ts",
+    "generate:aipac-evidence-foundation": "tsx scripts/generate-aipac-evidence-foundation-candidate.ts",
     "generate:dsa-target-review-report": "tsx scripts/generate-dsa-target-review-report.ts",
     "generate:dsa-target-review-report-v2": "tsx scripts/generate-dsa-target-review-report-v2.ts",
     "generate:presidential-current-boundary-proposal": "tsx scripts/generate-presidential-current-boundary-proposal.ts",

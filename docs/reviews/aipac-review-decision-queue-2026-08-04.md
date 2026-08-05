@@ -4,6 +4,8 @@ Status: **proposed, reviewer-only, and nonpublishable**
 
 The deterministic queue is `data/metadata/aipac-review-decision-queue-v1.json`. It is bound to the exact mapping, evidence-closure, and network-classification proposal hashes. Its default for every unresolved decision is `exclude_from_scoring_and_publication`. It does not name a reviewer, record an approval, or authorize a release.
 
+This v1 queue is retained as historical input. The later automatic foundation candidate applies the repository policy that deterministically verifiable relationships should continue without manual approval and carries the current actionable queue of only eight genuine conflicts. It does not rewrite this artifact or fabricate review resolutions; see [`aipac-evidence-foundation-candidate-2026-08-05.md`](aipac-evidence-foundation-candidate-2026-08-05.md).
+
 ## Review package
 
 - 231 total decisions: 229 candidate/seat relationships, one evidence-closure decision, and one United Democracy Project network-classification decision.
