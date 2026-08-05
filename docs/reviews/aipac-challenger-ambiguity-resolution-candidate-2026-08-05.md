@@ -19,7 +19,7 @@ The artifact is not a human review, a public fact, or a release transition. It s
 - Package SHA-256: `46ef7ba344f2ec975b3e1eebdf83f569d7d36f619486ed10e7868dbe4ca08624`
 - Parent files: exact retained evidence-closure proposal and evidence-foundation candidate v1
 
-The generator pins both parent file hashes, requires the exact two foundation conflicts, reselects only 2024 House Democratic primary-opposition records for `H0IL07167`, and fails unless Illinois 7 is the sole jurisdiction with any positive row. It hashes every selected sanitized source-record identity into the two dispositions. It neither collects names nor restores any private or free-text field.
+The generator pins both parent file hashes, requires the exact two foundation conflicts, reselects only 2024 House Democratic primary-opposition records for `H0IL07167`, rejects every relevant row outside the two explicitly accounted jurisdictions, and fails unless Illinois 7 is the sole jurisdiction with any positive row. It hashes every selected sanitized source-record identity into the two dispositions. It neither collects names nor restores any private or free-text field. Generation is exclusive-create and idempotent: identical existing bytes are accepted, while differing bytes at the versioned output path fail with `AIPAC_AMBIGUITY_OUTPUT_CONFLICT`.
 
 ## Reproduction
 

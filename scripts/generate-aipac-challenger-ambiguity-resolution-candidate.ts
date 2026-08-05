@@ -16,7 +16,14 @@ async function main(): Promise<void> {
   const foundation = await load("aipac-evidence-foundation-candidate-v1.json");
   const candidate = buildAipacChallengerAmbiguityResolutionCandidate({ closure: closure.value, closureFileSha256: closure.sha256, foundation: foundation.value, foundationFileSha256: foundation.sha256 });
   const output = resolve(root, "aipac-challenger-ambiguity-resolution-candidate-v1.json");
-  await writeFile(output, `${JSON.stringify(candidate, null, 2)}\n`, { mode: 0o644 });
+  const bytes = Buffer.from(`${JSON.stringify(candidate, null, 2)}\n`, "utf8");
+  try {
+    const existing = await readFile(output);
+    if (!existing.equals(bytes)) throw new Error("AIPAC_AMBIGUITY_OUTPUT_CONFLICT");
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    await writeFile(output, bytes, { mode: 0o644, flag: "wx" });
+  }
   process.stdout.write(`${JSON.stringify({ output, summary: candidate.summary, packageSha256: candidate.packageSha256 }, null, 2)}\n`);
 }
 

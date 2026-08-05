@@ -71,7 +71,8 @@ export function buildAipacChallengerAmbiguityResolutionCandidate(input: Readonly
   const bySeat = new Map<string, ClosureRecord[]>();
   for (const row of relevant) {
     const seat = row.candidateOfficeState === "IL" && row.candidateOfficeDistrict === "07" ? "seat_house_il_07_current" : row.candidateOfficeState === "CA" && row.candidateOfficeDistrict === "47" ? "seat_house_ca_47_current" : null;
-    if (seat) bySeat.set(seat, [...(bySeat.get(seat) ?? []), row]);
+    if (!seat) throw new Error("AIPAC_AMBIGUITY_UNACCOUNTED_JURISDICTION");
+    bySeat.set(seat, [...(bySeat.get(seat) ?? []), row]);
   }
   const positiveSeats = [...bySeat].filter(([, rows]) => rows.some((row) => row.amount > 0)).map(([seat]) => seat);
   if (positiveSeats.length !== 1 || positiveSeats[0] !== "seat_house_il_07_current") throw new Error("AIPAC_AMBIGUITY_UNIQUE_POSITIVE_TARGET_NOT_PROVEN");

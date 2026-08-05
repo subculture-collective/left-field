@@ -26,4 +26,13 @@ describe("AIPAC challenger ambiguity resolution candidate", () => {
     row!.amount = Math.abs(row!.amount);
     expect(() => buildAipacChallengerAmbiguityResolutionCandidate({ ...input, closure: changed })).toThrow("AIPAC_AMBIGUITY_UNIQUE_POSITIVE_TARGET_NOT_PROVEN");
   });
+
+  it("fails closed when any relevant source row belongs to an unaccounted jurisdiction", async () => {
+    const input = await inputs();
+    const changed = structuredClone(input.closure) as { scheduleE: { records: Array<Record<string, unknown>> } };
+    const source = changed.scheduleE.records.find((item) => item.candidateId === "H0IL07167" && item.candidateOfficeState === "IL" && item.candidateOfficeDistrict === "07" && Number(item.amount) > 0);
+    expect(source).toBeDefined();
+    changed.scheduleE.records.push({ ...source!, candidateOfficeState: "TX", candidateOfficeDistrict: "01", recordIdentitySha256: "0".repeat(64) });
+    expect(() => buildAipacChallengerAmbiguityResolutionCandidate({ ...input, closure: changed })).toThrow("AIPAC_AMBIGUITY_UNACCOUNTED_JURISDICTION");
+  });
 });
