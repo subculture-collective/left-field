@@ -82,6 +82,7 @@
     "fetch:ct-primary-geography-authority": "node scripts/fetch-connecticut-primary-geography-authority.mjs",
     "fetch:ct-general-statements": "node scripts/fetch-connecticut-general-election-statements.mjs",
     "fetch:ct-nomination-statutes": "node scripts/fetch-connecticut-nomination-statutes.mjs",
+    "fetch:va-primary-geography-authority": "node scripts/fetch-virginia-primary-geography-authority.mjs",
     "generate:ct-nomination-statutory-authority-v1": "tsx scripts/generate-connecticut-nomination-statutory-authority-receipt.ts",
     "generate:ct-primary-evidence-review-v2": "tsx scripts/generate-connecticut-primary-evidence-review-package-v2.ts",
     "generate:wa-current-incumbent-top-two-linkage-v1": "tsx scripts/generate-washington-current-incumbent-top-two-linkage-candidate.ts",
