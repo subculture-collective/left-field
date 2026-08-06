@@ -1,7 +1,9 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
+import { tmpdir } from "node:os";
+import { join } from "node:path";
 import { acceptanceCommands, assertAcceptanceEnvironment, runAcceptance } from "./test-acceptance";
 
-const safe = { ACCEPTANCE_TESTS: "1", DATABASE_URL: "postgresql://dsa_seats@127.0.0.1:5432/dsa_acceptance_integration_test", TEST_DATABASE_URL: "postgresql://dsa_seats@localhost:5432/dsa_acceptance_integration_test", QUERY_DATABASE_URL: "postgresql://dsa_seats@127.0.0.1:5432/dsa_acceptance_query_test", E2E_DATABASE_URL: "postgresql://dsa_seats@127.0.0.1:5432/dsa_acceptance_browser_test", WEB_DATABASE_URL: "postgresql://acceptance_web@127.0.0.1:5432/dsa_acceptance_browser_test", ACCEPTANCE_MAP_ARTIFACT_ROOT: "/tmp/dsa-seats-task13/task10-maps", E2E_MAP_PROFILE_PATH: "/seats/seat_0" };
+const safe = { ACCEPTANCE_TESTS: "1", DATABASE_URL: "postgresql://dsa_seats@127.0.0.1:5432/dsa_acceptance_integration_test", TEST_DATABASE_URL: "postgresql://dsa_seats@localhost:5432/dsa_acceptance_integration_test", QUERY_DATABASE_URL: "postgresql://dsa_seats@127.0.0.1:5432/dsa_acceptance_query_test", E2E_DATABASE_URL: "postgresql://dsa_seats@127.0.0.1:5432/dsa_acceptance_browser_test", WEB_DATABASE_URL: "postgresql://acceptance_web@127.0.0.1:5432/dsa_acceptance_browser_test", ACCEPTANCE_MAP_ARTIFACT_ROOT: join(tmpdir(), "dsa-seats-task13", "task10-maps"), E2E_MAP_PROFILE_PATH: "/seats/seat_0" };
 
 describe("acceptance harness", () => {
   afterEach(() => vi.restoreAllMocks());
