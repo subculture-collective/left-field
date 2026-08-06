@@ -11,6 +11,7 @@
     "test": "vitest",
     "test:run": "vitest run",
     "test:integration": "vitest run src/db/integration.test.ts",
+    "test:production-contract": "bash deploy/tests/verify-production-env.test.sh",
     "test:e2e": "playwright test",
     "test:e2e:task13": "tsx scripts/test-e2e-task13.ts",
     "test:acceptance": "tsx scripts/test-acceptance.ts",

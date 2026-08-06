@@ -15,7 +15,7 @@ COMPOSE := env -u COMPOSE_FILE COMPOSE_PROJECT_NAME=$(DEV_PROJECT) docker compos
 CLEAN_ENV := env -u NODE_ENV -u DATABASE_URL -u TEST_DATABASE_URL -u WEB_DATABASE_URL -u INGEST_DATABASE_URL -u RELEASE_PREFLIGHT_DATABASE_URL -u RELEASE_OPERATOR_DATABASE_URL
 
 .PHONY: help local-contract install browser-install dev dev-db dev-seed db-up db-down db-logs db-migrate db-generate db-studio \
-	test-db e2e-db test test-unit test-integration test-all e2e typecheck lint verify audit build check \
+	test-db e2e-db test test-unit test-integration test-all production-contract e2e typecheck lint verify audit build check \
 	acceptance clean reset-db
 
 help: ## Show available targets.
@@ -36,8 +36,9 @@ help: ## Show available targets.
 	  '  make test              Run non-DB Vitest once (never watch mode)' \
 	  '  make test-integration  Create/migrate the local _test DB and run guarded DB tests' \
 	  '  make test-all          Run non-DB and guarded DB tests' \
+	  '  make production-contract  Verify the offline production environment safety contract' \
 	  '  make e2e               Run the mandatory seeded desktop/390px browser gate' \
-	  '  make check             Typecheck, lint, non-DB tests, and verify source lock' \
+	  '  make check             Typecheck, lint, non-DB tests, production contract, and source lock' \
 	  '  make build             Build the production Next bundle' \
 	  '  make audit             Fail on any npm vulnerability severity' \
 	  '' \
@@ -105,6 +106,9 @@ test-integration: test-db ## Run guarded PostgreSQL integration tests.
 
 test-all: test test-integration ## Run non-DB and guarded DB suites.
 
+production-contract: ## Verify the offline production environment safety contract.
+	$(CLEAN_ENV) npm run test:production-contract
+
 e2e: e2e-db ## Run seeded Chromium desktop/390px and Axe gates.
 	env DATABASE_URL='$(E2E_DATABASE_URL_LOCAL)' WEB_DATABASE_URL='$(E2E_DATABASE_URL_LOCAL)' MAP_ARTIFACT_ROOT='$(E2E_MAP_ROOT)' E2E_MAP_PROFILE_PATH='$(E2E_PROFILE_PATH)' npm run test:e2e:task13
 
@@ -123,7 +127,7 @@ audit: ## Fail if npm reports any vulnerability severity.
 build:
 	$(CLEAN_ENV) npm run build
 
-check: typecheck lint test verify ## Run the fast, non-DB merge checks.
+check: typecheck lint test production-contract verify ## Run the fast, non-DB merge checks.
 
 acceptance: ## Run only after provisioning the three DB lanes and restricted web login.
 	@if [[ "$${ACCEPTANCE_TESTS:-}" != '1' ]]; then \
