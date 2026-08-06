@@ -98,6 +98,7 @@
     "generate:ma-current-incumbent-primary-linkage-v1": "tsx scripts/generate-massachusetts-current-incumbent-primary-linkage-candidate.ts",
     "fetch:ma-primary-geography-authority": "node scripts/fetch-massachusetts-primary-geography-authority.mjs",
     "generate:ma-primary-geography-v1": "tsx scripts/generate-massachusetts-primary-geography-compatibility-candidate.ts",
+    "generate:ma-primary-joint-review-v1": "tsx scripts/generate-massachusetts-primary-identity-geography-review-package.ts",
     "fetch:va-house-primary-results": "node scripts/fetch-va-house-democratic-primary-results.mjs",
     "generate:va-house-primary-results-receipt": "tsx scripts/generate-virginia-house-democratic-primary-results-receipt.ts",
     "import:az-house-primary-results": "node scripts/import-az-house-democratic-primary-results.mjs",

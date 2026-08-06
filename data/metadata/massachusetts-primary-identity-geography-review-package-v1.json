@@ -1,0 +1,1037 @@
+{
+  "schema": "massachusetts-primary-identity-geography-review-package-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T04:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_independent_identity_geography_and_disposition_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "proposal": {
+      "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+    },
+    "identity": {
+      "sourceLockId": "massachusetts-current-incumbent-primary-linkage-candidate-v1",
+      "fileSha256": "71566ac5dd105b846f6977ad3269d0419ff8df954cf36775864873b324bbe3a5",
+      "packageSha256": "364d4e42d293c5b81408f9b71daa90d2d7ed21c96119e92a82dcd631f1590e3d",
+      "observationSetSha256": "6d2989f28b08974243a984bac3e3c71a23f597825e6c30f6c6a73dbbcb5c076b"
+    },
+    "geography": {
+      "sourceLockId": "massachusetts-primary-geography-compatibility-candidate-v1",
+      "fileSha256": "f74670eca7741c0fb000a61a623c6ece845f3da203cabb53644b8383a4e69174",
+      "packageSha256": "7b73e142ec8a6d8024b5845bd0d19eda4569b69a72a03dc83edcb7d231bd11c1",
+      "rowSetSha256": "9dc75c5963c0467adaa684723a82792a50eb9435e4a1d3abf32d2c7dd6c7c2e1"
+    }
+  },
+  "methodology": {
+    "scope": "exact_eighteen_massachusetts_identity_rows_joined_one_to_one_with_geography_rows",
+    "parentRowsJoinedOn": [
+      "contestId",
+      "contestSha256",
+      "seatCycleId",
+      "districtCode",
+      "cycleYear"
+    ],
+    "decisionsReviewedIndependently": true,
+    "decisionEvidenceModel": "each_decision_binds_all_eighteen_affected_records",
+    "parentProjectionSha256": "0bd8532c35298f884a20dd9095b24768360b1d66d1499430f04106793e082723",
+    "jointPackageApprovesParents": false,
+    "automaticApprovals": 0,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "reviewRecords": 18,
+    "identityAndGeographyCandidates": 18,
+    "identityCandidates": 18,
+    "geographyCandidates": 18,
+    "proposedDecisions": 3,
+    "jointApprovedRecords": 0,
+    "scoreEligibleRecords": 0
+  },
+  "records": [
+    {
+      "reviewRecordId": "ma-primary-joint:2022:01",
+      "contestId": "ma:2022:regular:us-house:01:democratic",
+      "contestSha256": "44c6b224cc727b24ba55078ef563351ea907d0f11499ba5c1c5d15e8474a4aba",
+      "seatCycleId": "seat_house_ma_01_current",
+      "districtCode": "01",
+      "cycleYear": 2022,
+      "identity": {
+        "parentObservationId": "ma:identity:2022:01",
+        "parentRowSha256": "90953668233f78ccd4855fad3b31c989aa105720a642ef94b73b29a31bd1717e",
+        "bioguideId": "N000015",
+        "officialHouseName": "Richard E. Neal",
+        "sourceCandidateName": "Richard E. Neal",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2022:01",
+        "parentRowSha256": "ae66a60480d49edb3d6f40477543749c8f32fdd1654c99ad9efc4249301c381d",
+        "targetCd119Geoid": "2501",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2501",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "3d825306ea2a6812fa9e037d992ae4237e12a8627794cb28ee0fdc85607d3a64"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2022:02",
+      "contestId": "ma:2022:regular:us-house:02:democratic",
+      "contestSha256": "577d8fb199060f25687037ec0429f604e0ece418ccb3ec3356b8163df58866a9",
+      "seatCycleId": "seat_house_ma_02_current",
+      "districtCode": "02",
+      "cycleYear": 2022,
+      "identity": {
+        "parentObservationId": "ma:identity:2022:02",
+        "parentRowSha256": "063298a81c4c118fbd0a002d8adf079241d0ed02c47e3ba9ddeba59a6ed52204",
+        "bioguideId": "M000312",
+        "officialHouseName": "James P. McGovern",
+        "sourceCandidateName": "James P. McGovern",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2022:02",
+        "parentRowSha256": "a323cfc74a3700934251430c6acb9bae6c791fc44dc985572ddfbe693ab3262a",
+        "targetCd119Geoid": "2502",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2502",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "e0be6461165a2f0fa5c190e63e666853f300e0caa8a3473b2dc166cef15e16e6"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2022:03",
+      "contestId": "ma:2022:regular:us-house:03:democratic",
+      "contestSha256": "587ed36be08a71fabda7db1fd5c58606ad564ecf4a4d70b55ff96d08701b8d98",
+      "seatCycleId": "seat_house_ma_03_current",
+      "districtCode": "03",
+      "cycleYear": 2022,
+      "identity": {
+        "parentObservationId": "ma:identity:2022:03",
+        "parentRowSha256": "35ddc6719f2adbefceafd160d1d277f1d5fd963fb1e382d5e32441f8bfd69aec",
+        "bioguideId": "T000482",
+        "officialHouseName": "Lori Trahan",
+        "sourceCandidateName": "Lori Loureiro Trahan",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2022:03",
+        "parentRowSha256": "304de2d1b259417e5a1c0c44fc9a6b70a5d949a232684f3b88893348eb8bfe44",
+        "targetCd119Geoid": "2503",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2503",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "33475b56c19a5c7b8e0ddb5160d2ad7dc7666dd13d98a7f13768d1b6fb8b510b"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2022:04",
+      "contestId": "ma:2022:regular:us-house:04:democratic",
+      "contestSha256": "f269b07037c39f8d716e086efe1bc86b7a9e38f4c4afa9d8ed2a3b9ced9c0e65",
+      "seatCycleId": "seat_house_ma_04_current",
+      "districtCode": "04",
+      "cycleYear": 2022,
+      "identity": {
+        "parentObservationId": "ma:identity:2022:04",
+        "parentRowSha256": "db9512ef4f22cc7b98a4945d5c294999082f91edad1cfaaee6289eaa9ccd6c1c",
+        "bioguideId": "A000148",
+        "officialHouseName": "Jake Auchincloss",
+        "sourceCandidateName": "Jake Auchincloss",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2022:04",
+        "parentRowSha256": "9286d8d0e6e85b871bf6e38e474a3afc616b5466a2752d1230adde476b631cf7",
+        "targetCd119Geoid": "2504",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2504",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "f37510f2fd6698a1938aa5b3e6ab6b75fa8aa7a1b5a4b5395f3a28cf39fcadc4"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2022:05",
+      "contestId": "ma:2022:regular:us-house:05:democratic",
+      "contestSha256": "7e0f3fc31909f8502a1680332a048bac5fe67ffc0035ea608bd5b8d36a766e1f",
+      "seatCycleId": "seat_house_ma_05_current",
+      "districtCode": "05",
+      "cycleYear": 2022,
+      "identity": {
+        "parentObservationId": "ma:identity:2022:05",
+        "parentRowSha256": "d8c027c7f0c7eb66f9097ab1c8f6a531d643741e4b5b25db16edcd65a78a673b",
+        "bioguideId": "C001101",
+        "officialHouseName": "Katherine M. Clark",
+        "sourceCandidateName": "Katherine M. Clark",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2022:05",
+        "parentRowSha256": "0cfbc4d75f6353e0adbdf4275142d64301de8c9390bbd18fec072c5aee7db8b9",
+        "targetCd119Geoid": "2505",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2505",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "772a4d1f0dabb8173adb2ad02da3bbb24f1b0343e44ae37c6636a52900e42f05"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2022:06",
+      "contestId": "ma:2022:regular:us-house:06:democratic",
+      "contestSha256": "3ec7c1dc0e9122a11142a32e32904a6dd85c7ad51c68ce17b364ee7a74071888",
+      "seatCycleId": "seat_house_ma_06_current",
+      "districtCode": "06",
+      "cycleYear": 2022,
+      "identity": {
+        "parentObservationId": "ma:identity:2022:06",
+        "parentRowSha256": "3beaa2c127b95eb4680e6773893a00dca502ed5a7e505616ae17389c0c8d20f9",
+        "bioguideId": "M001196",
+        "officialHouseName": "Seth Moulton",
+        "sourceCandidateName": "Seth W. Moulton",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2022:06",
+        "parentRowSha256": "6cb39ac0508c651754d6d0614f1b9d66a5c324fd52e2317fba7aa07b705d2909",
+        "targetCd119Geoid": "2506",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2506",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "603cf7459774dc6be75a16177d342abfcbeab33e55d4fc4587e21da59f712e85"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2022:07",
+      "contestId": "ma:2022:regular:us-house:07:democratic",
+      "contestSha256": "3c4c769d57a3948bd2388fff046b92e343fd5c083015f51a670f99d070d6a5eb",
+      "seatCycleId": "seat_house_ma_07_current",
+      "districtCode": "07",
+      "cycleYear": 2022,
+      "identity": {
+        "parentObservationId": "ma:identity:2022:07",
+        "parentRowSha256": "bf09997a26c095a91552d54b24cce6d03e7033dd1451b81a4afb5eea8321fc2e",
+        "bioguideId": "P000617",
+        "officialHouseName": "Ayanna Pressley",
+        "sourceCandidateName": "Ayanna S. Pressley",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2022:07",
+        "parentRowSha256": "b1c614392a3386c7ddd4a18fe095f5c63573ad96ba226b4b19003dabe31d4a31",
+        "targetCd119Geoid": "2507",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2507",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "f59affe3c277f962e32ec6bb01b4027d87b2a8af3569ad3c4a53b0492faba918"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2022:08",
+      "contestId": "ma:2022:regular:us-house:08:democratic",
+      "contestSha256": "777584b87c90ca9f8235bf70791a67f9c7e49629033c00ee93d46c3745d79014",
+      "seatCycleId": "seat_house_ma_08_current",
+      "districtCode": "08",
+      "cycleYear": 2022,
+      "identity": {
+        "parentObservationId": "ma:identity:2022:08",
+        "parentRowSha256": "b5dead1b6e3326ea1ab3274dbc2412303f2031d4805480a8d38fe630aec1b19c",
+        "bioguideId": "L000562",
+        "officialHouseName": "Stephen F. Lynch",
+        "sourceCandidateName": "Stephen F. Lynch",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2022:08",
+        "parentRowSha256": "68cac9df1c9764179e253fce18c5febbc8ea26be3f2a912335e3bf4296eda6e0",
+        "targetCd119Geoid": "2508",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2508",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "174f55585b2b97d7cc68bf598c3ef597a96ed025a8b8058755045988c6fcf0a5"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2022:09",
+      "contestId": "ma:2022:regular:us-house:09:democratic",
+      "contestSha256": "735f6c0efcdce1eda05ec9ceb3e8062ef980d0d577b685b790378b24e3d65481",
+      "seatCycleId": "seat_house_ma_09_current",
+      "districtCode": "09",
+      "cycleYear": 2022,
+      "identity": {
+        "parentObservationId": "ma:identity:2022:09",
+        "parentRowSha256": "c74e23638ba1a38be49d2d3875063e342a3ea65ab977d73ef6c8279f22b0965e",
+        "bioguideId": "K000375",
+        "officialHouseName": "William R. Keating",
+        "sourceCandidateName": "Bill Keating",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2022:09",
+        "parentRowSha256": "ca7581f568f50d114317dc5b2bf1bde1c1fb3e25696ebbd3e3ccba2dc9f77b11",
+        "targetCd119Geoid": "2509",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2509",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "e887d89a04c16a258fbcb4987e955e39ed1b1a0fbc367c9c785226ee32bff919"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2024:01",
+      "contestId": "ma:2024:regular:us-house:01:democratic",
+      "contestSha256": "cc347575c5caba3e8790bc9faf3c667a7f04967789fec83c366a212f7f9d8de2",
+      "seatCycleId": "seat_house_ma_01_current",
+      "districtCode": "01",
+      "cycleYear": 2024,
+      "identity": {
+        "parentObservationId": "ma:identity:2024:01",
+        "parentRowSha256": "0d0b27d60d36f48d54c43f3511516dc37542f9683bad8e42d16825190c144b8f",
+        "bioguideId": "N000015",
+        "officialHouseName": "Richard E. Neal",
+        "sourceCandidateName": "Richard E. Neal",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2024:01",
+        "parentRowSha256": "1a6f32ef4a81bf65f3ce821041d9340ef11410a95131b5a03bbb4075119063b7",
+        "targetCd119Geoid": "2501",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2501",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "06ff15622061b3e938398951f1e01c6ecb2a036a4069f1bca4f3e77934fc00d3"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2024:02",
+      "contestId": "ma:2024:regular:us-house:02:democratic",
+      "contestSha256": "a6fe870d05048fad7a8b71e55aef82783116b92218e3685aad72f7f16b5496ee",
+      "seatCycleId": "seat_house_ma_02_current",
+      "districtCode": "02",
+      "cycleYear": 2024,
+      "identity": {
+        "parentObservationId": "ma:identity:2024:02",
+        "parentRowSha256": "a4d4653fce9c9345078cfe815a4abda0cd2d3a6b99760eef88c59837a951a193",
+        "bioguideId": "M000312",
+        "officialHouseName": "James P. McGovern",
+        "sourceCandidateName": "James P. McGovern",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2024:02",
+        "parentRowSha256": "482d675f36c73781ad71accfabd125d4fc0ec2ca1b60e700bf5eaa7bcc961a13",
+        "targetCd119Geoid": "2502",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2502",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "184d2c377ce3a27f909a797a3bb2565d96917e5e0306c2a0a25cc292662acd9b"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2024:03",
+      "contestId": "ma:2024:regular:us-house:03:democratic",
+      "contestSha256": "124478b22f0b7857b059bde73b5c24c75df6e6cdecddf7fb20f73147ef4de721",
+      "seatCycleId": "seat_house_ma_03_current",
+      "districtCode": "03",
+      "cycleYear": 2024,
+      "identity": {
+        "parentObservationId": "ma:identity:2024:03",
+        "parentRowSha256": "32abe2b579117049b662f1f2138a0695010bfc3762f29985bdb188efeb80a9cd",
+        "bioguideId": "T000482",
+        "officialHouseName": "Lori Trahan",
+        "sourceCandidateName": "Lori Loureiro Trahan",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2024:03",
+        "parentRowSha256": "e996d053784146e00e411ebcd932b909050d58b853a2d76e9bb4d828f70a050b",
+        "targetCd119Geoid": "2503",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2503",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "2ff277a4ade3b27a251afcebf33b610a629881c9f490a660b85d6191d6cb9b06"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2024:04",
+      "contestId": "ma:2024:regular:us-house:04:democratic",
+      "contestSha256": "2d8a8d388a79121ab2a134cb5b00b1108c1e6bf2a4c4ce0bd997bdc83fd5aace",
+      "seatCycleId": "seat_house_ma_04_current",
+      "districtCode": "04",
+      "cycleYear": 2024,
+      "identity": {
+        "parentObservationId": "ma:identity:2024:04",
+        "parentRowSha256": "7f77f66a75b80c7d2b0ad1783f2ee15fc4fc26bdad1860d62d703bf6faea17e5",
+        "bioguideId": "A000148",
+        "officialHouseName": "Jake Auchincloss",
+        "sourceCandidateName": "Jake Auchincloss",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2024:04",
+        "parentRowSha256": "416f039ca6c71be8f4fbc72235e84e1027a3dce6cf1c6a573862ef245cd0c664",
+        "targetCd119Geoid": "2504",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2504",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "d2f57e15e51884eef310deb1ff5c62685eb31937210e12fb340c1371352c1b77"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2024:05",
+      "contestId": "ma:2024:regular:us-house:05:democratic",
+      "contestSha256": "cea568f37c3fe3dc68fc2681d78080d3a98769c871b73ac1c1a20aab0bf5865d",
+      "seatCycleId": "seat_house_ma_05_current",
+      "districtCode": "05",
+      "cycleYear": 2024,
+      "identity": {
+        "parentObservationId": "ma:identity:2024:05",
+        "parentRowSha256": "a30fd6eabe551c7d9bde8c4eb67230ec3f6daf79ceca4e6432225941bb2d0ce6",
+        "bioguideId": "C001101",
+        "officialHouseName": "Katherine M. Clark",
+        "sourceCandidateName": "Katherine M. Clark",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2024:05",
+        "parentRowSha256": "374e65efb5370397aa0112aace0b09b485ffcd9b6dda0cf27e34b9e916d8e70a",
+        "targetCd119Geoid": "2505",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2505",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "8a45180dc33607dd67540279089f0d865b27ea51282fcb89340632a984932d30"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2024:06",
+      "contestId": "ma:2024:regular:us-house:06:democratic",
+      "contestSha256": "63c03538ea266d41f56294bf637cba15a990d3f1586421077b7863ca241046f0",
+      "seatCycleId": "seat_house_ma_06_current",
+      "districtCode": "06",
+      "cycleYear": 2024,
+      "identity": {
+        "parentObservationId": "ma:identity:2024:06",
+        "parentRowSha256": "37591f911de21d5df879d0312bd1e0d10b11ac2c0f7c7787721e3030bf80bd0d",
+        "bioguideId": "M001196",
+        "officialHouseName": "Seth Moulton",
+        "sourceCandidateName": "Seth W. Moulton",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2024:06",
+        "parentRowSha256": "acd7715713d8586fc01baab87c6f2788f3e86c44b58f2cb7e617cfe2a88cf4e2",
+        "targetCd119Geoid": "2506",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2506",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "a9d47ccac5f9200320f27d57dfd8da4c8ef8671ef666e7ec52bd1a2c58acfdeb"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2024:07",
+      "contestId": "ma:2024:regular:us-house:07:democratic",
+      "contestSha256": "94a194554c2d1e51b99e77483af595a2bff0485dc725acbe1f94f52f22927f75",
+      "seatCycleId": "seat_house_ma_07_current",
+      "districtCode": "07",
+      "cycleYear": 2024,
+      "identity": {
+        "parentObservationId": "ma:identity:2024:07",
+        "parentRowSha256": "6ed4e85428f2d1d9f637b319bda882dfc5d2dfa6b6e433f7c69c4b9816857995",
+        "bioguideId": "P000617",
+        "officialHouseName": "Ayanna Pressley",
+        "sourceCandidateName": "Ayanna S. Pressley",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2024:07",
+        "parentRowSha256": "1b57a1647165ffc9b46a26dae062dc2ccf4dd741524b10171544f2760601d783",
+        "targetCd119Geoid": "2507",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2507",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "31c64dc1ee442f1e7bd6d2364a15af19aef78ce0183fd3524099375e80a60169"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2024:08",
+      "contestId": "ma:2024:regular:us-house:08:democratic",
+      "contestSha256": "ea5183518bc534bb7a2f9743bcbbbff4b70a30debfe1e2c133fc6ee01a8957a2",
+      "seatCycleId": "seat_house_ma_08_current",
+      "districtCode": "08",
+      "cycleYear": 2024,
+      "identity": {
+        "parentObservationId": "ma:identity:2024:08",
+        "parentRowSha256": "2ddc531084cdb5c28a20b42885c505fcbb7f5620fcd48a198fc13c081efda516",
+        "bioguideId": "L000562",
+        "officialHouseName": "Stephen F. Lynch",
+        "sourceCandidateName": "Stephen F. Lynch",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2024:08",
+        "parentRowSha256": "d23907d3acf6474161c003ab9e669912d10bd8fd7abe8ff3b6ecfc2ab7d9bd7e",
+        "targetCd119Geoid": "2508",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2508",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "2fdaa4fe19fa9e6ddfe5f75ada2e8eeade6e1d34e906b831ecbba1046c67bc0d"
+    },
+    {
+      "reviewRecordId": "ma-primary-joint:2024:09",
+      "contestId": "ma:2024:regular:us-house:09:democratic",
+      "contestSha256": "2ae05eaf0d9a7ed05924a8d073b9b15ef60c8eced56392b0b4e7b55f6fcfface",
+      "seatCycleId": "seat_house_ma_09_current",
+      "districtCode": "09",
+      "cycleYear": 2024,
+      "identity": {
+        "parentObservationId": "ma:identity:2024:09",
+        "parentRowSha256": "cbdb270bf225195f6d72af4452d387a9a49a79c8379387a983319a237389fcfe",
+        "bioguideId": "K000375",
+        "officialHouseName": "William R. Keating",
+        "sourceCandidateName": "Bill Keating",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "geography": {
+        "parentObservationId": "ma:geography:2024:09",
+        "parentRowSha256": "e3e78cf6f40d7dd0e63b45ee93a6551454834acca5e27a1db34fc97da7e0fb7a",
+        "targetCd119Geoid": "2509",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2509",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "compatibilityCandidate": true,
+        "compatibilityApproved": false
+      },
+      "primaryDisposition": {
+        "sourceTreatment": "reported_single_named_candidate_not_uncontested_inference",
+        "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+        "parentDecisionUnresolved": true,
+        "evaluatorSelectionStatus": "excluded_pending_nonstandard_disposition_decision"
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_and_disposition_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_independent_review",
+        "geography_candidate_pending_independent_review",
+        "single_named_contest_disposition_pending_independent_review",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "c2317ffe2917e454ece12fc0ca18f2b64dc499967676a1d7e92e4cd6e2dd6c1e"
+    }
+  ],
+  "reviewRecordSetSha256": "224be033db1ca876721191f7cfc95a3b5ee3919d9cba3ed77a2fdf3993ae5791",
+  "decisions": [
+    {
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "ma-primary-joint:2022:01",
+        "ma-primary-joint:2022:02",
+        "ma-primary-joint:2022:03",
+        "ma-primary-joint:2022:04",
+        "ma-primary-joint:2022:05",
+        "ma-primary-joint:2022:06",
+        "ma-primary-joint:2022:07",
+        "ma-primary-joint:2022:08",
+        "ma-primary-joint:2022:09",
+        "ma-primary-joint:2024:01",
+        "ma-primary-joint:2024:02",
+        "ma-primary-joint:2024:03",
+        "ma-primary-joint:2024:04",
+        "ma-primary-joint:2024:05",
+        "ma-primary-joint:2024:06",
+        "ma-primary-joint:2024:07",
+        "ma-primary-joint:2024:08",
+        "ma-primary-joint:2024:09"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      },
+      "decisionId": "ma-primary:accept-geography-compatibility-v1",
+      "affectedComponent": "historical geography",
+      "parentDecisionId": "approve-historical-district-cd119-compatibility-v1",
+      "question": "Should the nine CD118-to-CD119 continuity rows and nine exact CD119 session/key rows be accepted as geography-compatible evidence candidates?",
+      "recommendedDecision": "Accept all 18 geography candidates under the retained Census authority and complete district inventories without claiming raw geometry equality.",
+      "alternatives": [
+        "Require a block-level crosswalk before accepting the nine 2022 continuity rows.",
+        "Reject all geography candidates and retain historical-geography exclusion."
+      ],
+      "consequences": [
+        "Acceptance resolves only geography evidence and does not approve identity, contest treatment, scoring, or publication.",
+        "A crosswalk requirement or rejection keeps affected records excluded while preserving the retained authority package."
+      ],
+      "workCompletedWhileWaiting": "Official CD118/CD119 layers, DBF member hashes, complete inventories, Census authority, and parent row hashes are retained and validated."
+    },
+    {
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "ma-primary-joint:2022:01",
+        "ma-primary-joint:2022:02",
+        "ma-primary-joint:2022:03",
+        "ma-primary-joint:2022:04",
+        "ma-primary-joint:2022:05",
+        "ma-primary-joint:2022:06",
+        "ma-primary-joint:2022:07",
+        "ma-primary-joint:2022:08",
+        "ma-primary-joint:2022:09",
+        "ma-primary-joint:2024:01",
+        "ma-primary-joint:2024:02",
+        "ma-primary-joint:2024:03",
+        "ma-primary-joint:2024:04",
+        "ma-primary-joint:2024:05",
+        "ma-primary-joint:2024:06",
+        "ma-primary-joint:2024:07",
+        "ma-primary-joint:2024:08",
+        "ma-primary-joint:2024:09"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      },
+      "decisionId": "ma-primary:accept-identity-links-v1",
+      "affectedComponent": "current-incumbent identity",
+      "parentDecisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+      "question": "Should the 18 same-district exact or retained-alias observations be accepted as historical source-candidate relationships to the nine current Massachusetts incumbents?",
+      "recommendedDecision": "Accept the 18 proposed identity relationships while preserving the absence of a direct person identifier in PD43+.",
+      "alternatives": [
+        "Reject all 18 relationships and retain identity exclusion.",
+        "Request targeted external identity evidence for the eight derived-name rows before resolving any row."
+      ],
+      "consequences": [
+        "Acceptance resolves only identity evidence and does not approve geography, contest treatment, scoring, or publication.",
+        "Rejection or deferral keeps the affected records excluded while unrelated acquisition and review continue."
+      ],
+      "workCompletedWhileWaiting": "Exact and derived name classes, parent row hashes, source names, votes, and official identities are retained and validated."
+    },
+    {
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "ma-primary-joint:2022:01",
+        "ma-primary-joint:2022:02",
+        "ma-primary-joint:2022:03",
+        "ma-primary-joint:2022:04",
+        "ma-primary-joint:2022:05",
+        "ma-primary-joint:2022:06",
+        "ma-primary-joint:2022:07",
+        "ma-primary-joint:2022:08",
+        "ma-primary-joint:2022:09",
+        "ma-primary-joint:2024:01",
+        "ma-primary-joint:2024:02",
+        "ma-primary-joint:2024:03",
+        "ma-primary-joint:2024:04",
+        "ma-primary-joint:2024:05",
+        "ma-primary-joint:2024:06",
+        "ma-primary-joint:2024:07",
+        "ma-primary-joint:2024:08",
+        "ma-primary-joint:2024:09"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      },
+      "decisionId": "ma-primary:retain-single-named-reported-contest-treatment-v1",
+      "affectedComponent": "primary contest disposition",
+      "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "question": "Should each PD43+ single-named-candidate result remain a reported contest without inferring that the Democratic primary was uncontested?",
+      "recommendedDecision": "Retain the reported-contest treatment and do not infer uncontested status from one printed candidate plus All Others and blanks.",
+      "alternatives": [
+        "Classify all 18 contests as uncontested based on the single printed candidate.",
+        "Require separate ballot-access evidence for each contest before assigning any disposition beyond reported result."
+      ],
+      "consequences": [
+        "The recommendation preserves factual result observations but leaves evaluator selection and numeric primary factors excluded until the broader disposition rule is resolved.",
+        "An alternative classification would require a new versioned artifact and must not be inferred from these result rows alone."
+      ],
+      "workCompletedWhileWaiting": "All Others, blank-vote, named-candidate, and total-vote channels are retained and exactly reconciled in the parent receipt."
+    }
+  ],
+  "decisionSetSha256": "57bf5771cdaefab8e46ec3e9fe1a4a3d00e1b1cdf57b145e9e9faf4021abfaca",
+  "inheritedDecisionResolutions": {
+    "identity": null,
+    "geography": null,
+    "disposition": null
+  },
+  "packageSha256": "04e07185560b6fe7e41292c10a2575cfe24fcd8a0b81b87be16e022ff7ddf75f"
+}
