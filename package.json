@@ -117,6 +117,7 @@
     "generate:az-current-incumbent-primary-linkage-v1": "tsx scripts/generate-arizona-current-incumbent-primary-linkage-candidate.ts",
     "generate:fl-current-incumbent-primary-linkage-v1": "tsx scripts/generate-florida-current-incumbent-primary-linkage-candidate.ts",
     "generate:md-current-incumbent-primary-linkage-v1": "tsx scripts/generate-maryland-current-incumbent-primary-linkage-candidate.ts",
+    "generate:ny-current-incumbent-primary-linkage-v1": "tsx scripts/generate-new-york-current-incumbent-primary-linkage-candidate.ts",
     "fetch:md-primary-geography-authority": "node scripts/fetch-maryland-primary-geography-authority.mjs",
     "generate:md-primary-geography-v1": "tsx scripts/generate-maryland-primary-geography-compatibility-candidate.ts",
     "generate:md-primary-joint-review-v1": "tsx scripts/generate-maryland-primary-identity-geography-review-package.ts",
