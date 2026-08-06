@@ -1,0 +1,138 @@
+{
+  "schema": "new-york-metro-house-democratic-primary-county-authority-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T15:00:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "parents": {
+    "dispositionV2": {
+      "sourceLockId": "new-york-house-democratic-primary-dispositions-2022-2024-v2",
+      "fileSha256": "33520e143126e6e706222e00db9818ef43349ce2d2ce5e6c3424a3fead45dacf",
+      "packageSha256": "708fb98844ecbb3664a10be938459d93e487cf2a7c16cc4e0ae573f4361de645"
+    },
+    "cd119BlockAssignment": {
+      "sourceLockId": "census-cd119-new-york-block-equivalency-extract-20260805",
+      "fileSha256": "670447571d72c0465cd27ac9769c2e969669d7decb06a4198c653b755ff2e46a"
+    },
+    "countyCodeAuthority": {
+      "sourceLockId": "census-new-york-county-codes-20260806",
+      "fileSha256": "954a0769119995337c524336cfd021e1bac8166489b5940ea7411e78f2cf03fa"
+    }
+  },
+  "sources": [
+    {
+      "id": "suffolk-2024-primary-final-results-index",
+      "url": "https://suffolkcountyny.gov/Departments/BOE/Election-Results",
+      "retainedPath": "data/source/elections/primary-results/new-york/suffolk/2024/election-results-index.html",
+      "retainedStatus": "retained",
+      "byteSize": 56832,
+      "sha256": "9af10cdb290935248cf871e63d405db5268abde541a0e1a58c2ef44c34116685",
+      "kind": "official_results_index",
+      "parentIds": []
+    },
+    {
+      "id": "suffolk-2024-house-democratic-primary-cd01-final-results",
+      "url": "https://apps2.suffolkcountyny.gov/boe/eleres/24pe/DEMs.htm",
+      "retainedPath": "data/source/elections/primary-results/new-york/suffolk/2024/cd01-democratic-final-results.html",
+      "retainedStatus": "retained",
+      "byteSize": 15863,
+      "sha256": "ddfc71580b84aceadae6cd90f8bc2218a58cf0e6056e2234da7abde6f33279f8",
+      "kind": "official_final_result",
+      "parentIds": [
+        "suffolk-2024-primary-final-results-index"
+      ]
+    }
+  ],
+  "authorities": [
+    {
+      "authorityId": "ny-metro-county-authority:2024:01:democratic",
+      "seatCycleId": "ny:2024:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "stateCode": "NY",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "districtCountyFips": [
+        "103"
+      ],
+      "districtCountyNames": [
+        "Suffolk"
+      ],
+      "countyNameAuthoritySourceLockId": "census-new-york-county-codes-20260806",
+      "countyNameAuthorityFileSha256": "954a0769119995337c524336cfd021e1bac8166489b5940ea7411e78f2cf03fa",
+      "districtBlockCount": 13001,
+      "countyCompositionMethod": "2020_census_block_geoid_county_fips_from_retained_cd119_assignment",
+      "countyCompleteness": "all_geographic_counties_covered",
+      "authorityPublisher": "Suffolk County Board of Elections",
+      "resultScope": "single_county_whole_district",
+      "resultStatus": "county_board_final_results_candidate",
+      "certificationStatus": "signed_certification_not_separately_retained",
+      "supportedDisposition": "reported_contest",
+      "sourceContestId": "suffolk:2024:us-house:01:democratic",
+      "sourceLockIds": [
+        "suffolk-2024-primary-final-results-index",
+        "suffolk-2024-house-democratic-primary-cd01-final-results"
+      ],
+      "sourceFileSha256s": [
+        "9af10cdb290935248cf871e63d405db5268abde541a0e1a58c2ef44c34116685",
+        "ddfc71580b84aceadae6cd90f8bc2218a58cf0e6056e2234da7abde6f33279f8"
+      ],
+      "electionDistrictsReported": 561,
+      "electionDistrictsTotal": 561,
+      "reportingCompleteness": "all_election_districts_reported",
+      "candidates": [
+        {
+          "sourceCandidateName": "John P Avlon",
+          "votes": 19383
+        },
+        {
+          "sourceCandidateName": "Nancy S Goroff",
+          "votes": 8253
+        }
+      ],
+      "candidateVotes": 27636,
+      "voteReconciliation": "candidate_sum_equals_reported_votes_cast",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "scoreEligible": false,
+      "authorityRowSha256": "3e10f82fa3e5c081832feb03711c807904bcc74ef356c5f62be9a58d9ce0526f"
+    }
+  ],
+  "authorityRowSetSha256": "f2429615d10058819853637b63b1c7deceddbfc8068569dde8f68d813545189d",
+  "summary": {
+    "targetUnresolvedSeatCycles": 18,
+    "acceptedSeatCycles": 1,
+    "reportedContestCandidates": 1,
+    "certifiedUncontestedCandidates": 0,
+    "unresolvedSeatCyclesPreserved": 17,
+    "candidateVotes": 27636,
+    "scoreEligibleRows": 0
+  },
+  "limitations": [
+    "This receipt accepts one complete county final-result candidate and preserves the other seventeen target rows as unresolved.",
+    "The official Suffolk results index labels the 2024 primary link Final Results, but no separately signed certification instrument is retained.",
+    "Result or index absence is never interpreted as uncontested, no-primary, no-candidate, or zero votes.",
+    "No candidate identity, historical geography compatibility, progressive classification, evaluator value, score, approval, publication, or deployment follows from this receipt."
+  ],
+  "unresolvedGates": [
+    "retain_remaining_ny_metro_county_ballot_and_result_authority",
+    "retain_or_review_signed_suffolk_certification",
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "9907f4f9a2e7ae4c3ad7efb2127901787a720f7eff51f83023b1d00b7fae12ea"
+}
