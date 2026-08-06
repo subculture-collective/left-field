@@ -1,0 +1,1937 @@
+{
+  "schema": "texas-2026-primary-block-crosswalk-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T12:30:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "geographyCandidate": {
+      "sourceLockId": "texas-primary-geography-compatibility-candidate-v1",
+      "fileSha256": "66ee61783980ebca966a6d9c70abba9cc2d2616ae91129870d3d398a90026ed8",
+      "packageSha256": "cc4aad571b826b10176846e7571bf598eebc245f8f88ef02626c5d50d0fd9335",
+      "rowSetSha256": "d8b06725f87143c95e7ce24debcca3d51353f51097c06b61283cd75a54d445c4"
+    },
+    "currentElectionUseAuthority": {
+      "sourceLockId": "tx-plan-c2333-current-election-use-status-20260806",
+      "fileSha256": "626b36b109ad33163e01063f31bce526ff7e499ac8a85268d992725bf03ae6d8"
+    },
+    "enrolledLaw": {
+      "sourceLockId": "tx-hb4-enrolled-plan-c2333-2025",
+      "fileSha256": "ac6ade738a107c395f61edb78787e1e1cf677081e55d49552fe717b1dffedb1c"
+    },
+    "planDataset": {
+      "sourceLockId": "tx-planc2333-dataset-metadata-20260806",
+      "fileSha256": "7e0dbec7cd044701772fb6f20de033513337dc2a4331efd93a75d367def64683",
+      "reuseLicenseAssessed": false,
+      "publicationPermissionAssessed": false
+    },
+    "sourceBlockAssignment": {
+      "sourceLockId": "tx-planc2333-block-equivalency-extract-20260806",
+      "fileSha256": "ff34cb7e7464f7ed55eff83bd2a86f3812e446167e488456c5e5c2376d8883b5"
+    },
+    "targetBlockAssignment": {
+      "sourceLockId": "census-cd119-texas-block-equivalency-extract-20260806",
+      "fileSha256": "4eec50a54cf0dca2e6126a12f84a619bbeadbe68b5b23005030a82c78f5069df"
+    }
+  },
+  "methodology": {
+    "joinKey": "2020_census_tabulation_block_geoid",
+    "sourcePlan": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+    "targetPlan": "census-cd119-texas",
+    "sourceAndTargetBlockUniverseEqual": true,
+    "blockUniverse": 668757,
+    "exactMembershipRule": "source_and_target_district_block_sets_must_be_identical",
+    "splitDispositionRule": "crosswalk_review_required_regardless_of_overlap_share",
+    "overlapThresholdUsed": false,
+    "districtNumberContinuityAssumed": false,
+    "blockCountsArePopulationWeighted": false,
+    "blockCountsAreVoterWeighted": false,
+    "blockCountsAreElectoralWeighted": false,
+    "splitShareRounding": "largest_remainder_exactly_one_million_ppm",
+    "rawGeometryEqualityAssessed": false,
+    "censusCd120BefAvailableAtCutoff": false,
+    "legalPermanenceAssessed": false,
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "targetObservations": 26,
+    "uniqueSourceDistricts": 13,
+    "exactBlockMembershipCandidates": 0,
+    "crosswalkReviewRequired": 26,
+    "sourceBlocks": 668757,
+    "targetBlocks": 668757,
+    "sharedBlocks": 668757,
+    "changedDistrictAssignments": 192131,
+    "automaticallyApprovedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "rows": [
+    {
+      "observationId": "tx:geography:2026:regular:07",
+      "parentGeographyRowSha256": "60fb645bcb19f58d508460b24768b903252a1754dce57ab12075813f549d2eba",
+      "identityObservationId": "tx:identity:2026:regular:07",
+      "identityRowSha256": "77c7f70c9805e3764cc794c9682eff353bf82f722fd40b5ea75764968d13a792",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_07_current",
+      "districtCode": "07",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:07:democratic",
+      "sourceContestSha256": "a6df443141552b98fb28c6cbffc21e856f233280716a0b2d029c1b5dba0e70b0",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4807",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 7070,
+      "targetBlockCount": 6185,
+      "sameDistrictBlockCount": 4913,
+      "sourceRetentionPpm": 694908,
+      "targetCoveragePpm": 794341,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 4913,
+          "sourceSharePpm": 694908
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 678,
+          "sourceSharePpm": 95898
+        },
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 855,
+          "sourceSharePpm": 120934
+        },
+        {
+          "targetDistrictCode": "29",
+          "blockCount": 495,
+          "sourceSharePpm": 70014
+        },
+        {
+          "targetDistrictCode": "38",
+          "blockCount": 129,
+          "sourceSharePpm": 18246
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "18ffa9cc8f11fa1d969160f511e3d08031ffd56913d68519b9eb3c82f3435224"
+    },
+    {
+      "observationId": "tx:geography:2026:regular:09",
+      "parentGeographyRowSha256": "ed72a7d4f79797988fa04afd64f3064ee5fd94f5614e1221f6483b11dfa6af02",
+      "identityObservationId": "tx:identity:2026:regular:09",
+      "identityRowSha256": "8c9c6ee815064a1c1315fe84f6da30b28d88daf05bac013c8142b85d497e26de",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_09_current",
+      "districtCode": "09",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:09:democratic",
+      "sourceContestSha256": "e8489a7d936e4280a674046bca91cb17c0fb07fa1a5a174984c9928d05abb6e4",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4809",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 12692,
+      "targetBlockCount": 7369,
+      "sameDistrictBlockCount": 372,
+      "sourceRetentionPpm": 29310,
+      "targetCoveragePpm": 50482,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 1330,
+          "sourceSharePpm": 104790
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 372,
+          "sourceSharePpm": 29310
+        },
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 1,
+          "sourceSharePpm": 79
+        },
+        {
+          "targetDistrictCode": "29",
+          "blockCount": 4901,
+          "sourceSharePpm": 386149
+        },
+        {
+          "targetDistrictCode": "36",
+          "blockCount": 6088,
+          "sourceSharePpm": 479672
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "e9e8c9aa9c856aed8996f24d92b4eb4ecdfbd92a4bdca7d706127d3f0dc37237"
+    },
+    {
+      "observationId": "tx:geography:2026:regular:16",
+      "parentGeographyRowSha256": "836ecc0ad22542197eb3024c92734f1631480e64851945bf161389b11ea02a43",
+      "identityObservationId": "tx:identity:2026:regular:16",
+      "identityRowSha256": "deeb672c57e3ef4c5d08d7e60e40d59d999d06a60d930080c559460ef75f01ec",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_16_current",
+      "districtCode": "16",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:16:democratic",
+      "sourceContestSha256": "9ec9f8a24c724d58c6bcf0369227aba10d09d325e7248c7b364cdecab6208e45",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4816",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 11837,
+      "targetBlockCount": 11819,
+      "sameDistrictBlockCount": 11440,
+      "sourceRetentionPpm": 966461,
+      "targetCoveragePpm": 967933,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "16",
+          "blockCount": 11440,
+          "sourceSharePpm": 966461
+        },
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 397,
+          "sourceSharePpm": 33539
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "4cfb0e555b399c4565386173de8152fb5464e8929fc9684870c460c48bd41b25"
+    },
+    {
+      "observationId": "tx:geography:2026:regular:18",
+      "parentGeographyRowSha256": "36da5c9ce1b313af83df4e3ce721a42dcbda53f30803bb8630baea37086cf6d3",
+      "identityObservationId": "tx:identity:2026:regular:18",
+      "identityRowSha256": "dcdace13f5d385e3f9c543f06f8b6da48a734713f0cd26bb3601e96c2334ab0f",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_18_current",
+      "districtCode": "18",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:18:democratic",
+      "sourceContestSha256": "983f72da568f9b23e58e11b67ca646113e9e5fb91851a23c6fbcea6d5c8aefaa",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4818",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 10922,
+      "targetBlockCount": 10324,
+      "sameDistrictBlockCount": 4664,
+      "sourceRetentionPpm": 427028,
+      "targetCoveragePpm": 451763,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 120,
+          "sourceSharePpm": 10987
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 5183,
+          "sourceSharePpm": 474547
+        },
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 4664,
+          "sourceSharePpm": 427028
+        },
+        {
+          "targetDistrictCode": "22",
+          "blockCount": 68,
+          "sourceSharePpm": 6226
+        },
+        {
+          "targetDistrictCode": "29",
+          "blockCount": 887,
+          "sourceSharePpm": 81212
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "25ba4de5ef92770d81226df2ce6db101683a64206fca70334773274ee4ad31e5"
+    },
+    {
+      "observationId": "tx:geography:2026:regular:20",
+      "parentGeographyRowSha256": "9d7c35e9385604febefcadd53ebb2bd42731451e7f04306c087cbe0f222410d2",
+      "identityObservationId": "tx:identity:2026:regular:20",
+      "identityRowSha256": "25a9881837e54e6e381afa65ce06d1fb8d77b6ffbf4337360be82d4758c43227",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_20_current",
+      "districtCode": "20",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:20:democratic",
+      "sourceContestSha256": "d84b4faf66506feb1291de1f5d85c3e8bb76cf85d52e95d19db7f37e57f8c4bf",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4820",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 10045,
+      "targetBlockCount": 7369,
+      "sameDistrictBlockCount": 4504,
+      "sourceRetentionPpm": 448382,
+      "targetCoveragePpm": 611209,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "20",
+          "blockCount": 4504,
+          "sourceSharePpm": 448382
+        },
+        {
+          "targetDistrictCode": "21",
+          "blockCount": 19,
+          "sourceSharePpm": 1891
+        },
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 161,
+          "sourceSharePpm": 16028
+        },
+        {
+          "targetDistrictCode": "28",
+          "blockCount": 1186,
+          "sourceSharePpm": 118069
+        },
+        {
+          "targetDistrictCode": "35",
+          "blockCount": 4175,
+          "sourceSharePpm": 415630
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "45b6c300853885369312fbcc4fae85c65eeffcf01ddc5df3ccd587378c9045f1"
+    },
+    {
+      "observationId": "tx:geography:2026:regular:28",
+      "parentGeographyRowSha256": "49c8e2ba8826cd4a61c09ba39bd07a872d4fa0475aad2a88ab2c62fc5f768765",
+      "identityObservationId": "tx:identity:2026:regular:28",
+      "identityRowSha256": "f3bcb46fc331adb54b6999b454582b68a9cef5d985084f71060d54cdf24866b9",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_28_current",
+      "districtCode": "28",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:28:democratic",
+      "sourceContestSha256": "d505b2b4641281895938f957946a22acf65105a9751fd1d4006651d32e00d092",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4828",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 21954,
+      "targetBlockCount": 18769,
+      "sameDistrictBlockCount": 13442,
+      "sourceRetentionPpm": 612280,
+      "targetCoveragePpm": 716181,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "15",
+          "blockCount": 5548,
+          "sourceSharePpm": 252710
+        },
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 2801,
+          "sourceSharePpm": 127585
+        },
+        {
+          "targetDistrictCode": "28",
+          "blockCount": 13442,
+          "sourceSharePpm": 612280
+        },
+        {
+          "targetDistrictCode": "34",
+          "blockCount": 163,
+          "sourceSharePpm": 7425
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "5987df7172476b2cbb1f88adf33aa98676ee1ef1f55bbf008f7e4e021dbfe866"
+    },
+    {
+      "observationId": "tx:geography:2026:regular:29",
+      "parentGeographyRowSha256": "a6ffc0db579e0aea2160caf6f7f94bdc40824c5c028aaf54f5d4959e2b17419e",
+      "identityObservationId": "tx:identity:2026:regular:29",
+      "identityRowSha256": "6b3ec663b25bc005b8caefb9e9ef8886254caca2fbc85bfa2075a5d553737d7c",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_29_current",
+      "districtCode": "29",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:29:democratic",
+      "sourceContestSha256": "6ceef14d61c79c806a61e9b832789e3760cea11dcd0f3c3baf433ae8d12e1103",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4829",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 7529,
+      "targetBlockCount": 9906,
+      "sameDistrictBlockCount": 3096,
+      "sourceRetentionPpm": 411210,
+      "targetCoveragePpm": 312538,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 255,
+          "sourceSharePpm": 33869
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 3,
+          "sourceSharePpm": 398
+        },
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 4111,
+          "sourceSharePpm": 546022
+        },
+        {
+          "targetDistrictCode": "29",
+          "blockCount": 3096,
+          "sourceSharePpm": 411210
+        },
+        {
+          "targetDistrictCode": "38",
+          "blockCount": 64,
+          "sourceSharePpm": 8501
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "a694053507f0eb899cda7c535a25117f8c825f19668c0e54dc06a8a2d0d3950d"
+    },
+    {
+      "observationId": "tx:geography:2026:regular:30",
+      "parentGeographyRowSha256": "a796819104ac1262e0ea1207c76074ffd350537d99792158a45db38e04d2d261",
+      "identityObservationId": "tx:identity:2026:regular:30",
+      "identityRowSha256": "4ffb9590da9c8886191e0c6acb8250d36e54613be3bd2d5605b55b860114a9a7",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_30_current",
+      "districtCode": "30",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:30:democratic",
+      "sourceContestSha256": "8cb9ff940e32139e54d0b60477f41dcd7ba6d785c0b211a9fda4e667a094baaa",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4830",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 11537,
+      "targetBlockCount": 12187,
+      "sameDistrictBlockCount": 8797,
+      "sourceRetentionPpm": 762503,
+      "targetCoveragePpm": 721835,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 1019,
+          "sourceSharePpm": 88325
+        },
+        {
+          "targetDistrictCode": "25",
+          "blockCount": 775,
+          "sourceSharePpm": 67175
+        },
+        {
+          "targetDistrictCode": "30",
+          "blockCount": 8797,
+          "sourceSharePpm": 762503
+        },
+        {
+          "targetDistrictCode": "32",
+          "blockCount": 98,
+          "sourceSharePpm": 8494
+        },
+        {
+          "targetDistrictCode": "33",
+          "blockCount": 848,
+          "sourceSharePpm": 73503
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "89fa4c589c5b37f2247563d2beadffd0e7d17b34b4286648f5f0285e8bb4d198"
+    },
+    {
+      "observationId": "tx:geography:2026:regular:32",
+      "parentGeographyRowSha256": "6d87bbf5d6b2b158b7b89df8b3a646bc834e66097e6126d7410d75d652bcf80a",
+      "identityObservationId": "tx:identity:2026:regular:32",
+      "identityRowSha256": "0b1d54e40a274fad7af5cb227da0a1f3eef4eea105f0ea9ada5c95eb75600c5e",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_32_current",
+      "districtCode": "32",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:32:democratic",
+      "sourceContestSha256": "5ea6cca6d7bc3098d2f3bcd9fcfb69ecff8d26d6327b7fd869921617a73967a6",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4832",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 14372,
+      "targetBlockCount": 9035,
+      "sameDistrictBlockCount": 3532,
+      "sourceRetentionPpm": 245756,
+      "targetCoveragePpm": 390924,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 1728,
+          "sourceSharePpm": 120234
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 495,
+          "sourceSharePpm": 34442
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 2633,
+          "sourceSharePpm": 183203
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 4696,
+          "sourceSharePpm": 326746
+        },
+        {
+          "targetDistrictCode": "24",
+          "blockCount": 1145,
+          "sourceSharePpm": 79669
+        },
+        {
+          "targetDistrictCode": "32",
+          "blockCount": 3532,
+          "sourceSharePpm": 245756
+        },
+        {
+          "targetDistrictCode": "33",
+          "blockCount": 143,
+          "sourceSharePpm": 9950
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "5aa460790d16634591021740b183b904e40c66e78eca77959417e1eb46ed2063"
+    },
+    {
+      "observationId": "tx:geography:2026:regular:33",
+      "parentGeographyRowSha256": "735a1fa06fa62c09133d19d32e42a3f1937173be909914e3a071236922b6a067",
+      "identityObservationId": "tx:identity:2026:regular:33",
+      "identityRowSha256": "6cfe4d80905c9a3782b6ff8385eaa25ff7a4c2419f8a5123688bd4afab0c285e",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_33_current",
+      "districtCode": "33",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:33:democratic",
+      "sourceContestSha256": "d3b88d7aa827ef2d41bd239243fd31e0876c84a099b1881c1a2c12601060882c",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4833",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 11139,
+      "targetBlockCount": 12379,
+      "sameDistrictBlockCount": 4079,
+      "sourceRetentionPpm": 366191,
+      "targetCoveragePpm": 329510,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 14,
+          "sourceSharePpm": 1257
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 564,
+          "sourceSharePpm": 50633
+        },
+        {
+          "targetDistrictCode": "24",
+          "blockCount": 33,
+          "sourceSharePpm": 2962
+        },
+        {
+          "targetDistrictCode": "30",
+          "blockCount": 3333,
+          "sourceSharePpm": 299219
+        },
+        {
+          "targetDistrictCode": "32",
+          "blockCount": 3116,
+          "sourceSharePpm": 279738
+        },
+        {
+          "targetDistrictCode": "33",
+          "blockCount": 4079,
+          "sourceSharePpm": 366191
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "0256b6604dc0caffd6b096f253fcd1a308b4ffeda9f09cdf132a918bfb3ad2ca"
+    },
+    {
+      "observationId": "tx:geography:2026:regular:34",
+      "parentGeographyRowSha256": "b28b6fe4ca2c85e7638e8588cfc06eb830eeb14e38794f59228663539682b4bc",
+      "identityObservationId": "tx:identity:2026:regular:34",
+      "identityRowSha256": "c8cbed80825d25d715719956857ca79c6dc3bb720631310df750eb0ed94206dd",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_34_current",
+      "districtCode": "34",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:34:democratic",
+      "sourceContestSha256": "3bc02554be5c70b80e33b2c3ddc71dfbb4e18293839d8530e6f11ec7ae04c5b2",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4834",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 18253,
+      "targetBlockCount": 18093,
+      "sameDistrictBlockCount": 13250,
+      "sourceRetentionPpm": 725908,
+      "targetCoveragePpm": 732327,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "27",
+          "blockCount": 5003,
+          "sourceSharePpm": 274092
+        },
+        {
+          "targetDistrictCode": "34",
+          "blockCount": 13250,
+          "sourceSharePpm": 725908
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "b882df368044f2eebefe4bf3718daa3928fbd3ebc80e795eef72d3c3470d8025"
+    },
+    {
+      "observationId": "tx:geography:2026:regular:35",
+      "parentGeographyRowSha256": "13fcae061869cd622ca34e3ddc15104a1291b92074086762676bf0309c72a1a5",
+      "identityObservationId": "tx:identity:2026:regular:35",
+      "identityRowSha256": "db9f3bb8c726bcba5875cf46ec5b22adaaacc1b4188c461ee58185381b119c1a",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_35_current",
+      "districtCode": "35",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:35:democratic",
+      "sourceContestSha256": "2c434d37afbab703b36c5e355a8697822f563e8412a486750628c3f42c290f10",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4835",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 12037,
+      "targetBlockCount": 11026,
+      "sameDistrictBlockCount": 737,
+      "sourceRetentionPpm": 61228,
+      "targetCoveragePpm": 66842,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "15",
+          "blockCount": 4011,
+          "sourceSharePpm": 333223
+        },
+        {
+          "targetDistrictCode": "20",
+          "blockCount": 1468,
+          "sourceSharePpm": 121957
+        },
+        {
+          "targetDistrictCode": "21",
+          "blockCount": 962,
+          "sourceSharePpm": 79920
+        },
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 718,
+          "sourceSharePpm": 59649
+        },
+        {
+          "targetDistrictCode": "28",
+          "blockCount": 4141,
+          "sourceSharePpm": 344023
+        },
+        {
+          "targetDistrictCode": "35",
+          "blockCount": 737,
+          "sourceSharePpm": 61228
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "f234c67ff12e40c0a67e2293e0aa86483e2eb8b663b962411f36f596c92775dd"
+    },
+    {
+      "observationId": "tx:geography:2026:regular:37",
+      "parentGeographyRowSha256": "e788b9378ffbe119f08b476019e092c4e14aac4d598d01c4dd3f389ae183bb5e",
+      "identityObservationId": "tx:identity:2026:regular:37",
+      "identityRowSha256": "238b28740a16014b324d3f63e62d46acc6d38c289f8601807808eb263c29e161",
+      "eventId": "tx:2026:regular:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "regular",
+      "electionDate": "2026-03-03",
+      "seatCycleId": "seat_house_tx_37_current",
+      "districtCode": "37",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:regular:us-house:37:democratic",
+      "sourceContestSha256": "0e32077d3c697fbf597a4713a8cc6d99d112e87be3d621eeb49223f8967e2915",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4837",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 8875,
+      "targetBlockCount": 8625,
+      "sameDistrictBlockCount": 5647,
+      "sourceRetentionPpm": 636282,
+      "targetCoveragePpm": 654725,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "21",
+          "blockCount": 4,
+          "sourceSharePpm": 451
+        },
+        {
+          "targetDistrictCode": "35",
+          "blockCount": 3224,
+          "sourceSharePpm": 363267
+        },
+        {
+          "targetDistrictCode": "37",
+          "blockCount": 5647,
+          "sourceSharePpm": 636282
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "b001f0d443cddf6da66075aa0ef49a633190a97c4f809835d44a56dc7b9d8cb5"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:07",
+      "parentGeographyRowSha256": "878533d7f0d1eaafaf62d1872b62d5c998e978ec6bc52eae5fcf20c4b617812d",
+      "identityObservationId": "tx:identity:2026:runoff:07",
+      "identityRowSha256": "bd2ea7ff498e2d10a18d59a617108ea003d9d4b4aa871884b834e9f5627663a2",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_07_current",
+      "districtCode": "07",
+      "sourceObservationStatus": "not_observed_in_retained_official_canvass_report_disposition_unresolved",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceWinnerStatus": "not_applicable_unobserved_contest",
+      "targetCd119Geoid": "4807",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 7070,
+      "targetBlockCount": 6185,
+      "sameDistrictBlockCount": 4913,
+      "sourceRetentionPpm": 694908,
+      "targetCoveragePpm": 794341,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 4913,
+          "sourceSharePpm": 694908
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 678,
+          "sourceSharePpm": 95898
+        },
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 855,
+          "sourceSharePpm": 120934
+        },
+        {
+          "targetDistrictCode": "29",
+          "blockCount": 495,
+          "sourceSharePpm": 70014
+        },
+        {
+          "targetDistrictCode": "38",
+          "blockCount": 129,
+          "sourceSharePpm": 18246
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "d716601bd4a9be2deceefd68106d2a8d2d52bbbec53b78a262ab26ae7c704abe"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:09",
+      "parentGeographyRowSha256": "e070d5b535fc52f1be2bd70ba68feba316a41826d6d23177c58062aa825d7526",
+      "identityObservationId": "tx:identity:2026:runoff:09",
+      "identityRowSha256": "8f246c8cce3db6536d1ce27ed8290480935dc4d685e23211676a4ed8337505ae",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_09_current",
+      "districtCode": "09",
+      "sourceObservationStatus": "not_observed_in_retained_official_canvass_report_disposition_unresolved",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceWinnerStatus": "not_applicable_unobserved_contest",
+      "targetCd119Geoid": "4809",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 12692,
+      "targetBlockCount": 7369,
+      "sameDistrictBlockCount": 372,
+      "sourceRetentionPpm": 29310,
+      "targetCoveragePpm": 50482,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 1330,
+          "sourceSharePpm": 104790
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 372,
+          "sourceSharePpm": 29310
+        },
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 1,
+          "sourceSharePpm": 79
+        },
+        {
+          "targetDistrictCode": "29",
+          "blockCount": 4901,
+          "sourceSharePpm": 386149
+        },
+        {
+          "targetDistrictCode": "36",
+          "blockCount": 6088,
+          "sourceSharePpm": 479672
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "f61efa2bb2c3c0af186bb92cc0f655e53644e48f8c7f258a785331172478510c"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:16",
+      "parentGeographyRowSha256": "51962f912175c268817764baa56ff51c4f4587c7b9b86a52c2982921f9a375a0",
+      "identityObservationId": "tx:identity:2026:runoff:16",
+      "identityRowSha256": "06f6c951cf9f0af612140563324bce4c40b0a908eb2465b2a00e6db3f5aaba74",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_16_current",
+      "districtCode": "16",
+      "sourceObservationStatus": "not_observed_in_retained_official_canvass_report_disposition_unresolved",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceWinnerStatus": "not_applicable_unobserved_contest",
+      "targetCd119Geoid": "4816",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 11837,
+      "targetBlockCount": 11819,
+      "sameDistrictBlockCount": 11440,
+      "sourceRetentionPpm": 966461,
+      "targetCoveragePpm": 967933,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "16",
+          "blockCount": 11440,
+          "sourceSharePpm": 966461
+        },
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 397,
+          "sourceSharePpm": 33539
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "5c6048af29fe64a9e7a89b06e387ef15d902e88636189254c21c484466e41878"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:18",
+      "parentGeographyRowSha256": "92905147c0aa43ac7687e7b44d5a9472d8b7e39d3433d0f629a31f0152ea04d0",
+      "identityObservationId": "tx:identity:2026:runoff:18",
+      "identityRowSha256": "8a487109eb52dbd36ea11e8945972c2598975e7ea27d7c52c9258347f4c6de5c",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_18_current",
+      "districtCode": "18",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:runoff:us-house:18:democratic",
+      "sourceContestSha256": "be40ae4a5519c522836a2ecf87da4708a0f14f368d4295ceb27d5da18bdad9fd",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4818",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 10922,
+      "targetBlockCount": 10324,
+      "sameDistrictBlockCount": 4664,
+      "sourceRetentionPpm": 427028,
+      "targetCoveragePpm": 451763,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 120,
+          "sourceSharePpm": 10987
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 5183,
+          "sourceSharePpm": 474547
+        },
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 4664,
+          "sourceSharePpm": 427028
+        },
+        {
+          "targetDistrictCode": "22",
+          "blockCount": 68,
+          "sourceSharePpm": 6226
+        },
+        {
+          "targetDistrictCode": "29",
+          "blockCount": 887,
+          "sourceSharePpm": 81212
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "393e9b0db48e4fcf75823caa32af43020a64518beb6f60e5d5bf0812e7c023de"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:20",
+      "parentGeographyRowSha256": "3931b872e619bb92b18f653072ffc8c023a609610597299336bb1f3d742a97f6",
+      "identityObservationId": "tx:identity:2026:runoff:20",
+      "identityRowSha256": "fd3eafcd4fd29e7ddca092fa3de4a8515ea45a6a295f3478e7bb3c89585d9259",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_20_current",
+      "districtCode": "20",
+      "sourceObservationStatus": "not_observed_in_retained_official_canvass_report_disposition_unresolved",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceWinnerStatus": "not_applicable_unobserved_contest",
+      "targetCd119Geoid": "4820",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 10045,
+      "targetBlockCount": 7369,
+      "sameDistrictBlockCount": 4504,
+      "sourceRetentionPpm": 448382,
+      "targetCoveragePpm": 611209,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "20",
+          "blockCount": 4504,
+          "sourceSharePpm": 448382
+        },
+        {
+          "targetDistrictCode": "21",
+          "blockCount": 19,
+          "sourceSharePpm": 1891
+        },
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 161,
+          "sourceSharePpm": 16028
+        },
+        {
+          "targetDistrictCode": "28",
+          "blockCount": 1186,
+          "sourceSharePpm": 118069
+        },
+        {
+          "targetDistrictCode": "35",
+          "blockCount": 4175,
+          "sourceSharePpm": 415630
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "cb6d501bbf7dd19122ac710941b81ee629418d7485d2916e33e52faa9ed840b2"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:28",
+      "parentGeographyRowSha256": "477f159cb0da567e591be837050b057c3e268f7dd9edb5e7daf85b3ba255952e",
+      "identityObservationId": "tx:identity:2026:runoff:28",
+      "identityRowSha256": "2aec16b02c14ff0046cba0057d1650922d1c1f10a06dd3d67252e2198c56319b",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_28_current",
+      "districtCode": "28",
+      "sourceObservationStatus": "not_observed_in_retained_official_canvass_report_disposition_unresolved",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceWinnerStatus": "not_applicable_unobserved_contest",
+      "targetCd119Geoid": "4828",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 21954,
+      "targetBlockCount": 18769,
+      "sameDistrictBlockCount": 13442,
+      "sourceRetentionPpm": 612280,
+      "targetCoveragePpm": 716181,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "15",
+          "blockCount": 5548,
+          "sourceSharePpm": 252710
+        },
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 2801,
+          "sourceSharePpm": 127585
+        },
+        {
+          "targetDistrictCode": "28",
+          "blockCount": 13442,
+          "sourceSharePpm": 612280
+        },
+        {
+          "targetDistrictCode": "34",
+          "blockCount": 163,
+          "sourceSharePpm": 7425
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "27469ae9b48594e85b335fd84214c0df5e2ba6ce4a941abdb215ecbc9eafb763"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:29",
+      "parentGeographyRowSha256": "e0e3880d4ca387d1582763c55a60817fd45a331ff1d98e1abc5a69de818a7814",
+      "identityObservationId": "tx:identity:2026:runoff:29",
+      "identityRowSha256": "200706d8c822eae47e580b6c99cd8715c9a21aaca54726fb20a3f5432650300a",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_29_current",
+      "districtCode": "29",
+      "sourceObservationStatus": "not_observed_in_retained_official_canvass_report_disposition_unresolved",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceWinnerStatus": "not_applicable_unobserved_contest",
+      "targetCd119Geoid": "4829",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 7529,
+      "targetBlockCount": 9906,
+      "sameDistrictBlockCount": 3096,
+      "sourceRetentionPpm": 411210,
+      "targetCoveragePpm": 312538,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 255,
+          "sourceSharePpm": 33869
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 3,
+          "sourceSharePpm": 398
+        },
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 4111,
+          "sourceSharePpm": 546022
+        },
+        {
+          "targetDistrictCode": "29",
+          "blockCount": 3096,
+          "sourceSharePpm": 411210
+        },
+        {
+          "targetDistrictCode": "38",
+          "blockCount": 64,
+          "sourceSharePpm": 8501
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "a6dd4364e31cf97e890f106f4d08456c183bc10a7adf848462a57bb7421e120d"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:30",
+      "parentGeographyRowSha256": "1ed7bef22c63c44e336ffc772972e757879ec094c1cbcb9e0cbe428fe483d254",
+      "identityObservationId": "tx:identity:2026:runoff:30",
+      "identityRowSha256": "79702c3a04b65374ede90932de0256dd1d5b703d69b96e355a46bff078854c0b",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_30_current",
+      "districtCode": "30",
+      "sourceObservationStatus": "not_observed_in_retained_official_canvass_report_disposition_unresolved",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceWinnerStatus": "not_applicable_unobserved_contest",
+      "targetCd119Geoid": "4830",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 11537,
+      "targetBlockCount": 12187,
+      "sameDistrictBlockCount": 8797,
+      "sourceRetentionPpm": 762503,
+      "targetCoveragePpm": 721835,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 1019,
+          "sourceSharePpm": 88325
+        },
+        {
+          "targetDistrictCode": "25",
+          "blockCount": 775,
+          "sourceSharePpm": 67175
+        },
+        {
+          "targetDistrictCode": "30",
+          "blockCount": 8797,
+          "sourceSharePpm": 762503
+        },
+        {
+          "targetDistrictCode": "32",
+          "blockCount": 98,
+          "sourceSharePpm": 8494
+        },
+        {
+          "targetDistrictCode": "33",
+          "blockCount": 848,
+          "sourceSharePpm": 73503
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "929a1a1cf95d6c12a85bdf9d6e03fce03660a0c059e559abc062a6ef7a67e68a"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:32",
+      "parentGeographyRowSha256": "470a232af19abc3046a6509c4e84a30c05aee2e91fa84a8a4ff1aa0bdc5fc1f4",
+      "identityObservationId": "tx:identity:2026:runoff:32",
+      "identityRowSha256": "b03a7d0fa9969a4c759af0051ae6cd00b0bfb7958dbe8573e5a7f229c17c44e4",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_32_current",
+      "districtCode": "32",
+      "sourceObservationStatus": "not_observed_in_retained_official_canvass_report_disposition_unresolved",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceWinnerStatus": "not_applicable_unobserved_contest",
+      "targetCd119Geoid": "4832",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 14372,
+      "targetBlockCount": 9035,
+      "sameDistrictBlockCount": 3532,
+      "sourceRetentionPpm": 245756,
+      "targetCoveragePpm": 390924,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 1728,
+          "sourceSharePpm": 120234
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 495,
+          "sourceSharePpm": 34442
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 2633,
+          "sourceSharePpm": 183203
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 4696,
+          "sourceSharePpm": 326746
+        },
+        {
+          "targetDistrictCode": "24",
+          "blockCount": 1145,
+          "sourceSharePpm": 79669
+        },
+        {
+          "targetDistrictCode": "32",
+          "blockCount": 3532,
+          "sourceSharePpm": 245756
+        },
+        {
+          "targetDistrictCode": "33",
+          "blockCount": 143,
+          "sourceSharePpm": 9950
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "d767d2af7bf0111098d9f89ebe2dd8afdae2d3814b81a0ed6f7eed7f5b4321bb"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:33",
+      "parentGeographyRowSha256": "0a17b0864c2e6adb037896b5dff0466a347ad42694d859b3809e217c83afa30e",
+      "identityObservationId": "tx:identity:2026:runoff:33",
+      "identityRowSha256": "fe2a74bd1df55c7a773d9f8294a2a3c838673a55115997b3ece53d87d609e686",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_33_current",
+      "districtCode": "33",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:runoff:us-house:33:democratic",
+      "sourceContestSha256": "e58656d7d6506df0f1bd167e23c6aedb097a80318ab7791e2af165f769150011",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4833",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 11139,
+      "targetBlockCount": 12379,
+      "sameDistrictBlockCount": 4079,
+      "sourceRetentionPpm": 366191,
+      "targetCoveragePpm": 329510,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 14,
+          "sourceSharePpm": 1257
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 564,
+          "sourceSharePpm": 50633
+        },
+        {
+          "targetDistrictCode": "24",
+          "blockCount": 33,
+          "sourceSharePpm": 2962
+        },
+        {
+          "targetDistrictCode": "30",
+          "blockCount": 3333,
+          "sourceSharePpm": 299219
+        },
+        {
+          "targetDistrictCode": "32",
+          "blockCount": 3116,
+          "sourceSharePpm": 279738
+        },
+        {
+          "targetDistrictCode": "33",
+          "blockCount": 4079,
+          "sourceSharePpm": 366191
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "3f6ca6083fddd0b41442cc153b0fe6763629b92921a305a3f620dd4e74fa0d4b"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:34",
+      "parentGeographyRowSha256": "e4823c73c10c504e208043b66e09d124fab0e99d7f59ba96a483b522ccf6c952",
+      "identityObservationId": "tx:identity:2026:runoff:34",
+      "identityRowSha256": "5bb2ab640f887ff7568892a00059ae564fae841615875a69d4c6f31e337a4b32",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_34_current",
+      "districtCode": "34",
+      "sourceObservationStatus": "not_observed_in_retained_official_canvass_report_disposition_unresolved",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceWinnerStatus": "not_applicable_unobserved_contest",
+      "targetCd119Geoid": "4834",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 18253,
+      "targetBlockCount": 18093,
+      "sameDistrictBlockCount": 13250,
+      "sourceRetentionPpm": 725908,
+      "targetCoveragePpm": 732327,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "27",
+          "blockCount": 5003,
+          "sourceSharePpm": 274092
+        },
+        {
+          "targetDistrictCode": "34",
+          "blockCount": 13250,
+          "sourceSharePpm": 725908
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "4405b3d59789239fb40ca6572ddb8342727a71913170878b7ead6408f5718e14"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:35",
+      "parentGeographyRowSha256": "d7e312ace6b2bf174c0e4b3dfdb1e4e5dde4f9e2dec802e7f7fae61b4be2cfa5",
+      "identityObservationId": "tx:identity:2026:runoff:35",
+      "identityRowSha256": "777fc89ac2d716e13d0f201beca8dd9d580c4b84396d07a9e5353d969370a230",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_35_current",
+      "districtCode": "35",
+      "sourceObservationStatus": "reported_contest",
+      "sourceContestId": "tx:2026:runoff:us-house:35:democratic",
+      "sourceContestSha256": "67c1e95607f674347d31e0d0cec12017da70a80da0a45434f41f4859e65608ea",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "targetCd119Geoid": "4835",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 12037,
+      "targetBlockCount": 11026,
+      "sameDistrictBlockCount": 737,
+      "sourceRetentionPpm": 61228,
+      "targetCoveragePpm": 66842,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "15",
+          "blockCount": 4011,
+          "sourceSharePpm": 333223
+        },
+        {
+          "targetDistrictCode": "20",
+          "blockCount": 1468,
+          "sourceSharePpm": 121957
+        },
+        {
+          "targetDistrictCode": "21",
+          "blockCount": 962,
+          "sourceSharePpm": 79920
+        },
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 718,
+          "sourceSharePpm": 59649
+        },
+        {
+          "targetDistrictCode": "28",
+          "blockCount": 4141,
+          "sourceSharePpm": 344023
+        },
+        {
+          "targetDistrictCode": "35",
+          "blockCount": 737,
+          "sourceSharePpm": 61228
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "7711a27da4256e167fc757a3e2926526ce053cb50c22414db0dd4587c669e60c"
+    },
+    {
+      "observationId": "tx:geography:2026:runoff:37",
+      "parentGeographyRowSha256": "d4937ca215a8f8849319c0d08a77126ab206be4adcc8069323f102fa12eee65f",
+      "identityObservationId": "tx:identity:2026:runoff:37",
+      "identityRowSha256": "ff343d7a8fa9f923dd5654f19563b2257a533230a46c02fafbf2f3fb66492498",
+      "eventId": "tx:2026:runoff:democratic-primary",
+      "cycleYear": 2026,
+      "electionStage": "runoff",
+      "electionDate": "2026-05-26",
+      "seatCycleId": "seat_house_tx_37_current",
+      "districtCode": "37",
+      "sourceObservationStatus": "not_observed_in_retained_official_canvass_report_disposition_unresolved",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceWinnerStatus": "not_applicable_unobserved_contest",
+      "targetCd119Geoid": "4837",
+      "historicalCongressSession": "120",
+      "sourcePlanId": "texas-planc2333-hb4-89th-legislature-2nd-called-session-2025",
+      "targetPlanId": "census-cd119-texas",
+      "sourceBlockCount": 8875,
+      "targetBlockCount": 8625,
+      "sameDistrictBlockCount": 5647,
+      "sourceRetentionPpm": 636282,
+      "targetCoveragePpm": 654725,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "21",
+          "blockCount": 4,
+          "sourceSharePpm": 451
+        },
+        {
+          "targetDistrictCode": "35",
+          "blockCount": 3224,
+          "sourceSharePpm": 363267
+        },
+        {
+          "targetDistrictCode": "37",
+          "blockCount": 5647,
+          "sourceSharePpm": 636282
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "authorityStatus": "enacted_and_in_effect_for_2026_primaries_at_cutoff_pending_supreme_court_appeal",
+      "authorityCutoff": "2026-08-06",
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "certificationStatus": "official_canvass_report_retained_certification_not_separately_bound",
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "operative_plan_status_time_bounded_pending_appeal",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "f4296d3f03ec1203f4eb8032d71bde9f26c5f69152ba825422f4c3f8f33704a1"
+    }
+  ],
+  "rowSetSha256": "48b4dea1ff609b74c5a5faf325847650d90a82407b9a643e47a9c29f9f502046",
+  "decisionSupport": {
+    "informsDecisionId": "approve-historical-district-cd119-compatibility-v1",
+    "recommendedResolution": "retain_all_twenty_six_2026_event_rows_for_split_crosswalk_review",
+    "defaultAssumption": "exclude_all_rows_until_authorized_identity_geography_review",
+    "consequenceIfAccepted": "authority_pending_is_resolved_but_no_2026_compatibility_candidate_is_created",
+    "consequenceIfRejected": "all_twenty_six_2026_rows_remain_authority_and_crosswalk_pending",
+    "blocksOtherWork": false
+  },
+  "packageSha256": "4d300b426ebf4bf9b25a13a4172f0121efc8932716ffb476550779a74b4f6e84"
+}

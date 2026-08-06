@@ -98,6 +98,7 @@
     "fetch:il-primary-geography-authority": "node scripts/fetch-illinois-primary-geography-authority.mjs",
     "fetch:tx-primary-geography-authority": "node scripts/fetch-texas-primary-geography-authority.mjs",
     "fetch:tx-2026-congressional-plan-authority": "node scripts/fetch-texas-2026-congressional-plan-authority.mjs",
+    "generate:tx-2026-primary-block-crosswalk-v1": "tsx scripts/generate-texas-2026-primary-block-crosswalk-candidate.ts",
     "generate:il-primary-geography-v1": "tsx scripts/generate-illinois-primary-geography-compatibility-candidate.ts",
     "generate:il-primary-joint-review-v1": "tsx scripts/generate-illinois-primary-identity-geography-review-package.ts",
     "fetch:ny-house-primary-reported-results": "node scripts/fetch-ny-house-democratic-primary-reported-results.mjs",
