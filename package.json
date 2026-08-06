@@ -169,6 +169,7 @@
     "generate:ca-house-top-two-results-receipt": "tsx scripts/generate-california-house-top-two-results-receipt.ts",
     "fetch:ca-2026-congressional-plan-authority": "node scripts/fetch-california-2026-congressional-plan-authority.mjs",
     "generate:ca-2026-primary-block-crosswalk-v1": "tsx scripts/generate-california-2026-primary-block-crosswalk-candidate.ts",
+    "generate:ca-primary-geography-v2": "tsx scripts/generate-california-primary-geography-compatibility-candidate-v2.ts",
     "generate:ca-primary-geography-v1": "tsx scripts/generate-california-primary-geography-compatibility-candidate.ts",
     "generate:ca-current-incumbent-primary-linkage-v1": "tsx scripts/generate-california-current-incumbent-primary-linkage-candidate.ts",
     "generate:ca-primary-joint-review-v1": "tsx scripts/generate-california-primary-identity-geography-review-package.ts",
