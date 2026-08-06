@@ -94,6 +94,7 @@
     "generate:wa-primary-joint-review-v1": "tsx scripts/generate-washington-primary-identity-geography-review-package.ts",
     "fetch:il-house-primary-results": "node scripts/fetch-il-house-democratic-primary-results.mjs",
     "generate:il-house-primary-results-receipt": "tsx scripts/generate-illinois-house-democratic-primary-results-receipt.ts",
+    "generate:il-primary-certification-authority-v1": "tsx scripts/generate-illinois-primary-state-board-certification-authority.ts",
     "generate:il-current-incumbent-primary-linkage-v1": "tsx scripts/generate-illinois-current-incumbent-primary-linkage-candidate.ts",
     "fetch:il-primary-geography-authority": "node scripts/fetch-illinois-primary-geography-authority.mjs",
     "fetch:tx-primary-geography-authority": "node scripts/fetch-texas-primary-geography-authority.mjs",
