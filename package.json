@@ -116,6 +116,7 @@
     "generate:mi-current-incumbent-primary-linkage-v1": "tsx scripts/generate-michigan-current-incumbent-primary-linkage-candidate.ts",
     "generate:az-current-incumbent-primary-linkage-v1": "tsx scripts/generate-arizona-current-incumbent-primary-linkage-candidate.ts",
     "fetch:az-primary-geography-authority": "node scripts/fetch-arizona-primary-geography-authority.mjs",
+    "generate:az-primary-geography-v1": "tsx scripts/generate-arizona-primary-geography-compatibility-candidate.ts",
     "fetch:mi-primary-geography-authority": "node scripts/fetch-michigan-primary-geography-authority.mjs",
     "generate:mi-primary-geography-v1": "tsx scripts/generate-michigan-primary-geography-compatibility-candidate.ts",
     "generate:mi-primary-joint-review-v1": "tsx scripts/generate-michigan-primary-identity-geography-review-package.ts",
