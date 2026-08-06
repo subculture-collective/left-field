@@ -183,6 +183,7 @@
     "fetch:or-primary-geography-authority": "node scripts/fetch-oregon-primary-geography-authority.mjs",
     "generate:or-2026-congressional-plan-authority": "tsx scripts/generate-oregon-2026-congressional-plan-authority-receipt.ts",
     "generate:or-primary-geography-v2": "tsx scripts/generate-oregon-primary-geography-compatibility-candidate-v2.ts",
+    "generate:or-primary-joint-review-v2": "tsx scripts/generate-oregon-primary-identity-geography-review-package-v2.ts",
     "fetch:nc-house-primary-results": "node scripts/fetch-nc-house-democratic-primary-results.mjs",
     "generate:nc-house-primary-results-receipt": "tsx scripts/generate-north-carolina-house-democratic-primary-results-receipt.ts",
     "generate:nc-primary-source-precedence-decision": "tsx scripts/generate-north-carolina-primary-source-precedence-decision.ts",

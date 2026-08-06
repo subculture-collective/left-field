@@ -1,0 +1,891 @@
+{
+  "schema": "oregon-primary-identity-geography-review-package-v2",
+  "version": 2,
+  "generatedAt": "2026-08-07T00:30:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_independent_identity_and_geography_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "parents": {
+    "jointV1": {
+      "sourceLockId": "oregon-primary-identity-geography-review-package-v1",
+      "fileSha256": "4ee08bfac8a801084a3525d418b9e4d51b83ae1b3ac164ec9cef575d389a38b7",
+      "packageSha256": "4ec88e16e56a6c48b4224b030ea3fd59f507dbd2832ddf4609fbfaff3bf44085",
+      "reviewRecordSetSha256": "8a60f3044c903a45fa59fe91934a4916d8be062d81ea7edd5bbfc888c1d4c6a2",
+      "superseded": false
+    },
+    "geographyV2": {
+      "sourceLockId": "oregon-primary-geography-compatibility-candidate-v2",
+      "fileSha256": "bde02ed6eee2bfd85b61a892bb7686ff703ea2bebcc32ce652317b76bbe9994b",
+      "packageSha256": "b8f27af5d9436426d520e94eca574ea39aa72fd256d7b72f8f879f88087d301f",
+      "rowSetSha256": "bfa5a42eca7a4454739b721bfe963fddff66ea117dce35588b1953c6e06a5c70"
+    }
+  },
+  "methodology": {
+    "compositionOnly": true,
+    "identityAndRecordCoordinatesPreserved": true,
+    "geographyProjectionSource": "oregon-primary-geography-compatibility-candidate-v2",
+    "sourcePlanToCd119ExactBlockConcordanceAssessed": false,
+    "rawGeometryEqualityAssessed": false,
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "reviewRecords": 15,
+    "identityAndGeographyCandidates": 13,
+    "geographyCandidateIdentityUnresolved": 2,
+    "identityCandidates": 13,
+    "geographyCandidates": 15,
+    "jointApprovedRecords": 0,
+    "scoreEligibleRecords": 0
+  },
+  "records": [
+    {
+      "reviewRecordId": "or-primary-joint:or:2022:regular:us-house:01:democratic",
+      "contestId": "or:2022:regular:us-house:01:democratic",
+      "contestSha256": "da57c38963ae74c903c5c09c5c88170924e7f51ca3b129d699c018b2b0c7c50f",
+      "seatCycleId": "seat_house_or_01_current",
+      "districtCode": "01",
+      "cycleYear": 2022,
+      "identity": {
+        "bioguideId": "B001278",
+        "officialHouseName": "Suzanne Bonamici",
+        "sourceCandidateName": "Suzanne Bonamici",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "357abe431ab917fef637b921e2d5ddc53c02f29e46037c53bc386893c5455cf8",
+      "geography": {
+        "parentGeographyRowSha256": "c905358a5bfbf0eae35ff229a5065ac2d6c6a66335b9f9f498a1282bcb1cded9",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4101",
+          "historicalCongressSession": "118",
+          "historicalGeoid": "4101",
+          "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+          "compatibilityCandidate": true,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4101",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "4101",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": null
+      },
+      "reviewRecordSha256": "32fc10b836036862fa85895868116d92dd699804f73404cc258648f5660b2f1a"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2022:regular:us-house:03:democratic",
+      "contestId": "or:2022:regular:us-house:03:democratic",
+      "contestSha256": "ff2a29a5d29b3479ea59c1ca167be81c6cf7a72260ef8269cb65d132f92687e6",
+      "seatCycleId": "seat_house_or_03_current",
+      "districtCode": "03",
+      "cycleYear": 2022,
+      "identity": {
+        "bioguideId": "D000635",
+        "officialHouseName": "Maxine Dexter",
+        "sourceCandidateName": null,
+        "evidenceClass": "unresolved",
+        "relationshipDisposition": "not_linked_no_unique_candidate",
+        "identityApproved": false
+      },
+      "reviewDisposition": "geography_candidate_identity_unresolved",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_unresolved_predecessor_cycle",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "ffc4c8ecd0eef033c86aaf37e23a5923da575da6c4e5c539ed8261dd5980184f",
+      "geography": {
+        "parentGeographyRowSha256": "d779818299f9d200370c68dfb1f0d846bdae3e2e4cb892a1c94bc5ed3075a66d",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4103",
+          "historicalCongressSession": "118",
+          "historicalGeoid": "4103",
+          "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+          "compatibilityCandidate": true,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4103",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "4103",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": null
+      },
+      "reviewRecordSha256": "b901a74ed59f28521887f336bbae0d2f59baa860251ffd003a5051f77c1b72db"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2022:regular:us-house:04:democratic",
+      "contestId": "or:2022:regular:us-house:04:democratic",
+      "contestSha256": "f673c47c783daa8b45d39eefcc266f719c5dd63cacc079ad66a8ceda9c60eaef",
+      "seatCycleId": "seat_house_or_04_current",
+      "districtCode": "04",
+      "cycleYear": 2022,
+      "identity": {
+        "bioguideId": "H001094",
+        "officialHouseName": "Val T. Hoyle",
+        "sourceCandidateName": "Val Hoyle",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "e2ea0c3f8c753e5c04dc9c51448f6d8b6912f78ae6216941e174577590618d1b",
+      "geography": {
+        "parentGeographyRowSha256": "28e06a4063834ef40e8366a4ff3f8721a4a5e9202a8ffc681b403597b3b76c34",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4104",
+          "historicalCongressSession": "118",
+          "historicalGeoid": "4104",
+          "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+          "compatibilityCandidate": true,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4104",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "4104",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": null
+      },
+      "reviewRecordSha256": "fb72ee848c3cbd30adfca891f12494f2f7ac1a3b01d283cc6111fc87f380df1f"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2022:regular:us-house:05:democratic",
+      "contestId": "or:2022:regular:us-house:05:democratic",
+      "contestSha256": "ae3c4593da7544c9d6b10b911eacf6403d2995ad8e6530683ac56bb57af1dcac",
+      "seatCycleId": "seat_house_or_05_current",
+      "districtCode": "05",
+      "cycleYear": 2022,
+      "identity": {
+        "bioguideId": "B001326",
+        "officialHouseName": "Janelle S. Bynum",
+        "sourceCandidateName": null,
+        "evidenceClass": "unresolved",
+        "relationshipDisposition": "not_linked_no_unique_candidate",
+        "identityApproved": false
+      },
+      "reviewDisposition": "geography_candidate_identity_unresolved",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_unresolved_predecessor_cycle",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "472c769075f67051d4a9230874ab8699e2a2000aece855de1df3c7781c461413",
+      "geography": {
+        "parentGeographyRowSha256": "aa955b5f586c46f4145f04f8ceafc9ee9fcbaed230461bd436e90358dd9f69e9",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4105",
+          "historicalCongressSession": "118",
+          "historicalGeoid": "4105",
+          "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+          "compatibilityCandidate": true,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4105",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "4105",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": null
+      },
+      "reviewRecordSha256": "5684f25d54dae1691e3f3810feaee3f8dfc5eb2dcd57a9e6f0916cf61a944b14"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2022:regular:us-house:06:democratic",
+      "contestId": "or:2022:regular:us-house:06:democratic",
+      "contestSha256": "dc3150bb97760ac3f437a9c7814e745f862c8df7840ef4a16d5557ef6411249e",
+      "seatCycleId": "seat_house_or_06_current",
+      "districtCode": "06",
+      "cycleYear": 2022,
+      "identity": {
+        "bioguideId": "S001226",
+        "officialHouseName": "Andrea Salinas",
+        "sourceCandidateName": "Andrea Salinas",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "78eb2fef0f2e026927cc7d43817e46156ef7dbdd3c7a84e127320d55e89aa5e5",
+      "geography": {
+        "parentGeographyRowSha256": "a345fe32b54758d3e17244390403d6eb7e6fe9b62f90113e97403ed877802780",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4106",
+          "historicalCongressSession": "118",
+          "historicalGeoid": "4106",
+          "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+          "compatibilityCandidate": true,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4106",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "4106",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": null
+      },
+      "reviewRecordSha256": "0c0fedfb05e81a39f826c3d738013cce46339a63a7d8635fd690fbb5ce9515a3"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2024:regular:us-house:01:democratic",
+      "contestId": "or:2024:regular:us-house:01:democratic",
+      "contestSha256": "abeb73814f38a822bff5dd8a5106580532af850e92543dd6661f8362d4a18889",
+      "seatCycleId": "seat_house_or_01_current",
+      "districtCode": "01",
+      "cycleYear": 2024,
+      "identity": {
+        "bioguideId": "B001278",
+        "officialHouseName": "Suzanne Bonamici",
+        "sourceCandidateName": "Suzanne Bonamici",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "3d7cfca7a0c3013455c48c752d884cb70ffda957a418ff15d28466713f2f966d",
+      "geography": {
+        "parentGeographyRowSha256": "6ec8fbaf53a35345988a2453903f0ad8d6eb0d94c146dd21db083d87d9954f9f",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4101",
+          "historicalCongressSession": "119",
+          "historicalGeoid": "4101",
+          "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+          "compatibilityCandidate": true,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4101",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "4101",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": null
+      },
+      "reviewRecordSha256": "2f1ea9d45b17fa2557f9b7c628e5e48b9a64f353feb4cefc241da4341574511e"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2024:regular:us-house:03:democratic",
+      "contestId": "or:2024:regular:us-house:03:democratic",
+      "contestSha256": "e3303a1b332e0c75c3274c895f30ae4a8725c4be3b06768a0e74c709fb059447",
+      "seatCycleId": "seat_house_or_03_current",
+      "districtCode": "03",
+      "cycleYear": 2024,
+      "identity": {
+        "bioguideId": "D000635",
+        "officialHouseName": "Maxine Dexter",
+        "sourceCandidateName": "Maxine E Dexter",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "ffa96044662061563589af19f158437d3fc73ad8e3546738fd3af343ff69a710",
+      "geography": {
+        "parentGeographyRowSha256": "6b86ca073e35112322139ddbd8b91686fc2e2879809a9bb3852ee6a7a96e8154",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4103",
+          "historicalCongressSession": "119",
+          "historicalGeoid": "4103",
+          "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+          "compatibilityCandidate": true,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4103",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "4103",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": null
+      },
+      "reviewRecordSha256": "173c9fd18a880c09c00ce2128a211af961dfc501bc8e7f17140f4710b6516fe3"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2024:regular:us-house:04:democratic",
+      "contestId": "or:2024:regular:us-house:04:democratic",
+      "contestSha256": "15ef635bca7460aa6b7120fe24125d1397f1643340bc49426b40dd3f503a79d7",
+      "seatCycleId": "seat_house_or_04_current",
+      "districtCode": "04",
+      "cycleYear": 2024,
+      "identity": {
+        "bioguideId": "H001094",
+        "officialHouseName": "Val T. Hoyle",
+        "sourceCandidateName": "Val Hoyle",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "a0414606757d74113ecac6135dcf0a98e39a6f8f2c0e5dae7d20f317e559b864",
+      "geography": {
+        "parentGeographyRowSha256": "9908fadb8dacc892c62222eb6f847c9e5b410e2526860b9338cb9ba4ed9129b0",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4104",
+          "historicalCongressSession": "119",
+          "historicalGeoid": "4104",
+          "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+          "compatibilityCandidate": true,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4104",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "4104",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": null
+      },
+      "reviewRecordSha256": "4427e7bb0bf7059519f75e7fcd5d3f1416b966c6584252552637c53bed779354"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2024:regular:us-house:05:democratic",
+      "contestId": "or:2024:regular:us-house:05:democratic",
+      "contestSha256": "525d495b97b93cc6c503bf3facf521c75e24c5962c8a2fd7adbe51f195d3b00a",
+      "seatCycleId": "seat_house_or_05_current",
+      "districtCode": "05",
+      "cycleYear": 2024,
+      "identity": {
+        "bioguideId": "B001326",
+        "officialHouseName": "Janelle S. Bynum",
+        "sourceCandidateName": "Janelle S Bynum",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "dea98ff04e0642157b735cfb7cff94048004f7dd07ca8050f64e6f2cb8328e9b",
+      "geography": {
+        "parentGeographyRowSha256": "f1e7cd19c27e80a8ac8cdd24975c3e6aab8d1e61321a1ccf035ee4e0a24a210d",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4105",
+          "historicalCongressSession": "119",
+          "historicalGeoid": "4105",
+          "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+          "compatibilityCandidate": true,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4105",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "4105",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": null
+      },
+      "reviewRecordSha256": "293e5d89ab0a8ebb90028a1c6b48aee92dcb4d134e8ec3015422c19c1cd46457"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2024:regular:us-house:06:democratic",
+      "contestId": "or:2024:regular:us-house:06:democratic",
+      "contestSha256": "2626911e98c88b0899829760b4a674c1aa456c54bad4513f025712909284dad3",
+      "seatCycleId": "seat_house_or_06_current",
+      "districtCode": "06",
+      "cycleYear": 2024,
+      "identity": {
+        "bioguideId": "S001226",
+        "officialHouseName": "Andrea Salinas",
+        "sourceCandidateName": "Andrea Salinas",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "1aa67732e43c60f5ebab8202f904d5df26060163b5da548efcc1f068de65ac43",
+      "geography": {
+        "parentGeographyRowSha256": "339e01b30fcf61f50eb1d2d172ccc60738f8780ea7872500e2ba587fe3ad4331",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4106",
+          "historicalCongressSession": "119",
+          "historicalGeoid": "4106",
+          "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+          "compatibilityCandidate": true,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4106",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "4106",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": null
+      },
+      "reviewRecordSha256": "935ad56cfdeebc8985e526c1029807b3f3242e83e1cfe8d7e9e4648ffe6bf99c"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2026:regular:us-house:01:democratic",
+      "contestId": "or:2026:regular:us-house:01:democratic",
+      "contestSha256": "e5f7535a6e2d1cd7e541728e7e070c0dbac5decd5c554a08ed66a63cdd409841",
+      "seatCycleId": "seat_house_or_01_current",
+      "districtCode": "01",
+      "cycleYear": 2026,
+      "identity": {
+        "bioguideId": "B001278",
+        "officialHouseName": "Suzanne Bonamici",
+        "sourceCandidateName": "Suzanne Bonamici",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "75372f6612ccb44ea3313c84e45859cb1650fe99353567d66cdc882607e1fcf3",
+      "geography": {
+        "parentGeographyRowSha256": "30be5996cfa47d8423746514474e2145e58e2717bc438b65658bef1337f523aa",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4101",
+          "historicalCongressSession": "120",
+          "historicalGeoid": null,
+          "compatibilityDisposition": "unassessed_cd120_authority_collection_pending",
+          "compatibilityCandidate": false,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4101",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "compatibilityDisposition": "official_current_2021_plan_to_cd119_key_continuity_candidate",
+        "evidenceClass": "direct_official_current_plan_continuity_and_derived_cd119_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": {
+          "sourceLockId": "oregon-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "68091a085eb0e395869dc4284b31d7755d90e8ba4cb26b6b2752473c5484df71",
+          "packageSha256": "0d4d073597d5f5d267aede9dc882dca4103eb617e3f038a52784bade03f4d718",
+          "planLaw": "Enrolled Senate Bill 881 (SB 881-A)",
+          "adoptedOn": "2021-09-27",
+          "currentLproLayerUsesAdoptedPlan": true,
+          "stateFips": "41",
+          "districts": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06"
+          ],
+          "uniqueBlocks": 130807,
+          "assignmentSetSha256": "0b50d449553586a223d4a8303c06d01087616a8516676721aff3d0ea750f2b8c",
+          "sourcePlanToCd119ExactBlockConcordanceAssessed": false
+        }
+      },
+      "reviewRecordSha256": "d6ca6f142e413f4eda19e564668e68047fad061925aa01e854a2407aa84120be"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2026:regular:us-house:03:democratic",
+      "contestId": "or:2026:regular:us-house:03:democratic",
+      "contestSha256": "13cac08bcc74593269bd3f09c52544f1e6eaa5e7fc164a76efa31496228c6a65",
+      "seatCycleId": "seat_house_or_03_current",
+      "districtCode": "03",
+      "cycleYear": 2026,
+      "identity": {
+        "bioguideId": "D000635",
+        "officialHouseName": "Maxine Dexter",
+        "sourceCandidateName": "Maxine E Dexter",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "9dc5ac759a539305c52427ead71d1c1e4fd8b9cb093262271c8c3a056769e5ca",
+      "geography": {
+        "parentGeographyRowSha256": "48369e6df3248b9db53ad6f88e345a2e258e9d20eaaea2bfa3a952f30bd1a74b",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4103",
+          "historicalCongressSession": "120",
+          "historicalGeoid": null,
+          "compatibilityDisposition": "unassessed_cd120_authority_collection_pending",
+          "compatibilityCandidate": false,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4103",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "compatibilityDisposition": "official_current_2021_plan_to_cd119_key_continuity_candidate",
+        "evidenceClass": "direct_official_current_plan_continuity_and_derived_cd119_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": {
+          "sourceLockId": "oregon-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "68091a085eb0e395869dc4284b31d7755d90e8ba4cb26b6b2752473c5484df71",
+          "packageSha256": "0d4d073597d5f5d267aede9dc882dca4103eb617e3f038a52784bade03f4d718",
+          "planLaw": "Enrolled Senate Bill 881 (SB 881-A)",
+          "adoptedOn": "2021-09-27",
+          "currentLproLayerUsesAdoptedPlan": true,
+          "stateFips": "41",
+          "districts": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06"
+          ],
+          "uniqueBlocks": 130807,
+          "assignmentSetSha256": "0b50d449553586a223d4a8303c06d01087616a8516676721aff3d0ea750f2b8c",
+          "sourcePlanToCd119ExactBlockConcordanceAssessed": false
+        }
+      },
+      "reviewRecordSha256": "dc8534d49ea26b3cca52fc7e234cc3153a49339acf0d2dc67efacae80b91b160"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2026:regular:us-house:04:democratic",
+      "contestId": "or:2026:regular:us-house:04:democratic",
+      "contestSha256": "3430f6d52bba5d46fe31e120b9f283d0f5b2df95b8274ee25a467e518ca9ea65",
+      "seatCycleId": "seat_house_or_04_current",
+      "districtCode": "04",
+      "cycleYear": 2026,
+      "identity": {
+        "bioguideId": "H001094",
+        "officialHouseName": "Val T. Hoyle",
+        "sourceCandidateName": "Val Hoyle",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "e74d2ad88f87c6ab68289bb8146b071fdb55d609a86c928cf8b313e0a336a693",
+      "geography": {
+        "parentGeographyRowSha256": "9eb430e7e96edf0ff43aad8c0b7cb517c4b26537f1bff1abed05415c8b09e939",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4104",
+          "historicalCongressSession": "120",
+          "historicalGeoid": null,
+          "compatibilityDisposition": "unassessed_cd120_authority_collection_pending",
+          "compatibilityCandidate": false,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4104",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "compatibilityDisposition": "official_current_2021_plan_to_cd119_key_continuity_candidate",
+        "evidenceClass": "direct_official_current_plan_continuity_and_derived_cd119_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": {
+          "sourceLockId": "oregon-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "68091a085eb0e395869dc4284b31d7755d90e8ba4cb26b6b2752473c5484df71",
+          "packageSha256": "0d4d073597d5f5d267aede9dc882dca4103eb617e3f038a52784bade03f4d718",
+          "planLaw": "Enrolled Senate Bill 881 (SB 881-A)",
+          "adoptedOn": "2021-09-27",
+          "currentLproLayerUsesAdoptedPlan": true,
+          "stateFips": "41",
+          "districts": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06"
+          ],
+          "uniqueBlocks": 130807,
+          "assignmentSetSha256": "0b50d449553586a223d4a8303c06d01087616a8516676721aff3d0ea750f2b8c",
+          "sourcePlanToCd119ExactBlockConcordanceAssessed": false
+        }
+      },
+      "reviewRecordSha256": "855b9b24f9ebe63e4a2f38a66bf44e307f5e92d1967bb1a89f078082c671523c"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2026:regular:us-house:05:democratic",
+      "contestId": "or:2026:regular:us-house:05:democratic",
+      "contestSha256": "f68e86aed23f7842308ec38bef50b14ecd289f2bd6b327d47fb07d987404252a",
+      "seatCycleId": "seat_house_or_05_current",
+      "districtCode": "05",
+      "cycleYear": 2026,
+      "identity": {
+        "bioguideId": "B001326",
+        "officialHouseName": "Janelle S. Bynum",
+        "sourceCandidateName": "Janelle S Bynum",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "c14ef4cdb2c3815ec16cc9a1b90b41e42664ab8b9377749296aa58fbec4c7e50",
+      "geography": {
+        "parentGeographyRowSha256": "f3dc2f932cce49ee665762c710611c689592c6c4c61fe845fe40d57c7bdd78ef",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4105",
+          "historicalCongressSession": "120",
+          "historicalGeoid": null,
+          "compatibilityDisposition": "unassessed_cd120_authority_collection_pending",
+          "compatibilityCandidate": false,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4105",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "compatibilityDisposition": "official_current_2021_plan_to_cd119_key_continuity_candidate",
+        "evidenceClass": "direct_official_current_plan_continuity_and_derived_cd119_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": {
+          "sourceLockId": "oregon-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "68091a085eb0e395869dc4284b31d7755d90e8ba4cb26b6b2752473c5484df71",
+          "packageSha256": "0d4d073597d5f5d267aede9dc882dca4103eb617e3f038a52784bade03f4d718",
+          "planLaw": "Enrolled Senate Bill 881 (SB 881-A)",
+          "adoptedOn": "2021-09-27",
+          "currentLproLayerUsesAdoptedPlan": true,
+          "stateFips": "41",
+          "districts": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06"
+          ],
+          "uniqueBlocks": 130807,
+          "assignmentSetSha256": "0b50d449553586a223d4a8303c06d01087616a8516676721aff3d0ea750f2b8c",
+          "sourcePlanToCd119ExactBlockConcordanceAssessed": false
+        }
+      },
+      "reviewRecordSha256": "63a0e4f0a32f16d32461db7b02d4e679cb6f4eab5830aa39168cd74db9b62975"
+    },
+    {
+      "reviewRecordId": "or-primary-joint:or:2026:regular:us-house:06:democratic",
+      "contestId": "or:2026:regular:us-house:06:democratic",
+      "contestSha256": "a35c72392fc27b197a7cd3e0be3bca4e5a2c39be23af7d5e4223a4e9ae8a9f73",
+      "seatCycleId": "seat_house_or_06_current",
+      "districtCode": "06",
+      "cycleYear": 2026,
+      "identity": {
+        "bioguideId": "S001226",
+        "officialHouseName": "Andrea Salinas",
+        "sourceCandidateName": "Andrea Salinas",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "identityApproved": false
+      },
+      "reviewDisposition": "identity_and_geography_candidates_pending_independent_review",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "geography_candidate_pending_review",
+        "parent_candidates_not_approved_by_join",
+        "identity_projection_preserved_from_joint_v1",
+        "geography_projection_composed_from_geography_v2"
+      ],
+      "parentReviewRecordSha256": "19a191d4a79367ca8d0df00dbf657dfc5aa4c29fb1267a435cd2b7f58d026eb0",
+      "geography": {
+        "parentGeographyRowSha256": "4311403afe09b6f2f5afd205f67561231cfee2d3eaac4b93c75a76ddac5b548c",
+        "parentV1GeographyFields": {
+          "targetCd119Geoid": "4106",
+          "historicalCongressSession": "120",
+          "historicalGeoid": null,
+          "compatibilityDisposition": "unassessed_cd120_authority_collection_pending",
+          "compatibilityCandidate": false,
+          "compatibilityApproved": false
+        },
+        "targetCd119Geoid": "4106",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "compatibilityDisposition": "official_current_2021_plan_to_cd119_key_continuity_candidate",
+        "evidenceClass": "direct_official_current_plan_continuity_and_derived_cd119_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false,
+        "planContinuityEvidence": {
+          "sourceLockId": "oregon-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "68091a085eb0e395869dc4284b31d7755d90e8ba4cb26b6b2752473c5484df71",
+          "packageSha256": "0d4d073597d5f5d267aede9dc882dca4103eb617e3f038a52784bade03f4d718",
+          "planLaw": "Enrolled Senate Bill 881 (SB 881-A)",
+          "adoptedOn": "2021-09-27",
+          "currentLproLayerUsesAdoptedPlan": true,
+          "stateFips": "41",
+          "districts": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06"
+          ],
+          "uniqueBlocks": 130807,
+          "assignmentSetSha256": "0b50d449553586a223d4a8303c06d01087616a8516676721aff3d0ea750f2b8c",
+          "sourcePlanToCd119ExactBlockConcordanceAssessed": false
+        }
+      },
+      "reviewRecordSha256": "4da6a10edabce9ab5a8f7c27684820afeea50bd3dcc4ef1d91b1f0b8e543843c"
+    }
+  ],
+  "reviewRecordSetSha256": "03733a88a34ced8fdb24e90d6dca7ba18353f9355c63fac12401344a04bab661",
+  "decisionSupport": {
+    "identityDecisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+    "geographyDecisionId": "approve-historical-district-cd119-compatibility-v1",
+    "resolutions": {
+      "identity": null,
+      "geography": null
+    },
+    "lifecycle": "review_queue_composes_v2_geography_without_an_independent_decision"
+  },
+  "packageSha256": "ca6c9e5dc2253e1a0ff7bc8da303d4dabed044760cb6628a6a24beb63898a5e0"
+}
