@@ -1,0 +1,132 @@
+{
+  "schema": "new-jersey-2026-congressional-plan-authority-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T22:00:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "authority": {
+    "currentPlanLabel": "NJ Congressional Districts 2022-2031",
+    "adoptedOn": "2021-12-22",
+    "continuityStatute": "NJSA 19:46-12",
+    "conclusion": "official_current_2022_2031_plan_continues_for_2026_absent_invalidating_judgment",
+    "censusCd120ProductClaimed": false
+  },
+  "sources": [
+    {
+      "sourceLockId": "nj-division-elections-current-publications-20260806",
+      "sha256": "8467d476299f067bee7730c4d3166815a10c712eb03677a2bc762cb5e850e305",
+      "kind": "official_current_authority",
+      "parentIds": []
+    },
+    {
+      "sourceLockId": "nj-congressional-districts-2022-2031-map",
+      "sha256": "50b402ec5e72d748c9a0df0874da47b5033bfef7bc23051b0f1971df1d8d5989",
+      "kind": "official_plan_map",
+      "parentIds": [
+        "nj-division-elections-current-publications-20260806"
+      ]
+    },
+    {
+      "sourceLockId": "nj-congressional-districts-2022-2031-map-text",
+      "sha256": "eccd3c9a06f42fc5c3b5d466bccdf512b2497a7ea2161810504b046a7a32cb67",
+      "kind": "derived_extract",
+      "parentIds": [
+        "nj-congressional-districts-2022-2031-map"
+      ]
+    },
+    {
+      "sourceLockId": "nj-njsa-19-46-12-current-statute-20260806",
+      "sha256": "674521be68ed4439af64067039350b3e02d9781acaa89aad806568e8013941d1",
+      "kind": "official_statute",
+      "parentIds": []
+    },
+    {
+      "sourceLockId": "nj-congressional-2022-plan-components-report",
+      "sha256": "2e12b2f7c9ef3537797179ce289ae1141e72eb0222eeda7b6afbf5382b37f994",
+      "kind": "official_plan_components",
+      "parentIds": [
+        "nj-division-elections-current-publications-20260806"
+      ]
+    },
+    {
+      "sourceLockId": "nj-congressional-2022-plan-components-report-text",
+      "sha256": "2448443c4dbc07c77a2978404b3cfa9a3efbd4ff804d9fb4c443d7b5b5d95d33",
+      "kind": "derived_extract",
+      "parentIds": [
+        "nj-congressional-2022-plan-components-report"
+      ]
+    },
+    {
+      "sourceLockId": "census-cd119-new-jersey-block-equivalency-extract-20260806",
+      "sha256": "c1466600e71aba587fa51258a4f242cebd6be4faad38750773d08654762bfb5d",
+      "kind": "derived_extract",
+      "parentIds": [
+        "census-cd119-block-equivalency-bundle-20260805"
+      ]
+    }
+  ],
+  "blockInventory": {
+    "stateFips": "34",
+    "uniqueBlocks": 137972,
+    "districts": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12"
+    ],
+    "assignmentSetSha256": "22a3ba9403b5476b1170b76fdd9bca22f582ee6062a02805b6efcdbb6dd6d9a2"
+  },
+  "planComponentsAssessment": {
+    "planName": "NJ_CONG_SUMBIT12222021",
+    "explicitBlocks": 11858,
+    "districts": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06",
+      "07",
+      "08",
+      "09",
+      "10",
+      "11",
+      "12"
+    ],
+    "matchingCd119Assignments": 11694,
+    "mismatchedCd119Assignments": 164,
+    "mismatchPairs": {
+      "district08ToCd11910": 86,
+      "district10ToCd11908": 78
+    },
+    "useAsAdoptedMembershipEvidence": false,
+    "disposition": "retained_official_ancillary_report_excluded_from_membership_claim_due_to_164_assignment_mismatches",
+    "assignmentSetSha256": "1e97c585eb593bb848b52356da585740fde5dab94de358c15d4ddb0da843918b"
+  },
+  "methodology": {
+    "authorityBasis": "current_division_publication_plus_adopted_map_plus_njsa_19_46_12",
+    "censusBlockRole": "complete_cd119_membership_for_the_explicitly_continuing_state_plan",
+    "rawGeometryEqualityAssessed": false,
+    "overlapThresholdUsed": false,
+    "districtNumberContinuityAloneUsed": false,
+    "populationVoterOrElectoralWeightsUsed": false,
+    "courtInvalidationAssessment": "not_separately_researched_or_retained",
+    "reuseAssessment": "public_official_sources_no_explicit_reuse_license_identified"
+  },
+  "lifecycle": {
+    "geographyCandidateCreated": false,
+    "automaticallyApprovedRows": 0,
+    "scoreEligibleRows": 0,
+    "publicationEligible": false,
+    "deployed": false
+  },
+  "packageSha256": "8bc2c27ba242db9161dc50deae74cf57436a75684f9dbe63ef9da03b09712327"
+}
