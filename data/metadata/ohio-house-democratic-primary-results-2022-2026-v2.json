@@ -1,0 +1,745 @@
+{
+  "schema": "ohio-house-democratic-primary-results-2022-2026-v2",
+  "version": 2,
+  "generatedAt": "2026-08-06T18:30:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "status": "official_canvass_result_candidate_with_partial_2022_county_progress",
+  "parentReceipt": {
+    "id": "ohio-house-democratic-primary-results-2022-2026-v1",
+    "fileSha256": "84bc99ea4e6fb80d726f50900aeed3a71707c114895a0ba85fe98cba47cae848",
+    "packageSha256": "110dc14b66d637475df77560d4790bfed5c7770eb9e85d8cebd199a9c3c68327"
+  },
+  "geographyAuthority": {
+    "url": "https://www.ohiosos.gov/assets/dir2022-27-04-congressionaldistrictfilinglocation-sos-2022-03-02.pdf",
+    "status": "verified_location_not_retained_cloudflare_403",
+    "use": "research_derived_county_closure_matrix_not_geography_approval"
+  },
+  "countyCoverage2022": [
+    {
+      "districtCode": "01",
+      "required": [
+        "Hamilton:partial",
+        "Warren:full"
+      ],
+      "retained": [
+        "Hamilton:partial"
+      ],
+      "missing": [
+        "Warren:full"
+      ]
+    },
+    {
+      "districtCode": "03",
+      "required": [
+        "Franklin:partial"
+      ],
+      "retained": [
+        "Franklin:partial"
+      ],
+      "missing": []
+    },
+    {
+      "districtCode": "09",
+      "required": [
+        "Defiance:full",
+        "Erie:full",
+        "Fulton:full",
+        "Lucas:full",
+        "Ottawa:full",
+        "Sandusky:full",
+        "Williams:full",
+        "Wood:partial"
+      ],
+      "retained": [
+        "Wood:partial"
+      ],
+      "missing": [
+        "Defiance:full",
+        "Erie:full",
+        "Fulton:full",
+        "Lucas:full",
+        "Ottawa:full",
+        "Sandusky:full",
+        "Williams:full"
+      ]
+    },
+    {
+      "districtCode": "11",
+      "required": [
+        "Cuyahoga:partial"
+      ],
+      "retained": [
+        "Cuyahoga:partial"
+      ],
+      "missing": []
+    },
+    {
+      "districtCode": "13",
+      "required": [
+        "Portage:partial",
+        "Stark:partial",
+        "Summit:full"
+      ],
+      "retained": [
+        "Summit:full"
+      ],
+      "missing": [
+        "Portage:partial",
+        "Stark:partial"
+      ]
+    }
+  ],
+  "countyResultSegments2022": [
+    {
+      "county": "Hamilton",
+      "districtCode": "01",
+      "candidates": [
+        {
+          "sourceCandidateName": "Greg Landsman",
+          "candidacyKind": "named_candidate",
+          "votes": 23463
+        }
+      ],
+      "sourceTotalVotes": 23463,
+      "precinctsReported": 374,
+      "precinctsTotal": 374,
+      "sourceLockId": "oh-2022-may-primary-hamilton-official-cumulative",
+      "sourceFileSha256": "43298f4a4f5cf37b3a18a5cc66f88b4bf29c4136fb7ea092268ffa257341ab22",
+      "semanticTextSha256": "198a07af9f4dd8ba644b91e32248cd4e8eb1ee3b307356056c79d07b22c2e5cc",
+      "lifecycle": "county_segment_progress_not_district_observation"
+    },
+    {
+      "county": "Franklin",
+      "districtCode": "03",
+      "candidates": [
+        {
+          "sourceCandidateName": "Joyce Beatty",
+          "candidacyKind": "named_candidate",
+          "votes": 48241
+        }
+      ],
+      "sourceTotalVotes": 48241,
+      "precinctsReported": 543,
+      "precinctsTotal": 543,
+      "sourceLockId": "oh-2022-may-primary-franklin-official-group-detail",
+      "sourceFileSha256": "d75ce506f457d7974b4a8410b3f82996238bad19f802209494a4099667d1fffa",
+      "semanticTextSha256": "bd05a3c41dd3c827359768dfe025ec6182fb1033d638b7d4dac7e9c08cb9bd99",
+      "lifecycle": "county_segment_progress_not_district_observation"
+    },
+    {
+      "county": "Wood",
+      "districtCode": "09",
+      "candidates": [
+        {
+          "sourceCandidateName": "Marcy Kaptur",
+          "candidacyKind": "named_candidate",
+          "votes": 2547
+        }
+      ],
+      "sourceTotalVotes": 2547,
+      "precinctsReported": 43,
+      "precinctsTotal": 43,
+      "sourceLockId": "oh-2022-may-primary-wood-official-summary",
+      "sourceFileSha256": "e7d43e9bbf0a471e91b3aae25ffc7ff6c04b409161d057ca7614e207c35e19bb",
+      "semanticTextSha256": "b56374a8c811e8c1a8cba15b20df9bd511b548d475ce7a281b272759ef12ebd9",
+      "lifecycle": "county_segment_progress_not_district_observation"
+    },
+    {
+      "county": "Cuyahoga",
+      "districtCode": "11",
+      "candidates": [
+        {
+          "sourceCandidateName": "Shontel Brown",
+          "candidacyKind": "named_candidate",
+          "votes": 44841
+        },
+        {
+          "sourceCandidateName": "Nina Turner",
+          "candidacyKind": "named_candidate",
+          "votes": 22830
+        }
+      ],
+      "sourceTotalVotes": 67671,
+      "precinctsReported": null,
+      "precinctsTotal": null,
+      "sourceLockId": "oh-2022-may-primary-cuyahoga-official-results-by-contest",
+      "sourceFileSha256": "a88f4724ed265e406fd5d711b402a07c753bb704e1eda4d8e3af97da8ebdbfb6",
+      "semanticTextSha256": "3661710fcd59f22d292ce62c28d8a43f29dcaf5af238712b30f8a94423f7108c",
+      "lifecycle": "county_segment_progress_not_district_observation"
+    },
+    {
+      "county": "Summit",
+      "districtCode": "13",
+      "candidates": [
+        {
+          "sourceCandidateName": "Emilia Sykes",
+          "candidacyKind": "named_candidate",
+          "votes": 26466
+        }
+      ],
+      "sourceTotalVotes": 26466,
+      "precinctsReported": 420,
+      "precinctsTotal": 420,
+      "sourceLockId": "oh-2022-may-primary-summit-amended-official-summary",
+      "sourceFileSha256": "c76d2eafd052ff23404c6f4ea259de70e1f56a3c976f9773ad24f9773142abf1",
+      "semanticTextSha256": "c76d2eafd052ff23404c6f4ea259de70e1f56a3c976f9773ad24f9773142abf1",
+      "lifecycle": "county_segment_progress_not_district_observation"
+    }
+  ],
+  "sources": [
+    {
+      "id": "oh-2022-may-primary-cuyahoga-official-results-by-contest",
+      "url": "https://boe.cuyahogacounty.gov/elections/GetDocumentById/68d6ce83-b017-4955-867f-9a3e4c32e022/",
+      "retainedPath": "data/source/elections/primary-results/ohio/2022/county-boe/cuyahoga-official-results-by-contest.html",
+      "retainedStatus": "retained",
+      "byteSize": 262144,
+      "sha256": "a88f4724ed265e406fd5d711b402a07c753bb704e1eda4d8e3af97da8ebdbfb6",
+      "kind": "official_county_canvass_result",
+      "parentIds": []
+    },
+    {
+      "id": "oh-2022-may-primary-democratic-summary",
+      "url": "https://publicfiles.ohiosos.gov/election-results/past-elections/2022/Primary%20Election%3A%20May%203%2C%202022/group2/summarylevelofficialresults_2022-05-03_primaryelection_democratic.xlsx",
+      "retainedPath": "data/source/elections/primary-results/ohio/2022/may-03-democratic-summary.xlsx",
+      "retainedStatus": "retained",
+      "byteSize": 62772,
+      "sha256": "8ce6af5fce316abea9cfd3477926093e20f1eba4e54edc943a83ec1a5a8a8e9c",
+      "kind": "official_statewide_summary_exclusion_evidence",
+      "parentIds": [
+        "oh-election-results-files-index-20260806"
+      ]
+    },
+    {
+      "id": "oh-2022-may-primary-franklin-official-group-detail",
+      "url": "https://vote.franklincountyohio.gov/getmedia/ac77f783-6f22-404e-9c64-3b527e62b4fd/Official-Results-Franklin-County-Only-Group-Detail",
+      "retainedPath": "data/source/elections/primary-results/ohio/2022/county-boe/franklin-official-group-detail.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 268555,
+      "sha256": "d75ce506f457d7974b4a8410b3f82996238bad19f802209494a4099667d1fffa",
+      "kind": "official_county_canvass_result",
+      "parentIds": []
+    },
+    {
+      "id": "oh-2022-may-primary-hamilton-official-cumulative",
+      "url": "https://votehamiltoncountyohio.gov/files/files/elections/May2022/P22%20Official%20Cumulative%28FINAL%29%28NoPrecExecs%29.pdf",
+      "retainedPath": "data/source/elections/primary-results/ohio/2022/county-boe/hamilton-official-cumulative.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 372037,
+      "sha256": "43298f4a4f5cf37b3a18a5cc66f88b4bf29c4136fb7ea092268ffa257341ab22",
+      "kind": "official_county_canvass_result",
+      "parentIds": []
+    },
+    {
+      "id": "oh-2022-may-primary-portal-manifest-extract",
+      "url": "urn:dsa-seats:ohio:2022-may-primary:official-portal-manifest-extract:v1",
+      "retainedPath": "data/source/elections/primary-results/ohio/2022/may-03-portal-manifest-extract.json",
+      "retainedStatus": "retained",
+      "byteSize": 5062,
+      "sha256": "69596596733a6a88b3433a56bd85a777e018ba8851a1f8ae0cd882259c30dc86",
+      "kind": "derived_extract",
+      "parentIds": [
+        "oh-election-results-files-index-20260806"
+      ]
+    },
+    {
+      "id": "oh-2022-may-primary-summit-amended-official-summary",
+      "url": "https://www.boe.ohio.gov/summit/c/elecres/elect050322P.htm",
+      "retainedPath": "data/source/elections/primary-results/ohio/2022/county-boe/summit-amended-official-summary.html",
+      "retainedStatus": "retained",
+      "byteSize": 174228,
+      "sha256": "c76d2eafd052ff23404c6f4ea259de70e1f56a3c976f9773ad24f9773142abf1",
+      "kind": "official_county_canvass_result",
+      "parentIds": []
+    },
+    {
+      "id": "oh-2022-may-primary-wood-official-summary",
+      "url": "https://www.co.wood.oh.us/BOE/Election_Results/2022/05_2022%20OfficialSummaryReportRPT.pdf",
+      "retainedPath": "data/source/elections/primary-results/ohio/2022/county-boe/wood-official-summary.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 192093,
+      "sha256": "e7d43e9bbf0a471e91b3aae25ffc7ff6c04b409161d057ca7614e207c35e19bb",
+      "kind": "official_county_canvass_result",
+      "parentIds": []
+    },
+    {
+      "id": "oh-2024-march-primary-democratic-summary",
+      "url": "https://publicfiles.ohiosos.gov/election-results/past-elections/2024/Primary%20Election%3A%20March%2019%2C%202024/group1/summary-level-official-results-primary-2024---democratic.xlsx",
+      "retainedPath": "data/source/elections/primary-results/ohio/2024/march-19-democratic-summary.xlsx",
+      "retainedStatus": "retained",
+      "byteSize": 156100,
+      "sha256": "94b4ec212bc03bd90d8fe9f0acedac591affbe91a71aa02d63c73e703660ed64",
+      "kind": "official_statewide_canvass_result",
+      "parentIds": [
+        "oh-election-results-files-index-20260806"
+      ]
+    },
+    {
+      "id": "oh-2026-may-primary-democratic-summary",
+      "url": "https://publicfiles.ohiosos.gov/election-results/past-elections/2026/Primary%2BSpecial%20Election%20-%20May%205%2C%202026/group1/summary-level-official-results-2026-primary---democratic.xlsx",
+      "retainedPath": "data/source/elections/primary-results/ohio/2026/may-05-democratic-summary.xlsx",
+      "retainedStatus": "retained",
+      "byteSize": 261632,
+      "sha256": "d29da75827f0375a92e26a934e37e742a6cb46c1c5638912246312b0a0293118",
+      "kind": "official_statewide_canvass_result",
+      "parentIds": [
+        "oh-election-results-files-index-20260806"
+      ]
+    },
+    {
+      "id": "oh-election-results-files-index-20260806",
+      "url": "https://publicfiles.ohiosos.gov/election-results/files-index.json",
+      "retainedPath": "data/source/elections/primary-results/ohio/portal/files-index-20260806.json",
+      "retainedStatus": "retained",
+      "byteSize": 363585,
+      "sha256": "738eb258e436459b7bb3e5ad6091e9753f60d0a9b3adeb68f7d0fc76be5da056",
+      "kind": "official_results_file_manifest",
+      "parentIds": []
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "oh:2024:regular:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-19",
+      "stateCode": "OH",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "sourceLockId": "oh-2024-march-primary-democratic-summary",
+      "sourceFileSha256": "94b4ec212bc03bd90d8fe9f0acedac591affbe91a71aa02d63c73e703660ed64",
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Greg Landsman",
+          "candidacyKind": "named_candidate",
+          "votes": 28025
+        }
+      ],
+      "sourceTotalVotes": 28025,
+      "voteReconciliation": "candidate_sum_equals_source_total_and_county_matrix",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "eb79f8d3d54cae01f05e29130e10d6d3a1bbffe1ec2a44b6f564d60ce3756b1f"
+    },
+    {
+      "contestId": "oh:2024:regular:us-house:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-19",
+      "stateCode": "OH",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "sourceLockId": "oh-2024-march-primary-democratic-summary",
+      "sourceFileSha256": "94b4ec212bc03bd90d8fe9f0acedac591affbe91a71aa02d63c73e703660ed64",
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Joyce Beatty",
+          "candidacyKind": "named_candidate",
+          "votes": 46733
+        }
+      ],
+      "sourceTotalVotes": 46733,
+      "voteReconciliation": "candidate_sum_equals_source_total_and_county_matrix",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "c7c34ea86db9302ee4f57f919581a03b52e4ea701e09b0a614b97e3f7fe7e120"
+    },
+    {
+      "contestId": "oh:2024:regular:us-house:09:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-19",
+      "stateCode": "OH",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "sourceLockId": "oh-2024-march-primary-democratic-summary",
+      "sourceFileSha256": "94b4ec212bc03bd90d8fe9f0acedac591affbe91a71aa02d63c73e703660ed64",
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Marcy Kaptur",
+          "candidacyKind": "named_candidate",
+          "votes": 38398
+        }
+      ],
+      "sourceTotalVotes": 38398,
+      "voteReconciliation": "candidate_sum_equals_source_total_and_county_matrix",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "74fbadc4b2b335ff46c0afbacb482026ae6fd7d2d2f7c1b4e4d47aaad5c25fd2"
+    },
+    {
+      "contestId": "oh:2024:regular:us-house:11:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-19",
+      "stateCode": "OH",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "sourceLockId": "oh-2024-march-primary-democratic-summary",
+      "sourceFileSha256": "94b4ec212bc03bd90d8fe9f0acedac591affbe91a71aa02d63c73e703660ed64",
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Shontel Brown",
+          "candidacyKind": "named_candidate",
+          "votes": 61573
+        }
+      ],
+      "sourceTotalVotes": 61573,
+      "voteReconciliation": "candidate_sum_equals_source_total_and_county_matrix",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "e94015232407e89f9630f0d6ba66aad14bb2721c726dfa31ca0820bccfca8fcd"
+    },
+    {
+      "contestId": "oh:2024:regular:us-house:13:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-19",
+      "stateCode": "OH",
+      "districtCode": "13",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "sourceLockId": "oh-2024-march-primary-democratic-summary",
+      "sourceFileSha256": "94b4ec212bc03bd90d8fe9f0acedac591affbe91a71aa02d63c73e703660ed64",
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Emilia Sykes",
+          "candidacyKind": "named_candidate",
+          "votes": 41257
+        }
+      ],
+      "sourceTotalVotes": 41257,
+      "voteReconciliation": "candidate_sum_equals_source_total_and_county_matrix",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "382ef7d2ac32af4a765c70388609ec1d0c1b05c5af22e214d671a5f1db450eab"
+    },
+    {
+      "contestId": "oh:2026:regular:us-house:01:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-05",
+      "stateCode": "OH",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "sourceLockId": "oh-2026-may-primary-democratic-summary",
+      "sourceFileSha256": "d29da75827f0375a92e26a934e37e742a6cb46c1c5638912246312b0a0293118",
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Greg Landsman",
+          "candidacyKind": "named_candidate",
+          "votes": 36984
+        },
+        {
+          "sourceCandidateName": "Damon Lynch IV",
+          "candidacyKind": "named_candidate",
+          "votes": 17483
+        }
+      ],
+      "sourceTotalVotes": 54467,
+      "voteReconciliation": "candidate_sum_equals_source_total_and_county_matrix",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "bf321ae077a579c157d39418ac8b53bf7d41a669a248ae81a660815172c319d3"
+    },
+    {
+      "contestId": "oh:2026:regular:us-house:03:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-05",
+      "stateCode": "OH",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "sourceLockId": "oh-2026-may-primary-democratic-summary",
+      "sourceFileSha256": "d29da75827f0375a92e26a934e37e742a6cb46c1c5638912246312b0a0293118",
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Joyce Beatty",
+          "candidacyKind": "named_candidate",
+          "votes": 62851
+        },
+        {
+          "sourceCandidateName": "Joe Gerard",
+          "candidacyKind": "named_candidate",
+          "votes": 16381
+        }
+      ],
+      "sourceTotalVotes": 79232,
+      "voteReconciliation": "candidate_sum_equals_source_total_and_county_matrix",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "8e65426d6d16b04ca31319b58974a4c53dbd640b3e52b609556fd1a94dc4f2ba"
+    },
+    {
+      "contestId": "oh:2026:regular:us-house:09:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-05",
+      "stateCode": "OH",
+      "districtCode": "09",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "sourceLockId": "oh-2026-may-primary-democratic-summary",
+      "sourceFileSha256": "d29da75827f0375a92e26a934e37e742a6cb46c1c5638912246312b0a0293118",
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Marcy Kaptur",
+          "candidacyKind": "named_candidate",
+          "votes": 45827
+        }
+      ],
+      "sourceTotalVotes": 45827,
+      "voteReconciliation": "candidate_sum_equals_source_total_and_county_matrix",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a6f8189ce9e3be8e704a6ed8924953be326c9c2616703179054a573412066a92"
+    },
+    {
+      "contestId": "oh:2026:regular:us-house:11:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-05",
+      "stateCode": "OH",
+      "districtCode": "11",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "sourceLockId": "oh-2026-may-primary-democratic-summary",
+      "sourceFileSha256": "d29da75827f0375a92e26a934e37e742a6cb46c1c5638912246312b0a0293118",
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Shontel M. Brown",
+          "candidacyKind": "named_candidate",
+          "votes": 70357
+        },
+        {
+          "sourceCandidateName": "Sean Freeman",
+          "candidacyKind": "named_candidate",
+          "votes": 5421
+        },
+        {
+          "sourceCandidateName": "Ardelia Holmes",
+          "candidacyKind": "named_candidate",
+          "votes": 6529
+        }
+      ],
+      "sourceTotalVotes": 82307,
+      "voteReconciliation": "candidate_sum_equals_source_total_and_county_matrix",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "117e6678a3c56778faa0b95995a15887dac5922afc45779353d65229d5805f59"
+    },
+    {
+      "contestId": "oh:2026:regular:us-house:13:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-05",
+      "stateCode": "OH",
+      "districtCode": "13",
+      "party": "Democratic",
+      "office": "U.S. Representative",
+      "eventKind": "regular",
+      "stage": "primary",
+      "nominationSystem": "partisan_primary",
+      "sourceLockId": "oh-2026-may-primary-democratic-summary",
+      "sourceFileSha256": "d29da75827f0375a92e26a934e37e742a6cb46c1c5638912246312b0a0293118",
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "disposition": "reported_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Emilia Sykes",
+          "candidacyKind": "named_candidate",
+          "votes": 62768
+        }
+      ],
+      "sourceTotalVotes": 62768,
+      "voteReconciliation": "candidate_sum_equals_source_total_and_county_matrix",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a00262690a0bdfb2996f63ae1f9a3f142b320fa5ca5e5577ce96f130419e565c"
+    }
+  ],
+  "summary": {
+    "cyclesWithHouseResults": 2,
+    "statewideContestsValidated": 30,
+    "statewideCandidatesValidated": 71,
+    "statewideVotesValidated": 1238127,
+    "targetObservations": 10,
+    "targetCandidates": 14,
+    "targetVotes": 540587,
+    "namedWriteInCandidates": 1,
+    "countySegmentsRequired2022": 15,
+    "countySegmentsRetained2022": 5,
+    "countySegmentCandidates2022": 6,
+    "countySegmentVotes2022": 168388,
+    "districtClosureClaims2022": 0,
+    "districtsPending2022": 5,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0,
+    "contestSetSha256": "8641d3802c2791c0d18bc3b32d3f5c4337de560d4a7d4141f98384e9964de360"
+  },
+  "limitations": [
+    "The Ohio Secretary of State March 2, 2022 county-population and filing-location PDF is verified at its official URL but its bytes remain unretained because the portal returned a Cloudflare 403; the exact 15-segment matrix is research-derived and is not a geography approval.",
+    "No 2022 district observation is emitted because the controlling county-composition authority bytes are not retained. Even rows whose research-derived matrix has no missing county segment remain county-segment progress rather than district totals.",
+    "No unofficial Portage report, modern district map, population allocation, or August 2 legislative-primary result is substituted. Stark and Portage remain unresolved alongside the required whole-county sources.",
+    "The county reports label themselves official or amended official results. Separate signed county certification instruments are not retained, so the receipt does not claim a stronger chain.",
+    "No numerical plurality is converted into a source winner marker, identity, geography approval, selection, evaluator value, or publication approval."
+  ],
+  "unresolvedGates": [
+    "retain_march_2_2022_congressional_county_universe_authority_bytes",
+    "acquire_warren_and_seven_oh09_whole_county_official_results",
+    "acquire_stark_and_portage_oh13_official_district_scoped_results",
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "8a5de1394634fa2f415b380ea2f7f49b8a142cbfe5a62dfc278f917af9281636"
+}
