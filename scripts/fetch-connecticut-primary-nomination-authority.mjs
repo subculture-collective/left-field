@@ -21,6 +21,10 @@ const sources = [
 ];
 const cache = process.env.DSA_SEATS_CT_NOMINATION_AUTHORITY_CACHE_DIR;
 const hash = (b) => createHash("sha256").update(b).digest("hex");
+if (process.env.DSA_SEATS_CT_NOMINATION_AUTHORITY_DESCRIBE === "1") {
+  process.stdout.write(`${JSON.stringify({ verifiedSources: sources.length, retainedSources: sources.filter((s) => s[5]).length, sources: sources.map(([id,,,size,sha,output]) => ({ id, byteSize: size, sha256: sha, retained: Boolean(output) })) })}\n`);
+  process.exit(0);
+}
 for (const [id, path, cacheName, size, sha, output] of sources) {
   const bytes = cache ? await readFile(resolve(cache, cacheName)) : Buffer.from(await (await fetch(`${base}${path}`, { signal: AbortSignal.timeout(120000), headers: { "user-agent": "dsa-seats-source-lock/1.0" } })).arrayBuffer());
   if (bytes.length !== size || hash(bytes) !== sha) throw new Error(`CT_NOMINATION_AUTHORITY_SOURCE_DRIFT:${id}`);

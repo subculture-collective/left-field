@@ -1,0 +1,393 @@
+{
+  "schema": "connecticut-primary-nomination-authority-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T09:00:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "originalPublisher": "Connecticut Secretary of the State",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "licenseStatus": "unassessed",
+  "sources": [
+    {
+      "id": "ct-2022-endorsement-certificate-index",
+      "url": "https://portal.ct.gov/sots/election-services/certificate-of-endorsement/2022-certificate-of-endorsements?archived=true",
+      "retainedPath": "data/source/elections/primary-results/connecticut/authority/2022-endorsement-certificate-index.html",
+      "retainedStatus": "retained",
+      "byteSize": 124616,
+      "sha256": "288681658f136c1d62c2720e1d8c37a5c1a9daab307b2f0c29820c71659c5f83",
+      "kind": "official_endorsement_certificate_index",
+      "parentIds": []
+    },
+    {
+      "id": "ct-2024-endorsement-certificate-index",
+      "url": "https://portal.ct.gov/sots/election-services/certificate-of-endorsement/2024-certificates-of-endorsement",
+      "retainedPath": "data/source/elections/primary-results/connecticut/authority/2024-endorsement-certificate-index.html",
+      "retainedStatus": "retained",
+      "byteSize": 179618,
+      "sha256": "b61be244d22a3f2e2582f270ec7b5682a301a4d0bc0a6c27f40df79a092b55a9",
+      "kind": "official_endorsement_certificate_index",
+      "parentIds": []
+    },
+    {
+      "id": "ct-2024-democratic-primary-candidate-list-index",
+      "url": "https://portal.ct.gov/sots/election-services/list_of_candidates/2024-august-primary",
+      "retainedPath": "data/source/elections/primary-results/connecticut/authority/2024-democratic-primary-candidate-list-index.html",
+      "retainedStatus": "retained",
+      "byteSize": 27388,
+      "sha256": "5b40484e94f603bd6403bf116e03673b493681e09c67cddc267727f30d676db6",
+      "kind": "official_primary_candidate_list_index",
+      "parentIds": []
+    },
+    {
+      "id": "ct-2022-cd01-endorsement-certificate-bundle",
+      "url": "https://portal.ct.gov/-/media/sots/electionservices/certificates_of_party_endorsement/2022/cd-1-dem-and-rep.pdf?rev=28016969944d47d89e603b3e6e38fb29&hash=02B40F915E6BD608057D1CD6EC361EE4",
+      "retainedPath": null,
+      "retainedStatus": "nonretained",
+      "byteSize": 748658,
+      "sha256": "69a4fed16807683dc08b2513b8328d46c060cbb3ad75542cd1e02a1bb1606bba",
+      "kind": "official_endorsement_certificate_bundle",
+      "parentIds": [
+        "ct-2022-endorsement-certificate-index"
+      ]
+    },
+    {
+      "id": "ct-2022-cd02-endorsement-certificate-bundle",
+      "url": "https://portal.ct.gov/-/media/sots/electionservices/certificates_of_party_endorsement/2022/cd-2-dem-and-rep.pdf?rev=3be0520a3c634ce8bd14927d5b00920c&hash=6E6AADD54B7281A9E31D1C7F8459449B",
+      "retainedPath": null,
+      "retainedStatus": "nonretained",
+      "byteSize": 541001,
+      "sha256": "560c3d15bac6b0c6890238f8b9cc8137719d301b8b78bbc5c340ac50f672226c",
+      "kind": "official_endorsement_certificate_bundle",
+      "parentIds": [
+        "ct-2022-endorsement-certificate-index"
+      ]
+    },
+    {
+      "id": "ct-2022-cd03-endorsement-certificate-bundle",
+      "url": "https://portal.ct.gov/-/media/sots/electionservices/certificates_of_party_endorsement/2022/cd-3-dem-and-rep.pdf?rev=e01383e8b5274192be0bab85b911ce59&hash=5FB2912568C5DAF275433D7CCA72F3AC",
+      "retainedPath": null,
+      "retainedStatus": "nonretained",
+      "byteSize": 559171,
+      "sha256": "005da7e6a63eb413711062846eaf338c3faf4d86d595fc1b5d5eaf259c843d14",
+      "kind": "official_endorsement_certificate_bundle",
+      "parentIds": [
+        "ct-2022-endorsement-certificate-index"
+      ]
+    },
+    {
+      "id": "ct-2022-cd04-endorsement-certificate-bundle",
+      "url": "https://portal.ct.gov/-/media/sots/electionservices/certificates_of_party_endorsement/2022/cd-4-dem-and-rep.pdf?rev=fe310bf99b994511a3b4c742a18bf339&hash=6E594B824EA276D8FF266B2FA4020186",
+      "retainedPath": null,
+      "retainedStatus": "nonretained",
+      "byteSize": 526318,
+      "sha256": "90e01d398d7d0f27d5fe963c1f6278df93d7a274c994214aaa21e7371c3cafa4",
+      "kind": "official_endorsement_certificate_bundle",
+      "parentIds": [
+        "ct-2022-endorsement-certificate-index"
+      ]
+    },
+    {
+      "id": "ct-2022-cd05-endorsement-certificate-bundle",
+      "url": "https://portal.ct.gov/-/media/sots/electionservices/certificates_of_party_endorsement/2022/cd-5-dem-and-rep.pdf?rev=1ea8a316ccd7441db5879c857bfc1cbc&hash=146D83E8D165C17AEA9EB8887A897DE6",
+      "retainedPath": null,
+      "retainedStatus": "nonretained",
+      "byteSize": 525956,
+      "sha256": "0775045c6b35ba543a59dd3bb0fc15562022a5283308c47045bbd7b8abcc3c1c",
+      "kind": "official_endorsement_certificate_bundle",
+      "parentIds": [
+        "ct-2022-endorsement-certificate-index"
+      ]
+    },
+    {
+      "id": "ct-2024-cd01-endorsement-certificate-bundle",
+      "url": "https://portal.ct.gov/-/media/sots/electionservices/certificates_of_party_endorsement/2024/congressional/1st-congressional-dem--rep.pdf?rev=76cc0864e6fb4281b3c9848d5e37d932&hash=5BAF2061BEC7A92EC240B04FE45FFF3B",
+      "retainedPath": null,
+      "retainedStatus": "nonretained",
+      "byteSize": 562334,
+      "sha256": "52f055601f40d806601a2b7147e3e13b8463ba0d98cfd49640e63b9b3c6920dd",
+      "kind": "official_endorsement_certificate_bundle",
+      "parentIds": [
+        "ct-2024-endorsement-certificate-index"
+      ]
+    },
+    {
+      "id": "ct-2024-cd02-endorsement-certificate-bundle",
+      "url": "https://portal.ct.gov/-/media/sots/electionservices/certificates_of_party_endorsement/2024/congressional/2nd-congressional-dem--rep.pdf?rev=0a5a14f3f280499fb79f1bfd3a093faa&hash=90C4C5956AD09818E756D24844141184",
+      "retainedPath": null,
+      "retainedStatus": "nonretained",
+      "byteSize": 597862,
+      "sha256": "82129cf39e03491a25e1f596c4f4f853dab4ee53919acbe1cff9bfc55fd9ffe8",
+      "kind": "official_endorsement_certificate_bundle",
+      "parentIds": [
+        "ct-2024-endorsement-certificate-index"
+      ]
+    },
+    {
+      "id": "ct-2024-cd03-endorsement-certificate-bundle",
+      "url": "https://portal.ct.gov/-/media/sots/electionservices/certificates_of_party_endorsement/2024/congressional/3rd-congressional-dem--rep.pdf?rev=554b41992985429d9d3dfafe327a94a1&hash=291BF0C289C9F528C7C9E9F1E4B42C3A",
+      "retainedPath": null,
+      "retainedStatus": "nonretained",
+      "byteSize": 340583,
+      "sha256": "462dfb58e138344e8b63e19a5d429a7482b163125cdc1cbb67c9c326c7e29925",
+      "kind": "official_endorsement_certificate_bundle",
+      "parentIds": [
+        "ct-2024-endorsement-certificate-index"
+      ]
+    },
+    {
+      "id": "ct-2024-cd04-endorsement-certificate-bundle",
+      "url": "https://portal.ct.gov/-/media/sots/electionservices/certificates_of_party_endorsement/2024/congressional/4th-congressional-dem-rep--15.pdf?rev=65b2a2da39924577a2802020c5890aa1&hash=4F3647958E1D1BB8114B921790916011",
+      "retainedPath": null,
+      "retainedStatus": "nonretained",
+      "byteSize": 1137144,
+      "sha256": "05891c75305e42f8af23c4bbd2f8a863c318dd642b775af6d9a479a3c911a5a4",
+      "kind": "official_endorsement_certificate_bundle",
+      "parentIds": [
+        "ct-2024-endorsement-certificate-index"
+      ]
+    },
+    {
+      "id": "ct-2024-cd05-endorsement-certificate-bundle",
+      "url": "https://portal.ct.gov/-/media/sots/electionservices/certificates_of_party_endorsement/2024/congressional/5th-congressional-dem--rep.pdf?rev=8abbcd4d8d9843bf8ab812527cea7040&hash=C909DC0213D7FD5C47DDCBBB91DCD302",
+      "retainedPath": null,
+      "retainedStatus": "nonretained",
+      "byteSize": 321207,
+      "sha256": "ef4aca7f4c208b6402664b5784a0c177527fcf4ad637d966ec1d5af669232f52",
+      "kind": "official_endorsement_certificate_bundle",
+      "parentIds": [
+        "ct-2024-endorsement-certificate-index"
+      ]
+    },
+    {
+      "id": "ct-2024-democratic-primary-candidate-list",
+      "url": "https://portal.ct.gov/-/media/sots/electionservices/lists/list_of_candidates/2024/august_primary/list-of-nominees_august_13_2024_democratic_primary.pdf?rev=c89bc3e838fa4720b76c65dc4a12c298&hash=32BBEF0D79E1099667D2333D3877B681",
+      "retainedPath": null,
+      "retainedStatus": "nonretained",
+      "byteSize": 370058,
+      "sha256": "a9bfade28251dad077e393180600dac64473d047e8b1f0fc72e32f0d89cbbbe6",
+      "kind": "official_primary_candidate_list",
+      "parentIds": [
+        "ct-2024-democratic-primary-candidate-list-index"
+      ]
+    }
+  ],
+  "observations": [
+    {
+      "observationId": "ct-nomination:2022:01:democratic",
+      "cycleYear": 2022,
+      "stateCode": "CT",
+      "districtCode": "01",
+      "office": "U.S. Representative",
+      "party": "Democratic",
+      "candidateName": "John B. Larson",
+      "formSelection": "endorsed",
+      "transcriptionMethod": "manual_visual_review",
+      "sourcePage": 1,
+      "sourceRecord": "democratic_endorsement_form",
+      "sourceLockId": "ct-2022-cd01-endorsement-certificate-bundle",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "scoreEligible": false,
+      "rowSha256": "f4703e627f6a24e26bb5314546540daf5035fab1de490d27693b89bb44bca568"
+    },
+    {
+      "observationId": "ct-nomination:2022:02:democratic",
+      "cycleYear": 2022,
+      "stateCode": "CT",
+      "districtCode": "02",
+      "office": "U.S. Representative",
+      "party": "Democratic",
+      "candidateName": "Joe Courtney",
+      "formSelection": "endorsed",
+      "transcriptionMethod": "manual_visual_review",
+      "sourcePage": 1,
+      "sourceRecord": "democratic_endorsement_form",
+      "sourceLockId": "ct-2022-cd02-endorsement-certificate-bundle",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "scoreEligible": false,
+      "rowSha256": "15a1bb0294926680f18f1fc74a9e266ca8cb9db47a6aae0757fad192e8d97efa"
+    },
+    {
+      "observationId": "ct-nomination:2022:03:democratic",
+      "cycleYear": 2022,
+      "stateCode": "CT",
+      "districtCode": "03",
+      "office": "U.S. Representative",
+      "party": "Democratic",
+      "candidateName": "Rosa L. DeLauro",
+      "formSelection": "endorsed",
+      "transcriptionMethod": "manual_visual_review",
+      "sourcePage": 1,
+      "sourceRecord": "democratic_endorsement_form",
+      "sourceLockId": "ct-2022-cd03-endorsement-certificate-bundle",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "scoreEligible": false,
+      "rowSha256": "c62f85a71ccb3b5d5b4ae3fdbd3b0659849062dba7bdab893f242840c39ed8f4"
+    },
+    {
+      "observationId": "ct-nomination:2022:04:democratic",
+      "cycleYear": 2022,
+      "stateCode": "CT",
+      "districtCode": "04",
+      "office": "U.S. Representative",
+      "party": "Democratic",
+      "candidateName": "Jim Himes",
+      "formSelection": "endorsed",
+      "transcriptionMethod": "manual_visual_review",
+      "sourcePage": 1,
+      "sourceRecord": "democratic_endorsement_form",
+      "sourceLockId": "ct-2022-cd04-endorsement-certificate-bundle",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "scoreEligible": false,
+      "rowSha256": "555708b9902cd111edd418926b6216ce9af77c68005bcf279ace1bf0182a8c7b"
+    },
+    {
+      "observationId": "ct-nomination:2022:05:democratic",
+      "cycleYear": 2022,
+      "stateCode": "CT",
+      "districtCode": "05",
+      "office": "U.S. Representative",
+      "party": "Democratic",
+      "candidateName": "Jahana Hayes",
+      "formSelection": "endorsed",
+      "transcriptionMethod": "manual_visual_review",
+      "sourcePage": 1,
+      "sourceRecord": "democratic_endorsement_form",
+      "sourceLockId": "ct-2022-cd05-endorsement-certificate-bundle",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "scoreEligible": false,
+      "rowSha256": "0314d372971542245acc6b5d6ae5c4ddaa312aace9578b89573fb6bcf868471f"
+    },
+    {
+      "observationId": "ct-nomination:2024:01:democratic",
+      "cycleYear": 2024,
+      "stateCode": "CT",
+      "districtCode": "01",
+      "office": "U.S. Representative",
+      "party": "Democratic",
+      "candidateName": "John B. Larson",
+      "formSelection": "endorsed",
+      "transcriptionMethod": "manual_visual_review",
+      "sourcePage": 1,
+      "sourceRecord": "democratic_endorsement_form",
+      "sourceLockId": "ct-2024-cd01-endorsement-certificate-bundle",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "scoreEligible": false,
+      "rowSha256": "4ec52736b5b552c87ff4076be92a0cf8347abc0337afe41d9a136d0736404e96"
+    },
+    {
+      "observationId": "ct-nomination:2024:02:democratic",
+      "cycleYear": 2024,
+      "stateCode": "CT",
+      "districtCode": "02",
+      "office": "U.S. Representative",
+      "party": "Democratic",
+      "candidateName": "Joe Courtney",
+      "formSelection": "endorsed",
+      "transcriptionMethod": "manual_visual_review",
+      "sourcePage": 1,
+      "sourceRecord": "democratic_endorsement_form",
+      "sourceLockId": "ct-2024-cd02-endorsement-certificate-bundle",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "scoreEligible": false,
+      "rowSha256": "3646287b5f57aacfbe87bb22ed4662b713480de5caabe58efd0d82420a6e3f49"
+    },
+    {
+      "observationId": "ct-nomination:2024:03:democratic",
+      "cycleYear": 2024,
+      "stateCode": "CT",
+      "districtCode": "03",
+      "office": "U.S. Representative",
+      "party": "Democratic",
+      "candidateName": "Rosa L. DeLauro",
+      "formSelection": "endorsed",
+      "transcriptionMethod": "manual_visual_review",
+      "sourcePage": 1,
+      "sourceRecord": "democratic_endorsement_form",
+      "sourceLockId": "ct-2024-cd03-endorsement-certificate-bundle",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "scoreEligible": false,
+      "rowSha256": "f3269af27761a2da572e2d83f4a55aea1637ee1c8985c6899ef4c9f73fc1e31d"
+    },
+    {
+      "observationId": "ct-nomination:2024:04:democratic",
+      "cycleYear": 2024,
+      "stateCode": "CT",
+      "districtCode": "04",
+      "office": "U.S. Representative",
+      "party": "Democratic",
+      "candidateName": "Jim Himes",
+      "formSelection": "endorsed",
+      "transcriptionMethod": "manual_visual_review",
+      "sourcePage": 1,
+      "sourceRecord": "democratic_endorsement_form",
+      "sourceLockId": "ct-2024-cd04-endorsement-certificate-bundle",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "scoreEligible": false,
+      "rowSha256": "c68d2d54db8af8d94d1ea5c09980541a47d2512c84d3c0d38483db1c2118e97c"
+    },
+    {
+      "observationId": "ct-nomination:2024:05:democratic",
+      "cycleYear": 2024,
+      "stateCode": "CT",
+      "districtCode": "05",
+      "office": "U.S. Representative",
+      "party": "Democratic",
+      "candidateName": "Jahana Hayes",
+      "formSelection": "endorsed",
+      "transcriptionMethod": "manual_visual_review",
+      "sourcePage": 1,
+      "sourceRecord": "democratic_endorsement_form",
+      "sourceLockId": "ct-2024-cd05-endorsement-certificate-bundle",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "scoreEligible": false,
+      "rowSha256": "6bbe28657a1c22439c2e7626df55399071863a0b211e4165ab742e241ba955a6"
+    }
+  ],
+  "candidateListEvidence": {
+    "cycleYear": 2024,
+    "party": "Democratic",
+    "sourceLockId": "ct-2024-democratic-primary-candidate-list",
+    "statewidePages": 28,
+    "congressionalOfficeRows": 0,
+    "inference": "no_congressional_office_listed_in_statewide_democratic_primary_candidate_list",
+    "nominationConclusion": null
+  },
+  "summary": {
+    "certificateBundles": 10,
+    "democraticEndorsementObservations": 10,
+    "statewidePrimaryCandidateLists": 1,
+    "congressionalPrimaryListRows": 0,
+    "nominationConclusions": 0,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleRows": 0
+  },
+  "limitations": [
+    "Certificate forms establish the selected endorsement field, not final nomination, ballot placement, primary outcome, or certification.",
+    "The statewide 2024 Democratic primary candidate list contains no congressional office row; absence alone does not distinguish no valid challenge from a later withdrawal, death, disqualification, or cancellation.",
+    "Address-bearing source PDFs are hash-locked but nonretained; this receipt contains only the minimum district, party, candidate, form-selection, and provenance fields."
+  ],
+  "unresolvedGates": [
+    "retain_complete_final_democratic_primary_ballot_or_candidacy_universe",
+    "retain_statutory_nomination_authority_and_cancellation_status",
+    "retain_final_general_election_nominee_crosscheck",
+    "review_candidate_identity_and_historical_geography",
+    "complete_human_review_and_publication_approval"
+  ],
+  "observationSetSha256": "06cf41e520d216683e81c24af30cf6031a5b0fae25b037c89d563a81f16367f0",
+  "packageSha256": "1451a3928a40cc1a21755619e4e6f1c55276c826f1c5d8ec9d96612ebe3771db"
+}
