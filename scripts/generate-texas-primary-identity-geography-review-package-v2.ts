@@ -1,0 +1,12 @@
+import { createHash } from "node:crypto";
+import { readFile, writeFile } from "node:fs/promises";
+import { buildTexasPrimaryJointReviewPackageV2 } from "../src/ingestion/elections/texas-primary-identity-geography-review-package-v2";
+const sha = (bytes: Buffer) => createHash("sha256").update(bytes).digest("hex");
+async function main() {
+  const [joint, geographyV2, geographyV1, crosswalk, currentStatusBytes, enrolledLawBytes, datasetBytes, planBlocksBytes, currentBlocksBytes, sourceLock] = await Promise.all([readFile("data/metadata/texas-primary-identity-geography-review-package-v1.json"), readFile("data/metadata/texas-primary-geography-compatibility-candidate-v2.json"), readFile("data/metadata/texas-primary-geography-compatibility-candidate-v1.json"), readFile("data/metadata/texas-2026-primary-block-crosswalk-candidate-v1.json"), readFile("data/source/elections/primary-results/geography/texas/2026/texas-current-districts-status.html"), readFile("data/source/elections/primary-results/geography/texas/2026/hb4-enrolled.html"), readFile("data/source/elections/primary-results/geography/texas/2026/planc2333-dataset.json"), readFile("data/source/elections/primary-results/geography/texas/2026/PLANC2333.csv"), readFile("data/source/elections/primary-results/geography/texas/current/48_TX_CD119.txt"), readFile("data/source-lock.json")]);
+  const value = buildTexasPrimaryJointReviewPackageV2({ jointV1Json: joint.toString("utf8"), geographyV2Json: geographyV2.toString("utf8"), geographyV1Json: geographyV1.toString("utf8"), crosswalkJson: crosswalk.toString("utf8"), currentStatusBytes, enrolledLawBytes, datasetBytes, planBlocksBytes, currentBlocksBytes, sourceLock: JSON.parse(sourceLock.toString("utf8")) });
+  const output = "data/metadata/texas-primary-identity-geography-review-package-v2.json", bytes = Buffer.from(`${JSON.stringify(value, null, 2)}\n`);
+  try { await writeFile(output, bytes, { flag: "wx", mode: 0o644 }); } catch (error) { if ((error as NodeJS.ErrnoException).code !== "EEXIST" || !(await readFile(output)).equals(bytes)) throw new Error("TEXAS_PRIMARY_JOINT_V2_OUTPUT_CONFLICT"); }
+  process.stdout.write(`${JSON.stringify({ output, byteSize: bytes.length, sha256: sha(bytes), packageSha256: value.packageSha256, reviewRecordSetSha256: value.reviewRecordSetSha256, decisionSetSha256: value.decisionSetSha256, summary: value.summary }, null, 2)}\n`);
+}
+main().catch((error) => { process.stderr.write(`${error instanceof Error ? error.stack ?? error.message : String(error)}\n`); process.exitCode = 1; });
