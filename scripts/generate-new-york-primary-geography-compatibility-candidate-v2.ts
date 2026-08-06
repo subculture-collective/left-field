@@ -1,0 +1,17 @@
+import { createHash } from "node:crypto";
+import { readFile, writeFile } from "node:fs/promises";
+
+import { buildNewYorkPrimaryGeographyCandidateV2, validateNewYorkPrimaryGeographyCandidateV2 } from "../src/ingestion/elections/new-york-primary-geography-compatibility-candidate-v2";
+
+const text = async (path: string): Promise<string> => (await readFile(path)).toString("utf8");
+const sha = (bytes: Buffer): string => createHash("sha256").update(bytes).digest("hex");
+async function main(): Promise<void> {
+  const input = {
+    geographyV1Json: await text("data/metadata/new-york-primary-geography-compatibility-candidate-v1.json"), crosswalkJson: await text("data/metadata/new-york-2022-primary-block-crosswalk-candidate-v1.json"), receiptJson: await text("data/metadata/new-york-2022-congressional-block-assignment-receipt-v1.json"),
+    authorityBytes: await readFile("data/source/elections/primary-results/geography/new-york/2022/latfor-2022-congressional-maps.html"), assignmentBytes: await readFile("data/source/elections/primary-results/geography/new-york/2022/court-ordered-congressional-block-assignment.dbf"), cd118Bytes: await readFile("data/source/elections/primary-results/geography/new-york/historical/36_NY_CD118.txt"), cd119Bytes: await readFile("data/source/elections/primary-results/geography/new-york/current/36_NY_CD119.txt"), sourceLock: JSON.parse(await text("data/source-lock.json")),
+  };
+  const value = validateNewYorkPrimaryGeographyCandidateV2(buildNewYorkPrimaryGeographyCandidateV2(input), input), output = "data/metadata/new-york-primary-geography-compatibility-candidate-v2.json", bytes = Buffer.from(`${JSON.stringify(value, null, 2)}\n`);
+  try { await writeFile(output, bytes, { flag: "wx", mode: 0o644 }); } catch (error) { if ((error as NodeJS.ErrnoException).code !== "EEXIST" || !(await readFile(output)).equals(bytes)) throw new Error("NY_PRIMARY_GEOGRAPHY_V2_OUTPUT_CONFLICT"); }
+  console.log(JSON.stringify({ output, byteSize: bytes.length, sha256: sha(bytes), packageSha256: value.packageSha256, rowSetSha256: value.rowSetSha256, summary: value.summary }, null, 2));
+}
+main().catch((error) => { console.error(error); process.exitCode = 1; });

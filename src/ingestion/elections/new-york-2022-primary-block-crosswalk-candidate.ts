@@ -12,7 +12,7 @@ import {
 export const NEW_YORK_2022_PRIMARY_BLOCK_CROSSWALK_V1 = "new-york-2022-primary-block-crosswalk-candidate-v1" as const;
 
 type LockEntry = { id: string; url: string; retainedPath: string | null; retainedStatus: "retained" | "nonretained"; byteSize: number; sha256: string; kind: string; parentIds: string[] };
-type Input = Readonly<{
+export type NewYork2022PrimaryBlockCrosswalkInput = Readonly<{
   geographyJson: string;
   receiptJson: string;
   authorityBytes: Buffer;
@@ -63,7 +63,7 @@ function apportionedSplits(counts: Map<string, number>, total: number) {
   return values.sort((left, right) => order(left.targetDistrictCode, right.targetDistrictCode)).map((row) => ({ targetDistrictCode: row.targetDistrictCode, blockCount: row.blockCount, sourceSharePpm: row.sourceSharePpm }));
 }
 
-function assemble(input: Input) {
+function assemble(input: NewYork2022PrimaryBlockCrosswalkInput) {
   if (input.sourceLock.version !== 1 || sha(input.geographyJson) !== GEOGRAPHY_SHA || sha(input.receiptJson) !== RECEIPT_SHA) fail("input_bytes");
   const geography = validateNewYorkPrimaryGeographyCandidate(parse(input.geographyJson, "geography_json"));
   if (geography.packageSha256 !== "c5839d2fb9dd4cc6f463a3adf2520a43b1c6484e2f7d95c6b2e1eb0470611b5d" || geography.rowSetSha256 !== "81d251dbbc6bbd9c1e3185abb7e161ab01b0332ec8439df69edb02a739aa85fb") fail("geography_parent");
@@ -191,8 +191,8 @@ function assemble(input: Input) {
 }
 
 export type NewYork2022PrimaryBlockCrosswalkCandidate = ReturnType<typeof assemble>;
-export function buildNewYork2022PrimaryBlockCrosswalkCandidate(input: Input): NewYork2022PrimaryBlockCrosswalkCandidate { return assemble(input); }
-export function validateNewYork2022PrimaryBlockCrosswalkCandidate(value: NewYork2022PrimaryBlockCrosswalkCandidate, input: Input): NewYork2022PrimaryBlockCrosswalkCandidate {
+export function buildNewYork2022PrimaryBlockCrosswalkCandidate(input: NewYork2022PrimaryBlockCrosswalkInput): NewYork2022PrimaryBlockCrosswalkCandidate { return assemble(input); }
+export function validateNewYork2022PrimaryBlockCrosswalkCandidate(value: NewYork2022PrimaryBlockCrosswalkCandidate, input: NewYork2022PrimaryBlockCrosswalkInput): NewYork2022PrimaryBlockCrosswalkCandidate {
   if (canonicalJson(value) !== canonicalJson(assemble(input))) fail("semantic_or_hash_drift");
   return value;
 }
