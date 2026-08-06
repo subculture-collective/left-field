@@ -1,0 +1,523 @@
+{
+  "schema": "connecticut-primary-identity-geography-review-package-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T11:00:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_independent_decisions_and_publication_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "sources": [
+    {
+      "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "url": "urn:dsa-seats:house-democratic-primary-source-selection-proposal:v1:2026-08-04",
+      "retainedPath": "data/metadata/house-democratic-primary-source-selection-proposal-20260804-v1.json",
+      "retainedStatus": "retained",
+      "byteSize": 411793,
+      "sha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "kind": "review_proposal",
+      "parentIds": [
+        "dsa-target-factual-projection-20260804-v1",
+        "dsa-target-incumbent-roster-20260804-v1",
+        "fec-2026-congressional-primary-dates",
+        "geo-national-cd119"
+      ]
+    },
+    {
+      "id": "connecticut-current-incumbent-nomination-linkage-candidate-v1",
+      "url": "urn:dsa-seats:connecticut-current-incumbent-nomination-linkage-candidate:v1:2022-2024",
+      "retainedPath": "data/metadata/connecticut-current-incumbent-nomination-linkage-candidate-v1.json",
+      "retainedStatus": "retained",
+      "byteSize": 21758,
+      "sha256": "e4b461a364a31dae528d4099022f9417110c1aa5430c53b2076b7c09c5981644",
+      "kind": "review_candidate",
+      "parentIds": [
+        "dsa-target-incumbent-roster-20260804-v1",
+        "house-democratic-primary-source-selection-proposal-20260804-v1",
+        "house-xml",
+        "congress-legislators-current-20260804",
+        "connecticut-primary-nomination-authority-receipt-v1"
+      ]
+    },
+    {
+      "id": "connecticut-primary-geography-compatibility-candidate-v1",
+      "url": "urn:dsa-seats:connecticut-primary-geography-compatibility-candidate:v1:2022-2024",
+      "retainedPath": "data/metadata/connecticut-primary-geography-compatibility-candidate-v1.json",
+      "retainedStatus": "retained",
+      "byteSize": 19878,
+      "sha256": "0012e0c97b183f7f8e110f70e892b15488c6a1b0ddd202c4184c42153a17bd82",
+      "kind": "review_candidate",
+      "parentIds": [
+        "house-democratic-primary-source-selection-proposal-20260804-v1",
+        "connecticut-primary-nomination-authority-receipt-v1",
+        "connecticut-current-incumbent-nomination-linkage-candidate-v1",
+        "census-cd119-plan-change-authority-20260805",
+        "tiger-cd118-09",
+        "tiger-cd119-09"
+      ]
+    }
+  ],
+  "methodology": {
+    "decisionsReviewedIndependently": true,
+    "jointPackageApprovesParents": false,
+    "endorsementObservationTreatedAsNomination": false,
+    "automaticApprovals": 0,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "reviewRecords": 10,
+    "identityAndGeographyCandidates": 10,
+    "exactIdentityObservations": 8,
+    "derivedIdentityObservations": 2,
+    "uniqueDerivedIdentityRelationships": 1,
+    "cd118ContinuityCandidates": 5,
+    "exactCd119KeyCandidates": 5,
+    "nominationConclusions": 0,
+    "resultConclusions": 0,
+    "proposedDecisions": 5,
+    "jointApprovedRecords": 0,
+    "scoreEligibleRecords": 0
+  },
+  "records": [
+    {
+      "reviewRecordId": "ct-primary:joint:2022:01",
+      "cycleYear": 2022,
+      "districtCode": "01",
+      "seatCycleId": "seat_house_ct_01_current",
+      "reviewCategory": "identity_and_geography_candidates_pending_nomination_closure",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "identity": {
+        "observationId": "ct:identity:2022:01",
+        "parentRowSha256": "b8c658fade2fe3b6dc9b54125e943df9e730e4d48f85186e22710aa0fa2f1e73",
+        "evidenceClass": "exact_name_observation",
+        "identityApproved": false
+      },
+      "geography": {
+        "observationId": "ct:geography:2022:01",
+        "parentRowSha256": "700f5311ac16994fd653222b61992f33963c7f8036ae96d7c8c84451192dcfe4",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "compatibilityApproved": false
+      },
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_nonnomination_and_publication_review",
+      "scoreEligible": false,
+      "reviewRecordSha256": "8ef869c98bd74fa25cc885425752aab83f1b5c1e75d22c06be0d01b9f887bd3d"
+    },
+    {
+      "reviewRecordId": "ct-primary:joint:2022:02",
+      "cycleYear": 2022,
+      "districtCode": "02",
+      "seatCycleId": "seat_house_ct_02_current",
+      "reviewCategory": "identity_and_geography_candidates_pending_nomination_closure",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "identity": {
+        "observationId": "ct:identity:2022:02",
+        "parentRowSha256": "08559b688c7fb951aed8d86a7962d618039493cb784c0852107703497447c81d",
+        "evidenceClass": "exact_name_observation",
+        "identityApproved": false
+      },
+      "geography": {
+        "observationId": "ct:geography:2022:02",
+        "parentRowSha256": "4dee30c577b114bb1f4b5efca10dc3ca3d8949b139772bc95f4d003aa81cdad8",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "compatibilityApproved": false
+      },
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_nonnomination_and_publication_review",
+      "scoreEligible": false,
+      "reviewRecordSha256": "6fb4c92d34a546baadc3f548ef8884ad865d01547146de092fe7e0a7b54915bb"
+    },
+    {
+      "reviewRecordId": "ct-primary:joint:2022:03",
+      "cycleYear": 2022,
+      "districtCode": "03",
+      "seatCycleId": "seat_house_ct_03_current",
+      "reviewCategory": "identity_and_geography_candidates_pending_nomination_closure",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "identity": {
+        "observationId": "ct:identity:2022:03",
+        "parentRowSha256": "b8c301ff74128afcfd80763e8f31094453927befc512412960a5ffb32297aaa8",
+        "evidenceClass": "exact_name_observation",
+        "identityApproved": false
+      },
+      "geography": {
+        "observationId": "ct:geography:2022:03",
+        "parentRowSha256": "2d02b809db8f6dcc457345768fc6070e297650e8df83277713fe7e15fc79b365",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "compatibilityApproved": false
+      },
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_nonnomination_and_publication_review",
+      "scoreEligible": false,
+      "reviewRecordSha256": "75d88abed8472d6525f9aeac3c4b08eee80456e38d65fffa37eab7759ef348d0"
+    },
+    {
+      "reviewRecordId": "ct-primary:joint:2022:04",
+      "cycleYear": 2022,
+      "districtCode": "04",
+      "seatCycleId": "seat_house_ct_04_current",
+      "reviewCategory": "identity_and_geography_candidates_pending_nomination_closure",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "identity": {
+        "observationId": "ct:identity:2022:04",
+        "parentRowSha256": "5a9bd2e5b4192a66e4f7c2a93a71561efb548bf0ca057da84352c66c1bca1602",
+        "evidenceClass": "derived_name_relationship",
+        "identityApproved": false
+      },
+      "geography": {
+        "observationId": "ct:geography:2022:04",
+        "parentRowSha256": "50073a1361c3d6ebf4fd0570fb0b2cffcf71e09a86acbb61c158e70e2c6e408a",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "compatibilityApproved": false
+      },
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_nonnomination_and_publication_review",
+      "scoreEligible": false,
+      "reviewRecordSha256": "90fa47192309a2c3741b1fe95e9e50803fa4801a505f61919a492263b83e4950"
+    },
+    {
+      "reviewRecordId": "ct-primary:joint:2022:05",
+      "cycleYear": 2022,
+      "districtCode": "05",
+      "seatCycleId": "seat_house_ct_05_current",
+      "reviewCategory": "identity_and_geography_candidates_pending_nomination_closure",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "identity": {
+        "observationId": "ct:identity:2022:05",
+        "parentRowSha256": "c90af7f29511e83f50620bb3c1274f4fd9908b2fc609328fae2d354a2b8c548f",
+        "evidenceClass": "exact_name_observation",
+        "identityApproved": false
+      },
+      "geography": {
+        "observationId": "ct:geography:2022:05",
+        "parentRowSha256": "6f18ddf3f1fc73a3e4ca34e41f08ad1fd139d99fff17bc76eeedd9513c909db5",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "compatibilityApproved": false
+      },
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_nonnomination_and_publication_review",
+      "scoreEligible": false,
+      "reviewRecordSha256": "91dbaa550437491d3050ced18d1b0e0e5a4577671d3877773060d3b0f8f41d03"
+    },
+    {
+      "reviewRecordId": "ct-primary:joint:2024:01",
+      "cycleYear": 2024,
+      "districtCode": "01",
+      "seatCycleId": "seat_house_ct_01_current",
+      "reviewCategory": "identity_and_geography_candidates_pending_nomination_closure",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "identity": {
+        "observationId": "ct:identity:2024:01",
+        "parentRowSha256": "e9ec688f72bb4752d1326b7d1bd3bcf07e271205db64d5e893cc9f58cdbd69c8",
+        "evidenceClass": "exact_name_observation",
+        "identityApproved": false
+      },
+      "geography": {
+        "observationId": "ct:geography:2024:01",
+        "parentRowSha256": "a4333947ec5565fa2ecbe6df9ba27639effcdae0b36aaf1f668fd3deec546b66",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "compatibilityApproved": false
+      },
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_nonnomination_and_publication_review",
+      "scoreEligible": false,
+      "reviewRecordSha256": "8005ab680ccd28063d5219867f2c44a02d9b44b8cc461df7491572616cf66960"
+    },
+    {
+      "reviewRecordId": "ct-primary:joint:2024:02",
+      "cycleYear": 2024,
+      "districtCode": "02",
+      "seatCycleId": "seat_house_ct_02_current",
+      "reviewCategory": "identity_and_geography_candidates_pending_nomination_closure",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "identity": {
+        "observationId": "ct:identity:2024:02",
+        "parentRowSha256": "537e8fcdc55e71f42df747f0f9c2ead0718882f41c53623fd7a19fd7fac3a1c6",
+        "evidenceClass": "exact_name_observation",
+        "identityApproved": false
+      },
+      "geography": {
+        "observationId": "ct:geography:2024:02",
+        "parentRowSha256": "b48334836863c29901421bfd11658c266f5b1a103bca02b42758a98923ca20ef",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "compatibilityApproved": false
+      },
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_nonnomination_and_publication_review",
+      "scoreEligible": false,
+      "reviewRecordSha256": "4d1116bb2060ec4286150782e2677f307d589b32d45ef22e0af5e416ff7e24f8"
+    },
+    {
+      "reviewRecordId": "ct-primary:joint:2024:03",
+      "cycleYear": 2024,
+      "districtCode": "03",
+      "seatCycleId": "seat_house_ct_03_current",
+      "reviewCategory": "identity_and_geography_candidates_pending_nomination_closure",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "identity": {
+        "observationId": "ct:identity:2024:03",
+        "parentRowSha256": "1022adc490fc0aaf8e5d2bd8b13b9e9060b70de6ffce3ea37d2fe5ee92ed00ac",
+        "evidenceClass": "exact_name_observation",
+        "identityApproved": false
+      },
+      "geography": {
+        "observationId": "ct:geography:2024:03",
+        "parentRowSha256": "6d798a231800148f60b4fd3c139bab2c1d87734bd17f1839ea9248ac3543cd21",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "compatibilityApproved": false
+      },
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_nonnomination_and_publication_review",
+      "scoreEligible": false,
+      "reviewRecordSha256": "98957ed803ce56c1d2874161801edd0843b199a827e1b185fc9bc846a24bc8aa"
+    },
+    {
+      "reviewRecordId": "ct-primary:joint:2024:04",
+      "cycleYear": 2024,
+      "districtCode": "04",
+      "seatCycleId": "seat_house_ct_04_current",
+      "reviewCategory": "identity_and_geography_candidates_pending_nomination_closure",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "identity": {
+        "observationId": "ct:identity:2024:04",
+        "parentRowSha256": "3902d30b61e67f8ce9d81d01cdbcedddd62ea583d5792f78ddf329024b43a3a3",
+        "evidenceClass": "derived_name_relationship",
+        "identityApproved": false
+      },
+      "geography": {
+        "observationId": "ct:geography:2024:04",
+        "parentRowSha256": "014592c1f0c305aa79fa6701185ab164467bd413740ae6dbc438a751966f0eed",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "compatibilityApproved": false
+      },
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_nonnomination_and_publication_review",
+      "scoreEligible": false,
+      "reviewRecordSha256": "7b218ef3acc9f7e7f345d3825fc54b56b1a7c9187576fb2bcb99c8b7db49e117"
+    },
+    {
+      "reviewRecordId": "ct-primary:joint:2024:05",
+      "cycleYear": 2024,
+      "districtCode": "05",
+      "seatCycleId": "seat_house_ct_05_current",
+      "reviewCategory": "identity_and_geography_candidates_pending_nomination_closure",
+      "nominationStatus": null,
+      "resultStatus": null,
+      "identity": {
+        "observationId": "ct:identity:2024:05",
+        "parentRowSha256": "f8d01073e5bb44ff34f0f1b0953cfe0f34b2efe15690fe6d0fd43a78ece7ddd0",
+        "evidenceClass": "exact_name_observation",
+        "identityApproved": false
+      },
+      "geography": {
+        "observationId": "ct:geography:2024:05",
+        "parentRowSha256": "7bec7b273e9a672b24f24c23618e10ba58ac91f24c8ffa7a99d9b897b1fc54c4",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "compatibilityApproved": false
+      },
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_independent_identity_geography_nonnomination_and_publication_review",
+      "scoreEligible": false,
+      "reviewRecordSha256": "1bdf32eefe35eb3fc5844c2a439bf416f374ed2420bd8f151402124fc46a2049"
+    }
+  ],
+  "reviewRecordSetSha256": "c88eede71b533a6a07945d56eb592c4d0d7f4afba59dcb2761760982be7fb9e9",
+  "decisions": [
+    {
+      "decisionId": "ct-primary:accept-geography-compatibility-v1",
+      "parentDecisionId": "approve-historical-district-cd119-compatibility-v1",
+      "question": "Should the five CD118-to-CD119 continuity and five exact CD119-key relationships be accepted?",
+      "recommendedDecision": "Accept all ten geography candidates without claiming raw geometry equality, overlap, or population equivalence.",
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "alternatives": [
+        "Request additional retained evidence before deciding.",
+        "Reject the proposed relationship and preserve exclusion."
+      ],
+      "consequences": [
+        "Acceptance authorizes only this relationship after a separate promotion step.",
+        "Rejection preserves the parent evidence without evaluator or publication use."
+      ],
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "ct-primary:joint:2022:01",
+        "ct-primary:joint:2022:02",
+        "ct-primary:joint:2022:03",
+        "ct-primary:joint:2022:04",
+        "ct-primary:joint:2022:05",
+        "ct-primary:joint:2024:01",
+        "ct-primary:joint:2024:02",
+        "ct-primary:joint:2024:03",
+        "ct-primary:joint:2024:04",
+        "ct-primary:joint:2024:05"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      }
+    },
+    {
+      "decisionId": "ct-primary:accept-identity-links-v1",
+      "parentDecisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+      "question": "Should the ten endorsement-name to current-target identity relationships be accepted?",
+      "recommendedDecision": "Accept eight exact-name and two finite Jim Himes to James A. Himes relationship observations while preserving the historical-incumbency boundary.",
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "alternatives": [
+        "Request additional retained evidence before deciding.",
+        "Reject the proposed relationship and preserve exclusion."
+      ],
+      "consequences": [
+        "Acceptance authorizes only this relationship after a separate promotion step.",
+        "Rejection preserves the parent evidence without evaluator or publication use."
+      ],
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "ct-primary:joint:2022:01",
+        "ct-primary:joint:2022:02",
+        "ct-primary:joint:2022:03",
+        "ct-primary:joint:2022:04",
+        "ct-primary:joint:2022:05",
+        "ct-primary:joint:2024:01",
+        "ct-primary:joint:2024:02",
+        "ct-primary:joint:2024:03",
+        "ct-primary:joint:2024:04",
+        "ct-primary:joint:2024:05"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      }
+    },
+    {
+      "decisionId": "ct-primary:retain-endorsement-nomination-result-certification-exclusion-v1",
+      "parentDecisionId": "collect-official-state-primary-results-and-certification-v1",
+      "question": "Should the ten endorsement observations remain retained while nomination, result, and certification stay unasserted?",
+      "recommendedDecision": "Retain endorsement authority while preserving null nomination and result states and prohibiting certification inference.",
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "alternatives": [
+        "Request additional retained evidence before deciding.",
+        "Reject the proposed relationship and preserve exclusion."
+      ],
+      "consequences": [
+        "Acceptance authorizes only this relationship after a separate promotion step.",
+        "Rejection preserves the parent evidence without evaluator or publication use."
+      ],
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "ct-primary:joint:2022:01",
+        "ct-primary:joint:2022:02",
+        "ct-primary:joint:2022:03",
+        "ct-primary:joint:2022:04",
+        "ct-primary:joint:2022:05",
+        "ct-primary:joint:2024:01",
+        "ct-primary:joint:2024:02",
+        "ct-primary:joint:2024:03",
+        "ct-primary:joint:2024:04",
+        "ct-primary:joint:2024:05"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      }
+    },
+    {
+      "decisionId": "ct-primary:retain-nomination-disposition-selection-exclusion-v1",
+      "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "question": "Should endorsement forms remain nonauthorizing for nomination, primary disposition, winner, or selection?",
+      "recommendedDecision": "Retain no-disposition and no-selection treatment until final candidacy, statutory cancellation, and nominee authority are reviewed.",
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "alternatives": [
+        "Request additional retained evidence before deciding.",
+        "Reject the proposed relationship and preserve exclusion."
+      ],
+      "consequences": [
+        "Acceptance authorizes only this relationship after a separate promotion step.",
+        "Rejection preserves the parent evidence without evaluator or publication use."
+      ],
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "ct-primary:joint:2022:01",
+        "ct-primary:joint:2022:02",
+        "ct-primary:joint:2022:03",
+        "ct-primary:joint:2022:04",
+        "ct-primary:joint:2022:05",
+        "ct-primary:joint:2024:01",
+        "ct-primary:joint:2024:02",
+        "ct-primary:joint:2024:03",
+        "ct-primary:joint:2024:04",
+        "ct-primary:joint:2024:05"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      }
+    },
+    {
+      "decisionId": "ct-primary:retain-progressive-classification-exclusion-v1",
+      "parentDecisionId": "approve-progressive-candidate-classification-method-v1",
+      "question": "Should progressive-primary factors remain excluded for these endorsement observations?",
+      "recommendedDecision": "Retain progressive-classification exclusion because no complete candidate universe or reviewed contest-effective classification is present.",
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "alternatives": [
+        "Request additional retained evidence before deciding.",
+        "Reject the proposed relationship and preserve exclusion."
+      ],
+      "consequences": [
+        "Acceptance authorizes only this relationship after a separate promotion step.",
+        "Rejection preserves the parent evidence without evaluator or publication use."
+      ],
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "ct-primary:joint:2022:01",
+        "ct-primary:joint:2022:02",
+        "ct-primary:joint:2022:03",
+        "ct-primary:joint:2022:04",
+        "ct-primary:joint:2022:05",
+        "ct-primary:joint:2024:01",
+        "ct-primary:joint:2024:02",
+        "ct-primary:joint:2024:03",
+        "ct-primary:joint:2024:04",
+        "ct-primary:joint:2024:05"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      }
+    }
+  ],
+  "decisionSetSha256": "35d23ea2c7002e6215df29ccd36ea71833d302d65bbf6446f815138403c1f8e1",
+  "packageSha256": "093d6c3b95f6e4364d183c4c036dead44867cb52a4a417e2297df5f847c0954b"
+}
