@@ -173,6 +173,7 @@
     "generate:ca-primary-geography-v1": "tsx scripts/generate-california-primary-geography-compatibility-candidate.ts",
     "generate:ca-current-incumbent-primary-linkage-v1": "tsx scripts/generate-california-current-incumbent-primary-linkage-candidate.ts",
     "generate:ca-primary-joint-review-v1": "tsx scripts/generate-california-primary-identity-geography-review-package.ts",
+    "generate:ca-primary-joint-review-v2": "tsx scripts/generate-california-primary-identity-geography-review-package-v2.ts",
     "import:or-primary-abstracts": "node scripts/import-oregon-primary-abstracts.mjs",
     "generate:or-house-primary-results-receipt": "tsx scripts/generate-oregon-house-democratic-primary-results-receipt.ts",
     "fetch:or-primary-geography-authority": "node scripts/fetch-oregon-primary-geography-authority.mjs",
