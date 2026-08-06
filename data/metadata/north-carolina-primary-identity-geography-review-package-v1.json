@@ -1,0 +1,741 @@
+{
+  "schema": "north-carolina-primary-identity-geography-review-package-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T03:30:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_documented_identity_and_geography_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "proposal": {
+      "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+    },
+    "sourcePrecedence": {
+      "sourceLockId": "north-carolina-primary-source-precedence-decision-v1",
+      "fileSha256": "8e319f999027bc30cb0c6a22f01700e2c4982459709e3122e34c80a051ab99d6",
+      "packageSha256": "ac12f3e95d0e3dab4a7e94c0b2b2b552e62790abac59d32b10ac16e89f9b01eb"
+    },
+    "identity": {
+      "sourceLockId": "north-carolina-current-incumbent-primary-linkage-candidate-v1",
+      "fileSha256": "9a7903755fdceaffb29af2a40fee014ddf7abb63f455d2381a0376046399490c",
+      "packageSha256": "12fbecfa848ba85aa39d426d94a8be4ab3f77fc1356f6c0a288514037f9c4d76",
+      "observationSetSha256": "b587a7f2b181d11d24be10404ecd7f79879522b434a521ebf08065c6b88d4ba0"
+    },
+    "geography": {
+      "sourceLockId": "north-carolina-primary-geography-compatibility-candidate-v1",
+      "fileSha256": "3a30c99f46d619c585a0a01026b7068a91f0603df591428aa72ffb14f33c7604",
+      "packageSha256": "838fd6acdb4a780993d9540bd68228cf76ca0b77f9ecab57d8403d85c0ba42df",
+      "rowSetSha256": "254bb244bfb6d77851aa415e665569047cb1473e1cd689fd6acf030ef6aa0572"
+    }
+  },
+  "methodology": {
+    "scope": "exact_twelve_north_carolina_target_identity_observations_joined_one_to_one_to_geography",
+    "identityAndGeographyReviewedIndependently": true,
+    "parentSourcePrecedenceDecisionRemainsUnresolved": true,
+    "jointPackageApprovesParents": false,
+    "automaticApprovals": 0,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "reviewRecords": 12,
+    "identityAndExactGeographyCandidates": 3,
+    "identityCandidateSplitGeography": 3,
+    "exactGeographyIdentityUnresolved": 4,
+    "identityUnresolvedSplitGeography": 2,
+    "identityCandidates": 6,
+    "exactGeographyCandidates": 7,
+    "jointApprovedRecords": 0,
+    "scoreEligibleRecords": 0
+  },
+  "records": [
+    {
+      "reviewRecordId": "nc-primary-joint:2022:01",
+      "observationId": "nc:identity:2022:01",
+      "identityObservationSha256": "299ce6f137ab71ca926779692a08c629c19992dc275fedf649c4f41b623f6930",
+      "geographyRowSha256": "3e9f0f6d6b26113fc532096e77b37935865103dfb287e765cc0f990525d70023",
+      "seatCycleId": "seat_house_nc_01_current",
+      "districtCode": "01",
+      "cycleYear": 2022,
+      "sourceObservationKind": "reported_contest",
+      "sourcePrecedenceStatus": "unresolved_conflict_outside_this_observation",
+      "identity": {
+        "bioguideId": "D000230",
+        "officialHouseName": "Donald G. Davis",
+        "sourceCandidateName": "Don Davis",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "sourcePlan": "court_ordered_2022",
+        "targetPlan": "cd119_sl_2023_145",
+        "compatibilityDisposition": "crosswalk_review_required",
+        "candidate": false,
+        "approved": false,
+        "sourceBlockCount": 22706,
+        "targetBlockCount": 23945,
+        "sameDistrictBlockCount": 17810,
+        "sourceRetentionPpm": 784374,
+        "targetCoveragePpm": 743788
+      },
+      "reviewDisposition": "identity_candidate_split_geography",
+      "recommendedAction": "accept_identity_only_keep_split_geography_excluded",
+      "safeDefault": "exclude_joint_relationship_from_evaluator",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_documented_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "split_geography_requires_crosswalk_review",
+        "join_does_not_approve_parent_candidates"
+      ],
+      "reviewRecordSha256": "c25fb1da87aabae78c33297eacc8ff4aa0688634452436555e765ef07dc2665e"
+    },
+    {
+      "reviewRecordId": "nc-primary-joint:2022:02",
+      "observationId": "nc:identity:2022:02",
+      "identityObservationSha256": "38fb49387a9218cb3adbaee34503795dd09ca6ba98a2865f4701cb209335c78b",
+      "geographyRowSha256": "b249ee959b442a2802faf5c1bcbc01a969dde075e946ae79171e235b43801bfa",
+      "seatCycleId": "seat_house_nc_02_current",
+      "districtCode": "02",
+      "cycleYear": 2022,
+      "sourceObservationKind": "unreported_district_cycle_block",
+      "sourcePrecedenceStatus": "unresolved_conflict_outside_this_observation",
+      "identity": {
+        "bioguideId": "R000305",
+        "officialHouseName": "Deborah K. Ross",
+        "sourceCandidateName": null,
+        "evidenceClass": "unresolved",
+        "relationshipDisposition": "not_linked_no_reported_contest",
+        "candidate": false,
+        "approved": false
+      },
+      "geography": {
+        "sourcePlan": "court_ordered_2022",
+        "targetPlan": "cd119_sl_2023_145",
+        "compatibilityDisposition": "crosswalk_review_required",
+        "candidate": false,
+        "approved": false,
+        "sourceBlockCount": 9389,
+        "targetBlockCount": 9220,
+        "sameDistrictBlockCount": 7095,
+        "sourceRetentionPpm": 755672,
+        "targetCoveragePpm": 769523
+      },
+      "reviewDisposition": "identity_unresolved_split_geography",
+      "recommendedAction": "keep_identity_and_geography_excluded",
+      "safeDefault": "exclude_joint_relationship_from_evaluator",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_documented_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_unresolved_no_reported_contest",
+        "split_geography_requires_crosswalk_review",
+        "join_does_not_approve_parent_candidates"
+      ],
+      "reviewRecordSha256": "b8f0461791958039ce24e89507d1c15c69a50585911138cf4d7eb386eaf9d86e"
+    },
+    {
+      "reviewRecordId": "nc-primary-joint:2022:04",
+      "observationId": "nc:identity:2022:04",
+      "identityObservationSha256": "d0ed404b5aff895bf7370a8bab6b591a5c36488a23384a6adfb04ba68f655aa2",
+      "geographyRowSha256": "f39e39d3caf521f396ad57d40dddb9bb906076a2c3d9b7d78449ada75b19adb5",
+      "seatCycleId": "seat_house_nc_04_current",
+      "districtCode": "04",
+      "cycleYear": 2022,
+      "sourceObservationKind": "reported_contest",
+      "sourcePrecedenceStatus": "unresolved_conflict_outside_this_observation",
+      "identity": {
+        "bioguideId": "F000477",
+        "officialHouseName": "Valerie P. Foushee",
+        "sourceCandidateName": "Valerie P. Foushee",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "sourcePlan": "court_ordered_2022",
+        "targetPlan": "cd119_sl_2023_145",
+        "compatibilityDisposition": "crosswalk_review_required",
+        "candidate": false,
+        "approved": false,
+        "sourceBlockCount": 13016,
+        "targetBlockCount": 10902,
+        "sameDistrictBlockCount": 6742,
+        "sourceRetentionPpm": 517978,
+        "targetCoveragePpm": 618419
+      },
+      "reviewDisposition": "identity_candidate_split_geography",
+      "recommendedAction": "accept_identity_only_keep_split_geography_excluded",
+      "safeDefault": "exclude_joint_relationship_from_evaluator",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_documented_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "split_geography_requires_crosswalk_review",
+        "join_does_not_approve_parent_candidates"
+      ],
+      "reviewRecordSha256": "526c3dd9cc1616d39ca864f72ddc9c582f03ef08ba81a6d4b8c75beb1256a6cb"
+    },
+    {
+      "reviewRecordId": "nc-primary-joint:2022:12",
+      "observationId": "nc:identity:2022:12",
+      "identityObservationSha256": "d504445167dd38004b73849f779cc279ffc677912ec51ef987188d754e52298d",
+      "geographyRowSha256": "7a1dfbabe5bcba7e18dc40d096e79a82e6349394bc6bb2113564846209129d2d",
+      "seatCycleId": "seat_house_nc_12_current",
+      "districtCode": "12",
+      "cycleYear": 2022,
+      "sourceObservationKind": "reported_contest",
+      "sourcePrecedenceStatus": "unresolved_conflict_outside_this_observation",
+      "identity": {
+        "bioguideId": "A000370",
+        "officialHouseName": "Alma S. Adams",
+        "sourceCandidateName": "Alma S. Adams",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "sourcePlan": "court_ordered_2022",
+        "targetPlan": "cd119_sl_2023_145",
+        "compatibilityDisposition": "crosswalk_review_required",
+        "candidate": false,
+        "approved": false,
+        "sourceBlockCount": 9384,
+        "targetBlockCount": 7419,
+        "sameDistrictBlockCount": 3729,
+        "sourceRetentionPpm": 397379,
+        "targetCoveragePpm": 502628
+      },
+      "reviewDisposition": "identity_candidate_split_geography",
+      "recommendedAction": "accept_identity_only_keep_split_geography_excluded",
+      "safeDefault": "exclude_joint_relationship_from_evaluator",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_documented_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "split_geography_requires_crosswalk_review",
+        "join_does_not_approve_parent_candidates"
+      ],
+      "reviewRecordSha256": "1bb535cc3ac921ea72e483113c4440d5b6b657d9814c12f06280e6f774c7f898"
+    },
+    {
+      "reviewRecordId": "nc-primary-joint:2024:01",
+      "observationId": "nc:identity:2024:01",
+      "identityObservationSha256": "b1d73ac03e2f9cd70b71d1c066db11c68aa2a819b0a0ed0c5ebd8961ebed62af",
+      "geographyRowSha256": "0b2b710bf8ccccc4c21b9afcf0cd7a4c37d012bdf11efb11f16301fb15403ad5",
+      "seatCycleId": "seat_house_nc_01_current",
+      "districtCode": "01",
+      "cycleYear": 2024,
+      "sourceObservationKind": "unreported_district_cycle_block",
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "identity": {
+        "bioguideId": "D000230",
+        "officialHouseName": "Donald G. Davis",
+        "sourceCandidateName": null,
+        "evidenceClass": "unresolved",
+        "relationshipDisposition": "not_linked_no_reported_contest",
+        "candidate": false,
+        "approved": false
+      },
+      "geography": {
+        "sourcePlan": "sl_2023_145",
+        "targetPlan": "cd119_sl_2023_145",
+        "compatibilityDisposition": "exact_block_membership_candidate",
+        "candidate": true,
+        "approved": false,
+        "sourceBlockCount": 23945,
+        "targetBlockCount": 23945,
+        "sameDistrictBlockCount": 23945,
+        "sourceRetentionPpm": 1000000,
+        "targetCoveragePpm": 1000000
+      },
+      "reviewDisposition": "exact_geography_identity_unresolved",
+      "recommendedAction": "accept_exact_geography_only_keep_identity_unresolved",
+      "safeDefault": "exclude_joint_relationship_from_evaluator",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_documented_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_unresolved_no_reported_contest",
+        "exact_block_geography_candidate_pending_review",
+        "join_does_not_approve_parent_candidates"
+      ],
+      "reviewRecordSha256": "ce6d3f105a507a7c8b6af14b29cbd4692ec98301c826f4470021893fc4b7330e"
+    },
+    {
+      "reviewRecordId": "nc-primary-joint:2024:02",
+      "observationId": "nc:identity:2024:02",
+      "identityObservationSha256": "1ccd5b52bc417a3a757e3270ef5dc6767e452c95a484310305a8657c58f22e9b",
+      "geographyRowSha256": "6388a4d65d4fea5360109969f2747e75222139afcd9f65949ce69400a28694fc",
+      "seatCycleId": "seat_house_nc_02_current",
+      "districtCode": "02",
+      "cycleYear": 2024,
+      "sourceObservationKind": "reported_contest",
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "identity": {
+        "bioguideId": "R000305",
+        "officialHouseName": "Deborah K. Ross",
+        "sourceCandidateName": "Deborah K. Ross",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "sourcePlan": "sl_2023_145",
+        "targetPlan": "cd119_sl_2023_145",
+        "compatibilityDisposition": "exact_block_membership_candidate",
+        "candidate": true,
+        "approved": false,
+        "sourceBlockCount": 9220,
+        "targetBlockCount": 9220,
+        "sameDistrictBlockCount": 9220,
+        "sourceRetentionPpm": 1000000,
+        "targetCoveragePpm": 1000000
+      },
+      "reviewDisposition": "identity_and_exact_geography_candidates",
+      "recommendedAction": "accept_identity_and_exact_geography_after_review",
+      "safeDefault": "exclude_joint_relationship_from_evaluator",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_documented_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "exact_block_geography_candidate_pending_review",
+        "join_does_not_approve_parent_candidates"
+      ],
+      "reviewRecordSha256": "8252e8887d56a2b4f813a49784ad12ed2257a2fd76c27383b810186f057352b5"
+    },
+    {
+      "reviewRecordId": "nc-primary-joint:2024:04",
+      "observationId": "nc:identity:2024:04",
+      "identityObservationSha256": "b3fc4d52ade369b3c6538fbd393e3572b54b942f1cf7f5df83b5bb0c2c6c68bf",
+      "geographyRowSha256": "c1a25e109c14b3be3e892a1bef3fe971179756d176183642c3df2e957eea0de2",
+      "seatCycleId": "seat_house_nc_04_current",
+      "districtCode": "04",
+      "cycleYear": 2024,
+      "sourceObservationKind": "unreported_district_cycle_block",
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "identity": {
+        "bioguideId": "F000477",
+        "officialHouseName": "Valerie P. Foushee",
+        "sourceCandidateName": null,
+        "evidenceClass": "unresolved",
+        "relationshipDisposition": "not_linked_no_reported_contest",
+        "candidate": false,
+        "approved": false
+      },
+      "geography": {
+        "sourcePlan": "sl_2023_145",
+        "targetPlan": "cd119_sl_2023_145",
+        "compatibilityDisposition": "exact_block_membership_candidate",
+        "candidate": true,
+        "approved": false,
+        "sourceBlockCount": 10902,
+        "targetBlockCount": 10902,
+        "sameDistrictBlockCount": 10902,
+        "sourceRetentionPpm": 1000000,
+        "targetCoveragePpm": 1000000
+      },
+      "reviewDisposition": "exact_geography_identity_unresolved",
+      "recommendedAction": "accept_exact_geography_only_keep_identity_unresolved",
+      "safeDefault": "exclude_joint_relationship_from_evaluator",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_documented_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_unresolved_no_reported_contest",
+        "exact_block_geography_candidate_pending_review",
+        "join_does_not_approve_parent_candidates"
+      ],
+      "reviewRecordSha256": "349332ccde867b5c82c6b9d80f6579b2637799cd2d93517f426c613bd5901951"
+    },
+    {
+      "reviewRecordId": "nc-primary-joint:2024:12",
+      "observationId": "nc:identity:2024:12",
+      "identityObservationSha256": "210318fa112b6938ffa49a55f62c4e1100f1da17d7f452067a75a613a62112a3",
+      "geographyRowSha256": "641576710b19aa3f2d2921af889f97e76a5ac122e39c711a0606ffb689200c78",
+      "seatCycleId": "seat_house_nc_12_current",
+      "districtCode": "12",
+      "cycleYear": 2024,
+      "sourceObservationKind": "unreported_district_cycle_block",
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "identity": {
+        "bioguideId": "A000370",
+        "officialHouseName": "Alma S. Adams",
+        "sourceCandidateName": null,
+        "evidenceClass": "unresolved",
+        "relationshipDisposition": "not_linked_no_reported_contest",
+        "candidate": false,
+        "approved": false
+      },
+      "geography": {
+        "sourcePlan": "sl_2023_145",
+        "targetPlan": "cd119_sl_2023_145",
+        "compatibilityDisposition": "exact_block_membership_candidate",
+        "candidate": true,
+        "approved": false,
+        "sourceBlockCount": 7419,
+        "targetBlockCount": 7419,
+        "sameDistrictBlockCount": 7419,
+        "sourceRetentionPpm": 1000000,
+        "targetCoveragePpm": 1000000
+      },
+      "reviewDisposition": "exact_geography_identity_unresolved",
+      "recommendedAction": "accept_exact_geography_only_keep_identity_unresolved",
+      "safeDefault": "exclude_joint_relationship_from_evaluator",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_documented_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_unresolved_no_reported_contest",
+        "exact_block_geography_candidate_pending_review",
+        "join_does_not_approve_parent_candidates"
+      ],
+      "reviewRecordSha256": "84720777a728f50f20d5d8db8b00ed325ee49077053a4fe169508be5e5cc7567"
+    },
+    {
+      "reviewRecordId": "nc-primary-joint:2026:01",
+      "observationId": "nc:identity:2026:01",
+      "identityObservationSha256": "33d54d1edca824bc2922c307df4b57839f42a4d55ee5141bfc6512cb27e2941e",
+      "geographyRowSha256": "ac21187e8068eb13be5a512132e6cfdc506cbc3dda4e23d5430e5cead560a4b8",
+      "seatCycleId": "seat_house_nc_01_current",
+      "districtCode": "01",
+      "cycleYear": 2026,
+      "sourceObservationKind": "unreported_district_cycle_block",
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "identity": {
+        "bioguideId": "D000230",
+        "officialHouseName": "Donald G. Davis",
+        "sourceCandidateName": null,
+        "evidenceClass": "unresolved",
+        "relationshipDisposition": "not_linked_no_reported_contest",
+        "candidate": false,
+        "approved": false
+      },
+      "geography": {
+        "sourcePlan": "sl_2025_95",
+        "targetPlan": "cd119_sl_2023_145",
+        "compatibilityDisposition": "crosswalk_review_required",
+        "candidate": false,
+        "approved": false,
+        "sourceBlockCount": 26755,
+        "targetBlockCount": 23945,
+        "sameDistrictBlockCount": 15937,
+        "sourceRetentionPpm": 595664,
+        "targetCoveragePpm": 665567
+      },
+      "reviewDisposition": "identity_unresolved_split_geography",
+      "recommendedAction": "keep_identity_and_geography_excluded",
+      "safeDefault": "exclude_joint_relationship_from_evaluator",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_documented_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_unresolved_no_reported_contest",
+        "split_geography_requires_crosswalk_review",
+        "join_does_not_approve_parent_candidates"
+      ],
+      "reviewRecordSha256": "c0a98e29ea7180042bbb36814d3d335620459aa9c5823c705a565d22297d6ad4"
+    },
+    {
+      "reviewRecordId": "nc-primary-joint:2026:02",
+      "observationId": "nc:identity:2026:02",
+      "identityObservationSha256": "0ebd47db18f8cf0806337b305ba455674bfc5c69bdf5c56d9440f1a23cfeb499",
+      "geographyRowSha256": "6ffffbacdb5caeafe5fab639f77117526b15ab0192de5aa9d0d16d308ffaf757",
+      "seatCycleId": "seat_house_nc_02_current",
+      "districtCode": "02",
+      "cycleYear": 2026,
+      "sourceObservationKind": "unreported_district_cycle_block",
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "identity": {
+        "bioguideId": "R000305",
+        "officialHouseName": "Deborah K. Ross",
+        "sourceCandidateName": null,
+        "evidenceClass": "unresolved",
+        "relationshipDisposition": "not_linked_no_reported_contest",
+        "candidate": false,
+        "approved": false
+      },
+      "geography": {
+        "sourcePlan": "sl_2025_95",
+        "targetPlan": "cd119_sl_2023_145",
+        "compatibilityDisposition": "exact_block_membership_candidate",
+        "candidate": true,
+        "approved": false,
+        "sourceBlockCount": 9220,
+        "targetBlockCount": 9220,
+        "sameDistrictBlockCount": 9220,
+        "sourceRetentionPpm": 1000000,
+        "targetCoveragePpm": 1000000
+      },
+      "reviewDisposition": "exact_geography_identity_unresolved",
+      "recommendedAction": "accept_exact_geography_only_keep_identity_unresolved",
+      "safeDefault": "exclude_joint_relationship_from_evaluator",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_documented_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_unresolved_no_reported_contest",
+        "exact_block_geography_candidate_pending_review",
+        "join_does_not_approve_parent_candidates"
+      ],
+      "reviewRecordSha256": "32ba3a6f86947edd6ff41c5680eb42cf4095588932505928f2ea1b7e23adfff0"
+    },
+    {
+      "reviewRecordId": "nc-primary-joint:2026:04",
+      "observationId": "nc:identity:2026:04",
+      "identityObservationSha256": "4e555bf04b5cd3d97cfb2da590dcd157a5f899862e06ac1c26feca3badeff4e9",
+      "geographyRowSha256": "652fb4202c1cac3bbc3b1584838a07f1eac220e93511beac021d5c310289ce1e",
+      "seatCycleId": "seat_house_nc_04_current",
+      "districtCode": "04",
+      "cycleYear": 2026,
+      "sourceObservationKind": "reported_contest",
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "identity": {
+        "bioguideId": "F000477",
+        "officialHouseName": "Valerie P. Foushee",
+        "sourceCandidateName": "Valerie P. Foushee",
+        "evidenceClass": "exact_name_observation",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "sourcePlan": "sl_2025_95",
+        "targetPlan": "cd119_sl_2023_145",
+        "compatibilityDisposition": "exact_block_membership_candidate",
+        "candidate": true,
+        "approved": false,
+        "sourceBlockCount": 10902,
+        "targetBlockCount": 10902,
+        "sameDistrictBlockCount": 10902,
+        "sourceRetentionPpm": 1000000,
+        "targetCoveragePpm": 1000000
+      },
+      "reviewDisposition": "identity_and_exact_geography_candidates",
+      "recommendedAction": "accept_identity_and_exact_geography_after_review",
+      "safeDefault": "exclude_joint_relationship_from_evaluator",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_documented_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "exact_block_geography_candidate_pending_review",
+        "join_does_not_approve_parent_candidates"
+      ],
+      "reviewRecordSha256": "ef0f9a840d3a97f1b14ae5eefab689edffc28de4ec71a7450e29f80881d1cf87"
+    },
+    {
+      "reviewRecordId": "nc-primary-joint:2026:12",
+      "observationId": "nc:identity:2026:12",
+      "identityObservationSha256": "1c941aef7406b415dd8e12a953785e67f59ef57b533c76492c9e7695890e934d",
+      "geographyRowSha256": "84c7ae0497f92ea573177a5277d70eddc9eccf1e3f8d9b00c6a5533b3e69896e",
+      "seatCycleId": "seat_house_nc_12_current",
+      "districtCode": "12",
+      "cycleYear": 2026,
+      "sourceObservationKind": "reported_contest",
+      "sourcePrecedenceStatus": "not_applicable_other_cycle",
+      "identity": {
+        "bioguideId": "A000370",
+        "officialHouseName": "Alma S. Adams",
+        "sourceCandidateName": "Alma Shealey Adams",
+        "evidenceClass": "derived_name_relationship",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "sourcePlan": "sl_2025_95",
+        "targetPlan": "cd119_sl_2023_145",
+        "compatibilityDisposition": "exact_block_membership_candidate",
+        "candidate": true,
+        "approved": false,
+        "sourceBlockCount": 7419,
+        "targetBlockCount": 7419,
+        "sameDistrictBlockCount": 7419,
+        "sourceRetentionPpm": 1000000,
+        "targetCoveragePpm": 1000000
+      },
+      "reviewDisposition": "identity_and_exact_geography_candidates",
+      "recommendedAction": "accept_identity_and_exact_geography_after_review",
+      "safeDefault": "exclude_joint_relationship_from_evaluator",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_documented_identity_and_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "identity_candidate_pending_review",
+        "exact_block_geography_candidate_pending_review",
+        "join_does_not_approve_parent_candidates"
+      ],
+      "reviewRecordSha256": "002d98a46f37de96aa0b1698daf075e9ba35848be4bffbf0c543432c3f7dc85d"
+    }
+  ],
+  "reviewRecordSetSha256": "8cffac2db7f12ddac1167a441e93792f9b082db07a4c2490e707e8e4b59a2d12",
+  "decisions": [
+    {
+      "decisionId": "nc-primary-joint-accept-both-exact-v1",
+      "affectedComponent": "north_carolina_primary_identity_geography",
+      "question": "Should the three rows with identity candidates and exact block geography be accepted after documented review?",
+      "evidenceRecordIds": [
+        "nc-primary-joint:2024:02",
+        "nc-primary-joint:2026:04",
+        "nc-primary-joint:2026:12"
+      ],
+      "recommendedDecision": "accept_three_identity_and_exact_geography_relationships",
+      "defaultReversibleAssumption": "exclude_affected_joint_rows",
+      "alternatives": [
+        "defer_all_three",
+        "reject_any_unsupported_row"
+      ],
+      "consequences": [
+        "acceptance_authorizes_successor_candidate_inputs_only",
+        "publication_and_scoring_remain_separate"
+      ],
+      "confidence": "high",
+      "blocksPublicationOfAffectedRows": true,
+      "blocksUnrelatedWork": false,
+      "workCompletedWhileWaiting": [
+        "three_exact_identity_geography_rows_are_hash_bound",
+        "all_rows_remain_unapproved_and_score_ineligible"
+      ],
+      "resolution": {
+        "status": "proposed",
+        "decision": null,
+        "reviewer": null,
+        "reviewedAt": null,
+        "rationale": null
+      },
+      "decisionSha256": "fdf3ded2ea072c9debecc19f43c3b35dd5910792933e2ab23d784ac047acdc62"
+    },
+    {
+      "decisionId": "nc-primary-joint-accept-identity-split-geography-v1",
+      "affectedComponent": "north_carolina_primary_identity_geography",
+      "question": "Should the three identity candidates with split historical geography be accepted independently while geography remains excluded?",
+      "evidenceRecordIds": [
+        "nc-primary-joint:2022:01",
+        "nc-primary-joint:2022:04",
+        "nc-primary-joint:2022:12"
+      ],
+      "recommendedDecision": "accept_identity_relationships_only_keep_geography_excluded",
+      "defaultReversibleAssumption": "exclude_affected_joint_rows",
+      "alternatives": [
+        "defer_identity_and_geography",
+        "reject_identity_relationships"
+      ],
+      "consequences": [
+        "identity_review_can_progress_without_geography_approval",
+        "historical_result_use_remains_excluded"
+      ],
+      "confidence": "high",
+      "blocksPublicationOfAffectedRows": true,
+      "blocksUnrelatedWork": false,
+      "workCompletedWhileWaiting": [
+        "three_identity_candidates_are_separable_from_split_geography",
+        "all_rows_remain_unapproved_and_score_ineligible"
+      ],
+      "resolution": {
+        "status": "proposed",
+        "decision": null,
+        "reviewer": null,
+        "reviewedAt": null,
+        "rationale": null
+      },
+      "decisionSha256": "a09ac25da2b711bae70a38568b31b4d2e5668b7f033af5f7ca8c931f211cde23"
+    },
+    {
+      "decisionId": "nc-primary-joint-accept-geography-unresolved-identity-v1",
+      "affectedComponent": "north_carolina_primary_identity_geography",
+      "question": "Should the four exact block geography candidates be accepted independently while identity remains unresolved?",
+      "evidenceRecordIds": [
+        "nc-primary-joint:2024:01",
+        "nc-primary-joint:2024:04",
+        "nc-primary-joint:2024:12",
+        "nc-primary-joint:2026:02"
+      ],
+      "recommendedDecision": "accept_exact_geography_only_keep_identity_unresolved",
+      "defaultReversibleAssumption": "exclude_affected_joint_rows",
+      "alternatives": [
+        "defer_geography",
+        "reject_exact_block_relationships"
+      ],
+      "consequences": [
+        "geography_review_can_progress_without_fabricating_identity",
+        "unreported_contests_remain_unresolved"
+      ],
+      "confidence": "high",
+      "blocksPublicationOfAffectedRows": true,
+      "blocksUnrelatedWork": false,
+      "workCompletedWhileWaiting": [
+        "four_exact_block_relationships_are_separable_from_identity",
+        "all_rows_remain_unapproved_and_score_ineligible"
+      ],
+      "resolution": {
+        "status": "proposed",
+        "decision": null,
+        "reviewer": null,
+        "reviewedAt": null,
+        "rationale": null
+      },
+      "decisionSha256": "c3ef0dfcc54990e1e1b7e91bf9c1bb9609d7e1c9358bf059ea2fb3514d73e1f1"
+    },
+    {
+      "decisionId": "nc-primary-joint-retain-unresolved-split-v1",
+      "affectedComponent": "north_carolina_primary_identity_geography",
+      "question": "Should the two rows with unresolved identity and split geography remain excluded pending new evidence?",
+      "evidenceRecordIds": [
+        "nc-primary-joint:2022:02",
+        "nc-primary-joint:2026:01"
+      ],
+      "recommendedDecision": "retain_exclusion_pending_new_identity_and_crosswalk_evidence",
+      "defaultReversibleAssumption": "exclude_affected_joint_rows",
+      "alternatives": [
+        "commission_population_weighted_crosswalk",
+        "collect_additional_identity_authority"
+      ],
+      "consequences": [
+        "safe_default_prevents_false_historical_attribution",
+        "other_rows_continue_independently"
+      ],
+      "confidence": "high",
+      "blocksPublicationOfAffectedRows": true,
+      "blocksUnrelatedWork": false,
+      "workCompletedWhileWaiting": [
+        "two_rows_lack_both_required_relationships",
+        "all_rows_remain_unapproved_and_score_ineligible"
+      ],
+      "resolution": {
+        "status": "proposed",
+        "decision": null,
+        "reviewer": null,
+        "reviewedAt": null,
+        "rationale": null
+      },
+      "decisionSha256": "5914c6d7a8499eaabc3e58ef1f2b0e8ee8631a8369369649000886892297828b"
+    }
+  ],
+  "decisionSetSha256": "2937f9a65ef3c61195665def187247be47fc1790bea2f6f18a8b4b43cb4cca6e",
+  "inheritedDecision": {
+    "decisionId": "nc-2022-primary-archive-canvass-source-precedence-v1",
+    "status": "proposed",
+    "recommendedChoice": "use_final_state_canvass_for_certified_2022_candidate_totals",
+    "safeDefault": "exclude_affected_rows_pending_review",
+    "affectedTargetReviewRecords": 0,
+    "note": "nc03_and_nc11_conflicts_are_outside_the_four_current_target_seats_but_parent_cycle_precedence_remains_unresolved"
+  },
+  "packageSha256": "c86d4542e10c624b60e5e8080181bad2ecfc6239365e19007e70109d6e717170"
+}

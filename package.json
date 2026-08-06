@@ -119,6 +119,7 @@
     "fetch:nc-primary-geography-authority": "node scripts/fetch-nc-primary-geography-authority.mjs",
     "fetch:nc-primary-current-geography-bef": "node scripts/fetch-nc-primary-current-geography-bef.mjs",
     "generate:nc-primary-geography-v1": "tsx scripts/generate-north-carolina-primary-geography-compatibility-candidate.ts",
+    "generate:nc-primary-joint-review-v1": "tsx scripts/generate-north-carolina-primary-identity-geography-review-package.ts",
     "generate:or-primary-geography-v1": "tsx scripts/generate-oregon-primary-geography-compatibility-candidate.ts",
     "generate:or-current-incumbent-primary-linkage-v1": "tsx scripts/generate-oregon-current-incumbent-primary-linkage-candidate.ts",
     "generate:or-primary-joint-review-v1": "tsx scripts/generate-oregon-primary-identity-geography-review-package.ts",
