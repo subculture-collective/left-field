@@ -79,6 +79,7 @@
     "generate:wa-house-top-two-results-receipt": "tsx scripts/generate-washington-house-top-two-results-receipt.ts",
     "fetch:wa-primary-geography-authority": "node scripts/fetch-washington-primary-geography-authority.mjs",
     "generate:wa-current-incumbent-top-two-linkage-v1": "tsx scripts/generate-washington-current-incumbent-top-two-linkage-candidate.ts",
+    "generate:wa-primary-geography-v1": "tsx scripts/generate-washington-primary-geography-compatibility-candidate.ts",
     "fetch:il-house-primary-results": "node scripts/fetch-il-house-democratic-primary-results.mjs",
     "generate:il-house-primary-results-receipt": "tsx scripts/generate-illinois-house-democratic-primary-results-receipt.ts",
     "generate:il-current-incumbent-primary-linkage-v1": "tsx scripts/generate-illinois-current-incumbent-primary-linkage-candidate.ts",
