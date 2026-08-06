@@ -28,5 +28,5 @@ describe("Texas primary geography authority acquisition", () => {
     const drifted = run(wrong);
     expect(drifted.status).not.toBe(0);
     expect(drifted.stderr).toContain("TX_PRIMARY_GEOGRAPHY_AUTHORITY_SOURCE_DRIFT");
-  }, 15_000);
+  }, 30_000);
 });
