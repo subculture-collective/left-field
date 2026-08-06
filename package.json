@@ -114,6 +114,7 @@
     "import:mi-house-primary-results": "node scripts/import-mi-house-democratic-primary-results.mjs",
     "generate:mi-house-primary-results-receipt": "tsx scripts/generate-michigan-house-democratic-primary-results-receipt.ts",
     "generate:mi-current-incumbent-primary-linkage-v1": "tsx scripts/generate-michigan-current-incumbent-primary-linkage-candidate.ts",
+    "generate:az-current-incumbent-primary-linkage-v1": "tsx scripts/generate-arizona-current-incumbent-primary-linkage-candidate.ts",
     "fetch:mi-primary-geography-authority": "node scripts/fetch-michigan-primary-geography-authority.mjs",
     "generate:mi-primary-geography-v1": "tsx scripts/generate-michigan-primary-geography-compatibility-candidate.ts",
     "generate:mi-primary-joint-review-v1": "tsx scripts/generate-michigan-primary-identity-geography-review-package.ts",

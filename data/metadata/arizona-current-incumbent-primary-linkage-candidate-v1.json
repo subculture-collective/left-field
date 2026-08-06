@@ -1,0 +1,360 @@
+{
+  "schema": "arizona-current-incumbent-primary-linkage-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T06:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_identity_historical_geography_disposition_review_and_publication_approval",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inheritedUnresolvedGates": [
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "decide_nonstandard_primary_disposition_treatment",
+    "review_progressive_candidate_classification",
+    "acquire_separately_versioned_2026_certified_canvass_after_source_cutoff",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "inputs": {
+    "roster": {
+      "sourceLockId": "dsa-target-incumbent-roster-20260804-v1",
+      "fileSha256": "8ae9bb3423e6160d00b5395186c42550e28811b817a482650875d87de71079e1",
+      "rosterSha256": "cf068848595dee99882ae74a6bef2b76061597fe0daa3c86b30c71bdcae18fee"
+    },
+    "proposal": {
+      "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+    },
+    "houseClerk": {
+      "sourceLockId": "house-xml",
+      "fileSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+    },
+    "congressLegislators": {
+      "sourceLockId": "congress-legislators-current-20260804",
+      "fileSha256": "bc48cccd12df96164e5a2415fc41e838ca255fe85c297731515529692f7982cf"
+    },
+    "receipt": {
+      "sourceLockId": "arizona-house-democratic-primary-results-2022-2026-v1",
+      "fileSha256": "17f6148269291c59942b43f3f012c6f0396b0fc52ef7f0384c4c53762d755e36",
+      "packageSha256": "119a76ada904d3d03e121ecce285841492654b02d24572cd3f2b690d974eb752",
+      "contestSetSha256": "98e56f97d7c18b72c36f89c5132f82de426cff7292437e4fed9dad10e6417548"
+    }
+  },
+  "methodology": {
+    "scope": "three_current_arizona_democratic_target_seats_times_two_retained_certified_cycles",
+    "sourceBallotNameOrder": "source_full_name_normalized_for_exact_comparison",
+    "directIdentifierBridgeAvailable": false,
+    "sourceWinnerTreatment": "marked_by_source_preserved_as_fact_not_identity_or_review_approval",
+    "noMatchTreatment": "retain_contest_evidence_without_current_incumbent_identity_link",
+    "futureCycleTreatment": "zero_2026_rows_unofficial_boundary_not_promoted",
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0,
+    "parentProjectionSha256": "0d0c367a09739bade8e5677ce47ba4144dd5b78f7d730dc52c1983f8b3483ba8"
+  },
+  "summary": {
+    "targetSeats": 3,
+    "contestObservations": 6,
+    "reportedCandidateRows": 8,
+    "reportedCandidateVotes": 318970,
+    "aggregateWriteInVotes": 93,
+    "proposedIdentityLinks": 3,
+    "exactNameObservations": 3,
+    "reportedContestNoUniqueMatch": 3,
+    "directIdentifierBridges": 0,
+    "automaticallyApprovedRows": 0,
+    "selectedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "observations": [
+    {
+      "observationId": "az:identity:2022:03",
+      "contestId": "az:2022:regular:us-house:03:democratic",
+      "contestSha256": "4173ed9f88d7abb55c7e19cd72d158628b0a979d60fb29fe240ee644fc143c5e",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "seatCycleId": "seat_house_az_03_current",
+      "districtCode": "03",
+      "rosterIdentity": {
+        "bioguideId": "A000381",
+        "officialHouseName": "Yassamin Ansari",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestCandidateVotes": 47972,
+      "aggregateWriteInVotes": 0,
+      "sourceCandidate": null,
+      "identityStatus": "reported_contest_no_unique_candidate_match",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": null,
+      "evidenceClass": null,
+      "confidence": null,
+      "relationshipDisposition": "not_linked_no_unique_current_incumbent_candidate_same_district",
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "sourceWinnerStatus": "marked_by_source",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "dispositionDecisionStatus": "unresolved",
+      "selectionStatus": "unselected_source_winner_marker_not_identity_or_review_approval",
+      "evaluatorUse": "excluded_pending_identity_historical_geography_disposition_review_and_publication_approval",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "reported_contest_no_unique_current_incumbent_candidate_match",
+        "same_district_and_cycle",
+        "predecessor_or_other_candidate_not_cross_linked",
+        "source_winner_marker_not_identity_approval"
+      ],
+      "rowSha256": "93dd88829b37a38cc0de1c0ebe6cb640833bba806a97457b9206becd35672188"
+    },
+    {
+      "observationId": "az:identity:2022:04",
+      "contestId": "az:2022:regular:us-house:04:democratic",
+      "contestSha256": "deb9f977121cb57804283e5748b22d1bba25bc216437a9600b2f8e2d03a3225e",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "seatCycleId": "seat_house_az_04_current",
+      "districtCode": "04",
+      "rosterIdentity": {
+        "bioguideId": "S001211",
+        "officialHouseName": "Greg Stanton",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestCandidateVotes": 61319,
+      "aggregateWriteInVotes": 0,
+      "sourceCandidate": {
+        "sourceCandidateName": "Greg Stanton",
+        "votes": 61319,
+        "sourceWinnerMarker": true,
+        "rowIdentity": "88ac64db0fc1aebf0a0ff80c7d8434cdf052b535d6d6c117e3c2b44c5cf4412f"
+      },
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "sourceWinnerStatus": "marked_by_source",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "dispositionDecisionStatus": "unresolved",
+      "selectionStatus": "unselected_source_winner_marker_not_identity_or_review_approval",
+      "evaluatorUse": "excluded_pending_identity_historical_geography_disposition_review_and_publication_approval",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_marker_not_identity_approval"
+      ],
+      "rowSha256": "429df304464c88fe0d0bbe6c7490061067ebaef603ee80f2c49be35835c3646e"
+    },
+    {
+      "observationId": "az:identity:2022:07",
+      "contestId": "az:2022:regular:us-house:07:democratic",
+      "contestSha256": "496cd08f50e401ca022b8a3ed50ab8170f72277a227aba50078d7981e20850ce",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "seatCycleId": "seat_house_az_07_current",
+      "districtCode": "07",
+      "rosterIdentity": {
+        "bioguideId": "G000606",
+        "officialHouseName": "Adelita S. Grijalva",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestCandidateVotes": 62547,
+      "aggregateWriteInVotes": 0,
+      "sourceCandidate": null,
+      "identityStatus": "reported_contest_no_unique_candidate_match",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": null,
+      "evidenceClass": null,
+      "confidence": null,
+      "relationshipDisposition": "not_linked_no_unique_current_incumbent_candidate_same_district",
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "sourceWinnerStatus": "marked_by_source",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "dispositionDecisionStatus": "unresolved",
+      "selectionStatus": "unselected_source_winner_marker_not_identity_or_review_approval",
+      "evaluatorUse": "excluded_pending_identity_historical_geography_disposition_review_and_publication_approval",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "reported_contest_no_unique_current_incumbent_candidate_match",
+        "same_district_and_cycle",
+        "predecessor_or_other_candidate_not_cross_linked",
+        "source_winner_marker_not_identity_approval"
+      ],
+      "rowSha256": "ecb01ed82199e809d989409add417658948da90768b1020e88c4231279a55b73"
+    },
+    {
+      "observationId": "az:identity:2024:03",
+      "contestId": "az:2024:regular:us-house:03:democratic",
+      "contestSha256": "87e13c99c11bd2e504782a61a3c16e93939662d97930e9799c123638b6feeb15",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "seatCycleId": "seat_house_az_03_current",
+      "districtCode": "03",
+      "rosterIdentity": {
+        "bioguideId": "A000381",
+        "officialHouseName": "Yassamin Ansari",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidateCount": 3,
+      "sourceContestCandidateVotes": 42821,
+      "aggregateWriteInVotes": 93,
+      "sourceCandidate": {
+        "sourceCandidateName": "Yassamin Ansari",
+        "votes": 19087,
+        "sourceWinnerMarker": true,
+        "rowIdentity": "3a465dd4dffe50e5f2e66c7ced6fc05821c195643f7b04b3f3745d4ce70c1592"
+      },
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "resultAuthorityStatus": "certified_final_recount_and_court_order",
+      "resultRevisionStatus": "final_recount_supersedes_initial_canvass",
+      "sourceWinnerStatus": "marked_by_source",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "dispositionDecisionStatus": "unresolved",
+      "selectionStatus": "unselected_source_winner_marker_not_identity_or_review_approval",
+      "evaluatorUse": "excluded_pending_identity_historical_geography_disposition_review_and_publication_approval",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_marker_not_identity_approval"
+      ],
+      "rowSha256": "c0626de9443d24e456f879096406a767f0da177c93d611811cc5b4f2d7fa3a02"
+    },
+    {
+      "observationId": "az:identity:2024:04",
+      "contestId": "az:2024:regular:us-house:04:democratic",
+      "contestSha256": "fb9a86fc32ccf593e0824594fc960e4a8fdf885a694963d058204d184a7d6a73",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "seatCycleId": "seat_house_az_04_current",
+      "districtCode": "04",
+      "rosterIdentity": {
+        "bioguideId": "S001211",
+        "officialHouseName": "Greg Stanton",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestCandidateVotes": 49178,
+      "aggregateWriteInVotes": 0,
+      "sourceCandidate": {
+        "sourceCandidateName": "Greg Stanton",
+        "votes": 49178,
+        "sourceWinnerMarker": true,
+        "rowIdentity": "c7c354736114869fb414357d2d2c48d46b633c76b6077434367e5ffbae2ce5c8"
+      },
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "sourceWinnerStatus": "marked_by_source",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "dispositionDecisionStatus": "unresolved",
+      "selectionStatus": "unselected_source_winner_marker_not_identity_or_review_approval",
+      "evaluatorUse": "excluded_pending_identity_historical_geography_disposition_review_and_publication_approval",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_marker_not_identity_approval"
+      ],
+      "rowSha256": "ee991a716861080a17c0724540d11f589fac47cea2379ede9584d3c814232a3f"
+    },
+    {
+      "observationId": "az:identity:2024:07",
+      "contestId": "az:2024:regular:us-house:07:democratic",
+      "contestSha256": "6b1513ab3c417f55ec33516033ce4f3322033a31ac4fb6736ba34c6323a52b15",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "seatCycleId": "seat_house_az_07_current",
+      "districtCode": "07",
+      "rosterIdentity": {
+        "bioguideId": "G000606",
+        "officialHouseName": "Adelita S. Grijalva",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestCandidateVotes": 55133,
+      "aggregateWriteInVotes": 0,
+      "sourceCandidate": null,
+      "identityStatus": "reported_contest_no_unique_candidate_match",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": null,
+      "evidenceClass": null,
+      "confidence": null,
+      "relationshipDisposition": "not_linked_no_unique_current_incumbent_candidate_same_district",
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "sourceWinnerStatus": "marked_by_source",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "dispositionDecisionStatus": "unresolved",
+      "selectionStatus": "unselected_source_winner_marker_not_identity_or_review_approval",
+      "evaluatorUse": "excluded_pending_identity_historical_geography_disposition_review_and_publication_approval",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "reported_contest_no_unique_current_incumbent_candidate_match",
+        "same_district_and_cycle",
+        "predecessor_or_other_candidate_not_cross_linked",
+        "source_winner_marker_not_identity_approval"
+      ],
+      "rowSha256": "801980c542b4669eb1a1fab97a3b08b93d66ca64ceec79074a994570bafd8f9c"
+    }
+  ],
+  "observationSetSha256": "e4bac18f0961d7fad61e7a90cfa9e8e2f7d7b64022a2898709b6c1a778a01913",
+  "decisionSupport": {
+    "decisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+    "status": "proposed",
+    "recommendedResolution": "accept_three_exact_links_and_retain_three_predecessor_rows_as_explicit_no_matches",
+    "defaultAssumption": "exclude_all_six_rows_from_evaluator_until_identity_and_geography_review",
+    "affectedObservationIds": [
+      "az:identity:2022:03",
+      "az:identity:2022:04",
+      "az:identity:2022:07",
+      "az:identity:2024:03",
+      "az:identity:2024:04",
+      "az:identity:2024:07"
+    ],
+    "proposedIdentityObservationIds": [
+      "az:identity:2022:04",
+      "az:identity:2024:03",
+      "az:identity:2024:04"
+    ],
+    "noMatchObservationIds": [
+      "az:identity:2022:03",
+      "az:identity:2022:07",
+      "az:identity:2024:07"
+    ],
+    "reviewerResolution": null,
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "packageSha256": "ba49c03b31206990f5427df19aa60daad3bc4ee05d2fbc92695cb939c1c29ea9"
+}
