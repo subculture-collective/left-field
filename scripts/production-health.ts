@@ -16,6 +16,10 @@ export interface ProductionHealthEnvironment extends ReleaseHealthEnvironment {
   readonly PRODUCTION_PROMETHEUS_URL?: string;
 }
 
+export function productionHealthExitCode(report: ProductionHealthReport): 0 | 1 {
+  return report.status === "pass" ? 0 : 1;
+}
+
 function prometheusBaseUrl(value: string | undefined): URL {
   if (!value) throw new Error("PRODUCTION_PROMETHEUS_URL is required");
   const url = new URL(value);
@@ -103,7 +107,7 @@ export async function executeProductionHealth(argv: readonly string[], env: Prod
 export async function main(argv = process.argv.slice(2), env = process.env as ProductionHealthEnvironment): Promise<void> {
   const report = await executeProductionHealth(argv, env);
   process.stdout.write(`${JSON.stringify(report)}\n`);
-  if (report.repositoryStatus !== "pass" || report.productionTelemetryStatus !== "pass") process.exitCode = 1;
+  process.exitCode = productionHealthExitCode(report);
 }
 
 if (process.argv[1]?.endsWith("production-health.ts")) void main().catch(() => { process.stderr.write("Production health check failed\n"); process.exitCode = 1; });

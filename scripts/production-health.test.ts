@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { inspectProductionTelemetry } from "./production-health";
+import { inspectProductionTelemetry, productionHealthExitCode, type ProductionHealthReport } from "./production-health";
 
 const now = 1_800_000_000;
 const metric = (name: string, value: number, labels: Record<string, string> = {}) => ({ metric: { __name__: name, project: "dsa-seats", environment: "factual-r1", ...labels }, value: [now, String(value)] });
@@ -69,5 +69,30 @@ describe("production telemetry health", () => {
     await expect(inspectProductionTelemetry(new URL("http://10.0.0.56:9090"), scopedFetcher as typeof fetch, now)).resolves.toMatchObject({ status: "pass" });
     expect(query).toContain('project="dsa-seats"');
     expect(query).toContain('environment="factual-r1"');
+  });
+});
+
+describe("production health CLI exit contract", () => {
+  const report = (status: ProductionHealthReport["status"], overrides: Partial<ProductionHealthReport> = {}): ProductionHealthReport => ({
+    releaseId: "rel_factual",
+    status,
+    repositoryStatus: "pass",
+    productionTelemetryStatus: "pass",
+    alertDeliveryStatus: status,
+    checks: [],
+    ...overrides,
+  });
+
+  it("fails closed when repository and telemetry pass but overall readiness is blocked by alert delivery", () => {
+    expect(productionHealthExitCode(report("blocked", { alertDeliveryStatus: "blocked" }))).toBe(1);
+  });
+
+  it("returns failure for repository or telemetry failure", () => {
+    expect(productionHealthExitCode(report("fail", { repositoryStatus: "fail" }))).toBe(1);
+    expect(productionHealthExitCode(report("fail", { productionTelemetryStatus: "fail" }))).toBe(1);
+  });
+
+  it("permits success only for a future fully passing overall report", () => {
+    expect(productionHealthExitCode(report("pass", { alertDeliveryStatus: "pass" }))).toBe(0);
   });
 });
