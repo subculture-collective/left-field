@@ -165,6 +165,7 @@
     "fetch:ct-house-primary-event-results": "node scripts/fetch-ct-house-democratic-primary-event-results.mjs",
     "generate:ct-house-primary-event-dispositions": "tsx scripts/generate-connecticut-house-democratic-primary-event-dispositions-receipt.ts",
     "generate:ct-primary-nomination-authority": "tsx scripts/generate-connecticut-primary-nomination-authority-receipt.ts",
+    "generate:ct-nomination-identity": "tsx scripts/generate-connecticut-current-incumbent-nomination-linkage-candidate.ts",
     "bootstrap:fec-bulk": "tsx scripts/bootstrap-fec-bulk.ts",
     "reconcile:fec-bulk": "tsx scripts/reconcile-fec-bulk.ts",
     "db:generate": "drizzle-kit generate",

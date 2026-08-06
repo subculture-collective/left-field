@@ -1,0 +1,500 @@
+{
+  "schema": "connecticut-current-incumbent-nomination-linkage-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T10:00:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "defaultUse": "exclude_from_evaluator_until_authorized_identity_and_historical_geography_review",
+  "sources": [
+    {
+      "id": "dsa-target-incumbent-roster-20260804-v1",
+      "url": "urn:dsa-seats:dsa-target-incumbent-roster:v1:2026-08-04",
+      "retainedPath": "data/metadata/dsa-target-incumbent-roster-20260804-v1.json",
+      "retainedStatus": "retained",
+      "byteSize": 21001,
+      "sha256": "8ae9bb3423e6160d00b5395186c42550e28811b817a482650875d87de71079e1",
+      "kind": "production_projection_receipt",
+      "parentIds": [
+        "congress-legislators-current-20260804",
+        "dsa-target-factual-projection-20260804-v1"
+      ]
+    },
+    {
+      "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "url": "urn:dsa-seats:house-democratic-primary-source-selection-proposal:v1:2026-08-04",
+      "retainedPath": "data/metadata/house-democratic-primary-source-selection-proposal-20260804-v1.json",
+      "retainedStatus": "retained",
+      "byteSize": 411793,
+      "sha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "kind": "review_proposal",
+      "parentIds": [
+        "dsa-target-factual-projection-20260804-v1",
+        "dsa-target-incumbent-roster-20260804-v1",
+        "fec-2026-congressional-primary-dates",
+        "geo-national-cd119"
+      ]
+    },
+    {
+      "id": "house-xml",
+      "url": "https://clerk.house.gov/xml/lists/MemberData.xml",
+      "retainedPath": "data/source/identity/house-member-data.xml",
+      "retainedStatus": "retained",
+      "byteSize": 556140,
+      "sha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "congress-legislators-current-20260804",
+      "url": "https://unitedstates.github.io/congress-legislators/legislators-current.json",
+      "retainedPath": "data/source/identity/congress-legislators-current-20260804.json",
+      "retainedStatus": "retained",
+      "byteSize": 1466894,
+      "sha256": "bc48cccd12df96164e5a2415fc41e838ca255fe85c297731515529692f7982cf",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "connecticut-primary-nomination-authority-receipt-v1",
+      "url": "urn:dsa-seats:connecticut-primary-nomination-authority-receipt:v1:2022-2024",
+      "retainedPath": "data/metadata/connecticut-primary-nomination-authority-receipt-v1.json",
+      "retainedStatus": "retained",
+      "byteSize": 17026,
+      "sha256": "076b40df2f7fbac8325e2131c3fd000967d3c944c74932e7dcb49954fcd9bacb",
+      "kind": "review_evidence_receipt",
+      "parentIds": [
+        "ct-2022-endorsement-certificate-index",
+        "ct-2024-endorsement-certificate-index",
+        "ct-2024-democratic-primary-candidate-list-index",
+        "ct-2022-cd01-endorsement-certificate-bundle",
+        "ct-2022-cd02-endorsement-certificate-bundle",
+        "ct-2022-cd03-endorsement-certificate-bundle",
+        "ct-2022-cd04-endorsement-certificate-bundle",
+        "ct-2022-cd05-endorsement-certificate-bundle",
+        "ct-2024-cd01-endorsement-certificate-bundle",
+        "ct-2024-cd02-endorsement-certificate-bundle",
+        "ct-2024-cd03-endorsement-certificate-bundle",
+        "ct-2024-cd04-endorsement-certificate-bundle",
+        "ct-2024-cd05-endorsement-certificate-bundle",
+        "ct-2024-democratic-primary-candidate-list"
+      ]
+    }
+  ],
+  "summary": {
+    "targetSeats": 5,
+    "authorityObservations": 10,
+    "exactNameObservations": 8,
+    "derivedNameRelationships": 2,
+    "uniqueDerivedIdentityRelationships": 1,
+    "proposedIdentityLinks": 10,
+    "directIdentifierBridges": 0,
+    "nominationConclusions": 0,
+    "resultConclusions": 0,
+    "automaticallyApprovedRows": 0,
+    "selectedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "observations": [
+    {
+      "observationId": "ct:identity:2022:01",
+      "authorityObservationId": "ct-nomination:2022:01:democratic",
+      "authorityObservationSha256": "f4703e627f6a24e26bb5314546540daf5035fab1de490d27693b89bb44bca568",
+      "seatCycleId": "seat_house_ct_01_current",
+      "districtCode": "01",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "L000557",
+        "officialHouseName": "John B. Larson",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "endorsementCandidate": {
+        "candidateName": "John B. Larson",
+        "formSelection": "endorsed",
+        "sourcePage": 1,
+        "sourceRecord": "democratic_endorsement_form",
+        "nominationStatus": null,
+        "resultStatus": null
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "selectionStatus": "unselected_endorsement_not_nomination_or_review_approval",
+      "identityApproved": false,
+      "selected": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_district",
+        "exact_normalized_name",
+        "endorsement_observation_not_nomination"
+      ],
+      "rowSha256": "b8c658fade2fe3b6dc9b54125e943df9e730e4d48f85186e22710aa0fa2f1e73"
+    },
+    {
+      "observationId": "ct:identity:2022:02",
+      "authorityObservationId": "ct-nomination:2022:02:democratic",
+      "authorityObservationSha256": "15a1bb0294926680f18f1fc74a9e266ca8cb9db47a6aae0757fad192e8d97efa",
+      "seatCycleId": "seat_house_ct_02_current",
+      "districtCode": "02",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "C001069",
+        "officialHouseName": "Joe Courtney",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "endorsementCandidate": {
+        "candidateName": "Joe Courtney",
+        "formSelection": "endorsed",
+        "sourcePage": 1,
+        "sourceRecord": "democratic_endorsement_form",
+        "nominationStatus": null,
+        "resultStatus": null
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "selectionStatus": "unselected_endorsement_not_nomination_or_review_approval",
+      "identityApproved": false,
+      "selected": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_district",
+        "exact_normalized_name",
+        "endorsement_observation_not_nomination"
+      ],
+      "rowSha256": "08559b688c7fb951aed8d86a7962d618039493cb784c0852107703497447c81d"
+    },
+    {
+      "observationId": "ct:identity:2022:03",
+      "authorityObservationId": "ct-nomination:2022:03:democratic",
+      "authorityObservationSha256": "c62f85a71ccb3b5d5b4ae3fdbd3b0659849062dba7bdab893f242840c39ed8f4",
+      "seatCycleId": "seat_house_ct_03_current",
+      "districtCode": "03",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "D000216",
+        "officialHouseName": "Rosa L. DeLauro",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "endorsementCandidate": {
+        "candidateName": "Rosa L. DeLauro",
+        "formSelection": "endorsed",
+        "sourcePage": 1,
+        "sourceRecord": "democratic_endorsement_form",
+        "nominationStatus": null,
+        "resultStatus": null
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "selectionStatus": "unselected_endorsement_not_nomination_or_review_approval",
+      "identityApproved": false,
+      "selected": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_district",
+        "exact_normalized_name",
+        "endorsement_observation_not_nomination"
+      ],
+      "rowSha256": "b8c301ff74128afcfd80763e8f31094453927befc512412960a5ffb32297aaa8"
+    },
+    {
+      "observationId": "ct:identity:2022:04",
+      "authorityObservationId": "ct-nomination:2022:04:democratic",
+      "authorityObservationSha256": "555708b9902cd111edd418926b6216ce9af77c68005bcf279ace1bf0182a8c7b",
+      "seatCycleId": "seat_house_ct_04_current",
+      "districtCode": "04",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "H001047",
+        "officialHouseName": "James A. Himes",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "endorsementCandidate": {
+        "candidateName": "Jim Himes",
+        "formSelection": "endorsed",
+        "sourcePage": 1,
+        "sourceRecord": "democratic_endorsement_form",
+        "nominationStatus": null,
+        "resultStatus": null
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "source_shortened_first_name_and_omitted_middle_initial_same_district",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "selectionStatus": "unselected_endorsement_not_nomination_or_review_approval",
+      "identityApproved": false,
+      "selected": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_district",
+        "congress_snapshot_retains_jim_nickname",
+        "endorsement_observation_not_nomination"
+      ],
+      "rowSha256": "5a9bd2e5b4192a66e4f7c2a93a71561efb548bf0ca057da84352c66c1bca1602"
+    },
+    {
+      "observationId": "ct:identity:2022:05",
+      "authorityObservationId": "ct-nomination:2022:05:democratic",
+      "authorityObservationSha256": "0314d372971542245acc6b5d6ae5c4ddaa312aace9578b89573fb6bcf868471f",
+      "seatCycleId": "seat_house_ct_05_current",
+      "districtCode": "05",
+      "cycleYear": 2022,
+      "rosterIdentity": {
+        "bioguideId": "H001081",
+        "officialHouseName": "Jahana Hayes",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "endorsementCandidate": {
+        "candidateName": "Jahana Hayes",
+        "formSelection": "endorsed",
+        "sourcePage": 1,
+        "sourceRecord": "democratic_endorsement_form",
+        "nominationStatus": null,
+        "resultStatus": null
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "selectionStatus": "unselected_endorsement_not_nomination_or_review_approval",
+      "identityApproved": false,
+      "selected": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_district",
+        "exact_normalized_name",
+        "endorsement_observation_not_nomination"
+      ],
+      "rowSha256": "c90af7f29511e83f50620bb3c1274f4fd9908b2fc609328fae2d354a2b8c548f"
+    },
+    {
+      "observationId": "ct:identity:2024:01",
+      "authorityObservationId": "ct-nomination:2024:01:democratic",
+      "authorityObservationSha256": "4ec52736b5b552c87ff4076be92a0cf8347abc0337afe41d9a136d0736404e96",
+      "seatCycleId": "seat_house_ct_01_current",
+      "districtCode": "01",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "L000557",
+        "officialHouseName": "John B. Larson",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "endorsementCandidate": {
+        "candidateName": "John B. Larson",
+        "formSelection": "endorsed",
+        "sourcePage": 1,
+        "sourceRecord": "democratic_endorsement_form",
+        "nominationStatus": null,
+        "resultStatus": null
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "selectionStatus": "unselected_endorsement_not_nomination_or_review_approval",
+      "identityApproved": false,
+      "selected": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_district",
+        "exact_normalized_name",
+        "endorsement_observation_not_nomination"
+      ],
+      "rowSha256": "e9ec688f72bb4752d1326b7d1bd3bcf07e271205db64d5e893cc9f58cdbd69c8"
+    },
+    {
+      "observationId": "ct:identity:2024:02",
+      "authorityObservationId": "ct-nomination:2024:02:democratic",
+      "authorityObservationSha256": "3646287b5f57aacfbe87bb22ed4662b713480de5caabe58efd0d82420a6e3f49",
+      "seatCycleId": "seat_house_ct_02_current",
+      "districtCode": "02",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "C001069",
+        "officialHouseName": "Joe Courtney",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "endorsementCandidate": {
+        "candidateName": "Joe Courtney",
+        "formSelection": "endorsed",
+        "sourcePage": 1,
+        "sourceRecord": "democratic_endorsement_form",
+        "nominationStatus": null,
+        "resultStatus": null
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "selectionStatus": "unselected_endorsement_not_nomination_or_review_approval",
+      "identityApproved": false,
+      "selected": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_district",
+        "exact_normalized_name",
+        "endorsement_observation_not_nomination"
+      ],
+      "rowSha256": "537e8fcdc55e71f42df747f0f9c2ead0718882f41c53623fd7a19fd7fac3a1c6"
+    },
+    {
+      "observationId": "ct:identity:2024:03",
+      "authorityObservationId": "ct-nomination:2024:03:democratic",
+      "authorityObservationSha256": "f3269af27761a2da572e2d83f4a55aea1637ee1c8985c6899ef4c9f73fc1e31d",
+      "seatCycleId": "seat_house_ct_03_current",
+      "districtCode": "03",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "D000216",
+        "officialHouseName": "Rosa L. DeLauro",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "endorsementCandidate": {
+        "candidateName": "Rosa L. DeLauro",
+        "formSelection": "endorsed",
+        "sourcePage": 1,
+        "sourceRecord": "democratic_endorsement_form",
+        "nominationStatus": null,
+        "resultStatus": null
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "selectionStatus": "unselected_endorsement_not_nomination_or_review_approval",
+      "identityApproved": false,
+      "selected": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_district",
+        "exact_normalized_name",
+        "endorsement_observation_not_nomination"
+      ],
+      "rowSha256": "1022adc490fc0aaf8e5d2bd8b13b9e9060b70de6ffce3ea37d2fe5ee92ed00ac"
+    },
+    {
+      "observationId": "ct:identity:2024:04",
+      "authorityObservationId": "ct-nomination:2024:04:democratic",
+      "authorityObservationSha256": "c68d2d54db8af8d94d1ea5c09980541a47d2512c84d3c0d38483db1c2118e97c",
+      "seatCycleId": "seat_house_ct_04_current",
+      "districtCode": "04",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "H001047",
+        "officialHouseName": "James A. Himes",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "endorsementCandidate": {
+        "candidateName": "Jim Himes",
+        "formSelection": "endorsed",
+        "sourcePage": 1,
+        "sourceRecord": "democratic_endorsement_form",
+        "nominationStatus": null,
+        "resultStatus": null
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "source_shortened_first_name_and_omitted_middle_initial_same_district",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "selectionStatus": "unselected_endorsement_not_nomination_or_review_approval",
+      "identityApproved": false,
+      "selected": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_district",
+        "congress_snapshot_retains_jim_nickname",
+        "endorsement_observation_not_nomination"
+      ],
+      "rowSha256": "3902d30b61e67f8ce9d81d01cdbcedddd62ea583d5792f78ddf329024b43a3a3"
+    },
+    {
+      "observationId": "ct:identity:2024:05",
+      "authorityObservationId": "ct-nomination:2024:05:democratic",
+      "authorityObservationSha256": "6bbe28657a1c22439c2e7626df55399071863a0b211e4165ab742e241ba955a6",
+      "seatCycleId": "seat_house_ct_05_current",
+      "districtCode": "05",
+      "cycleYear": 2024,
+      "rosterIdentity": {
+        "bioguideId": "H001081",
+        "officialHouseName": "Jahana Hayes",
+        "officialHouseMemberDataSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+      },
+      "endorsementCandidate": {
+        "candidateName": "Jahana Hayes",
+        "formSelection": "endorsed",
+        "sourcePage": 1,
+        "sourceRecord": "democratic_endorsement_form",
+        "nominationStatus": null,
+        "resultStatus": null
+      },
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "selectionStatus": "unselected_endorsement_not_nomination_or_review_approval",
+      "identityApproved": false,
+      "selected": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "same_district",
+        "exact_normalized_name",
+        "endorsement_observation_not_nomination"
+      ],
+      "rowSha256": "f8d01073e5bb44ff34f0f1b0953cfe0f34b2efe15690fe6d0fd43a78ece7ddd0"
+    }
+  ],
+  "limitations": [
+    "Current roster identity is an August 2026 snapshot and is not an incumbent-at-election assertion.",
+    "The relationship links endorsement-form names to current target identities; it does not establish nomination, ballot placement, primary outcome, or certification."
+  ],
+  "unresolvedGates": [
+    "retain_complete_final_democratic_primary_ballot_or_candidacy_universe",
+    "retain_statutory_nomination_authority_and_cancellation_status",
+    "retain_final_general_election_nominee_crosscheck",
+    "approve_current_identity_relationships",
+    "approve_historical_geography",
+    "complete_human_review_and_publication_approval"
+  ],
+  "observationSetSha256": "2de0d07792013a1f1906e581146d18b295d758f6e6e4fe4a7eb426a908b63563",
+  "packageSha256": "31edb710517a8cac9008750c18dae9fb7beccb9b2655a9f5662b6fbf3e4cc863"
+}
