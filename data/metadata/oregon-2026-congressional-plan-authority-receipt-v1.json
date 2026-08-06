@@ -1,0 +1,102 @@
+{
+  "schema": "oregon-2026-congressional-plan-authority-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T23:45:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "authority": {
+    "planLaw": "Enrolled Senate Bill 881 (SB 881-A)",
+    "adoptedOn": "2021-09-27",
+    "congressionalDistricts": 6,
+    "currentLproLayerUsesAdoptedPlan": true,
+    "conclusion": "current_official_lpro_layer_is_based_on_the_2021_adopted_congressional_plan",
+    "direct2026ElectionAdministrationPlanUseAssessed": false,
+    "censusCd120ProductClaimed": false
+  },
+  "sources": [
+    {
+      "sourceLockId": "oregon-redistricting-current-page-20260806",
+      "sha256": "6245dc38c5f71b429ac84cd7c522e4abac0d48224883b9d479fbe3d2421e162a",
+      "kind": "official_current_authority",
+      "parentIds": []
+    },
+    {
+      "sourceLockId": "oregon-sb881-enrolled-congressional-plan",
+      "sha256": "6df87e57e01ffcc2f91cea546cff87eb2841d99044e7abb02e1d68f4fa641873",
+      "kind": "official_plan_law",
+      "parentIds": [
+        "oregon-redistricting-current-page-20260806"
+      ]
+    },
+    {
+      "sourceLockId": "oregon-sb881-enrolled-congressional-plan-text",
+      "sha256": "2a152d43078a07eabe3755f6edb4374f8b18a0761d1d603b60cf59fd7afe2aff",
+      "kind": "derived_extract",
+      "parentIds": [
+        "oregon-sb881-enrolled-congressional-plan"
+      ]
+    },
+    {
+      "sourceLockId": "oregon-lpro-interactive-map-data-guide-20260806",
+      "sha256": "4638db7a6891d343add13cb82520e8852c5872a72a8a5dd6bb46381b9833b42c",
+      "kind": "official_current_map_guide",
+      "parentIds": []
+    },
+    {
+      "sourceLockId": "oregon-lpro-interactive-map-data-guide-text-20260806",
+      "sha256": "620b4c8c01f9fd573f78686ef82c59b29a16724de3f2a2932bc6fbadfedef06a",
+      "kind": "derived_extract",
+      "parentIds": [
+        "oregon-lpro-interactive-map-data-guide-20260806"
+      ]
+    },
+    {
+      "sourceLockId": "census-cd119-oregon-block-equivalency-extract-20260806",
+      "sha256": "34295664add30fff21d16739e5bbdf2e3a6dd1ba5b96c3f988371963f9625ad5",
+      "kind": "derived_extract",
+      "parentIds": [
+        "census-cd119-block-equivalency-bundle-20260805"
+      ]
+    }
+  ],
+  "blockInventory": {
+    "stateFips": "41",
+    "uniqueBlocks": 130807,
+    "districts": [
+      "01",
+      "02",
+      "03",
+      "04",
+      "05",
+      "06"
+    ],
+    "districtBlockCounts": {
+      "01": 15034,
+      "02": 50388,
+      "03": 12862,
+      "04": 24209,
+      "05": 16434,
+      "06": 11880
+    },
+    "assignmentSetSha256": "0b50d449553586a223d4a8303c06d01087616a8516676721aff3d0ea750f2b8c"
+  },
+  "methodology": {
+    "authorityBasis": "current_legislature_page_plus_enrolled_sb881_plus_current_lpro_map_data_guide",
+    "censusBlockRole": "complete_census_cd119_block_membership_inventory",
+    "sourcePlanToCd119ExactBlockConcordanceAssessed": false,
+    "rawGeometryEqualityAssessed": false,
+    "overlapThresholdUsed": false,
+    "districtNumberContinuityAloneUsed": false,
+    "legalPermanenceAssessed": false,
+    "courtInvalidationAssessment": "current_legislature_page_states_plan_upheld_no_separate_court_docket_search_retained",
+    "reuseAssessment": "public_official_sources_no_explicit_reuse_license_identified"
+  },
+  "lifecycle": {
+    "geographyCandidateCreated": false,
+    "automaticallyApprovedRows": 0,
+    "scoreEligibleRows": 0,
+    "publicationEligible": false,
+    "deployed": false
+  },
+  "packageSha256": "0d4d073597d5f5d267aede9dc882dca4103eb617e3f038a52784bade03f4d718"
+}

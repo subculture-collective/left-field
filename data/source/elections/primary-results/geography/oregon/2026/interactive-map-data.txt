@@ -1,0 +1,217 @@
+Interactive District Map
+Data List
+
+This document lists the data included in the interactive district maps on the Oregon
+Legislature website.
+The Oregon Legislative Policy and Research Office GIS data is derived from a variety of
+sources. The digital data and their documentation have been reviewed for accuracy and
+completeness; however, the Oregon Legislative Policy and Research Office and its
+representatives make no warranty or representation, either expressed or implied, with
+respect to the digital data and their documentation, their quality, performance, accuracy,
+completeness, merchantability, or fitness for a particular purpose. Digital data are
+distributed on an “as-is” basis, and the user assumes all risk as to their quality,
+accuracy, the results obtained from their use, and the performance of the data.
+Please direct specific questions about a dataset to the source of the data. Descriptions
+of the datasets are based on the information provided by the data sources. For general
+questions about the interactive district maps, please reach out to the Legislative Policy
+and Research Office at 503-986-1813.
+
+
+AVIATION FACILITIES
+Data Source: U.S. DOT
+Aviation Facilities Link
+Description: The Aviation Facilities dataset is updated every 28 days from the Federal
+Aviation Administration (FAA) and is part of the U.S. Department of Transportation
+(USDOT)/Bureau of Transportation Statistics (BTS) National Transportation Atlas
+Database (NTAD). The Aviation Facilities dataset is a geographic point database of all
+official and operational aerodromes in the United States and U.S. Territories. Attribute
+data is provided on the physical and operational characteristics of the aerodrome,
+current usage including enplanements and aircraft operations, congestion levels, and
+usage categories. This geospatial data is derived from the FAA's National Airspace
+System Resource Aeronautical Data Product. For more information about these data,
+please visit the FAA website.
+
+
+CITY LIMITS
+Data Source: Oregon Department of Transportation (ODOT) and Portland State
+University (PSU) Population Research Center (PRC)
+City Limits Link
+Description: This layer combines two datasets:
+   •   2025 Population Estimates - Portland State University's Population Research
+       Center (PRC) creates population estimates as part of the Oregon Housing Needs
+       Analysis. These estimates provide additional demographic detail needed for a
+       variety of planning activities. Population Estimate Reports Link
+   •   2025 City Limits - This data represents the State of Oregon city limit boundaries.
+       Each city limit is defined as a continuous area within the statutory boundary of an
+       incorporated city, which is the smallest subdivision of an annexed area. This data
+       is maintained by the Oregon Department of Transportation and was pulled
+       from Oregon's GeoHub City Limits dataset on 2/3/2026.
+
+
+CONGRESSIONAL AND LEGISLATIVE DISTRICTS
+
+Congressional Districts
+Data Source: Legislative Policy and Research Office (LPRO)
+Congressional Districts Link
+Description: This layer contains congressional and legislative districts based on the
+redistricting plans adopted on September 27, 2021. This layer also contains contact
+information for the current legislators representing each district.
+
+House Districts
+Data Source: Legislative Policy and Research Office (LPRO)
+House Districts Link
+Description: This layer contains congressional and legislative districts based on the
+redistricting plans adopted on September 27, 2021. This layer also contains contact
+information for the current legislators representing each district.
+
+Senate Districts
+Data Source: Legislative Policy and Research Office (LPRO)
+Senate Districts Link
+Description: This layer contains congressional and legislative districts based on the
+redistricting plans adopted on September 27, 2021. This layer also contains contact
+information for the current legislators representing each district.
+
+
+COUNTY BOUNDARIES
+Data Source: Esri (pulling from the U.S. Census Bureau) and Portland State University
+(PSU) Population Research Center (PRC)
+County Boundaries Link
+Description: This layer combines two datasets:
+   •   2025 Population Estimates - Portland State University's Population Research
+       Center (PRC) creates population estimates as part of the Oregon Housing Needs
+
+
+          LEGISLATIVE POLICY AND RESEARCH OFFICE                                 Page |2
+       Analysis. These estimates provide additional demographic detail needed for a
+       variety of planning activities. Population Estimate Reports Link
+   •   2020 U.S. Census Counties - This layer presents the USA 2020 Census County
+       boundaries. It is updated annually as County (or County Equivalent) boundaries
+       change. The geography is sourced from US Census Bureau 2020 TIGER FGDB
+       (National Sub-State) and edited using TIGER Hydrology to add a detailed
+       coastline for cartographic purposes. Geography last updated May 2022. Census
+       Counties Link
+
+
+ENTERPRISE ZONES
+Data Source: Business Oregon - Business Development Division
+Enterprise Zones Link
+Description: Oregon's enterprise zones offer a unique resource to Oregon communities
+and an excellent opportunity for businesses growing or relocating in Oregon. Primarily,
+enterprise zones exempt businesses from local property taxes on new investments.
+Sponsored by municipal or tribal governments, an enterprise zone typically serves as a
+focal point for local development efforts. There are currently 76 enterprise zones
+creating better opportunities for business investment across Oregon: 58 rural and 18
+urban.
+
+
+FEDERAL LANDS
+Data Source: Esri
+Federal Lands Link
+Description: In the United States, the federal government manages lands in significant
+parts of the country. These lands include 193 million acres managed by the US Forest
+Service in the nation's 154 National Forests and 20 National Grasslands, Bureau of
+Land Management lands that cover 247 million acres in Alaska and the Western United
+States, 150 million acres managed for wildlife conservation by the US Fish and Wildlife
+Service, 84 million acres of National Parks and other lands managed by the National
+Park Service, and over 30 million acres managed by the Department of Defense. The
+Bureau of Reclamation manages a much smaller land base than the other agencies
+included in this layer but plays a critical role in managing the country's water resources.
+The agencies included in this layer are:
+   •   Bureau of Land Management
+   •   Bureau of Reclamation
+   •   Department of Defense
+   •   National Park Service
+   •   US Fish and Wildlife Service
+   •   US Forest Service
+
+
+
+          LEGISLATIVE POLICY AND RESEARCH OFFICE                                   Page |3
+FIRE PROTECTION DISTRICTS
+
+Forest Protection Districts
+Data Source: Oregon Department of Forestry
+Forest Protection Districts Link
+Description: The State Forester, by rule, designates areas of forestland within Oregon
+as forest protection districts within which the forester is required to provide protection
+pursuant to ORS 477.
+
+Structural Fire Districts
+Data Source: Office of State Fire Marshal
+Structural Fire Districts Link
+Description: Structural fire districts include city/municipal, tribal, and rural fire protection
+district boundaries within Oregon. Municipal fire departments operate under home rule
+charter, and rural fire protection districts operate under ORS 478.
+
+Rangeland Protection Associations
+Data Source: Oregon Department of Forestry
+Rangeland Protection Associations Link
+Description: A rangeland protection association is an entity that has the purpose of
+protecting rangeland from fire and is:
+   a. Organized by owners of rangeland that is located within a rangeland protection
+      system established under ORS 477.320 and lies wholly outside any forest
+      protection district; or
+   b. Organized with the approval of a county governing body to be a cost-neutral part
+      of the emergency management program in a county having 200,000 or more
+      acres of rangeland that are outside any forest protection district and are not
+      protected by an association formed under paragraph (a) of this subsection.
+
+
+FIRE STATIONS
+Data Source: Office of State Fire Marshal
+Fire Stations Link
+Description: Any location where firefighters are stationed or based, or where
+equipment that such personnel use in carrying out their jobs is stored for ready use. Fire
+departments not having a permanent location are included, in which case their location
+has been depicted at the city/town hall or at the center of their service area if a city/town
+hall does not exist. This dataset includes those locations primarily engaged in forest or
+grasslands firefighting, including fire lookout towers if the towers are in current use for
+
+
+           LEGISLATIVE POLICY AND RESEARCH OFFICE                                     Page |4
+fire protection purposes. This dataset includes both private and governmental entities.
+Firefighting training academies are also included.
+
+
+STATE PARKS AND FORESTS
+
+State Parks
+Data Source: Oregon Parks and Recreation Department (OPRD)
+State Parks Link
+Description: Oregon State Park Boundaries. Oregon Parks and Recreation Department
+makes no warranty as to the accuracy of this data. Questions regarding the legal
+ownership and boundaries of real property should be directed to individual counties and
+to the OPRD Property Management Division This product is for informational purposes
+and may not have been prepared for, or be suitable for legal, engineering, or surveying
+purposes. Users of this information should review or consult the primary data and
+information sources to ascertain the usability of the information.
+
+State Forest Lands
+Data Source: Oregon Department of Forestry (ODF)
+State Forest Lands Link
+Description: Board of Forestry lands and Common School Fund lands managed by the
+State Forests Division of the Oregon Department of Forestry (ODF). ODF manages
+approximately 763,000 acres of forestlands across Oregon. These state forestlands are
+actively managed under forest management plans to provide economic, environmental,
+and social benefits to Oregonians. Timber sales from these forests produce jobs and
+revenue that funds counties, local districts, and schools throughout the state. These
+forests also offer recreation and educational opportunities and provide essential wildlife
+habitat and clean water.
+
+
+URBAN GROWTH BOUNDARIES
+Data Source: Oregon Department of Land Conservation and Development (DLCD)
+Urban Growth Boundaries Link
+Description: Oregon land use laws limit development outside of urban growth
+boundaries. The line work was created by various sources including the Oregon
+Department of Land Conservation and Development (DLCD), the Oregon Department of
+Transportation (ODOT), Metro Regional Council of Governments (Metro), county and
+city GIS departments, and the Oregon Department of Administrative Services -
+Geospatial Enterprise Office (DAS-GEO). Urban growth boundaries (UGBs) are lines
+drawn on planning and zoning maps to show where a city expects to experience growth
+for the next 20 years. UGBs were established under Oregon Statewide Planning Goals
+in 1973 by the Oregon Legislature (Senate Bill 100).
+
+
+          LEGISLATIVE POLICY AND RESEARCH OFFICE                                 Page |5
+
