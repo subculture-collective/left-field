@@ -1,0 +1,2452 @@
+{
+  "schema": "california-split-crosswalk-policy-dossier-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T23:00:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "decisionId": "california-split-crosswalk-methodology-v1",
+  "affectedComponent": "california_2026_historical_to_cd119_split_geography_relationships",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "scoreEligible": false,
+  "inputs": [
+    {
+      "sourceLockId": "california-2026-primary-block-crosswalk-candidate-v1",
+      "fileSha256": "7682fbebc52f2c86c83675ceef2c1e5fc6367d8a3a2674b47becda942ec2f044",
+      "packageSha256": "c4d1ace29f232c17248f2e348382c45d86f4fa9165d17dc03d47d2d108ab9cfd",
+      "setSha256": "969da6503a15a66c144a2d1cc88b26ad095d2f3cc103ac6daf07b9126e109cd8",
+      "retainedPath": "data/metadata/california-2026-primary-block-crosswalk-candidate-v1.json"
+    },
+    {
+      "sourceLockId": "california-primary-geography-compatibility-candidate-v2",
+      "fileSha256": "1c47fdba328c2930a99ce8d0dde9a33bb974433295b70d7109c462c47be76eba",
+      "packageSha256": "daf19746a654ac9343daf434e3462bbfde31f1e3a09ec9b8f8ebc1136fd41c16",
+      "setSha256": "215d3eb8156113e3830f458407651640af6e5d6fb2059654ddfabd162a9bee86",
+      "retainedPath": "data/metadata/california-primary-geography-compatibility-candidate-v2.json"
+    },
+    {
+      "sourceLockId": "california-primary-identity-geography-review-package-v2",
+      "fileSha256": "ec9a76edea1caf3a3704f4762ab12afb826392c05c8128a1755614453f981ab7",
+      "packageSha256": "1ec9bca50cfb6aee9747d804b28bd5a581a477226de8f52305e5af74453abeff",
+      "setSha256": "d0ce9f5d8cc96509a3b77a1d6b2a7dcbe55fcc2378b189eb5c7a6afce7b38550",
+      "retainedPath": "data/metadata/california-primary-identity-geography-review-package-v2.json"
+    }
+  ],
+  "question": "Should any non-identical California AB 604-to-CD119 district relationship be eligible for row-level review under a separately specified crosswalk methodology?",
+  "recommendedDecision": {
+    "choice": "retain_exact_block_membership_only_rule",
+    "confidence": "high",
+    "authorizesRowApproval": false,
+    "rationaleCodes": [
+      "all_exact_block_membership_relationships_already_isolated",
+      "split_block_counts_are_not_population_voter_or_electoral_weights",
+      "no_crosswalk_compatibility_threshold_has_been_authorized"
+    ],
+    "consequence": "the_forty_eight_split_relationships_remain_unavailable_for_evaluator_and_publication_use"
+  },
+  "defaultReversibleAssumption": {
+    "choice": "retain_exact_block_membership_only_rule",
+    "splitRows": "remain_crosswalk_review_required",
+    "evaluatorUse": "excluded",
+    "publicationUse": "excluded",
+    "blocksUnrelatedWork": false
+  },
+  "alternatives": [
+    {
+      "choice": "authorize_separately_specified_crosswalk_methodology",
+      "consequence": "requires_a_new_versioned_weighting_threshold_confidence_and_impact_specification_before_any_row_review"
+    },
+    {
+      "choice": "mark_split_historical_comparisons_unavailable_or_incompatible",
+      "consequence": "closes_the_rows_without_deriving_a_geographic_relationship"
+    }
+  ],
+  "methodology": {
+    "evidenceOrganizationOnly": true,
+    "exactMembershipRuleChanged": false,
+    "populationWeightingUsed": false,
+    "voterWeightingUsed": false,
+    "turnoutWeightingUsed": false,
+    "partisanWeightingUsed": false,
+    "overlapThresholdUsed": false,
+    "districtNumberContinuityUsed": false,
+    "rawGeometryEqualityUsed": false,
+    "policyResolutionAutomaticallyApprovesRows": false,
+    "rowApprovalRemainsIndependent": true,
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "splitRelationships": 48,
+    "currentIncumbentJointScope": 38,
+    "statewideGeographyOnlyScope": 10,
+    "exactMembershipRelationshipsExcluded": 4,
+    "policyApprovals": 0,
+    "rowApprovals": 0,
+    "scoreEligibleRows": 0
+  },
+  "guardCases": {
+    "district12": "near_exact_block_count_does_not_establish_compatibility",
+    "district41": "no_same_number_block_membership_does_not_select_an_alternate_target"
+  },
+  "rows": [
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:01:top-two",
+      "contestId": "ca:2026:regular:us-house:01:top-two",
+      "seatCycleId": "seat_house_ca_01_current",
+      "districtCode": "01",
+      "scope": "statewide_geography_only",
+      "crosswalkRowSha256": "f0212cfa2b81e3208b007aae4967e4533c30d8654a5c34ce004b93321029c592",
+      "geographyV2RowSha256": "056b9f8d2b574c9e275875d176b90de42f42b42daa871d5304e6b14f3d03478f",
+      "jointReviewRecordSha256": null,
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 24768,
+      "targetBlockCount": 32522,
+      "sameDistrictBlockCount": 12492,
+      "sourceRetentionPpm": 504360,
+      "targetCoveragePpm": 384109,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 12492,
+          "sourceSharePpm": 504360
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 4875,
+          "sourceSharePpm": 196827
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 3089,
+          "sourceSharePpm": 124717
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 4312,
+          "sourceSharePpm": 174096
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "466df99dfcb67828b97f8ff5fd919ce5ad8fa3118bf2f1f75cdbd191b8e888a0"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:02:top-two",
+      "contestId": "ca:2026:regular:us-house:02:top-two",
+      "seatCycleId": "seat_house_ca_02_current",
+      "districtCode": "02",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "ae8bfa7aea2df223f0dff918569aacf276823730077deacbde0ede97a4a26544",
+      "geographyV2RowSha256": "ebd0fc498306b6fbad73a13214b3e96f41f6c38d2dd2f2d62c3a2e70107199b7",
+      "jointReviewRecordSha256": "2860c4c9bcd232de3cbcbfa2cedca4ab9ac59ac8acaad8b95aff451d06b130ca",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 31420,
+      "targetBlockCount": 22044,
+      "sameDistrictBlockCount": 16575,
+      "sourceRetentionPpm": 527530,
+      "targetCoveragePpm": 751905,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 14836,
+          "sourceSharePpm": 472183
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 16575,
+          "sourceSharePpm": 527530
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 9,
+          "sourceSharePpm": 287
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "e1d763d0d7639acbc8a505d5090836ad293752f4ab33b3a972032f265674a991"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:03:top-two",
+      "contestId": "ca:2026:regular:us-house:03:top-two",
+      "seatCycleId": "seat_house_ca_03_current",
+      "districtCode": "03",
+      "scope": "statewide_geography_only",
+      "crosswalkRowSha256": "1c1db1631c6fcb9214ea5b935824f8610d766f8949645bbe416543d590f27b49",
+      "geographyV2RowSha256": "c9c974c27cae89ba346957f24f14ec2a3e2a404fc1fb6b9d600b36c7cdf75889",
+      "jointReviewRecordSha256": null,
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 12920,
+      "targetBlockCount": 20809,
+      "sameDistrictBlockCount": 8798,
+      "sourceRetentionPpm": 680960,
+      "targetCoveragePpm": 422798,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 8798,
+          "sourceSharePpm": 680960
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 1,
+          "sourceSharePpm": 77
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 2845,
+          "sourceSharePpm": 220201
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 1276,
+          "sourceSharePpm": 98762
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "079ba0cf1f1ece747f5fae5744e064d7dc236df60262e653bb9f2912c8c9abc7"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:04:top-two",
+      "contestId": "ca:2026:regular:us-house:04:top-two",
+      "seatCycleId": "seat_house_ca_04_current",
+      "districtCode": "04",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "779cc7c05a840289e5b31299a9a3505e9dd7509f53b26f43492108c8b263d262",
+      "geographyV2RowSha256": "2a62b8634d5fccadc49fdad933db1b26ad6fa17fa31561ea1e62020242553c83",
+      "jointReviewRecordSha256": "742e9221ca063399bf4b2cf29587a6fab351895fe52b5b5e369b87e54a1b2ae8",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 13950,
+      "targetBlockCount": 12989,
+      "sameDistrictBlockCount": 6059,
+      "sourceRetentionPpm": 434337,
+      "targetCoveragePpm": 466472,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 5194,
+          "sourceSharePpm": 372330
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 593,
+          "sourceSharePpm": 42509
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 1554,
+          "sourceSharePpm": 111398
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 6059,
+          "sourceSharePpm": 434337
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 550,
+          "sourceSharePpm": 39426
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "99fc2d5ee7adbb52c9986fdb7233015a159d5c0f6d479d454c8e871649e583ee"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:05:top-two",
+      "contestId": "ca:2026:regular:us-house:05:top-two",
+      "seatCycleId": "seat_house_ca_05_current",
+      "districtCode": "05",
+      "scope": "statewide_geography_only",
+      "crosswalkRowSha256": "03d0095661976830cd886ac32226bc13ae84a462f560d8f2448351489842251a",
+      "geographyV2RowSha256": "26533e793805602b19289ab7f64f6a8f7ae6e6b91984f9df33463cc224793cf1",
+      "jointReviewRecordSha256": null,
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 20500,
+      "targetBlockCount": 16730,
+      "sameDistrictBlockCount": 13499,
+      "sourceRetentionPpm": 658488,
+      "targetCoveragePpm": 806874,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 4065,
+          "sourceSharePpm": 198293
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 13499,
+          "sourceSharePpm": 658488
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 575,
+          "sourceSharePpm": 28049
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 1329,
+          "sourceSharePpm": 64829
+        },
+        {
+          "targetDistrictCode": "20",
+          "blockCount": 1032,
+          "sourceSharePpm": 50341
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "6c2c832da73f0f2dcaab2a5e1744ad859d473b3e6f7db3be4bfcb61224ce754b"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:06:top-two",
+      "contestId": "ca:2026:regular:us-house:06:top-two",
+      "seatCycleId": "seat_house_ca_06_current",
+      "districtCode": "06",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "9dcf2a06b118f5b8749f5b0b12fc0065400f0ff721a036bb678c779aa40a1270",
+      "geographyV2RowSha256": "97bbca3afb1a577d2b48a3f92fcea5a83e1bba98ddc722bcf77fd67bf74abbde",
+      "jointReviewRecordSha256": "d38193c050dbee7a07a5681891c6680fc9b7317cafe9015e8ff11c979200db82",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 8719,
+      "targetBlockCount": 8167,
+      "sameDistrictBlockCount": 4756,
+      "sourceRetentionPpm": 545475,
+      "targetCoveragePpm": 582344,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 2840,
+          "sourceSharePpm": 325726
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 2,
+          "sourceSharePpm": 229
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 4756,
+          "sourceSharePpm": 545475
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 1121,
+          "sourceSharePpm": 128570
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "e38dd5db9dce9b3f6ed672eb480f9b09e3f5bdacebd48ec50f5f9715101f4eaa"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:07:top-two",
+      "contestId": "ca:2026:regular:us-house:07:top-two",
+      "seatCycleId": "seat_house_ca_07_current",
+      "districtCode": "07",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "6c49feb5be3ac2f3cd3a28cf0d4caa67c0b0bfa9cbb07891a455f868c23661cd",
+      "geographyV2RowSha256": "b6da82c87630a14b274e1006dcc5f0c871cb7c9393525db6e6befbbf106c1924",
+      "jointReviewRecordSha256": "66256f64e2f8351447d685d050ec1f3297c8b584ebcc0d8f8084dec2e191d216",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 10983,
+      "targetBlockCount": 9694,
+      "sameDistrictBlockCount": 7072,
+      "sourceRetentionPpm": 643904,
+      "targetCoveragePpm": 729523,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 463,
+          "sourceSharePpm": 42156
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 2037,
+          "sourceSharePpm": 185468
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 16,
+          "sourceSharePpm": 1457
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 7072,
+          "sourceSharePpm": 643904
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 1395,
+          "sourceSharePpm": 127015
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "47c58653558ebeba22406b5f130a56d9b8712413e21783c255e4fa8c1f61e67f"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:08:top-two",
+      "contestId": "ca:2026:regular:us-house:08:top-two",
+      "seatCycleId": "seat_house_ca_08_current",
+      "districtCode": "08",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "3ddce034301868fc32b11a603392a23bd1fb77d9eccfa713b7b68aa0c5c40545",
+      "geographyV2RowSha256": "3b2e0f2f5f28b7e9a26078d21723d0ba4f520dfcf223111d9624b3e8deb8393f",
+      "jointReviewRecordSha256": "bf679dd26043e88cfd85bb2009d4932bc51218c18e66e9052f02f51480105d35",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 10822,
+      "targetBlockCount": 9470,
+      "sameDistrictBlockCount": 7540,
+      "sourceRetentionPpm": 696729,
+      "targetCoveragePpm": 796199,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 2607,
+          "sourceSharePpm": 240898
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 225,
+          "sourceSharePpm": 20791
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 7540,
+          "sourceSharePpm": 696729
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 450,
+          "sourceSharePpm": 41582
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "3a22151683f1c2a8a34284810352129521c1c09173a766a23679bf413ad545fc"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:09:top-two",
+      "contestId": "ca:2026:regular:us-house:09:top-two",
+      "seatCycleId": "seat_house_ca_09_current",
+      "districtCode": "09",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "ec9d774154c50b9c1b39fb4174d045cffc432fde19ed6cf05a03a1693df42cd4",
+      "geographyV2RowSha256": "e18349e9a87cada829e588a54301d1c4c0be00f76d00f73e62101688543152c8",
+      "jointReviewRecordSha256": "1d9b3fb8db07c4274dc0e8d1c2e15f2648ce5f0095b552e47eaa526f0815129e",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 8613,
+      "targetBlockCount": 10823,
+      "sameDistrictBlockCount": 6563,
+      "sourceRetentionPpm": 761988,
+      "targetCoveragePpm": 606394,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 1336,
+          "sourceSharePpm": 155114
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 6563,
+          "sourceSharePpm": 761988
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 674,
+          "sourceSharePpm": 78254
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 40,
+          "sourceSharePpm": 4644
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "e20a73182275e21e0aa59bed5141137bcf5b78ea24235066534403b040c0f142"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:10:top-two",
+      "contestId": "ca:2026:regular:us-house:10:top-two",
+      "seatCycleId": "seat_house_ca_10_current",
+      "districtCode": "10",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "76168809508cad2611d88a1acb66cb8f58f01011c4c99a84e4f8f4880bf402bc",
+      "geographyV2RowSha256": "761780bc26ab899bf14dbcc8891bae09a2f92bd3a774555d0d7f49a818f19976",
+      "jointReviewRecordSha256": "1b689e74f994e1e226196aee6ac9a6593b8e6bb7a8ffb534745d660a6e9e0c0c",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 7315,
+      "targetBlockCount": 7000,
+      "sameDistrictBlockCount": 5867,
+      "sourceRetentionPpm": 802051,
+      "targetCoveragePpm": 838143,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 594,
+          "sourceSharePpm": 81203
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 208,
+          "sourceSharePpm": 28435
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 5867,
+          "sourceSharePpm": 802050
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 646,
+          "sourceSharePpm": 88312
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "bbba62e84dc3b536f4ab34322cd96d9ae443556acbaf36aedd31eb6ec00e1aee"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:11:top-two",
+      "contestId": "ca:2026:regular:us-house:11:top-two",
+      "seatCycleId": "seat_house_ca_11_current",
+      "districtCode": "11",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "3688f43079dae9238c263187c142b9207accdef17d78be189372d4d0d9495c1d",
+      "geographyV2RowSha256": "9a91e7ca56c90704ee39324d2e0a77ddf4fea7e236874bf212978ff56b7a9591",
+      "jointReviewRecordSha256": "9c0b3854a2e377686c9bb0c8ab9a094c9af2e10e6b4a385ef85fd3e12f15fd24",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 5232,
+      "targetBlockCount": 5230,
+      "sameDistrictBlockCount": 5230,
+      "sourceRetentionPpm": 999618,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 1,
+          "sourceSharePpm": 191
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 5230,
+          "sourceSharePpm": 999618
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 1,
+          "sourceSharePpm": 191
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "5f9fce0bbbb7f93434f6202d1f61c25a4ce0c4938488f17a530978abd226ff29"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:12:top-two",
+      "contestId": "ca:2026:regular:us-house:12:top-two",
+      "seatCycleId": "seat_house_ca_12_current",
+      "districtCode": "12",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "64f447749e0282af18876dcd924978336074c8a13c5957ef8f8a8ce1cecbc3a8",
+      "geographyV2RowSha256": "85d327be454500aed56880abe038e635fd2cce9045bd4bd50887bf218e1cbe6b",
+      "jointReviewRecordSha256": "744e8a14244f7de9531f2d32d51ca3ffadfb36ea8a2728114f1dfb6d8d204f42",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 8894,
+      "targetBlockCount": 8895,
+      "sameDistrictBlockCount": 8894,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 999888,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 8894,
+          "sourceSharePpm": 1000000
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "fc117a862c3e20cc1d46426458951834b8d6b86aaa513eb8c1ad7ac561148d63"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:13:top-two",
+      "contestId": "ca:2026:regular:us-house:13:top-two",
+      "seatCycleId": "seat_house_ca_13_current",
+      "districtCode": "13",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "11dccb7a0bec2e499e7924e4fedaa79f0f13ceb368847f8eae48838dd18f9c4a",
+      "geographyV2RowSha256": "8874006ea1554bd6820ecafd407d61ebcde99518118f7c231b2a247526540957",
+      "jointReviewRecordSha256": "f08805ff4b8d94c4b53755994acc751cbc865d86848cdfd22044561a3c059552",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 13889,
+      "targetBlockCount": 16215,
+      "sameDistrictBlockCount": 11541,
+      "sourceRetentionPpm": 830945,
+      "targetCoveragePpm": 711748,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 716,
+          "sourceSharePpm": 51552
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 1632,
+          "sourceSharePpm": 117503
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 11541,
+          "sourceSharePpm": 830945
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "048832038875cf54c4f84b68b7c56d00141b0ca7aa2953e575743649107fea23"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:14:top-two",
+      "contestId": "ca:2026:regular:us-house:14:top-two",
+      "seatCycleId": "seat_house_ca_14_current",
+      "districtCode": "14",
+      "scope": "statewide_geography_only",
+      "crosswalkRowSha256": "4b18c693d40b00b3dc68a58a5ff375bafb114b37835e738ec8a867f8b102934c",
+      "geographyV2RowSha256": "cfa40ee5b557f4e8efe4cef216cfcb47dfc39479366845552a15e614cf543153",
+      "jointReviewRecordSha256": null,
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 7934,
+      "targetBlockCount": 7936,
+      "sameDistrictBlockCount": 7290,
+      "sourceRetentionPpm": 918830,
+      "targetCoveragePpm": 918599,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 459,
+          "sourceSharePpm": 57852
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 7290,
+          "sourceSharePpm": 918830
+        },
+        {
+          "targetDistrictCode": "17",
+          "blockCount": 185,
+          "sourceSharePpm": 23318
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "0d400e29132595e51aa5131c907776d8767d966022a7a5971348551f394085ae"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:15:top-two",
+      "contestId": "ca:2026:regular:us-house:15:top-two",
+      "seatCycleId": "seat_house_ca_15_current",
+      "districtCode": "15",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "bd25e10d447004b580c950ed0e992225c3f3a420c5d9ddf543736efb2ee22b52",
+      "geographyV2RowSha256": "f1eed13d593e7320580524ed93b7d755955f52d1397431f6de905bd92ada800b",
+      "jointReviewRecordSha256": "a07ed9706da025eb8f82055a10f9841dd8491c4cc228b8754bb47a43ce311967",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 6892,
+      "targetBlockCount": 6888,
+      "sameDistrictBlockCount": 6888,
+      "sourceRetentionPpm": 999420,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "15",
+          "blockCount": 6888,
+          "sourceSharePpm": 999420
+        },
+        {
+          "targetDistrictCode": "16",
+          "blockCount": 4,
+          "sourceSharePpm": 580
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "38ec45279ff05aa951a81fa92d9114da8683da38c59b63e10bbc5a807286d876"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:16:top-two",
+      "contestId": "ca:2026:regular:us-house:16:top-two",
+      "seatCycleId": "seat_house_ca_16_current",
+      "districtCode": "16",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "af9ef6aa3acb54bd0fc8a6536b601097002a517d81de9ee647b61f20246b7de4",
+      "geographyV2RowSha256": "9a8d2e9952fc88efc1e2df081ceab2722f14ce9d72e9c8b53a209aeda9913c19",
+      "jointReviewRecordSha256": "52c01b7e79b21fe3e6234ffaad8fedf32dd9685abf39280ddcb5cf762b6abe72",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 8565,
+      "targetBlockCount": 8624,
+      "sameDistrictBlockCount": 8478,
+      "sourceRetentionPpm": 989842,
+      "targetCoveragePpm": 983071,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "16",
+          "blockCount": 8478,
+          "sourceSharePpm": 989842
+        },
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 87,
+          "sourceSharePpm": 10158
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "d7bce34d54bfac0a29f2bef00477fd458f3d4e0213e54d4e7e1e92b9a41c9275"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:17:top-two",
+      "contestId": "ca:2026:regular:us-house:17:top-two",
+      "seatCycleId": "seat_house_ca_17_current",
+      "districtCode": "17",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "e138fdf12209cc6e12a6f7da37cd128774c53594fa672532ce66a71daef35915",
+      "geographyV2RowSha256": "b0245a6fa83f4f36e7c169c9a2c3fb344b4e2e8a9c41b3205f54d2125d9bb454",
+      "jointReviewRecordSha256": "21105b82a6350497d3c2ed18ad883f59d47d8d6993f1ca7829341581b8fafd4a",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 6841,
+      "targetBlockCount": 6688,
+      "sameDistrictBlockCount": 6491,
+      "sourceRetentionPpm": 948838,
+      "targetCoveragePpm": 970544,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "16",
+          "blockCount": 1,
+          "sourceSharePpm": 146
+        },
+        {
+          "targetDistrictCode": "17",
+          "blockCount": 6491,
+          "sourceSharePpm": 948838
+        },
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 349,
+          "sourceSharePpm": 51016
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "3d3c24659099f699726ca698d83f5ad039bb044ca1e1bce59713d3ff6ba0ca09"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:18:top-two",
+      "contestId": "ca:2026:regular:us-house:18:top-two",
+      "seatCycleId": "seat_house_ca_18_current",
+      "districtCode": "18",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "b688e885acc9cf8e067e04877f95d4e75fb43c8dd573a8e3e8c32e7004c718f4",
+      "geographyV2RowSha256": "9c29494dfa316c47a04a32a79f6b2ece8cb727c117a6e72cbc70a9935269f96b",
+      "jointReviewRecordSha256": "3b842206206ab0c4a75329c72d3d5fe5c36212ff5e824b44c22f6db3b81e6ea6",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 10126,
+      "targetBlockCount": 9263,
+      "sameDistrictBlockCount": 8825,
+      "sourceRetentionPpm": 871519,
+      "targetCoveragePpm": 952715,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 660,
+          "sourceSharePpm": 65179
+        },
+        {
+          "targetDistrictCode": "16",
+          "blockCount": 141,
+          "sourceSharePpm": 13925
+        },
+        {
+          "targetDistrictCode": "17",
+          "blockCount": 12,
+          "sourceSharePpm": 1185
+        },
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 8825,
+          "sourceSharePpm": 871519
+        },
+        {
+          "targetDistrictCode": "19",
+          "blockCount": 2,
+          "sourceSharePpm": 197
+        },
+        {
+          "targetDistrictCode": "22",
+          "blockCount": 486,
+          "sourceSharePpm": 47995
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "5f42fafc7431553f6056083355d09ed03eb63f363dfb0aaefd67af1f842632f3"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:19:top-two",
+      "contestId": "ca:2026:regular:us-house:19:top-two",
+      "seatCycleId": "seat_house_ca_19_current",
+      "districtCode": "19",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "1abde493c4bc55817404763fd1ba06b796513e7e2daa98d2cf4c793ad54aaeb7",
+      "geographyV2RowSha256": "5ac33e940c3cee1c55e2c24c2dcf3f575f2d7af9282a36e16a9a5c707560c14d",
+      "jointReviewRecordSha256": "7d057ff1823114e33e2e1f6e1d3a433329c8ad0122a1f35c7ae789841741f1eb",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 11948,
+      "targetBlockCount": 11948,
+      "sameDistrictBlockCount": 11946,
+      "sourceRetentionPpm": 999833,
+      "targetCoveragePpm": 999833,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 2,
+          "sourceSharePpm": 167
+        },
+        {
+          "targetDistrictCode": "19",
+          "blockCount": 11946,
+          "sourceSharePpm": 999833
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "e5eb59fcafa408f272fed3c29c8980ae33257a5e6fef7d54550c0d04b104d917"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:20:top-two",
+      "contestId": "ca:2026:regular:us-house:20:top-two",
+      "seatCycleId": "seat_house_ca_20_current",
+      "districtCode": "20",
+      "scope": "statewide_geography_only",
+      "crosswalkRowSha256": "6288d882a21d66a16f7ddd39f437adc03971ebb588ac8110c510df9d03133372",
+      "geographyV2RowSha256": "4df348db6affdddef17b54fc853be86fa3e0f50bbf90e31ba05cef57680db430",
+      "jointReviewRecordSha256": null,
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 18917,
+      "targetBlockCount": 17373,
+      "sameDistrictBlockCount": 15452,
+      "sourceRetentionPpm": 816831,
+      "targetCoveragePpm": 889426,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "20",
+          "blockCount": 15452,
+          "sourceSharePpm": 816832
+        },
+        {
+          "targetDistrictCode": "21",
+          "blockCount": 959,
+          "sourceSharePpm": 50695
+        },
+        {
+          "targetDistrictCode": "22",
+          "blockCount": 2436,
+          "sourceSharePpm": 128773
+        },
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 70,
+          "sourceSharePpm": 3700
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "3ab413f6d9ed5652a01962d22f88cb7b17f66c3454451a8760eeede5fedf7974"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:21:top-two",
+      "contestId": "ca:2026:regular:us-house:21:top-two",
+      "seatCycleId": "seat_house_ca_21_current",
+      "districtCode": "21",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "d7ec62d20f9f12a55b99010ca26f5366166fa1826f72e1997071bc6bc2d37763",
+      "geographyV2RowSha256": "4a268823b6571b3cc7fc990b41bfbeba4d37eb7f088d5bfe9089589ec56e5b81",
+      "jointReviewRecordSha256": "4599e3012edb8ef1de3dd75236dec421e9809b38978f37b98210be43e0d3f126",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 11261,
+      "targetBlockCount": 11794,
+      "sameDistrictBlockCount": 10211,
+      "sourceRetentionPpm": 906758,
+      "targetCoveragePpm": 865779,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 477,
+          "sourceSharePpm": 42358
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 2,
+          "sourceSharePpm": 178
+        },
+        {
+          "targetDistrictCode": "20",
+          "blockCount": 571,
+          "sourceSharePpm": 50706
+        },
+        {
+          "targetDistrictCode": "21",
+          "blockCount": 10211,
+          "sourceSharePpm": 906758
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "5849f9303f9248183f64a51596d3ccd761a205957f2c7f6bbcd14a081227110c"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:22:top-two",
+      "contestId": "ca:2026:regular:us-house:22:top-two",
+      "seatCycleId": "seat_house_ca_22_current",
+      "districtCode": "22",
+      "scope": "statewide_geography_only",
+      "crosswalkRowSha256": "4dec58182838be38ce680fd48a9da81993b07807ac4ccdb57dd538ae98bf8997",
+      "geographyV2RowSha256": "5afdb596f8ef87ec975ac0aea468a64cbd4eddbae79418dcc3a61b1e487a813f",
+      "jointReviewRecordSha256": null,
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 15404,
+      "targetBlockCount": 14866,
+      "sameDistrictBlockCount": 11944,
+      "sourceRetentionPpm": 775383,
+      "targetCoveragePpm": 803444,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 2643,
+          "sourceSharePpm": 171579
+        },
+        {
+          "targetDistrictCode": "20",
+          "blockCount": 193,
+          "sourceSharePpm": 12529
+        },
+        {
+          "targetDistrictCode": "21",
+          "blockCount": 624,
+          "sourceSharePpm": 40509
+        },
+        {
+          "targetDistrictCode": "22",
+          "blockCount": 11944,
+          "sourceSharePpm": 775383
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "08e794dcab18d8c95617b04352c36002801407cb03ef9f0192c64c9a6441eec7"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:23:top-two",
+      "contestId": "ca:2026:regular:us-house:23:top-two",
+      "seatCycleId": "seat_house_ca_23_current",
+      "districtCode": "23",
+      "scope": "statewide_geography_only",
+      "crosswalkRowSha256": "e08628ccc34adc8e9405d48df00a3b79b602e2d475ae79b5d6fe34491522914a",
+      "geographyV2RowSha256": "3f8dee2c573bedc4413295d87367a22f6027020836f511627817af842af37515",
+      "jointReviewRecordSha256": null,
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 28088,
+      "targetBlockCount": 26546,
+      "sameDistrictBlockCount": 25138,
+      "sourceRetentionPpm": 894973,
+      "targetCoveragePpm": 946960,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "20",
+          "blockCount": 125,
+          "sourceSharePpm": 4451
+        },
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 25138,
+          "sourceSharePpm": 894973
+        },
+        {
+          "targetDistrictCode": "25",
+          "blockCount": 2068,
+          "sourceSharePpm": 73626
+        },
+        {
+          "targetDistrictCode": "27",
+          "blockCount": 17,
+          "sourceSharePpm": 605
+        },
+        {
+          "targetDistrictCode": "33",
+          "blockCount": 163,
+          "sourceSharePpm": 5803
+        },
+        {
+          "targetDistrictCode": "39",
+          "blockCount": 37,
+          "sourceSharePpm": 1317
+        },
+        {
+          "targetDistrictCode": "41",
+          "blockCount": 540,
+          "sourceSharePpm": 19225
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "7bcd2e7c29ff735e144e8b9a90471464880710cb41245b2e9c92e15a8c794db9"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:24:top-two",
+      "contestId": "ca:2026:regular:us-house:24:top-two",
+      "seatCycleId": "seat_house_ca_24_current",
+      "districtCode": "24",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "cb2c07e66677bfdb27116f65f57f08f6e1916084d45764806fbbf7431906218e",
+      "geographyV2RowSha256": "7f4d09b0cffd3bdfcb43a7ac5a9ab4ad9c6bfe6b65f7f9be7e50c1c997b79880",
+      "jointReviewRecordSha256": "a33d26e85be32241bcf4a2398f77db1509017e9e2264c428059be299d038900c",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 14089,
+      "targetBlockCount": 14099,
+      "sameDistrictBlockCount": 14015,
+      "sourceRetentionPpm": 994748,
+      "targetCoveragePpm": 994042,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "24",
+          "blockCount": 14015,
+          "sourceSharePpm": 994748
+        },
+        {
+          "targetDistrictCode": "26",
+          "blockCount": 74,
+          "sourceSharePpm": 5252
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "8287a7f200d4eb3819fd8f6590bbb94b9379738f398340bdec58bd290cbb95db"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:25:top-two",
+      "contestId": "ca:2026:regular:us-house:25:top-two",
+      "seatCycleId": "seat_house_ca_25_current",
+      "districtCode": "25",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "09cd04292b324dc2bfb9c5cf68d212e2ecf3738e6c9d6254ef47b1c239644c17",
+      "geographyV2RowSha256": "088dba3c7c861204fafb82a9caf3cc4bf0e75d7070b8d705dd68353beb6f35fe",
+      "jointReviewRecordSha256": "759cea80b619ed35a6a8d6d942c621e61ff6f2528092bb3f861cb07e2ce95433",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 16466,
+      "targetBlockCount": 16981,
+      "sameDistrictBlockCount": 13704,
+      "sourceRetentionPpm": 832260,
+      "targetCoveragePpm": 807020,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 827,
+          "sourceSharePpm": 50225
+        },
+        {
+          "targetDistrictCode": "25",
+          "blockCount": 13704,
+          "sourceSharePpm": 832260
+        },
+        {
+          "targetDistrictCode": "41",
+          "blockCount": 1868,
+          "sourceSharePpm": 113446
+        },
+        {
+          "targetDistrictCode": "48",
+          "blockCount": 67,
+          "sourceSharePpm": 4069
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "d44d4458a885da0da54011e9e992247eb1a1eb8a3a31f9026dadacf57d7ac0db"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:26:top-two",
+      "contestId": "ca:2026:regular:us-house:26:top-two",
+      "seatCycleId": "seat_house_ca_26_current",
+      "districtCode": "26",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "d25cf7cfeff83dd3900f243e244ff9685a3cb9ed725993eb17b7c119e50ac6c2",
+      "geographyV2RowSha256": "843cf63129d4bf52aba1ac1a6f277af835f9cf6ed033e3b00ed4894b6e103509",
+      "jointReviewRecordSha256": "30c07c8cec49e3d8c73d5572264125d2fd44ac8d0e9ba8ea7b7ee40adf5d27da",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 10334,
+      "targetBlockCount": 9006,
+      "sameDistrictBlockCount": 7714,
+      "sourceRetentionPpm": 746468,
+      "targetCoveragePpm": 856540,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "24",
+          "blockCount": 84,
+          "sourceSharePpm": 8129
+        },
+        {
+          "targetDistrictCode": "26",
+          "blockCount": 7714,
+          "sourceSharePpm": 746468
+        },
+        {
+          "targetDistrictCode": "27",
+          "blockCount": 1822,
+          "sourceSharePpm": 176311
+        },
+        {
+          "targetDistrictCode": "32",
+          "blockCount": 714,
+          "sourceSharePpm": 69092
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "c90638156e0024a0e61df8706af354645c1b4f8d2b976b9a30f3933508e66c6e"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:27:top-two",
+      "contestId": "ca:2026:regular:us-house:27:top-two",
+      "seatCycleId": "seat_house_ca_27_current",
+      "districtCode": "27",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "f57af800a8b48972675a5674917380e3e502807987dae4142e8c1b43835f85d0",
+      "geographyV2RowSha256": "16dbdc6b4ed5c4edc236afe49f0c9ba3e4c0ff0e547eb818dc20c212867d6ef5",
+      "jointReviewRecordSha256": "8b23741a15c44f5caedaac0bd3651e37d27755309d271a3cfee9afaa2284b8d7",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 7774,
+      "targetBlockCount": 9868,
+      "sameDistrictBlockCount": 6948,
+      "sourceRetentionPpm": 893748,
+      "targetCoveragePpm": 704094,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 39,
+          "sourceSharePpm": 5017
+        },
+        {
+          "targetDistrictCode": "27",
+          "blockCount": 6948,
+          "sourceSharePpm": 893748
+        },
+        {
+          "targetDistrictCode": "29",
+          "blockCount": 409,
+          "sourceSharePpm": 52611
+        },
+        {
+          "targetDistrictCode": "32",
+          "blockCount": 378,
+          "sourceSharePpm": 48624
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "fe5590a7cf2026a1c05a24b3b6cb72e356490211e8f46c7c004899ff4b0e7d0b"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:28:top-two",
+      "contestId": "ca:2026:regular:us-house:28:top-two",
+      "seatCycleId": "seat_house_ca_28_current",
+      "districtCode": "28",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "f59b6b76abd65e72a2b4ce1af7034a146c750617e14df3c30f7017ad8bddffa9",
+      "geographyV2RowSha256": "6a5cd1ca7a3efbf869d3aa77edbf714c3cca9324cd80e3bbb1ad736270e9ae67",
+      "jointReviewRecordSha256": "cb5c376a3b524b1c23a11cb5fb59c389b71402fee723d6310ab2eea37044ccd2",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 8126,
+      "targetBlockCount": 8351,
+      "sameDistrictBlockCount": 7593,
+      "sourceRetentionPpm": 934408,
+      "targetCoveragePpm": 909232,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "27",
+          "blockCount": 22,
+          "sourceSharePpm": 2707
+        },
+        {
+          "targetDistrictCode": "28",
+          "blockCount": 7593,
+          "sourceSharePpm": 934408
+        },
+        {
+          "targetDistrictCode": "31",
+          "blockCount": 78,
+          "sourceSharePpm": 9599
+        },
+        {
+          "targetDistrictCode": "33",
+          "blockCount": 285,
+          "sourceSharePpm": 35073
+        },
+        {
+          "targetDistrictCode": "35",
+          "blockCount": 148,
+          "sourceSharePpm": 18213
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "f751ca516b038a6f0adb8c0918285558d724d36fad473082c2d7c005e55f46c9"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:29:top-two",
+      "contestId": "ca:2026:regular:us-house:29:top-two",
+      "seatCycleId": "seat_house_ca_29_current",
+      "districtCode": "29",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "f13457db300bd2244c2a7469ebda2d23f46892a706bd4d9c3197312795a7ee4e",
+      "geographyV2RowSha256": "c338fbafe312b22337b2126e5b13a9cd7a390fa798ecaea0aed209988b9010ba",
+      "jointReviewRecordSha256": "706d8c35e5adf84b2152e95d1d71e548cc3ec8e328f8169580d224b3268a2803",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 4711,
+      "targetBlockCount": 4747,
+      "sameDistrictBlockCount": 4230,
+      "sourceRetentionPpm": 897899,
+      "targetCoveragePpm": 891089,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "29",
+          "blockCount": 4230,
+          "sourceSharePpm": 897898
+        },
+        {
+          "targetDistrictCode": "30",
+          "blockCount": 188,
+          "sourceSharePpm": 39907
+        },
+        {
+          "targetDistrictCode": "32",
+          "blockCount": 293,
+          "sourceSharePpm": 62195
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "a9bfc3af4a278d6f6418933ca44f0cb6b10668fc466f35c985642c4201b5de35"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:30:top-two",
+      "contestId": "ca:2026:regular:us-house:30:top-two",
+      "seatCycleId": "seat_house_ca_30_current",
+      "districtCode": "30",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "282fad8badfc667b2e0406a75f2a2fb2d050c7e9269a91a855d263c893f95b7f",
+      "geographyV2RowSha256": "97bec0e3e4bd8264f49a3fc30a6abbb5df529dd1c8a7003c208065179d85a740",
+      "jointReviewRecordSha256": "09d507927128096873222264a99e0cfb3b8c02ff86eb81ee2ab6785c0b1d5064",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 7412,
+      "targetBlockCount": 6758,
+      "sameDistrictBlockCount": 6556,
+      "sourceRetentionPpm": 884512,
+      "targetCoveragePpm": 970109,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "27",
+          "blockCount": 740,
+          "sourceSharePpm": 99838
+        },
+        {
+          "targetDistrictCode": "28",
+          "blockCount": 5,
+          "sourceSharePpm": 675
+        },
+        {
+          "targetDistrictCode": "29",
+          "blockCount": 105,
+          "sourceSharePpm": 14166
+        },
+        {
+          "targetDistrictCode": "30",
+          "blockCount": 6556,
+          "sourceSharePpm": 884512
+        },
+        {
+          "targetDistrictCode": "32",
+          "blockCount": 6,
+          "sourceSharePpm": 809
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "aa9731e9e3db76355f303bea1e5b9f5587e2f3914d2ce0d8d0019cc4f0ab39cc"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:31:top-two",
+      "contestId": "ca:2026:regular:us-house:31:top-two",
+      "seatCycleId": "seat_house_ca_31_current",
+      "districtCode": "31",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "4dda28c8986089e77ead80c23fe8d45602d3a025a4a39292b6978b1503b9f75c",
+      "geographyV2RowSha256": "7efb5ad0f5579ea907d7c26db2bd1d9b140554e04d003d22c9a05e8e15d5f23a",
+      "jointReviewRecordSha256": "c3247442d4ba7a8562663a4ce8e9e98d9b920ca16fed483672725fb55c1bcbdd",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 6971,
+      "targetBlockCount": 6970,
+      "sameDistrictBlockCount": 5078,
+      "sourceRetentionPpm": 728446,
+      "targetCoveragePpm": 728551,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "28",
+          "blockCount": 212,
+          "sourceSharePpm": 30412
+        },
+        {
+          "targetDistrictCode": "31",
+          "blockCount": 5078,
+          "sourceSharePpm": 728446
+        },
+        {
+          "targetDistrictCode": "35",
+          "blockCount": 1408,
+          "sourceSharePpm": 201980
+        },
+        {
+          "targetDistrictCode": "38",
+          "blockCount": 273,
+          "sourceSharePpm": 39162
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "41a03830b7ab1725e698943b30630e2dccd1e083f26971d7060147d37220a322"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:32:top-two",
+      "contestId": "ca:2026:regular:us-house:32:top-two",
+      "seatCycleId": "seat_house_ca_32_current",
+      "districtCode": "32",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "bf440615253e8e5ce98fe9f0ddff3f54017e9844eeb6ec03f3c1def104d50529",
+      "geographyV2RowSha256": "7473cc50edfbc97f4242cac69b2e0f103311ec2e0c47f6a05afd2967e5e266b6",
+      "jointReviewRecordSha256": "9f75982b0d1df5cf53ac5efa45a48ce1453b9ad381b7b075ce32f1142d450a21",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 6450,
+      "targetBlockCount": 6287,
+      "sameDistrictBlockCount": 4896,
+      "sourceRetentionPpm": 759070,
+      "targetCoveragePpm": 778750,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "26",
+          "blockCount": 1218,
+          "sourceSharePpm": 188837
+        },
+        {
+          "targetDistrictCode": "27",
+          "blockCount": 319,
+          "sourceSharePpm": 49457
+        },
+        {
+          "targetDistrictCode": "29",
+          "blockCount": 3,
+          "sourceSharePpm": 465
+        },
+        {
+          "targetDistrictCode": "30",
+          "blockCount": 14,
+          "sourceSharePpm": 2171
+        },
+        {
+          "targetDistrictCode": "32",
+          "blockCount": 4896,
+          "sourceSharePpm": 759070
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "5893627f422b78f0b68c746a69f00289b1a6a92837dbb1dbbd03dcc8ae4d7eb9"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:33:top-two",
+      "contestId": "ca:2026:regular:us-house:33:top-two",
+      "seatCycleId": "seat_house_ca_33_current",
+      "districtCode": "33",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "60f35c8e0b9146adc74978a4dab5f516c576b66d4cc69a0d15151f5d92281570",
+      "geographyV2RowSha256": "2380ef24493143ec5b748d6864784dfe95d4d8adc237faad4d447271aef7fbf0",
+      "jointReviewRecordSha256": "93c577c595168d3e916ba03ef7970123749c49017200ed42a627ffbb51166a67",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 7034,
+      "targetBlockCount": 6763,
+      "sameDistrictBlockCount": 6104,
+      "sourceRetentionPpm": 867785,
+      "targetCoveragePpm": 902558,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 472,
+          "sourceSharePpm": 67103
+        },
+        {
+          "targetDistrictCode": "28",
+          "blockCount": 27,
+          "sourceSharePpm": 3839
+        },
+        {
+          "targetDistrictCode": "33",
+          "blockCount": 6104,
+          "sourceSharePpm": 867785
+        },
+        {
+          "targetDistrictCode": "35",
+          "blockCount": 267,
+          "sourceSharePpm": 37958
+        },
+        {
+          "targetDistrictCode": "39",
+          "blockCount": 164,
+          "sourceSharePpm": 23315
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "44cfd67ec1dbcb46918ef83877fd116c71e8a3b5f12d335ebf98d49d4267784e"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:35:top-two",
+      "contestId": "ca:2026:regular:us-house:35:top-two",
+      "seatCycleId": "seat_house_ca_35_current",
+      "districtCode": "35",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "d449796cfc49b3094ba2dcad5ef73f60d43fea2a8223fb674511e6045d398797",
+      "geographyV2RowSha256": "ab5b99b8103df9cb389258291b03421c66cbe9331539db5970d727afbfcee304",
+      "jointReviewRecordSha256": "77d1dccbd4fca18261974c330cf4c744b15858fa29a6e4df3b1e3967bce77bd9",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 5974,
+      "targetBlockCount": 5717,
+      "sameDistrictBlockCount": 3894,
+      "sourceRetentionPpm": 651825,
+      "targetCoveragePpm": 681126,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "28",
+          "blockCount": 514,
+          "sourceSharePpm": 86039
+        },
+        {
+          "targetDistrictCode": "33",
+          "blockCount": 211,
+          "sourceSharePpm": 35320
+        },
+        {
+          "targetDistrictCode": "35",
+          "blockCount": 3894,
+          "sourceSharePpm": 651825
+        },
+        {
+          "targetDistrictCode": "40",
+          "blockCount": 397,
+          "sourceSharePpm": 66455
+        },
+        {
+          "targetDistrictCode": "41",
+          "blockCount": 958,
+          "sourceSharePpm": 160361
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "7e4ef60600e8580d6d66443a94b05aa5041e4925bd0816cc9fb4301f25c8c7dc"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:38:top-two",
+      "contestId": "ca:2026:regular:us-house:38:top-two",
+      "seatCycleId": "seat_house_ca_38_current",
+      "districtCode": "38",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "14d068fc8108b99b6d124e7a1a60a692f70c4677caef86a4de3fbe4274bcafae",
+      "geographyV2RowSha256": "81ad087ebb04b0413f06195887497af83c27487a271ffd6dc1cba422693d0041",
+      "jointReviewRecordSha256": "db3353a64d35c1ea4657dc3001cc2ac03bda3cf368c3d3df7b05a17b9ac54b70",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 6601,
+      "targetBlockCount": 7200,
+      "sameDistrictBlockCount": 2768,
+      "sourceRetentionPpm": 419330,
+      "targetCoveragePpm": 384444,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "31",
+          "blockCount": 1814,
+          "sourceSharePpm": 274807
+        },
+        {
+          "targetDistrictCode": "38",
+          "blockCount": 2768,
+          "sourceSharePpm": 419330
+        },
+        {
+          "targetDistrictCode": "40",
+          "blockCount": 1037,
+          "sourceSharePpm": 157098
+        },
+        {
+          "targetDistrictCode": "42",
+          "blockCount": 762,
+          "sourceSharePpm": 115437
+        },
+        {
+          "targetDistrictCode": "45",
+          "blockCount": 220,
+          "sourceSharePpm": 33328
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "4f8de67687bf32f5f45471b57c086807d5b80c5e1438a5461ef06856e4600c67"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:39:top-two",
+      "contestId": "ca:2026:regular:us-house:39:top-two",
+      "seatCycleId": "seat_house_ca_39_current",
+      "districtCode": "39",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "57af68f51546b7cd827f70c1e77b201276a74cd56255bc94c72906172410bcaf",
+      "geographyV2RowSha256": "839c798f295926f83f716d7f62b341b13693e479f0aaba7f9a9f3983015006a8",
+      "jointReviewRecordSha256": "2f1a4e17ef16ea9ef05bf4c8e998429ecd6c030cce288820c877202a44c4e385",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 6532,
+      "targetBlockCount": 6621,
+      "sameDistrictBlockCount": 6419,
+      "sourceRetentionPpm": 982701,
+      "targetCoveragePpm": 969491,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "39",
+          "blockCount": 6419,
+          "sourceSharePpm": 982701
+        },
+        {
+          "targetDistrictCode": "41",
+          "blockCount": 113,
+          "sourceSharePpm": 17299
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "2be0e3a2498e06f61ba83a091a43ef4e53c82c1484b31c4b401cb435f460b436"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:40:top-two",
+      "contestId": "ca:2026:regular:us-house:40:top-two",
+      "seatCycleId": "seat_house_ca_40_current",
+      "districtCode": "40",
+      "scope": "statewide_geography_only",
+      "crosswalkRowSha256": "57d3bc770eb5113788e17a24a254d606df472edae92f3034a4821cc7b41dc3d2",
+      "geographyV2RowSha256": "be2118cfa6886684ceee0b19a0104ee71c66fe14c05741bb378be2657cdd7196",
+      "jointReviewRecordSha256": null,
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 7538,
+      "targetBlockCount": 6340,
+      "sameDistrictBlockCount": 2157,
+      "sourceRetentionPpm": 286150,
+      "targetCoveragePpm": 340221,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "39",
+          "blockCount": 1,
+          "sourceSharePpm": 133
+        },
+        {
+          "targetDistrictCode": "40",
+          "blockCount": 2157,
+          "sourceSharePpm": 286150
+        },
+        {
+          "targetDistrictCode": "41",
+          "blockCount": 4280,
+          "sourceSharePpm": 567790
+        },
+        {
+          "targetDistrictCode": "46",
+          "blockCount": 19,
+          "sourceSharePpm": 2520
+        },
+        {
+          "targetDistrictCode": "48",
+          "blockCount": 1009,
+          "sourceSharePpm": 133855
+        },
+        {
+          "targetDistrictCode": "49",
+          "blockCount": 72,
+          "sourceSharePpm": 9552
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "7e2d466aca6a48450b0c0f9f2d841c0aebb6d6e5927ac00b570efa55ea764065"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:41:top-two",
+      "contestId": "ca:2026:regular:us-house:41:top-two",
+      "seatCycleId": "seat_house_ca_41_current",
+      "districtCode": "41",
+      "scope": "statewide_geography_only",
+      "crosswalkRowSha256": "542b0856554bad9cc4e34485ca02eab4397e4af0bd960807c5d5ffb6b017a958",
+      "geographyV2RowSha256": "4544b821bb0949f71fae6748496b6b473ed3fcbf848f01f560da93cc0f57b318",
+      "jointReviewRecordSha256": null,
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 6975,
+      "targetBlockCount": 10255,
+      "sameDistrictBlockCount": 0,
+      "sourceRetentionPpm": 0,
+      "targetCoveragePpm": 0,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "38",
+          "blockCount": 3631,
+          "sourceSharePpm": 520574
+        },
+        {
+          "targetDistrictCode": "42",
+          "blockCount": 1869,
+          "sourceSharePpm": 267957
+        },
+        {
+          "targetDistrictCode": "44",
+          "blockCount": 601,
+          "sourceSharePpm": 86165
+        },
+        {
+          "targetDistrictCode": "45",
+          "blockCount": 822,
+          "sourceSharePpm": 117849
+        },
+        {
+          "targetDistrictCode": "47",
+          "blockCount": 52,
+          "sourceSharePpm": 7455
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "73b6fd1ffd3c726c0711a620ab120813dfe4366fa1b77f5fbb966a807410d4d0"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:42:top-two",
+      "contestId": "ca:2026:regular:us-house:42:top-two",
+      "seatCycleId": "seat_house_ca_42_current",
+      "districtCode": "42",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "3ef577e4475d5737c1ead0278151b5f785f49f71d1aaffdf008fe81fac1dba77",
+      "geographyV2RowSha256": "1710c817de5abc4ec12cada8b14382e0d63c030336ab05d58328a69c41d66015",
+      "jointReviewRecordSha256": "c28b86fdb3c64a02fac29edf3fe19e2d9a3de2104527372ae5b7697d2cf56609",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 8284,
+      "targetBlockCount": 6969,
+      "sameDistrictBlockCount": 3050,
+      "sourceRetentionPpm": 368180,
+      "targetCoveragePpm": 437652,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "42",
+          "blockCount": 3050,
+          "sourceSharePpm": 368179
+        },
+        {
+          "targetDistrictCode": "44",
+          "blockCount": 723,
+          "sourceSharePpm": 87277
+        },
+        {
+          "targetDistrictCode": "46",
+          "blockCount": 203,
+          "sourceSharePpm": 24505
+        },
+        {
+          "targetDistrictCode": "47",
+          "blockCount": 4308,
+          "sourceSharePpm": 520039
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "4ae7f2d4aeb15a2fffd017b7bb759bbb407a07f310b2597cc3a1dd1095b07d75"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:44:top-two",
+      "contestId": "ca:2026:regular:us-house:44:top-two",
+      "seatCycleId": "seat_house_ca_44_current",
+      "districtCode": "44",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "20086d9b46613fd30f7c9a11ec8bd4c252e2aa46177dfb65f203538ba6ce2e32",
+      "geographyV2RowSha256": "1e3bb8c62105816b2203c3bcdd8ea35be3a1c7c0f3a53bf050790bd27c1c0bd9",
+      "jointReviewRecordSha256": "7703cb794127a52a4fb84b962d69aa2d40a7013c061c63c4a255556ea96545fd",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 6672,
+      "targetBlockCount": 6816,
+      "sameDistrictBlockCount": 5492,
+      "sourceRetentionPpm": 823141,
+      "targetCoveragePpm": 805751,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "42",
+          "blockCount": 1180,
+          "sourceSharePpm": 176859
+        },
+        {
+          "targetDistrictCode": "44",
+          "blockCount": 5492,
+          "sourceSharePpm": 823141
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "7c4218f0c835d0759d6463446d2a5b7a90fd91aec7fcb4fab57b5f4f4612eac6"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:45:top-two",
+      "contestId": "ca:2026:regular:us-house:45:top-two",
+      "seatCycleId": "seat_house_ca_45_current",
+      "districtCode": "45",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "54749491e946bcbcf84e3f47a9eef8b3c5eb26239d4212dad4740b09678659f4",
+      "geographyV2RowSha256": "d9e4b77d20642163bd7abcd6fb3d6615cb881aa19054b31b5e92d57c4b2d2ff4",
+      "jointReviewRecordSha256": "e49ccccf19a73ca0a92162b9501e304e23679f71e9aa35797cc8f213bda66996",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 5770,
+      "targetBlockCount": 6146,
+      "sameDistrictBlockCount": 4874,
+      "sourceRetentionPpm": 844714,
+      "targetCoveragePpm": 793036,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "38",
+          "blockCount": 528,
+          "sourceSharePpm": 91508
+        },
+        {
+          "targetDistrictCode": "42",
+          "blockCount": 108,
+          "sourceSharePpm": 18717
+        },
+        {
+          "targetDistrictCode": "45",
+          "blockCount": 4874,
+          "sourceSharePpm": 844714
+        },
+        {
+          "targetDistrictCode": "46",
+          "blockCount": 232,
+          "sourceSharePpm": 40208
+        },
+        {
+          "targetDistrictCode": "47",
+          "blockCount": 28,
+          "sourceSharePpm": 4853
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "4ce47814610be53268040a2c330b2f4d15a334116d34695f801bcfdd092bbe94"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:46:top-two",
+      "contestId": "ca:2026:regular:us-house:46:top-two",
+      "seatCycleId": "seat_house_ca_46_current",
+      "districtCode": "46",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "e4b129c9a7f06c4ec1ddc17b13f27c2d2751786d812b015b5d474825ec6127d5",
+      "geographyV2RowSha256": "08da5650747e4c290c1c87ab362f9655e5ce41b884d5c3a71d2e76754e393a28",
+      "jointReviewRecordSha256": "082d4e0573013f0cf9a08568fbf30badbc5db9a110d2f46b4abb000ee82f1ba5",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 5358,
+      "targetBlockCount": 5140,
+      "sameDistrictBlockCount": 4686,
+      "sourceRetentionPpm": 874580,
+      "targetCoveragePpm": 911673,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "40",
+          "blockCount": 441,
+          "sourceSharePpm": 82307
+        },
+        {
+          "targetDistrictCode": "45",
+          "blockCount": 230,
+          "sourceSharePpm": 42926
+        },
+        {
+          "targetDistrictCode": "46",
+          "blockCount": 4686,
+          "sourceSharePpm": 874580
+        },
+        {
+          "targetDistrictCode": "47",
+          "blockCount": 1,
+          "sourceSharePpm": 187
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "1ed122a3aeb686d508b161460d682b0bef19e109fe14638c28018a3d0b262b09"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:47:top-two",
+      "contestId": "ca:2026:regular:us-house:47:top-two",
+      "seatCycleId": "seat_house_ca_47_current",
+      "districtCode": "47",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "5a1acaebddbd9aa5a01bfd707284afb9b0652e83c71fda9dd8e4134988f5cfef",
+      "geographyV2RowSha256": "34fd41fdbd29fe3cba72b2be3c6e1aafc5ff9e73087d6c76eb5c844b634fcff2",
+      "jointReviewRecordSha256": "bc848951bbc982d03548a4761c14486ae50733cb1039d57c4d599137966b7558",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 6359,
+      "targetBlockCount": 7496,
+      "sameDistrictBlockCount": 3107,
+      "sourceRetentionPpm": 488599,
+      "targetCoveragePpm": 414488,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "40",
+          "blockCount": 2308,
+          "sourceSharePpm": 362950
+        },
+        {
+          "targetDistrictCode": "47",
+          "blockCount": 3107,
+          "sourceSharePpm": 488599
+        },
+        {
+          "targetDistrictCode": "49",
+          "blockCount": 944,
+          "sourceSharePpm": 148451
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "5ea2665611d16440bcf9e08fa3ce13c7b2b01b8ad8914eb6aafc46db47a7e473"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:48:top-two",
+      "contestId": "ca:2026:regular:us-house:48:top-two",
+      "seatCycleId": "seat_house_ca_48_current",
+      "districtCode": "48",
+      "scope": "statewide_geography_only",
+      "crosswalkRowSha256": "bf112d6a3ae64c7cde28234c479e59f32f5b80a1e442ac4a989d2e662564900c",
+      "geographyV2RowSha256": "19767d7e6b643bb2de1442bdec7e29a60fc7580127e4f15391de688bc62d10dc",
+      "jointReviewRecordSha256": null,
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 8604,
+      "targetBlockCount": 8368,
+      "sameDistrictBlockCount": 3077,
+      "sourceRetentionPpm": 357624,
+      "targetCoveragePpm": 367710,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "25",
+          "blockCount": 1209,
+          "sourceSharePpm": 140516
+        },
+        {
+          "targetDistrictCode": "41",
+          "blockCount": 2496,
+          "sourceSharePpm": 290098
+        },
+        {
+          "targetDistrictCode": "48",
+          "blockCount": 3077,
+          "sourceSharePpm": 357624
+        },
+        {
+          "targetDistrictCode": "49",
+          "blockCount": 810,
+          "sourceSharePpm": 94142
+        },
+        {
+          "targetDistrictCode": "50",
+          "blockCount": 1012,
+          "sourceSharePpm": 117620
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "9c6a79447ce03b6a7f9677723bd09394f4f060f6a0349b64fa57f8e2146cf6b6"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:49:top-two",
+      "contestId": "ca:2026:regular:us-house:49:top-two",
+      "seatCycleId": "seat_house_ca_49_current",
+      "districtCode": "49",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "21ce0b287cd70d0e05752e7db27615093e1057959d030d82eddab535666c8028",
+      "geographyV2RowSha256": "fb36700bdb2fd1aa2ba90c6894b995ab4a1627a6e6291ae3139000f83909b131",
+      "jointReviewRecordSha256": "ab5ce5141847b571460ab9c2acc7af92d29270dd6b7bf34a3af31b4b4de8809c",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 6588,
+      "targetBlockCount": 6650,
+      "sameDistrictBlockCount": 4824,
+      "sourceRetentionPpm": 732240,
+      "targetCoveragePpm": 725414,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "48",
+          "blockCount": 409,
+          "sourceSharePpm": 62083
+        },
+        {
+          "targetDistrictCode": "49",
+          "blockCount": 4824,
+          "sourceSharePpm": 732240
+        },
+        {
+          "targetDistrictCode": "50",
+          "blockCount": 1236,
+          "sourceSharePpm": 187614
+        },
+        {
+          "targetDistrictCode": "51",
+          "blockCount": 119,
+          "sourceSharePpm": 18063
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "3fa7809bd01d811b51fe96b8e1e6acdac0a8833dacc48572c8113cd845b1dd5f"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:50:top-two",
+      "contestId": "ca:2026:regular:us-house:50:top-two",
+      "seatCycleId": "seat_house_ca_50_current",
+      "districtCode": "50",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "08797973a7564101fb87189b4578c2fa494f5679ef80da46c8ce5d8b13f5bf96",
+      "geographyV2RowSha256": "3694b743b5227815c113d3305ff791adfcc80c7ec85fab6efd0a25409c08de99",
+      "jointReviewRecordSha256": "aa6152d8d4888390ecfd7886f36634ca33a568da6268f3353210d34b4d0a7649",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 7011,
+      "targetBlockCount": 7150,
+      "sameDistrictBlockCount": 3698,
+      "sourceRetentionPpm": 527457,
+      "targetCoveragePpm": 517203,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "48",
+          "blockCount": 1406,
+          "sourceSharePpm": 200542
+        },
+        {
+          "targetDistrictCode": "50",
+          "blockCount": 3698,
+          "sourceSharePpm": 527457
+        },
+        {
+          "targetDistrictCode": "51",
+          "blockCount": 1907,
+          "sourceSharePpm": 272001
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "3a00e51b5d625d83db110b29b560a523c6fac2b621f39046817c8476e13bc4a1"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:51:top-two",
+      "contestId": "ca:2026:regular:us-house:51:top-two",
+      "seatCycleId": "seat_house_ca_51_current",
+      "districtCode": "51",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "4336b491f93acdf28f8aed6dce6a930f93795d599e764ac385b9c0ae8cf757b3",
+      "geographyV2RowSha256": "5211d658430b975239b150852bfe7db0b3c7b0343b4e4e0ca4bfdf799f27ba9a",
+      "jointReviewRecordSha256": "49d420d281a8d51d134686270e492d61d60f0994df591b4305b4d15560d18d1a",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 6487,
+      "targetBlockCount": 5541,
+      "sameDistrictBlockCount": 3247,
+      "sourceRetentionPpm": 500540,
+      "targetCoveragePpm": 585995,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "48",
+          "blockCount": 1690,
+          "sourceSharePpm": 260521
+        },
+        {
+          "targetDistrictCode": "50",
+          "blockCount": 1197,
+          "sourceSharePpm": 184523
+        },
+        {
+          "targetDistrictCode": "51",
+          "blockCount": 3247,
+          "sourceSharePpm": 500540
+        },
+        {
+          "targetDistrictCode": "52",
+          "blockCount": 353,
+          "sourceSharePpm": 54416
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "94e4cd1f962fe92e1720f7c1d88504250e6220bcec05636e4813ceae67c87a9e"
+    },
+    {
+      "policyRecordId": "ca-split-policy:ca:2026:regular:us-house:52:top-two",
+      "contestId": "ca:2026:regular:us-house:52:top-two",
+      "seatCycleId": "seat_house_ca_52_current",
+      "districtCode": "52",
+      "scope": "current_incumbent_joint_review",
+      "crosswalkRowSha256": "84d6c3433d8fca1c21fc10e01ac7021c3c5c9db98b61dd7c37d2c67ef0b2b17a",
+      "geographyV2RowSha256": "e2c9ce3cde6ef0987e1814cc1f2d13eab8e8303f23b6ed77f443c800231c17dd",
+      "jointReviewRecordSha256": "aa51a67d68f55186a43e0f04b675ba32fae10bd269cd6cda8589f2cbde6b98f4",
+      "sourcePlanId": "california-proposition50-ab604-2025",
+      "targetPlanId": "census-cd119-california",
+      "sourceBlockCount": 6016,
+      "targetBlockCount": 5384,
+      "sameDistrictBlockCount": 5031,
+      "sourceRetentionPpm": 836270,
+      "targetCoveragePpm": 934435,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "48",
+          "blockCount": 710,
+          "sourceSharePpm": 118019
+        },
+        {
+          "targetDistrictCode": "50",
+          "blockCount": 7,
+          "sourceSharePpm": 1163
+        },
+        {
+          "targetDistrictCode": "51",
+          "blockCount": 268,
+          "sourceSharePpm": 44548
+        },
+        {
+          "targetDistrictCode": "52",
+          "blockCount": 5031,
+          "sourceSharePpm": 836270
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "publicationEligible": false,
+      "deployed": false,
+      "policyResolutionRequiredBeforeRowReview": true,
+      "rowReviewRequiredAfterPolicyResolution": true,
+      "rowSha256": "2b2dcdc42ffebdf708b37644662e3a7252bbf17cd32ab52d70e97b0efc59a784"
+    }
+  ],
+  "rowSetSha256": "be90cf2fdcc573e7406f2892450a8165ffc20d0c3744c50a6af64cde3e9b1027",
+  "blocks": {
+    "blocksAffectedRows": true,
+    "blocksUnrelatedWork": false,
+    "doesNotResolve": [
+      "row_level_geography_approval",
+      "identity_approval",
+      "california_top_two_formula",
+      "evaluator_eligibility",
+      "publication",
+      "deployment"
+    ]
+  },
+  "workCompletedWhileWaiting": [
+    "retained_complete_official_ab604_and_cd119_block_assignments",
+    "isolated_four_exact_and_forty_eight_split_relationships",
+    "projected_thirty_eight_split_rows_into_the_current_incumbent_joint_queue",
+    "kept_all_split_rows_unapproved_and_score_ineligible"
+  ],
+  "resolution": {
+    "status": "proposed",
+    "decision": null,
+    "reviewer": null,
+    "reviewedAt": null,
+    "rationale": null
+  },
+  "packageSha256": "3b0995a1378dc3fb5ab96612c31df8a39610ec07a667b38ba9bdc5ed5166da3a"
+}
