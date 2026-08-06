@@ -1,0 +1,279 @@
+{
+  "schema": "new-york-2022-congressional-block-assignment-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T16:00:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "originalPublisher": "New York State Legislative Task Force on Demographic Research and Reapportionment",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "sources": [
+    {
+      "id": "ny-latfor-2022-congressional-map-authority",
+      "url": "https://latfor.state.ny.us/maps/?sec=2022_congress",
+      "retainedPath": "data/source/elections/primary-results/geography/new-york/2022/latfor-2022-congressional-maps.html",
+      "retainedStatus": "retained",
+      "byteSize": 7681,
+      "sha256": "a36754eead5ee7b3bc6263fa0b47ebd8867de035c46a6b385467dc5c5bf8aa92",
+      "kind": "official_authority_page",
+      "parentIds": []
+    },
+    {
+      "id": "ny-2022-court-ordered-congressional-block-assignment",
+      "url": "https://latfor.state.ny.us/maps/congress2022/Congress22_AmendedTechnicalCorrections_June_02_2022.dbf",
+      "retainedPath": "data/source/elections/primary-results/geography/new-york/2022/court-ordered-congressional-block-assignment.dbf",
+      "retainedStatus": "retained",
+      "byteSize": 6931754,
+      "sha256": "460c38cf2cbbc07172782a2f508e6ad80a96a00dd4d57e5c22f6af011d42f3e6",
+      "kind": "official_block_assignment",
+      "parentIds": [
+        "ny-latfor-2022-congressional-map-authority"
+      ]
+    },
+    {
+      "id": "census-cd118-block-equivalency-bundle-20260806",
+      "url": "https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2023/118-congressional-district-bef/cd118.zip",
+      "retainedPath": "data/source/elections/primary-results/geography/new-york/historical/census-cd118-block-equivalency-bundle.zip",
+      "retainedStatus": "retained",
+      "byteSize": 25922515,
+      "sha256": "a2f38d0dd7c207fa144a88b66df9f59f8a6e5c27e932fbd4a32d1bcf587c5763",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "census-cd118-new-york-block-equivalency-extract-20260806",
+      "url": "urn:dsa-seats:census-cd118-bef:36_NY_CD118.txt",
+      "retainedPath": "data/source/elections/primary-results/geography/new-york/historical/36_NY_CD118.txt",
+      "retainedStatus": "retained",
+      "byteSize": 5776393,
+      "sha256": "359d8ec177dacf6511baf68c734a999ca9ff21ec4ef9897b85213838ed5c218a",
+      "kind": "derived_extract",
+      "parentIds": [
+        "census-cd118-block-equivalency-bundle-20260806"
+      ]
+    }
+  ],
+  "authority": {
+    "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+    "historicalCongressSession": "118",
+    "landingPageClaim": "2022_congressional_block_assignments_updated_june_2022_for_court_ordered_technical_corrections",
+    "assignmentFormat": "dBase_III_DBF",
+    "assignmentUpdateDate": "2022-06-03",
+    "censusBlockVintage": 2020,
+    "censusCd118ExactConcordance": true,
+    "legalEffectAssessed": false,
+    "electionUseAssessed": false,
+    "reuseLicenseAssessed": false,
+    "publicationPermissionAssessed": false
+  },
+  "schemaInspection": {
+    "recordCount": 288819,
+    "headerLength": 97,
+    "recordLength": 24,
+    "updateDate": "2022-06-03",
+    "fields": [
+      {
+        "name": "BLOCK",
+        "type": "C",
+        "length": 15,
+        "decimal": 0
+      },
+      {
+        "name": "DISTRICTID",
+        "type": "N",
+        "length": 8,
+        "decimal": 0
+      }
+    ]
+  },
+  "districts": [
+    {
+      "districtCode": "01",
+      "blockCount": 12915,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "8e111beb427eb1cd070fb24197da01c2a82395af9e6ebeed724816b53a17a791"
+    },
+    {
+      "districtCode": "02",
+      "blockCount": 12377,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "939a77e49af272eedfa1cd72358cb3fe7259a775038af56fe0764e452c4d2423"
+    },
+    {
+      "districtCode": "03",
+      "blockCount": 10889,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "e100b9d06ff0a211ad3cc0578839022afaffb4b7f09b289421b48bb7dbe2db9a"
+    },
+    {
+      "districtCode": "04",
+      "blockCount": 10304,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "4b972f853c0b13404f20f3299c5500e326e46294d57007cb7d0eecae68f1b702"
+    },
+    {
+      "districtCode": "05",
+      "blockCount": 5526,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "71dbfc91e1c521e7dc277673915890d2b5a76b13cb473031f2fa015076c5ee5b"
+    },
+    {
+      "districtCode": "06",
+      "blockCount": 3744,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "2843dc964ce8e7d2ce1f0d0ed31f97cae6412ecef6ecffb76957526eab57be0d"
+    },
+    {
+      "districtCode": "07",
+      "blockCount": 3454,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "1d9b1c8f106b20f6a2e2d61064c7ead6c3784884c1b1a853171185dc74b9a457"
+    },
+    {
+      "districtCode": "08",
+      "blockCount": 3077,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "344a9ffdd20189a95ddadd47c21f67f9661278286ae57a6f7a49a6a4a39cb64b"
+    },
+    {
+      "districtCode": "09",
+      "blockCount": 2347,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "fc5341fcbf67b77ae477b42d6035a587c6bd09f3ea81201e32a048445bb4c94e"
+    },
+    {
+      "districtCode": "10",
+      "blockCount": 2771,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "fe4f9a7291ba4fc70765310147964aed060468569112171b79f32d5f8ef67711"
+    },
+    {
+      "districtCode": "11",
+      "blockCount": 5663,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "86610c444cd0d5e8faf5c3e74fdae28cb6648ae94cff2a679d503ab8a4714feb"
+    },
+    {
+      "districtCode": "12",
+      "blockCount": 1603,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "ae9d149475f1f976f34cf9a7bf20c951864550436464a6fa41bdcf8a1c6f011f"
+    },
+    {
+      "districtCode": "13",
+      "blockCount": 1641,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "12cbb5ebdcb1fc51bbaf03222897724fd8495ce033d9d2a5509d93579a5374c1"
+    },
+    {
+      "districtCode": "14",
+      "blockCount": 3411,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "ed0f10678bcbd6044750c6eb3f741d863cb0a23b164f1a90780ed377383cacd4"
+    },
+    {
+      "districtCode": "15",
+      "blockCount": 2589,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "79993f54c82d2d021ff3b48356d6354cc20863e4bb07eebabe864e3d5fa1fdad"
+    },
+    {
+      "districtCode": "16",
+      "blockCount": 7918,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "e070d4a8f9415df7de0ab676432aad910665395dbfe09e3a1229cf68b4b45036"
+    },
+    {
+      "districtCode": "17",
+      "blockCount": 10511,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "a51d5d648e857c20442adecc7c4b9c1925c786f001494fd7ab6340592c57f0a6"
+    },
+    {
+      "districtCode": "18",
+      "blockCount": 14329,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "b1b7f256c2dc4f40929eeaf469d1ac70194e6a12d25349e9f7a0a71819adeba8"
+    },
+    {
+      "districtCode": "19",
+      "blockCount": 28819,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "d6951af0c5b3abb4a5954223566d5a3a1e89a1826a84401a138fc8532defd105"
+    },
+    {
+      "districtCode": "20",
+      "blockCount": 14470,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "c3b42b7ccca39f0cce75b63fb4982e94910ed5b84a0646717b76175165913663"
+    },
+    {
+      "districtCode": "21",
+      "blockCount": 36335,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "314fb9784f28557911689a0c82942b2d52b7e63559b1364151b673918ab16a0b"
+    },
+    {
+      "districtCode": "22",
+      "blockCount": 18155,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "fb9ce36929c7412e0f9296b4c36004665cff96a2d0dfe872c9d12a2c319d3332"
+    },
+    {
+      "districtCode": "23",
+      "blockCount": 27118,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "583cffc030909506005f03f54304eb0a91147895016a1f533f3015f3fcb37dd3"
+    },
+    {
+      "districtCode": "24",
+      "blockCount": 27984,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "f393557355c09774b1b3054737ff7dd30afa3c60ddd28c52d095079a492166f8"
+    },
+    {
+      "districtCode": "25",
+      "blockCount": 10636,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "a25f3ca222fcb7bd428e89eee94665b1c4af6d5fa83343f2779dca452fcfd2c5"
+    },
+    {
+      "districtCode": "26",
+      "blockCount": 10233,
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "rowSha256": "0fd72754436238a2c287946fe4ea39b635dc46233561d65106ce030e15a49892"
+    }
+  ],
+  "summary": {
+    "assignmentRecords": 288819,
+    "uniqueBlockGeoids": 288819,
+    "districts": 26,
+    "duplicateBlockGeoids": 0,
+    "malformedBlockGeoids": 0,
+    "censusCd118Records": 288819,
+    "censusCd118AssignmentDifferences": 0,
+    "continuityConclusions": 0,
+    "electionConclusions": 0,
+    "approvedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "limitations": [
+    "The receipt establishes the official assignment file identity and its block inventory only; it does not establish continuity with CD119.",
+    "Block counts are not population, voter, partisan, or electoral weights.",
+    "The landing page's court-ordered technical-corrections description is retained without independently adjudicating legal effect or election use.",
+    "No explicit reuse license was identified on the retained LATFOR page; public availability and governmental provenance are not treated as publication permission or an affirmative license grant.",
+    "No identity, nomination, result, approval, scoring, publication, or deployment conclusion is created."
+  ],
+  "unresolvedGates": [
+    "compare_exact_2020_block_membership_to_cd119",
+    "review_split_district_crosswalks_without_threshold_inference",
+    "independently_review_identity_geography_and_publication"
+  ],
+  "districtSetSha256": "9d5390b9df04bae0b065492424fac673a74624e927b36f5a1534c6817b4a9443",
+  "packageSha256": "dc58cc56e0f1feb6424aafcf2e08f3433bb6559ad0dc432d32506f3d631878a8"
+}

@@ -40,6 +40,10 @@ The generated artifact is 67,071 bytes with file SHA-256 `8f0410959243684b03a257
 
 The output has exactly six direct parents: source-selection proposal, New York v2 dispositions, New York identity candidate, Census CD119 plan-change authority, New York CD118 TIGER archive, and New York CD119 TIGER archive.
 
+## Subsequent block-grain evidence
+
+This v1 artifact remains immutable and accurately records the evidence boundary at its generation cutoff. A later, separately source-locked package now retains the official New York 2022 block assignments and compares them with the Census CD119 block-equivalency extract. It proposes exact block-membership compatibility for four of these 19 historical rows while retaining the other 15 as crosswalk-review-required; it does not mutate or approve this package. See [`new-york-2022-primary-block-crosswalk-candidate-v1-2026-08-06.md`](new-york-2022-primary-block-crosswalk-candidate-v1-2026-08-06.md).
+
 ## Reproduction
 
 ```bash

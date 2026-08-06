@@ -1,0 +1,1009 @@
+{
+  "schema": "new-york-2022-primary-block-crosswalk-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T17:00:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_authorized_identity_geography_and_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "geographyCandidate": {
+      "sourceLockId": "new-york-primary-geography-compatibility-candidate-v1",
+      "fileSha256": "8f0410959243684b03a2575eb989d23839854c17d3b4b4fe4e6416be932f5096",
+      "packageSha256": "c5839d2fb9dd4cc6f463a3adf2520a43b1c6484e2f7d95c6b2e1eb0470611b5d",
+      "rowSetSha256": "81d251dbbc6bbd9c1e3185abb7e161ab01b0332ec8439df69edb02a739aa85fb"
+    },
+    "historicalAssignmentReceipt": {
+      "sourceLockId": "new-york-2022-congressional-block-assignment-receipt-v1",
+      "fileSha256": "dd0d8f450b632ce1e043dfc6b861e22de957e30cf9f2e8cc9eb438f018befbc9",
+      "packageSha256": "dc58cc56e0f1feb6424aafcf2e08f3433bb6559ad0dc432d32506f3d631878a8",
+      "districtSetSha256": "9d5390b9df04bae0b065492424fac673a74624e927b36f5a1534c6817b4a9443"
+    },
+    "currentBlockEquivalency": {
+      "sourceLockId": "census-cd119-new-york-block-equivalency-extract-20260805",
+      "fileSha256": "670447571d72c0465cd27ac9769c2e969669d7decb06a4198c653b755ff2e46a",
+      "congressSession": "119"
+    }
+  },
+  "methodology": {
+    "joinKey": "2020_census_tabulation_block_geoid",
+    "sourcePlan": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+    "targetPlan": "census-cd119-new-york",
+    "sourceAndTargetBlockUniverseEqual": true,
+    "blockUniverse": 288819,
+    "exactMembershipRule": "source_and_target_district_block_sets_must_be_identical",
+    "splitDispositionRule": "crosswalk_review_required_regardless_of_overlap_share",
+    "overlapThresholdUsed": false,
+    "districtNumberContinuityAssumed": false,
+    "blockCountsArePopulationWeighted": false,
+    "blockCountsAreVoterWeighted": false,
+    "blockCountsAreElectoralWeighted": false,
+    "splitShareRounding": "largest_remainder_exactly_one_million_ppm",
+    "rawGeometryEqualityAssessed": false,
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "targetObservations": 19,
+    "exactBlockMembershipCandidates": 4,
+    "crosswalkReviewRequired": 15,
+    "sourceBlocks": 288819,
+    "targetBlocks": 288819,
+    "sharedBlocks": 288819,
+    "changedDistrictAssignments": 25881,
+    "automaticallyApprovedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "rows": [
+    {
+      "observationId": "ny:geography:2022:03",
+      "parentGeographyRowSha256": "2cdcc4de5561b82612f3269b6cfde7b1a699103ebd2198888f7dc8fde53a0ca5",
+      "identityObservationId": "ny:identity:2022:03",
+      "parentIdentityStatus": "reported_contest_no_unique_candidate_match",
+      "parentResultDisposition": "reported_contest",
+      "seatCycleId": "ny:2022:us-house:03:democratic",
+      "districtCode": "03",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 10889,
+      "targetBlockCount": 10612,
+      "sameDistrictBlockCount": 9985,
+      "sourceRetentionPpm": 916980,
+      "targetCoveragePpm": 940916,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 904,
+          "sourceSharePpm": 83020
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 9985,
+          "sourceSharePpm": 916980
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "0c64e84d2ed29af6d275040bde2084f9a3406ff43d47a6dd5278137debce797c"
+    },
+    {
+      "observationId": "ny:geography:2022:04",
+      "parentGeographyRowSha256": "fdd898c2392ac6ea5c80d8f6ffa75aca16ab6bf95d9a2ebf1557cc3b76b9bb3e",
+      "identityObservationId": "ny:identity:2022:04",
+      "parentIdentityStatus": "not_applicable_no_reported_contest",
+      "parentResultDisposition": "unresolved_outside_retained_authority_scope",
+      "seatCycleId": "ny:2022:us-house:04:democratic",
+      "districtCode": "04",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 10304,
+      "targetBlockCount": 10304,
+      "sameDistrictBlockCount": 10304,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 10304,
+          "sourceSharePpm": 1000000
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "confidence": "high",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "parent_identity_and_result_dispositions_preserved",
+        "still_requires_authorized_identity_geography_review"
+      ],
+      "rowSha256": "2a95ad63bbdf778e4ce694d78adf9ec5009ce900a8d5fe682c2ad247c772b274"
+    },
+    {
+      "observationId": "ny:geography:2022:05",
+      "parentGeographyRowSha256": "f388078622541559a1e367c9c8871b1ea31f30deef23b2809e5246826486f985",
+      "identityObservationId": "ny:identity:2022:05",
+      "parentIdentityStatus": "not_applicable_no_reported_contest",
+      "parentResultDisposition": "unresolved_outside_retained_authority_scope",
+      "seatCycleId": "ny:2022:us-house:05:democratic",
+      "districtCode": "05",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 5526,
+      "targetBlockCount": 5526,
+      "sameDistrictBlockCount": 5526,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 5526,
+          "sourceSharePpm": 1000000
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "confidence": "high",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "parent_identity_and_result_dispositions_preserved",
+        "still_requires_authorized_identity_geography_review"
+      ],
+      "rowSha256": "3805118c70440b119c2e564a548dd2dc2a661e7b53c0ffd12f74c259918766ad"
+    },
+    {
+      "observationId": "ny:geography:2022:06",
+      "parentGeographyRowSha256": "95af324512aae6d356e7fbba69275f529b4cf46f888bbbf9209e2aabe65d0728",
+      "identityObservationId": "ny:identity:2022:06",
+      "parentIdentityStatus": "not_applicable_no_reported_contest",
+      "parentResultDisposition": "unresolved_outside_retained_authority_scope",
+      "seatCycleId": "ny:2022:us-house:06:democratic",
+      "districtCode": "06",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 3744,
+      "targetBlockCount": 3771,
+      "sameDistrictBlockCount": 3642,
+      "sourceRetentionPpm": 972756,
+      "targetCoveragePpm": 965792,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 3642,
+          "sourceSharePpm": 972756
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 102,
+          "sourceSharePpm": 27244
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "b7ebd54882b67d50747147e05c1861bc3333add0dd7e2e3a4d851ae28d0711d9"
+    },
+    {
+      "observationId": "ny:geography:2022:07",
+      "parentGeographyRowSha256": "fcf1ea5d86316c7b6d662cb76d3c5ce14fb26890d7e0e35c5db2e63f0c3af343",
+      "identityObservationId": "ny:identity:2022:07",
+      "parentIdentityStatus": "proposed_identity_link",
+      "parentResultDisposition": "reported_contest",
+      "seatCycleId": "ny:2022:us-house:07:democratic",
+      "districtCode": "07",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 3454,
+      "targetBlockCount": 3440,
+      "sameDistrictBlockCount": 3352,
+      "sourceRetentionPpm": 970469,
+      "targetCoveragePpm": 974419,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 3352,
+          "sourceSharePpm": 970469
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 98,
+          "sourceSharePpm": 28373
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 4,
+          "sourceSharePpm": 1158
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "9b6933e7a3f45f75ed6dc160c1b465c96a73513492445ab3fdab9431de2ba842"
+    },
+    {
+      "observationId": "ny:geography:2022:08",
+      "parentGeographyRowSha256": "ec84a3f05e72620c180c2f83f43579437f5d570cf92aaa870e1749859f1cc5b6",
+      "identityObservationId": "ny:identity:2022:08",
+      "parentIdentityStatus": "proposed_identity_link",
+      "parentResultDisposition": "reported_contest",
+      "seatCycleId": "ny:2022:us-house:08:democratic",
+      "districtCode": "08",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 3077,
+      "targetBlockCount": 3136,
+      "sameDistrictBlockCount": 3014,
+      "sourceRetentionPpm": 979526,
+      "targetCoveragePpm": 961097,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 60,
+          "sourceSharePpm": 19500
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 3014,
+          "sourceSharePpm": 979525
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 3,
+          "sourceSharePpm": 975
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "0eb81bff643abc25bec46cf4a7038ccf44465e5af1d95e92b7da5e1026f08dac"
+    },
+    {
+      "observationId": "ny:geography:2022:09",
+      "parentGeographyRowSha256": "f5535bb0b85f73d9a3beda78739526878d4fa2aa8e17e6318f9724fb13cbdaf2",
+      "identityObservationId": "ny:identity:2022:09",
+      "parentIdentityStatus": "not_applicable_no_reported_contest",
+      "parentResultDisposition": "unresolved_outside_retained_authority_scope",
+      "seatCycleId": "ny:2022:us-house:09:democratic",
+      "districtCode": "09",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 2347,
+      "targetBlockCount": 2335,
+      "sameDistrictBlockCount": 2313,
+      "sourceRetentionPpm": 985513,
+      "targetCoveragePpm": 990578,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 19,
+          "sourceSharePpm": 8096
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 2313,
+          "sourceSharePpm": 985513
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 15,
+          "sourceSharePpm": 6391
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "7f4e2f323451b216c42f77fb27cbaefac57be70031a996115eca952cc761e1da"
+    },
+    {
+      "observationId": "ny:geography:2022:10",
+      "parentGeographyRowSha256": "f13fe6139f68a420a7d6bc2529da00f6826cab50d634ed1f5dfb05105019df42",
+      "identityObservationId": "ny:identity:2022:10",
+      "parentIdentityStatus": "proposed_identity_link",
+      "parentResultDisposition": "reported_contest",
+      "seatCycleId": "ny:2022:us-house:10:democratic",
+      "districtCode": "10",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 2771,
+      "targetBlockCount": 2738,
+      "sameDistrictBlockCount": 2719,
+      "sourceRetentionPpm": 981234,
+      "targetCoveragePpm": 993061,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 28,
+          "sourceSharePpm": 10105
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 5,
+          "sourceSharePpm": 1804
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 19,
+          "sourceSharePpm": 6857
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 2719,
+          "sourceSharePpm": 981234
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "53498d09cf29f0c267ba3809e9c8cbc3a4c46b9e50e473be7d5a1e87fe5cde6e"
+    },
+    {
+      "observationId": "ny:geography:2022:12",
+      "parentGeographyRowSha256": "a1f78e31fe885e6644acb4d5f0bbea368ba9689f2d946bf91338b6b7d05a585e",
+      "identityObservationId": "ny:identity:2022:12",
+      "parentIdentityStatus": "proposed_identity_link",
+      "parentResultDisposition": "reported_contest",
+      "seatCycleId": "ny:2022:us-house:12:democratic",
+      "districtCode": "12",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 1603,
+      "targetBlockCount": 1603,
+      "sameDistrictBlockCount": 1603,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 1603,
+          "sourceSharePpm": 1000000
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "confidence": "high",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "parent_identity_and_result_dispositions_preserved",
+        "still_requires_authorized_identity_geography_review"
+      ],
+      "rowSha256": "d6739156d48569ba86e40da082e2ca6007155fd6474bb1bfd2c9d6f658b6b68a"
+    },
+    {
+      "observationId": "ny:geography:2022:13",
+      "parentGeographyRowSha256": "4a798233916187e312e8965e08ea8ea6728353d1933d6a162187d991cba246b4",
+      "identityObservationId": "ny:identity:2022:13",
+      "parentIdentityStatus": "proposed_identity_link",
+      "parentResultDisposition": "reported_contest",
+      "seatCycleId": "ny:2022:us-house:13:democratic",
+      "districtCode": "13",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 1641,
+      "targetBlockCount": 1641,
+      "sameDistrictBlockCount": 1641,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 1641,
+          "sourceSharePpm": 1000000
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "confidence": "high",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "parent_identity_and_result_dispositions_preserved",
+        "still_requires_authorized_identity_geography_review"
+      ],
+      "rowSha256": "ea8e8a6cc2ea27bec5dce908f4a648ffd0be157b23c883f6f2f31f55e02058b6"
+    },
+    {
+      "observationId": "ny:geography:2022:14",
+      "parentGeographyRowSha256": "82d75831dd9b47ed695517c4d8261474dfaac36d00a9d690a4e54d6c9616df28",
+      "identityObservationId": "ny:identity:2022:14",
+      "parentIdentityStatus": "not_applicable_no_reported_contest",
+      "parentResultDisposition": "unresolved_outside_retained_authority_scope",
+      "seatCycleId": "ny:2022:us-house:14:democratic",
+      "districtCode": "14",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 3411,
+      "targetBlockCount": 3447,
+      "sameDistrictBlockCount": 3152,
+      "sourceRetentionPpm": 924069,
+      "targetCoveragePpm": 914418,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 129,
+          "sourceSharePpm": 37819
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 3152,
+          "sourceSharePpm": 924069
+        },
+        {
+          "targetDistrictCode": "15",
+          "blockCount": 3,
+          "sourceSharePpm": 880
+        },
+        {
+          "targetDistrictCode": "16",
+          "blockCount": 127,
+          "sourceSharePpm": 37232
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "b28d919a5300a39aa3ca5a10274adeb85de98198bafaa4c7282ee1b4de468196"
+    },
+    {
+      "observationId": "ny:geography:2022:15",
+      "parentGeographyRowSha256": "161db4452aa705b88060c2845e26e391495a84facc016666d4878706866eb8a0",
+      "identityObservationId": "ny:identity:2022:15",
+      "parentIdentityStatus": "not_applicable_no_reported_contest",
+      "parentResultDisposition": "unresolved_outside_retained_authority_scope",
+      "seatCycleId": "ny:2022:us-house:15:democratic",
+      "districtCode": "15",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 2589,
+      "targetBlockCount": 2570,
+      "sameDistrictBlockCount": 2389,
+      "sourceRetentionPpm": 922750,
+      "targetCoveragePpm": 929572,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 193,
+          "sourceSharePpm": 74546
+        },
+        {
+          "targetDistrictCode": "15",
+          "blockCount": 2389,
+          "sourceSharePpm": 922750
+        },
+        {
+          "targetDistrictCode": "16",
+          "blockCount": 7,
+          "sourceSharePpm": 2704
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "da40a99c46543568fb2b249741c70e0ee16e28ee01e44dde7b87922140fc9cfa"
+    },
+    {
+      "observationId": "ny:geography:2022:16",
+      "parentGeographyRowSha256": "9e0684984be2f71780db8d3701e1d56a4ea95ef9284b3b6b0000ead0f057d03e",
+      "identityObservationId": "ny:identity:2022:16",
+      "parentIdentityStatus": "reported_contest_no_unique_candidate_match",
+      "parentResultDisposition": "reported_contest",
+      "seatCycleId": "ny:2022:us-house:16:democratic",
+      "districtCode": "16",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 7918,
+      "targetBlockCount": 7874,
+      "sameDistrictBlockCount": 7740,
+      "sourceRetentionPpm": 977520,
+      "targetCoveragePpm": 982982,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "15",
+          "blockCount": 178,
+          "sourceSharePpm": 22480
+        },
+        {
+          "targetDistrictCode": "16",
+          "blockCount": 7740,
+          "sourceSharePpm": 977520
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "271f7168f65a00c6f0f83ca394d90a7a3ee09471481947ed87168f4ee9905430"
+    },
+    {
+      "observationId": "ny:geography:2022:18",
+      "parentGeographyRowSha256": "6e05de67f77cdd841935777e431ea9ed86dd6b1a2d83520d237900d706a5b6ec",
+      "identityObservationId": "ny:identity:2022:18",
+      "parentIdentityStatus": "proposed_identity_link",
+      "parentResultDisposition": "reported_contest",
+      "seatCycleId": "ny:2022:us-house:18:democratic",
+      "districtCode": "18",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 14329,
+      "targetBlockCount": 14241,
+      "sameDistrictBlockCount": 13257,
+      "sourceRetentionPpm": 925187,
+      "targetCoveragePpm": 930904,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "17",
+          "blockCount": 7,
+          "sourceSharePpm": 488
+        },
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 13257,
+          "sourceSharePpm": 925187
+        },
+        {
+          "targetDistrictCode": "19",
+          "blockCount": 1065,
+          "sourceSharePpm": 74325
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "e8b1b216e415fe6af3dd1cf389601041c4944ea214f00b466a59916e726868cd"
+    },
+    {
+      "observationId": "ny:geography:2022:19",
+      "parentGeographyRowSha256": "720b663776d90a7aecceff54eb816726e6729ab849ec8044488f4bd8e4550039",
+      "identityObservationId": "ny:identity:2022:19",
+      "parentIdentityStatus": "proposed_identity_link",
+      "parentResultDisposition": "reported_contest",
+      "seatCycleId": "ny:2022:us-house:19:democratic",
+      "districtCode": "19",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 28819,
+      "targetBlockCount": 29589,
+      "sameDistrictBlockCount": 24956,
+      "sourceRetentionPpm": 865956,
+      "targetCoveragePpm": 843422,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "18",
+          "blockCount": 976,
+          "sourceSharePpm": 33867
+        },
+        {
+          "targetDistrictCode": "19",
+          "blockCount": 24956,
+          "sourceSharePpm": 865956
+        },
+        {
+          "targetDistrictCode": "22",
+          "blockCount": 1033,
+          "sourceSharePpm": 35844
+        },
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 1854,
+          "sourceSharePpm": 64333
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "dc9e2940f0ee3495b9f33a65e065bb69d398750e7ac3fbd449e9f7bf4128d9b1"
+    },
+    {
+      "observationId": "ny:geography:2022:20",
+      "parentGeographyRowSha256": "7ecae10a8ae3ce1789dd1ac680d29b7628d42bda4f23acec9058c88e8ce84285",
+      "identityObservationId": "ny:identity:2022:20",
+      "parentIdentityStatus": "proposed_identity_link",
+      "parentResultDisposition": "reported_contest",
+      "seatCycleId": "ny:2022:us-house:20:democratic",
+      "districtCode": "20",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 14470,
+      "targetBlockCount": 14703,
+      "sameDistrictBlockCount": 12771,
+      "sourceRetentionPpm": 882585,
+      "targetCoveragePpm": 868598,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "20",
+          "blockCount": 12771,
+          "sourceSharePpm": 882585
+        },
+        {
+          "targetDistrictCode": "21",
+          "blockCount": 1699,
+          "sourceSharePpm": 117415
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "111134481c0a4b7c38b8cad02215ccbb0af17e5c3266c24e19d4f7a2c76eac9d"
+    },
+    {
+      "observationId": "ny:geography:2022:22",
+      "parentGeographyRowSha256": "9a34837ae93b2bd9c98637bd4f518ce30aa1237277713fda07ea3e66fa520149",
+      "identityObservationId": "ny:identity:2022:22",
+      "parentIdentityStatus": "reported_contest_no_unique_candidate_match",
+      "parentResultDisposition": "reported_contest",
+      "seatCycleId": "ny:2022:us-house:22:democratic",
+      "districtCode": "22",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 18155,
+      "targetBlockCount": 17087,
+      "sameDistrictBlockCount": 14307,
+      "sourceRetentionPpm": 788047,
+      "targetCoveragePpm": 837303,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "21",
+          "blockCount": 3832,
+          "sourceSharePpm": 211071
+        },
+        {
+          "targetDistrictCode": "22",
+          "blockCount": 14307,
+          "sourceSharePpm": 788048
+        },
+        {
+          "targetDistrictCode": "24",
+          "blockCount": 16,
+          "sourceSharePpm": 881
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "a16950ff4c337848ce7a079e6551fbc3f0ba3abc77501cf7fcb47d1489440a26"
+    },
+    {
+      "observationId": "ny:geography:2022:25",
+      "parentGeographyRowSha256": "adde0591a0c6929934d33101e6edc43074db1fb748164eac8ac362f586a3b3f7",
+      "identityObservationId": "ny:identity:2022:25",
+      "parentIdentityStatus": "not_applicable_no_reported_contest",
+      "parentResultDisposition": "certified_uncontested",
+      "seatCycleId": "ny:2022:us-house:25:democratic",
+      "districtCode": "25",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 10636,
+      "targetBlockCount": 10352,
+      "sameDistrictBlockCount": 10063,
+      "sourceRetentionPpm": 946126,
+      "targetCoveragePpm": 972083,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "24",
+          "blockCount": 573,
+          "sourceSharePpm": 53874
+        },
+        {
+          "targetDistrictCode": "25",
+          "blockCount": 10063,
+          "sourceSharePpm": 946126
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "3c1a1872c97fca9470c955d8f6de98b62851e9da46db5018e6ffad5843b8e2a8"
+    },
+    {
+      "observationId": "ny:geography:2022:26",
+      "parentGeographyRowSha256": "721f6d465c04f8e312f1d1e8a721a2f2957a9a43edd6337104fef65324a1cece",
+      "identityObservationId": "ny:identity:2022:26",
+      "parentIdentityStatus": "reported_contest_no_unique_candidate_match",
+      "parentResultDisposition": "reported_contest",
+      "seatCycleId": "ny:2022:us-house:26:democratic",
+      "districtCode": "26",
+      "cycleYear": 2022,
+      "historicalCongressSession": "118",
+      "sourcePlanId": "ny-court-ordered-congressional-plan-2022-technical-corrections-2022-06-02",
+      "targetPlanId": "census-cd119-new-york",
+      "sourceBlockCount": 10233,
+      "targetBlockCount": 9867,
+      "sameDistrictBlockCount": 9279,
+      "sourceRetentionPpm": 906772,
+      "targetCoveragePpm": 940407,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "23",
+          "blockCount": 190,
+          "sourceSharePpm": 18567
+        },
+        {
+          "targetDistrictCode": "24",
+          "blockCount": 764,
+          "sourceSharePpm": 74661
+        },
+        {
+          "targetDistrictCode": "26",
+          "blockCount": 9279,
+          "sourceSharePpm": 906772
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "identityApproved": false,
+      "identityDispositionPreserved": true,
+      "resultDispositionPreserved": true,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_identity_geography_and_review",
+      "rationaleCodes": [
+        "source_district_splits_across_current_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "parent_identity_and_result_dispositions_preserved"
+      ],
+      "rowSha256": "fd7562c538d3267459761828a1048424f87d35ada8294be36cd93f899b75bf9f"
+    }
+  ],
+  "rowSetSha256": "c3b4a7ca00b3658832a9884d97f937d3b2ab2223501e054fda99370eca89cbc5",
+  "decisionSupport": {
+    "informsDecisionId": "approve-historical-district-cd119-compatibility-v1",
+    "recommendedResolution": "accept_four_exact_block_membership_candidates_and_retain_fifteen_split_rows_for_crosswalk_review",
+    "defaultAssumption": "exclude_all_rows_until_authorized_identity_geography_review",
+    "consequenceIfAccepted": "a_later_geography_package_may_consume_only_the_four_exact_candidates_without_treating_them_as_approved",
+    "consequenceIfRejected": "all_nineteen_2022_rows_remain_redraw_crosswalk_required",
+    "blocksOtherWork": false
+  },
+  "packageSha256": "f13dce59a56dce2e34e223601828b4ff29886f1c090a391682d205de0b9077af"
+}
