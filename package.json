@@ -82,6 +82,7 @@
     "generate:il-current-incumbent-primary-linkage-v1": "tsx scripts/generate-illinois-current-incumbent-primary-linkage-candidate.ts",
     "fetch:il-primary-geography-authority": "node scripts/fetch-illinois-primary-geography-authority.mjs",
     "generate:il-primary-geography-v1": "tsx scripts/generate-illinois-primary-geography-compatibility-candidate.ts",
+    "generate:il-primary-joint-review-v1": "tsx scripts/generate-illinois-primary-identity-geography-review-package.ts",
     "fetch:ny-house-primary-reported-results": "node scripts/fetch-ny-house-democratic-primary-reported-results.mjs",
     "fetch:nyc-house-primary-certified-results": "node scripts/fetch-nyc-house-democratic-primary-certified-results.mjs",
     "generate:ny-house-primary-reported-results": "tsx scripts/generate-new-york-house-democratic-primary-reported-results-receipt.ts",
