@@ -119,6 +119,7 @@
     "generate:md-current-incumbent-primary-linkage-v1": "tsx scripts/generate-maryland-current-incumbent-primary-linkage-candidate.ts",
     "fetch:md-primary-geography-authority": "node scripts/fetch-maryland-primary-geography-authority.mjs",
     "generate:md-primary-geography-v1": "tsx scripts/generate-maryland-primary-geography-compatibility-candidate.ts",
+    "generate:md-primary-joint-review-v1": "tsx scripts/generate-maryland-primary-identity-geography-review-package.ts",
     "fetch:fl-primary-geography-authority": "node scripts/fetch-florida-primary-geography-authority.mjs",
     "generate:fl-primary-geography-v1": "tsx scripts/generate-florida-primary-geography-compatibility-candidate.ts",
     "generate:fl-primary-joint-review-v1": "tsx scripts/generate-florida-primary-identity-geography-review-package.ts",
