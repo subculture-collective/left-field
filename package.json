@@ -79,6 +79,7 @@
     "generate:wa-house-top-two-results-receipt": "tsx scripts/generate-washington-house-top-two-results-receipt.ts",
     "fetch:wa-primary-geography-authority": "node scripts/fetch-washington-primary-geography-authority.mjs",
     "fetch:ct-primary-nomination-authority": "node scripts/fetch-connecticut-primary-nomination-authority.mjs",
+    "fetch:ct-primary-geography-authority": "node scripts/fetch-connecticut-primary-geography-authority.mjs",
     "generate:wa-current-incumbent-top-two-linkage-v1": "tsx scripts/generate-washington-current-incumbent-top-two-linkage-candidate.ts",
     "generate:wa-primary-geography-v1": "tsx scripts/generate-washington-primary-geography-compatibility-candidate.ts",
     "generate:wa-primary-joint-review-v1": "tsx scripts/generate-washington-primary-identity-geography-review-package.ts",
