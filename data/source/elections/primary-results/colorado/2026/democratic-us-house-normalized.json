@@ -1,0 +1,783 @@
+[
+  {
+    "districtCode": "01",
+    "candidates": [
+      {
+        "sourceCandidateName": "Melat Kiros",
+        "candidacyKind": "named_candidate",
+        "votes": 83855
+      },
+      {
+        "sourceCandidateName": "Diana DeGette",
+        "candidacyKind": "named_candidate",
+        "votes": 62715
+      },
+      {
+        "sourceCandidateName": "Wanda James",
+        "candidacyKind": "named_candidate",
+        "votes": 11075
+      }
+    ],
+    "countyRows": [
+      {
+        "county": "Arapahoe",
+        "votes": [
+          667,
+          565,
+          93
+        ],
+        "sourceTotalVotes": 1325
+      },
+      {
+        "county": "Denver",
+        "votes": [
+          83188,
+          62150,
+          10982
+        ],
+        "sourceTotalVotes": 156320
+      },
+      {
+        "county": "Jefferson",
+        "votes": [
+          0,
+          0,
+          0
+        ],
+        "sourceTotalVotes": 0
+      }
+    ],
+    "sourceTotalVotes": 157645
+  },
+  {
+    "districtCode": "02",
+    "candidates": [
+      {
+        "sourceCandidateName": "Joe Neguse",
+        "candidacyKind": "named_candidate",
+        "votes": 136146
+      }
+    ],
+    "countyRows": [
+      {
+        "county": "Boulder",
+        "votes": [
+          75179
+        ],
+        "sourceTotalVotes": 75179
+      },
+      {
+        "county": "Broomfield",
+        "votes": [
+          0
+        ],
+        "sourceTotalVotes": 0
+      },
+      {
+        "county": "Clear Creek",
+        "votes": [
+          1555
+        ],
+        "sourceTotalVotes": 1555
+      },
+      {
+        "county": "Eagle",
+        "votes": [
+          4920
+        ],
+        "sourceTotalVotes": 4920
+      },
+      {
+        "county": "Gilpin",
+        "votes": [
+          1036
+        ],
+        "sourceTotalVotes": 1036
+      },
+      {
+        "county": "Grand",
+        "votes": [
+          2118
+        ],
+        "sourceTotalVotes": 2118
+      },
+      {
+        "county": "Jackson",
+        "votes": [
+          30
+        ],
+        "sourceTotalVotes": 30
+      },
+      {
+        "county": "Jefferson",
+        "votes": [
+          340
+        ],
+        "sourceTotalVotes": 340
+      },
+      {
+        "county": "Larimer",
+        "votes": [
+          38921
+        ],
+        "sourceTotalVotes": 38921
+      },
+      {
+        "county": "Routt",
+        "votes": [
+          3901
+        ],
+        "sourceTotalVotes": 3901
+      },
+      {
+        "county": "Summit",
+        "votes": [
+          4463
+        ],
+        "sourceTotalVotes": 4463
+      },
+      {
+        "county": "Weld",
+        "votes": [
+          3683
+        ],
+        "sourceTotalVotes": 3683
+      }
+    ],
+    "sourceTotalVotes": 136146
+  },
+  {
+    "districtCode": "03",
+    "candidates": [
+      {
+        "sourceCandidateName": "Alex Kelloff",
+        "candidacyKind": "named_candidate",
+        "votes": 39394
+      },
+      {
+        "sourceCandidateName": "Dwayne L. Romero",
+        "candidacyKind": "named_candidate",
+        "votes": 47848
+      }
+    ],
+    "countyRows": [
+      {
+        "county": "Alamosa",
+        "votes": [
+          815,
+          837
+        ],
+        "sourceTotalVotes": 1652
+      },
+      {
+        "county": "Archuleta",
+        "votes": [
+          845,
+          850
+        ],
+        "sourceTotalVotes": 1695
+      },
+      {
+        "county": "Conejos",
+        "votes": [
+          381,
+          708
+        ],
+        "sourceTotalVotes": 1089
+      },
+      {
+        "county": "Costilla",
+        "votes": [
+          253,
+          637
+        ],
+        "sourceTotalVotes": 890
+      },
+      {
+        "county": "Delta",
+        "votes": [
+          1632,
+          1411
+        ],
+        "sourceTotalVotes": 3043
+      },
+      {
+        "county": "Dolores",
+        "votes": [
+          75,
+          59
+        ],
+        "sourceTotalVotes": 134
+      },
+      {
+        "county": "Eagle",
+        "votes": [
+          548,
+          987
+        ],
+        "sourceTotalVotes": 1535
+      },
+      {
+        "county": "Garfield",
+        "votes": [
+          2710,
+          3567
+        ],
+        "sourceTotalVotes": 6277
+      },
+      {
+        "county": "Gunnison",
+        "votes": [
+          1500,
+          1361
+        ],
+        "sourceTotalVotes": 2861
+      },
+      {
+        "county": "Hinsdale",
+        "votes": [
+          31,
+          52
+        ],
+        "sourceTotalVotes": 83
+      },
+      {
+        "county": "Huerfano",
+        "votes": [
+          486,
+          669
+        ],
+        "sourceTotalVotes": 1155
+      },
+      {
+        "county": "La Plata",
+        "votes": [
+          4422,
+          5357
+        ],
+        "sourceTotalVotes": 9779
+      },
+      {
+        "county": "Las Animas",
+        "votes": [
+          797,
+          1202
+        ],
+        "sourceTotalVotes": 1999
+      },
+      {
+        "county": "Mesa",
+        "votes": [
+          8394,
+          7361
+        ],
+        "sourceTotalVotes": 15755
+      },
+      {
+        "county": "Mineral",
+        "votes": [
+          89,
+          85
+        ],
+        "sourceTotalVotes": 174
+      },
+      {
+        "county": "Moffat",
+        "votes": [
+          196,
+          258
+        ],
+        "sourceTotalVotes": 454
+      },
+      {
+        "county": "Montezuma",
+        "votes": [
+          1385,
+          1291
+        ],
+        "sourceTotalVotes": 2676
+      },
+      {
+        "county": "Montrose",
+        "votes": [
+          1977,
+          2134
+        ],
+        "sourceTotalVotes": 4111
+      },
+      {
+        "county": "Otero",
+        "votes": [
+          530,
+          989
+        ],
+        "sourceTotalVotes": 1519
+      },
+      {
+        "county": "Ouray",
+        "votes": [
+          640,
+          533
+        ],
+        "sourceTotalVotes": 1173
+      },
+      {
+        "county": "Pitkin",
+        "votes": [
+          1269,
+          2516
+        ],
+        "sourceTotalVotes": 3785
+      },
+      {
+        "county": "Pueblo",
+        "votes": [
+          8458,
+          13279
+        ],
+        "sourceTotalVotes": 21737
+      },
+      {
+        "county": "Rio Blanco",
+        "votes": [
+          77,
+          60
+        ],
+        "sourceTotalVotes": 137
+      },
+      {
+        "county": "Rio Grande",
+        "votes": [
+          549,
+          606
+        ],
+        "sourceTotalVotes": 1155
+      },
+      {
+        "county": "Saguache",
+        "votes": [
+          524,
+          397
+        ],
+        "sourceTotalVotes": 921
+      },
+      {
+        "county": "San Juan",
+        "votes": [
+          72,
+          53
+        ],
+        "sourceTotalVotes": 125
+      },
+      {
+        "county": "San Miguel",
+        "votes": [
+          739,
+          589
+        ],
+        "sourceTotalVotes": 1328
+      }
+    ],
+    "sourceTotalVotes": 87242
+  },
+  {
+    "districtCode": "04",
+    "candidates": [
+      {
+        "sourceCandidateName": "Eileen Laubacher",
+        "candidacyKind": "named_candidate",
+        "votes": 72483
+      },
+      {
+        "sourceCandidateName": "Jenna Preston",
+        "candidacyKind": "named_write_in",
+        "votes": 566
+      }
+    ],
+    "countyRows": [
+      {
+        "county": "Adams",
+        "votes": [
+          781,
+          8
+        ],
+        "sourceTotalVotes": 789
+      },
+      {
+        "county": "Arapahoe",
+        "votes": [
+          3812,
+          44
+        ],
+        "sourceTotalVotes": 3856
+      },
+      {
+        "county": "Baca",
+        "votes": [
+          107,
+          0
+        ],
+        "sourceTotalVotes": 107
+      },
+      {
+        "county": "Bent",
+        "votes": [
+          268,
+          0
+        ],
+        "sourceTotalVotes": 268
+      },
+      {
+        "county": "Cheyenne",
+        "votes": [
+          35,
+          0
+        ],
+        "sourceTotalVotes": 35
+      },
+      {
+        "county": "Crowley",
+        "votes": [
+          190,
+          2
+        ],
+        "sourceTotalVotes": 192
+      },
+      {
+        "county": "Douglas",
+        "votes": [
+          42986,
+          302
+        ],
+        "sourceTotalVotes": 43288
+      },
+      {
+        "county": "El Paso",
+        "votes": [
+          424,
+          1
+        ],
+        "sourceTotalVotes": 425
+      },
+      {
+        "county": "Elbert",
+        "votes": [
+          2022,
+          15
+        ],
+        "sourceTotalVotes": 2037
+      },
+      {
+        "county": "Kiowa",
+        "votes": [
+          36,
+          0
+        ],
+        "sourceTotalVotes": 36
+      },
+      {
+        "county": "Kit Carson",
+        "votes": [
+          206,
+          0
+        ],
+        "sourceTotalVotes": 206
+      },
+      {
+        "county": "Larimer",
+        "votes": [
+          13637,
+          140
+        ],
+        "sourceTotalVotes": 13777
+      },
+      {
+        "county": "Lincoln",
+        "votes": [
+          173,
+          3
+        ],
+        "sourceTotalVotes": 176
+      },
+      {
+        "county": "Logan",
+        "votes": [
+          911,
+          1
+        ],
+        "sourceTotalVotes": 912
+      },
+      {
+        "county": "Morgan",
+        "votes": [
+          1221,
+          11
+        ],
+        "sourceTotalVotes": 1232
+      },
+      {
+        "county": "Phillips",
+        "votes": [
+          142,
+          0
+        ],
+        "sourceTotalVotes": 142
+      },
+      {
+        "county": "Prowers",
+        "votes": [
+          466,
+          1
+        ],
+        "sourceTotalVotes": 467
+      },
+      {
+        "county": "Sedgwick",
+        "votes": [
+          101,
+          0
+        ],
+        "sourceTotalVotes": 101
+      },
+      {
+        "county": "Washington",
+        "votes": [
+          135,
+          1
+        ],
+        "sourceTotalVotes": 136
+      },
+      {
+        "county": "Weld",
+        "votes": [
+          4573,
+          36
+        ],
+        "sourceTotalVotes": 4609
+      },
+      {
+        "county": "Yuma",
+        "votes": [
+          257,
+          1
+        ],
+        "sourceTotalVotes": 258
+      }
+    ],
+    "sourceTotalVotes": 73049
+  },
+  {
+    "districtCode": "05",
+    "candidates": [
+      {
+        "sourceCandidateName": "Jessica Killin",
+        "candidacyKind": "named_candidate",
+        "votes": 45511
+      },
+      {
+        "sourceCandidateName": "Joe Reagan",
+        "candidacyKind": "named_candidate",
+        "votes": 28864
+      }
+    ],
+    "countyRows": [
+      {
+        "county": "El Paso",
+        "votes": [
+          45511,
+          28864
+        ],
+        "sourceTotalVotes": 74375
+      }
+    ],
+    "sourceTotalVotes": 74375
+  },
+  {
+    "districtCode": "06",
+    "candidates": [
+      {
+        "sourceCandidateName": "Jason Crow",
+        "candidacyKind": "named_candidate",
+        "votes": 94207
+      }
+    ],
+    "countyRows": [
+      {
+        "county": "Adams",
+        "votes": [
+          4201
+        ],
+        "sourceTotalVotes": 4201
+      },
+      {
+        "county": "Arapahoe",
+        "votes": [
+          79253
+        ],
+        "sourceTotalVotes": 79253
+      },
+      {
+        "county": "Denver",
+        "votes": [
+          287
+        ],
+        "sourceTotalVotes": 287
+      },
+      {
+        "county": "Douglas",
+        "votes": [
+          1043
+        ],
+        "sourceTotalVotes": 1043
+      },
+      {
+        "county": "Jefferson",
+        "votes": [
+          9423
+        ],
+        "sourceTotalVotes": 9423
+      }
+    ],
+    "sourceTotalVotes": 94207
+  },
+  {
+    "districtCode": "07",
+    "candidates": [
+      {
+        "sourceCandidateName": "Brittany Pettersen",
+        "candidacyKind": "named_candidate",
+        "votes": 113707
+      }
+    ],
+    "countyRows": [
+      {
+        "county": "Adams",
+        "votes": [
+          457
+        ],
+        "sourceTotalVotes": 457
+      },
+      {
+        "county": "Broomfield",
+        "votes": [
+          13828
+        ],
+        "sourceTotalVotes": 13828
+      },
+      {
+        "county": "Chaffee",
+        "votes": [
+          3995
+        ],
+        "sourceTotalVotes": 3995
+      },
+      {
+        "county": "Custer",
+        "votes": [
+          569
+        ],
+        "sourceTotalVotes": 569
+      },
+      {
+        "county": "El Paso",
+        "votes": [
+          97
+        ],
+        "sourceTotalVotes": 97
+      },
+      {
+        "county": "Fremont",
+        "votes": [
+          3576
+        ],
+        "sourceTotalVotes": 3576
+      },
+      {
+        "county": "Jefferson",
+        "votes": [
+          85902
+        ],
+        "sourceTotalVotes": 85902
+      },
+      {
+        "county": "Lake",
+        "votes": [
+          917
+        ],
+        "sourceTotalVotes": 917
+      },
+      {
+        "county": "Park",
+        "votes": [
+          2011
+        ],
+        "sourceTotalVotes": 2011
+      },
+      {
+        "county": "Teller",
+        "votes": [
+          2355
+        ],
+        "sourceTotalVotes": 2355
+      },
+      {
+        "county": "Weld",
+        "votes": [
+          0
+        ],
+        "sourceTotalVotes": 0
+      }
+    ],
+    "sourceTotalVotes": 113707
+  },
+  {
+    "districtCode": "08",
+    "candidates": [
+      {
+        "sourceCandidateName": "Manny Rutinel",
+        "candidacyKind": "named_candidate",
+        "votes": 50435
+      },
+      {
+        "sourceCandidateName": "Evan Munsing",
+        "candidacyKind": "named_candidate",
+        "votes": 3717
+      },
+      {
+        "sourceCandidateName": "Shannon Bird",
+        "candidacyKind": "named_candidate",
+        "votes": 26122
+      }
+    ],
+    "countyRows": [
+      {
+        "county": "Adams",
+        "votes": [
+          35640,
+          2579,
+          17969
+        ],
+        "sourceTotalVotes": 56188
+      },
+      {
+        "county": "Larimer",
+        "votes": [
+          1698,
+          110,
+          1162
+        ],
+        "sourceTotalVotes": 2970
+      },
+      {
+        "county": "Weld",
+        "votes": [
+          13097,
+          1028,
+          6991
+        ],
+        "sourceTotalVotes": 21116
+      }
+    ],
+    "sourceTotalVotes": 80274
+  }
+]

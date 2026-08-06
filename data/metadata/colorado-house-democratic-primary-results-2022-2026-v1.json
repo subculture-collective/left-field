@@ -1,0 +1,3116 @@
+{
+  "schema": "colorado-house-democratic-primary-results-2022-2026-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T16:00:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "originalPublisher": "Colorado Secretary of State",
+  "status": "official_abstract_result_candidate",
+  "licenseOrReuseTerms": "not_stated_by_source",
+  "parentProposal": {
+    "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "decisionSupport": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    }
+  ],
+  "inheritedDecisionResolutions": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "resolution": null
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "resolution": null
+    }
+  ],
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "districtContests": 8,
+      "sourceLockIds": [
+        "co-2022-primary-certification-announcement",
+        "co-2022-primary-signed-statewide-abstract",
+        "co-2022-democratic-us-house-official-abstract"
+      ]
+    },
+    {
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "districtContests": 8,
+      "sourceLockIds": [
+        "co-2024-biennial-certified-abstract",
+        "co-2024-democratic-us-house-normalized-transcription"
+      ]
+    },
+    {
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "districtContests": 8,
+      "sourceLockIds": [
+        "co-2026-primary-signed-statewide-abstract",
+        "co-2026-democratic-us-house-normalized-transcription"
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "co-2022-democratic-us-house-official-abstract",
+      "url": "https://www.coloradosos.gov/pubs/elections/Results/Abstract/2022/primary/democratic/usRepresentatives.html",
+      "retainedPath": "data/source/elections/primary-results/colorado/2022/democratic-us-house-official-abstract.html",
+      "retainedStatus": "retained",
+      "byteSize": 51812,
+      "sha256": "44f1b5bad3cabf2370e6996dc0680736ad237fe780ba03ae913e44428898d149",
+      "kind": "official_statewide_abstract_result",
+      "parentIds": [
+        "co-2022-primary-signed-statewide-abstract"
+      ]
+    },
+    {
+      "id": "co-2022-primary-certification-announcement",
+      "url": "https://www.coloradosos.gov/pubs/newsRoom/pressReleases/2022/PR20220725PrimaryCertification.html",
+      "retainedPath": "data/source/elections/primary-results/colorado/2022/certification-announcement.html",
+      "retainedStatus": "retained",
+      "byteSize": 31898,
+      "sha256": "68844cf221707fd6460bfdcc7b442b9e1dc2db41ea7be49ad4483e66ab2ad5c6",
+      "kind": "official_certification_announcement",
+      "parentIds": []
+    },
+    {
+      "id": "co-2022-primary-signed-statewide-abstract",
+      "url": "https://www.coloradosos.gov/pubs/newsRoom/pressReleases/2022/2022StatePrimaryAbstract.pdf",
+      "retainedPath": "data/source/elections/primary-results/colorado/2022/state-primary-certificate-and-statewide-abstract.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 665510,
+      "sha256": "b6d17a430a10bfd55bcaf7fa05a20689bb67020026d0ef75dd5247f015ecc004",
+      "kind": "official_signed_statewide_abstract",
+      "parentIds": [
+        "co-2022-primary-certification-announcement"
+      ]
+    },
+    {
+      "id": "co-2024-biennial-certified-abstract",
+      "url": "https://www.coloradosos.gov/pubs/elections/Results/2024/2024BiennialAbstract.pdf",
+      "retainedPath": "data/source/elections/primary-results/colorado/2024/2024-biennial-abstract.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 3804176,
+      "sha256": "68f9513cced12bf82b651bae9bc641e594ac0b5441670306eb07b9a158ed23f5",
+      "kind": "official_certified_biennial_abstract",
+      "parentIds": []
+    },
+    {
+      "id": "co-2024-democratic-us-house-normalized-transcription",
+      "url": "urn:dsa-seats:colorado:2024-biennial-abstract:democratic-us-house:normalized-v1",
+      "retainedPath": "data/source/elections/primary-results/colorado/2024/democratic-us-house-normalized.json",
+      "retainedStatus": "retained",
+      "byteSize": 13355,
+      "sha256": "a8d9bab1f0d62afaa49e3c7680576a0c2a0460563c71fa7d017d6a1d314bc112",
+      "kind": "derived_extract",
+      "parentIds": [
+        "co-2024-biennial-certified-abstract"
+      ]
+    },
+    {
+      "id": "co-2026-democratic-us-house-normalized-transcription",
+      "url": "urn:dsa-seats:colorado:2026-signed-statewide-abstract:democratic-us-house:visually-verified-normalized-v1",
+      "retainedPath": "data/source/elections/primary-results/colorado/2026/democratic-us-house-normalized.json",
+      "retainedStatus": "retained",
+      "byteSize": 14012,
+      "sha256": "31aa5a37ec0e08da76113c65dcae0ce05d559c054c8869a6c49e7aa0c6434f40",
+      "kind": "derived_extract",
+      "parentIds": [
+        "co-2026-primary-signed-statewide-abstract"
+      ]
+    },
+    {
+      "id": "co-2026-primary-signed-statewide-abstract",
+      "url": "https://www.coloradosos.gov/pubs/elections/Results/2026/2026PrimaryStateAbstractofResultsCast.pdf",
+      "retainedPath": "data/source/elections/primary-results/colorado/2026/state-primary-signed-statewide-abstract.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 646208,
+      "sha256": "807e10067804ca143853d15d13c8a0807dde64aed918a645ffd9428f035ff7aa",
+      "kind": "official_signed_statewide_abstract",
+      "parentIds": []
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "co:2022:us-house:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "stateCode": "CO",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2022-primary-certification-announcement",
+        "co-2022-primary-signed-statewide-abstract",
+        "co-2022-democratic-us-house-official-abstract"
+      ],
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Diana DeGette",
+          "candidacyKind": "named_candidate",
+          "votes": 79391
+        },
+        {
+          "sourceCandidateName": "Neal Walia",
+          "candidacyKind": "named_candidate",
+          "votes": 18472
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Arapahoe",
+          "votes": [
+            657,
+            159
+          ],
+          "sourceTotalVotes": 816
+        },
+        {
+          "county": "Denver",
+          "votes": [
+            78734,
+            18313
+          ],
+          "sourceTotalVotes": 97047
+        },
+        {
+          "county": "Jefferson",
+          "votes": [
+            0,
+            0
+          ],
+          "sourceTotalVotes": 0
+        }
+      ],
+      "sourceTotalVotes": 97863,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "28f94be079416631aa7f99002ce881c364041fb9927cde01b0944c3f52ddbd76"
+    },
+    {
+      "contestId": "co:2022:us-house:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "stateCode": "CO",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2022-primary-certification-announcement",
+        "co-2022-primary-signed-statewide-abstract",
+        "co-2022-democratic-us-house-official-abstract"
+      ],
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Joe Neguse",
+          "candidacyKind": "named_candidate",
+          "votes": 91793
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Boulder",
+          "votes": [
+            54800
+          ],
+          "sourceTotalVotes": 54800
+        },
+        {
+          "county": "Broomfield",
+          "votes": [
+            0
+          ],
+          "sourceTotalVotes": 0
+        },
+        {
+          "county": "Clear Creek",
+          "votes": [
+            1082
+          ],
+          "sourceTotalVotes": 1082
+        },
+        {
+          "county": "Eagle",
+          "votes": [
+            3103
+          ],
+          "sourceTotalVotes": 3103
+        },
+        {
+          "county": "Gilpin",
+          "votes": [
+            678
+          ],
+          "sourceTotalVotes": 678
+        },
+        {
+          "county": "Grand",
+          "votes": [
+            1271
+          ],
+          "sourceTotalVotes": 1271
+        },
+        {
+          "county": "Jackson",
+          "votes": [
+            39
+          ],
+          "sourceTotalVotes": 39
+        },
+        {
+          "county": "Jefferson",
+          "votes": [
+            200
+          ],
+          "sourceTotalVotes": 200
+        },
+        {
+          "county": "Larimer",
+          "votes": [
+            22898
+          ],
+          "sourceTotalVotes": 22898
+        },
+        {
+          "county": "Routt",
+          "votes": [
+            2680
+          ],
+          "sourceTotalVotes": 2680
+        },
+        {
+          "county": "Summit",
+          "votes": [
+            3401
+          ],
+          "sourceTotalVotes": 3401
+        },
+        {
+          "county": "Weld",
+          "votes": [
+            1641
+          ],
+          "sourceTotalVotes": 1641
+        }
+      ],
+      "sourceTotalVotes": 91793,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "87b8532e455841a58db0068fd3528af39d0f23ce8574116912259d9d43f04c58"
+    },
+    {
+      "contestId": "co:2022:us-house:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "stateCode": "CO",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2022-primary-certification-announcement",
+        "co-2022-primary-signed-statewide-abstract",
+        "co-2022-democratic-us-house-official-abstract"
+      ],
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Soledad Sandoval Tafoya",
+          "candidacyKind": "named_candidate",
+          "votes": 25462
+        },
+        {
+          "sourceCandidateName": "Alex Walker",
+          "candidacyKind": "named_candidate",
+          "votes": 9504
+        },
+        {
+          "sourceCandidateName": "Adam Frisch",
+          "candidacyKind": "named_candidate",
+          "votes": 25751
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Alamosa",
+          "votes": [
+            561,
+            155,
+            518
+          ],
+          "sourceTotalVotes": 1234
+        },
+        {
+          "county": "Archuleta",
+          "votes": [
+            400,
+            162,
+            576
+          ],
+          "sourceTotalVotes": 1138
+        },
+        {
+          "county": "Conejos",
+          "votes": [
+            509,
+            71,
+            266
+          ],
+          "sourceTotalVotes": 846
+        },
+        {
+          "county": "Costilla",
+          "votes": [
+            590,
+            96,
+            140
+          ],
+          "sourceTotalVotes": 826
+        },
+        {
+          "county": "Delta",
+          "votes": [
+            737,
+            344,
+            825
+          ],
+          "sourceTotalVotes": 1906
+        },
+        {
+          "county": "Dolores",
+          "votes": [
+            31,
+            29,
+            36
+          ],
+          "sourceTotalVotes": 96
+        },
+        {
+          "county": "Eagle",
+          "votes": [
+            296,
+            116,
+            665
+          ],
+          "sourceTotalVotes": 1077
+        },
+        {
+          "county": "Garfield",
+          "votes": [
+            1680,
+            597,
+            2354
+          ],
+          "sourceTotalVotes": 4631
+        },
+        {
+          "county": "Gunnison",
+          "votes": [
+            721,
+            240,
+            946
+          ],
+          "sourceTotalVotes": 1907
+        },
+        {
+          "county": "Hinsdale",
+          "votes": [
+            29,
+            7,
+            25
+          ],
+          "sourceTotalVotes": 61
+        },
+        {
+          "county": "Huerfano",
+          "votes": [
+            507,
+            146,
+            377
+          ],
+          "sourceTotalVotes": 1030
+        },
+        {
+          "county": "La Plata",
+          "votes": [
+            2107,
+            793,
+            2341
+          ],
+          "sourceTotalVotes": 5241
+        },
+        {
+          "county": "Las Animas",
+          "votes": [
+            967,
+            365,
+            551
+          ],
+          "sourceTotalVotes": 1883
+        },
+        {
+          "county": "Mesa",
+          "votes": [
+            3022,
+            1592,
+            4547
+          ],
+          "sourceTotalVotes": 9161
+        },
+        {
+          "county": "Mineral",
+          "votes": [
+            43,
+            20,
+            58
+          ],
+          "sourceTotalVotes": 121
+        },
+        {
+          "county": "Moffat",
+          "votes": [
+            113,
+            70,
+            159
+          ],
+          "sourceTotalVotes": 342
+        },
+        {
+          "county": "Montezuma",
+          "votes": [
+            673,
+            313,
+            624
+          ],
+          "sourceTotalVotes": 1610
+        },
+        {
+          "county": "Montrose",
+          "votes": [
+            746,
+            428,
+            1078
+          ],
+          "sourceTotalVotes": 2252
+        },
+        {
+          "county": "Otero",
+          "votes": [
+            649,
+            220,
+            394
+          ],
+          "sourceTotalVotes": 1263
+        },
+        {
+          "county": "Ouray",
+          "votes": [
+            251,
+            74,
+            309
+          ],
+          "sourceTotalVotes": 634
+        },
+        {
+          "county": "Pitkin",
+          "votes": [
+            650,
+            223,
+            2139
+          ],
+          "sourceTotalVotes": 3012
+        },
+        {
+          "county": "Pueblo",
+          "votes": [
+            9026,
+            3080,
+            5801
+          ],
+          "sourceTotalVotes": 17907
+        },
+        {
+          "county": "Rio Blanco",
+          "votes": [
+            23,
+            25,
+            51
+          ],
+          "sourceTotalVotes": 99
+        },
+        {
+          "county": "Rio Grande",
+          "votes": [
+            413,
+            132,
+            292
+          ],
+          "sourceTotalVotes": 837
+        },
+        {
+          "county": "Saguache",
+          "votes": [
+            324,
+            89,
+            250
+          ],
+          "sourceTotalVotes": 663
+        },
+        {
+          "county": "San Juan",
+          "votes": [
+            38,
+            11,
+            38
+          ],
+          "sourceTotalVotes": 87
+        },
+        {
+          "county": "San Miguel",
+          "votes": [
+            356,
+            106,
+            391
+          ],
+          "sourceTotalVotes": 853
+        }
+      ],
+      "sourceTotalVotes": 60717,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "8c5033fe56f4034b4846c054d877f484add6dade7d11427561d021b0049f6bba"
+    },
+    {
+      "contestId": "co:2022:us-house:04:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "stateCode": "CO",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2022-primary-certification-announcement",
+        "co-2022-primary-signed-statewide-abstract",
+        "co-2022-democratic-us-house-official-abstract"
+      ],
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Ike McCorkle",
+          "candidacyKind": "named_candidate",
+          "votes": 42244
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Adams",
+          "votes": [
+            442
+          ],
+          "sourceTotalVotes": 442
+        },
+        {
+          "county": "Arapahoe",
+          "votes": [
+            2195
+          ],
+          "sourceTotalVotes": 2195
+        },
+        {
+          "county": "Baca",
+          "votes": [
+            118
+          ],
+          "sourceTotalVotes": 118
+        },
+        {
+          "county": "Bent",
+          "votes": [
+            213
+          ],
+          "sourceTotalVotes": 213
+        },
+        {
+          "county": "Cheyenne",
+          "votes": [
+            27
+          ],
+          "sourceTotalVotes": 27
+        },
+        {
+          "county": "Crowley",
+          "votes": [
+            138
+          ],
+          "sourceTotalVotes": 138
+        },
+        {
+          "county": "Douglas",
+          "votes": [
+            24472
+          ],
+          "sourceTotalVotes": 24472
+        },
+        {
+          "county": "El Paso",
+          "votes": [
+            243
+          ],
+          "sourceTotalVotes": 243
+        },
+        {
+          "county": "Elbert",
+          "votes": [
+            1242
+          ],
+          "sourceTotalVotes": 1242
+        },
+        {
+          "county": "Kiowa",
+          "votes": [
+            30
+          ],
+          "sourceTotalVotes": 30
+        },
+        {
+          "county": "Kit Carson",
+          "votes": [
+            154
+          ],
+          "sourceTotalVotes": 154
+        },
+        {
+          "county": "Larimer",
+          "votes": [
+            8019
+          ],
+          "sourceTotalVotes": 8019
+        },
+        {
+          "county": "Lincoln",
+          "votes": [
+            127
+          ],
+          "sourceTotalVotes": 127
+        },
+        {
+          "county": "Logan",
+          "votes": [
+            634
+          ],
+          "sourceTotalVotes": 634
+        },
+        {
+          "county": "Morgan",
+          "votes": [
+            775
+          ],
+          "sourceTotalVotes": 775
+        },
+        {
+          "county": "Phillips",
+          "votes": [
+            95
+          ],
+          "sourceTotalVotes": 95
+        },
+        {
+          "county": "Prowers",
+          "votes": [
+            362
+          ],
+          "sourceTotalVotes": 362
+        },
+        {
+          "county": "Sedgwick",
+          "votes": [
+            93
+          ],
+          "sourceTotalVotes": 93
+        },
+        {
+          "county": "Washington",
+          "votes": [
+            94
+          ],
+          "sourceTotalVotes": 94
+        },
+        {
+          "county": "Weld",
+          "votes": [
+            2586
+          ],
+          "sourceTotalVotes": 2586
+        },
+        {
+          "county": "Yuma",
+          "votes": [
+            185
+          ],
+          "sourceTotalVotes": 185
+        }
+      ],
+      "sourceTotalVotes": 42244,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "97dbc1df699c4a88911a888b756cf10088a2e674d27069b29c60fde456982f89"
+    },
+    {
+      "contestId": "co:2022:us-house:05:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "stateCode": "CO",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2022-primary-certification-announcement",
+        "co-2022-primary-signed-statewide-abstract",
+        "co-2022-democratic-us-house-official-abstract"
+      ],
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "David Torres",
+          "candidacyKind": "named_candidate",
+          "votes": 24413
+        },
+        {
+          "sourceCandidateName": "Michael C Colombe",
+          "candidacyKind": "named_candidate",
+          "votes": 20237
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "El Paso",
+          "votes": [
+            24413,
+            20237
+          ],
+          "sourceTotalVotes": 44650
+        }
+      ],
+      "sourceTotalVotes": 44650,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "fb33955a3d33d8a2d302fc25bb9b2c7fb0a488e42f8eaa7de5030f5ce26dcebc"
+    },
+    {
+      "contestId": "co:2022:us-house:06:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "stateCode": "CO",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2022-primary-certification-announcement",
+        "co-2022-primary-signed-statewide-abstract",
+        "co-2022-democratic-us-house-official-abstract"
+      ],
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Jason Crow",
+          "candidacyKind": "named_candidate",
+          "votes": 61074
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Adams",
+          "votes": [
+            2101
+          ],
+          "sourceTotalVotes": 2101
+        },
+        {
+          "county": "Arapahoe",
+          "votes": [
+            52625
+          ],
+          "sourceTotalVotes": 52625
+        },
+        {
+          "county": "Denver",
+          "votes": [
+            211
+          ],
+          "sourceTotalVotes": 211
+        },
+        {
+          "county": "Douglas",
+          "votes": [
+            475
+          ],
+          "sourceTotalVotes": 475
+        },
+        {
+          "county": "Jefferson",
+          "votes": [
+            5662
+          ],
+          "sourceTotalVotes": 5662
+        }
+      ],
+      "sourceTotalVotes": 61074,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4050d991f4fe4e695125b530a40e902bf147da155bab33221d609baf676f0e3d"
+    },
+    {
+      "contestId": "co:2022:us-house:07:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "stateCode": "CO",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2022-primary-certification-announcement",
+        "co-2022-primary-signed-statewide-abstract",
+        "co-2022-democratic-us-house-official-abstract"
+      ],
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Brittany Pettersen",
+          "candidacyKind": "named_candidate",
+          "votes": 71497
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Adams",
+          "votes": [
+            285
+          ],
+          "sourceTotalVotes": 285
+        },
+        {
+          "county": "Broomfield",
+          "votes": [
+            8596
+          ],
+          "sourceTotalVotes": 8596
+        },
+        {
+          "county": "Chaffee",
+          "votes": [
+            2344
+          ],
+          "sourceTotalVotes": 2344
+        },
+        {
+          "county": "Custer",
+          "votes": [
+            304
+          ],
+          "sourceTotalVotes": 304
+        },
+        {
+          "county": "El Paso",
+          "votes": [
+            72
+          ],
+          "sourceTotalVotes": 72
+        },
+        {
+          "county": "Fremont",
+          "votes": [
+            2544
+          ],
+          "sourceTotalVotes": 2544
+        },
+        {
+          "county": "Jefferson",
+          "votes": [
+            53742
+          ],
+          "sourceTotalVotes": 53742
+        },
+        {
+          "county": "Lake",
+          "votes": [
+            528
+          ],
+          "sourceTotalVotes": 528
+        },
+        {
+          "county": "Park",
+          "votes": [
+            1350
+          ],
+          "sourceTotalVotes": 1350
+        },
+        {
+          "county": "Teller",
+          "votes": [
+            1731
+          ],
+          "sourceTotalVotes": 1731
+        },
+        {
+          "county": "Weld",
+          "votes": [
+            1
+          ],
+          "sourceTotalVotes": 1
+        }
+      ],
+      "sourceTotalVotes": 71497,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "87f6740d978e351c00b472042f8672c98ed1fcad66e269652127d9b66b715555"
+    },
+    {
+      "contestId": "co:2022:us-house:08:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "stateCode": "CO",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2022-primary-certification-announcement",
+        "co-2022-primary-signed-statewide-abstract",
+        "co-2022-democratic-us-house-official-abstract"
+      ],
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Yadira Caraveo",
+          "candidacyKind": "named_candidate",
+          "votes": 38837
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Adams",
+          "votes": [
+            27347
+          ],
+          "sourceTotalVotes": 27347
+        },
+        {
+          "county": "Larimer",
+          "votes": [
+            1235
+          ],
+          "sourceTotalVotes": 1235
+        },
+        {
+          "county": "Weld",
+          "votes": [
+            10255
+          ],
+          "sourceTotalVotes": 10255
+        }
+      ],
+      "sourceTotalVotes": 38837,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "bd21633bd326c36614647cf86ac055f8a9f4334ab5593e46b592f07e1044d053"
+    },
+    {
+      "contestId": "co:2024:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "stateCode": "CO",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2024-biennial-certified-abstract",
+        "co-2024-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Diana DeGette",
+          "candidacyKind": "named_candidate",
+          "votes": 78548
+        },
+        {
+          "sourceCandidateName": "John Wren",
+          "candidacyKind": "named_write_in",
+          "votes": 131
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Arapahoe",
+          "votes": [
+            548,
+            1
+          ],
+          "sourceTotalVotes": 549
+        },
+        {
+          "county": "Denver",
+          "votes": [
+            78000,
+            130
+          ],
+          "sourceTotalVotes": 78130
+        },
+        {
+          "county": "Jefferson",
+          "votes": [
+            0,
+            0
+          ],
+          "sourceTotalVotes": 0
+        }
+      ],
+      "sourceTotalVotes": 78679,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "91e5a413a649d47894cd0f4c21afccd3570dfea046dc5e301b27716dd6909b8c"
+    },
+    {
+      "contestId": "co:2024:us-house:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "stateCode": "CO",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2024-biennial-certified-abstract",
+        "co-2024-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Joe Neguse",
+          "candidacyKind": "named_candidate",
+          "votes": 91218
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Boulder",
+          "votes": [
+            51467
+          ],
+          "sourceTotalVotes": 51467
+        },
+        {
+          "county": "Broomfield",
+          "votes": [
+            0
+          ],
+          "sourceTotalVotes": 0
+        },
+        {
+          "county": "Clear Creek",
+          "votes": [
+            1073
+          ],
+          "sourceTotalVotes": 1073
+        },
+        {
+          "county": "Eagle",
+          "votes": [
+            3718
+          ],
+          "sourceTotalVotes": 3718
+        },
+        {
+          "county": "Gilpin",
+          "votes": [
+            660
+          ],
+          "sourceTotalVotes": 660
+        },
+        {
+          "county": "Grand",
+          "votes": [
+            1414
+          ],
+          "sourceTotalVotes": 1414
+        },
+        {
+          "county": "Jackson",
+          "votes": [
+            33
+          ],
+          "sourceTotalVotes": 33
+        },
+        {
+          "county": "Jefferson",
+          "votes": [
+            218
+          ],
+          "sourceTotalVotes": 218
+        },
+        {
+          "county": "Larimer",
+          "votes": [
+            26033
+          ],
+          "sourceTotalVotes": 26033
+        },
+        {
+          "county": "Routt",
+          "votes": [
+            2394
+          ],
+          "sourceTotalVotes": 2394
+        },
+        {
+          "county": "Summit",
+          "votes": [
+            2560
+          ],
+          "sourceTotalVotes": 2560
+        },
+        {
+          "county": "Weld",
+          "votes": [
+            1648
+          ],
+          "sourceTotalVotes": 1648
+        }
+      ],
+      "sourceTotalVotes": 91218,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4f603c23f3f27c7844ee46e5aacd843973eaa1146a2fb0d144d807efcf3a0c8c"
+    },
+    {
+      "contestId": "co:2024:us-house:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "stateCode": "CO",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2024-biennial-certified-abstract",
+        "co-2024-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Adam Frisch",
+          "candidacyKind": "named_candidate",
+          "votes": 51719
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Alamosa",
+          "votes": [
+            969
+          ],
+          "sourceTotalVotes": 969
+        },
+        {
+          "county": "Archuleta",
+          "votes": [
+            1147
+          ],
+          "sourceTotalVotes": 1147
+        },
+        {
+          "county": "Conejos",
+          "votes": [
+            819
+          ],
+          "sourceTotalVotes": 819
+        },
+        {
+          "county": "Costilla",
+          "votes": [
+            454
+          ],
+          "sourceTotalVotes": 454
+        },
+        {
+          "county": "Delta",
+          "votes": [
+            1747
+          ],
+          "sourceTotalVotes": 1747
+        },
+        {
+          "county": "Dolores",
+          "votes": [
+            52
+          ],
+          "sourceTotalVotes": 52
+        },
+        {
+          "county": "Eagle",
+          "votes": [
+            892
+          ],
+          "sourceTotalVotes": 892
+        },
+        {
+          "county": "Garfield",
+          "votes": [
+            3666
+          ],
+          "sourceTotalVotes": 3666
+        },
+        {
+          "county": "Gunnison",
+          "votes": [
+            1438
+          ],
+          "sourceTotalVotes": 1438
+        },
+        {
+          "county": "Hinsdale",
+          "votes": [
+            66
+          ],
+          "sourceTotalVotes": 66
+        },
+        {
+          "county": "Huerfano",
+          "votes": [
+            1000
+          ],
+          "sourceTotalVotes": 1000
+        },
+        {
+          "county": "La Plata",
+          "votes": [
+            5414
+          ],
+          "sourceTotalVotes": 5414
+        },
+        {
+          "county": "Las Animas",
+          "votes": [
+            1306
+          ],
+          "sourceTotalVotes": 1306
+        },
+        {
+          "county": "Mesa",
+          "votes": [
+            9003
+          ],
+          "sourceTotalVotes": 9003
+        },
+        {
+          "county": "Mineral",
+          "votes": [
+            117
+          ],
+          "sourceTotalVotes": 117
+        },
+        {
+          "county": "Moffat",
+          "votes": [
+            294
+          ],
+          "sourceTotalVotes": 294
+        },
+        {
+          "county": "Montezuma",
+          "votes": [
+            1588
+          ],
+          "sourceTotalVotes": 1588
+        },
+        {
+          "county": "Montrose",
+          "votes": [
+            2303
+          ],
+          "sourceTotalVotes": 2303
+        },
+        {
+          "county": "Otero",
+          "votes": [
+            918
+          ],
+          "sourceTotalVotes": 918
+        },
+        {
+          "county": "Ouray",
+          "votes": [
+            800
+          ],
+          "sourceTotalVotes": 800
+        },
+        {
+          "county": "Pitkin",
+          "votes": [
+            2066
+          ],
+          "sourceTotalVotes": 2066
+        },
+        {
+          "county": "Pueblo",
+          "votes": [
+            12494
+          ],
+          "sourceTotalVotes": 12494
+        },
+        {
+          "county": "Rio Blanco",
+          "votes": [
+            103
+          ],
+          "sourceTotalVotes": 103
+        },
+        {
+          "county": "Rio Grande",
+          "votes": [
+            674
+          ],
+          "sourceTotalVotes": 674
+        },
+        {
+          "county": "Saguache",
+          "votes": [
+            777
+          ],
+          "sourceTotalVotes": 777
+        },
+        {
+          "county": "San Juan",
+          "votes": [
+            90
+          ],
+          "sourceTotalVotes": 90
+        },
+        {
+          "county": "San Miguel",
+          "votes": [
+            1522
+          ],
+          "sourceTotalVotes": 1522
+        }
+      ],
+      "sourceTotalVotes": 51719,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "7a121019a465f960ac4fba874ee408a17b8deee930139d455864871b0b54df78"
+    },
+    {
+      "contestId": "co:2024:us-house:04:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "stateCode": "CO",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2024-biennial-certified-abstract",
+        "co-2024-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Trisha Calvarese",
+          "candidacyKind": "named_candidate",
+          "votes": 22756
+        },
+        {
+          "sourceCandidateName": "John Padora Jr.",
+          "candidacyKind": "named_candidate",
+          "votes": 6882
+        },
+        {
+          "sourceCandidateName": "Ike McCorkle",
+          "candidacyKind": "named_candidate",
+          "votes": 20723
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Adams",
+          "votes": [
+            195,
+            89,
+            210
+          ],
+          "sourceTotalVotes": 494
+        },
+        {
+          "county": "Arapahoe",
+          "votes": [
+            1168,
+            478,
+            749
+          ],
+          "sourceTotalVotes": 2395
+        },
+        {
+          "county": "Baca",
+          "votes": [
+            54,
+            16,
+            56
+          ],
+          "sourceTotalVotes": 126
+        },
+        {
+          "county": "Bent",
+          "votes": [
+            86,
+            34,
+            101
+          ],
+          "sourceTotalVotes": 221
+        },
+        {
+          "county": "Cheyenne",
+          "votes": [
+            17,
+            3,
+            19
+          ],
+          "sourceTotalVotes": 39
+        },
+        {
+          "county": "Crowley",
+          "votes": [
+            72,
+            19,
+            59
+          ],
+          "sourceTotalVotes": 150
+        },
+        {
+          "county": "Douglas",
+          "votes": [
+            13394,
+            3326,
+            12520
+          ],
+          "sourceTotalVotes": 29240
+        },
+        {
+          "county": "El Paso",
+          "votes": [
+            147,
+            44,
+            98
+          ],
+          "sourceTotalVotes": 289
+        },
+        {
+          "county": "Elbert",
+          "votes": [
+            631,
+            156,
+            558
+          ],
+          "sourceTotalVotes": 1345
+        },
+        {
+          "county": "Kiowa",
+          "votes": [
+            8,
+            3,
+            19
+          ],
+          "sourceTotalVotes": 30
+        },
+        {
+          "county": "Kit Carson",
+          "votes": [
+            70,
+            27,
+            88
+          ],
+          "sourceTotalVotes": 185
+        },
+        {
+          "county": "Larimer",
+          "votes": [
+            4495,
+            1635,
+            3921
+          ],
+          "sourceTotalVotes": 10051
+        },
+        {
+          "county": "Lincoln",
+          "votes": [
+            71,
+            29,
+            42
+          ],
+          "sourceTotalVotes": 142
+        },
+        {
+          "county": "Logan",
+          "votes": [
+            325,
+            117,
+            256
+          ],
+          "sourceTotalVotes": 698
+        },
+        {
+          "county": "Morgan",
+          "votes": [
+            392,
+            143,
+            384
+          ],
+          "sourceTotalVotes": 919
+        },
+        {
+          "county": "Phillips",
+          "votes": [
+            49,
+            18,
+            50
+          ],
+          "sourceTotalVotes": 117
+        },
+        {
+          "county": "Prowers",
+          "votes": [
+            134,
+            59,
+            202
+          ],
+          "sourceTotalVotes": 395
+        },
+        {
+          "county": "Sedgwick",
+          "votes": [
+            55,
+            17,
+            16
+          ],
+          "sourceTotalVotes": 88
+        },
+        {
+          "county": "Washington",
+          "votes": [
+            43,
+            16,
+            30
+          ],
+          "sourceTotalVotes": 89
+        },
+        {
+          "county": "Weld",
+          "votes": [
+            1276,
+            612,
+            1236
+          ],
+          "sourceTotalVotes": 3124
+        },
+        {
+          "county": "Yuma",
+          "votes": [
+            74,
+            41,
+            109
+          ],
+          "sourceTotalVotes": 224
+        }
+      ],
+      "sourceTotalVotes": 50361,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "31e42c47ba94a400107eeda4952e87194666f14aa9ecd94b1bd24d3e19a69ee5"
+    },
+    {
+      "contestId": "co:2024:us-house:05:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "stateCode": "CO",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2024-biennial-certified-abstract",
+        "co-2024-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "River Gassen",
+          "candidacyKind": "named_candidate",
+          "votes": 20802
+        },
+        {
+          "sourceCandidateName": "Joe Reagan",
+          "candidacyKind": "named_candidate",
+          "votes": 20313
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "El Paso",
+          "votes": [
+            20802,
+            20313
+          ],
+          "sourceTotalVotes": 41115
+        }
+      ],
+      "sourceTotalVotes": 41115,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "9693240fcff846db538b0abc82548edd6ab024818d2728656e9533abcf7c3b09"
+    },
+    {
+      "contestId": "co:2024:us-house:06:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "stateCode": "CO",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2024-biennial-certified-abstract",
+        "co-2024-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Jason Crow",
+          "candidacyKind": "named_candidate",
+          "votes": 55837
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Adams",
+          "votes": [
+            2601
+          ],
+          "sourceTotalVotes": 2601
+        },
+        {
+          "county": "Arapahoe",
+          "votes": [
+            47172
+          ],
+          "sourceTotalVotes": 47172
+        },
+        {
+          "county": "Denver",
+          "votes": [
+            213
+          ],
+          "sourceTotalVotes": 213
+        },
+        {
+          "county": "Douglas",
+          "votes": [
+            663
+          ],
+          "sourceTotalVotes": 663
+        },
+        {
+          "county": "Jefferson",
+          "votes": [
+            5188
+          ],
+          "sourceTotalVotes": 5188
+        }
+      ],
+      "sourceTotalVotes": 55837,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "973c59e106ca9a3588e00c9e7b9fec8258f7946a30e0670ade3b3deb0dbd6755"
+    },
+    {
+      "contestId": "co:2024:us-house:07:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "stateCode": "CO",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2024-biennial-certified-abstract",
+        "co-2024-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Brittany Pettersen",
+          "candidacyKind": "named_candidate",
+          "votes": 71052
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Adams",
+          "votes": [
+            236
+          ],
+          "sourceTotalVotes": 236
+        },
+        {
+          "county": "Broomfield",
+          "votes": [
+            7586
+          ],
+          "sourceTotalVotes": 7586
+        },
+        {
+          "county": "Chaffee",
+          "votes": [
+            2404
+          ],
+          "sourceTotalVotes": 2404
+        },
+        {
+          "county": "Custer",
+          "votes": [
+            332
+          ],
+          "sourceTotalVotes": 332
+        },
+        {
+          "county": "El Paso",
+          "votes": [
+            54
+          ],
+          "sourceTotalVotes": 54
+        },
+        {
+          "county": "Fremont",
+          "votes": [
+            2279
+          ],
+          "sourceTotalVotes": 2279
+        },
+        {
+          "county": "Jefferson",
+          "votes": [
+            54941
+          ],
+          "sourceTotalVotes": 54941
+        },
+        {
+          "county": "Lake",
+          "votes": [
+            479
+          ],
+          "sourceTotalVotes": 479
+        },
+        {
+          "county": "Park",
+          "votes": [
+            1351
+          ],
+          "sourceTotalVotes": 1351
+        },
+        {
+          "county": "Teller",
+          "votes": [
+            1389
+          ],
+          "sourceTotalVotes": 1389
+        },
+        {
+          "county": "Weld",
+          "votes": [
+            1
+          ],
+          "sourceTotalVotes": 1
+        }
+      ],
+      "sourceTotalVotes": 71052,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "8c8369d18329a82ef3a6a1255e9bcff508a30710ce6321d2a15ce45ddf41b972"
+    },
+    {
+      "contestId": "co:2024:us-house:08:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "stateCode": "CO",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2024-biennial-certified-abstract",
+        "co-2024-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Yadira Caraveo",
+          "candidacyKind": "named_candidate",
+          "votes": 35409
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Adams",
+          "votes": [
+            25645
+          ],
+          "sourceTotalVotes": 25645
+        },
+        {
+          "county": "Larimer",
+          "votes": [
+            1171
+          ],
+          "sourceTotalVotes": 1171
+        },
+        {
+          "county": "Weld",
+          "votes": [
+            8593
+          ],
+          "sourceTotalVotes": 8593
+        }
+      ],
+      "sourceTotalVotes": 35409,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3550c989bfcd240f668353d2dd3eef40ac46b85cc2e8877e4170c54004e8aae7"
+    },
+    {
+      "contestId": "co:2026:us-house:01:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "stateCode": "CO",
+      "districtCode": "01",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2026-primary-signed-statewide-abstract",
+        "co-2026-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Melat Kiros",
+          "candidacyKind": "named_candidate",
+          "votes": 83855
+        },
+        {
+          "sourceCandidateName": "Diana DeGette",
+          "candidacyKind": "named_candidate",
+          "votes": 62715
+        },
+        {
+          "sourceCandidateName": "Wanda James",
+          "candidacyKind": "named_candidate",
+          "votes": 11075
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Arapahoe",
+          "votes": [
+            667,
+            565,
+            93
+          ],
+          "sourceTotalVotes": 1325
+        },
+        {
+          "county": "Denver",
+          "votes": [
+            83188,
+            62150,
+            10982
+          ],
+          "sourceTotalVotes": 156320
+        },
+        {
+          "county": "Jefferson",
+          "votes": [
+            0,
+            0,
+            0
+          ],
+          "sourceTotalVotes": 0
+        }
+      ],
+      "sourceTotalVotes": 157645,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "debfebebe03d6e28a54c740a75e0b50f48e5bbf05b23ff896b7a918411e161e6"
+    },
+    {
+      "contestId": "co:2026:us-house:02:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "stateCode": "CO",
+      "districtCode": "02",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2026-primary-signed-statewide-abstract",
+        "co-2026-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Joe Neguse",
+          "candidacyKind": "named_candidate",
+          "votes": 136146
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Boulder",
+          "votes": [
+            75179
+          ],
+          "sourceTotalVotes": 75179
+        },
+        {
+          "county": "Broomfield",
+          "votes": [
+            0
+          ],
+          "sourceTotalVotes": 0
+        },
+        {
+          "county": "Clear Creek",
+          "votes": [
+            1555
+          ],
+          "sourceTotalVotes": 1555
+        },
+        {
+          "county": "Eagle",
+          "votes": [
+            4920
+          ],
+          "sourceTotalVotes": 4920
+        },
+        {
+          "county": "Gilpin",
+          "votes": [
+            1036
+          ],
+          "sourceTotalVotes": 1036
+        },
+        {
+          "county": "Grand",
+          "votes": [
+            2118
+          ],
+          "sourceTotalVotes": 2118
+        },
+        {
+          "county": "Jackson",
+          "votes": [
+            30
+          ],
+          "sourceTotalVotes": 30
+        },
+        {
+          "county": "Jefferson",
+          "votes": [
+            340
+          ],
+          "sourceTotalVotes": 340
+        },
+        {
+          "county": "Larimer",
+          "votes": [
+            38921
+          ],
+          "sourceTotalVotes": 38921
+        },
+        {
+          "county": "Routt",
+          "votes": [
+            3901
+          ],
+          "sourceTotalVotes": 3901
+        },
+        {
+          "county": "Summit",
+          "votes": [
+            4463
+          ],
+          "sourceTotalVotes": 4463
+        },
+        {
+          "county": "Weld",
+          "votes": [
+            3683
+          ],
+          "sourceTotalVotes": 3683
+        }
+      ],
+      "sourceTotalVotes": 136146,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "08612772b3f5d148e838681e81d7f8ce66946d39a5e0727cac1d2b24bdcc76c7"
+    },
+    {
+      "contestId": "co:2026:us-house:03:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "stateCode": "CO",
+      "districtCode": "03",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2026-primary-signed-statewide-abstract",
+        "co-2026-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Alex Kelloff",
+          "candidacyKind": "named_candidate",
+          "votes": 39394
+        },
+        {
+          "sourceCandidateName": "Dwayne L. Romero",
+          "candidacyKind": "named_candidate",
+          "votes": 47848
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Alamosa",
+          "votes": [
+            815,
+            837
+          ],
+          "sourceTotalVotes": 1652
+        },
+        {
+          "county": "Archuleta",
+          "votes": [
+            845,
+            850
+          ],
+          "sourceTotalVotes": 1695
+        },
+        {
+          "county": "Conejos",
+          "votes": [
+            381,
+            708
+          ],
+          "sourceTotalVotes": 1089
+        },
+        {
+          "county": "Costilla",
+          "votes": [
+            253,
+            637
+          ],
+          "sourceTotalVotes": 890
+        },
+        {
+          "county": "Delta",
+          "votes": [
+            1632,
+            1411
+          ],
+          "sourceTotalVotes": 3043
+        },
+        {
+          "county": "Dolores",
+          "votes": [
+            75,
+            59
+          ],
+          "sourceTotalVotes": 134
+        },
+        {
+          "county": "Eagle",
+          "votes": [
+            548,
+            987
+          ],
+          "sourceTotalVotes": 1535
+        },
+        {
+          "county": "Garfield",
+          "votes": [
+            2710,
+            3567
+          ],
+          "sourceTotalVotes": 6277
+        },
+        {
+          "county": "Gunnison",
+          "votes": [
+            1500,
+            1361
+          ],
+          "sourceTotalVotes": 2861
+        },
+        {
+          "county": "Hinsdale",
+          "votes": [
+            31,
+            52
+          ],
+          "sourceTotalVotes": 83
+        },
+        {
+          "county": "Huerfano",
+          "votes": [
+            486,
+            669
+          ],
+          "sourceTotalVotes": 1155
+        },
+        {
+          "county": "La Plata",
+          "votes": [
+            4422,
+            5357
+          ],
+          "sourceTotalVotes": 9779
+        },
+        {
+          "county": "Las Animas",
+          "votes": [
+            797,
+            1202
+          ],
+          "sourceTotalVotes": 1999
+        },
+        {
+          "county": "Mesa",
+          "votes": [
+            8394,
+            7361
+          ],
+          "sourceTotalVotes": 15755
+        },
+        {
+          "county": "Mineral",
+          "votes": [
+            89,
+            85
+          ],
+          "sourceTotalVotes": 174
+        },
+        {
+          "county": "Moffat",
+          "votes": [
+            196,
+            258
+          ],
+          "sourceTotalVotes": 454
+        },
+        {
+          "county": "Montezuma",
+          "votes": [
+            1385,
+            1291
+          ],
+          "sourceTotalVotes": 2676
+        },
+        {
+          "county": "Montrose",
+          "votes": [
+            1977,
+            2134
+          ],
+          "sourceTotalVotes": 4111
+        },
+        {
+          "county": "Otero",
+          "votes": [
+            530,
+            989
+          ],
+          "sourceTotalVotes": 1519
+        },
+        {
+          "county": "Ouray",
+          "votes": [
+            640,
+            533
+          ],
+          "sourceTotalVotes": 1173
+        },
+        {
+          "county": "Pitkin",
+          "votes": [
+            1269,
+            2516
+          ],
+          "sourceTotalVotes": 3785
+        },
+        {
+          "county": "Pueblo",
+          "votes": [
+            8458,
+            13279
+          ],
+          "sourceTotalVotes": 21737
+        },
+        {
+          "county": "Rio Blanco",
+          "votes": [
+            77,
+            60
+          ],
+          "sourceTotalVotes": 137
+        },
+        {
+          "county": "Rio Grande",
+          "votes": [
+            549,
+            606
+          ],
+          "sourceTotalVotes": 1155
+        },
+        {
+          "county": "Saguache",
+          "votes": [
+            524,
+            397
+          ],
+          "sourceTotalVotes": 921
+        },
+        {
+          "county": "San Juan",
+          "votes": [
+            72,
+            53
+          ],
+          "sourceTotalVotes": 125
+        },
+        {
+          "county": "San Miguel",
+          "votes": [
+            739,
+            589
+          ],
+          "sourceTotalVotes": 1328
+        }
+      ],
+      "sourceTotalVotes": 87242,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "9191f019ed809432a366b89913ad4e0c3b1f8efaae44d543b18af63e767d7b7c"
+    },
+    {
+      "contestId": "co:2026:us-house:04:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "stateCode": "CO",
+      "districtCode": "04",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2026-primary-signed-statewide-abstract",
+        "co-2026-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Eileen Laubacher",
+          "candidacyKind": "named_candidate",
+          "votes": 72483
+        },
+        {
+          "sourceCandidateName": "Jenna Preston",
+          "candidacyKind": "named_write_in",
+          "votes": 566
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Adams",
+          "votes": [
+            781,
+            8
+          ],
+          "sourceTotalVotes": 789
+        },
+        {
+          "county": "Arapahoe",
+          "votes": [
+            3812,
+            44
+          ],
+          "sourceTotalVotes": 3856
+        },
+        {
+          "county": "Baca",
+          "votes": [
+            107,
+            0
+          ],
+          "sourceTotalVotes": 107
+        },
+        {
+          "county": "Bent",
+          "votes": [
+            268,
+            0
+          ],
+          "sourceTotalVotes": 268
+        },
+        {
+          "county": "Cheyenne",
+          "votes": [
+            35,
+            0
+          ],
+          "sourceTotalVotes": 35
+        },
+        {
+          "county": "Crowley",
+          "votes": [
+            190,
+            2
+          ],
+          "sourceTotalVotes": 192
+        },
+        {
+          "county": "Douglas",
+          "votes": [
+            42986,
+            302
+          ],
+          "sourceTotalVotes": 43288
+        },
+        {
+          "county": "El Paso",
+          "votes": [
+            424,
+            1
+          ],
+          "sourceTotalVotes": 425
+        },
+        {
+          "county": "Elbert",
+          "votes": [
+            2022,
+            15
+          ],
+          "sourceTotalVotes": 2037
+        },
+        {
+          "county": "Kiowa",
+          "votes": [
+            36,
+            0
+          ],
+          "sourceTotalVotes": 36
+        },
+        {
+          "county": "Kit Carson",
+          "votes": [
+            206,
+            0
+          ],
+          "sourceTotalVotes": 206
+        },
+        {
+          "county": "Larimer",
+          "votes": [
+            13637,
+            140
+          ],
+          "sourceTotalVotes": 13777
+        },
+        {
+          "county": "Lincoln",
+          "votes": [
+            173,
+            3
+          ],
+          "sourceTotalVotes": 176
+        },
+        {
+          "county": "Logan",
+          "votes": [
+            911,
+            1
+          ],
+          "sourceTotalVotes": 912
+        },
+        {
+          "county": "Morgan",
+          "votes": [
+            1221,
+            11
+          ],
+          "sourceTotalVotes": 1232
+        },
+        {
+          "county": "Phillips",
+          "votes": [
+            142,
+            0
+          ],
+          "sourceTotalVotes": 142
+        },
+        {
+          "county": "Prowers",
+          "votes": [
+            466,
+            1
+          ],
+          "sourceTotalVotes": 467
+        },
+        {
+          "county": "Sedgwick",
+          "votes": [
+            101,
+            0
+          ],
+          "sourceTotalVotes": 101
+        },
+        {
+          "county": "Washington",
+          "votes": [
+            135,
+            1
+          ],
+          "sourceTotalVotes": 136
+        },
+        {
+          "county": "Weld",
+          "votes": [
+            4573,
+            36
+          ],
+          "sourceTotalVotes": 4609
+        },
+        {
+          "county": "Yuma",
+          "votes": [
+            257,
+            1
+          ],
+          "sourceTotalVotes": 258
+        }
+      ],
+      "sourceTotalVotes": 73049,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "54fbbf33295bcb8ea51b6a733239637c918f8eafc7bedc8596cc8fa17b8370d8"
+    },
+    {
+      "contestId": "co:2026:us-house:05:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "stateCode": "CO",
+      "districtCode": "05",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2026-primary-signed-statewide-abstract",
+        "co-2026-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Jessica Killin",
+          "candidacyKind": "named_candidate",
+          "votes": 45511
+        },
+        {
+          "sourceCandidateName": "Joe Reagan",
+          "candidacyKind": "named_candidate",
+          "votes": 28864
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "El Paso",
+          "votes": [
+            45511,
+            28864
+          ],
+          "sourceTotalVotes": 74375
+        }
+      ],
+      "sourceTotalVotes": 74375,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4cffc0ad1b2f809945081e80211cd94b51dddb528aeed1113d494be4b72be417"
+    },
+    {
+      "contestId": "co:2026:us-house:06:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "stateCode": "CO",
+      "districtCode": "06",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2026-primary-signed-statewide-abstract",
+        "co-2026-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Jason Crow",
+          "candidacyKind": "named_candidate",
+          "votes": 94207
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Adams",
+          "votes": [
+            4201
+          ],
+          "sourceTotalVotes": 4201
+        },
+        {
+          "county": "Arapahoe",
+          "votes": [
+            79253
+          ],
+          "sourceTotalVotes": 79253
+        },
+        {
+          "county": "Denver",
+          "votes": [
+            287
+          ],
+          "sourceTotalVotes": 287
+        },
+        {
+          "county": "Douglas",
+          "votes": [
+            1043
+          ],
+          "sourceTotalVotes": 1043
+        },
+        {
+          "county": "Jefferson",
+          "votes": [
+            9423
+          ],
+          "sourceTotalVotes": 9423
+        }
+      ],
+      "sourceTotalVotes": 94207,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "ffa459073abd8a1f6dc5a4f3ea75ea5858a2df5184f623ee7b40f5b293f63bc3"
+    },
+    {
+      "contestId": "co:2026:us-house:07:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "stateCode": "CO",
+      "districtCode": "07",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2026-primary-signed-statewide-abstract",
+        "co-2026-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Brittany Pettersen",
+          "candidacyKind": "named_candidate",
+          "votes": 113707
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Adams",
+          "votes": [
+            457
+          ],
+          "sourceTotalVotes": 457
+        },
+        {
+          "county": "Broomfield",
+          "votes": [
+            13828
+          ],
+          "sourceTotalVotes": 13828
+        },
+        {
+          "county": "Chaffee",
+          "votes": [
+            3995
+          ],
+          "sourceTotalVotes": 3995
+        },
+        {
+          "county": "Custer",
+          "votes": [
+            569
+          ],
+          "sourceTotalVotes": 569
+        },
+        {
+          "county": "El Paso",
+          "votes": [
+            97
+          ],
+          "sourceTotalVotes": 97
+        },
+        {
+          "county": "Fremont",
+          "votes": [
+            3576
+          ],
+          "sourceTotalVotes": 3576
+        },
+        {
+          "county": "Jefferson",
+          "votes": [
+            85902
+          ],
+          "sourceTotalVotes": 85902
+        },
+        {
+          "county": "Lake",
+          "votes": [
+            917
+          ],
+          "sourceTotalVotes": 917
+        },
+        {
+          "county": "Park",
+          "votes": [
+            2011
+          ],
+          "sourceTotalVotes": 2011
+        },
+        {
+          "county": "Teller",
+          "votes": [
+            2355
+          ],
+          "sourceTotalVotes": 2355
+        },
+        {
+          "county": "Weld",
+          "votes": [
+            0
+          ],
+          "sourceTotalVotes": 0
+        }
+      ],
+      "sourceTotalVotes": 113707,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "53f3e80173adf05c0834a83ca2d36ddcffec3ee906cdd7c379ddac57ed0cad73"
+    },
+    {
+      "contestId": "co:2026:us-house:08:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "stateCode": "CO",
+      "districtCode": "08",
+      "party": "Democratic",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "co-2026-primary-signed-statewide-abstract",
+        "co-2026-democratic-us-house-normalized-transcription"
+      ],
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "reportingCompleteness": "all_source_county_rows_reconciled_to_candidate_and_district_totals",
+      "candidates": [
+        {
+          "sourceCandidateName": "Manny Rutinel",
+          "candidacyKind": "named_candidate",
+          "votes": 50435
+        },
+        {
+          "sourceCandidateName": "Evan Munsing",
+          "candidacyKind": "named_candidate",
+          "votes": 3717
+        },
+        {
+          "sourceCandidateName": "Shannon Bird",
+          "candidacyKind": "named_candidate",
+          "votes": 26122
+        }
+      ],
+      "countyRows": [
+        {
+          "county": "Adams",
+          "votes": [
+            35640,
+            2579,
+            17969
+          ],
+          "sourceTotalVotes": 56188
+        },
+        {
+          "county": "Larimer",
+          "votes": [
+            1698,
+            110,
+            1162
+          ],
+          "sourceTotalVotes": 2970
+        },
+        {
+          "county": "Weld",
+          "votes": [
+            13097,
+            1028,
+            6991
+          ],
+          "sourceTotalVotes": 21116
+        }
+      ],
+      "sourceTotalVotes": 80274,
+      "voteReconciliation": "county_candidate_matrix_equals_candidate_and_district_totals",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "93016f28437b76fbe060f66a16eac30a192924834888df79908ba1c3832eb75b"
+    }
+  ],
+  "summary": {
+    "contests": 24,
+    "contests2022": 8,
+    "contests2024": 8,
+    "contests2026": 8,
+    "countyRows": 249,
+    "zeroVoteCountyRows": 7,
+    "candidates": 39,
+    "namedWriteInCandidates": 2,
+    "candidateVotes": 1800710,
+    "targetDistrictCycleRows": 12,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0,
+    "contestSetSha256": "b1619063732c5ea17bc37e473239abb18faa3dc948671420b98357e58fd26116"
+  },
+  "limitations": [
+    "The retained 2022 certification announcement binds the official result page to the separately retained signed statewide abstract; the HTML result table supplies the machine-readable county matrix.",
+    "The 2024 Biennial Abstract explicitly describes its primary results as official and certified, but no separate signed certificate is retained for that cycle.",
+    "The image-only 2026 abstract contains the Secretary's signed certificate; its normalized Democratic House tables are a visually checked extraction aid, while the retained PDF remains authoritative.",
+    "Colorado Secretary of State reuse terms do not state an open-data license for these publications, so this reviewer-only receipt records licenseOrReuseTerms as not_stated_by_source.",
+    "Source candidate names and named write-ins are retained as reported; no winner, current-incumbent identity, historical-geography compatibility, progressive classification, selection, evaluator value, or publication approval is inferred."
+  ],
+  "unresolvedGates": [
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "c5f2e3c5bda8b027b9879911e07a99d3623a656a5aa717a5408079dc15bf4b55"
+}
