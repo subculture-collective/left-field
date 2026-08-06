@@ -1,0 +1,567 @@
+{
+  "schema": "arizona-primary-identity-geography-review-package-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T08:00:00.000Z",
+  "sourceCutoff": "2026-08-05",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_independent_certification_identity_geography_disposition_and_classification_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "proposal": {
+      "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+    },
+    "identity": {
+      "sourceLockId": "arizona-current-incumbent-primary-linkage-candidate-v1",
+      "fileSha256": "3ef6f3a9e8d63e74fc20086101e838fce02b177ee1b5fdf53220b26c396350fd",
+      "packageSha256": "ba49c03b31206990f5427df19aa60daad3bc4ee05d2fbc92695cb939c1c29ea9",
+      "observationSetSha256": "e4bac18f0961d7fad61e7a90cfa9e8e2f7d7b64022a2898709b6c1a778a01913"
+    },
+    "geography": {
+      "sourceLockId": "arizona-primary-geography-compatibility-candidate-v1",
+      "fileSha256": "adfa36d809512c5f3973c72992dbad39cb4b8031f7cc79d5f8fe177c8e9c02e0",
+      "packageSha256": "56ca8382bb1a13591a5cf2ae8d25d0a1b069744cfdd8ccc6a643d0be9a64c2a2",
+      "rowSetSha256": "dbd5787cd646ad09e7aa34f6deed614795c7972c6ef970c6ad3badcb46b46271"
+    }
+  },
+  "methodology": {
+    "scope": "exact_six_arizona_identity_observations_joined_one_to_one_with_geography_rows",
+    "identityAndGeographyReviewedIndependently": true,
+    "certificationReviewedIndependently": true,
+    "dispositionAndClassificationReviewedIndependently": true,
+    "jointPackageApprovesParents": false,
+    "automaticApprovals": 0,
+    "evaluatorNumericValues": 0,
+    "parentProjectionSha256": "27b6c8eabdfed182c0f48960f36f0c897b200eebe6bd69d00a59c6324d154a55"
+  },
+  "summary": {
+    "reviewRecords": 6,
+    "identityAndGeographyCandidates": 3,
+    "geographyCandidateIdentityUnresolved": 3,
+    "identityCandidates": 3,
+    "geographyCandidates": 6,
+    "certifiedCanvassAuthorityRecords": 6,
+    "reportedContestRecords": 6,
+    "proposedDecisions": 5,
+    "jointApprovedRecords": 0,
+    "scoreEligibleRecords": 0
+  },
+  "records": [
+    {
+      "reviewRecordId": "az-primary-joint:2022:03",
+      "identityObservationId": "az:identity:2022:03",
+      "geographyObservationId": "az:geography:2022:03",
+      "contestId": "az:2022:regular:us-house:03:democratic",
+      "contestSha256": "4173ed9f88d7abb55c7e19cd72d158628b0a979d60fb29fe240ee644fc143c5e",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "seatCycleId": "seat_house_az_03_current",
+      "districtCode": "03",
+      "identity": {
+        "parentRowSha256": "93dd88829b37a38cc0de1c0ebe6cb640833bba806a97457b9206becd35672188",
+        "status": "unresolved",
+        "identityStatus": "reported_contest_no_unique_candidate_match",
+        "bioguideId": "A000381",
+        "officialHouseName": "Yassamin Ansari",
+        "sourceCandidateName": null,
+        "evidenceClass": null,
+        "confidence": null,
+        "relationshipDisposition": "not_linked_no_unique_current_incumbent_candidate_same_district",
+        "candidate": false,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "3a9889b24adbda2d8ee748a93532d3ec97cf4af27c8881227d8254978aa69e7c",
+        "status": "candidate",
+        "targetCd119Geoid": "0403",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "0403",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "candidate": true,
+        "approved": false
+      },
+      "reviewCategory": "geography_candidate_identity_unresolved",
+      "resultDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "sourceWinnerStatus": "marked_by_source",
+      "progressiveClassificationStatus": "not_retained",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "scoreEligible": false,
+      "reviewerAction": "review_geography_while_preserving_identity_no_match",
+      "rationaleCodes": [
+        "geography_candidate_identity_unresolved",
+        "parent_candidates_not_approved_by_join",
+        "certified_canvass_authority_retained_but_not_approved_by_join",
+        "source_winner_marker_preserved_not_selection",
+        "all_independent_review_gates_remain_open"
+      ],
+      "reviewRecordSha256": "8102d9c7ce7159f5092b44d2458e5f3f9ff8aa1569e0de65e7393de85b802db9"
+    },
+    {
+      "reviewRecordId": "az-primary-joint:2022:04",
+      "identityObservationId": "az:identity:2022:04",
+      "geographyObservationId": "az:geography:2022:04",
+      "contestId": "az:2022:regular:us-house:04:democratic",
+      "contestSha256": "deb9f977121cb57804283e5748b22d1bba25bc216437a9600b2f8e2d03a3225e",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "seatCycleId": "seat_house_az_04_current",
+      "districtCode": "04",
+      "identity": {
+        "parentRowSha256": "429df304464c88fe0d0bbe6c7490061067ebaef603ee80f2c49be35835c3646e",
+        "status": "candidate",
+        "identityStatus": "proposed_identity_link",
+        "bioguideId": "S001211",
+        "officialHouseName": "Greg Stanton",
+        "sourceCandidateName": "Greg Stanton",
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "a8522bf96da15610f09de35f599c3d107ef02ee3ab845c5a80ca9fc7068008ce",
+        "status": "candidate",
+        "targetCd119Geoid": "0404",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "0404",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "candidate": true,
+        "approved": false
+      },
+      "reviewCategory": "identity_and_geography_candidates",
+      "resultDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "sourceWinnerStatus": "marked_by_source",
+      "progressiveClassificationStatus": "not_retained",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "scoreEligible": false,
+      "reviewerAction": "review_identity_and_geography_independently",
+      "rationaleCodes": [
+        "identity_and_geography_candidates",
+        "parent_candidates_not_approved_by_join",
+        "certified_canvass_authority_retained_but_not_approved_by_join",
+        "source_winner_marker_preserved_not_selection",
+        "all_independent_review_gates_remain_open"
+      ],
+      "reviewRecordSha256": "4177798c214396880a9efae8dacfc1fc894bc868ab8f8427a1e75cc5b2a9cf5a"
+    },
+    {
+      "reviewRecordId": "az-primary-joint:2022:07",
+      "identityObservationId": "az:identity:2022:07",
+      "geographyObservationId": "az:geography:2022:07",
+      "contestId": "az:2022:regular:us-house:07:democratic",
+      "contestSha256": "496cd08f50e401ca022b8a3ed50ab8170f72277a227aba50078d7981e20850ce",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "seatCycleId": "seat_house_az_07_current",
+      "districtCode": "07",
+      "identity": {
+        "parentRowSha256": "ecb01ed82199e809d989409add417658948da90768b1020e88c4231279a55b73",
+        "status": "unresolved",
+        "identityStatus": "reported_contest_no_unique_candidate_match",
+        "bioguideId": "G000606",
+        "officialHouseName": "Adelita S. Grijalva",
+        "sourceCandidateName": null,
+        "evidenceClass": null,
+        "confidence": null,
+        "relationshipDisposition": "not_linked_no_unique_current_incumbent_candidate_same_district",
+        "candidate": false,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "aec0fca062dc832f4a6b0b00353783c28d9adfdca690310833d257b4b8091611",
+        "status": "candidate",
+        "targetCd119Geoid": "0407",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "0407",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "candidate": true,
+        "approved": false
+      },
+      "reviewCategory": "geography_candidate_identity_unresolved",
+      "resultDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "sourceWinnerStatus": "marked_by_source",
+      "progressiveClassificationStatus": "not_retained",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "scoreEligible": false,
+      "reviewerAction": "review_geography_while_preserving_identity_no_match",
+      "rationaleCodes": [
+        "geography_candidate_identity_unresolved",
+        "parent_candidates_not_approved_by_join",
+        "certified_canvass_authority_retained_but_not_approved_by_join",
+        "source_winner_marker_preserved_not_selection",
+        "all_independent_review_gates_remain_open"
+      ],
+      "reviewRecordSha256": "37f42e047c59ae5878d941f16cc90165446da0de7eb4e4593e384768a700020f"
+    },
+    {
+      "reviewRecordId": "az-primary-joint:2024:03",
+      "identityObservationId": "az:identity:2024:03",
+      "geographyObservationId": "az:geography:2024:03",
+      "contestId": "az:2024:regular:us-house:03:democratic",
+      "contestSha256": "87e13c99c11bd2e504782a61a3c16e93939662d97930e9799c123638b6feeb15",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "seatCycleId": "seat_house_az_03_current",
+      "districtCode": "03",
+      "identity": {
+        "parentRowSha256": "c0626de9443d24e456f879096406a767f0da177c93d611811cc5b4f2d7fa3a02",
+        "status": "candidate",
+        "identityStatus": "proposed_identity_link",
+        "bioguideId": "A000381",
+        "officialHouseName": "Yassamin Ansari",
+        "sourceCandidateName": "Yassamin Ansari",
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "cb83124ce57880728c0ea8b452aaefc823d150ff502bc63fbd7b1acffbfc8f75",
+        "status": "candidate",
+        "targetCd119Geoid": "0403",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "0403",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "candidate": true,
+        "approved": false
+      },
+      "reviewCategory": "identity_and_geography_candidates",
+      "resultDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "resultAuthorityStatus": "certified_final_recount_and_court_order",
+      "resultRevisionStatus": "final_recount_supersedes_initial_canvass",
+      "sourceWinnerStatus": "marked_by_source",
+      "progressiveClassificationStatus": "not_retained",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "scoreEligible": false,
+      "reviewerAction": "review_identity_and_geography_independently",
+      "rationaleCodes": [
+        "identity_and_geography_candidates",
+        "parent_candidates_not_approved_by_join",
+        "certified_canvass_authority_retained_but_not_approved_by_join",
+        "source_winner_marker_preserved_not_selection",
+        "all_independent_review_gates_remain_open"
+      ],
+      "reviewRecordSha256": "4a1ceebb282eee8a8163038190414514131a2e68e990e66f96a29d11d27e7f6c"
+    },
+    {
+      "reviewRecordId": "az-primary-joint:2024:04",
+      "identityObservationId": "az:identity:2024:04",
+      "geographyObservationId": "az:geography:2024:04",
+      "contestId": "az:2024:regular:us-house:04:democratic",
+      "contestSha256": "fb9a86fc32ccf593e0824594fc960e4a8fdf885a694963d058204d184a7d6a73",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "seatCycleId": "seat_house_az_04_current",
+      "districtCode": "04",
+      "identity": {
+        "parentRowSha256": "ee991a716861080a17c0724540d11f589fac47cea2379ede9584d3c814232a3f",
+        "status": "candidate",
+        "identityStatus": "proposed_identity_link",
+        "bioguideId": "S001211",
+        "officialHouseName": "Greg Stanton",
+        "sourceCandidateName": "Greg Stanton",
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "2ebfd578060efd1c13839b72feb1d98b65cbb05fe9f08ff4637fd943fb6ca2ac",
+        "status": "candidate",
+        "targetCd119Geoid": "0404",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "0404",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "candidate": true,
+        "approved": false
+      },
+      "reviewCategory": "identity_and_geography_candidates",
+      "resultDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "sourceWinnerStatus": "marked_by_source",
+      "progressiveClassificationStatus": "not_retained",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "scoreEligible": false,
+      "reviewerAction": "review_identity_and_geography_independently",
+      "rationaleCodes": [
+        "identity_and_geography_candidates",
+        "parent_candidates_not_approved_by_join",
+        "certified_canvass_authority_retained_but_not_approved_by_join",
+        "source_winner_marker_preserved_not_selection",
+        "all_independent_review_gates_remain_open"
+      ],
+      "reviewRecordSha256": "9150c55e16fa861909cf05e23c3c95a85e8f64b5ecff6ed5344f07af325f0500"
+    },
+    {
+      "reviewRecordId": "az-primary-joint:2024:07",
+      "identityObservationId": "az:identity:2024:07",
+      "geographyObservationId": "az:geography:2024:07",
+      "contestId": "az:2024:regular:us-house:07:democratic",
+      "contestSha256": "6b1513ab3c417f55ec33516033ce4f3322033a31ac4fb6736ba34c6323a52b15",
+      "cycleYear": 2024,
+      "electionDate": "2024-07-30",
+      "seatCycleId": "seat_house_az_07_current",
+      "districtCode": "07",
+      "identity": {
+        "parentRowSha256": "801980c542b4669eb1a1fab97a3b08b93d66ca64ceec79074a994570bafd8f9c",
+        "status": "unresolved",
+        "identityStatus": "reported_contest_no_unique_candidate_match",
+        "bioguideId": "G000606",
+        "officialHouseName": "Adelita S. Grijalva",
+        "sourceCandidateName": null,
+        "evidenceClass": null,
+        "confidence": null,
+        "relationshipDisposition": "not_linked_no_unique_current_incumbent_candidate_same_district",
+        "candidate": false,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "975f77903256d521f24b69394d0a613c2b1756d05cae1e3f4358df2a118d016c",
+        "status": "candidate",
+        "targetCd119Geoid": "0407",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "0407",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "candidate": true,
+        "approved": false
+      },
+      "reviewCategory": "geography_candidate_identity_unresolved",
+      "resultDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "resultAuthorityStatus": "certified_official_statewide_canvass",
+      "resultRevisionStatus": "initial_canvass_final_for_contest",
+      "sourceWinnerStatus": "marked_by_source",
+      "progressiveClassificationStatus": "not_retained",
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_certification_identity_historical_geography_disposition_classification_review_and_publication_approval",
+      "scoreEligible": false,
+      "reviewerAction": "review_geography_while_preserving_identity_no_match",
+      "rationaleCodes": [
+        "geography_candidate_identity_unresolved",
+        "parent_candidates_not_approved_by_join",
+        "certified_canvass_authority_retained_but_not_approved_by_join",
+        "source_winner_marker_preserved_not_selection",
+        "all_independent_review_gates_remain_open"
+      ],
+      "reviewRecordSha256": "44d204048ce2c7af36bf95cb9895873965e09b7ad4f2fa6afac0bd85ba47f5d3"
+    }
+  ],
+  "reviewRecordSetSha256": "4dc7707e94cfd2c07c8020668f64952c9fb47006c2b84c15b8bf1dc44548f7df",
+  "decisions": [
+    {
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "confidence": "high",
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      },
+      "decisionId": "az-primary:accept-certification-authority-v1",
+      "affectedComponent": "certified statewide canvass and final recount authority",
+      "parentDecisionId": "collect-official-state-primary-results-and-certification-v1",
+      "question": "Should the retained signed statewide canvasses and district 03 final recount/court order be accepted as exact authority for these six official contest records?",
+      "recommendedDecision": "Accept the retained 2022 and 2024 certified-canvass authority, including the district 03 final recount, while treating source winner markers only as source facts.",
+      "alternatives": [
+        "Require an individual contest certificate for every district-cycle before accepting authority.",
+        "Reject the retained canvass/recount authority and keep all six records certification-excluded."
+      ],
+      "consequences": [
+        "Acceptance resolves certification authority only; it does not approve identity, geography, disposition, classification, scoring, or publication.",
+        "Deferral or rejection keeps affected records excluded while the retained official evidence remains inspectable."
+      ],
+      "evidenceRecordIds": [
+        "az-primary-joint:2022:03",
+        "az-primary-joint:2022:04",
+        "az-primary-joint:2022:07",
+        "az-primary-joint:2024:03",
+        "az-primary-joint:2024:04",
+        "az-primary-joint:2024:07"
+      ],
+      "workCompletedWhileWaiting": "Signed statewide canvasses, the district 03 final recount and court order, exact contest hashes, and revision status are hash-bound in the parent receipt."
+    },
+    {
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "confidence": "high",
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      },
+      "decisionId": "az-primary:accept-geography-compatibility-v1",
+      "affectedComponent": "historical geography",
+      "parentDecisionId": "approve-historical-district-cd119-compatibility-v1",
+      "question": "Should the three CD118-to-CD119 continuity rows and three exact CD119 session/key rows be accepted as geography-compatible candidates?",
+      "recommendedDecision": "Accept all six geography candidates without claiming raw geometry equality, overlap, or population equivalence.",
+      "alternatives": [
+        "Require a block-level crosswalk before accepting the three 2022 continuity rows.",
+        "Reject all six geography candidates and retain historical-geography exclusion."
+      ],
+      "consequences": [
+        "Acceptance resolves geography only and leaves all three predecessor identity no-matches unchanged.",
+        "A crosswalk requirement or rejection keeps affected records excluded without discarding the retained Census authorities."
+      ],
+      "evidenceRecordIds": [
+        "az-primary-joint:2022:03",
+        "az-primary-joint:2022:04",
+        "az-primary-joint:2022:07",
+        "az-primary-joint:2024:03",
+        "az-primary-joint:2024:04",
+        "az-primary-joint:2024:07"
+      ],
+      "workCompletedWhileWaiting": "Official CD118/CD119 inventories, Census plan-change authority, parent row hashes, and exact contest joins are retained and validated."
+    },
+    {
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "confidence": "high",
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      },
+      "decisionId": "az-primary:accept-identity-links-v1",
+      "affectedComponent": "current-incumbent identity",
+      "parentDecisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+      "question": "Should the three exact-name observations be accepted as historical source-candidate relationships to current Arizona incumbents?",
+      "recommendedDecision": "Accept the three proposed links while preserving the Gallego and Raúl Grijalva observations as explicit predecessor no-matches.",
+      "alternatives": [
+        "Reject all three proposed relationships and retain identity exclusion.",
+        "Request external direct-identifier evidence before resolving any identity row."
+      ],
+      "consequences": [
+        "Acceptance resolves identity only and does not approve geography, certification, disposition, scoring, or publication.",
+        "Deferral keeps affected records excluded while all three predecessor observations remain unlinked under every option."
+      ],
+      "evidenceRecordIds": [
+        "az-primary-joint:2022:04",
+        "az-primary-joint:2024:03",
+        "az-primary-joint:2024:04"
+      ],
+      "workCompletedWhileWaiting": "Exact-name evidence, BioGuide identities, parent hashes, and all three predecessor no-matches are retained and validated."
+    },
+    {
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "confidence": "high",
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      },
+      "decisionId": "az-primary:retain-primary-disposition-exclusion-v1",
+      "affectedComponent": "primary contest disposition and selection",
+      "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "question": "Should the six source-winner-marked results remain reported source facts without this join selecting an evaluator candidate or inferring a progressive classification?",
+      "recommendedDecision": "Retain reported-contest treatment and evaluator exclusion until a versioned selection and disposition rule is approved.",
+      "alternatives": [
+        "Use the source winner marker to select a candidate immediately for evaluation.",
+        "Require separate ballot-access and nomination evidence before retaining any disposition beyond raw results."
+      ],
+      "consequences": [
+        "The recommendation preserves source winner facts without turning this identity/geography join into selection approval.",
+        "Any alternative requires a new versioned artifact and cannot be authorized by this join."
+      ],
+      "evidenceRecordIds": [
+        "az-primary-joint:2022:03",
+        "az-primary-joint:2022:04",
+        "az-primary-joint:2022:07",
+        "az-primary-joint:2024:03",
+        "az-primary-joint:2024:04",
+        "az-primary-joint:2024:07"
+      ],
+      "workCompletedWhileWaiting": "All candidate votes and the district 03 aggregate write-in channel reconcile in the parent receipt; source winner markers remain direct source facts only."
+    },
+    {
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "confidence": "high",
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      },
+      "decisionId": "az-primary:retain-progressive-classification-exclusion-v1",
+      "affectedComponent": "progressive candidate classification",
+      "parentDecisionId": "approve-progressive-candidate-classification-method-v1",
+      "question": "Should progressive-primary factors remain excluded because these packages contain no reviewed contest-effective progressive classifications?",
+      "recommendedDecision": "Retain the exclusion; no progressive classification evidence is present in the identity or geography parents.",
+      "alternatives": [
+        "Treat all non-incumbent candidates as progressive by default.",
+        "Infer progressive status from candidate names or contest position."
+      ],
+      "consequences": [
+        "The recommendation prevents unsupported ideological values from entering scoring.",
+        "Either alternative would fabricate a classification unsupported by these sources."
+      ],
+      "evidenceRecordIds": [
+        "az-primary-joint:2022:03",
+        "az-primary-joint:2022:04",
+        "az-primary-joint:2022:07",
+        "az-primary-joint:2024:03",
+        "az-primary-joint:2024:04",
+        "az-primary-joint:2024:07"
+      ],
+      "workCompletedWhileWaiting": "Identity, geography, certification, and disposition evidence are isolated so classification work can proceed independently."
+    }
+  ],
+  "decisionSetSha256": "be51d450456e9d3e21e98f18703527e47ebcbd2eccd903f19d501043653d48dc",
+  "inheritedDecisionResolutions": {
+    "certification": null,
+    "identity": null,
+    "geography": null,
+    "disposition": null,
+    "progressiveClassification": null
+  },
+  "packageSha256": "09ec4edc163ea66e7df7a6bc1382ae1fa8d509479c98ab6179bef20ad67134fb"
+}
