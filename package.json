@@ -209,6 +209,8 @@
     "generate:oh-house-primary-results-receipt": "tsx scripts/generate-ohio-house-democratic-primary-results-receipt.ts",
     "import:oh-2022-county-primary-results": "node scripts/import-oh-2022-county-primary-results.mjs",
     "generate:oh-house-primary-results-receipt-v2": "tsx scripts/generate-ohio-house-democratic-primary-results-receipt-v2.ts",
+    "import:oh-2022-county-primary-results-v3": "node scripts/import-oh-2022-county-primary-results-v3.mjs",
+    "generate:oh-house-primary-results-receipt-v3": "tsx scripts/generate-ohio-house-democratic-primary-results-receipt-v3.ts",
     "fetch:ct-house-primary-event-results": "node scripts/fetch-ct-house-democratic-primary-event-results.mjs",
     "generate:ct-house-primary-event-dispositions": "tsx scripts/generate-connecticut-house-democratic-primary-event-dispositions-receipt.ts",
     "generate:ct-primary-nomination-authority": "tsx scripts/generate-connecticut-primary-nomination-authority-receipt.ts",
