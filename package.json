@@ -169,6 +169,7 @@
     "generate:ct-nomination-identity": "tsx scripts/generate-connecticut-current-incumbent-nomination-linkage-candidate.ts",
     "generate:ct-primary-geography": "tsx scripts/generate-connecticut-primary-geography-compatibility-candidate.ts",
     "generate:ct-primary-joint-review": "tsx scripts/generate-connecticut-primary-identity-geography-review-package.ts",
+    "generate:ct-general-crosscheck": "tsx scripts/generate-connecticut-general-election-crosscheck-receipt.ts",
     "bootstrap:fec-bulk": "tsx scripts/bootstrap-fec-bulk.ts",
     "reconcile:fec-bulk": "tsx scripts/reconcile-fec-bulk.ts",
     "db:generate": "drizzle-kit generate",

@@ -1,0 +1,8 @@
+import { createHash } from "node:crypto";
+import { execFileSync } from "node:child_process";
+import { readFile, writeFile } from "node:fs/promises";
+import { buildConnecticutGeneralElectionCrosscheckReceipt } from "../src/ingestion/elections/connecticut-general-election-crosscheck-receipt";
+
+const sha=(value:Buffer)=>createHash("sha256").update(value).digest("hex"),extract=(path:string)=>execFileSync("pdftotext",["-layout",path,"-"],{encoding:"utf8",maxBuffer:16*1024*1024});
+async function main(){const path2022="data/source/elections/general-results/connecticut/2022-statement-of-vote.pdf",path2024="data/source/elections/general-results/connecticut/2024-statement-of-vote.pdf",[pdf2022,pdf2024,sourceLockBytes]=await Promise.all([readFile(path2022),readFile(path2024),readFile("data/source-lock.json")]);const value=buildConnecticutGeneralElectionCrosscheckReceipt({pdf2022,pdf2022Sha256:sha(pdf2022),text2022:extract(path2022),pdf2024,pdf2024Sha256:sha(pdf2024),text2024:extract(path2024),sourceLock:JSON.parse(sourceLockBytes.toString("utf8"))}),output="data/metadata/connecticut-general-election-crosscheck-receipt-v1.json",bytes=Buffer.from(`${JSON.stringify(value,null,2)}\n`);try{await writeFile(output,bytes,{flag:"wx",mode:0o644});}catch(error){if((error as NodeJS.ErrnoException).code!=="EEXIST"||!(await readFile(output)).equals(bytes))throw new Error("CONNECTICUT_GENERAL_CROSSCHECK_OUTPUT_CONFLICT");}console.log(JSON.stringify({output,byteSize:bytes.length,sha256:sha(bytes),packageSha256:value.packageSha256,rowSetSha256:value.rowSetSha256,summary:value.summary},null,2));}
+main().catch(error=>{console.error(error);process.exitCode=1;});
