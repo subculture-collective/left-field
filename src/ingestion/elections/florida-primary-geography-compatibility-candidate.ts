@@ -1,0 +1,108 @@
+import { createHash } from "node:crypto";
+import { canonicalJson } from "../fec/aipac-proposed-packages";
+import { validateHouseDemocraticPrimarySourceSelectionProposal } from "./house-democratic-primary-source-selection-proposal";
+import { validateFloridaPrimaryReceipt, type FloridaPrimaryReceipt } from "./florida-house-democratic-primary-results-receipt";
+import { validateFloridaPrimaryIdentityCandidate, type FloridaPrimaryIdentityCandidate } from "./florida-current-incumbent-primary-linkage-candidate";
+
+export const FLORIDA_PRIMARY_GEOGRAPHY_V1 = "florida-primary-geography-compatibility-candidate-v1" as const;
+export const FLORIDA_PRIMARY_GEOGRAPHY_PARENT_PROJECTION_SHA256 = "cf73ea41a2d5f3a993db3dc07041723b738f7b1829b970003df89c37f8d1d6d7";
+export const FLORIDA_PRIMARY_GEOGRAPHY_ROW_SET_SHA256 = "2e9306e84241e7609a21887d9fe6fd3e20e0d374ef760ab7ba070a0dfd2818fe";
+export const FLORIDA_PRIMARY_GEOGRAPHY_PACKAGE_SHA256 = "4f56b058d79eaa1d0fd0ea2f87c5b55e9c57126acf7a45b5707bcf19300268e8";
+
+const INPUTS = {
+  proposalFile: "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+  proposalPackage: "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb",
+  receiptFile: "f817315d140d18de6ad29cb4b0cf604f9c2b2df9b1f3714a16b46f07d7717fb3",
+  receiptPackage: "1240cd10778f3bf37acce392353b0dcc0d2deaad18b3cad5b753284cc874a2e8",
+  receiptSet: "c866bf532a678bfe92c72b734386b2ae9318589e690ee96f0e4f1180e6a1df40",
+  identityFile: "c71e77ba87f073c967edffdc564ac5cdaee19a285c55c4b72afb08a537d21b83",
+  identityPackage: "d92bbd35721c2fc40877c7a625bb4c1a85d23cd73fe6e3b0384dcb8dfae1fce3",
+  identitySet: "220bdca66add6e79a35933ddc6ac918d169e24a47b8500daccb52c93f89c97fc",
+  authorityFile: "66a0551a6c3c6432bff0a6a6db23f221fbe02ead1d15221d7050633898914670",
+  cd118File: "1a1cd8468903aaf2d287a2f04c820e5a923b7d204d7e3fe5745bfb798ba1779b",
+  cd118Dbf: "d0cbe7ff8e6b055accaee2812c9a857cc672a372588af4a5e6d26f0255cf156c",
+  cd119File: "037f8b6e99d178eed234675391dfea75ac245860c0b323faa75e79c47ba4813f",
+  cd119Dbf: "bbd120d03f2932801461728a3dca75f1e5bc3e7325a5c284719721c1fcb5dd3a",
+} as const;
+const TARGETS = ["09", "10", "14", "22", "23", "24", "25"] as const;
+const CYCLES = [2022, 2024] as const;
+const GATES = [
+  "Independent reviewer approval is required before factual promotion.",
+  "Absent district-cycle dispositions and current identity/geography mappings remain unresolved.",
+  "The precinct ZIP and 2022 congressional recount overlay require a separate reconciliation package before use.",
+] as const;
+const OUTPUT_PARENTS = ["house-democratic-primary-source-selection-proposal-20260804-v1", "florida-house-democratic-primary-results-2022-2026-v1", "florida-current-incumbent-primary-linkage-candidate-v1", "census-cd119-plan-change-authority-20260805", "tiger-cd118-12", "tiger-fl"] as const;
+const PROPOSAL_PARENTS=["dsa-target-factual-projection-20260804-v1","dsa-target-incumbent-roster-20260804-v1","fec-2026-congressional-primary-dates","geo-national-cd119"] as const;
+const RECEIPT_PARENTS=["house-democratic-primary-source-selection-proposal-20260804-v1","fl-2022-primary-results-download-html","fl-2022-house-democratic-primary-results-tsv","fl-2024-primary-results-download-html","fl-2024-house-democratic-primary-results-tsv","fl-election-results-archive-snapshot-20260805","fl-election-dates-snapshot-20260805","fl-2026-primary-results-reporting-timeline-pdf","fl-2026-primary-results-reporting-timeline-text"] as const;
+const IDENTITY_PARENTS=["dsa-target-incumbent-roster-20260804-v1","house-democratic-primary-source-selection-proposal-20260804-v1","house-xml","congress-legislators-current-20260804","florida-house-democratic-primary-results-2022-2026-v1"] as const;
+const SOURCE_UNOBSERVED=new Set(["2022:09","2022:22","2024:09","2024:14","2024:22","2024:23","2024:24"]);
+const OUTPUT_FILE_SHA256 = "52ebf482c7add0a3c408557e0a0b929851dc3e8796acd5e59b978b25a330920d";
+const OUTPUT_BYTE_SIZE = 26_226;
+
+type IdentityStatus = "proposed_identity_link" | "source_unobserved_district_cycle_unresolved";
+type Row = Readonly<{
+  observationId: string; identityObservationId: string; identityRowSha256: string; identityStatus: IdentityStatus;
+  contestId: string | null; contestSha256: string | null; cycleYear: 2022 | 2024; electionDate: "2022-08-23" | "2024-08-20";
+  seatCycleId: string; districtCode: string; sourceWinnerStatus: "not_marked_by_source" | "not_applicable_source_unobserved";
+  targetCd119Geoid: string; historicalCongressSession: "118" | "119"; historicalGeoid: string;
+  compatibilityDisposition: "official_no_plan_change_declaration_same_geoid_key_candidate" | "same_cd119_session_and_geoid_exact_key_candidate";
+  evidenceClass: "direct_official_plan_continuity_and_derived_key" | "derived_exact_session_and_key"; confidence: "high";
+  compatibilityCandidate: true; compatibilityApproved: false; identityApproved: false; identityDispositionPreserved: true;
+  resultAuthorityStatus: "division_official_results_extract_retained" | null;
+  certificationStatus: "official_results_flag_retained_no_separate_signed_certificate" | null;
+  evaluatorUse: "excluded_pending_identity_historical_geography_disposition_review_and_publication_approval"; scoreEligible: false;
+  rationaleCodes: readonly string[]; rowSha256: string;
+}>;
+export type FloridaPrimaryGeographyCandidate = Readonly<{
+  schema: typeof FLORIDA_PRIMARY_GEOGRAPHY_V1; version: 1; generatedAt: "2026-08-06T08:00:00.000Z"; sourceCutoff: "2026-08-05";
+  reviewerOnly: true; publicationEligible: false; defaultUse: "exclude_from_evaluator_until_identity_historical_geography_disposition_review_and_publication_approval";
+  review: Readonly<{status:"proposed";reviewer:null;reviewedAt:null;resolution:null}>; inheritedUnresolvedGates: typeof GATES;
+  inputs: Readonly<Record<string, unknown>>; methodology: Readonly<Record<string, unknown>>;
+  summary: Readonly<{contestCycleObservations:14;identityProposedLinkRows:7;identitySourceUnobservedRows:7;cd118ToCd119PlanContinuityCandidates:7;exactCd119SessionKeyCandidates:7;numberedDistrictsPerRetainedLayer:28;specialDistrictRowsPerRetainedLayer:0;compatibilityCandidates:14;automaticallyApprovedRows:0;scoreEligibleRows:0}>;
+  rows: readonly Row[]; rowSetSha256: string; decisionSupport: Readonly<Record<string, unknown>>; packageSha256: string;
+}>;
+export type FloridaPrimaryGeographyInput = Readonly<{proposal:unknown;proposalFileSha256:string;receipt:FloridaPrimaryReceipt;receiptFileSha256:string;identity:FloridaPrimaryIdentityCandidate;identityFileSha256:string;authorityHtml:string;authorityFileSha256:string;cd118Zip:Buffer;cd118FileSha256:string;cd118Dbf:Buffer;cd119Zip:Buffer;cd119FileSha256:string;cd119Dbf:Buffer;sourceLock:unknown}>;
+
+const sha = (value: Buffer|string): string => createHash("sha256").update(value).digest("hex");
+const digest = (domain:string,value:unknown):string => createHash("sha256").update(domain,"ascii").update(canonicalJson(value),"utf8").digest("hex");
+const order = (a:string,b:string):number => Buffer.compare(Buffer.from(a),Buffer.from(b));
+const fail = (code:string):never => { throw new Error(`Florida primary geography rejected: ${code}`); };
+const projection = (rows:readonly Row[]) => rows.map(({observationId,identityObservationId,identityRowSha256,identityStatus,contestId,contestSha256,cycleYear,seatCycleId,districtCode,sourceWinnerStatus,targetCd119Geoid,historicalCongressSession,historicalGeoid,compatibilityDisposition,resultAuthorityStatus,certificationStatus}) => ({observationId,identityObservationId,identityRowSha256,identityStatus,contestId,contestSha256,cycleYear,seatCycleId,districtCode,sourceWinnerStatus,targetCd119Geoid,historicalCongressSession,historicalGeoid,compatibilityDisposition,resultAuthorityStatus,certificationStatus}));
+
+function inventory(bytes:Buffer,session:"118"|"119") {
+  if(bytes.length<65||bytes[0]!==3) fail("DBF_HEADER_INVALID");
+  const count=bytes.readUInt32LE(4),header=bytes.readUInt16LE(8),record=bytes.readUInt16LE(10),fields:Array<{name:string;length:number;offset:number}>=[]; let offset=1;
+  for(let cursor=32;cursor+32<=header&&bytes[cursor]!==13;cursor+=32){const name=bytes.subarray(cursor,cursor+11).toString("ascii").replace(/\0.*$/,"").trim(),length=bytes[cursor+16]!;if(!name||length<1)fail("DBF_FIELD_INVALID");fields.push({name,length,offset});offset+=length;}
+  if(count!==28||header+count*record>bytes.length||offset!==record||bytes[header-1]!==13)fail("DBF_LAYOUT_INVALID");
+  const old=session==="118",sf=old?"STATEFP20":"STATEFP",gf=old?"GEOID20":"GEOID",df=old?"CD118FP":"CD119FP";
+  const rows=Array.from({length:count},(_,i)=>{const start=header+i*record;if(bytes[start]!==32)fail("DBF_DELETED_RECORD");const value=Object.fromEntries(fields.map(f=>[f.name,bytes.subarray(start+f.offset,start+f.offset+f.length).toString("ascii").trim()]));return{state:value[sf],geoid:value[gf],district:value[df],session:value.CDSESSN};}).sort((a,b)=>order(a.geoid??"",b.geoid??""));
+  if(rows.some((row,i)=>row.state!=="12"||row.geoid!==`12${String(i+1).padStart(2,"0")}`||row.district!==String(i+1).padStart(2,"0")||row.session!==session))fail("DBF_INVENTORY_INVALID"); return rows;
+}
+
+export function buildFloridaPrimaryGeographyCandidate(input:FloridaPrimaryGeographyInput):FloridaPrimaryGeographyCandidate {
+  const actual=[input.proposalFileSha256,input.receiptFileSha256,input.identityFileSha256,input.authorityFileSha256,input.cd118FileSha256,input.cd119FileSha256,sha(input.authorityHtml),sha(input.cd118Zip),sha(input.cd118Dbf),sha(input.cd119Zip),sha(input.cd119Dbf)];
+  const expected=[INPUTS.proposalFile,INPUTS.receiptFile,INPUTS.identityFile,INPUTS.authorityFile,INPUTS.cd118File,INPUTS.cd119File,INPUTS.authorityFile,INPUTS.cd118File,INPUTS.cd118Dbf,INPUTS.cd119File,INPUTS.cd119Dbf];
+  if(actual.some((v,i)=>v!==expected[i]))fail("INPUT_HASH_MISMATCH");
+  const proposal=validateHouseDemocraticPrimarySourceSelectionProposal(input.proposal),receipt=validateFloridaPrimaryReceipt(input.receipt),identity=validateFloridaPrimaryIdentityCandidate(input.identity);
+  const decision=proposal.decisions.find(v=>v.decisionId==="approve-historical-district-cd119-compatibility-v1");
+  if(proposal.packageSha256!==INPUTS.proposalPackage||receipt.packageSha256!==INPUTS.receiptPackage||receipt.summary.contestSetSha256!==INPUTS.receiptSet||identity.packageSha256!==INPUTS.identityPackage||identity.observationSetSha256!==INPUTS.identitySet||decision?.resolution!==null||canonicalJson(receipt.unresolvedGates)!==canonicalJson(GATES)||canonicalJson(identity.inheritedUnresolvedGates)!==canonicalJson(GATES))fail("PARENT_INVALID");
+  const phrase="five states (Alabama, Georgia, Louisiana, New York, and North Carolina) that redrew their congressional district plans for the 119th Congress";
+  if(!input.authorityHtml.includes(phrase)||input.authorityHtml.includes("five states (Alabama, Florida"))fail("AUTHORITY_INVALID");
+  const keys=new Set([...inventory(input.cd118Dbf,"118"),...inventory(input.cd119Dbf,"119")].map(v=>`${v.session}:${v.geoid}`));
+  const lock=input.sourceLock as {entries?:Array<{id:string;retainedPath?:string;retainedStatus:string;byteSize?:number;sha256:string;kind:string;parentIds?:string[]}>};
+  const required=[["house-democratic-primary-source-selection-proposal-20260804-v1",INPUTS.proposalFile,"data/metadata/house-democratic-primary-source-selection-proposal-20260804-v1.json","review_proposal",PROPOSAL_PARENTS],["florida-house-democratic-primary-results-2022-2026-v1",INPUTS.receiptFile,"data/metadata/florida-house-democratic-primary-results-2022-2026-v1.json","review_candidate",RECEIPT_PARENTS],["florida-current-incumbent-primary-linkage-candidate-v1",INPUTS.identityFile,"data/metadata/florida-current-incumbent-primary-linkage-candidate-v1.json","review_candidate",IDENTITY_PARENTS],["census-cd119-plan-change-authority-20260805",INPUTS.authorityFile,"data/source/elections/primary-results/geography/census-119-congressional-district-bef.html","source",[]],["tiger-cd118-12",INPUTS.cd118File,"data/source/tiger2022/tl_2022_12_cd118.zip","source",[]],["tiger-fl",INPUTS.cd119File,"data/source/tiger2025/tl_2025_12_cd119.zip","source",[]]] as const;
+  if(!Array.isArray(lock.entries))fail("SOURCE_LOCK_MISMATCH"); const entries=lock.entries as NonNullable<typeof lock.entries>;
+  if(required.some(([id,file,path,kind,parents])=>{const m=entries.filter(e=>e.id===id);return m.length!==1||m[0]!.retainedStatus!=="retained"||m[0]!.sha256!==file||m[0]!.retainedPath!==path||m[0]!.kind!==kind||canonicalJson(m[0]!.parentIds)!==canonicalJson(parents);}))fail("SOURCE_LOCK_MISMATCH");
+  const output=entries.filter(e=>e.id===FLORIDA_PRIMARY_GEOGRAPHY_V1); if(String(OUTPUT_FILE_SHA256).length===0 ? output.length!==0 : output.length!==1||output[0]!.retainedPath!=="data/metadata/florida-primary-geography-compatibility-candidate-v1.json"||output[0]!.retainedStatus!=="retained"||output[0]!.kind!=="review_candidate"||output[0]!.sha256!==OUTPUT_FILE_SHA256||output[0]!.byteSize!==OUTPUT_BYTE_SIZE||canonicalJson(output[0]!.parentIds)!==canonicalJson(OUTPUT_PARENTS))fail("SOURCE_LOCK_MISMATCH");
+  const rows:Row[]=identity.observations.map(observation=>{const geoid=`12${observation.districtCode}`,session=observation.cycleYear===2022?"118" as const:"119" as const;if(!keys.has(`119:${geoid}`)||!keys.has(`${session}:${geoid}`))fail("IDENTITY_OBSERVATION_OUTSIDE_TIGER_CLOSURE");const contests=receipt.contests.filter(c=>c.districtCode===observation.districtCode&&c.cycleYear===observation.cycleYear);if(observation.contestId===null ? contests.length!==0 : contests.length!==1||contests[0]!.contestId!==observation.contestId||contests[0]!.contestSha256!==observation.contestSha256)fail("RECEIPT_IDENTITY_MISMATCH");const continuity=observation.cycleYear===2022;const unsigned={observationId:`fl:geography:${observation.cycleYear}:${observation.districtCode}`,identityObservationId:observation.observationId,identityRowSha256:observation.rowSha256,identityStatus:observation.identityStatus,contestId:observation.contestId,contestSha256:observation.contestSha256,cycleYear:observation.cycleYear,electionDate:observation.electionDate,seatCycleId:observation.seatCycleId,districtCode:observation.districtCode,sourceWinnerStatus:observation.sourceWinnerStatus,targetCd119Geoid:geoid,historicalCongressSession:session,historicalGeoid:geoid,compatibilityDisposition:continuity?"official_no_plan_change_declaration_same_geoid_key_candidate" as const:"same_cd119_session_and_geoid_exact_key_candidate" as const,evidenceClass:continuity?"direct_official_plan_continuity_and_derived_key" as const:"derived_exact_session_and_key" as const,confidence:"high" as const,compatibilityCandidate:true as const,compatibilityApproved:false as const,identityApproved:false as const,identityDispositionPreserved:true as const,resultAuthorityStatus:observation.resultAuthorityStatus,certificationStatus:observation.certificationStatus,evaluatorUse:"excluded_pending_identity_historical_geography_disposition_review_and_publication_approval" as const,scoreEligible:false as const,rationaleCodes:continuity?["official_census_cd119_redraw_list_excludes_fl","same_state_district_geoid_in_cd118_and_cd119_numbered_inventory","identity_disposition_unchanged"]:["same_cd119_congressional_session","same_state_district_geoid_in_cd119_inventory","identity_disposition_unchanged"]};return{...unsigned,rowSha256:digest("dsa-seats:fl-primary-geography-row:v1\0",unsigned)};}).sort((a,b)=>order(a.observationId,b.observationId));
+  const parentProjectionSha256=digest("dsa-seats:fl-primary-geography-parent-projection:v1\0",projection(rows));
+  const unsigned={schema:FLORIDA_PRIMARY_GEOGRAPHY_V1,version:1 as const,generatedAt:"2026-08-06T08:00:00.000Z" as const,sourceCutoff:"2026-08-05" as const,reviewerOnly:true as const,publicationEligible:false as const,defaultUse:"exclude_from_evaluator_until_identity_historical_geography_disposition_review_and_publication_approval" as const,review:{status:"proposed" as const,reviewer:null,reviewedAt:null,resolution:null},inheritedUnresolvedGates:GATES,inputs:{sourceSelectionProposal:{sourceLockId:required[0][0],fileSha256:INPUTS.proposalFile,packageSha256:INPUTS.proposalPackage},floridaReceipt:{sourceLockId:required[1][0],fileSha256:INPUTS.receiptFile,packageSha256:INPUTS.receiptPackage,contestSetSha256:INPUTS.receiptSet},floridaIdentity:{sourceLockId:required[2][0],fileSha256:INPUTS.identityFile,packageSha256:INPUTS.identityPackage,observationSetSha256:INPUTS.identitySet},censusPlanChangeAuthority:{sourceLockId:required[3][0],fileSha256:INPUTS.authorityFile,authorityClaim:"five_states_redrew_for_cd119_al_ga_la_ny_nc_fl_absent"},tigerLayers:[{sourceLockId:required[4][0],fileSha256:INPUTS.cd118File,dbfMemberSha256:INPUTS.cd118Dbf,cdSession:"118",numberedDistrictCount:28,specialDistrictCount:0},{sourceLockId:required[5][0],fileSha256:INPUTS.cd119File,dbfMemberSha256:INPUTS.cd119Dbf,cdSession:"119",numberedDistrictCount:28,specialDistrictCount:0}]},methodology:{targetSession:"119",cycleSessionMapping:{"2022":"118","2024":"119"},rowGrain:"current_target_identity_observation",identityDispositionPreserved:true,rawTigerGeometryEqualityAssessed:false,overlapThresholdUsed:false,populationEquivalenceAssessed:false,automaticDecisionClosure:false,evaluatorNumericValues:0,future2026Rows:0,parentProjectionSha256},summary:{contestCycleObservations:14 as const,identityProposedLinkRows:7 as const,identitySourceUnobservedRows:7 as const,cd118ToCd119PlanContinuityCandidates:7 as const,exactCd119SessionKeyCandidates:7 as const,numberedDistrictsPerRetainedLayer:28 as const,specialDistrictRowsPerRetainedLayer:0 as const,compatibilityCandidates:14 as const,automaticallyApprovedRows:0 as const,scoreEligibleRows:0 as const},rows,rowSetSha256:digest("dsa-seats:fl-primary-geography-row-set:v1\0",rows),decisionSupport:{informsDecisionId:"approve-historical-district-cd119-compatibility-v1",resolution:null,analysisConclusion:"official_evidence_supports_fl_cd118_to_cd119_plan_continuity_and_exact_cd119_keys_without_changing_identity_dispositions",lifecycle:"evidence_for_bound_existing_decision_not_an_independent_decision"}};
+  return{...unsigned,packageSha256:digest("dsa-seats:fl-primary-geography-candidate:v1\0",unsigned)};
+}
+
+export function validateFloridaPrimaryGeographyCandidate(value:FloridaPrimaryGeographyCandidate):FloridaPrimaryGeographyCandidate {
+  if(value.schema!==FLORIDA_PRIMARY_GEOGRAPHY_V1||value.version!==1||value.generatedAt!=="2026-08-06T08:00:00.000Z"||!value.reviewerOnly||value.publicationEligible||value.review.status!=="proposed"||value.review.reviewer!==null||value.review.reviewedAt!==null||value.review.resolution!==null||value.rows.length!==14)fail("LIFECYCLE_INVALID");
+  const expected=CYCLES.flatMap(c=>TARGETS.map(d=>`fl:geography:${c}:${d}`)).sort(order);for(const [i,row] of value.rows.entries()){const{rowSha256,...unsigned}=row,continuity=row.cycleYear===2022,geoid=`12${row.districtCode}`,unobserved=SOURCE_UNOBSERVED.has(`${row.cycleYear}:${row.districtCode}`);if(rowSha256!==digest("dsa-seats:fl-primary-geography-row:v1\0",unsigned)||row.observationId!==`fl:geography:${row.cycleYear}:${row.districtCode}`||row.identityObservationId!==`fl:identity:${row.cycleYear}:${row.districtCode}`||row.seatCycleId!==`seat_house_fl_${row.districtCode}_current`||row.targetCd119Geoid!==geoid||row.historicalGeoid!==geoid||row.historicalCongressSession!==(continuity?"118":"119")||row.compatibilityDisposition!==(continuity?"official_no_plan_change_declaration_same_geoid_key_candidate":"same_cd119_session_and_geoid_exact_key_candidate")||row.evidenceClass!==(continuity?"direct_official_plan_continuity_and_derived_key":"derived_exact_session_and_key")||row.identityStatus!==(unobserved?"source_unobserved_district_cycle_unresolved":"proposed_identity_link")||(unobserved?(row.contestId!==null||row.contestSha256!==null||row.resultAuthorityStatus!==null||row.certificationStatus!==null||row.sourceWinnerStatus!=="not_applicable_source_unobserved"):(row.contestId===null||row.contestSha256===null||row.resultAuthorityStatus!=="division_official_results_extract_retained"||row.certificationStatus!=="official_results_flag_retained_no_separate_signed_certificate"||row.sourceWinnerStatus!=="not_marked_by_source"))||row.compatibilityApproved||row.identityApproved||row.scoreEligible||!row.identityDispositionPreserved||(i>0&&order(value.rows[i-1]!.observationId,row.observationId)>=0))fail("ROW_INVALID");}
+  const summary={contestCycleObservations:14,identityProposedLinkRows:7,identitySourceUnobservedRows:7,cd118ToCd119PlanContinuityCandidates:7,exactCd119SessionKeyCandidates:7,numberedDistrictsPerRetainedLayer:28,specialDistrictRowsPerRetainedLayer:0,compatibilityCandidates:14,automaticallyApprovedRows:0,scoreEligibleRows:0};if(canonicalJson(value.rows.map(r=>r.observationId))!==canonicalJson(expected)||canonicalJson(value.summary)!==canonicalJson(summary))fail("SUMMARY_INVALID");const{packageSha256,...unsigned}=value;if((FLORIDA_PRIMARY_GEOGRAPHY_PARENT_PROJECTION_SHA256&&value.methodology.parentProjectionSha256!==FLORIDA_PRIMARY_GEOGRAPHY_PARENT_PROJECTION_SHA256)||(FLORIDA_PRIMARY_GEOGRAPHY_ROW_SET_SHA256&&value.rowSetSha256!==FLORIDA_PRIMARY_GEOGRAPHY_ROW_SET_SHA256)||(FLORIDA_PRIMARY_GEOGRAPHY_PACKAGE_SHA256&&packageSha256!==FLORIDA_PRIMARY_GEOGRAPHY_PACKAGE_SHA256)||value.rowSetSha256!==digest("dsa-seats:fl-primary-geography-row-set:v1\0",value.rows)||packageSha256!==digest("dsa-seats:fl-primary-geography-candidate:v1\0",unsigned))fail("PACKAGE_INVALID");return value;
+}
+export const FLORIDA_PRIMARY_GEOGRAPHY_OUTPUT_PARENTS=OUTPUT_PARENTS;
