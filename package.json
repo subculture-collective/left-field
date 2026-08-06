@@ -121,6 +121,7 @@
     "fetch:va-house-primary-results": "node scripts/fetch-va-house-democratic-primary-results.mjs",
     "generate:va-house-primary-results-receipt": "tsx scripts/generate-virginia-house-democratic-primary-results-receipt.ts",
     "generate:va-current-incumbent-primary-linkage-v1": "tsx scripts/generate-virginia-current-incumbent-primary-linkage-candidate.ts",
+    "generate:va-primary-geography-v1": "tsx scripts/generate-virginia-primary-geography-compatibility-candidate.ts",
     "import:az-house-primary-results": "node scripts/import-az-house-democratic-primary-results.mjs",
     "generate:az-house-primary-results-receipt": "tsx scripts/generate-arizona-house-democratic-primary-results-receipt.ts",
     "import:mi-house-primary-results": "node scripts/import-mi-house-democratic-primary-results.mjs",
