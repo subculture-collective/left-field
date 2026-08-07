@@ -41,6 +41,8 @@ Ohio retains the Secretary of State portal manifest, its complete 20-file May 3,
 
 The Ohio identity candidate binds those ten closed 2024/2026 target contests to five current House identities: eight exact normalized observations and two documented `Emilia Sykes` to `Emilia Strong Sykes` middle-name-omission relationships. It preserves the source's unmarked-winner and separate-certificate-not-retained boundaries. The 12 partial 2022 county segments create zero district identity observations. All ten links remain proposed, identity-unapproved, geography-separate, evaluator-excluded, score-ineligible, reviewer-only, unpublished, and undeployed. See [`ohio-current-incumbent-primary-linkage-candidate-v1-2026-08-06.md`](../reviews/ohio-current-incumbent-primary-linkage-candidate-v1-2026-08-06.md).
 
+The Ohio geography candidate joins those ten identities to the complete 15-key official CD119 Ohio layer. Five 2024 rows are exact CD119 session/key candidates; five 2026 rows retain null historical GEOIDs and remain CD120-authority pending. The 12 partial 2022 county segments create zero geography rows and zero CD118-to-CD119 candidates. All approvals, raw-geometry/overlap/population claims, evaluator use, scores, publication, and deployment remain excluded. See [`ohio-primary-geography-compatibility-candidate-v1-2026-08-06.md`](../reviews/ohio-primary-geography-compatibility-candidate-v1-2026-08-06.md).
+
 ### Illinois election identity detail
 
 Current Illinois coverage includes both the proposed 28-row incumbent-identity candidate and the separate proposed 34-row contest-geography candidate described below; neither artifact supplies an approval or production promotion.
