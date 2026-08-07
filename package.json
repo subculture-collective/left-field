@@ -206,6 +206,8 @@
     "import:co-house-primary-results": "node scripts/import-co-house-democratic-primary-results.mjs",
     "generate:co-house-primary-results-receipt": "tsx scripts/generate-colorado-house-democratic-primary-results-receipt.ts",
     "generate:co-current-incumbent-primary-linkage-v1": "tsx scripts/generate-colorado-current-incumbent-primary-linkage-candidate.ts",
+    "fetch:co-primary-geography-authority": "node scripts/fetch-colorado-primary-geography-authority.mjs",
+    "generate:co-primary-geography-compatibility-v1": "tsx scripts/generate-colorado-primary-geography-compatibility-candidate.ts",
     "import:oh-house-primary-results": "node scripts/import-oh-house-democratic-primary-results.mjs",
     "generate:oh-house-primary-results-receipt": "tsx scripts/generate-ohio-house-democratic-primary-results-receipt.ts",
     "import:oh-2022-county-primary-results": "node scripts/import-oh-2022-county-primary-results.mjs",
