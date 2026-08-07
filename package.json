@@ -225,6 +225,7 @@
     "generate:oh-house-primary-results-receipt-v4": "tsx scripts/generate-ohio-house-democratic-primary-results-receipt-v4.ts",
     "generate:oh-current-incumbent-primary-linkage-v1": "tsx scripts/generate-ohio-current-incumbent-primary-linkage-candidate.ts",
     "generate:oh-primary-geography-compatibility-v1": "tsx scripts/generate-ohio-primary-geography-compatibility-candidate.ts",
+    "generate:oh-primary-joint-review-v1": "tsx scripts/generate-ohio-primary-identity-geography-review-package.ts",
     "fetch:ct-house-primary-event-results": "node scripts/fetch-ct-house-democratic-primary-event-results.mjs",
     "generate:ct-house-primary-event-dispositions": "tsx scripts/generate-connecticut-house-democratic-primary-event-dispositions-receipt.ts",
     "generate:ct-primary-nomination-authority": "tsx scripts/generate-connecticut-primary-nomination-authority-receipt.ts",
