@@ -1,0 +1,2672 @@
+{
+  "schema": "georgia-house-democratic-primary-results-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-07T06:30:00.000Z",
+  "sourceCutoff": "2026-08-07",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "originalPublisher": "Georgia Secretary of State",
+  "status": "official_regular_primary_result_candidate",
+  "licenseOrReuseTerms": "not_stated_by_source",
+  "rawParty": "DEM",
+  "runoffScope": "regular_primary_only_separate_runoff_elections_not_retained_or_assessed",
+  "parentProposal": {
+    "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "decisionSupport": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    }
+  ],
+  "inheritedDecisionResolutions": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "resolution": null
+    }
+  ],
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "electionMetadataSourceId": "ga-2022-general-primary-election-metadata",
+      "workbookSourceId": "ga-2022-general-primary-total-votes-workbook",
+      "sourceEventId": "01000000-722c-ee2c-5ef2-08dd139faa3f",
+      "sourceEventName": "May 24, 2022 - General Primary -Nonpartisan General Election ",
+      "sourceOfficialResults": true,
+      "sourceProduction": true,
+      "workbookDataRows": 1318,
+      "workbookCandidateRows": 803,
+      "workbookContestTotalRows": 515,
+      "workbookUniqueContests": 515,
+      "workbookReconciledVotes": 53452014,
+      "democraticHouseContests": 14,
+      "democraticHouseCandidates": 31,
+      "democraticHouseVotes": 685661,
+      "targetObservations": 4,
+      "targetContestCandidates": 9,
+      "targetContestVotes": 287779
+    },
+    {
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "electionMetadataSourceId": "ga-2024-general-primary-election-metadata",
+      "workbookSourceId": "ga-2024-general-primary-total-votes-workbook",
+      "sourceEventId": "01000000-3827-2678-8e7f-08dd116a7c66",
+      "sourceEventName": "May 21, 2024 - General Primary - Nonpartisan Election",
+      "sourceOfficialResults": true,
+      "sourceProduction": true,
+      "workbookDataRows": 1350,
+      "workbookCandidateRows": 763,
+      "workbookContestTotalRows": 587,
+      "workbookUniqueContests": 587,
+      "workbookReconciledVotes": 29814017,
+      "democraticHouseContests": 14,
+      "democraticHouseCandidates": 30,
+      "democraticHouseVotes": 526974,
+      "targetObservations": 4,
+      "targetContestCandidates": 6,
+      "targetContestVotes": 240547
+    },
+    {
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "electionMetadataSourceId": "ga-2026-general-primary-election-metadata",
+      "workbookSourceId": "ga-2026-general-primary-total-votes-workbook",
+      "sourceEventId": "01000000-b960-7e2f-bde4-08dead3401e5",
+      "sourceEventName": "May 19, 2026 - General Primary",
+      "sourceOfficialResults": true,
+      "sourceProduction": true,
+      "workbookDataRows": 1383,
+      "workbookCandidateRows": 829,
+      "workbookContestTotalRows": 554,
+      "workbookUniqueContests": 554,
+      "workbookReconciledVotes": 54540979,
+      "democraticHouseContests": 14,
+      "democraticHouseCandidates": 42,
+      "democraticHouseVotes": 1017693,
+      "targetObservations": 4,
+      "targetContestCandidates": 7,
+      "targetContestVotes": 437308
+    }
+  ],
+  "sources": [
+    {
+      "id": "ga-2022-general-primary-election-metadata",
+      "url": "https://results.sos.ga.gov/results/public/api/elections/Georgia/2022MayGenPri",
+      "retainedPath": "data/source/elections/primary-results/georgia/2022/election-metadata.json",
+      "retainedStatus": "retained",
+      "byteSize": 1805,
+      "sha256": "475648a3bdf8e19a00d647ca2592114a4362ed119b412f473a9fad37f4b49f20",
+      "kind": "official_election_metadata",
+      "parentIds": []
+    },
+    {
+      "id": "ga-2022-general-primary-total-votes-workbook",
+      "url": "https://results.sos.ga.gov/cdn/results/09378a07-e6cf-4f66-be7c-ca4aa534f99a/Total%20Votes%20Results_fb34a8c4-3127-4742-8c5b-691de9c22401.xlsx",
+      "retainedPath": "data/source/elections/primary-results/georgia/2022/total-votes-results.xlsx",
+      "retainedStatus": "retained",
+      "byteSize": 1087533,
+      "sha256": "157dcaf6c4b972cb7b6a6fbe2a177ca3526a01bc1c4b6d5d3f51d1fa7ee1a880",
+      "kind": "official_statewide_regular_primary_result_workbook",
+      "parentIds": [
+        "ga-2022-general-primary-election-metadata"
+      ]
+    },
+    {
+      "id": "ga-2024-general-primary-election-metadata",
+      "url": "https://results.sos.ga.gov/results/public/api/elections/Georgia/2024MayGenPri",
+      "retainedPath": "data/source/elections/primary-results/georgia/2024/election-metadata.json",
+      "retainedStatus": "retained",
+      "byteSize": 1796,
+      "sha256": "0bd53e4fa1733214ddb7ed9bbf45a42c93b1235187534f1db9e6b55f4252761a",
+      "kind": "official_election_metadata",
+      "parentIds": []
+    },
+    {
+      "id": "ga-2024-general-primary-total-votes-workbook",
+      "url": "https://results.sos.ga.gov/cdn/results/09378a07-e6cf-4f66-be7c-ca4aa534f99a/Total%20Votes%20Results_dd4a2851-411f-4720-abea-3ce4cf813d1f.xlsx",
+      "retainedPath": "data/source/elections/primary-results/georgia/2024/total-votes-results.xlsx",
+      "retainedStatus": "retained",
+      "byteSize": 681802,
+      "sha256": "1971b455dfcd609d3fa0cf3afe149bb85d8939c0e4551f3e3c34f9e52802714d",
+      "kind": "official_statewide_regular_primary_result_workbook",
+      "parentIds": [
+        "ga-2024-general-primary-election-metadata"
+      ]
+    },
+    {
+      "id": "ga-2026-general-primary-election-metadata",
+      "url": "https://results.sos.ga.gov/results/public/api/elections/Georgia/GeneralPrimary51926",
+      "retainedPath": "data/source/elections/primary-results/georgia/2026/election-metadata.json",
+      "retainedStatus": "retained",
+      "byteSize": 2830,
+      "sha256": "4b3bbca5c14942f11b3151e86cfc1f6f041fb60b1f271e729d5695fe8d7d5392",
+      "kind": "official_election_metadata",
+      "parentIds": []
+    },
+    {
+      "id": "ga-2026-general-primary-total-votes-workbook",
+      "url": "https://results.sos.ga.gov/cdn/results/09378a07-e6cf-4f66-be7c-ca4aa534f99a/Total%20Votes%20Results_f994c55e-4e3f-43f8-86ea-8ac4e9b45807.xlsx",
+      "retainedPath": "data/source/elections/primary-results/georgia/2026/total-votes-results.xlsx",
+      "retainedStatus": "retained",
+      "byteSize": 1276496,
+      "sha256": "eca6d40576e350db991ea3ec06625f90f71cb655ef912eac624d0d0a6f1a3ada",
+      "kind": "official_statewide_regular_primary_result_workbook",
+      "parentIds": [
+        "ga-2026-general-primary-election-metadata"
+      ]
+    }
+  ],
+  "contests": [
+    {
+      "stateCode": "GA",
+      "districtCode": "01",
+      "rawOfficeName": "US House of Representatives - District 1 - Dem",
+      "sourceContestId": "30120",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Joyce Marie Griggs",
+          "sourceChoiceId": "174",
+          "rawParty": "DEM",
+          "votes": 21891
+        },
+        {
+          "sourceCandidateName": "Wade Herring",
+          "sourceChoiceId": "200",
+          "rawParty": "DEM",
+          "votes": 17118
+        },
+        {
+          "sourceCandidateName": "Michelle L. Munroe",
+          "sourceChoiceId": "201",
+          "rawParty": "DEM",
+          "votes": 6043
+        }
+      ],
+      "sourceTotalVotes": 45052,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "9a42862ef39ca866680179ef23488cc915a00daf7f87e9ff210ce9b83ccfe5a9"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "02",
+      "rawOfficeName": "US House of Representatives - District 2 - Dem",
+      "sourceContestId": "30220",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Sanford Bishop (I)",
+          "sourceChoiceId": "169",
+          "rawParty": "DEM",
+          "votes": 54991
+        },
+        {
+          "sourceCandidateName": "Joe O'Hara",
+          "sourceChoiceId": "170",
+          "rawParty": "DEM",
+          "votes": 3814
+        }
+      ],
+      "sourceTotalVotes": 58805,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "c5c96fe66043b97906a27002cddfa3ca20dc7d385ec98424cddf7b25851bae96"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "03",
+      "rawOfficeName": "DEM - US House Dist 3",
+      "sourceContestId": "30320",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Val Almonord",
+          "sourceChoiceId": "121",
+          "rawParty": "DEM",
+          "votes": 32207
+        }
+      ],
+      "sourceTotalVotes": 32207,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "3786ad3904a9d57bf2006baa45ebb2e2a2a301db6331400dcfc86799d2b7e2f3"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "04",
+      "rawOfficeName": "US House of Representatives - District 4 - Dem",
+      "sourceContestId": "30420",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Henry C \"\"Hank\"\" Johnson, Jr. (I)",
+          "sourceChoiceId": "74",
+          "rawParty": "DEM",
+          "votes": 84773
+        }
+      ],
+      "sourceTotalVotes": 84773,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:04:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "537460a3368b02db7c6c9ddae2ee59a7a4f6f120912b0bab8e0d8daa6c568fc0"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "05",
+      "rawOfficeName": "DEM - US House Dist 5",
+      "sourceContestId": "30520",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Charlotte Macbagito",
+          "sourceChoiceId": "120",
+          "rawParty": "DEM",
+          "votes": 3791
+        },
+        {
+          "sourceCandidateName": "Valencia Stovall",
+          "sourceChoiceId": "121",
+          "rawParty": "DEM",
+          "votes": 8701
+        },
+        {
+          "sourceCandidateName": "Nikema Williams (I)",
+          "sourceChoiceId": "122",
+          "rawParty": "DEM",
+          "votes": 78440
+        }
+      ],
+      "sourceTotalVotes": 90932,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:05:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "5e1edc358e129fddc041a8bebbe9fad96b7b60d3b18ef7e4efa97a2cb405f271"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "06",
+      "rawOfficeName": "DEM - US House Dist 6",
+      "sourceContestId": "30620",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Bob Christian",
+          "sourceChoiceId": "128",
+          "rawParty": "DEM",
+          "votes": 18776
+        },
+        {
+          "sourceCandidateName": "Wayne C. White",
+          "sourceChoiceId": "129",
+          "rawParty": "DEM",
+          "votes": 15025
+        }
+      ],
+      "sourceTotalVotes": 33801,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:06:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "9fbc50a668a949b9ffe15d3cd18c9c2e6293ff1014cbb4a6be9bb5f0aa9b75e2"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "07",
+      "rawOfficeName": "DEM - US House Dist 7",
+      "sourceContestId": "30720",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Carolyn Bourdeaux (I)",
+          "sourceChoiceId": "139",
+          "rawParty": "DEM",
+          "votes": 16310
+        },
+        {
+          "sourceCandidateName": "Lucy McBath (I)",
+          "sourceChoiceId": "140",
+          "rawParty": "DEM",
+          "votes": 33607
+        },
+        {
+          "sourceCandidateName": "Donna McLeod",
+          "sourceChoiceId": "141",
+          "rawParty": "DEM",
+          "votes": 3352
+        }
+      ],
+      "sourceTotalVotes": 53269,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:07:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "598025926ce5f07df2b7d5725af8117806d9faeb67509bdccecf6d33f7177501"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "08",
+      "rawOfficeName": "US House of Representatives - District 8 - Dem",
+      "sourceContestId": "30820",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Darrius Butler",
+          "sourceChoiceId": "73",
+          "rawParty": "DEM",
+          "votes": 30655
+        }
+      ],
+      "sourceTotalVotes": 30655,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:08:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "ad7563c4a5af2f76c0700d81198e4fff186ea8656f9e71d3b81fd9ada038d6dc"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "09",
+      "rawOfficeName": "US House of Representatives - District 9 - Dem",
+      "sourceContestId": "30920",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Michael \"\"Mike\"\" Ford",
+          "sourceChoiceId": "77",
+          "rawParty": "DEM",
+          "votes": 21434
+        }
+      ],
+      "sourceTotalVotes": 21434,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:09:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "d5a0efeffa8b2d6652d61f7d4aab81bbacab2634620c2abe4815d0c67b410cc1"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "10",
+      "rawOfficeName": "US House of Representatives - District 10 - Dem",
+      "sourceContestId": "31020",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Jessica Allison Fore",
+          "sourceChoiceId": "80",
+          "rawParty": "DEM",
+          "votes": 7257
+        },
+        {
+          "sourceCandidateName": "Tabitha Johnson-Green",
+          "sourceChoiceId": "81",
+          "rawParty": "DEM",
+          "votes": 15821
+        },
+        {
+          "sourceCandidateName": "Phyllis Hatcher",
+          "sourceChoiceId": "82",
+          "rawParty": "DEM",
+          "votes": 7120
+        },
+        {
+          "sourceCandidateName": "Femi Oduwole",
+          "sourceChoiceId": "83",
+          "rawParty": "DEM",
+          "votes": 4427
+        },
+        {
+          "sourceCandidateName": "Paul Walton",
+          "sourceChoiceId": "84",
+          "rawParty": "DEM",
+          "votes": 3077
+        }
+      ],
+      "sourceTotalVotes": 37702,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:10:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "3fbdfc1425e3f9995cbfc76054921231e7846e0964d85852a83c0a1773695afe"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "11",
+      "rawOfficeName": "DEM - US House Dist 11",
+      "sourceContestId": "31120",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Antonio Daza",
+          "sourceChoiceId": "90",
+          "rawParty": "DEM",
+          "votes": 33470
+        }
+      ],
+      "sourceTotalVotes": 33470,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:11:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "906d72606eba91bd81785d4a457077cfb8eac2b6f21caf4ca89aec3e0c289610"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "12",
+      "rawOfficeName": "US House of Representatives - District 12 - Dem",
+      "sourceContestId": "31220",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Elizabeth 'Liz' Johnson",
+          "sourceChoiceId": "174",
+          "rawParty": "DEM",
+          "votes": 44537
+        }
+      ],
+      "sourceTotalVotes": 44537,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:12:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "c8b0592c804f8a492d453a2a7e295e56737e115b7d1ad55a93142ba86557d8dd"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "13",
+      "rawOfficeName": "DEM - US House Dist 13",
+      "sourceContestId": "31320",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Mark Baker",
+          "sourceChoiceId": "126",
+          "rawParty": "DEM",
+          "votes": 11581
+        },
+        {
+          "sourceCandidateName": "Shastity Driscoll",
+          "sourceChoiceId": "127",
+          "rawParty": "DEM",
+          "votes": 10906
+        },
+        {
+          "sourceCandidateName": "Vincent Fort",
+          "sourceChoiceId": "128",
+          "rawParty": "DEM",
+          "votes": 9108
+        },
+        {
+          "sourceCandidateName": "David Scott (I)",
+          "sourceChoiceId": "129",
+          "rawParty": "DEM",
+          "votes": 60544
+        }
+      ],
+      "sourceTotalVotes": 92139,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:13:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "0b19238d0804e9d12478bd99e9e2272d52303313ed64ded45e20e0d0deac3890"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "14",
+      "rawOfficeName": "DEM - US House Dist 14",
+      "sourceContestId": "31420",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Wendy Davis",
+          "sourceChoiceId": "87",
+          "rawParty": "DEM",
+          "votes": 5141
+        },
+        {
+          "sourceCandidateName": "Marcus Flowers",
+          "sourceChoiceId": "88",
+          "rawParty": "DEM",
+          "votes": 20082
+        },
+        {
+          "sourceCandidateName": "Holly McCormack",
+          "sourceChoiceId": "89",
+          "rawParty": "DEM",
+          "votes": 1662
+        }
+      ],
+      "sourceTotalVotes": 26885,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2022:regular:us-house:14:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "sourceLockIds": [
+        "ga-2022-general-primary-election-metadata",
+        "ga-2022-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "b34e757dff2c76674b8064538b9e67a17272bf32565df0d7ff6f4931e81cc94b"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "01",
+      "rawOfficeName": "US House of Representatives - District 1 - Dem",
+      "sourceContestId": "30120",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Patti Hewitt",
+          "sourceChoiceId": "2",
+          "rawParty": "DEM",
+          "votes": 25082
+        }
+      ],
+      "sourceTotalVotes": 25082,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "a9e9bb99c17253ab8826b5ae5f2006cd1075e139c89f3a836f99dc5f2018150f"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "02",
+      "rawOfficeName": "US House of Representatives - District 2 - Dem",
+      "sourceContestId": "30220",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Sanford Bishop (I)",
+          "sourceChoiceId": "5",
+          "rawParty": "DEM",
+          "votes": 46379
+        }
+      ],
+      "sourceTotalVotes": 46379,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "9dfb3cc34f57acb69a85a243a4c9ef66df6042ed77b84f749c31b03a02239768"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "03",
+      "rawOfficeName": "US House of Representatives - District 3 - Dem",
+      "sourceContestId": "30320",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Val Almonord",
+          "sourceChoiceId": "7",
+          "rawParty": "DEM",
+          "votes": 11730
+        },
+        {
+          "sourceCandidateName": "Maura Keller",
+          "sourceChoiceId": "8",
+          "rawParty": "DEM",
+          "votes": 13237
+        }
+      ],
+      "sourceTotalVotes": 24967,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "6eb5a8dbe26c5970b8d27b8b059df19334bd20bd9b105bbb3816955e06fab814"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "04",
+      "rawOfficeName": "US House of Representatives - District 4 - Dem",
+      "sourceContestId": "30420",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Henry 'Hank' Johnson, Jr. (I)",
+          "sourceChoiceId": "134",
+          "rawParty": "DEM",
+          "votes": 53269
+        }
+      ],
+      "sourceTotalVotes": 53269,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:04:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "3a128dfda3bcbe119d5de87a4740b7e5914fee7970450629bbea08e9110bd900"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "05",
+      "rawOfficeName": "US House of Representatives - District 5 - Dem",
+      "sourceContestId": "30520",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Nikema Williams (I)",
+          "sourceChoiceId": "2",
+          "rawParty": "DEM",
+          "votes": 69116
+        }
+      ],
+      "sourceTotalVotes": 69116,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:05:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "36e22c263513da5608c3bb2d8b770a6b9e7638ce7e5aadaca5051447a5d1b77b"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "06",
+      "rawOfficeName": "US House of Representatives - District 6 - Dem",
+      "sourceContestId": "30620",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Lucy McBath (I)",
+          "sourceChoiceId": "2",
+          "rawParty": "DEM",
+          "votes": 60837
+        },
+        {
+          "sourceCandidateName": "Jerica Richardson",
+          "sourceChoiceId": "3",
+          "rawParty": "DEM",
+          "votes": 6699
+        },
+        {
+          "sourceCandidateName": "Mandisha Ann-Marie Thomas",
+          "sourceChoiceId": "4",
+          "rawParty": "DEM",
+          "votes": 4247
+        }
+      ],
+      "sourceTotalVotes": 71783,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:06:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "d38c0a73c1d637343d64782a132c999b8720d6d8f9af1ecaab7ddfd090c1b2ef"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "07",
+      "rawOfficeName": "US House of Representatives - District 7 - Dem",
+      "sourceContestId": "30720",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Bob Christian",
+          "sourceChoiceId": "2",
+          "rawParty": "DEM",
+          "votes": 20958
+        }
+      ],
+      "sourceTotalVotes": 20958,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:07:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "7dc6405f47b0c2cb93464598670f5b61d447040a106b85e4dec3983cfd1e2814"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "08",
+      "rawOfficeName": "US House of Representatives - District 8 - Dem",
+      "sourceContestId": "30820",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Darrius Butler",
+          "sourceChoiceId": "2",
+          "rawParty": "DEM",
+          "votes": 15755
+        },
+        {
+          "sourceCandidateName": "Vince Watkins",
+          "sourceChoiceId": "3",
+          "rawParty": "DEM",
+          "votes": 6236
+        }
+      ],
+      "sourceTotalVotes": 21991,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:08:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "e9e105b71ce24b8ac22355a51b9a7a2afd1507b2677a3008162456fa5e88339b"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "09",
+      "rawOfficeName": "US House of Representatives - District 9 - Dem",
+      "sourceContestId": "30920",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Tambrei Cash ",
+          "sourceChoiceId": "2",
+          "rawParty": "DEM",
+          "votes": 16654
+        }
+      ],
+      "sourceTotalVotes": 16654,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:09:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "6c299cda6d938ea61045bc35d6755760fa151062df588b8389d872b0b1cb8ecb"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "10",
+      "rawOfficeName": "US House of Representatives - District 10 - Dem",
+      "sourceContestId": "31020",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Alexandra \"\"Lexy\"\" Doherty",
+          "sourceChoiceId": "2",
+          "rawParty": "DEM",
+          "votes": 18040
+        },
+        {
+          "sourceCandidateName": "Jessica Fore",
+          "sourceChoiceId": "3",
+          "rawParty": "DEM",
+          "votes": 12532
+        }
+      ],
+      "sourceTotalVotes": 30572,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:10:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "9ae3bfd6966d5f199eff57daca50d149cad221eccf0da0f652c786801346ff85"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "11",
+      "rawOfficeName": "US House of Representatives - District 11 - Dem",
+      "sourceContestId": "31120",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Antonio Daza",
+          "sourceChoiceId": "4",
+          "rawParty": "DEM",
+          "votes": 10449
+        },
+        {
+          "sourceCandidateName": "Katy \"\"Kate\"\" L. Stamper",
+          "sourceChoiceId": "5",
+          "rawParty": "DEM",
+          "votes": 13615
+        }
+      ],
+      "sourceTotalVotes": 24064,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:11:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "a2557d6dc454cebdbe9c7d6f4fae97926c0bd3a5ec56dacef67c9ccb7430fae4"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "12",
+      "rawOfficeName": "US House of Representatives - District 12- Dem",
+      "sourceContestId": "31220",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Daniel \"\"'DJ\"\" Jackson",
+          "sourceChoiceId": "2",
+          "rawParty": "DEM",
+          "votes": 16238
+        },
+        {
+          "sourceCandidateName": "Elizabeth \"\"Liz\"\" Johnson",
+          "sourceChoiceId": "3",
+          "rawParty": "DEM",
+          "votes": 23358
+        }
+      ],
+      "sourceTotalVotes": 39596,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:12:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "4881b374a08905d5ecc410b67f83c10202e8195bb660e857a3d4539dd6198e9e"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "13",
+      "rawOfficeName": "US House of Representatives - District 13 - Dem",
+      "sourceContestId": "31320",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Mark Baker",
+          "sourceChoiceId": "109",
+          "rawParty": "DEM",
+          "votes": 7480
+        },
+        {
+          "sourceCandidateName": "Marcus Flowers",
+          "sourceChoiceId": "110",
+          "rawParty": "DEM",
+          "votes": 6439
+        },
+        {
+          "sourceCandidateName": "Brian K. Johnson",
+          "sourceChoiceId": "111",
+          "rawParty": "DEM",
+          "votes": 3201
+        },
+        {
+          "sourceCandidateName": "Uloma Kama",
+          "sourceChoiceId": "112",
+          "rawParty": "DEM",
+          "votes": 1274
+        },
+        {
+          "sourceCandidateName": "Rashid Malik",
+          "sourceChoiceId": "113",
+          "rawParty": "DEM",
+          "votes": 3073
+        },
+        {
+          "sourceCandidateName": "Karen Rene'",
+          "sourceChoiceId": "114",
+          "rawParty": "DEM",
+          "votes": 5859
+        },
+        {
+          "sourceCandidateName": "David Scott (I)",
+          "sourceChoiceId": "115",
+          "rawParty": "DEM",
+          "votes": 37135
+        }
+      ],
+      "sourceTotalVotes": 64461,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:13:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "2080ebdde3cd958aae78a4e0f632e13447a2fb0beb72b04992e8d10a6af87fee"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "14",
+      "rawOfficeName": "US House of Representatives - District 14 - Dem",
+      "sourceContestId": "31420",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Clarence Blalock",
+          "sourceChoiceId": "2",
+          "rawParty": "DEM",
+          "votes": 7005
+        },
+        {
+          "sourceCandidateName": "Shawn \"\"General\"\" Harris",
+          "sourceChoiceId": "3",
+          "rawParty": "DEM",
+          "votes": 6881
+        },
+        {
+          "sourceCandidateName": "Deric Houston",
+          "sourceChoiceId": "4",
+          "rawParty": "DEM",
+          "votes": 2630
+        },
+        {
+          "sourceCandidateName": "Joseph Leigh",
+          "sourceChoiceId": "5",
+          "rawParty": "DEM",
+          "votes": 1566
+        }
+      ],
+      "sourceTotalVotes": 18082,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2024:regular:us-house:14:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "sourceLockIds": [
+        "ga-2024-general-primary-election-metadata",
+        "ga-2024-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "dfd2e239bb93ef14d1e7f48b3bc3b72bbfe64f1bd407f150a1bb1e76cb7dbfac"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "01",
+      "rawOfficeName": "US House of Representatives - District 1 - Dem",
+      "sourceContestId": "USH1D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Defonsio Daniels",
+          "sourceChoiceId": "84",
+          "rawParty": "DEM",
+          "votes": 5359
+        },
+        {
+          "sourceCandidateName": "Joyce Marie Griggs",
+          "sourceChoiceId": "85",
+          "rawParty": "DEM",
+          "votes": 19694
+        },
+        {
+          "sourceCandidateName": "Amanda Hollowell",
+          "sourceChoiceId": "86",
+          "rawParty": "DEM",
+          "votes": 14095
+        },
+        {
+          "sourceCandidateName": "Michael McCord",
+          "sourceChoiceId": "87",
+          "rawParty": "DEM",
+          "votes": 3140
+        },
+        {
+          "sourceCandidateName": "Joey Palimeno",
+          "sourceChoiceId": "88",
+          "rawParty": "DEM",
+          "votes": 850
+        },
+        {
+          "sourceCandidateName": "Sharon Stokes Williamson",
+          "sourceChoiceId": "89",
+          "rawParty": "DEM",
+          "votes": 8501
+        },
+        {
+          "sourceCandidateName": "Patrick J. Wilver",
+          "sourceChoiceId": "90",
+          "rawParty": "DEM",
+          "votes": 4003
+        },
+        {
+          "sourceCandidateName": "Randy Zurcher",
+          "sourceChoiceId": "91",
+          "rawParty": "DEM",
+          "votes": 1517
+        }
+      ],
+      "sourceTotalVotes": 57159,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:01:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "f8559a14f94e58e774096f121b7586459dc1c4edce1cd4bbf0c4d4749e808d31"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "02",
+      "rawOfficeName": "US House of Representatives - District 2 - Dem",
+      "sourceContestId": "USH2D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Sanford Bishop (I)",
+          "sourceChoiceId": "78",
+          "rawParty": "DEM",
+          "votes": 72498
+        }
+      ],
+      "sourceTotalVotes": 72498,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:02:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "106ac2603bd55dee8ebdb460311694169cfd0405be747df2258ddf75601aa3ed"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "03",
+      "rawOfficeName": "US House of Representatives - District 3 - Dem",
+      "sourceContestId": "USH3D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "George Melville Johnson",
+          "sourceChoiceId": "78",
+          "rawParty": "DEM",
+          "votes": 21881
+        },
+        {
+          "sourceCandidateName": "Maura Keller",
+          "sourceChoiceId": "79",
+          "rawParty": "DEM",
+          "votes": 33964
+        }
+      ],
+      "sourceTotalVotes": 55845,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:03:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "e0b97852a294c4de5e8063d0955bd21592ad6957f9644b1cc6417f3fa6affa3d"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "04",
+      "rawOfficeName": "US House of Representatives - District 4 - Dem",
+      "sourceContestId": "USH4D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Henry \"Hank\" Johnson, Jr. (I)",
+          "sourceChoiceId": "78",
+          "rawParty": "DEM",
+          "votes": 81997
+        },
+        {
+          "sourceCandidateName": "Ansel Postell",
+          "sourceChoiceId": "79",
+          "rawParty": "DEM",
+          "votes": 12052
+        },
+        {
+          "sourceCandidateName": "Ben Truman",
+          "sourceChoiceId": "80",
+          "rawParty": "DEM",
+          "votes": 9366
+        }
+      ],
+      "sourceTotalVotes": 103415,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:04:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "0a276fa6a02e4a61a3ddb0270e4db5cbf967ad40fa19a4e55f65583037d5c969"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "05",
+      "rawOfficeName": "US House of Representatives - District 5 - Dem",
+      "sourceContestId": "USH5D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Arnetress Beatty",
+          "sourceChoiceId": "78",
+          "rawParty": "DEM",
+          "votes": 16186
+        },
+        {
+          "sourceCandidateName": "Nikema Williams (I)",
+          "sourceChoiceId": "79",
+          "rawParty": "DEM",
+          "votes": 118546
+        }
+      ],
+      "sourceTotalVotes": 134732,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:05:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "67e77244ae6bd63019515ec3a86ab1c48590cb23d2f505ad4b1528393a297d77"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "06",
+      "rawOfficeName": "US House of Representatives - District 6 - Dem",
+      "sourceContestId": "USH6D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Lucy McBath (I)",
+          "sourceChoiceId": "79",
+          "rawParty": "DEM",
+          "votes": 126663
+        }
+      ],
+      "sourceTotalVotes": 126663,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:06:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "d961a6e6e6a5772a79d406bdad27c248de77c33899c41563e52bd997f2cfb3b9"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "07",
+      "rawOfficeName": "US House of Representatives - District 7 - Dem",
+      "sourceContestId": "USH7D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Tony Kozycki",
+          "sourceChoiceId": "78",
+          "rawParty": "DEM",
+          "votes": 19742
+        },
+        {
+          "sourceCandidateName": "Larry D. Long",
+          "sourceChoiceId": "79",
+          "rawParty": "DEM",
+          "votes": 9269
+        },
+        {
+          "sourceCandidateName": "Case Norton",
+          "sourceChoiceId": "80",
+          "rawParty": "DEM",
+          "votes": 11043
+        },
+        {
+          "sourceCandidateName": "Jayson Toweh",
+          "sourceChoiceId": "81",
+          "rawParty": "DEM",
+          "votes": 9367
+        }
+      ],
+      "sourceTotalVotes": 49421,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:07:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "cda05ffa8b52b8cb003c532aebbf3b5f96158230f86be620bfcf5ebe37783c95"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "08",
+      "rawOfficeName": "US House of Representatives - District 8 - Dem",
+      "sourceContestId": "USH8D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Kelly Esti",
+          "sourceChoiceId": "78",
+          "rawParty": "DEM",
+          "votes": 23828
+        },
+        {
+          "sourceCandidateName": "Justin M. Lucas",
+          "sourceChoiceId": "79",
+          "rawParty": "DEM",
+          "votes": 20719
+        }
+      ],
+      "sourceTotalVotes": 44547,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:08:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "e99d4af6ed04c00eee25de7ef82d5b814dfa8179c67fdc98b743cabd76ca5580"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "09",
+      "rawOfficeName": "US House of Representatives - District 9 - Dem",
+      "sourceContestId": "USH9D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Nick Alex",
+          "sourceChoiceId": "80",
+          "rawParty": "DEM",
+          "votes": 17056
+        },
+        {
+          "sourceCandidateName": "Caitlyn Gegen",
+          "sourceChoiceId": "81",
+          "rawParty": "DEM",
+          "votes": 25570
+        }
+      ],
+      "sourceTotalVotes": 42626,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:09:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "86c56a3dec40d8d18a60ef98f92330242f5199b6d34883848844ebecdafcdf5f"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "10",
+      "rawOfficeName": "US House of Representatives - District 10 - Dem",
+      "sourceContestId": "USH10D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Pamela \"Pam\" Delancy",
+          "sourceChoiceId": "80",
+          "rawParty": "DEM",
+          "votes": 35058
+        },
+        {
+          "sourceCandidateName": "Alexandra \"Lexy\" Doherty",
+          "sourceChoiceId": "81",
+          "rawParty": "DEM",
+          "votes": 25341
+        },
+        {
+          "sourceCandidateName": "John Dority",
+          "sourceChoiceId": "82",
+          "rawParty": "DEM",
+          "votes": 4022
+        }
+      ],
+      "sourceTotalVotes": 64421,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:10:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "e5fffb6ef6b4d0dda5bbc55ac6e1a386dc1d3fb83da947d2c3b0f52667bc20bd"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "11",
+      "rawOfficeName": "US House of Representatives - District 11 - Dem",
+      "sourceContestId": "USH11D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Chris Harden",
+          "sourceChoiceId": "86",
+          "rawParty": "DEM",
+          "votes": 39204
+        },
+        {
+          "sourceCandidateName": "Barry Wolfert",
+          "sourceChoiceId": "87",
+          "rawParty": "DEM",
+          "votes": 13230
+        }
+      ],
+      "sourceTotalVotes": 52434,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:11:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "ff92a5c3a392904952a2c1bd1ac408991310621d6ae5703fd1efe281e4e9a714"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "12",
+      "rawOfficeName": "US House of Representatives - District 12 - Dem",
+      "sourceContestId": "USH12D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Traci \"Acree\" George",
+          "sourceChoiceId": "79",
+          "rawParty": "DEM",
+          "votes": 16334
+        },
+        {
+          "sourceCandidateName": "Tracell Peace-Nichols",
+          "sourceChoiceId": "80",
+          "rawParty": "DEM",
+          "votes": 6843
+        },
+        {
+          "sourceCandidateName": "Ceretta Smith",
+          "sourceChoiceId": "81",
+          "rawParty": "DEM",
+          "votes": 20112
+        },
+        {
+          "sourceCandidateName": "Chris Stephens",
+          "sourceChoiceId": "82",
+          "rawParty": "DEM",
+          "votes": 6539
+        },
+        {
+          "sourceCandidateName": "Brianna Woodson",
+          "sourceChoiceId": "83",
+          "rawParty": "DEM",
+          "votes": 11456
+        }
+      ],
+      "sourceTotalVotes": 61284,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:12:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "faa8f85998b1af61fc96c00dc7856da29218a335d9dcfeaaad74d14f615344d0"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "13",
+      "rawOfficeName": "US House of Representatives - District 13 - Dem",
+      "sourceContestId": "USH13D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Everton \"EJ\" Blair",
+          "sourceChoiceId": "81",
+          "rawParty": "DEM",
+          "votes": 12733
+        },
+        {
+          "sourceCandidateName": "Jasmine Clark",
+          "sourceChoiceId": "82",
+          "rawParty": "DEM",
+          "votes": 61504
+        },
+        {
+          "sourceCandidateName": "Jeff Fauntleroy Sr.",
+          "sourceChoiceId": "83",
+          "rawParty": "DEM",
+          "votes": 1557
+        },
+        {
+          "sourceCandidateName": "Emanuel D Jones",
+          "sourceChoiceId": "84",
+          "rawParty": "DEM",
+          "votes": 8204
+        },
+        {
+          "sourceCandidateName": "Heavenly Kimes",
+          "sourceChoiceId": "85",
+          "rawParty": "DEM",
+          "votes": 23537
+        },
+        {
+          "sourceCandidateName": "Joe N. Lester",
+          "sourceChoiceId": "86",
+          "rawParty": "DEM",
+          "votes": 2046
+        }
+      ],
+      "sourceTotalVotes": 109581,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:13:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "29e3f99c7671db8ff5c7fc40944a7a06d2f30f33f2da8c0d3f803c9bd8b34244"
+    },
+    {
+      "stateCode": "GA",
+      "districtCode": "14",
+      "rawOfficeName": "US House of Representatives - District 14 - Dem",
+      "sourceContestId": "USH14D",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "eventKind": "regular",
+      "stage": "primary",
+      "resultAuthorityStatus": "secretary_official_results_workbook_retained",
+      "certificationStatus": "official_results_flag_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "candidate_sum_equals_workbook_contest_total",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateName": "Shawn Harris",
+          "sourceChoiceId": "87",
+          "rawParty": "DEM",
+          "votes": 43067
+        }
+      ],
+      "sourceTotalVotes": 43067,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "runoffAdvancementConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestId": "ga:2026:regular:us-house:14:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "sourceLockIds": [
+        "ga-2026-general-primary-election-metadata",
+        "ga-2026-general-primary-total-votes-workbook"
+      ],
+      "contestSha256": "2c82b49b349e357eebb2e7f67efd9d334708319946a8f841ba2e8077352933b1"
+    }
+  ],
+  "targetObservations": [
+    {
+      "observationId": "ga:target:2022:02",
+      "targetSeatId": "seat_house_ga_02_current",
+      "targetSeatRowSha256": "63b1154a01e15f24d5e6444bfb660991a8d10aae80b5a2cd0006ccb365f9ffd2",
+      "bioguideId": "B000490",
+      "cycleYear": 2022,
+      "currentTargetDistrictCode": "02",
+      "sourceDistrictCode": "02",
+      "contestId": "ga:2022:regular:us-house:02:democratic",
+      "contestSha256": "c5c96fe66043b97906a27002cddfa3ca20dc7d385ec98424cddf7b25851bae96",
+      "sourceCandidateNameObservation": "Sanford Bishop (I)",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 58805,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "886be8664798b9fe13f260599ee5da92a5398a280351af08a7cca2b1c5f8cfd7"
+    },
+    {
+      "observationId": "ga:target:2022:04",
+      "targetSeatId": "seat_house_ga_04_current",
+      "targetSeatRowSha256": "c0386d13ec47a3348028572542eab7df9a938718db5b1a18dee979e352f293e0",
+      "bioguideId": "J000288",
+      "cycleYear": 2022,
+      "currentTargetDistrictCode": "04",
+      "sourceDistrictCode": "04",
+      "contestId": "ga:2022:regular:us-house:04:democratic",
+      "contestSha256": "537460a3368b02db7c6c9ddae2ee59a7a4f6f120912b0bab8e0d8daa6c568fc0",
+      "sourceCandidateNameObservation": "Henry C \"\"Hank\"\" Johnson, Jr. (I)",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 84773,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "7b997f607055a7c0687917e7b826b7bc4322def291ff8cbb75f6ed79ebadb76d"
+    },
+    {
+      "observationId": "ga:target:2022:05",
+      "targetSeatId": "seat_house_ga_05_current",
+      "targetSeatRowSha256": "f3936dd3d77bd7515368a71896b3f20f438438032db5de916c004cae1df5ad05",
+      "bioguideId": "W000788",
+      "cycleYear": 2022,
+      "currentTargetDistrictCode": "05",
+      "sourceDistrictCode": "05",
+      "contestId": "ga:2022:regular:us-house:05:democratic",
+      "contestSha256": "5e1edc358e129fddc041a8bebbe9fad96b7b60d3b18ef7e4efa97a2cb405f271",
+      "sourceCandidateNameObservation": "Nikema Williams (I)",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 90932,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "b05ea8fea3792c00cd36d06f04067e3881b08a6d845c68b38a63c59d56b6841a"
+    },
+    {
+      "observationId": "ga:target:2022:06",
+      "targetSeatId": "seat_house_ga_06_current",
+      "targetSeatRowSha256": "fe4712d69c801d03354d77f1e0835e001191987997605c44fefc4dc12c909436",
+      "bioguideId": "M001208",
+      "cycleYear": 2022,
+      "currentTargetDistrictCode": "06",
+      "sourceDistrictCode": "07",
+      "contestId": "ga:2022:regular:us-house:07:democratic",
+      "contestSha256": "598025926ce5f07df2b7d5725af8117806d9faeb67509bdccecf6d33f7177501",
+      "sourceCandidateNameObservation": "Lucy McBath (I)",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 53269,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "7882ef6ccd09bb4c6a9cb2fe7e0af9afd7caad63b9844a88e80f584da8cef5ec"
+    },
+    {
+      "observationId": "ga:target:2024:02",
+      "targetSeatId": "seat_house_ga_02_current",
+      "targetSeatRowSha256": "63b1154a01e15f24d5e6444bfb660991a8d10aae80b5a2cd0006ccb365f9ffd2",
+      "bioguideId": "B000490",
+      "cycleYear": 2024,
+      "currentTargetDistrictCode": "02",
+      "sourceDistrictCode": "02",
+      "contestId": "ga:2024:regular:us-house:02:democratic",
+      "contestSha256": "9dfb3cc34f57acb69a85a243a4c9ef66df6042ed77b84f749c31b03a02239768",
+      "sourceCandidateNameObservation": "Sanford Bishop (I)",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 46379,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "8a11a3f658473765cd315a88ce4879378d2b72fef1c73e2aaf40c754eefe2d11"
+    },
+    {
+      "observationId": "ga:target:2024:04",
+      "targetSeatId": "seat_house_ga_04_current",
+      "targetSeatRowSha256": "c0386d13ec47a3348028572542eab7df9a938718db5b1a18dee979e352f293e0",
+      "bioguideId": "J000288",
+      "cycleYear": 2024,
+      "currentTargetDistrictCode": "04",
+      "sourceDistrictCode": "04",
+      "contestId": "ga:2024:regular:us-house:04:democratic",
+      "contestSha256": "3a128dfda3bcbe119d5de87a4740b7e5914fee7970450629bbea08e9110bd900",
+      "sourceCandidateNameObservation": "Henry 'Hank' Johnson, Jr. (I)",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 53269,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "c6d6feb4d9783b76ea5dc8288cedd59b29e9be260252c00b7ef112b0f5470849"
+    },
+    {
+      "observationId": "ga:target:2024:05",
+      "targetSeatId": "seat_house_ga_05_current",
+      "targetSeatRowSha256": "f3936dd3d77bd7515368a71896b3f20f438438032db5de916c004cae1df5ad05",
+      "bioguideId": "W000788",
+      "cycleYear": 2024,
+      "currentTargetDistrictCode": "05",
+      "sourceDistrictCode": "05",
+      "contestId": "ga:2024:regular:us-house:05:democratic",
+      "contestSha256": "36e22c263513da5608c3bb2d8b770a6b9e7638ce7e5aadaca5051447a5d1b77b",
+      "sourceCandidateNameObservation": "Nikema Williams (I)",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 69116,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "b20571374bae39300d39eef21c9509da56c79587f76658218842fe165d3bfca9"
+    },
+    {
+      "observationId": "ga:target:2024:06",
+      "targetSeatId": "seat_house_ga_06_current",
+      "targetSeatRowSha256": "fe4712d69c801d03354d77f1e0835e001191987997605c44fefc4dc12c909436",
+      "bioguideId": "M001208",
+      "cycleYear": 2024,
+      "currentTargetDistrictCode": "06",
+      "sourceDistrictCode": "06",
+      "contestId": "ga:2024:regular:us-house:06:democratic",
+      "contestSha256": "d38c0a73c1d637343d64782a132c999b8720d6d8f9af1ecaab7ddfd090c1b2ef",
+      "sourceCandidateNameObservation": "Lucy McBath (I)",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 71783,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "eb937560ca7508ffb191c4c2af1b4451056d0079a34dcff19e8f1ae06be8a460"
+    },
+    {
+      "observationId": "ga:target:2026:02",
+      "targetSeatId": "seat_house_ga_02_current",
+      "targetSeatRowSha256": "63b1154a01e15f24d5e6444bfb660991a8d10aae80b5a2cd0006ccb365f9ffd2",
+      "bioguideId": "B000490",
+      "cycleYear": 2026,
+      "currentTargetDistrictCode": "02",
+      "sourceDistrictCode": "02",
+      "contestId": "ga:2026:regular:us-house:02:democratic",
+      "contestSha256": "106ac2603bd55dee8ebdb460311694169cfd0405be747df2258ddf75601aa3ed",
+      "sourceCandidateNameObservation": "Sanford Bishop (I)",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 72498,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "6bd0ac025f552828e205947935063f5ea26711d05c09eec7c2901a150b453c65"
+    },
+    {
+      "observationId": "ga:target:2026:04",
+      "targetSeatId": "seat_house_ga_04_current",
+      "targetSeatRowSha256": "c0386d13ec47a3348028572542eab7df9a938718db5b1a18dee979e352f293e0",
+      "bioguideId": "J000288",
+      "cycleYear": 2026,
+      "currentTargetDistrictCode": "04",
+      "sourceDistrictCode": "04",
+      "contestId": "ga:2026:regular:us-house:04:democratic",
+      "contestSha256": "0a276fa6a02e4a61a3ddb0270e4db5cbf967ad40fa19a4e55f65583037d5c969",
+      "sourceCandidateNameObservation": "Henry \"Hank\" Johnson, Jr. (I)",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 103415,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "fdc1d667da3f853a1b83b2276e349520e4d6a2b25972a62ca7c0c3af478bf413"
+    },
+    {
+      "observationId": "ga:target:2026:05",
+      "targetSeatId": "seat_house_ga_05_current",
+      "targetSeatRowSha256": "f3936dd3d77bd7515368a71896b3f20f438438032db5de916c004cae1df5ad05",
+      "bioguideId": "W000788",
+      "cycleYear": 2026,
+      "currentTargetDistrictCode": "05",
+      "sourceDistrictCode": "05",
+      "contestId": "ga:2026:regular:us-house:05:democratic",
+      "contestSha256": "67e77244ae6bd63019515ec3a86ab1c48590cb23d2f505ad4b1528393a297d77",
+      "sourceCandidateNameObservation": "Nikema Williams (I)",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 134732,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "8230972958989d6c6ddbaae0da4e26ba8bfd73966b862dfd8a0a3b69bb62b117"
+    },
+    {
+      "observationId": "ga:target:2026:06",
+      "targetSeatId": "seat_house_ga_06_current",
+      "targetSeatRowSha256": "fe4712d69c801d03354d77f1e0835e001191987997605c44fefc4dc12c909436",
+      "bioguideId": "M001208",
+      "cycleYear": 2026,
+      "currentTargetDistrictCode": "06",
+      "sourceDistrictCode": "06",
+      "contestId": "ga:2026:regular:us-house:06:democratic",
+      "contestSha256": "d961a6e6e6a5772a79d406bdad27c248de77c33899c41563e52bd997f2cfb3b9",
+      "sourceCandidateNameObservation": "Lucy McBath (I)",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 126663,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "337b9ac8667842dd466511e139c2821ade5c613111cee951f1576b0df6ffb450"
+    }
+  ],
+  "summary": {
+    "contests": 42,
+    "contests2022": 14,
+    "contests2024": 14,
+    "contests2026": 14,
+    "candidates": 103,
+    "candidateVotes": 2230328,
+    "targetObservations": 12,
+    "targetContestCandidates": 22,
+    "targetContestVotes": 965634,
+    "sourceWinnerMarkers": 0,
+    "nominationConclusions": 0,
+    "runoffAdvancementConclusions": 0,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0,
+    "contestSetSha256": "63233fddde9cf2a21543e7eb40ff182ed66d5a6b138108dcc43ad4577a74e82e",
+    "targetObservationSetSha256": "37413c20ce73f52e08990c321f397b15a788211aca8d6a18f5a2ec5c82881d06"
+  },
+  "limitations": [
+    "The retained portal metadata marks each regular-primary election's results official and production, but no separate signed statewide certification instrument is retained and bound to the workbook bytes.",
+    "Only each workbook's Total Votes sheet is parsed. Total Votes by Group and precinct or county sheets are not added again, and separately published runoff election events are not retained or assessed in this package.",
+    "The workbooks do not mark winners. Vote rank, a one-candidate contest, and the source (I) label are not converted into a winner, nominee, runoff-advancement, or current-member identity conclusion.",
+    "The 2022 source observation for current GA-06 is source district 07. That bounded source-name observation is not a claim of current identity approval or historical-to-current geographic compatibility.",
+    "Georgia Secretary of State reuse terms do not state an open-data license for these files, so this reviewer-only receipt records licenseOrReuseTerms as not_stated_by_source."
+  ],
+  "unresolvedGates": [
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility_including_georgia_cd119_redraw",
+    "review_regular_primary_and_runoff_disposition",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "0048130e863daae9d527528a1a004b73e811ff27ad1fac1d4d98ca13937944ee"
+}
