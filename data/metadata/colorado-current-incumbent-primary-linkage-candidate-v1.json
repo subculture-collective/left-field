@@ -1,0 +1,477 @@
+{
+  "schema": "colorado-current-incumbent-primary-linkage-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T23:30:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_authorized_identity_and_historical_geography_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "roster": {
+      "sourceLockId": "dsa-target-incumbent-roster-20260804-v1",
+      "fileSha256": "8ae9bb3423e6160d00b5395186c42550e28811b817a482650875d87de71079e1",
+      "packageSha256": "cf068848595dee99882ae74a6bef2b76061597fe0daa3c86b30c71bdcae18fee"
+    },
+    "proposal": {
+      "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+    },
+    "houseClerk": {
+      "sourceLockId": "house-xml",
+      "fileSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+    },
+    "congressLegislators": {
+      "sourceLockId": "congress-legislators-current-20260804",
+      "fileSha256": "bc48cccd12df96164e5a2415fc41e838ca255fe85c297731515529692f7982cf"
+    },
+    "receipt": {
+      "sourceLockId": "colorado-house-democratic-primary-results-2022-2026-v1",
+      "fileSha256": "9f06ea32b7ff7564829d163dbecbf6e78a61c2ebb95e3d31d3875d7a64027569",
+      "packageSha256": "c5f2e3c5bda8b027b9879911e07a99d3623a656a5aa717a5408079dc15bf4b55",
+      "contestSetSha256": "b1619063732c5ea17bc37e473239abb18faa3dc948671420b98357e58fd26116"
+    }
+  },
+  "methodology": {
+    "scope": "four_current_colorado_target_seats_times_three_completed_primary_cycles",
+    "currentIdentityCorroboratedByRosterHouseClerkAndCongressLegislators": true,
+    "identityMethod": "exact_normalized_official_house_name_same_district_only",
+    "directIdentifierBridgeAvailable": false,
+    "sourceWinnerInferenceUsed": false,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "targetSeats": 4,
+    "contestObservations": 12,
+    "exactNameObservations": 12,
+    "derivedNameRelationships": 0,
+    "proposedIdentityLinks": 12,
+    "directIdentifierBridges": 0,
+    "automaticallyApprovedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "observations": [
+    {
+      "observationId": "co:identity:2022:01",
+      "contestId": "co:2022:us-house:01:democratic",
+      "contestSha256": "28f94be079416631aa7f99002ce881c364041fb9927cde01b0944c3f52ddbd76",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "districtCode": "01",
+      "seatCycleId": "seat_house_co_01_current",
+      "rosterIdentity": {
+        "bioguideId": "D000197",
+        "officialHouseName": "Diana DeGette"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Diana DeGette",
+        "candidacyKind": "named_candidate",
+        "votes": 79391
+      },
+      "sourceCandidateCount": 2,
+      "sourceContestVotes": 97863,
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rowSha256": "80af05e5a832c06e65562bf0cb67ef324897f9d5f7f067e107956d517464bce5"
+    },
+    {
+      "observationId": "co:identity:2022:02",
+      "contestId": "co:2022:us-house:02:democratic",
+      "contestSha256": "87b8532e455841a58db0068fd3528af39d0f23ce8574116912259d9d43f04c58",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "districtCode": "02",
+      "seatCycleId": "seat_house_co_02_current",
+      "rosterIdentity": {
+        "bioguideId": "N000191",
+        "officialHouseName": "Joe Neguse"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Joe Neguse",
+        "candidacyKind": "named_candidate",
+        "votes": 91793
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 91793,
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rowSha256": "cf74e81caeac8d83742186c02a18fba92a75bea75fbf7b29e81b29dcefedd79a"
+    },
+    {
+      "observationId": "co:identity:2022:06",
+      "contestId": "co:2022:us-house:06:democratic",
+      "contestSha256": "4050d991f4fe4e695125b530a40e902bf147da155bab33221d609baf676f0e3d",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "districtCode": "06",
+      "seatCycleId": "seat_house_co_06_current",
+      "rosterIdentity": {
+        "bioguideId": "C001121",
+        "officialHouseName": "Jason Crow"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Jason Crow",
+        "candidacyKind": "named_candidate",
+        "votes": 61074
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 61074,
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rowSha256": "3aae433bdaf54f5df4ba41d4eb7b0124a8deb3bd6c12319a23a873f85cf0ebd6"
+    },
+    {
+      "observationId": "co:identity:2022:07",
+      "contestId": "co:2022:us-house:07:democratic",
+      "contestSha256": "87f6740d978e351c00b472042f8672c98ed1fcad66e269652127d9b66b715555",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-28",
+      "districtCode": "07",
+      "seatCycleId": "seat_house_co_07_current",
+      "rosterIdentity": {
+        "bioguideId": "P000620",
+        "officialHouseName": "Brittany Pettersen"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Brittany Pettersen",
+        "candidacyKind": "named_candidate",
+        "votes": 71497
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 71497,
+      "resultAuthorityStatus": "official_secretary_abstract",
+      "certificationStatus": "certification_announcement_and_signed_statewide_abstract_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rowSha256": "561cce7c7a5e6e6a74f065723c9353d2f229e03f81940acd6640602e9b32833d"
+    },
+    {
+      "observationId": "co:identity:2024:01",
+      "contestId": "co:2024:us-house:01:democratic",
+      "contestSha256": "91e5a413a649d47894cd0f4c21afccd3570dfea046dc5e301b27716dd6909b8c",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "districtCode": "01",
+      "seatCycleId": "seat_house_co_01_current",
+      "rosterIdentity": {
+        "bioguideId": "D000197",
+        "officialHouseName": "Diana DeGette"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Diana DeGette",
+        "candidacyKind": "named_candidate",
+        "votes": 78548
+      },
+      "sourceCandidateCount": 2,
+      "sourceContestVotes": 78679,
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rowSha256": "48ab5956012b4755fd45ee8bd50e94f4e5f296c74d5ba14d145e072c9d19022a"
+    },
+    {
+      "observationId": "co:identity:2024:02",
+      "contestId": "co:2024:us-house:02:democratic",
+      "contestSha256": "4f603c23f3f27c7844ee46e5aacd843973eaa1146a2fb0d144d807efcf3a0c8c",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "districtCode": "02",
+      "seatCycleId": "seat_house_co_02_current",
+      "rosterIdentity": {
+        "bioguideId": "N000191",
+        "officialHouseName": "Joe Neguse"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Joe Neguse",
+        "candidacyKind": "named_candidate",
+        "votes": 91218
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 91218,
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rowSha256": "98c559d07a33f2cba0dda7781c83acb84da7116c9fb052e6aaee7b9df3d256be"
+    },
+    {
+      "observationId": "co:identity:2024:06",
+      "contestId": "co:2024:us-house:06:democratic",
+      "contestSha256": "973c59e106ca9a3588e00c9e7b9fec8258f7946a30e0670ade3b3deb0dbd6755",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "districtCode": "06",
+      "seatCycleId": "seat_house_co_06_current",
+      "rosterIdentity": {
+        "bioguideId": "C001121",
+        "officialHouseName": "Jason Crow"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Jason Crow",
+        "candidacyKind": "named_candidate",
+        "votes": 55837
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 55837,
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rowSha256": "0cd7835bf045b766fce13e7eb7afe3429767f16a8430e5ac1edcb8f4db6f8451"
+    },
+    {
+      "observationId": "co:identity:2024:07",
+      "contestId": "co:2024:us-house:07:democratic",
+      "contestSha256": "8c8369d18329a82ef3a6a1255e9bcff508a30710ce6321d2a15ce45ddf41b972",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-25",
+      "districtCode": "07",
+      "seatCycleId": "seat_house_co_07_current",
+      "rosterIdentity": {
+        "bioguideId": "P000620",
+        "officialHouseName": "Brittany Pettersen"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Brittany Pettersen",
+        "candidacyKind": "named_candidate",
+        "votes": 71052
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 71052,
+      "resultAuthorityStatus": "official_certified_biennial_abstract",
+      "certificationStatus": "certified_publication_no_separate_signed_certificate_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rowSha256": "68cfe13aca35fb3658c8942018effde1f828a6a2e4d820307bf97ead1ad7643a"
+    },
+    {
+      "observationId": "co:identity:2026:01",
+      "contestId": "co:2026:us-house:01:democratic",
+      "contestSha256": "debfebebe03d6e28a54c740a75e0b50f48e5bbf05b23ff896b7a918411e161e6",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "districtCode": "01",
+      "seatCycleId": "seat_house_co_01_current",
+      "rosterIdentity": {
+        "bioguideId": "D000197",
+        "officialHouseName": "Diana DeGette"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Diana DeGette",
+        "candidacyKind": "named_candidate",
+        "votes": 62715
+      },
+      "sourceCandidateCount": 3,
+      "sourceContestVotes": 157645,
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rowSha256": "4914a1a4113d25071f22cb3435433823b39afe382888f778743f38b591fa1543"
+    },
+    {
+      "observationId": "co:identity:2026:02",
+      "contestId": "co:2026:us-house:02:democratic",
+      "contestSha256": "08612772b3f5d148e838681e81d7f8ce66946d39a5e0727cac1d2b24bdcc76c7",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "districtCode": "02",
+      "seatCycleId": "seat_house_co_02_current",
+      "rosterIdentity": {
+        "bioguideId": "N000191",
+        "officialHouseName": "Joe Neguse"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Joe Neguse",
+        "candidacyKind": "named_candidate",
+        "votes": 136146
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 136146,
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rowSha256": "1d8fa0575335a90dc2b17ad9fa0f08c801f7fb3aa03ab5edaa71b91fd0ab833b"
+    },
+    {
+      "observationId": "co:identity:2026:06",
+      "contestId": "co:2026:us-house:06:democratic",
+      "contestSha256": "ffa459073abd8a1f6dc5a4f3ea75ea5858a2df5184f623ee7b40f5b293f63bc3",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "districtCode": "06",
+      "seatCycleId": "seat_house_co_06_current",
+      "rosterIdentity": {
+        "bioguideId": "C001121",
+        "officialHouseName": "Jason Crow"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Jason Crow",
+        "candidacyKind": "named_candidate",
+        "votes": 94207
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 94207,
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rowSha256": "8be9c4f1e503f283f2f92ca47f98cd06ac636368b964878addf405f17a618e11"
+    },
+    {
+      "observationId": "co:identity:2026:07",
+      "contestId": "co:2026:us-house:07:democratic",
+      "contestSha256": "53f3e80173adf05c0834a83ca2d36ddcffec3ee906cdd7c379ddac57ed0cad73",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-30",
+      "districtCode": "07",
+      "seatCycleId": "seat_house_co_07_current",
+      "rosterIdentity": {
+        "bioguideId": "P000620",
+        "officialHouseName": "Brittany Pettersen"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Brittany Pettersen",
+        "candidacyKind": "named_candidate",
+        "votes": 113707
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 113707,
+      "resultAuthorityStatus": "signed_secretary_statewide_abstract",
+      "certificationStatus": "signed_secretary_certificate_bound_to_abstract",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rowSha256": "8c4a72098def36802af8c3233ec68f38934debcdca1341e2a4387c1f72670698"
+    }
+  ],
+  "observationSetSha256": "2fe869fd9b90f549e47c0916eb02c4b9644584ecf4d95a4711015d570e056e9e",
+  "decisionSupport": {
+    "decisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+    "recommendedDecision": "accept_twelve_exact_same_district_name_observations_as_identity_candidates",
+    "defaultReversibleAssumption": "exclude_all_observations_from_evaluator_and_publication",
+    "resolution": null
+  },
+  "packageSha256": "6d89eb3cfeba6da05abafd4daf710fea55d282291c19ea10b83abc2a1b4e6649"
+}
