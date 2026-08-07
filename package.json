@@ -85,6 +85,8 @@
     "fetch:ga-house-primary-results": "node scripts/fetch-georgia-house-primary-results.mjs",
     "fetch:nm-house-primary-results": "node scripts/fetch-new-mexico-house-primary-results.mjs",
     "fetch:me-house-primary-results": "node scripts/fetch-maine-house-primary-results.mjs",
+    "fetch:me-primary-geography-authority": "node scripts/fetch-maine-primary-geography-authority.mjs",
+    "generate:me-primary-geography-authority-receipt-v1": "tsx scripts/generate-maine-primary-geography-authority-source-receipt.ts",
     "fetch:nm-primary-geography-authority": "node scripts/fetch-new-mexico-primary-geography-authority.mjs",
     "generate:ga-house-primary-results-receipt": "tsx scripts/generate-georgia-house-democratic-primary-results-receipt.ts",
     "generate:nm-house-primary-results-receipt": "tsx scripts/generate-new-mexico-house-democratic-primary-results-receipt.ts",

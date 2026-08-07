@@ -1,0 +1,362 @@
+{
+  "schema": "maine-primary-geography-authority-source-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-07T10:30:00.000Z",
+  "sourceCutoff": "2026-08-07",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "sources": [
+    {
+      "id": "maine-legislature-ld1739-status-20260807",
+      "url": "https://legislature.maine.gov/legis/bills/display_ps.asp?paper=HP1305&PID=1456&snum=130",
+      "retainedPath": "data/source/elections/primary-results/geography/maine/authority/ld1739-status.html",
+      "retainedStatus": "retained",
+      "byteSize": 23634,
+      "sha256": "c8d2b476ebf95c33de413e836850848fa2bd506902a20d8e698ecd46ee4625d2",
+      "kind": "official_plan_law_status",
+      "parentIds": []
+    },
+    {
+      "id": "maine-pl-2021-c487-congressional-plan",
+      "url": "https://legislature.maine.gov/legis/bills/getPDF.asp?paper=HP1305&item=2&snum=130",
+      "retainedPath": "data/source/elections/primary-results/geography/maine/authority/pl-2021-c487-congressional-plan.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 157014,
+      "sha256": "1f8b086dfdc3e93ba6b35dab6383b5a7ec312bf571aa6a3ba391553041f0c291",
+      "kind": "official_plan_law",
+      "parentIds": [
+        "maine-legislature-ld1739-status-20260807"
+      ]
+    },
+    {
+      "id": "maine-pl-2021-c487-congressional-plan-text",
+      "url": "urn:dsa-seats:maine-pl-2021-c487:pdftotext-layout-26.07.0",
+      "retainedPath": "data/source/elections/primary-results/geography/maine/authority/pl-2021-c487-congressional-plan.txt",
+      "retainedStatus": "retained",
+      "byteSize": 3080,
+      "sha256": "78a3106078478c2aa58d9cb3702ddbc6470a7e5fbbc30e4008ed4845cb2a5aff",
+      "kind": "derived_extract",
+      "parentIds": [
+        "maine-pl-2021-c487-congressional-plan"
+      ]
+    },
+    {
+      "id": "maine-mrsa-21a-1205a-congressional-districts-20260807",
+      "url": "https://legislature.maine.gov/statutes/21-A/title21-Asec1205-A.html",
+      "retainedPath": "data/source/elections/primary-results/geography/maine/authority/mrsa-title21a-section1205-a.html",
+      "retainedStatus": "retained",
+      "byteSize": 10895,
+      "sha256": "558850b897f0fae7a5089d813554c7d891d0d0cedf8b86aea4069f1720225c96",
+      "kind": "official_current_plan_statute",
+      "parentIds": []
+    },
+    {
+      "id": "maine-mrsa-21a-1206-reapportionment-20260807",
+      "url": "https://legislature.maine.gov/legis/statutes/21-A/title21-Asec1206.html",
+      "retainedPath": "data/source/elections/primary-results/geography/maine/authority/mrsa-title21a-section1206.html",
+      "retainedStatus": "retained",
+      "byteSize": 12802,
+      "sha256": "c597f99128f1b9f0f69891bf53d16219aa0ac540971870c405337a03bcac39d4",
+      "kind": "official_plan_duration_statute",
+      "parentIds": []
+    },
+    {
+      "id": "census-cd118-block-equivalency-bundle-20260806",
+      "url": "https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2023/118-congressional-district-bef/cd118.zip",
+      "retainedPath": "data/source/elections/primary-results/geography/new-york/historical/census-cd118-block-equivalency-bundle.zip",
+      "retainedStatus": "retained",
+      "byteSize": 25922515,
+      "sha256": "a2f38d0dd7c207fa144a88b66df9f59f8a6e5c27e932fbd4a32d1bcf587c5763",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "census-cd118-maine-block-equivalency-extract-20260807",
+      "url": "urn:dsa-seats:census-cd118-bef:23_ME_CD118.txt",
+      "retainedPath": "data/source/elections/primary-results/geography/maine/historical/23_ME_CD118.txt",
+      "retainedStatus": "retained",
+      "byteSize": 942773,
+      "sha256": "3f9fea1bde2062980b2a854bbbfe2593184191798a487b7542751e648efef148",
+      "kind": "derived_extract",
+      "parentIds": [
+        "census-cd118-block-equivalency-bundle-20260806"
+      ]
+    },
+    {
+      "id": "census-cd119-block-equivalency-bundle-20260805",
+      "url": "https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2025/119-congressional-district-befs/cd119.zip",
+      "retainedPath": "data/source/elections/primary-results/geography/north-carolina/current/census-cd119-block-equivalency-bundle.zip",
+      "retainedStatus": "retained",
+      "byteSize": 22959130,
+      "sha256": "1433feb5178dc7b4188ee30f5f7f715851f4400740b8fe1ce606a876c6294bd6",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "census-cd119-maine-block-equivalency-extract-20260807",
+      "url": "urn:dsa-seats:census-cd119-bef:NationalCD119.txt:state-fips-23",
+      "retainedPath": "data/source/elections/primary-results/geography/maine/current/23_ME_CD119.txt",
+      "retainedStatus": "retained",
+      "byteSize": 942772,
+      "sha256": "7920db5f0c0fb4f7029547f5fb7ee79b4454a811929764dfc795b981f610299e",
+      "kind": "derived_extract",
+      "parentIds": [
+        "census-cd119-block-equivalency-bundle-20260805"
+      ]
+    },
+    {
+      "id": "census-cd119-plan-change-authority-20260805",
+      "url": "https://www.census.gov/geographies/mapping-files/2025/dec/rdo/119-congressional-district-bef.html",
+      "retainedPath": "data/source/elections/primary-results/geography/census-119-congressional-district-bef.html",
+      "retainedStatus": "retained",
+      "byteSize": 324827,
+      "sha256": "66a0551a6c3c6432bff0a6a6db23f221fbe02ead1d15221d7050633898914670",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "tiger-cd119-23",
+      "url": "https://www2.census.gov/geo/tiger/TIGER2025/CD/tl_2025_23_cd119.zip",
+      "retainedPath": "data/source/tiger2025/tl_2025_23_cd119.zip",
+      "retainedStatus": "retained",
+      "byteSize": 358233,
+      "sha256": "c92f890be463967aea2c0d09de468037e3b168cc9cd82a57d421c3d9c5e77c58",
+      "kind": "source",
+      "parentIds": []
+    }
+  ],
+  "authority": {
+    "planLaw": "Maine Public Law 2021, chapter 487",
+    "enactedOn": "2021-09-29",
+    "appliesBeginning": 2022,
+    "currentDistrictStatute": "21-A MRSA §1205-A",
+    "reapportionmentStatute": "21-A MRSA §1206",
+    "congressionalDistrictCount": 2,
+    "planStatus": "enacted_and_signed_official_plan_law"
+  },
+  "censusPlanChangeAuthority": {
+    "sourceLockId": "census-cd119-plan-change-authority-20260805",
+    "statesExplicitlyNamedAsRedrawn": [
+      "AL",
+      "GA",
+      "LA",
+      "NY",
+      "NC"
+    ],
+    "maineExplicitlyExcluded": true,
+    "inferenceBoundary": "not_named_in_five_state_cd119_redraw_list_is_not_a_raw_geometry_equality_or_cd120_claim"
+  },
+  "blockAssignments": {
+    "stateFips": "23",
+    "cd118Rows": 47138,
+    "cd119Rows": 47138,
+    "identicalNormalizedAssignments": true,
+    "districtCounts": {
+      "01": 15307,
+      "02": 31831
+    },
+    "assignmentSetSha256": "623b804a4699b5d74df42be3d4d7e3b2948a8cdc609b90c6579d90152c327a1f",
+    "historicalHeader": "GEOID, CDFP",
+    "currentHeader": "GEOID,CDFP"
+  },
+  "tigerCd119Inventory": {
+    "stateFips": "23",
+    "districts": [
+      "01",
+      "02"
+    ],
+    "districtCount": 2,
+    "dbfMemberSha256": "21cc2db0b76dea890b77f232b716b1635d4cce9d788b164ea88a4194f2b2f663"
+  },
+  "methodology": {
+    "authorityBasis": "enacted_ld1739_public_law_current_statutes_complete_census_block_assignments_census_redraw_scope_and_tiger_cd119_inventory",
+    "cycleTreatment": "2022_enacted_plan_plus_identical_cd118_cd119_assignment_2024_same_cd119_session_2026_current_state_law_continuity_without_cd120_census_geometry",
+    "assignmentComparison": "complete_normalized_geoid_to_district_assignment_equality_between_retained_cd118_and_cd119_extracts",
+    "rawGeometryEqualityAssessed": false,
+    "sourcePlanToCd119ExactBlockConcordanceAssessed": false,
+    "stateLawPlanContinuityAssessed": true,
+    "cd120CensusGeometryAssessed": false,
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "cycleDispositionRows": [
+    {
+      "geographyAuthorityObservationId": "me:geography-authority:2022:01",
+      "cycleYear": 2022,
+      "districtCode": "01",
+      "electionDate": "2022-06-14",
+      "targetCongressSession": "119",
+      "historicalCongressSession": "118",
+      "disposition": "official_enacted_plan_and_identical_cd118_cd119_assignment_candidate",
+      "evidenceClass": "direct_official_law_and_derived_complete_assignment_identity",
+      "cd118Cd119AssignmentIdentitySupport": true,
+      "exactCd119SessionAssignmentSupport": false,
+      "stateLawPlanContinuitySupport": false,
+      "compatibilityCandidate": true,
+      "cd120CensusGeometryRetained": false,
+      "rawGeometryEqualityAssessed": false,
+      "sourcePlanToCd119ExactBlockConcordanceAssessed": false,
+      "approved": false,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "ae4f31e4cbb8b284931f3da25948c86ed2a609a22c7e772aaf53be13fb064898"
+    },
+    {
+      "geographyAuthorityObservationId": "me:geography-authority:2022:02",
+      "cycleYear": 2022,
+      "districtCode": "02",
+      "electionDate": "2022-06-14",
+      "targetCongressSession": "119",
+      "historicalCongressSession": "118",
+      "disposition": "official_enacted_plan_and_identical_cd118_cd119_assignment_candidate",
+      "evidenceClass": "direct_official_law_and_derived_complete_assignment_identity",
+      "cd118Cd119AssignmentIdentitySupport": true,
+      "exactCd119SessionAssignmentSupport": false,
+      "stateLawPlanContinuitySupport": false,
+      "compatibilityCandidate": true,
+      "cd120CensusGeometryRetained": false,
+      "rawGeometryEqualityAssessed": false,
+      "sourcePlanToCd119ExactBlockConcordanceAssessed": false,
+      "approved": false,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "505b9c2ff8d8afa1ebb05d19543bf63dbedd31d20004a23d32e97fa892f521a0"
+    },
+    {
+      "geographyAuthorityObservationId": "me:geography-authority:2024:01",
+      "cycleYear": 2024,
+      "districtCode": "01",
+      "electionDate": "2024-06-11",
+      "targetCongressSession": "119",
+      "historicalCongressSession": "119",
+      "disposition": "same_cd119_session_assignment_candidate",
+      "evidenceClass": "derived_same_complete_cd119_session_assignment",
+      "cd118Cd119AssignmentIdentitySupport": false,
+      "exactCd119SessionAssignmentSupport": true,
+      "stateLawPlanContinuitySupport": false,
+      "compatibilityCandidate": true,
+      "cd120CensusGeometryRetained": false,
+      "rawGeometryEqualityAssessed": false,
+      "sourcePlanToCd119ExactBlockConcordanceAssessed": false,
+      "approved": false,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "17e53b819eee322f090832e8ec6eb1509b49ccc85180b45d5b3249d6a9529a0c"
+    },
+    {
+      "geographyAuthorityObservationId": "me:geography-authority:2024:02",
+      "cycleYear": 2024,
+      "districtCode": "02",
+      "electionDate": "2024-06-11",
+      "targetCongressSession": "119",
+      "historicalCongressSession": "119",
+      "disposition": "same_cd119_session_assignment_candidate",
+      "evidenceClass": "derived_same_complete_cd119_session_assignment",
+      "cd118Cd119AssignmentIdentitySupport": false,
+      "exactCd119SessionAssignmentSupport": true,
+      "stateLawPlanContinuitySupport": false,
+      "compatibilityCandidate": true,
+      "cd120CensusGeometryRetained": false,
+      "rawGeometryEqualityAssessed": false,
+      "sourcePlanToCd119ExactBlockConcordanceAssessed": false,
+      "approved": false,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "d036376cb4d500563df4cff8bf22aca7b092eca7fbd868d24092e7c76aae079a"
+    },
+    {
+      "geographyAuthorityObservationId": "me:geography-authority:2026:01",
+      "cycleYear": 2026,
+      "districtCode": "01",
+      "electionDate": "2026-06-09",
+      "targetCongressSession": "119",
+      "historicalCongressSession": "120",
+      "disposition": "state_law_continuing_plan_candidate_without_cd120_census_geometry",
+      "evidenceClass": "direct_official_current_law_plan_continuity_without_cd120_geometry",
+      "cd118Cd119AssignmentIdentitySupport": false,
+      "exactCd119SessionAssignmentSupport": false,
+      "stateLawPlanContinuitySupport": true,
+      "compatibilityCandidate": true,
+      "cd120CensusGeometryRetained": false,
+      "rawGeometryEqualityAssessed": false,
+      "sourcePlanToCd119ExactBlockConcordanceAssessed": false,
+      "approved": false,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "2a69fe25fd11fbd6b63d85cbca785ed40e6001f0736f09100572ab9a8e9aecc8"
+    },
+    {
+      "geographyAuthorityObservationId": "me:geography-authority:2026:02",
+      "cycleYear": 2026,
+      "districtCode": "02",
+      "electionDate": "2026-06-09",
+      "targetCongressSession": "119",
+      "historicalCongressSession": "120",
+      "disposition": "state_law_continuing_plan_candidate_without_cd120_census_geometry",
+      "evidenceClass": "direct_official_current_law_plan_continuity_without_cd120_geometry",
+      "cd118Cd119AssignmentIdentitySupport": false,
+      "exactCd119SessionAssignmentSupport": false,
+      "stateLawPlanContinuitySupport": true,
+      "compatibilityCandidate": true,
+      "cd120CensusGeometryRetained": false,
+      "rawGeometryEqualityAssessed": false,
+      "sourcePlanToCd119ExactBlockConcordanceAssessed": false,
+      "approved": false,
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "b94b9d20dcc1747ac0caebf71381f9b7e419e070f6fd43320ac039a0f673f2fb"
+    }
+  ],
+  "cycleDispositionRowSetSha256": "3b6560e9d785198c9c108b85341a9afa91a7dedb80ae65a87c2701b50ac6c0d7",
+  "summary": {
+    "cycleRows": 6,
+    "cd118Cd119SupportableRows": 2,
+    "cd119SameSessionSupportableRows": 2,
+    "stateLawPlanContinuitySupportableRows": 2,
+    "compatibilityCandidateRows": 6,
+    "cd120CensusGeometryRows": 0,
+    "approvedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "limitations": [
+    "The exact retained CD118/CD119 block-assignment comparison is a Census assignment comparison, not an assessment of equality between raw TIGER geometries or the enacted plan geometry.",
+    "The Census five-state CD119 redraw list excludes Maine, but does not establish any congressional-district result, candidate identity, election administration, or CD120 conclusion.",
+    "The 2026 state-law plan-continuity candidates rely on the enacted '2022 and thereafter' rule, current codification, and decennial review cadence; no Census CD120 geometry or exact CD120 GEOID is retained or inferred, and no historical-geography approval, score, publication, or deployment follows."
+  ],
+  "unresolvedGates": [
+    "review_historical_district_compatibility",
+    "review_2026_state_law_plan_continuity_without_cd120_census_geometry",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "e3407eaf10aca8dcb526a88524b1a1ed466a031fcdaf6b1b0d038b16824f23a2"
+}
