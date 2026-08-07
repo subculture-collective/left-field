@@ -1,0 +1,1471 @@
+{
+  "schema": "georgia-cd118-cd119-block-crosswalk-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-07T07:00:00.000Z",
+  "sourceCutoff": "2026-08-07",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_authorized_geography_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "planChangeAuthority": {
+      "sourceLockId": "census-cd119-plan-change-authority-20260805",
+      "fileSha256": "66a0551a6c3c6432bff0a6a6db23f221fbe02ead1d15221d7050633898914670",
+      "authorityFinding": "georgia_named_by_census_as_cd119_redraw_state"
+    },
+    "cd118BlockEquivalency": {
+      "sourceLockId": "census-cd118-georgia-block-equivalency-extract-20260807",
+      "fileSha256": "074a7d3f7757b4daf606d1686d51f0736a2747e4b55aa151bb48a0bb4f23f70c",
+      "parentBundleId": "census-cd118-block-equivalency-bundle-20260806"
+    },
+    "cd119BlockEquivalency": {
+      "sourceLockId": "census-cd119-georgia-block-equivalency-extract-20260807",
+      "fileSha256": "fce46d16aa6cfd4ff0166c74ffd9a013775630688463544dcae613bd4a9e156d",
+      "parentBundleId": "census-cd119-block-equivalency-bundle-20260805"
+    }
+  },
+  "methodology": {
+    "joinKey": "2020_census_tabulation_block_geoid",
+    "sourcePlan": "census_cd118_georgia_state_submitted_plan",
+    "targetPlan": "census_cd119_georgia_state_submitted_plan",
+    "sourceAndTargetBlockUniverseEqual": true,
+    "blockUniverse": 232717,
+    "exactMembershipRule": "source_and_same_number_target_district_block_sets_must_be_identical",
+    "splitDispositionRule": "crosswalk_review_required_regardless_of_overlap_share",
+    "zeroOverlapAlternateTargetRule": "do_not_select_an_alternate_target_district",
+    "overlapThresholdUsed": false,
+    "districtNumberContinuityAssumed": false,
+    "blockCountsArePopulationWeighted": false,
+    "blockCountsAreVoterWeighted": false,
+    "blockCountsAreElectoralWeighted": false,
+    "rawGeometryEqualityAssessed": false,
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "sourceDistricts": 14,
+    "targetDistricts": 14,
+    "exactBlockMembershipCandidates": 5,
+    "crosswalkReviewRequired": 9,
+    "sourceBlocks": 232717,
+    "targetBlocks": 232717,
+    "sharedBlocks": 232717,
+    "changedDistrictAssignments": 34108,
+    "automaticallyApprovedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "rows": [
+    {
+      "crosswalkId": "ga:cd118-cd119:01",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "01",
+      "sourceGeoid": "1301",
+      "targetSameNumberGeoid": "1301",
+      "sourceBlockCount": 25971,
+      "targetSameNumberBlockCount": 25971,
+      "sameDistrictBlockCount": 25971,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 25971,
+          "sourceSharePpm": 1000000
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "confidence": "high",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "official_census_cd118_and_cd119_bef_extracts",
+        "candidate_still_requires_authorized_geography_review"
+      ],
+      "rowSha256": "c9e2ea7709b2cf6c4172874be024209b755ce75ba5386c6ad05b0d77fdbf7605"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:02",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "02",
+      "sourceGeoid": "1302",
+      "targetSameNumberGeoid": "1302",
+      "sourceBlockCount": 28498,
+      "targetSameNumberBlockCount": 28498,
+      "sameDistrictBlockCount": 28498,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 28498,
+          "sourceSharePpm": 1000000
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "confidence": "high",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "official_census_cd118_and_cd119_bef_extracts",
+        "candidate_still_requires_authorized_geography_review"
+      ],
+      "rowSha256": "f03f3def3c6ec4b46783c3e33d9a588cc62df1cb294df39c278694ea21879648"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:03",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "03",
+      "sourceGeoid": "1303",
+      "targetSameNumberGeoid": "1303",
+      "sourceBlockCount": 17650,
+      "targetSameNumberBlockCount": 17650,
+      "sameDistrictBlockCount": 17650,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 17650,
+          "sourceSharePpm": 1000000
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "confidence": "high",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "official_census_cd118_and_cd119_bef_extracts",
+        "candidate_still_requires_authorized_geography_review"
+      ],
+      "rowSha256": "abfec117106ff5294a597d90db890eaf21da5c0f1fffcdedb360f9d61c34e57e"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:04",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "04",
+      "sourceGeoid": "1304",
+      "targetSameNumberGeoid": "1304",
+      "sourceBlockCount": 7267,
+      "targetSameNumberBlockCount": 5850,
+      "sameDistrictBlockCount": 3752,
+      "sourceRetentionPpm": 516307,
+      "targetCoveragePpm": 641368,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 3752,
+          "sourceSharePpm": 516307
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 1042,
+          "sourceSharePpm": 143388
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 2473,
+          "sourceSharePpm": 340305
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "source_district_splits_across_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "no_alternate_target_district_selected"
+      ],
+      "rowSha256": "98b1d1a524bc70bf2e9fcda31ff113fc9bc089e42234a0b8e5e64488851fbd50"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:05",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "05",
+      "sourceGeoid": "1305",
+      "targetSameNumberGeoid": "1305",
+      "sourceBlockCount": 9602,
+      "targetSameNumberBlockCount": 9754,
+      "sameDistrictBlockCount": 7396,
+      "sourceRetentionPpm": 770256,
+      "targetCoveragePpm": 758253,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 317,
+          "sourceSharePpm": 33014
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 7396,
+          "sourceSharePpm": 770256
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 1769,
+          "sourceSharePpm": 184232
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 87,
+          "sourceSharePpm": 9061
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 33,
+          "sourceSharePpm": 3437
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "source_district_splits_across_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "no_alternate_target_district_selected"
+      ],
+      "rowSha256": "666f4c2c129e7478b19a10f77f0380b9cb2ca41476a6279bb1ad2b44217f017d"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:06",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "06",
+      "sourceGeoid": "1306",
+      "targetSameNumberGeoid": "1306",
+      "sourceBlockCount": 6607,
+      "targetSameNumberBlockCount": 8513,
+      "sameDistrictBlockCount": 0,
+      "sourceRetentionPpm": 0,
+      "targetCoveragePpm": 0,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 5002,
+          "sourceSharePpm": 757076
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 280,
+          "sourceSharePpm": 42379
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 1325,
+          "sourceSharePpm": 200545
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "source_district_splits_across_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "no_alternate_target_district_selected"
+      ],
+      "rowSha256": "14e0155f033664e9091e10a8b81aca28a8a80e337072af7f1f60086e992d46e3"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:07",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "07",
+      "sourceGeoid": "1307",
+      "targetSameNumberGeoid": "1307",
+      "sourceBlockCount": 5187,
+      "targetSameNumberBlockCount": 7504,
+      "sameDistrictBlockCount": 506,
+      "sourceRetentionPpm": 97552,
+      "targetCoveragePpm": 67431,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 1781,
+          "sourceSharePpm": 343358
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 506,
+          "sourceSharePpm": 97552
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 240,
+          "sourceSharePpm": 46269
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 248,
+          "sourceSharePpm": 47812
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 2412,
+          "sourceSharePpm": 465009
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "source_district_splits_across_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "no_alternate_target_district_selected"
+      ],
+      "rowSha256": "9a295ec12c48cb45dab9ebeef4754bd3b1b94d2b5a757f823dd3c8bde4c8a158"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:08",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "08",
+      "sourceGeoid": "1308",
+      "targetSameNumberGeoid": "1308",
+      "sourceBlockCount": 31592,
+      "targetSameNumberBlockCount": 31592,
+      "sameDistrictBlockCount": 31592,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 31592,
+          "sourceSharePpm": 1000000
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "confidence": "high",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "official_census_cd118_and_cd119_bef_extracts",
+        "candidate_still_requires_authorized_geography_review"
+      ],
+      "rowSha256": "762b39437dd4f57efc5750ade56178af353108ac850f1c41560c29a2747fc018"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:09",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "09",
+      "sourceGeoid": "1309",
+      "targetSameNumberGeoid": "1309",
+      "sourceBlockCount": 18605,
+      "targetSameNumberBlockCount": 16878,
+      "sameDistrictBlockCount": 14270,
+      "sourceRetentionPpm": 766998,
+      "targetCoveragePpm": 845479,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 1909,
+          "sourceSharePpm": 102607
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 14270,
+          "sourceSharePpm": 766998
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 2426,
+          "sourceSharePpm": 130395
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "source_district_splits_across_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "no_alternate_target_district_selected"
+      ],
+      "rowSha256": "cd150b3a68f26d831098bbf813d5c96496492b95d158d133cff7a6627bd169aa"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:10",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "10",
+      "sourceGeoid": "1310",
+      "targetSameNumberGeoid": "1310",
+      "sourceBlockCount": 18112,
+      "targetSameNumberBlockCount": 18698,
+      "sameDistrictBlockCount": 16024,
+      "sourceRetentionPpm": 884717,
+      "targetCoveragePpm": 856990,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 2088,
+          "sourceSharePpm": 115283
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 16024,
+          "sourceSharePpm": 884717
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "source_district_splits_across_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "no_alternate_target_district_selected"
+      ],
+      "rowSha256": "272adea1b01156f199ac2d813216ad08861af25705c397dfe7de217f0f4b3d58"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:11",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "11",
+      "sourceGeoid": "1311",
+      "targetSameNumberGeoid": "1311",
+      "sourceBlockCount": 9982,
+      "targetSameNumberBlockCount": 10807,
+      "sameDistrictBlockCount": 7873,
+      "sourceRetentionPpm": 788720,
+      "targetCoveragePpm": 728509,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 1102,
+          "sourceSharePpm": 110399
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 7873,
+          "sourceSharePpm": 788720
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 1007,
+          "sourceSharePpm": 100881
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "source_district_splits_across_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "no_alternate_target_district_selected"
+      ],
+      "rowSha256": "d00b37a79b7be9a35c847441393ddf40f19ea7fe5cf61165d5f44c505d15b768"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:12",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "12",
+      "sourceGeoid": "1312",
+      "targetSameNumberGeoid": "1312",
+      "sourceBlockCount": 28599,
+      "targetSameNumberBlockCount": 28599,
+      "sameDistrictBlockCount": 28599,
+      "sourceRetentionPpm": 1000000,
+      "targetCoveragePpm": 1000000,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 28599,
+          "sourceSharePpm": 1000000
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "exact_block_membership_candidate",
+      "compatibilityCandidate": true,
+      "confidence": "high",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "identical_2020_tabulation_block_membership",
+        "official_census_cd118_and_cd119_bef_extracts",
+        "candidate_still_requires_authorized_geography_review"
+      ],
+      "rowSha256": "9a61e4bc83171ac4c29294186ce992d118921be144ffbd755b5965e28297aa68"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:13",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "13",
+      "sourceGeoid": "1313",
+      "targetSameNumberGeoid": "1313",
+      "sourceBlockCount": 8612,
+      "targetSameNumberBlockCount": 7380,
+      "sameDistrictBlockCount": 2462,
+      "sourceRetentionPpm": 285880,
+      "targetCoveragePpm": 333604,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 1316,
+          "sourceSharePpm": 152810
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 4834,
+          "sourceSharePpm": 561310
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 2462,
+          "sourceSharePpm": 285880
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "source_district_splits_across_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "no_alternate_target_district_selected"
+      ],
+      "rowSha256": "554b5cc19cdcdfef3e50fd9c6ba4caf2cb76bf4c96c81822f46344a708112b17"
+    },
+    {
+      "crosswalkId": "ga:cd118-cd119:14",
+      "stateFips": "13",
+      "sourceCongressSession": "118",
+      "targetCongressSession": "119",
+      "sourceDistrictCode": "14",
+      "sourceGeoid": "1314",
+      "targetSameNumberGeoid": "1314",
+      "sourceBlockCount": 16433,
+      "targetSameNumberBlockCount": 15023,
+      "sameDistrictBlockCount": 14016,
+      "sourceRetentionPpm": 852918,
+      "targetCoveragePpm": 932969,
+      "sourceToTargetSplits": [
+        {
+          "targetDistrictCode": "01",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "02",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "03",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "04",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "05",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "06",
+          "blockCount": 808,
+          "sourceSharePpm": 49169
+        },
+        {
+          "targetDistrictCode": "07",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "08",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "09",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "10",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "11",
+          "blockCount": 1609,
+          "sourceSharePpm": 97913
+        },
+        {
+          "targetDistrictCode": "12",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "13",
+          "blockCount": 0,
+          "sourceSharePpm": 0
+        },
+        {
+          "targetDistrictCode": "14",
+          "blockCount": 14016,
+          "sourceSharePpm": 852918
+        }
+      ],
+      "blockCountMeaning": "2020_census_tabulation_blocks_not_population_voters_or_electoral_weight",
+      "compatibilityDisposition": "crosswalk_review_required",
+      "compatibilityCandidate": false,
+      "confidence": "none",
+      "compatibilityApproved": false,
+      "scoreEligible": false,
+      "evaluatorUse": "excluded_pending_authorized_geography_review",
+      "rationaleCodes": [
+        "source_district_splits_across_cd119_districts",
+        "same_district_number_and_overlap_are_not_continuity_thresholds",
+        "block_counts_are_not_population_voter_or_electoral_weights",
+        "no_alternate_target_district_selected"
+      ],
+      "rowSha256": "8e86b905e414d11673d91ba6ca967a43470907367da19f1d9c494273ead30a7c"
+    }
+  ],
+  "rowSetSha256": "9921959d244b269279e666c296c3024da7789a7510ab0775d1421e43bbbd3ebe",
+  "decisionSupport": {
+    "informsDecisionId": "approve-historical-district-cd119-compatibility-v1",
+    "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision",
+    "recommendedResolution": "accept_five_exact_membership_candidates_and_retain_nine_split_rows_for_crosswalk_review",
+    "defaultAssumption": "exclude_all_rows_until_authorized_geography_review",
+    "consequenceIfAccepted": "a_later_geography_package_may_consume_only_exact_membership_candidates_without_treating_them_as_approved",
+    "consequenceIfRejected": "all_fourteen_cd118_rows_remain_redraw_crosswalk_required",
+    "blocksOtherWork": false,
+    "inheritedResolution": null
+  },
+  "packageSha256": "f79e588ca24be585665d345400456dfa604dc806e7ca465fd7dece874d5310a8"
+}

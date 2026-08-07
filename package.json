@@ -85,6 +85,7 @@
     "fetch:ga-house-primary-results": "node scripts/fetch-georgia-house-primary-results.mjs",
     "generate:ga-house-primary-results-receipt": "tsx scripts/generate-georgia-house-democratic-primary-results-receipt.ts",
     "generate:ga-current-incumbent-primary-linkage-v1": "tsx scripts/generate-georgia-current-incumbent-primary-linkage-candidate.ts",
+    "generate:ga-cd118-cd119-block-crosswalk-v1": "tsx scripts/generate-georgia-cd118-cd119-block-crosswalk-candidate.ts",
     "fetch:ct-general-statements": "node scripts/fetch-connecticut-general-election-statements.mjs",
     "fetch:ct-nomination-statutes": "node scripts/fetch-connecticut-nomination-statutes.mjs",
     "fetch:va-primary-geography-authority": "node scripts/fetch-virginia-primary-geography-authority.mjs",
