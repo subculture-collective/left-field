@@ -185,6 +185,7 @@
     "generate:nj-2026-congressional-plan-authority": "tsx scripts/generate-new-jersey-2026-congressional-plan-authority-receipt.ts",
     "generate:nj-pa-primary-geography-v2": "tsx scripts/generate-nj-pa-primary-geography-compatibility-candidate-v2.ts",
     "generate:nj-pa-primary-joint-review-v2": "tsx scripts/generate-nj-pa-primary-identity-geography-review-package-v2.ts",
+    "generate:nj-pa-primary-joint-review-v3": "tsx scripts/generate-nj-pa-primary-identity-geography-review-package-v3.ts",
     "import:or-primary-abstracts": "node scripts/import-oregon-primary-abstracts.mjs",
     "generate:or-house-primary-results-receipt": "tsx scripts/generate-oregon-house-democratic-primary-results-receipt.ts",
     "fetch:or-primary-geography-authority": "node scripts/fetch-oregon-primary-geography-authority.mjs",

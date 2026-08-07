@@ -1,0 +1,3109 @@
+{
+  "schema": "nj-pa-primary-identity-geography-review-package-v3",
+  "version": 3,
+  "generatedAt": "2026-08-07T06:10:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_and_publication_until_exact_parent_decisions_and_all_other_gates_are_approved",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "parents": {
+    "jointV2": {
+      "sourceLockId": "nj-pa-primary-identity-geography-review-package-v2",
+      "fileSha256": "ce6afdd2686d1bd03ae09f7fa6c1c7e154fc23c9bc06ac71f520ad8b1d6e568b",
+      "packageSha256": "5524a9d24519cb34a9d0e270f669eddb7a16abf17c4fc3f49dc0f6e50eae6192",
+      "rowSetSha256": "e0f735c67ade78a9209df181e15e2ae049967083d6f5510a37952c926a658af8",
+      "reviewRecordSetSha256": "2aad472ad63c3319cd7ee928a93d7448024b375a9bc20c852d2c47b99add49b5",
+      "superseded": false
+    },
+    "certificationAvailabilityAssessment": {
+      "sourceLockId": "nj-pa-primary-certification-availability-assessment-v1",
+      "fileSha256": "49ef2ecf530cd3f76de03c780b343d49837171dfe6e0f76acac1405b735301ef",
+      "packageSha256": "7cf437c67e4b457e110ae03cc0ef0f88afc004fb0c19a279d4646fa8a163fa4a",
+      "rowSetSha256": "7c91368a0e77c29cc9fd593cbf1d3d27f0d4eaafba07435662222067e9c4612a"
+    }
+  },
+  "methodology": {
+    "compositionOnly": true,
+    "parentRowsSemanticallyPreserved": true,
+    "authorityJoinedByStateAndCycleOnly": true,
+    "availabilityIsNotCertification": true,
+    "exactResultCertificationReconciliationClaimed": false,
+    "pa2026ResultRowCreated": false,
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "privacy": {
+    "candidateNamesExcluded": true,
+    "candidateNumbersVotesAndMarkersExcluded": true,
+    "addressesContactsDobDonorsExcluded": true,
+    "rawGeometryExcluded": true,
+    "rawSourceTextExcluded": true
+  },
+  "summary": {
+    "observations": 41,
+    "bothCandidatesPendingIndependentReviews": 33,
+    "geographyCandidateIdentityUnresolved": 8,
+    "exactIdentityCandidates": 18,
+    "derivedIdentityCandidates": 9,
+    "inferredIdentityCandidates": 6,
+    "unresolvedIdentityRows": 8,
+    "geographyCandidates": 41,
+    "cd120PendingRows": 0,
+    "certificationAvailabilityAttachedRecords": 41,
+    "njOfficialResultCandidateRecords": 27,
+    "paDepartmentExtractCandidateRecords": 14,
+    "statewideCertificationContextRetainedRecords": 7,
+    "exactResultCertificationReconciledRecords": 0,
+    "stateCyclesAssessed": 6,
+    "jointStateCyclesCovered": 5,
+    "assessmentOnlyStateCycles": 1,
+    "missingResultStateCycles": 1,
+    "parentDecisionReviews": 3,
+    "authorityApprovals": 0,
+    "automaticApprovals": 0,
+    "scoreEligibleRows": 0
+  },
+  "rows": [
+    {
+      "linkageId": "nj:2022:us-house:01:democratic:N000188",
+      "contestSha256": "4b19f87965ba0813a244b7215e1ff498fd63d003e349dfab027bf965b22b1fdf",
+      "seatCycleId": "seat_house_nj_01_current",
+      "stateCode": "NJ",
+      "districtCode": "01",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "derived_name_relationship",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "d9d90835b692f40666cb0574962e4e02f6e20a1c086c51051f51f6f41ea0750b"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "aef4377a563ca779a6cf19d7cdf616e4f03e260fa4af374c1e16ff5b7c8d3b11",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3401",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "3401",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "2c6d51539a6828696cf05abd8ae661021b430e1c92b7dc7c47143a2cd4afbafb",
+        "parentV1GeographyRowSha256": "636790ea026e06b9466eed2bc2d7c994c911041e942a76afcee94d665c488377"
+      },
+      "parentV2RowSha256": "b474727e59387f9eea761c760cd010266bb2bac2f7660ace327313836976f71c",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2022",
+        "assessmentRowSha256": "270b77d8593970f4831784b81e2895a78347262e7cc8751b947d13b57b2d1eb9",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "c8c90da3be43d36a3dc548994d321c283349b30ff8fa2d21c1cd665abd1416a0"
+    },
+    {
+      "linkageId": "nj:2022:us-house:03:democratic:C001136",
+      "contestSha256": "5f43338305825a3c1b45cf3585bd6fd0adf04003e430aee4428690887fd05dab",
+      "seatCycleId": "seat_house_nj_03_current",
+      "stateCode": "NJ",
+      "districtCode": "03",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "unresolved",
+        "confidence": "none",
+        "relationshipDisposition": "not_linked_no_unique_candidate",
+        "reviewTier": "unresolved_no_unique_candidate",
+        "parentRowSha256": "504271b097d9eae25d1cef02676165ed571701ffa8625e5b3b2309e0cb4fb845"
+      },
+      "jointCategory": "geography_candidate_identity_unresolved",
+      "recommendedAction": "review_geography_retain_identity_unresolved",
+      "rationaleCode": "GEOGRAPHY_CANDIDATE_PRESENT_NO_UNIQUE_IDENTITY_CANDIDATE",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "c6bf33ee767e4e234b05cd879b6971745f081a6f651a7cc41e0babe4aa4ff240",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3403",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "3403",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "7dc968f3e4c260432d33a9f712a67247d680a09a52a65895b88020f1c18ddb09",
+        "parentV1GeographyRowSha256": "56c7996901d3990abb53704b8318bbaf8906af49a2cd95bf41039104d201ab5a"
+      },
+      "parentV2RowSha256": "a215467e25f7b53915c4e39e8350c2f5a931facc97e453b05393a9896cb382de",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2022",
+        "assessmentRowSha256": "270b77d8593970f4831784b81e2895a78347262e7cc8751b947d13b57b2d1eb9",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "2fbc03a07f168699ae0d4b5b60429c199abfd0328d221845053f711d0600914a"
+    },
+    {
+      "linkageId": "nj:2022:us-house:05:democratic:G000583",
+      "contestSha256": "4771de045d4123b2eddce2dfc7536835d7f3d0c232a0d2ab393e8db9f12062b7",
+      "seatCycleId": "seat_house_nj_05_current",
+      "stateCode": "NJ",
+      "districtCode": "05",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "f8651dcb709c8cd08d9821c4854864901e51cb2126f086f5d7a4edd6ef814128"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "4f141d3f4fbac4faa721fd7b1b6e4a66ade692db76c43a1437ec61d57d20ea6e",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3405",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "3405",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "f7d6e58c18619b1b1b43fc96f571c0efbb452147c7f71634302dc0a65432bf55",
+        "parentV1GeographyRowSha256": "38d2a6486fab3eea46ac92630652fb5c0393732ca140aca66ca34f1d05d05e9b"
+      },
+      "parentV2RowSha256": "a4d77475831b5760a897ae092826de07ad72fe8eb6acbbf2fb03ed76aea97eca",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2022",
+        "assessmentRowSha256": "270b77d8593970f4831784b81e2895a78347262e7cc8751b947d13b57b2d1eb9",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "fe0c65a7bd87d8cbcc32802109dc7c4cc7eaeb17ae608fbcdebe813af91d9422"
+    },
+    {
+      "linkageId": "nj:2022:us-house:06:democratic:P000034",
+      "contestSha256": "2dfb605215e157b3667e61c33bedb923fe2622f8211abd9701d0589de46d6d6c",
+      "seatCycleId": "seat_house_nj_06_current",
+      "stateCode": "NJ",
+      "districtCode": "06",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "8546f9601236479fcae061b1d182dad8f7e75c59e3513f6a130d2073a8028589"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "1bdbfe49c91ee64e103940af599c97e8a5edcd913fea2d7b5d63b3b21110905d",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3406",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "3406",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "69c823aea3af96d88e60ea183d44703ccbfd99dee74228510687d6bf36090ca7",
+        "parentV1GeographyRowSha256": "8d94de5d4e8926aacbe92ebd7d30a97dbe4060c97bc2a86d5e6302569b366ac6"
+      },
+      "parentV2RowSha256": "0d51444026652596137c25c902c3c2cbaa75c150e0a8169db3164d7370f00748",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2022",
+        "assessmentRowSha256": "270b77d8593970f4831784b81e2895a78347262e7cc8751b947d13b57b2d1eb9",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "3bf08d83e5c920e6653c13ade7275dd505078ca2c689c88f84240ce36e8eda42"
+    },
+    {
+      "linkageId": "nj:2022:us-house:08:democratic:M001226",
+      "contestSha256": "4581eecb478d807ab770033bbbfa2ee81e0de1362e8d2fdf681658d7e3b86dad",
+      "seatCycleId": "seat_house_nj_08_current",
+      "stateCode": "NJ",
+      "districtCode": "08",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "inferred_name_relationship",
+        "confidence": "medium",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "medium_confidence_inference_candidate",
+        "parentRowSha256": "c3a454287494b9e31829bfcfc7bb27ee86b33abbf177d323ae243c22295eee43"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "ecca30ce0844d798e7bd3b3d26e326377d267c71c2d3d17b998c963557ab87f5",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3408",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "3408",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "7f24271d354c1268aa879734fb4daf9ae9950edb69ea886df7be5ff7db324e60",
+        "parentV1GeographyRowSha256": "d8fde0797a4cbbd306168732beb76182e1b8f31cc5538b9011e26c8d5a010a63"
+      },
+      "parentV2RowSha256": "925b04ed2b195ef51df896544a197bd96e5a1520813eac95d91086098d02a919",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2022",
+        "assessmentRowSha256": "270b77d8593970f4831784b81e2895a78347262e7cc8751b947d13b57b2d1eb9",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "4c6c903aa5d6f3f56c4b6e1f373e474845677ca2efd3c49cb99b07444aace8c0"
+    },
+    {
+      "linkageId": "nj:2022:us-house:09:democratic:P000621",
+      "contestSha256": "6c9069ffeeecb506d2b695b98971b8526d40e9414d82a1b43625fb021e957b1b",
+      "seatCycleId": "seat_house_nj_09_current",
+      "stateCode": "NJ",
+      "districtCode": "09",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "unresolved",
+        "confidence": "none",
+        "relationshipDisposition": "not_linked_no_unique_candidate",
+        "reviewTier": "unresolved_no_unique_candidate",
+        "parentRowSha256": "8dad75ac491b43890d8c9c65329f691082666d458a9ae9d1b59598cb78eb5ae3"
+      },
+      "jointCategory": "geography_candidate_identity_unresolved",
+      "recommendedAction": "review_geography_retain_identity_unresolved",
+      "rationaleCode": "GEOGRAPHY_CANDIDATE_PRESENT_NO_UNIQUE_IDENTITY_CANDIDATE",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "1b4d0a2edbd1e46da9bf8a4427d565c8e6c033841301e85a4cd3512f89f7ef04",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3409",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "3409",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "270ff60a6cd304661e07268d47414dcd49cb99e332450ff8839303d6f27f18e1",
+        "parentV1GeographyRowSha256": "d5a6ad9aa3149a6c0f8aef192bab9676212ecd6e0391f968a30e9b71b0997460"
+      },
+      "parentV2RowSha256": "c4c3181bf715bdfbe3d6309fc43bb76fe5184e626cb4de397dfd91088153f7a6",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2022",
+        "assessmentRowSha256": "270b77d8593970f4831784b81e2895a78347262e7cc8751b947d13b57b2d1eb9",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "245b55de9cc7cec850709d64cdb11e1d3e748f430ff85dea95b9db303adaff3b"
+    },
+    {
+      "linkageId": "nj:2022:us-house:10:democratic:M001229",
+      "contestSha256": "3b6002afdac6f5d601fdebe96ed57c084e54d482a1c2f245973c8b352fc08150",
+      "seatCycleId": "seat_house_nj_10_current",
+      "stateCode": "NJ",
+      "districtCode": "10",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "unresolved",
+        "confidence": "none",
+        "relationshipDisposition": "not_linked_no_unique_candidate",
+        "reviewTier": "unresolved_no_unique_candidate",
+        "parentRowSha256": "fb5827a5ab28c9ef3c7e24c22c179b218641bef51c32c59275b9835fc37f8b7f"
+      },
+      "jointCategory": "geography_candidate_identity_unresolved",
+      "recommendedAction": "review_geography_retain_identity_unresolved",
+      "rationaleCode": "GEOGRAPHY_CANDIDATE_PRESENT_NO_UNIQUE_IDENTITY_CANDIDATE",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "65014e9f35a033b3f1c522fba9348e293136820a1713afa56e1191f990b97d3e",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3410",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "3410",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "fdf7d8db0ed6e58b64464331280aedb2cf328cbf08d36dedc364c0bb122324cd",
+        "parentV1GeographyRowSha256": "1aa1432d22ea79174ec8408ef712ca258e8ccaead215841e1e3850b77107c023"
+      },
+      "parentV2RowSha256": "aa8e4b7e0fa254708a06999081dd137c58d4246172148c28019bf25c836bd69b",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2022",
+        "assessmentRowSha256": "270b77d8593970f4831784b81e2895a78347262e7cc8751b947d13b57b2d1eb9",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "80e7ac54b3a06559a2b7ff5f8480446bef68c982df6229d10b2ac86b1189e8b2"
+    },
+    {
+      "linkageId": "nj:2022:us-house:11:democratic:M001246",
+      "contestSha256": "126e1ff769252c4fb4d65569671e687e1f6e5c4e7e88217c41ec5fa5f2ae64b9",
+      "seatCycleId": "seat_house_nj_11_current",
+      "stateCode": "NJ",
+      "districtCode": "11",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "unresolved",
+        "confidence": "none",
+        "relationshipDisposition": "not_linked_no_unique_candidate",
+        "reviewTier": "unresolved_no_unique_candidate",
+        "parentRowSha256": "94c2209061e5505cc7d5513b41748fe61b448b89d3821e881759faae71c49a05"
+      },
+      "jointCategory": "geography_candidate_identity_unresolved",
+      "recommendedAction": "review_geography_retain_identity_unresolved",
+      "rationaleCode": "GEOGRAPHY_CANDIDATE_PRESENT_NO_UNIQUE_IDENTITY_CANDIDATE",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "764ae556f93896eb4e38df9a82e65fa07b2ef5c0699d56cd7460d88fd933e81d",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3411",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "3411",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "6e269f1e9755c3b19b5e878a7fdf529d684ee2579be94936e6418a4e772afefb",
+        "parentV1GeographyRowSha256": "55967adcbc61cf00b2538709c32d92ca91cdc78561f4be5ac14ca32e64e469c5"
+      },
+      "parentV2RowSha256": "5c570e50f463b47473ff0dabf4f96f394163f036d72436ca84d7964a10028c9a",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2022",
+        "assessmentRowSha256": "270b77d8593970f4831784b81e2895a78347262e7cc8751b947d13b57b2d1eb9",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "dbc7aedb22677984b1753afa68bbad287dba51d25350ab813b955cd77287724d"
+    },
+    {
+      "linkageId": "nj:2022:us-house:12:democratic:W000822",
+      "contestSha256": "e9b3a2e6cce33829008a28d3c4d3745dd0c032eccf9315801eee3fab50dd6034",
+      "seatCycleId": "seat_house_nj_12_current",
+      "stateCode": "NJ",
+      "districtCode": "12",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "a0be2c909da53d0db7cb581b2de19670cffc70bd72f97161932ea2611f07204b"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "db27e68e080cc900800170a4a72060eed984ed9c75f13593d35b8a07c59a4d9b",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3412",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "3412",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "4f50186b39298288f1b43f411164a5a06caab4377996514f26fa43da28a69bdb",
+        "parentV1GeographyRowSha256": "85410dafe0aca3f0524d7014ff52762c4711929e09b4d7becdebb8c1f52bfbf6"
+      },
+      "parentV2RowSha256": "d4abfa4ce70ead6b1065ecbddcddc45143c64a38486a3e6097b5b33f1b42d47b",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2022",
+        "assessmentRowSha256": "270b77d8593970f4831784b81e2895a78347262e7cc8751b947d13b57b2d1eb9",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "0f232949f534aed949eb893f73ba15f360167824330db74ddf9be8ae62e0da39"
+    },
+    {
+      "linkageId": "nj:2024:us-house:01:democratic:N000188",
+      "contestSha256": "59e3840ca49a2f43941be2422b0f66a3c2d3263942d96458220fc5c4c6d5e04d",
+      "seatCycleId": "seat_house_nj_01_current",
+      "stateCode": "NJ",
+      "districtCode": "01",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "9127855ff84de1763f3ed434f0c9309e92f87627fedaab1134815206c352cab3"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "f7588ad4e577517682c2595cefa9790669d133ec9cf61e61efee9b5786961876",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3401",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "3401",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "0b6487a24e6a435f6a4228a379f9c02f1892fb2526385fd20bc385d98fc2193b",
+        "parentV1GeographyRowSha256": "51dee8e91e323164f24d7c8d7674425a978ef9447ba5572d2632948c262bc413"
+      },
+      "parentV2RowSha256": "7b6c97c9320ff2d496d50b5f96a4074410ddf840fae59239c1ba447d28b72942",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2024",
+        "assessmentRowSha256": "dd97b67c45cdbe197d28e6616bcd424b9ca571f8127bbf750b606b2af64a9057",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "c88884cf1bfd73dbe190f5632b1c6a4b740709ef7494f37a2243258f92e5760d"
+    },
+    {
+      "linkageId": "nj:2024:us-house:03:democratic:C001136",
+      "contestSha256": "29af28cbc6ce7bb2a0a4e1ae4284be5f4bae1f6c1ea8420304eb0cfcad076937",
+      "seatCycleId": "seat_house_nj_03_current",
+      "stateCode": "NJ",
+      "districtCode": "03",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "derived_name_relationship",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "f497db24c61cd6e4770be91cfa64f790506dc108c3364fdd1887e4d84cb13eee"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "0c6c7337dca9f686c41bbf1697b4044df4ffbecac029ee3eda48aed7eaade111",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3403",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "3403",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "64b48a96acd57a93ac3c5a23ea9a9b314332d36cd7464ad99e445174139e08be",
+        "parentV1GeographyRowSha256": "438e5e0c988157b270e077c888a93b410a15257d7bbce3c81686bcadbd754fa2"
+      },
+      "parentV2RowSha256": "0de926a159e14dd94a87965ac4ae65a1198ff87951e7ff29c84b80209fd718aa",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2024",
+        "assessmentRowSha256": "dd97b67c45cdbe197d28e6616bcd424b9ca571f8127bbf750b606b2af64a9057",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "a267ae54ffa8004508815ce582dc5c9950d262a5e0a6abfabb17b5637c3fab76"
+    },
+    {
+      "linkageId": "nj:2024:us-house:05:democratic:G000583",
+      "contestSha256": "4c9196d61ffce3eb29ffbd7ad660f6a409e31542bb93308d98a376a9cdd268a9",
+      "seatCycleId": "seat_house_nj_05_current",
+      "stateCode": "NJ",
+      "districtCode": "05",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "60b36423aae7f7176a30aaaf523a7214cd5c00389c557b09b802e4c83223dd04"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "9f5382330ec0546b87414c12c788818eeae6ec99e7804d97e5f0f325063bdc5f",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3405",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "3405",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "15496155b697b515bf3504b0b99073455b0cc1643a39a6722f2c387195f5d76c",
+        "parentV1GeographyRowSha256": "f8b4df1cc1470a3534794d6361b6d3919376a43481b71810a81a8447113a66a2"
+      },
+      "parentV2RowSha256": "c94e7fcbaff8c8b3e5cf11956f677839bc6945d748a3e1878e79446d6d9f35c3",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2024",
+        "assessmentRowSha256": "dd97b67c45cdbe197d28e6616bcd424b9ca571f8127bbf750b606b2af64a9057",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "72d3c6094f636c5ca3ad44ee38a4e191d1347b481acc7df6d4098d0e6a3ea79c"
+    },
+    {
+      "linkageId": "nj:2024:us-house:06:democratic:P000034",
+      "contestSha256": "072a800fc6f353098a2d9751ab6696750633abeb03b54a3678a2922f3d12bbd0",
+      "seatCycleId": "seat_house_nj_06_current",
+      "stateCode": "NJ",
+      "districtCode": "06",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "62217447579f213f804a78b229afcf2f8d0a153b1aeb9298b01f622d3b612bc8"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "a66d4bcf0746e879fd9d3205c1aa1bfaf14fb42a0b785458b847c92d84ef41fe",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3406",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "3406",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "726546e9ed04fe44c7ffe2888e9de825f9345a40851838ef01f17b3d07d83435",
+        "parentV1GeographyRowSha256": "2f23f24c321a27f9fbc1117f7876f4ae6fa3cdb92790614347029a17c17d7850"
+      },
+      "parentV2RowSha256": "42b3dfc49a2d2d430c5ec13a4a315afb3dbdedf6019fd28b9d7629099dcf6f35",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2024",
+        "assessmentRowSha256": "dd97b67c45cdbe197d28e6616bcd424b9ca571f8127bbf750b606b2af64a9057",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "83e90415233638793826ef0d06f340cd58ccc319cc70b5e7548f886759149e36"
+    },
+    {
+      "linkageId": "nj:2024:us-house:08:democratic:M001226",
+      "contestSha256": "cdc452b7a5d0599e281fd10e5e93861818abaebd3350fc03ac4c380d8548a14b",
+      "seatCycleId": "seat_house_nj_08_current",
+      "stateCode": "NJ",
+      "districtCode": "08",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "derived_name_relationship",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "3a9a181a665a7c977cff4ff6c004724f7aa93186e7f6220d1817b1f702b4cbde"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "21141034f5b8522235a5d4434078244e522ce8b267ac87bf24952aa0858301fb",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3408",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "3408",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "78f855ba6867f9b60edd7cc283e9eafd3bedc66a0253057f0906a7079b6f97aa",
+        "parentV1GeographyRowSha256": "0b343e39eadda1c872fe1123ca14a5ffac95d548375722032dca2e72b26888d2"
+      },
+      "parentV2RowSha256": "472235bd11237d22e4f9ae34eb33b812a3f448228cf61b57b777bf3186ab2f0c",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2024",
+        "assessmentRowSha256": "dd97b67c45cdbe197d28e6616bcd424b9ca571f8127bbf750b606b2af64a9057",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "cc944ab71ec203690cbcc684b5ff64fd3d7c054f0fd2dfb1de06647a1a50d51a"
+    },
+    {
+      "linkageId": "nj:2024:us-house:09:democratic:P000621",
+      "contestSha256": "822b27e12d0aa9e322831c3d767d33ea60f6d4d88e048b83c25518425675fa7b",
+      "seatCycleId": "seat_house_nj_09_current",
+      "stateCode": "NJ",
+      "districtCode": "09",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "unresolved",
+        "confidence": "none",
+        "relationshipDisposition": "not_linked_no_unique_candidate",
+        "reviewTier": "unresolved_no_unique_candidate",
+        "parentRowSha256": "91c77e0bedc806e92ebc4cc6e76e892e2bb47a021e1fcdaaa797855fce1fedcb"
+      },
+      "jointCategory": "geography_candidate_identity_unresolved",
+      "recommendedAction": "review_geography_retain_identity_unresolved",
+      "rationaleCode": "GEOGRAPHY_CANDIDATE_PRESENT_NO_UNIQUE_IDENTITY_CANDIDATE",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "3e2439da1b029a767a9f40475e5f852986d5d3b6581d36b3a7237dc1eaa7d4b3",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3409",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "3409",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "449da52dc9db3601b7e6fb566c3fd11c5c332c5958d47ed44f6ea822bc903504",
+        "parentV1GeographyRowSha256": "6b7a49b67106ae88f25ca5c7b37d22c168004a2f577a2bb34b6de2387c339b58"
+      },
+      "parentV2RowSha256": "6f118690c70c1c9870a00645fc62957664b8c2bbd33405cafe654ce602619491",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2024",
+        "assessmentRowSha256": "dd97b67c45cdbe197d28e6616bcd424b9ca571f8127bbf750b606b2af64a9057",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "7038f52354f455b1b7881301c821e4165adb086bc1da5361dc7f8f028c76b9b3"
+    },
+    {
+      "linkageId": "nj:2024:us-house:10:democratic:M001229",
+      "contestSha256": "1637a39be92746605ba014a94cea0391be082e8e32ba1ed23fc549555d7148f7",
+      "seatCycleId": "seat_house_nj_10_current",
+      "stateCode": "NJ",
+      "districtCode": "10",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "unresolved",
+        "confidence": "none",
+        "relationshipDisposition": "not_linked_no_unique_candidate",
+        "reviewTier": "unresolved_no_unique_candidate",
+        "parentRowSha256": "bf4f028f6aa42fbd59c4a059944a28fc2ad0902069934fb0f37eb9a1e14df2f1"
+      },
+      "jointCategory": "geography_candidate_identity_unresolved",
+      "recommendedAction": "review_geography_retain_identity_unresolved",
+      "rationaleCode": "GEOGRAPHY_CANDIDATE_PRESENT_NO_UNIQUE_IDENTITY_CANDIDATE",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "b8d6a878e686f1258cf5a78ab3f2c6788b4f234d882d317319ca56d2e1bd5bd8",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3410",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "3410",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "96c426992611dca0e988bc71d307ddaacf3210d822d9d521880aa50ef032fbf5",
+        "parentV1GeographyRowSha256": "a580ea47e1484a58619b64c697553cc4f9c463ec1230aabd595c1ff5939791e8"
+      },
+      "parentV2RowSha256": "b21dfcfb0be09c90ae12075921d14a5cce7f418814ba9ab99cf1b93efe90be12",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2024",
+        "assessmentRowSha256": "dd97b67c45cdbe197d28e6616bcd424b9ca571f8127bbf750b606b2af64a9057",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "6cc1a2cc71193aa7c3f149a9e1ec3310fc77c70eb371ddbed252345fd90ccea2"
+    },
+    {
+      "linkageId": "nj:2024:us-house:11:democratic:M001246",
+      "contestSha256": "077473c0742c9f0db8eb1157a1e549040d46ffb8bbb780078567245f9f51d09e",
+      "seatCycleId": "seat_house_nj_11_current",
+      "stateCode": "NJ",
+      "districtCode": "11",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "unresolved",
+        "confidence": "none",
+        "relationshipDisposition": "not_linked_no_unique_candidate",
+        "reviewTier": "unresolved_no_unique_candidate",
+        "parentRowSha256": "325fc1af8599e9a1bca1e8e0addf0aa5f0e5b292089f819c1a3050f7f112fc35"
+      },
+      "jointCategory": "geography_candidate_identity_unresolved",
+      "recommendedAction": "review_geography_retain_identity_unresolved",
+      "rationaleCode": "GEOGRAPHY_CANDIDATE_PRESENT_NO_UNIQUE_IDENTITY_CANDIDATE",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "f42f55a9aa71729981babb495cdb1c944d8b788f5f12774b15ee00076aec09c2",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3411",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "3411",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "0f7c9ec562670a206ec6478b0d359489abdc97f0aa313f850c00e8b0559b11c4",
+        "parentV1GeographyRowSha256": "96ac414a0463caee9a7d728692f4331617b78bc83ba1d3deb51e947b98f737d1"
+      },
+      "parentV2RowSha256": "0963e6eb343fcc319df3451ea0f16813a02864d3681f8331a023169bfe68abe3",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2024",
+        "assessmentRowSha256": "dd97b67c45cdbe197d28e6616bcd424b9ca571f8127bbf750b606b2af64a9057",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "5ce5c38505fad0517af972e0c4230a5aba250edfc927015dd3851ef5f6576768"
+    },
+    {
+      "linkageId": "nj:2024:us-house:12:democratic:W000822",
+      "contestSha256": "eb237cc0ada634e31acab75c17b07207a301774f946d70fce559d8a3fca5b04b",
+      "seatCycleId": "seat_house_nj_12_current",
+      "stateCode": "NJ",
+      "districtCode": "12",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "2f117dd866fb57950f68c36f0670bdf864db5e972842d0306d01ae0bba2b59cf"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "58e7ab359eba220527fa873012ef87fd36d0ca7ce435685e79b61329c398d8b6",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3412",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "3412",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "53d4cff3e2f3d9bbf141a942cbe3a37b4ed7192a61e31c8bb726156749ea584a",
+        "parentV1GeographyRowSha256": "2facf20f4f0eef6386fc4b95a666ec2f1f78a4e2ca8c590342937cf51c53f739"
+      },
+      "parentV2RowSha256": "da98477f955f86c23b69c5dd6fdbe2d48212d6fa5196b22cf5a96fe721924ad1",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2024",
+        "assessmentRowSha256": "dd97b67c45cdbe197d28e6616bcd424b9ca571f8127bbf750b606b2af64a9057",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "160c1dd28f7457f818e1b3166beebd8e9651238ba0f12d371a503c254466bc43"
+    },
+    {
+      "linkageId": "nj:2026:us-house:01:democratic:N000188",
+      "contestSha256": "a7e6a3c98b14e6f740bced781b1efa6abdb2dac6ff325b030f8d3838f4739e56",
+      "seatCycleId": "seat_house_nj_01_current",
+      "stateCode": "NJ",
+      "districtCode": "01",
+      "cycleYear": 2026,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "9072fd5f2634bd94bcb2a78403fff52f78f643c80e3aa18074123b2baf84f6cc"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "882be32b175889d84f60d60db5acb8488a611ca6cf8b427522188ebc25d643fe",
+      "geography": {
+        "compatibilityDisposition": "explicit_2022_2031_state_election_plan_continuity_candidate",
+        "evidenceClass": "direct_current_state_plan_continuity_and_complete_cd119_block_membership",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3401",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "rationaleCodes": [
+          "current_division_publication_names_2022_2031_plan",
+          "njsa_19_46_12_requires_continuing_use_absent_invalidation",
+          "complete_cd119_new_jersey_block_inventory_retained",
+          "census_cd120_product_not_claimed",
+          "candidate_not_approved"
+        ],
+        "planContinuityEvidence": {
+          "sourceLockId": "new-jersey-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "8d9256e823b9ad0157dcfc7c1f47f3b45c557f50069a82fe063ae4b0704541da",
+          "packageSha256": "8bc2c27ba242db9161dc50deae74cf57436a75684f9dbe63ef9da03b09712327",
+          "currentPlanLabel": "NJ Congressional Districts 2022-2031",
+          "adoptedOn": "2021-12-22",
+          "continuityStatute": "NJSA 19:46-12",
+          "stateFips": "34",
+          "uniqueBlocks": 137972,
+          "districtInventory": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "assignmentSetSha256": "22a3ba9403b5476b1170b76fdd9bca22f582ee6062a02805b6efcdbb6dd6d9a2",
+          "componentsReportUsedAsMembershipEvidence": false,
+          "courtInvalidationAssessment": "not_separately_researched_or_retained"
+        },
+        "parentRowSha256": "fdf56225b88e0594472b9ed8cde9ba804e8f426b07ba6f164274d5686f507ade",
+        "parentV1GeographyRowSha256": "df420cf1b791b7725c4333879d8980a624a0925b5c990e932d8863a7398d646f"
+      },
+      "parentV2RowSha256": "9944da393a3467a08d139ed076c6f1098dbb3a038fb29b8d65fad7d85bfa5ff7",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2026",
+        "assessmentRowSha256": "3298234a82d2dc53a727f3a6f9a4374094ba5a1f0119b1e2532fa1978ad8bc53",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "d069c877f7a1f778940e88ba923a10f2ee10d094915ee396e1708a7b9bf6114e"
+    },
+    {
+      "linkageId": "nj:2026:us-house:03:democratic:C001136",
+      "contestSha256": "72f0bf4b6ff0334fc769a3bdf4ee6f15d96e8e353a3ef67003ce96fd8ad80cd7",
+      "seatCycleId": "seat_house_nj_03_current",
+      "stateCode": "NJ",
+      "districtCode": "03",
+      "cycleYear": 2026,
+      "identity": {
+        "evidenceClass": "derived_name_relationship",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "6cb5b9ce113bf41ef4a8f5f8f1118053aefcbc73a17636ad62db110583c5bf49"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "61fbf6492dc161e01c3ef9839ac69dda23e788beef6fd3c8f132d35a177b4909",
+      "geography": {
+        "compatibilityDisposition": "explicit_2022_2031_state_election_plan_continuity_candidate",
+        "evidenceClass": "direct_current_state_plan_continuity_and_complete_cd119_block_membership",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3403",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "rationaleCodes": [
+          "current_division_publication_names_2022_2031_plan",
+          "njsa_19_46_12_requires_continuing_use_absent_invalidation",
+          "complete_cd119_new_jersey_block_inventory_retained",
+          "census_cd120_product_not_claimed",
+          "candidate_not_approved"
+        ],
+        "planContinuityEvidence": {
+          "sourceLockId": "new-jersey-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "8d9256e823b9ad0157dcfc7c1f47f3b45c557f50069a82fe063ae4b0704541da",
+          "packageSha256": "8bc2c27ba242db9161dc50deae74cf57436a75684f9dbe63ef9da03b09712327",
+          "currentPlanLabel": "NJ Congressional Districts 2022-2031",
+          "adoptedOn": "2021-12-22",
+          "continuityStatute": "NJSA 19:46-12",
+          "stateFips": "34",
+          "uniqueBlocks": 137972,
+          "districtInventory": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "assignmentSetSha256": "22a3ba9403b5476b1170b76fdd9bca22f582ee6062a02805b6efcdbb6dd6d9a2",
+          "componentsReportUsedAsMembershipEvidence": false,
+          "courtInvalidationAssessment": "not_separately_researched_or_retained"
+        },
+        "parentRowSha256": "f43fd8f71b9f057ee97ce1a034b7134ba99656798727885575ab0a95d990c1fc",
+        "parentV1GeographyRowSha256": "6d4c5b297976fb1b719ac1a93e417f2863b84cd06e8720d118c67de3868dc4f1"
+      },
+      "parentV2RowSha256": "4200bd1599bafa22d8da035fea75bd40a2224cbc5c7647fb434d7b90e5272a83",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2026",
+        "assessmentRowSha256": "3298234a82d2dc53a727f3a6f9a4374094ba5a1f0119b1e2532fa1978ad8bc53",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "4c9cb157e28c2027e185375aec3477dc03959aa0fb5acd94f81f675ed89a0e63"
+    },
+    {
+      "linkageId": "nj:2026:us-house:05:democratic:G000583",
+      "contestSha256": "2b0d9de042903103bda69e85b055d516f02ba7d7a207618024f8e1fab97bf3c1",
+      "seatCycleId": "seat_house_nj_05_current",
+      "stateCode": "NJ",
+      "districtCode": "05",
+      "cycleYear": 2026,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "ee5eb06684f2c8a53c3d2e4248f49ee6d6e244182df4cddd7d85235d755a828b"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "f0e4de8c9e89bc95529f5af81046f279620e356153d1221e402fc60158bf029c",
+      "geography": {
+        "compatibilityDisposition": "explicit_2022_2031_state_election_plan_continuity_candidate",
+        "evidenceClass": "direct_current_state_plan_continuity_and_complete_cd119_block_membership",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3405",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "rationaleCodes": [
+          "current_division_publication_names_2022_2031_plan",
+          "njsa_19_46_12_requires_continuing_use_absent_invalidation",
+          "complete_cd119_new_jersey_block_inventory_retained",
+          "census_cd120_product_not_claimed",
+          "candidate_not_approved"
+        ],
+        "planContinuityEvidence": {
+          "sourceLockId": "new-jersey-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "8d9256e823b9ad0157dcfc7c1f47f3b45c557f50069a82fe063ae4b0704541da",
+          "packageSha256": "8bc2c27ba242db9161dc50deae74cf57436a75684f9dbe63ef9da03b09712327",
+          "currentPlanLabel": "NJ Congressional Districts 2022-2031",
+          "adoptedOn": "2021-12-22",
+          "continuityStatute": "NJSA 19:46-12",
+          "stateFips": "34",
+          "uniqueBlocks": 137972,
+          "districtInventory": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "assignmentSetSha256": "22a3ba9403b5476b1170b76fdd9bca22f582ee6062a02805b6efcdbb6dd6d9a2",
+          "componentsReportUsedAsMembershipEvidence": false,
+          "courtInvalidationAssessment": "not_separately_researched_or_retained"
+        },
+        "parentRowSha256": "bcaa04212d4d2950dd290c9596ec33d5069752e04a3830c80102d384f7a25c1a",
+        "parentV1GeographyRowSha256": "c6f062a4f70841847c2a3e5c54284a7d79da1b827305c00ccd54d442f25ef776"
+      },
+      "parentV2RowSha256": "945ea7583be1a449a86586e2ad5badc1b8e792210593fada61f7fdcbaf59004b",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2026",
+        "assessmentRowSha256": "3298234a82d2dc53a727f3a6f9a4374094ba5a1f0119b1e2532fa1978ad8bc53",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "d268a9e72008ae1aa665b905e5af58bef0c3c054981f038cda1f036b20701539"
+    },
+    {
+      "linkageId": "nj:2026:us-house:06:democratic:P000034",
+      "contestSha256": "d55a8b5801c4951fcc3086c9040a073d6ca257d860acd78abd90f9f30f9c4134",
+      "seatCycleId": "seat_house_nj_06_current",
+      "stateCode": "NJ",
+      "districtCode": "06",
+      "cycleYear": 2026,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "3734429b62f29c0b68eb6f27ce929c7c054dc4455302ef602bd17aa5eab9da2f"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "c252411cc24e5b05ea0533238dee13e69e4deb83506a9f23cb0ad11dc9efcc43",
+      "geography": {
+        "compatibilityDisposition": "explicit_2022_2031_state_election_plan_continuity_candidate",
+        "evidenceClass": "direct_current_state_plan_continuity_and_complete_cd119_block_membership",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3406",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "rationaleCodes": [
+          "current_division_publication_names_2022_2031_plan",
+          "njsa_19_46_12_requires_continuing_use_absent_invalidation",
+          "complete_cd119_new_jersey_block_inventory_retained",
+          "census_cd120_product_not_claimed",
+          "candidate_not_approved"
+        ],
+        "planContinuityEvidence": {
+          "sourceLockId": "new-jersey-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "8d9256e823b9ad0157dcfc7c1f47f3b45c557f50069a82fe063ae4b0704541da",
+          "packageSha256": "8bc2c27ba242db9161dc50deae74cf57436a75684f9dbe63ef9da03b09712327",
+          "currentPlanLabel": "NJ Congressional Districts 2022-2031",
+          "adoptedOn": "2021-12-22",
+          "continuityStatute": "NJSA 19:46-12",
+          "stateFips": "34",
+          "uniqueBlocks": 137972,
+          "districtInventory": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "assignmentSetSha256": "22a3ba9403b5476b1170b76fdd9bca22f582ee6062a02805b6efcdbb6dd6d9a2",
+          "componentsReportUsedAsMembershipEvidence": false,
+          "courtInvalidationAssessment": "not_separately_researched_or_retained"
+        },
+        "parentRowSha256": "fcd5c43d75f22c2afc56e0af809288b3dafa380be85dce4568994defb7304935",
+        "parentV1GeographyRowSha256": "c106566b66e98ead13f994d320712590689235834b3e9458ef66ae91b3d50dd1"
+      },
+      "parentV2RowSha256": "44c5c90efdaffe7925872aa1319b462cc6bae0f989866ff5284e75fd2df3606a",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2026",
+        "assessmentRowSha256": "3298234a82d2dc53a727f3a6f9a4374094ba5a1f0119b1e2532fa1978ad8bc53",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "d1500b77a848109cf0e91acd1c4cdcc405bd4f9c5afc4435fa6d74136fd983ba"
+    },
+    {
+      "linkageId": "nj:2026:us-house:08:democratic:M001226",
+      "contestSha256": "fe7d876760915ef59ac58254af39244a6f8366a1c582be1ef0b44a8659e6c003",
+      "seatCycleId": "seat_house_nj_08_current",
+      "stateCode": "NJ",
+      "districtCode": "08",
+      "cycleYear": 2026,
+      "identity": {
+        "evidenceClass": "derived_name_relationship",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "187b5631e4c6ce19be11a066609965366381e03d545949a6b65b9021b0676d69"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "01bc6f10f866ca459a376e6ab5bb2a185c7a2a9f8498a39faa5aa887fe360e44",
+      "geography": {
+        "compatibilityDisposition": "explicit_2022_2031_state_election_plan_continuity_candidate",
+        "evidenceClass": "direct_current_state_plan_continuity_and_complete_cd119_block_membership",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3408",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "rationaleCodes": [
+          "current_division_publication_names_2022_2031_plan",
+          "njsa_19_46_12_requires_continuing_use_absent_invalidation",
+          "complete_cd119_new_jersey_block_inventory_retained",
+          "census_cd120_product_not_claimed",
+          "candidate_not_approved"
+        ],
+        "planContinuityEvidence": {
+          "sourceLockId": "new-jersey-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "8d9256e823b9ad0157dcfc7c1f47f3b45c557f50069a82fe063ae4b0704541da",
+          "packageSha256": "8bc2c27ba242db9161dc50deae74cf57436a75684f9dbe63ef9da03b09712327",
+          "currentPlanLabel": "NJ Congressional Districts 2022-2031",
+          "adoptedOn": "2021-12-22",
+          "continuityStatute": "NJSA 19:46-12",
+          "stateFips": "34",
+          "uniqueBlocks": 137972,
+          "districtInventory": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "assignmentSetSha256": "22a3ba9403b5476b1170b76fdd9bca22f582ee6062a02805b6efcdbb6dd6d9a2",
+          "componentsReportUsedAsMembershipEvidence": false,
+          "courtInvalidationAssessment": "not_separately_researched_or_retained"
+        },
+        "parentRowSha256": "150ce7ed885639f3992abcca1cad9be1ddb7399ea6803147e237af3f03f2eeb2",
+        "parentV1GeographyRowSha256": "67de2f3f41b94114c71b93338550a6bb9994cedff66bbbbc3ea9415407372b78"
+      },
+      "parentV2RowSha256": "36ab7b4d0c457484ca8ce11862f4423878cff07abd821938dc0d34b5096694e8",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2026",
+        "assessmentRowSha256": "3298234a82d2dc53a727f3a6f9a4374094ba5a1f0119b1e2532fa1978ad8bc53",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "c1402c0fb59c5c0e98066d0b4e53d28c888463e1a844cb7c71159f39b1e11395"
+    },
+    {
+      "linkageId": "nj:2026:us-house:09:democratic:P000621",
+      "contestSha256": "2876c041ed03015ae5f1b088551719768484c1a96ae83d617681c9a80882b17a",
+      "seatCycleId": "seat_house_nj_09_current",
+      "stateCode": "NJ",
+      "districtCode": "09",
+      "cycleYear": 2026,
+      "identity": {
+        "evidenceClass": "inferred_name_relationship",
+        "confidence": "medium",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "medium_confidence_inference_candidate",
+        "parentRowSha256": "9318745c4575f606f5f4f2172c13b6f24c556848bc07d2db009b8bd8f8d6e318"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "d93c78ade96b746c5bd5444c4b1e82291cdcbeb4f249353fcb6084c25daf76ee",
+      "geography": {
+        "compatibilityDisposition": "explicit_2022_2031_state_election_plan_continuity_candidate",
+        "evidenceClass": "direct_current_state_plan_continuity_and_complete_cd119_block_membership",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3409",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "rationaleCodes": [
+          "current_division_publication_names_2022_2031_plan",
+          "njsa_19_46_12_requires_continuing_use_absent_invalidation",
+          "complete_cd119_new_jersey_block_inventory_retained",
+          "census_cd120_product_not_claimed",
+          "candidate_not_approved"
+        ],
+        "planContinuityEvidence": {
+          "sourceLockId": "new-jersey-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "8d9256e823b9ad0157dcfc7c1f47f3b45c557f50069a82fe063ae4b0704541da",
+          "packageSha256": "8bc2c27ba242db9161dc50deae74cf57436a75684f9dbe63ef9da03b09712327",
+          "currentPlanLabel": "NJ Congressional Districts 2022-2031",
+          "adoptedOn": "2021-12-22",
+          "continuityStatute": "NJSA 19:46-12",
+          "stateFips": "34",
+          "uniqueBlocks": 137972,
+          "districtInventory": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "assignmentSetSha256": "22a3ba9403b5476b1170b76fdd9bca22f582ee6062a02805b6efcdbb6dd6d9a2",
+          "componentsReportUsedAsMembershipEvidence": false,
+          "courtInvalidationAssessment": "not_separately_researched_or_retained"
+        },
+        "parentRowSha256": "e61b579bfd05564cfada010a26a009d60fc759564f7721a2f0340c01cc11cbf9",
+        "parentV1GeographyRowSha256": "8031cea64230bc11bdcde7054aeec58a6fb59162eaba1cfb7d31cc8df9d58430"
+      },
+      "parentV2RowSha256": "284adabce3df14773f0f515beccc13de8a3b0cb29d2ba95cadd2670f21392b86",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2026",
+        "assessmentRowSha256": "3298234a82d2dc53a727f3a6f9a4374094ba5a1f0119b1e2532fa1978ad8bc53",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "d430fa6738c655ec277a6b69281de2dd037a01fa80457adb39500367ed8d84fa"
+    },
+    {
+      "linkageId": "nj:2026:us-house:10:democratic:M001229",
+      "contestSha256": "19eb61f20f8eb233acf13c92fac27976154684ff2e87a68071b595f372c9fdcd",
+      "seatCycleId": "seat_house_nj_10_current",
+      "stateCode": "NJ",
+      "districtCode": "10",
+      "cycleYear": 2026,
+      "identity": {
+        "evidenceClass": "derived_name_relationship",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "de693e05a9145eb7f246e9f592e378ac698c4195a8962a909d761f077f6fb3f9"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "97c3d006980ee685193c83a4112c38cbec99a68011a3b1a86f68600d6ecc3aae",
+      "geography": {
+        "compatibilityDisposition": "explicit_2022_2031_state_election_plan_continuity_candidate",
+        "evidenceClass": "direct_current_state_plan_continuity_and_complete_cd119_block_membership",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3410",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "rationaleCodes": [
+          "current_division_publication_names_2022_2031_plan",
+          "njsa_19_46_12_requires_continuing_use_absent_invalidation",
+          "complete_cd119_new_jersey_block_inventory_retained",
+          "census_cd120_product_not_claimed",
+          "candidate_not_approved"
+        ],
+        "planContinuityEvidence": {
+          "sourceLockId": "new-jersey-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "8d9256e823b9ad0157dcfc7c1f47f3b45c557f50069a82fe063ae4b0704541da",
+          "packageSha256": "8bc2c27ba242db9161dc50deae74cf57436a75684f9dbe63ef9da03b09712327",
+          "currentPlanLabel": "NJ Congressional Districts 2022-2031",
+          "adoptedOn": "2021-12-22",
+          "continuityStatute": "NJSA 19:46-12",
+          "stateFips": "34",
+          "uniqueBlocks": 137972,
+          "districtInventory": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "assignmentSetSha256": "22a3ba9403b5476b1170b76fdd9bca22f582ee6062a02805b6efcdbb6dd6d9a2",
+          "componentsReportUsedAsMembershipEvidence": false,
+          "courtInvalidationAssessment": "not_separately_researched_or_retained"
+        },
+        "parentRowSha256": "6f196b7895d064961ad1ee4508d4e744acf4683e6d61c567f29598cc5e6ee6f6",
+        "parentV1GeographyRowSha256": "188eaeb97e55d01aa5c038203a6faf66b92dac27c357251bb56ee38f5ef54739"
+      },
+      "parentV2RowSha256": "35548606078514b262b366127e388a8f27744ee250b2ec7b675223186cb0799c",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2026",
+        "assessmentRowSha256": "3298234a82d2dc53a727f3a6f9a4374094ba5a1f0119b1e2532fa1978ad8bc53",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "130fbd7830aa41d3210e10bbf84fffe27af44fe5d202c5a77d4b1d77e2f19142"
+    },
+    {
+      "linkageId": "nj:2026:us-house:11:democratic:M001246",
+      "contestSha256": "1a620320a6102232f2df9cc202bccfb650501bb4aa4ca90d4969ca22b7568658",
+      "seatCycleId": "seat_house_nj_11_current",
+      "stateCode": "NJ",
+      "districtCode": "11",
+      "cycleYear": 2026,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "3aefab13368bf1ef846be25bcf6b3e5a6ed46d8ea35bca490750c06678b81d06"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "48f694c7091521f207450694502fe29fed1f4c648c86beccdf66c728b4fce2fc",
+      "geography": {
+        "compatibilityDisposition": "explicit_2022_2031_state_election_plan_continuity_candidate",
+        "evidenceClass": "direct_current_state_plan_continuity_and_complete_cd119_block_membership",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3411",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "rationaleCodes": [
+          "current_division_publication_names_2022_2031_plan",
+          "njsa_19_46_12_requires_continuing_use_absent_invalidation",
+          "complete_cd119_new_jersey_block_inventory_retained",
+          "census_cd120_product_not_claimed",
+          "candidate_not_approved"
+        ],
+        "planContinuityEvidence": {
+          "sourceLockId": "new-jersey-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "8d9256e823b9ad0157dcfc7c1f47f3b45c557f50069a82fe063ae4b0704541da",
+          "packageSha256": "8bc2c27ba242db9161dc50deae74cf57436a75684f9dbe63ef9da03b09712327",
+          "currentPlanLabel": "NJ Congressional Districts 2022-2031",
+          "adoptedOn": "2021-12-22",
+          "continuityStatute": "NJSA 19:46-12",
+          "stateFips": "34",
+          "uniqueBlocks": 137972,
+          "districtInventory": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "assignmentSetSha256": "22a3ba9403b5476b1170b76fdd9bca22f582ee6062a02805b6efcdbb6dd6d9a2",
+          "componentsReportUsedAsMembershipEvidence": false,
+          "courtInvalidationAssessment": "not_separately_researched_or_retained"
+        },
+        "parentRowSha256": "db7cfebc41f4ca0def11b95efcad93861b41f4fa8afb7daacac4bfa5ce2373e2",
+        "parentV1GeographyRowSha256": "522649797ca58e398b6ca5fbdaa3e46010838e48c9da9c183a1de055e4b0fc2d"
+      },
+      "parentV2RowSha256": "1dc9cdaf1d8a43b45b7e1c43f9998d763b9cc993f6c6ef669e4796a4ed75bf49",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2026",
+        "assessmentRowSha256": "3298234a82d2dc53a727f3a6f9a4374094ba5a1f0119b1e2532fa1978ad8bc53",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "b88978078ec48997325d66f22cb7bfc99f87988838b619fbda409a501deeb446"
+    },
+    {
+      "linkageId": "nj:2026:us-house:12:democratic:W000822",
+      "contestSha256": "c1079c5a1bc2f9c3db209b10c23891d4740df945450715b0870e2d48de935f0b",
+      "seatCycleId": "seat_house_nj_12_current",
+      "stateCode": "NJ",
+      "districtCode": "12",
+      "cycleYear": 2026,
+      "identity": {
+        "evidenceClass": "unresolved",
+        "confidence": "none",
+        "relationshipDisposition": "not_linked_no_unique_candidate",
+        "reviewTier": "unresolved_no_unique_candidate",
+        "parentRowSha256": "530da50d57fb1db019184318555271ae0b8475b88587e651450efdd6ac02a624"
+      },
+      "jointCategory": "geography_candidate_identity_unresolved",
+      "recommendedAction": "review_geography_retain_identity_unresolved",
+      "rationaleCode": "GEOGRAPHY_CANDIDATE_PRESENT_NO_UNIQUE_IDENTITY_CANDIDATE",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "3f0668768be1c3637f6205e687794f4072f5edde2afc143e139291b3c20f676c",
+      "geography": {
+        "compatibilityDisposition": "explicit_2022_2031_state_election_plan_continuity_candidate",
+        "evidenceClass": "direct_current_state_plan_continuity_and_complete_cd119_block_membership",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "3412",
+        "historicalCongressSession": "120",
+        "historicalGeoid": null,
+        "rationaleCodes": [
+          "current_division_publication_names_2022_2031_plan",
+          "njsa_19_46_12_requires_continuing_use_absent_invalidation",
+          "complete_cd119_new_jersey_block_inventory_retained",
+          "census_cd120_product_not_claimed",
+          "candidate_not_approved"
+        ],
+        "planContinuityEvidence": {
+          "sourceLockId": "new-jersey-2026-congressional-plan-authority-receipt-v1",
+          "fileSha256": "8d9256e823b9ad0157dcfc7c1f47f3b45c557f50069a82fe063ae4b0704541da",
+          "packageSha256": "8bc2c27ba242db9161dc50deae74cf57436a75684f9dbe63ef9da03b09712327",
+          "currentPlanLabel": "NJ Congressional Districts 2022-2031",
+          "adoptedOn": "2021-12-22",
+          "continuityStatute": "NJSA 19:46-12",
+          "stateFips": "34",
+          "uniqueBlocks": 137972,
+          "districtInventory": [
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"
+          ],
+          "assignmentSetSha256": "22a3ba9403b5476b1170b76fdd9bca22f582ee6062a02805b6efcdbb6dd6d9a2",
+          "componentsReportUsedAsMembershipEvidence": false,
+          "courtInvalidationAssessment": "not_separately_researched_or_retained"
+        },
+        "parentRowSha256": "257e4515cff57a2f0099785d1e2cdcc7eb7f437259d2851c07b739fa0d43faa5",
+        "parentV1GeographyRowSha256": "7132eabbaf4029ea1fa0ae2f61398248a24bbf4fd8b4f8c012b96a3a5835fc3a"
+      },
+      "parentV2RowSha256": "04dbd2f1e8dbebc035264307b76211d9a8d9d0a8501cd981b73c2e2e5b36d98a",
+      "certificationAvailability": {
+        "stateCycleId": "NJ:2026",
+        "assessmentRowSha256": "3298234a82d2dc53a727f3a6f9a4374094ba5a1f0119b1e2532fa1978ad8bc53",
+        "resultReceiptSourceLockId": "new-jersey-house-democratic-primary-results-2022-2026-v1",
+        "resultArtifactStatus": "state_division_official_result_candidate_retained",
+        "certificationContextStatus": "post_canvass_secretary_certificate_not_retained",
+        "certificationContextSourceLockIds": [
+          "nj-primary-post-canvass-certification-statute-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "division_official_result_list_retained",
+          "nj_law_requires_distinct_secretary_post_canvass_certificate",
+          "post_canvass_certificate_not_located_or_retained"
+        ]
+      },
+      "rowSha256": "24ac32061389717e3cb0840bc6845237727b26eb6c012824482284ae4b3e378f"
+    },
+    {
+      "linkageId": "pa:2022:us-house:02:democratic:B001296",
+      "contestSha256": "96d2083f2a422e4f0e3336a0644fad43f090fb18e55b7954dd21e6194c62cab3",
+      "seatCycleId": "seat_house_pa_02_current",
+      "stateCode": "PA",
+      "districtCode": "02",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "a4d9cc959e8aadaa20f14b63871589b57b31258ad5ac3921751ea2bbfbc044ba"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "aabff5ae9063b4e7a1eb5451c50c9b85121aa5a8c23f020ffdbd23c7a3ab8fd4",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4202",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "4202",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "58344244e1e859b1cc7c50ea241122dbf0648460b9f4fb2fef521ab340421e1f",
+        "parentV1GeographyRowSha256": "33e2e61d703cd13b689e9577d77dbdcdf177aa36f1c7f58ae084245273fc0481"
+      },
+      "parentV2RowSha256": "9398aa2603298e753143c7e0f4c12b34ec969b46821be1a9003c298fedbe03da",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2022",
+        "assessmentRowSha256": "8d3929e0d75dd268a485d85160baae67116be638f648e681090c037c05f3837f",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "cycle_certification_authority_not_retained",
+        "certificationContextSourceLockIds": [
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [
+          "13",
+          "14",
+          "15"
+        ],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained",
+          "extract_dated_election_day_not_final_certification",
+          "official_precinct_returns_maintained_by_county_boards",
+          "three_district_absences_remain_unresolved_not_zero"
+        ]
+      },
+      "rowSha256": "beeb31d46ca9f191f74e6bf7407526b8c315e7e4fc85aa4b458a94936b23951b"
+    },
+    {
+      "linkageId": "pa:2022:us-house:03:democratic:E000296",
+      "contestSha256": "afb6c9a69d9efc8af577de3d0565676cce01028f24c7775a2115a4d9776c858c",
+      "seatCycleId": "seat_house_pa_03_current",
+      "stateCode": "PA",
+      "districtCode": "03",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "3ef6d22388a4d7ca6eb348570cd31775060e842066d657afd8e8a8bd7fe9238b"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "20710d6d1db9d75a5f5de3d51d03f6e491092513d7d1cfda387b7edea5516bf1",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4203",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "4203",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "6f6aba45940a79d662d9f244df88afbeea840e2f416bf3649d4412602935d6b7",
+        "parentV1GeographyRowSha256": "7a87198877357e79692dfe6605a4139932b5db3dae454dd4fc597ecfa8607251"
+      },
+      "parentV2RowSha256": "a0ec70bb5b16f1c590797ef4515ef6fa12beb8800e29fbdc03edc1c80a0b7534",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2022",
+        "assessmentRowSha256": "8d3929e0d75dd268a485d85160baae67116be638f648e681090c037c05f3837f",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "cycle_certification_authority_not_retained",
+        "certificationContextSourceLockIds": [
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [
+          "13",
+          "14",
+          "15"
+        ],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained",
+          "extract_dated_election_day_not_final_certification",
+          "official_precinct_returns_maintained_by_county_boards",
+          "three_district_absences_remain_unresolved_not_zero"
+        ]
+      },
+      "rowSha256": "f824d05a9095a9a660b5add6ad23ebc1b32ebc29b828d44b68d6faf642875472"
+    },
+    {
+      "linkageId": "pa:2022:us-house:04:democratic:D000631",
+      "contestSha256": "00bc5b8c8ff9dbc554665441bf84b4c52b598df2eedd81025572cd0cec5c1cc3",
+      "seatCycleId": "seat_house_pa_04_current",
+      "stateCode": "PA",
+      "districtCode": "04",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "inferred_name_relationship",
+        "confidence": "medium",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "medium_confidence_inference_candidate",
+        "parentRowSha256": "ff772b2bed8a776516612be033c59356bd3140ded06b3c49f2bb603d93bb6ad5"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "cf6efe98a63f76db8b67a21197794c030c358a317fc61b10bf092ced09b1d8fb",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4204",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "4204",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "37e970fd2c841fe39e06ef0e670709b51677f79f0ecbe20bd946be37105d39e8",
+        "parentV1GeographyRowSha256": "bdb7a8fd1b8fadc82dd937013fc13a3ba3d6ac5bb3a54fc4a600fab20575886e"
+      },
+      "parentV2RowSha256": "f9155c52bec359ecf37b4689c7e2c1811b998f316de9c8a61c872d92f87bda73",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2022",
+        "assessmentRowSha256": "8d3929e0d75dd268a485d85160baae67116be638f648e681090c037c05f3837f",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "cycle_certification_authority_not_retained",
+        "certificationContextSourceLockIds": [
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [
+          "13",
+          "14",
+          "15"
+        ],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained",
+          "extract_dated_election_day_not_final_certification",
+          "official_precinct_returns_maintained_by_county_boards",
+          "three_district_absences_remain_unresolved_not_zero"
+        ]
+      },
+      "rowSha256": "16bd99a8d4d9b0c30baa1f973fc80dc65abf6a915a2ed5cdd9f92fb36c87a180"
+    },
+    {
+      "linkageId": "pa:2022:us-house:05:democratic:S001205",
+      "contestSha256": "093b3fd70022a73b5e21237bb37a319ab73de7a1946a94013d41faeb4aaafdec",
+      "seatCycleId": "seat_house_pa_05_current",
+      "stateCode": "PA",
+      "districtCode": "05",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "ee404ca60fa1d8f311ed85d2a2a0ddd1af9a634e55c3d2f20b5c9ce5c4405ca8"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "4907afbd4d4abeb7e96c884bc8c599b7776249c4419c2253de6a37920f8589b4",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4205",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "4205",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "ba8d9903da2efae6f1fb4f569b2384272fb7e102d38ec3aee23c6001c1f616b2",
+        "parentV1GeographyRowSha256": "d2ed8695db6b7c3f57ad67e567b13157cfe7736f6c28a5888c0e151b9d092e69"
+      },
+      "parentV2RowSha256": "27abff88dfa81f8305e07be35f0cd230246eb7a1269dc620a523c181a45cf7a0",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2022",
+        "assessmentRowSha256": "8d3929e0d75dd268a485d85160baae67116be638f648e681090c037c05f3837f",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "cycle_certification_authority_not_retained",
+        "certificationContextSourceLockIds": [
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [
+          "13",
+          "14",
+          "15"
+        ],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained",
+          "extract_dated_election_day_not_final_certification",
+          "official_precinct_returns_maintained_by_county_boards",
+          "three_district_absences_remain_unresolved_not_zero"
+        ]
+      },
+      "rowSha256": "5ac9d34478286a457644003228b800c71e7ba422b6980babaa876b268e85beba"
+    },
+    {
+      "linkageId": "pa:2022:us-house:06:democratic:H001085",
+      "contestSha256": "13ed4d18e21a321f82de6bcfe046c0e49cf8f9bec2722586c315c263198c4140",
+      "seatCycleId": "seat_house_pa_06_current",
+      "stateCode": "PA",
+      "districtCode": "06",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "inferred_name_relationship",
+        "confidence": "medium",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "medium_confidence_inference_candidate",
+        "parentRowSha256": "3dbbd8d59d07bfc18f559dc862480f065899f97b0b7465d8f39ff86de79c9384"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "0c5a5dca5438d07378180b7911459d312955472223a2331f86bd19487234546c",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4206",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "4206",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "cfeafa3f2f07a8236caa1e4b4d94bc344cccf04c5fe56f8235250d8ec5def3b3",
+        "parentV1GeographyRowSha256": "9fb84b5f7d0f2868c02ad23a7812ab19e2364776db66cff30c9a5b9ff9653d07"
+      },
+      "parentV2RowSha256": "82a0d34be559bb01af10994b00c72c20ea184dbc6aa85b01bbeac533995783b9",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2022",
+        "assessmentRowSha256": "8d3929e0d75dd268a485d85160baae67116be638f648e681090c037c05f3837f",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "cycle_certification_authority_not_retained",
+        "certificationContextSourceLockIds": [
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [
+          "13",
+          "14",
+          "15"
+        ],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained",
+          "extract_dated_election_day_not_final_certification",
+          "official_precinct_returns_maintained_by_county_boards",
+          "three_district_absences_remain_unresolved_not_zero"
+        ]
+      },
+      "rowSha256": "60ba94862a3edc60811174032e9690da75af71d3ce0f205dfa5c524db6e60983"
+    },
+    {
+      "linkageId": "pa:2022:us-house:12:democratic:L000602",
+      "contestSha256": "1db9cd025a152598a163e543d490112389bb775cb825833c38eff3c8cc1bbdb3",
+      "seatCycleId": "seat_house_pa_12_current",
+      "stateCode": "PA",
+      "districtCode": "12",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "derived_name_relationship",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "b059fc1aa133e23b7ce8edf3499d1fe2ed3b6ecbb76bcbee7f596bb54c0bf195"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "2323c7d7437253b82c2026a7f2cc43c69d5e6a52836a6285da82bb67b03c5d68",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4212",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "4212",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "f5045891a78fcb19d7c2bb34e1b7956b2f327664c79732a83ab5010b62c57dc6",
+        "parentV1GeographyRowSha256": "a5e0383fb7fbe56c15129240b43911db1d267f768222088a7dc552704314023b"
+      },
+      "parentV2RowSha256": "b3f7fc5e1a5c80df9c939f2a960ef1f4ab8d2aa7f840700337a536223c0ab020",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2022",
+        "assessmentRowSha256": "8d3929e0d75dd268a485d85160baae67116be638f648e681090c037c05f3837f",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "cycle_certification_authority_not_retained",
+        "certificationContextSourceLockIds": [
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [
+          "13",
+          "14",
+          "15"
+        ],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained",
+          "extract_dated_election_day_not_final_certification",
+          "official_precinct_returns_maintained_by_county_boards",
+          "three_district_absences_remain_unresolved_not_zero"
+        ]
+      },
+      "rowSha256": "7f839700b00e744b435a5486019b6c61bc3d3be0a1fccdfce0b7ebb1df714a99"
+    },
+    {
+      "linkageId": "pa:2022:us-house:17:democratic:D000530",
+      "contestSha256": "376a54834df3271c502cca6d20f76a4d40e323ff9421fd367c8b7a252b26fd66",
+      "seatCycleId": "seat_house_pa_17_current",
+      "stateCode": "PA",
+      "districtCode": "17",
+      "cycleYear": 2022,
+      "identity": {
+        "evidenceClass": "inferred_name_relationship",
+        "confidence": "medium",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "medium_confidence_inference_candidate",
+        "parentRowSha256": "8d039377a1fec5248a5d382241a570b5670783aed721f17420703545ba09d1df"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "d67618685f2aa8a105638f06d76b883a62a6545916d786cd5a85b9b58688d983",
+      "geography": {
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4217",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "4217",
+        "rationaleCodes": [
+          "official_census_cd119_redraw_list_excludes_nj_pa",
+          "same_state_district_geoid_in_cd118_and_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "c6b3d5cbb953e24af886a077a18b388e8804168a3d0b17970733a9f6d16754fc",
+        "parentV1GeographyRowSha256": "b68582d4c7bef000262da98cd86393321a5b323fca6c7be915f267cab2fc6639"
+      },
+      "parentV2RowSha256": "003b927ee02058be31bf445ad9123405de0bdf51490cbe432435f96ac9c5ba52",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2022",
+        "assessmentRowSha256": "8d3929e0d75dd268a485d85160baae67116be638f648e681090c037c05f3837f",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "cycle_certification_authority_not_retained",
+        "certificationContextSourceLockIds": [
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": false,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [
+          "13",
+          "14",
+          "15"
+        ],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained",
+          "extract_dated_election_day_not_final_certification",
+          "official_precinct_returns_maintained_by_county_boards",
+          "three_district_absences_remain_unresolved_not_zero"
+        ]
+      },
+      "rowSha256": "5c14b54a4b2ee7039db341d35448a0db371330a5025c36b5f090c3de9b7906eb"
+    },
+    {
+      "linkageId": "pa:2024:us-house:02:democratic:B001296",
+      "contestSha256": "2cf0996035e490ff121327c0ff7061e3ab44bfdc070e5f428b8b18e9dabe9e20",
+      "seatCycleId": "seat_house_pa_02_current",
+      "stateCode": "PA",
+      "districtCode": "02",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "7e839eb538d5ab93f81978c30222cdf6a00b7ca4fa5074bc655e686233b5903f"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "26a96a442b38a8ae120ca5555559560df58ba64ffea3b8b1ea6ed125747109f4",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4202",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "4202",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "d3f4f388af1e9b31fa347d1af65b1eda58a83ae0623eea4b8f6e3f36d331eda0",
+        "parentV1GeographyRowSha256": "14610c1a829774dcb9d9b8ad2f690c218f70ef58b9a09c7c17073f886856bdec"
+      },
+      "parentV2RowSha256": "d402411bf81d9ee751cdb9c20803de9d82c9d63ae90df894556f19efb54f6249",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2024",
+        "assessmentRowSha256": "5fe4b107e8fa6aedc01a7531a6ae77eae94a3410378ecd7e5b999e3f263e2ae5",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "statewide_election_certification_statement_retained_exact_extract_unbound",
+        "certificationContextSourceLockIds": [
+          "pa-2024-primary-certification-announcement",
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": true,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained_fifty_days_after_statewide_certification",
+          "statewide_certification_statement_retained",
+          "announcement_does_not_identify_or_hash_exact_extract",
+          "official_precinct_returns_maintained_by_county_boards"
+        ]
+      },
+      "rowSha256": "3418192f64a6c27b069f18236b17b8fbd353750a91335c5569463e1d571a4918"
+    },
+    {
+      "linkageId": "pa:2024:us-house:03:democratic:E000296",
+      "contestSha256": "8732357a3f2e1585abda1b1d9c7a622be4bf9b65b339f82d22e99f9804090fc4",
+      "seatCycleId": "seat_house_pa_03_current",
+      "stateCode": "PA",
+      "districtCode": "03",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "103550d92d44dd72d26567c197739cdab39e97ad25c0c232c63e41d621d5c0f2"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "f1e87ae7b5ea6e289ff3642add2f19c06edb1a905e5c9cd192572663574aab64",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4203",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "4203",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "e8188172dbbc9ce769d2866eaa14a2292b9ff696140d5eee2f528d079263553d",
+        "parentV1GeographyRowSha256": "a96a7bcbd4325747d7bc4b1a669d748e312fd349424850839b54ad6eb2f99ffd"
+      },
+      "parentV2RowSha256": "318dee9f1a55b563b27b7078569bf21c62586e089eca99f9c7f010a79ec31262",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2024",
+        "assessmentRowSha256": "5fe4b107e8fa6aedc01a7531a6ae77eae94a3410378ecd7e5b999e3f263e2ae5",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "statewide_election_certification_statement_retained_exact_extract_unbound",
+        "certificationContextSourceLockIds": [
+          "pa-2024-primary-certification-announcement",
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": true,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained_fifty_days_after_statewide_certification",
+          "statewide_certification_statement_retained",
+          "announcement_does_not_identify_or_hash_exact_extract",
+          "official_precinct_returns_maintained_by_county_boards"
+        ]
+      },
+      "rowSha256": "b2a583be0a90893aa9b9a9157c797f14d953e138b6f30806cfef05edaf668d2d"
+    },
+    {
+      "linkageId": "pa:2024:us-house:04:democratic:D000631",
+      "contestSha256": "581c1224b46c930847a40ff93c6592ab5c143f8100d2a990fb2a80b6ee807bc7",
+      "seatCycleId": "seat_house_pa_04_current",
+      "stateCode": "PA",
+      "districtCode": "04",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "derived_name_relationship",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "1cf88c0227888aff3026ede9f1fd08996f6d793ccae63f96d747fbafbaca3cc2"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "ac65be599e3e51ff723e0661a8c416bbefe128046fc4cd1a0a0824ba084709ee",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4204",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "4204",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "9d26e98821b6cd1125e6d7b99bcd1c636d0c01042682a1561fdfa8997f3e20bd",
+        "parentV1GeographyRowSha256": "f2b3fbe3a90734f2dc39158902900a7ea75b60eddbe43b71559444471da47f36"
+      },
+      "parentV2RowSha256": "306d11d45a3e09afd8861a637c4ddc1aadf9a9416f9df1f6ad4d16f0d2bd21bf",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2024",
+        "assessmentRowSha256": "5fe4b107e8fa6aedc01a7531a6ae77eae94a3410378ecd7e5b999e3f263e2ae5",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "statewide_election_certification_statement_retained_exact_extract_unbound",
+        "certificationContextSourceLockIds": [
+          "pa-2024-primary-certification-announcement",
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": true,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained_fifty_days_after_statewide_certification",
+          "statewide_certification_statement_retained",
+          "announcement_does_not_identify_or_hash_exact_extract",
+          "official_precinct_returns_maintained_by_county_boards"
+        ]
+      },
+      "rowSha256": "cd6bbf3b6b258f874cd4d92953b09cb5696f167b1b988aef20df8e2999b7bf96"
+    },
+    {
+      "linkageId": "pa:2024:us-house:05:democratic:S001205",
+      "contestSha256": "d18f83775ed34fe16fb22a52d98e40217ae387e335936c4c304231d443f744e2",
+      "seatCycleId": "seat_house_pa_05_current",
+      "stateCode": "PA",
+      "districtCode": "05",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "16060314c2a9ec7764b5be607337c4d07b5416383305efbc1fe5067112f9711e"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "0545ab9eccacd94d56f04a1510b386e8b21073aa8bade8a3942999770183e65c",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4205",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "4205",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "3accc0d3bd7ebc4045e328fd19bf7f8252e8049d11ab45b8ad8f92b3270a6e3e",
+        "parentV1GeographyRowSha256": "faa8b14e0edc0d94823e98cf0041286bf4a41921d9913c2879bb46917d1b48ee"
+      },
+      "parentV2RowSha256": "6698a5b0fe910d4eb41fc60990145425937b044b2529510b67fb7c30ce56a022",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2024",
+        "assessmentRowSha256": "5fe4b107e8fa6aedc01a7531a6ae77eae94a3410378ecd7e5b999e3f263e2ae5",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "statewide_election_certification_statement_retained_exact_extract_unbound",
+        "certificationContextSourceLockIds": [
+          "pa-2024-primary-certification-announcement",
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": true,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained_fifty_days_after_statewide_certification",
+          "statewide_certification_statement_retained",
+          "announcement_does_not_identify_or_hash_exact_extract",
+          "official_precinct_returns_maintained_by_county_boards"
+        ]
+      },
+      "rowSha256": "1c9ec32f007d48da9bd7df1a7e416b9ca9c5bb45c94854cb61dbf5786390963a"
+    },
+    {
+      "linkageId": "pa:2024:us-house:06:democratic:H001085",
+      "contestSha256": "2170a75498ba5760599f2dc086f8abb1c59f3ea4b355f5e04573e8e352df7fc0",
+      "seatCycleId": "seat_house_pa_06_current",
+      "stateCode": "PA",
+      "districtCode": "06",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "inferred_name_relationship",
+        "confidence": "medium",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "medium_confidence_inference_candidate",
+        "parentRowSha256": "6dc729ed8e92bcedae65730eaae2d62899a5d6b2342afbff394a2bd8e7467246"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "71b201e65b8e396a1185225dabf821b7e46d43b81b2905d9b2ee832d24da9cb2",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4206",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "4206",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "53932552b97658f16f4dfcf616c122dc532bc09822a21ccc942dcc2912c992ea",
+        "parentV1GeographyRowSha256": "934cae8229252e0e63174d7827ba1052ba7de9eaeaeaed24788a93184e633360"
+      },
+      "parentV2RowSha256": "2a41acc399c62cafff98f7bed7cbe4d9d3295bfb2ed84abd87bd7f199dca2478",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2024",
+        "assessmentRowSha256": "5fe4b107e8fa6aedc01a7531a6ae77eae94a3410378ecd7e5b999e3f263e2ae5",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "statewide_election_certification_statement_retained_exact_extract_unbound",
+        "certificationContextSourceLockIds": [
+          "pa-2024-primary-certification-announcement",
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": true,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained_fifty_days_after_statewide_certification",
+          "statewide_certification_statement_retained",
+          "announcement_does_not_identify_or_hash_exact_extract",
+          "official_precinct_returns_maintained_by_county_boards"
+        ]
+      },
+      "rowSha256": "f26f1ed3b527540b6c164228662302e7543f6384b6c963cb77f03c42e6956a60"
+    },
+    {
+      "linkageId": "pa:2024:us-house:12:democratic:L000602",
+      "contestSha256": "01db77638456ff256237d26006a8833bd8d5b198deb769c17aa7128cd19151f2",
+      "seatCycleId": "seat_house_pa_12_current",
+      "stateCode": "PA",
+      "districtCode": "12",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "derived_name_relationship",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "61c9909ef19e1b062485b973f508d2d16d1228e891a5e02ed8758142cb5d718e"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "3166a08f2196551dada1132dd4c1960a0a8c713a9eedac8fb1c7002dc165ca92",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4212",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "4212",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "16460252c334e983471be73f467ede8fcdf99a8bd46ba376344ab7a7c9f810db",
+        "parentV1GeographyRowSha256": "8611143c804f3e3e819be5589516c9c6ad0fa029ac237c91225fe69382e9c750"
+      },
+      "parentV2RowSha256": "0807859325bb858fc4cd3f6d1ce6a06f6e5e1f48bc985f8a8c475c75ef14b319",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2024",
+        "assessmentRowSha256": "5fe4b107e8fa6aedc01a7531a6ae77eae94a3410378ecd7e5b999e3f263e2ae5",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "statewide_election_certification_statement_retained_exact_extract_unbound",
+        "certificationContextSourceLockIds": [
+          "pa-2024-primary-certification-announcement",
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": true,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained_fifty_days_after_statewide_certification",
+          "statewide_certification_statement_retained",
+          "announcement_does_not_identify_or_hash_exact_extract",
+          "official_precinct_returns_maintained_by_county_boards"
+        ]
+      },
+      "rowSha256": "72da232b412e4ff9cfeb244b3fa716cb5120260f4ce9e21a44968a952c5b8d1c"
+    },
+    {
+      "linkageId": "pa:2024:us-house:17:democratic:D000530",
+      "contestSha256": "49afaf2de672efeac42149bf0818f1c9728561e5b04aaa2b7b7c5b5af811ff75",
+      "seatCycleId": "seat_house_pa_17_current",
+      "stateCode": "PA",
+      "districtCode": "17",
+      "cycleYear": 2024,
+      "identity": {
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+        "reviewTier": "high_confidence_candidate",
+        "parentRowSha256": "15e3fe1ca34ec6e182729426034d30909c622dbd818794b013c0fc43328317ca"
+      },
+      "jointCategory": "both_candidates_pending_independent_reviews",
+      "recommendedAction": "review_identity_and_geography_under_existing_decisions",
+      "rationaleCode": "IDENTITY_CANDIDATE_AND_GEOGRAPHY_CANDIDATE_REQUIRE_SEPARATE_APPROVALS",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "jointApproved": false,
+      "evaluatorUse": "excluded_pending_parent_decisions_and_all_other_gates",
+      "scoreEligible": false,
+      "parentReviewRowSha256": "1d2ece4db66382ff3fe79bca1b3164721eb4db837d9a39c15cfec443bdb1a37f",
+      "geography": {
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "compatibilityCandidate": true,
+        "targetCd119Geoid": "4217",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "4217",
+        "rationaleCodes": [
+          "same_cd119_congressional_session",
+          "same_state_district_geoid_in_cd119_inventory"
+        ],
+        "planContinuityEvidence": null,
+        "parentRowSha256": "9cbb7fe4d54eb8e153c5f4e75ea7b4dfe5ed935953343e8cca554ebf31a979d7",
+        "parentV1GeographyRowSha256": "7aa3c514a3ecb3a530e160af9f52a85a352f261f582f91b828c0648886d1d3e2"
+      },
+      "parentV2RowSha256": "eb8b79a378abc4c3d7cbe448f0713974e1338842349979370d8618c610cbeb4a",
+      "certificationAvailability": {
+        "stateCycleId": "PA:2024",
+        "assessmentRowSha256": "5fe4b107e8fa6aedc01a7531a6ae77eae94a3410378ecd7e5b999e3f263e2ae5",
+        "resultReceiptSourceLockId": "pennsylvania-house-democratic-primary-results-2022-2024-v1",
+        "resultArtifactStatus": "department_precinct_return_extract_candidate_retained",
+        "certificationContextStatus": "statewide_election_certification_statement_retained_exact_extract_unbound",
+        "certificationContextSourceLockIds": [
+          "pa-2024-primary-certification-announcement",
+          "pa-election-result-authority-boundary-20260805"
+        ],
+        "exactResultBytesRetained": true,
+        "cycleCertificationContextRetained": true,
+        "exactResultCertificationReconciled": false,
+        "unresolvedNoRowDistrictCodes": [],
+        "authorityApproved": false,
+        "evaluatorUse": "excluded_pending_complete_state_result_and_certification_closure",
+        "scoreEligible": false,
+        "rationaleCodes": [
+          "department_extract_retained_fifty_days_after_statewide_certification",
+          "statewide_certification_statement_retained",
+          "announcement_does_not_identify_or_hash_exact_extract",
+          "official_precinct_returns_maintained_by_county_boards"
+        ]
+      },
+      "rowSha256": "4eb000e7036e741d9d7eb96b78f03ff4d3ff921a1a4d1c6909412bff15f2b92d"
+    }
+  ],
+  "reviewRecordSetSha256": "71c1dd05e24b0ca6eab339720f58b0b93c915d90ce3ddfb29c7d55b88ee0e2be",
+  "authorityOnlyStateCycles": [
+    {
+      "stateCycleId": "PA:2026",
+      "assessmentRowSha256": "dfc0aaad704a40d0414c74193ecf5413153feecad49012675b243b111fc261d7",
+      "resultReceiptSourceLockId": null,
+      "resultArtifactStatus": "official_result_extract_not_retained",
+      "certificationContextStatus": "statewide_election_certification_statement_retained_result_extract_missing",
+      "exactResultBytesRetained": false,
+      "exactResultCertificationReconciled": false,
+      "automaticApproval": false,
+      "scoreEligible": false
+    }
+  ],
+  "authorityProjectionSetSha256": "cab363d2a2be192cac12fb0706bbe0fcf28537e6eee9a7951d114590c6714a92",
+  "parentDecisionReviews": [
+    {
+      "reviewOfDecisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+      "ownerSourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "ownerFileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "ownerPackageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb",
+      "inherited": true,
+      "createsIndependentDecision": false,
+      "supersedesDecisionIds": [],
+      "parentQuestion": "Should historic candidate identity require authoritative identifiers or documented review rather than name-only matching?",
+      "parentRecommendedDecision": "Require an exact or reviewed identity mapping to the current incumbent BioGuide.",
+      "parentDefaultReversibleAssumption": "retain_plan_exclude_from_evaluator_and_publication",
+      "parentResolution": null,
+      "evidenceSha256s": [
+        "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb",
+        "cea679fcc77960acf076de64d1d8fe4bbac668a024af7e345332f1effa76a4f4",
+        "96939a1e8ea480299a5bd34b6756c25367be092d4e26f8929ed1779cc437741c",
+        "a77043427e5a3feafd7773c34a37255f7ae130dee0bdeeed643ed6e18bca2bd4"
+      ],
+      "categorySet": [
+        "both_candidates_pending_independent_reviews",
+        "geography_candidate_identity_unresolved"
+      ],
+      "proposedResolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "parentReviewRecordSha256": "4a330b3a0f7fab4045ad89a00da200e251755dd9fe977f73dc66810506cc97b4",
+      "reviewRecordSha256": "9221f36af95f5697166ec78000e101d3263e7d04a3b54dbc6abdf7add205bff9"
+    },
+    {
+      "reviewOfDecisionId": "approve-historical-district-cd119-compatibility-v1",
+      "ownerSourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "ownerFileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "ownerPackageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb",
+      "inherited": true,
+      "createsIndependentDecision": false,
+      "supersedesDecisionIds": [],
+      "parentQuestion": "Should historic result geography require an exact key match or a separately reviewed crosswalk before scoring?",
+      "parentRecommendedDecision": "Reject automatic current-boundary assumptions and require retained compatibility evidence.",
+      "parentDefaultReversibleAssumption": "retain_plan_exclude_from_evaluator_and_publication",
+      "parentResolution": null,
+      "evidenceSha256s": [
+        "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb",
+        "cabffbdea11fddf17d4f63fc57f4d9c89cb9eaa202fceb2b5da6c92d841ecb5b",
+        "c69cfe00727b4c69c60f4331069346467d015eb69f45b495480790b064facc45",
+        "a77043427e5a3feafd7773c34a37255f7ae130dee0bdeeed643ed6e18bca2bd4"
+      ],
+      "categorySet": [
+        "both_candidates_pending_independent_reviews",
+        "geography_candidate_identity_unresolved"
+      ],
+      "proposedResolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "parentReviewRecordSha256": "f702492461251280ccd38fce3b6ca4c27c21d398d1dae675d63ed77b2f0a5afb",
+      "reviewRecordSha256": "6c9de0960016ecf92fdeb1ab321dab7293fc112b26eb02dac0b3c046bf77f7d7"
+    },
+    {
+      "reviewOfDecisionId": "collect-official-state-primary-results-and-certification-v1",
+      "ownerSourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "ownerFileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "ownerPackageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb",
+      "inherited": true,
+      "createsIndependentDecision": false,
+      "supersedesDecisionIds": [],
+      "parentQuestion": "Should official state primary results and exact certification evidence be retained before the records are eligible for scoring?",
+      "parentRecommendedDecision": "Retain complete official result and certification evidence without treating availability context as certification reconciliation.",
+      "parentDefaultReversibleAssumption": "retain_plan_exclude_from_evaluator_and_publication",
+      "parentResolution": null,
+      "evidenceSha256s": [
+        "7cf437c67e4b457e110ae03cc0ef0f88afc004fb0c19a279d4646fa8a163fa4a",
+        "7c91368a0e77c29cc9fd593cbf1d3d27f0d4eaafba07435662222067e9c4612a"
+      ],
+      "categorySet": [
+        "both_candidates_pending_independent_reviews",
+        "geography_candidate_identity_unresolved"
+      ],
+      "assessmentConclusion": "nj_official_lists_and_pa_statewide_certification_context_improve_authority_visibility_but_zero_exact_result_artifacts_are_certification_reconciled",
+      "proposedResolution": null,
+      "reviewer": null,
+      "reviewedAt": null,
+      "reviewRecordSha256": "7cbc9ddc2f37b1d6e2e693c26b4ae0fe5a35dc9945880945b2bd632104269390"
+    }
+  ],
+  "parentDecisionReviewSetSha256": "0c20132c804063e93e50c86ceb0f334e8ad85c4b630a4ec3365e121ef8dd6493",
+  "packageSha256": "5b83a62806ccbefe2993812f46006b0848aca983d507250b5331bcdc7c0400fb"
+}
