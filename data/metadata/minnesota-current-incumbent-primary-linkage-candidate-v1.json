@@ -1,0 +1,375 @@
+{
+  "schema": "minnesota-current-incumbent-primary-linkage-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T21:00:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_identity_historical_geography_disposition_review_and_publication_approval",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inheritedUnresolvedGates": [
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "decide_nonstandard_primary_disposition_treatment",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "inputs": {
+    "roster": {
+      "sourceLockId": "dsa-target-incumbent-roster-20260804-v1",
+      "fileSha256": "8ae9bb3423e6160d00b5395186c42550e28811b817a482650875d87de71079e1",
+      "rosterSha256": "cf068848595dee99882ae74a6bef2b76061597fe0daa3c86b30c71bdcae18fee"
+    },
+    "proposal": {
+      "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+    },
+    "houseClerk": {
+      "sourceLockId": "house-xml",
+      "fileSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+    },
+    "congressLegislators": {
+      "sourceLockId": "congress-legislators-current-20260804",
+      "fileSha256": "bc48cccd12df96164e5a2415fc41e838ca255fe85c297731515529692f7982cf"
+    },
+    "receipt": {
+      "sourceLockId": "minnesota-house-democratic-primary-results-2022-2026-v1",
+      "fileSha256": "8ccf5fb90e7851e62a953a3e211db55fad0e5891b9178ff8186de0abf5b827d2",
+      "packageSha256": "336094811277f867f5370b53f7b8568733a73a3d2c45b7fa4e5faa3071866e84",
+      "sourceContestSetSha256": "7c1b8fbf54488fa9d90a6598b9fa322e097ceea40e6d4fc6ec28b41d7be86ec5",
+      "targetObservationSetSha256": "8c373fa281d18f7bc686c168fc2b3c10cf75039cc7da54138d3f0b68fa92404d"
+    }
+  },
+  "methodology": {
+    "scope": "four_current_minnesota_democratic_target_seats_times_two_historical_cycles",
+    "identityMethod": "exact_normalized_official_house_name_same_district_only",
+    "directIdentifierBridgeAvailable": false,
+    "sourceAbsenceTreatment": "retain_null_without_zero_no_primary_uncontested_nomination_or_predecessor_inference",
+    "sourceWinnerTreatment": "not_marked_by_source_no_vote_rank_inference",
+    "certificationTreatment": "event_metadata_only_exact_report_bytes_not_retained_no_candidate_certification_claim",
+    "rawPartyCode": "DFL",
+    "futureCycleTreatment": "zero_2026_rows_scheduled_primary_not_yet_occurred",
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "targetSeats": 4,
+    "contestObservations": 8,
+    "reportedObservations": 5,
+    "sourceAbsentObservations": 3,
+    "reportedCandidateRows": 15,
+    "reportedContestVotes": 372009,
+    "proposedIdentityLinks": 5,
+    "exactNameObservations": 5,
+    "directIdentifierBridges": 0,
+    "automaticallyApprovedRows": 0,
+    "selectedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "observations": [
+    {
+      "observationId": "mn:identity:2022:02",
+      "cycleYear": 2022,
+      "districtCode": "02",
+      "seatCycleId": "seat_house_mn_02_current",
+      "rosterIdentity": {
+        "bioguideId": "C001119",
+        "officialHouseName": "Angie Craig"
+      },
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceCandidateCount": null,
+      "sourceContestVotes": null,
+      "sourceCandidate": null,
+      "identityStatus": "source_absent_district_cycle_unresolved",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": null,
+      "evidenceClass": null,
+      "confidence": null,
+      "sourceAbsenceMeaning": "not_zero_not_no_primary_not_uncontested_not_nominated",
+      "sourcePartyCode": null,
+      "resultAuthorityStatus": null,
+      "sourceWinnerStatus": null,
+      "certificationStatus": null,
+      "relationshipDisposition": "not_linked_source_absent_without_candidate_record",
+      "identityApproved": false,
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "rowSha256": "3b3446035e1401fe22aaa3a3f5663f07ad51741e62ed9d54920ec9ff9a678fc6"
+    },
+    {
+      "observationId": "mn:identity:2022:03",
+      "cycleYear": 2022,
+      "districtCode": "03",
+      "seatCycleId": "seat_house_mn_03_current",
+      "rosterIdentity": {
+        "bioguideId": "M001234",
+        "officialHouseName": "Kelly Morrison"
+      },
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceCandidateCount": null,
+      "sourceContestVotes": null,
+      "sourceCandidate": null,
+      "identityStatus": "source_absent_district_cycle_unresolved",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": null,
+      "evidenceClass": null,
+      "confidence": null,
+      "sourceAbsenceMeaning": "not_zero_not_no_primary_not_uncontested_not_nominated",
+      "sourcePartyCode": null,
+      "resultAuthorityStatus": null,
+      "sourceWinnerStatus": null,
+      "certificationStatus": null,
+      "relationshipDisposition": "not_linked_source_absent_without_candidate_record",
+      "identityApproved": false,
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "rowSha256": "695f12263702f42d441ab3e8c9c82718ee3029de2b89a9773ed05626ac492557"
+    },
+    {
+      "observationId": "mn:identity:2022:04",
+      "cycleYear": 2022,
+      "districtCode": "04",
+      "seatCycleId": "seat_house_mn_04_current",
+      "rosterIdentity": {
+        "bioguideId": "M001143",
+        "officialHouseName": "Betty McCollum"
+      },
+      "sourceContestId": "mn:2022:regular:us-house:04:dfl",
+      "sourceContestSha256": "0dd26f681e7105750a815c105dbb4a23ef18dc6e033361012fcdd3ff837775c6",
+      "sourceCandidateCount": 3,
+      "sourceContestVotes": 69597,
+      "sourceCandidate": {
+        "sourceCandidateId": "01070403",
+        "sourceCandidateName": "Betty McCollum",
+        "votes": 58043,
+        "sourcePercentage": 83.4
+      },
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "sourceAbsenceMeaning": null,
+      "sourcePartyCode": "DFL",
+      "resultAuthorityStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "certificationStatus": "event_metadata_only_exact_report_bytes_not_retained",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "rowSha256": "448f668181d560a97346ac00285a37cd1ad267f55e7411ce3aff976d56c9ce85"
+    },
+    {
+      "observationId": "mn:identity:2022:05",
+      "cycleYear": 2022,
+      "districtCode": "05",
+      "seatCycleId": "seat_house_mn_05_current",
+      "rosterIdentity": {
+        "bioguideId": "O000173",
+        "officialHouseName": "Ilhan Omar"
+      },
+      "sourceContestId": "mn:2022:regular:us-house:05:dfl",
+      "sourceContestSha256": "9d79a673d9dc2c2f8c9b9c5239c98a8c9d9940d846acbcfbc04341bca6027b6c",
+      "sourceCandidateCount": 5,
+      "sourceContestVotes": 114567,
+      "sourceCandidate": {
+        "sourceCandidateId": "01080405",
+        "sourceCandidateName": "Ilhan Omar",
+        "votes": 57683,
+        "sourcePercentage": 50.35
+      },
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "sourceAbsenceMeaning": null,
+      "sourcePartyCode": "DFL",
+      "resultAuthorityStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "certificationStatus": "event_metadata_only_exact_report_bytes_not_retained",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "rowSha256": "a557ffee2f751a8b21545d1df351d6dfba1ef91c966f55caad2d32983ff73592"
+    },
+    {
+      "observationId": "mn:identity:2024:02",
+      "cycleYear": 2024,
+      "districtCode": "02",
+      "seatCycleId": "seat_house_mn_02_current",
+      "rosterIdentity": {
+        "bioguideId": "C001119",
+        "officialHouseName": "Angie Craig"
+      },
+      "sourceContestId": "mn:2024:regular:us-house:02:dfl",
+      "sourceContestSha256": "ad731c6d6a6fefc2f4c90e942e456ab7d8596e86481a2237af76ebd593f371bb",
+      "sourceCandidateCount": 2,
+      "sourceContestVotes": 29514,
+      "sourceCandidate": {
+        "sourceCandidateId": "01050401",
+        "sourceCandidateName": "Angie Craig",
+        "votes": 26865,
+        "sourcePercentage": 91.02
+      },
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "sourceAbsenceMeaning": null,
+      "sourcePartyCode": "DFL",
+      "resultAuthorityStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "certificationStatus": "event_metadata_only_exact_report_bytes_not_retained",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "rowSha256": "85b9450e3c81b8a90c84fb26cefd7928aeb1da55229642ca279d19ef27c1c014"
+    },
+    {
+      "observationId": "mn:identity:2024:03",
+      "cycleYear": 2024,
+      "districtCode": "03",
+      "seatCycleId": "seat_house_mn_03_current",
+      "rosterIdentity": {
+        "bioguideId": "M001234",
+        "officialHouseName": "Kelly Morrison"
+      },
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceCandidateCount": null,
+      "sourceContestVotes": null,
+      "sourceCandidate": null,
+      "identityStatus": "source_absent_district_cycle_unresolved",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": null,
+      "evidenceClass": null,
+      "confidence": null,
+      "sourceAbsenceMeaning": "not_zero_not_no_primary_not_uncontested_not_nominated",
+      "sourcePartyCode": null,
+      "resultAuthorityStatus": null,
+      "sourceWinnerStatus": null,
+      "certificationStatus": null,
+      "relationshipDisposition": "not_linked_source_absent_without_candidate_record",
+      "identityApproved": false,
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "rowSha256": "3a0a3f12d9360e0a605a4e88450f231febac53ac8e93ac331d4a4e3ef33b6800"
+    },
+    {
+      "observationId": "mn:identity:2024:04",
+      "cycleYear": 2024,
+      "districtCode": "04",
+      "seatCycleId": "seat_house_mn_04_current",
+      "rosterIdentity": {
+        "bioguideId": "M001143",
+        "officialHouseName": "Betty McCollum"
+      },
+      "sourceContestId": "mn:2024:regular:us-house:04:dfl",
+      "sourceContestSha256": "b1d9dae6713e5bc76c8b7acf169f5535623020465cf845ba85b1bc30b2780539",
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 37530,
+      "sourceCandidate": {
+        "sourceCandidateId": "01070401",
+        "sourceCandidateName": "Betty McCollum",
+        "votes": 37530,
+        "sourcePercentage": 100
+      },
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "sourceAbsenceMeaning": null,
+      "sourcePartyCode": "DFL",
+      "resultAuthorityStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "certificationStatus": "event_metadata_only_exact_report_bytes_not_retained",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "rowSha256": "1792ecc85954d6ae45b2f430a70aa06e576160fccb62dce3dfc36026d969aade"
+    },
+    {
+      "observationId": "mn:identity:2024:05",
+      "cycleYear": 2024,
+      "districtCode": "05",
+      "seatCycleId": "seat_house_mn_05_current",
+      "rosterIdentity": {
+        "bioguideId": "O000173",
+        "officialHouseName": "Ilhan Omar"
+      },
+      "sourceContestId": "mn:2024:regular:us-house:05:dfl",
+      "sourceContestSha256": "fa5f5be4f0aea0d5a8e1dcc94b03fd07705afd27468a367c3bdd2ea948e8bf0c",
+      "sourceCandidateCount": 4,
+      "sourceContestVotes": 120801,
+      "sourceCandidate": {
+        "sourceCandidateId": "01080401",
+        "sourceCandidateName": "Ilhan Omar",
+        "votes": 67926,
+        "sourcePercentage": 56.23
+      },
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "sourceAbsenceMeaning": null,
+      "sourcePartyCode": "DFL",
+      "resultAuthorityStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "certificationStatus": "event_metadata_only_exact_report_bytes_not_retained",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "rowSha256": "008df281e740f3d6110be27dc4a11589c1c146aef0d17247d415e694d9e4a453"
+    }
+  ],
+  "observationSetSha256": "77f4eb4b2c3ff31d9e861c25a4e9eb66560f90860246f53c48a0afda23ac747c",
+  "decisionSupport": {
+    "decisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+    "status": "proposed",
+    "recommendedResolution": "accept_five_exact_same_district_name_links_and_retain_three_source_absences_as_unresolved",
+    "defaultAssumption": "exclude_all_eight_rows_from_evaluator_until_identity_geography_disposition_and_publication_review",
+    "affectedObservationIds": [
+      "mn:identity:2022:02",
+      "mn:identity:2022:03",
+      "mn:identity:2022:04",
+      "mn:identity:2022:05",
+      "mn:identity:2024:02",
+      "mn:identity:2024:03",
+      "mn:identity:2024:04",
+      "mn:identity:2024:05"
+    ],
+    "proposedIdentityObservationIds": [
+      "mn:identity:2022:04",
+      "mn:identity:2022:05",
+      "mn:identity:2024:02",
+      "mn:identity:2024:04",
+      "mn:identity:2024:05"
+    ],
+    "sourceAbsentObservationIds": [
+      "mn:identity:2022:02",
+      "mn:identity:2022:03",
+      "mn:identity:2024:03"
+    ],
+    "reviewerResolution": null,
+    "reviewer": null,
+    "reviewedAt": null
+  },
+  "packageSha256": "77baabd12581f1880c811dc75ab77a79481ca9a5388a920f5ca30cc85b0c3a61"
+}
