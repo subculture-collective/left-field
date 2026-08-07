@@ -182,6 +182,7 @@
     "generate:ca-current-incumbent-primary-linkage-v1": "tsx scripts/generate-california-current-incumbent-primary-linkage-candidate.ts",
     "generate:ca-primary-joint-review-v1": "tsx scripts/generate-california-primary-identity-geography-review-package.ts",
     "generate:ca-primary-joint-review-v2": "tsx scripts/generate-california-primary-identity-geography-review-package-v2.ts",
+    "generate:ca-primary-joint-review-v3": "tsx scripts/generate-california-primary-identity-geography-review-package-v3.ts",
     "fetch:nj-2026-congressional-plan-authority": "node scripts/fetch-new-jersey-2026-congressional-plan-authority.mjs",
     "generate:nj-2026-congressional-plan-authority": "tsx scripts/generate-new-jersey-2026-congressional-plan-authority-receipt.ts",
     "generate:nj-pa-primary-geography-v2": "tsx scripts/generate-nj-pa-primary-geography-compatibility-candidate-v2.ts",
