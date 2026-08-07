@@ -1,5 +1,7 @@
 # DSA primary target evaluation v0.1
 
+> Deadline extension: the separately versioned `dsa-primary-target-provisional-v0.2` adds a 25% incumbent-alignment gap from the retained Left and Palestine trackers. It preserves v0.1 scores for the 140 originally qualified seats and uses an explicit component fallback to order the other 72, without mutating v0.1. See [the v0.2 review note](../reviews/dsa-target-provisional-score-v02-2026-08-07.md).
+
 ## Goal and scope
 
 This evaluation ranks regular, occupied, voting U.S. House seats held by a Democrat for a potential left primary challenge. It is a strategic target score, not a probability of winning. It does not consume individual-voter records, individual-donor identities, addresses, or demographic attributes.
@@ -134,3 +136,6 @@ The seat score answers where structural conditions fit this targeting strategy. 
 - credible polling or field evidence, when available, with sponsor and methodology disclosed.
 
 These observations must not be silently imputed from the district's demographics, online popularity, or the seat score. They should be versioned reviewer inputs attached to a named prospective campaign. The product may eventually present a two-dimensional matrix—`seat target score` by `campaign readiness`—but must not add the two into a false-precision win probability.
+### Priority brief projection
+
+The public `dsa-target-priority-briefs-20260807-v1` projection converts the v0.2 ranking into 212 deterministic, source-linked briefs. The public index opens with the top 50 and can expand to all seats. Each brief explains the formula and four score drivers and adds compact member-service and district context. The ordering, universal fallback, lifecycle, and regeneration command are documented in `docs/reviews/dsa-target-priority-briefs-v1-2026-08-07.md`.
