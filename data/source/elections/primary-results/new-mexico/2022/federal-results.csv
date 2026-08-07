@@ -1,0 +1,9 @@
+RaceID,RaceName,PartyCode,AreaNum,CandidateID,CandidateName,VoteFor,CandidateVotes,CandidatePercentage,PrecinctsReporting,CandidateAbsenteeVotes,CandidateElectionDayVotes,CandidateEarlyVotes
+7949,"United States Representative","DEM","DISTRICT 1",13701,"MELANIE ANN STANSBURY",1,44223,1,610/610,,,,
+7949,"United States Representative","REP","DISTRICT 1",13718,"LOUIE SANCHEZ",1,18171,0.413042984111109,610/610,,,,
+7949,"United States Representative","REP","DISTRICT 1",13711,"MICHELLE GARCIA HOLMES",1,25822,0.586957015888891,610/610,,,,
+7950,"United States Representative","DEM","DISTRICT 2",13695,"GABRIEL VASQUEZ",1,24010,0.761159015977682,263/263,,,,
+7950,"United States Representative","DEM","DISTRICT 2",13729,"DARSHAN NILESH PATEL",1,7534,0.238840984022318,263/263,,,,
+7950,"United States Representative","REP","DISTRICT 2",13710,"YVETTE HERRELL",1,28623,1,263/263,,,,
+7951,"United States Representative","DEM","DISTRICT 3",13702,"TERESA LEGER FERNANDEZ",1,46940,1,175/175,,,,
+7951,"United States Representative","REP","DISTRICT 3",13719,"ALEXIS MARTINEZ JOHNSON",1,28729,1,175/175,,,,

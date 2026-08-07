@@ -1,0 +1,756 @@
+{
+  "schema": "new-mexico-house-democratic-primary-results-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-07T07:30:00.000Z",
+  "sourceCutoff": "2026-08-07",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "originalPublisher": "New Mexico Secretary of State",
+  "status": "official_regular_primary_result_candidate",
+  "licenseOrReuseTerms": "not_stated_by_source",
+  "rawParty": "DEM",
+  "parentProposal": {
+    "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "decisionSupport": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    }
+  ],
+  "inheritedDecisionResolutions": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "resolution": null
+    }
+  ],
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "authoritySourceId": "nm-2022-election-results-archive",
+      "federalExportSourceId": "nm-2022-primary-federal-results-csv",
+      "federalExportRows": 8,
+      "federalExportRaces": 3,
+      "federalExportVotes": 224052,
+      "democraticHouseContests": 3,
+      "democraticHouseCandidates": 4,
+      "democraticHouseVotes": 122707,
+      "targetObservations": 3,
+      "allPrecinctsReporting": true
+    },
+    {
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "authoritySourceId": "nm-2024-primary-certification-announcement",
+      "federalExportSourceId": "nm-2024-primary-federal-results-csv",
+      "federalExportRows": 19,
+      "federalExportRaces": 5,
+      "federalExportVotes": 633776,
+      "democraticHouseContests": 3,
+      "democraticHouseCandidates": 3,
+      "democraticHouseVotes": 122778,
+      "targetObservations": 3,
+      "allPrecinctsReporting": true
+    },
+    {
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "authoritySourceId": "nm-2026-primary-certification-announcement",
+      "federalExportSourceId": "nm-2026-primary-federal-results-csv",
+      "federalExportRows": 10,
+      "federalExportRaces": 4,
+      "federalExportVotes": 540039,
+      "democraticHouseContests": 3,
+      "democraticHouseCandidates": 3,
+      "democraticHouseVotes": 195714,
+      "targetObservations": 3,
+      "allPrecinctsReporting": true
+    }
+  ],
+  "sources": [
+    {
+      "id": "nm-2022-election-results-archive",
+      "url": "https://www.sos.nm.gov/sos-archive/election-results-archive/2022-election-results/",
+      "retainedPath": "data/source/elections/primary-results/new-mexico/2022/election-results-archive.html",
+      "retainedStatus": "retained",
+      "byteSize": 121679,
+      "sha256": "8b2198173eeeb6faf26586e68b37795e054c7b6cc20c18c07c87e14e7d510e50",
+      "kind": "official_election_results_archive",
+      "parentIds": []
+    },
+    {
+      "id": "nm-2022-primary-federal-results-csv",
+      "url": "https://electionresults.sos.nm.gov/resultsCSV.aspx?text=All&type=FED&map=CTY&eid=2827",
+      "retainedPath": "data/source/elections/primary-results/new-mexico/2022/federal-results.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1101,
+      "sha256": "84f5087d62a523f35905bf63c9de2c136e311ed1bdf54eec9ff70ffd297235c9",
+      "kind": "official_federal_primary_results_export",
+      "parentIds": [
+        "nm-2022-election-results-archive"
+      ]
+    },
+    {
+      "id": "nm-2024-primary-certification-announcement",
+      "url": "https://www.sos.nm.gov/2024/06/25/state-canvass-board-certifies-2024-primary-election-results-orders-automatic-recounts/",
+      "retainedPath": "data/source/elections/primary-results/new-mexico/2024/certification-announcement.html",
+      "retainedStatus": "retained",
+      "byteSize": 85869,
+      "sha256": "a0a5764058fc9de6913bf0721d56773140977af6a1fb73a91ff7a20c254ef55c",
+      "kind": "official_state_canvass_certification_announcement",
+      "parentIds": []
+    },
+    {
+      "id": "nm-2024-primary-federal-results-csv",
+      "url": "https://electionresults.sos.nm.gov/resultsCSV.aspx?text=All&type=FED&map=CTY&eid=2878",
+      "retainedPath": "data/source/elections/primary-results/new-mexico/2024/federal-results.csv",
+      "retainedStatus": "retained",
+      "byteSize": 2578,
+      "sha256": "6242f02e83e5b10a510bba2486124aeba1e5c13886f94d1a75066766d90ac4d1",
+      "kind": "official_federal_primary_results_export",
+      "parentIds": [
+        "nm-2024-primary-certification-announcement"
+      ]
+    },
+    {
+      "id": "nm-2026-primary-certification-announcement",
+      "url": "https://www.sos.nm.gov/2026/06/23/state-canvass-board-certifies-2026-primary-election-results-orders-automatic-recounts/",
+      "retainedPath": "data/source/elections/primary-results/new-mexico/2026/certification-announcement.html",
+      "retainedStatus": "retained",
+      "byteSize": 86270,
+      "sha256": "dfe726f4fa455da963c4c306a229537d0e7d0d716dec5aa9d359ea5eecc46d58",
+      "kind": "official_state_canvass_certification_announcement",
+      "parentIds": []
+    },
+    {
+      "id": "nm-2026-primary-federal-results-csv",
+      "url": "https://electionresults.sos.nm.gov/resultsCSV.aspx?text=All&type=FED&map=CTY",
+      "retainedPath": "data/source/elections/primary-results/new-mexico/2026/federal-results.csv",
+      "retainedStatus": "retained",
+      "byteSize": 1413,
+      "sha256": "10727ff853f4a435e1b0dd421fbb4dfca17ce1907de4b895c924ef9babaf96ad",
+      "kind": "official_federal_primary_results_export",
+      "parentIds": [
+        "nm-2026-primary-certification-announcement"
+      ]
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "nm:2022:regular:us-house:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NM",
+      "districtCode": "01",
+      "sourceRaceId": "7949",
+      "rawRaceName": "United States Representative",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "nm-2022-election-results-archive",
+        "nm-2022-primary-federal-results-csv"
+      ],
+      "resultAuthorityStatus": "secretary_official_federal_results_export_retained",
+      "certificationStatus": "official_results_archive_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_source_precincts_reporting_and_candidate_components_reconcile_when_present",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateId": "13701",
+          "sourceCandidateName": "MELANIE ANN STANSBURY",
+          "rawParty": "DEM",
+          "votes": 44223,
+          "sourcePercentage": 1,
+          "precinctsReporting": "610/610"
+        }
+      ],
+      "sourceTotalVotes": 44223,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "3d8f368e3621f80bc67a62e66835bc67116f471c23af77ab51e5108667fbd306"
+    },
+    {
+      "contestId": "nm:2022:regular:us-house:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NM",
+      "districtCode": "02",
+      "sourceRaceId": "7950",
+      "rawRaceName": "United States Representative",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "nm-2022-election-results-archive",
+        "nm-2022-primary-federal-results-csv"
+      ],
+      "resultAuthorityStatus": "secretary_official_federal_results_export_retained",
+      "certificationStatus": "official_results_archive_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_source_precincts_reporting_and_candidate_components_reconcile_when_present",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateId": "13695",
+          "sourceCandidateName": "GABRIEL VASQUEZ",
+          "rawParty": "DEM",
+          "votes": 24010,
+          "sourcePercentage": 0.761159015977682,
+          "precinctsReporting": "263/263"
+        },
+        {
+          "sourceCandidateId": "13729",
+          "sourceCandidateName": "DARSHAN NILESH PATEL",
+          "rawParty": "DEM",
+          "votes": 7534,
+          "sourcePercentage": 0.238840984022318,
+          "precinctsReporting": "263/263"
+        }
+      ],
+      "sourceTotalVotes": 31544,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "aa47af0ae57ef78c4aad748f6b006fe64592c8a5b51eab403a12ab9800d71b3f"
+    },
+    {
+      "contestId": "nm:2022:regular:us-house:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "stateCode": "NM",
+      "districtCode": "03",
+      "sourceRaceId": "7951",
+      "rawRaceName": "United States Representative",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "nm-2022-election-results-archive",
+        "nm-2022-primary-federal-results-csv"
+      ],
+      "resultAuthorityStatus": "secretary_official_federal_results_export_retained",
+      "certificationStatus": "official_results_archive_retained_no_separate_signed_certificate",
+      "reportingCompleteness": "all_source_precincts_reporting_and_candidate_components_reconcile_when_present",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateId": "13702",
+          "sourceCandidateName": "TERESA LEGER FERNANDEZ",
+          "rawParty": "DEM",
+          "votes": 46940,
+          "sourcePercentage": 1,
+          "precinctsReporting": "175/175"
+        }
+      ],
+      "sourceTotalVotes": 46940,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "4afb7e474dbbca09e8d388f475bbba7a09592dc70c5c2f63163e6e53f8ae49b8"
+    },
+    {
+      "contestId": "nm:2024:regular:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NM",
+      "districtCode": "01",
+      "sourceRaceId": "9441",
+      "rawRaceName": "United States Representative",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "nm-2024-primary-certification-announcement",
+        "nm-2024-primary-federal-results-csv"
+      ],
+      "resultAuthorityStatus": "secretary_official_federal_results_export_retained",
+      "certificationStatus": "state_canvass_certification_announcement_retained_exact_certificate_bytes_not_retained",
+      "reportingCompleteness": "all_source_precincts_reporting_and_candidate_components_reconcile_when_present",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateId": "16366",
+          "sourceCandidateName": "MELANIE ANN STANSBURY",
+          "rawParty": "DEM",
+          "votes": 47157,
+          "sourcePercentage": 1,
+          "precinctsReporting": "766/766"
+        }
+      ],
+      "sourceTotalVotes": 47157,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a5ad028063a732536c5f6d856ec9085150c7eb75ebaa47d024aa10b9a8c9d3f5"
+    },
+    {
+      "contestId": "nm:2024:regular:us-house:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NM",
+      "districtCode": "02",
+      "sourceRaceId": "9439",
+      "rawRaceName": "United States Representative",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "nm-2024-primary-certification-announcement",
+        "nm-2024-primary-federal-results-csv"
+      ],
+      "resultAuthorityStatus": "secretary_official_federal_results_export_retained",
+      "certificationStatus": "state_canvass_certification_announcement_retained_exact_certificate_bytes_not_retained",
+      "reportingCompleteness": "all_source_precincts_reporting_and_candidate_components_reconcile_when_present",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateId": "16364",
+          "sourceCandidateName": "GABRIEL VASQUEZ",
+          "rawParty": "DEM",
+          "votes": 29613,
+          "sourcePercentage": 1,
+          "precinctsReporting": "656/656"
+        }
+      ],
+      "sourceTotalVotes": 29613,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "224cd846f8099c0896131e96fc18b013f392579a1ce4108ae4c49b4eef3ba893"
+    },
+    {
+      "contestId": "nm:2024:regular:us-house:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-04",
+      "stateCode": "NM",
+      "districtCode": "03",
+      "sourceRaceId": "9440",
+      "rawRaceName": "United States Representative",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "nm-2024-primary-certification-announcement",
+        "nm-2024-primary-federal-results-csv"
+      ],
+      "resultAuthorityStatus": "secretary_official_federal_results_export_retained",
+      "certificationStatus": "state_canvass_certification_announcement_retained_exact_certificate_bytes_not_retained",
+      "reportingCompleteness": "all_source_precincts_reporting_and_candidate_components_reconcile_when_present",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateId": "16367",
+          "sourceCandidateName": "TERESA LEGER FERNANDEZ",
+          "rawParty": "DEM",
+          "votes": 46008,
+          "sourcePercentage": 1,
+          "precinctsReporting": "747/747"
+        }
+      ],
+      "sourceTotalVotes": 46008,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "64071c33d42311256f980c2d794cae049f68eb8539024aefe09c9243bf52b8ce"
+    },
+    {
+      "contestId": "nm:2026:regular:us-house:01:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NM",
+      "districtCode": "01",
+      "sourceRaceId": "10779",
+      "rawRaceName": "United States Representative",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "nm-2026-primary-certification-announcement",
+        "nm-2026-primary-federal-results-csv"
+      ],
+      "resultAuthorityStatus": "secretary_official_federal_results_export_retained",
+      "certificationStatus": "state_canvass_certification_announcement_retained_exact_certificate_bytes_not_retained",
+      "reportingCompleteness": "all_source_precincts_reporting_and_candidate_components_reconcile_when_present",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateId": "18928",
+          "sourceCandidateName": "MELANIE ANN STANSBURY",
+          "rawParty": "DEM",
+          "votes": 79823,
+          "sourcePercentage": 1,
+          "precinctsReporting": "778/778"
+        }
+      ],
+      "sourceTotalVotes": 79823,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "0c0980e4448e36a26c5c62b9c24f1d4ffebde20539c2858c08e7c9fbf8cd3a4e"
+    },
+    {
+      "contestId": "nm:2026:regular:us-house:02:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NM",
+      "districtCode": "02",
+      "sourceRaceId": "10780",
+      "rawRaceName": "United States Representative",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "nm-2026-primary-certification-announcement",
+        "nm-2026-primary-federal-results-csv"
+      ],
+      "resultAuthorityStatus": "secretary_official_federal_results_export_retained",
+      "certificationStatus": "state_canvass_certification_announcement_retained_exact_certificate_bytes_not_retained",
+      "reportingCompleteness": "all_source_precincts_reporting_and_candidate_components_reconcile_when_present",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateId": "18913",
+          "sourceCandidateName": "GABRIEL VASQUEZ",
+          "rawParty": "DEM",
+          "votes": 47123,
+          "sourcePercentage": 1,
+          "precinctsReporting": "663/663"
+        }
+      ],
+      "sourceTotalVotes": 47123,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "a12d282959b64013381d22cc200945c0dc1e0ccba06c1a2658db8f0b400fd19d"
+    },
+    {
+      "contestId": "nm:2026:regular:us-house:03:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-02",
+      "stateCode": "NM",
+      "districtCode": "03",
+      "sourceRaceId": "10781",
+      "rawRaceName": "United States Representative",
+      "rawParty": "DEM",
+      "office": "U.S. House of Representatives",
+      "sourceLockIds": [
+        "nm-2026-primary-certification-announcement",
+        "nm-2026-primary-federal-results-csv"
+      ],
+      "resultAuthorityStatus": "secretary_official_federal_results_export_retained",
+      "certificationStatus": "state_canvass_certification_announcement_retained_exact_certificate_bytes_not_retained",
+      "reportingCompleteness": "all_source_precincts_reporting_and_candidate_components_reconcile_when_present",
+      "disposition": "reported_regular_primary_contest",
+      "candidates": [
+        {
+          "sourceCandidateId": "18912",
+          "sourceCandidateName": "TERESA LEGER FERNANDEZ",
+          "rawParty": "DEM",
+          "votes": 68768,
+          "sourcePercentage": 1,
+          "precinctsReporting": "763/763"
+        }
+      ],
+      "sourceTotalVotes": 68768,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "66080a1f4f29e07b68be46e1468a088600a059cffc2c9a87ec5f62577f8fc0f1"
+    }
+  ],
+  "targetObservations": [
+    {
+      "observationId": "nm:target:2022:01",
+      "targetSeatId": "seat_house_nm_01_current",
+      "targetSeatRowSha256": "f4a5d0507bae2f1541ce895db6e8f0a2efeb9f8ce3848762ce0e840f378d93e6",
+      "bioguideId": "S001218",
+      "cycleYear": 2022,
+      "currentTargetDistrictCode": "01",
+      "sourceDistrictCode": "01",
+      "contestId": "nm:2022:regular:us-house:01:democratic",
+      "contestSha256": "3d8f368e3621f80bc67a62e66835bc67116f471c23af77ab51e5108667fbd306",
+      "sourceCandidateNameObservation": "MELANIE ANN STANSBURY",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 44223,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "88a8856f5c18435febda34f682bd619add76f57c246e10052209d4986ce72bce"
+    },
+    {
+      "observationId": "nm:target:2022:02",
+      "targetSeatId": "seat_house_nm_02_current",
+      "targetSeatRowSha256": "7450e2997c1ca858cb3940705a04eb6376368cc8445f07a6e6dc36207ea54b86",
+      "bioguideId": "V000136",
+      "cycleYear": 2022,
+      "currentTargetDistrictCode": "02",
+      "sourceDistrictCode": "02",
+      "contestId": "nm:2022:regular:us-house:02:democratic",
+      "contestSha256": "aa47af0ae57ef78c4aad748f6b006fe64592c8a5b51eab403a12ab9800d71b3f",
+      "sourceCandidateNameObservation": "GABRIEL VASQUEZ",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 31544,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "54acd96dae02f7d66a9436e4502d9c110ba628f3869a517b32b6391249f4eef2"
+    },
+    {
+      "observationId": "nm:target:2022:03",
+      "targetSeatId": "seat_house_nm_03_current",
+      "targetSeatRowSha256": "f78466fa23ab4c09853bfb7eb57f3e18e0add6ce345b1089f5d5b9224a22a5a2",
+      "bioguideId": "L000273",
+      "cycleYear": 2022,
+      "currentTargetDistrictCode": "03",
+      "sourceDistrictCode": "03",
+      "contestId": "nm:2022:regular:us-house:03:democratic",
+      "contestSha256": "4afb7e474dbbca09e8d388f475bbba7a09592dc70c5c2f63163e6e53f8ae49b8",
+      "sourceCandidateNameObservation": "TERESA LEGER FERNANDEZ",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 46940,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "d02ee1d7833c43d4116f879f8d467b8e240e4e6535caf0b5be13c45b07f5429b"
+    },
+    {
+      "observationId": "nm:target:2024:01",
+      "targetSeatId": "seat_house_nm_01_current",
+      "targetSeatRowSha256": "f4a5d0507bae2f1541ce895db6e8f0a2efeb9f8ce3848762ce0e840f378d93e6",
+      "bioguideId": "S001218",
+      "cycleYear": 2024,
+      "currentTargetDistrictCode": "01",
+      "sourceDistrictCode": "01",
+      "contestId": "nm:2024:regular:us-house:01:democratic",
+      "contestSha256": "a5ad028063a732536c5f6d856ec9085150c7eb75ebaa47d024aa10b9a8c9d3f5",
+      "sourceCandidateNameObservation": "MELANIE ANN STANSBURY",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 47157,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "ab9d412cb2e19a9f99b502ca76f53dda0d73d95b684c35ec1687983140a3ce26"
+    },
+    {
+      "observationId": "nm:target:2024:02",
+      "targetSeatId": "seat_house_nm_02_current",
+      "targetSeatRowSha256": "7450e2997c1ca858cb3940705a04eb6376368cc8445f07a6e6dc36207ea54b86",
+      "bioguideId": "V000136",
+      "cycleYear": 2024,
+      "currentTargetDistrictCode": "02",
+      "sourceDistrictCode": "02",
+      "contestId": "nm:2024:regular:us-house:02:democratic",
+      "contestSha256": "224cd846f8099c0896131e96fc18b013f392579a1ce4108ae4c49b4eef3ba893",
+      "sourceCandidateNameObservation": "GABRIEL VASQUEZ",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 29613,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "6b7e77408e3923dffebdcaad7e561c11e70528427f5b77431b38ec1fcb61b95c"
+    },
+    {
+      "observationId": "nm:target:2024:03",
+      "targetSeatId": "seat_house_nm_03_current",
+      "targetSeatRowSha256": "f78466fa23ab4c09853bfb7eb57f3e18e0add6ce345b1089f5d5b9224a22a5a2",
+      "bioguideId": "L000273",
+      "cycleYear": 2024,
+      "currentTargetDistrictCode": "03",
+      "sourceDistrictCode": "03",
+      "contestId": "nm:2024:regular:us-house:03:democratic",
+      "contestSha256": "64071c33d42311256f980c2d794cae049f68eb8539024aefe09c9243bf52b8ce",
+      "sourceCandidateNameObservation": "TERESA LEGER FERNANDEZ",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 46008,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "0b6695f29270948f9969ad654e2f872423683dbb497db958e76de576b1b26c32"
+    },
+    {
+      "observationId": "nm:target:2026:01",
+      "targetSeatId": "seat_house_nm_01_current",
+      "targetSeatRowSha256": "f4a5d0507bae2f1541ce895db6e8f0a2efeb9f8ce3848762ce0e840f378d93e6",
+      "bioguideId": "S001218",
+      "cycleYear": 2026,
+      "currentTargetDistrictCode": "01",
+      "sourceDistrictCode": "01",
+      "contestId": "nm:2026:regular:us-house:01:democratic",
+      "contestSha256": "0c0980e4448e36a26c5c62b9c24f1d4ffebde20539c2858c08e7c9fbf8cd3a4e",
+      "sourceCandidateNameObservation": "MELANIE ANN STANSBURY",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 79823,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "c536339b3ad70d936336b8f5afe2a62497511f433b6ea408c743cacf3fe487e7"
+    },
+    {
+      "observationId": "nm:target:2026:02",
+      "targetSeatId": "seat_house_nm_02_current",
+      "targetSeatRowSha256": "7450e2997c1ca858cb3940705a04eb6376368cc8445f07a6e6dc36207ea54b86",
+      "bioguideId": "V000136",
+      "cycleYear": 2026,
+      "currentTargetDistrictCode": "02",
+      "sourceDistrictCode": "02",
+      "contestId": "nm:2026:regular:us-house:02:democratic",
+      "contestSha256": "a12d282959b64013381d22cc200945c0dc1e0ccba06c1a2658db8f0b400fd19d",
+      "sourceCandidateNameObservation": "GABRIEL VASQUEZ",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 47123,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "c47f573447edd0b7f445debce869938466f1f62cf3324c87ef2f57f06fcbc2d7"
+    },
+    {
+      "observationId": "nm:target:2026:03",
+      "targetSeatId": "seat_house_nm_03_current",
+      "targetSeatRowSha256": "f78466fa23ab4c09853bfb7eb57f3e18e0add6ce345b1089f5d5b9224a22a5a2",
+      "bioguideId": "L000273",
+      "cycleYear": 2026,
+      "currentTargetDistrictCode": "03",
+      "sourceDistrictCode": "03",
+      "contestId": "nm:2026:regular:us-house:03:democratic",
+      "contestSha256": "66080a1f4f29e07b68be46e1468a088600a059cffc2c9a87ec5f62577f8fc0f1",
+      "sourceCandidateNameObservation": "TERESA LEGER FERNANDEZ",
+      "mappingBasis": "proposal_target_scope_and_source_name_observation_pending_identity_review",
+      "sourceTotalVotes": 68768,
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "1907f6e2509cd612c58bb4c82e8107f26b2c9084da05020125f71e39e1f7abb7"
+    }
+  ],
+  "summary": {
+    "contests": 9,
+    "contests2022": 3,
+    "contests2024": 3,
+    "contests2026": 3,
+    "candidates": 10,
+    "candidateVotes": 441199,
+    "targetObservations": 9,
+    "sourceWinnerMarkers": 0,
+    "nominationConclusions": 0,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0,
+    "contestSetSha256": "a039ee0fcf6204626f14949a739b658fec40416abe4db2e1175af80676b7c817",
+    "targetObservationSetSha256": "e63dc038166a42602828900826dd4d874c2fa0b9652703b230338be1b461d18e"
+  },
+  "limitations": [
+    "The 2022 archive labels the linked primary results official, but no separate signed statewide certification instrument is retained for that cycle.",
+    "The 2024 and 2026 State Canvass Board announcements certify the statewide primary results, but this package does not claim those pages are exact candidate-by-candidate signed certificate bytes.",
+    "The 2026 export URL is the Secretary's current-event federal endpoint without a stable event identifier; reproducibility is bound to the retained bytes, hash, cutoff, and certification announcement.",
+    "The exports do not mark winners. Vote share, vote rank, or a one-candidate contest is not converted into a winner, nominee, uncontested, or disposition conclusion.",
+    "Candidate identity, historical geography, progressive classification, evaluator use, publication, and deployment remain separate unresolved gates."
+  ],
+  "unresolvedGates": [
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_primary_disposition",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "305c2d1da85cfb8e3725ef29100c825de5d50b56e4fe9513e0f6045b132ac326"
+}
