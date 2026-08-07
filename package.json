@@ -211,6 +211,8 @@
     "generate:oh-house-primary-results-receipt-v2": "tsx scripts/generate-ohio-house-democratic-primary-results-receipt-v2.ts",
     "import:oh-2022-county-primary-results-v3": "node scripts/import-oh-2022-county-primary-results-v3.mjs",
     "import:oh-2022-county-primary-results-v4": "node scripts/import-oh-2022-county-primary-results-v4.mjs",
+    "import:mn-house-primary-results": "node scripts/import-mn-house-democratic-primary-results.mjs",
+    "generate:mn-house-primary-results-receipt": "tsx scripts/generate-minnesota-house-democratic-primary-results-receipt.ts",
     "generate:oh-house-primary-results-receipt-v3": "tsx scripts/generate-ohio-house-democratic-primary-results-receipt-v3.ts",
     "generate:oh-house-primary-results-receipt-v4": "tsx scripts/generate-ohio-house-democratic-primary-results-receipt-v4.ts",
     "fetch:ct-house-primary-event-results": "node scripts/fetch-ct-house-democratic-primary-event-results.mjs",

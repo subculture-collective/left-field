@@ -8,7 +8,7 @@ export default defineConfig({
     environment: "jsdom",
     exclude: [...configDefaults.exclude, "tests/e2e/**"],
     globals: true,
-    maxWorkers: "25%",
+    maxWorkers: 2,
     setupFiles: ["./src/test/setup.ts"],
   },
 });

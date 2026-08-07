@@ -1,0 +1,809 @@
+{
+  "schema": "minnesota-house-democratic-primary-results-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T18:00:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "parentProposal": {
+    "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "decisionSupport": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    }
+  ],
+  "inheritedDecisionResolutions": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "resolution": null
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "resolution": null
+    }
+  ],
+  "authority": {
+    "publisher": "Minnesota Secretary of State",
+    "resultSystem": "Election Night Reporting flat files",
+    "rawPartyCode": "DFL",
+    "resultPayloadFinality": "portal_reported_not_claimed_certified",
+    "sourceWinnerStatus": "not_marked_by_source",
+    "exactCanvassReportBytesRetained": false
+  },
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "electionDate": "2022-08-09",
+      "sourceElectionId": 148,
+      "status": "retained_portal_reported_results"
+    },
+    {
+      "cycleYear": 2024,
+      "electionDate": "2024-08-13",
+      "sourceElectionId": 169,
+      "status": "retained_portal_reported_results"
+    },
+    {
+      "cycleYear": 2026,
+      "scheduledElectionDate": "2026-08-11",
+      "sourceElectionId": null,
+      "status": "scheduled_not_held_at_source_cutoff",
+      "resultRows": 0
+    }
+  ],
+  "certificationRecords": [
+    {
+      "cycleYear": 2022,
+      "sourceLockId": "mn-2022-state-primary-canvass-document-record",
+      "documentNumber": "224057",
+      "documentDate": "2022-08-16",
+      "scope": "state_primary_and_state_canvassing_report_from_certified_county_abstracts",
+      "exactReportBytesRetained": false,
+      "candidateByCandidateCertificationClaimed": false
+    },
+    {
+      "cycleYear": 2024,
+      "sourceLockId": "mn-2024-state-primary-canvass-document-record",
+      "documentNumber": "20242807",
+      "documentDate": "2024-08-20",
+      "scope": "state_primary_declarations_for_state_federal_partisan_and_judicial_offices",
+      "exactReportBytesRetained": false,
+      "candidateByCandidateCertificationClaimed": false
+    }
+  ],
+  "sources": [
+    {
+      "id": "mn-2022-primary-candidate-table",
+      "url": "https://electionresultsfiles.sos.mn.gov/20220809/cand.txt",
+      "retainedPath": "data/source/elections/primary-results/minnesota/2022/candidates.txt",
+      "retainedStatus": "retained",
+      "byteSize": 31840,
+      "sha256": "e3f73c12d1eee3a56633d0999861f00fb7525ce7b50bd19b467aadac7f416477",
+      "kind": "official_election_supporting_table",
+      "parentIds": [
+        "mn-2022-primary-media-files-index"
+      ]
+    },
+    {
+      "id": "mn-2022-primary-media-files-index",
+      "url": "https://electionresults.sos.mn.gov/Select/MediaFiles/Index?ersElectionId=148",
+      "retainedPath": "data/source/elections/primary-results/minnesota/2022/media-files-index.html",
+      "retainedStatus": "retained",
+      "byteSize": 43665,
+      "sha256": "e9cd60975a5faee9637494482c7d1fd11f8cb0ff85376cc45186d5bce0630a83",
+      "kind": "official_result_file_index",
+      "parentIds": []
+    },
+    {
+      "id": "mn-2022-primary-results-landing",
+      "url": "https://www.sos.mn.gov/elections-voting/election-results/2022/2022-primary-election-results/",
+      "retainedPath": "data/source/elections/primary-results/minnesota/2022/primary-results-landing.html",
+      "retainedStatus": "retained",
+      "byteSize": 48249,
+      "sha256": "f3716b13db01774eb41381b1360328e8172b76a75ca750af5908463643ef14e5",
+      "kind": "official_primary_results_landing",
+      "parentIds": []
+    },
+    {
+      "id": "mn-2022-primary-ushouse-results",
+      "url": "https://electionresultsfiles.sos.mn.gov/20220809/ushouse.txt",
+      "retainedPath": "data/source/elections/primary-results/minnesota/2022/ushouse.txt",
+      "retainedStatus": "retained",
+      "byteSize": 2726,
+      "sha256": "cdb828e50c2b6ef6a9c2b19a828970dab7b181571d77e39b40ca629cae74ac9a",
+      "kind": "official_election_night_result_file",
+      "parentIds": [
+        "mn-2022-primary-media-files-index"
+      ]
+    },
+    {
+      "id": "mn-2022-state-primary-canvass-document-record",
+      "url": "https://officialdocuments.sos.mn.gov/Document/Details/139544",
+      "retainedPath": "data/source/elections/primary-results/minnesota/2022/state-canvass-document-record.html",
+      "retainedStatus": "retained",
+      "byteSize": 34669,
+      "sha256": "d8fa8a9efc539bd76ba5a54fc53bda005c3b46b46bfe0601c5e4911eb0914483",
+      "kind": "official_canvass_document_metadata",
+      "parentIds": []
+    },
+    {
+      "id": "mn-2024-primary-candidate-table",
+      "url": "https://electionresultsfiles.sos.mn.gov/20240813/cand.txt",
+      "retainedPath": "data/source/elections/primary-results/minnesota/2024/candidates.txt",
+      "retainedStatus": "retained",
+      "byteSize": 15720,
+      "sha256": "92b27af5693ee63f73bfacbf9840b5ecfd8b3c3848f56dd88ce1fc90f3864992",
+      "kind": "official_election_supporting_table",
+      "parentIds": []
+    },
+    {
+      "id": "mn-2024-primary-media-file-layout",
+      "url": "https://electionresults.sos.mn.gov/Results/MediaFileLayout/Index?erselectionId=169",
+      "retainedPath": "data/source/elections/primary-results/minnesota/2024/media-file-layout.html",
+      "retainedStatus": "retained",
+      "byteSize": 6428,
+      "sha256": "9643903869d1f1e684117c2d85906bf2ba649113c23c0a983d26e92ae9dc3ff3",
+      "kind": "official_result_file_layout",
+      "parentIds": []
+    },
+    {
+      "id": "mn-2024-primary-results-landing",
+      "url": "https://www.sos.mn.gov/elections-voting/election-results/2024/2024-primary-election-results/",
+      "retainedPath": "data/source/elections/primary-results/minnesota/2024/primary-results-landing.html",
+      "retainedStatus": "retained",
+      "byteSize": 45890,
+      "sha256": "750b071f8045fbe17abddb1c0cff9cc3805453ff3448886a3c62ba9cdbfbe87e",
+      "kind": "official_primary_results_landing",
+      "parentIds": []
+    },
+    {
+      "id": "mn-2024-primary-ushouse-results",
+      "url": "https://electionresultsfiles.sos.mn.gov/20240813/ushouse.txt",
+      "retainedPath": "data/source/elections/primary-results/minnesota/2024/ushouse.txt",
+      "retainedStatus": "retained",
+      "byteSize": 2530,
+      "sha256": "4deba4991ea309c037dd7306116d5c587ffea82172bc8f9d82f7e1a51c365769",
+      "kind": "official_election_night_result_file",
+      "parentIds": []
+    },
+    {
+      "id": "mn-2024-state-primary-canvass-document-record",
+      "url": "https://officialdocuments.sos.mn.gov/Document/Details/150165",
+      "retainedPath": "data/source/elections/primary-results/minnesota/2024/state-canvass-document-record.html",
+      "retainedStatus": "retained",
+      "byteSize": 34482,
+      "sha256": "96fb7c18a340c0eaccde3af20efbda923fa04019cc9c772f82302778c7962613",
+      "kind": "official_canvass_document_metadata",
+      "parentIds": []
+    },
+    {
+      "id": "mn-primary-date-and-omission-statute-204d03-20260806",
+      "url": "https://www.revisor.mn.gov/statutes/cite/204D.03",
+      "retainedPath": "data/source/elections/primary-results/minnesota/authority/statute-204d03.html",
+      "retainedStatus": "retained",
+      "byteSize": 64332,
+      "sha256": "884f7e79e27a1ec451527ee7a298cc8802406fa9d0d9ca7437623dd2bb1e165d",
+      "kind": "official_statutory_authority",
+      "parentIds": []
+    }
+  ],
+  "sourceContests": [
+    {
+      "cycleYear": 2022,
+      "districtCode": "01",
+      "sourceOfficeId": "0104",
+      "sourceOfficeName": "U.S. Representative District 1",
+      "sourcePartyCode": "DFL",
+      "precinctsReported": 749,
+      "precinctsTotal": 749,
+      "candidates": [
+        {
+          "sourceCandidateId": "01040401",
+          "sourceCandidateOrder": "0401",
+          "sourceCandidateName": "James Rainwater",
+          "votes": 3115,
+          "sourcePercentage": 5.59
+        },
+        {
+          "sourceCandidateId": "01040402",
+          "sourceCandidateOrder": "0402",
+          "sourceCandidateName": "George H. Kalberer",
+          "votes": 1266,
+          "sourcePercentage": 2.27
+        },
+        {
+          "sourceCandidateId": "01040403",
+          "sourceCandidateOrder": "0403",
+          "sourceCandidateName": "Jeff Ettinger",
+          "votes": 51391,
+          "sourcePercentage": 92.14
+        }
+      ],
+      "sourceTotalVotes": 55772,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "contestId": "mn:2022:regular:us-house:01:dfl",
+      "resultStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "contestSha256": "ecc443ef58acc97382af22e66d9ac5ec846760ee4d3ae0bb99d898eaffafbfa5"
+    },
+    {
+      "cycleYear": 2022,
+      "districtCode": "04",
+      "sourceOfficeId": "0107",
+      "sourceOfficeName": "U.S. Representative District 4",
+      "sourcePartyCode": "DFL",
+      "precinctsReported": 212,
+      "precinctsTotal": 212,
+      "candidates": [
+        {
+          "sourceCandidateId": "01070401",
+          "sourceCandidateOrder": "0401",
+          "sourceCandidateName": "Amane Badhasso",
+          "votes": 10557,
+          "sourcePercentage": 15.17
+        },
+        {
+          "sourceCandidateId": "01070402",
+          "sourceCandidateOrder": "0402",
+          "sourceCandidateName": "Fasil Moghul",
+          "votes": 997,
+          "sourcePercentage": 1.43
+        },
+        {
+          "sourceCandidateId": "01070403",
+          "sourceCandidateOrder": "0403",
+          "sourceCandidateName": "Betty McCollum",
+          "votes": 58043,
+          "sourcePercentage": 83.4
+        }
+      ],
+      "sourceTotalVotes": 69597,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "contestId": "mn:2022:regular:us-house:04:dfl",
+      "resultStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "contestSha256": "0dd26f681e7105750a815c105dbb4a23ef18dc6e033361012fcdd3ff837775c6"
+    },
+    {
+      "cycleYear": 2022,
+      "districtCode": "05",
+      "sourceOfficeId": "0108",
+      "sourceOfficeName": "U.S. Representative District 5",
+      "sourcePartyCode": "DFL",
+      "precinctsReported": 217,
+      "precinctsTotal": 217,
+      "candidates": [
+        {
+          "sourceCandidateId": "01080401",
+          "sourceCandidateOrder": "0401",
+          "sourceCandidateName": "Don Samuels",
+          "votes": 55217,
+          "sourcePercentage": 48.2
+        },
+        {
+          "sourceCandidateId": "01080402",
+          "sourceCandidateOrder": "0402",
+          "sourceCandidateName": "Albert Ross",
+          "votes": 477,
+          "sourcePercentage": 0.42
+        },
+        {
+          "sourceCandidateId": "01080403",
+          "sourceCandidateOrder": "0403",
+          "sourceCandidateName": "AJ Kern",
+          "votes": 519,
+          "sourcePercentage": 0.45
+        },
+        {
+          "sourceCandidateId": "01080404",
+          "sourceCandidateOrder": "0404",
+          "sourceCandidateName": "Nate Schluter",
+          "votes": 671,
+          "sourcePercentage": 0.59
+        },
+        {
+          "sourceCandidateId": "01080405",
+          "sourceCandidateOrder": "0405",
+          "sourceCandidateName": "Ilhan Omar",
+          "votes": 57683,
+          "sourcePercentage": 50.35
+        }
+      ],
+      "sourceTotalVotes": 114567,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "contestId": "mn:2022:regular:us-house:05:dfl",
+      "resultStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "contestSha256": "9d79a673d9dc2c2f8c9b9c5239c98a8c9d9940d846acbcfbc04341bca6027b6c"
+    },
+    {
+      "cycleYear": 2022,
+      "districtCode": "07",
+      "sourceOfficeId": "0110",
+      "sourceOfficeName": "U.S. Representative District 7",
+      "sourcePartyCode": "DFL",
+      "precinctsReported": 1329,
+      "precinctsTotal": 1329,
+      "candidates": [
+        {
+          "sourceCandidateId": "01100401",
+          "sourceCandidateOrder": "0401",
+          "sourceCandidateName": "Jill Abahsain",
+          "votes": 14352,
+          "sourcePercentage": 59
+        },
+        {
+          "sourceCandidateId": "01100402",
+          "sourceCandidateOrder": "0402",
+          "sourceCandidateName": "Alycia R Gruenhagen",
+          "votes": 9972,
+          "sourcePercentage": 41
+        }
+      ],
+      "sourceTotalVotes": 24324,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "contestId": "mn:2022:regular:us-house:07:dfl",
+      "resultStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "contestSha256": "2b3a5c0fed90da712c5a8367020977e5ff9241d671952833c08351a5de14d468"
+    },
+    {
+      "cycleYear": 2022,
+      "districtCode": "08",
+      "sourceOfficeId": "0111",
+      "sourceOfficeName": "U.S. Representative District 8",
+      "sourcePartyCode": "DFL",
+      "precinctsReported": 835,
+      "precinctsTotal": 835,
+      "candidates": [
+        {
+          "sourceCandidateId": "01110401",
+          "sourceCandidateOrder": "0401",
+          "sourceCandidateName": "John Munter",
+          "votes": 6199,
+          "sourcePercentage": 13.85
+        },
+        {
+          "sourceCandidateId": "01110402",
+          "sourceCandidateOrder": "0402",
+          "sourceCandidateName": "Jen Schultz",
+          "votes": 38545,
+          "sourcePercentage": 86.15
+        }
+      ],
+      "sourceTotalVotes": 44744,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "contestId": "mn:2022:regular:us-house:08:dfl",
+      "resultStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "contestSha256": "fe6bf30ccd632d2e3293409e9bfa55f392e8490ba344e7fbe909ec6dd3160f0d"
+    },
+    {
+      "cycleYear": 2024,
+      "districtCode": "01",
+      "sourceOfficeId": "0104",
+      "sourceOfficeName": "U.S. Representative District 1",
+      "sourcePartyCode": "DFL",
+      "precinctsReported": 749,
+      "precinctsTotal": 749,
+      "candidates": [
+        {
+          "sourceCandidateId": "01040401",
+          "sourceCandidateOrder": "0401",
+          "sourceCandidateName": "Rachel Bohman",
+          "votes": 26406,
+          "sourcePercentage": 100
+        }
+      ],
+      "sourceTotalVotes": 26406,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "contestId": "mn:2024:regular:us-house:01:dfl",
+      "resultStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "contestSha256": "de5c28669721a146e15099837af17eab08fd7a3c90aff97d870ebd135dd3dc04"
+    },
+    {
+      "cycleYear": 2024,
+      "districtCode": "02",
+      "sourceOfficeId": "0105",
+      "sourceOfficeName": "U.S. Representative District 2",
+      "sourcePartyCode": "DFL",
+      "precinctsReported": 257,
+      "precinctsTotal": 257,
+      "candidates": [
+        {
+          "sourceCandidateId": "01050401",
+          "sourceCandidateOrder": "0401",
+          "sourceCandidateName": "Angie Craig",
+          "votes": 26865,
+          "sourcePercentage": 91.02
+        },
+        {
+          "sourceCandidateId": "01050402",
+          "sourceCandidateOrder": "0402",
+          "sourceCandidateName": "Marc Ives",
+          "votes": 2649,
+          "sourcePercentage": 8.98
+        }
+      ],
+      "sourceTotalVotes": 29514,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "contestId": "mn:2024:regular:us-house:02:dfl",
+      "resultStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "contestSha256": "ad731c6d6a6fefc2f4c90e942e456ab7d8596e86481a2237af76ebd593f371bb"
+    },
+    {
+      "cycleYear": 2024,
+      "districtCode": "04",
+      "sourceOfficeId": "0107",
+      "sourceOfficeName": "U.S. Representative District 4",
+      "sourcePartyCode": "DFL",
+      "precinctsReported": 212,
+      "precinctsTotal": 212,
+      "candidates": [
+        {
+          "sourceCandidateId": "01070401",
+          "sourceCandidateOrder": "0401",
+          "sourceCandidateName": "Betty McCollum",
+          "votes": 37530,
+          "sourcePercentage": 100
+        }
+      ],
+      "sourceTotalVotes": 37530,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "contestId": "mn:2024:regular:us-house:04:dfl",
+      "resultStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "contestSha256": "b1d9dae6713e5bc76c8b7acf169f5535623020465cf845ba85b1bc30b2780539"
+    },
+    {
+      "cycleYear": 2024,
+      "districtCode": "05",
+      "sourceOfficeId": "0108",
+      "sourceOfficeName": "U.S. Representative District 5",
+      "sourcePartyCode": "DFL",
+      "precinctsReported": 217,
+      "precinctsTotal": 217,
+      "candidates": [
+        {
+          "sourceCandidateId": "01080401",
+          "sourceCandidateOrder": "0401",
+          "sourceCandidateName": "Ilhan Omar",
+          "votes": 67926,
+          "sourcePercentage": 56.23
+        },
+        {
+          "sourceCandidateId": "01080402",
+          "sourceCandidateOrder": "0402",
+          "sourceCandidateName": "Nate Schluter",
+          "votes": 575,
+          "sourcePercentage": 0.48
+        },
+        {
+          "sourceCandidateId": "01080403",
+          "sourceCandidateOrder": "0403",
+          "sourceCandidateName": "Abena A. McKenzie",
+          "votes": 461,
+          "sourcePercentage": 0.38
+        },
+        {
+          "sourceCandidateId": "01080404",
+          "sourceCandidateOrder": "0404",
+          "sourceCandidateName": "Don Samuels",
+          "votes": 51839,
+          "sourcePercentage": 42.91
+        }
+      ],
+      "sourceTotalVotes": 120801,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "contestId": "mn:2024:regular:us-house:05:dfl",
+      "resultStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "contestSha256": "fa5f5be4f0aea0d5a8e1dcc94b03fd07705afd27468a367c3bdd2ea948e8bf0c"
+    },
+    {
+      "cycleYear": 2024,
+      "districtCode": "06",
+      "sourceOfficeId": "0109",
+      "sourceOfficeName": "U.S. Representative District 6",
+      "sourcePartyCode": "DFL",
+      "precinctsReported": 274,
+      "precinctsTotal": 274,
+      "candidates": [
+        {
+          "sourceCandidateId": "01090401",
+          "sourceCandidateOrder": "0401",
+          "sourceCandidateName": "Austin D. Winkelman",
+          "votes": 2878,
+          "sourcePercentage": 16.19
+        },
+        {
+          "sourceCandidateId": "01090402",
+          "sourceCandidateOrder": "0402",
+          "sourceCandidateName": "Jeanne Hendricks",
+          "votes": 14895,
+          "sourcePercentage": 83.81
+        }
+      ],
+      "sourceTotalVotes": 17773,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "contestId": "mn:2024:regular:us-house:06:dfl",
+      "resultStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "contestSha256": "06d0584e7c326deed63e64cfec5d9dd13375374f0ee99dbc0cefb81a909a9400"
+    },
+    {
+      "cycleYear": 2024,
+      "districtCode": "07",
+      "sourceOfficeId": "0110",
+      "sourceOfficeName": "U.S. Representative District 7",
+      "sourcePartyCode": "DFL",
+      "precinctsReported": 1329,
+      "precinctsTotal": 1329,
+      "candidates": [
+        {
+          "sourceCandidateId": "01100401",
+          "sourceCandidateOrder": "0401",
+          "sourceCandidateName": "AJ (John) Peters",
+          "votes": 16828,
+          "sourcePercentage": 100
+        }
+      ],
+      "sourceTotalVotes": 16828,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "contestId": "mn:2024:regular:us-house:07:dfl",
+      "resultStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "contestSha256": "bf0839fcbdfa0cc10ad287e195e45d93d1c842211008aa627303f772f92ab58f"
+    },
+    {
+      "cycleYear": 2024,
+      "districtCode": "08",
+      "sourceOfficeId": "0111",
+      "sourceOfficeName": "U.S. Representative District 8",
+      "sourcePartyCode": "DFL",
+      "precinctsReported": 834,
+      "precinctsTotal": 834,
+      "candidates": [
+        {
+          "sourceCandidateId": "01110401",
+          "sourceCandidateOrder": "0401",
+          "sourceCandidateName": "Jen Schultz",
+          "votes": 32149,
+          "sourcePercentage": 90.96
+        },
+        {
+          "sourceCandidateId": "01110402",
+          "sourceCandidateOrder": "0402",
+          "sourceCandidateName": "John Munter",
+          "votes": 3194,
+          "sourcePercentage": 9.04
+        }
+      ],
+      "sourceTotalVotes": 35343,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "contestId": "mn:2024:regular:us-house:08:dfl",
+      "resultStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "contestSha256": "be74673ed492357555aa208df4719b98ce5bbfe4f18e3b7e49f1a9775607e2d4"
+    }
+  ],
+  "targetObservations": [
+    {
+      "seatCycleId": "mn:2022:us-house:02:democratic",
+      "cycleYear": 2022,
+      "districtCode": "02",
+      "sourceStatus": "source_absent_no_disposition_inference",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceAbsenceMeaning": "not_zero_not_no_primary_not_uncontested_not_nominated",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "dispositionStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "8ff4f93d78c5ed937708b6d9995024778cd35bb8f29f627c6fc65ae43d566b40"
+    },
+    {
+      "seatCycleId": "mn:2022:us-house:03:democratic",
+      "cycleYear": 2022,
+      "districtCode": "03",
+      "sourceStatus": "source_absent_no_disposition_inference",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceAbsenceMeaning": "not_zero_not_no_primary_not_uncontested_not_nominated",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "dispositionStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "72631f7eaa1eafaf1ba269a9e7c0e30da9168d19fd97bfe1c154b7fc7bd0d433"
+    },
+    {
+      "seatCycleId": "mn:2022:us-house:04:democratic",
+      "cycleYear": 2022,
+      "districtCode": "04",
+      "sourceStatus": "portal_reported_contest",
+      "sourceContestId": "mn:2022:regular:us-house:04:dfl",
+      "sourceContestSha256": "0dd26f681e7105750a815c105dbb4a23ef18dc6e033361012fcdd3ff837775c6",
+      "sourceAbsenceMeaning": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "dispositionStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "0d3309eaa546c4eb65316b8505dc46caca9e2dd175f729ff5605841e495a11fc"
+    },
+    {
+      "seatCycleId": "mn:2022:us-house:05:democratic",
+      "cycleYear": 2022,
+      "districtCode": "05",
+      "sourceStatus": "portal_reported_contest",
+      "sourceContestId": "mn:2022:regular:us-house:05:dfl",
+      "sourceContestSha256": "9d79a673d9dc2c2f8c9b9c5239c98a8c9d9940d846acbcfbc04341bca6027b6c",
+      "sourceAbsenceMeaning": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "dispositionStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "2bb02438f274c2e376498dee32ba0560f7e52b85935a2a168dff0cbcea3659b9"
+    },
+    {
+      "seatCycleId": "mn:2024:us-house:02:democratic",
+      "cycleYear": 2024,
+      "districtCode": "02",
+      "sourceStatus": "portal_reported_contest",
+      "sourceContestId": "mn:2024:regular:us-house:02:dfl",
+      "sourceContestSha256": "ad731c6d6a6fefc2f4c90e942e456ab7d8596e86481a2237af76ebd593f371bb",
+      "sourceAbsenceMeaning": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "dispositionStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "52b96153cc7bd8b21905af7f1ec3377dd44a4424e96602e0aa27824acacbf69a"
+    },
+    {
+      "seatCycleId": "mn:2024:us-house:03:democratic",
+      "cycleYear": 2024,
+      "districtCode": "03",
+      "sourceStatus": "source_absent_no_disposition_inference",
+      "sourceContestId": null,
+      "sourceContestSha256": null,
+      "sourceAbsenceMeaning": "not_zero_not_no_primary_not_uncontested_not_nominated",
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "dispositionStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "f326ccbe4f41501a6f9f8f39cbc82a99b92547fc44145e6bc21312e6a71f6117"
+    },
+    {
+      "seatCycleId": "mn:2024:us-house:04:democratic",
+      "cycleYear": 2024,
+      "districtCode": "04",
+      "sourceStatus": "portal_reported_contest",
+      "sourceContestId": "mn:2024:regular:us-house:04:dfl",
+      "sourceContestSha256": "b1d9dae6713e5bc76c8b7acf169f5535623020465cf845ba85b1bc30b2780539",
+      "sourceAbsenceMeaning": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "dispositionStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "da5d3a5e7a817f8a314ec9accc2243b83dceee2b3a21b1133f6c6e955ac9a6b0"
+    },
+    {
+      "seatCycleId": "mn:2024:us-house:05:democratic",
+      "cycleYear": 2024,
+      "districtCode": "05",
+      "sourceStatus": "portal_reported_contest",
+      "sourceContestId": "mn:2024:regular:us-house:05:dfl",
+      "sourceContestSha256": "fa5f5be4f0aea0d5a8e1dcc94b03fd07705afd27468a367c3bdd2ea948e8bf0c",
+      "sourceAbsenceMeaning": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "dispositionStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "rowSha256": "aa19e17b79381e99eae6345c3fae8f839272c8ba80d3ba87d652a56ada5f3a03"
+    }
+  ],
+  "summary": {
+    "historicalCycles": 2,
+    "scheduledFutureCycles": 1,
+    "sourceContests": 12,
+    "sourceCandidates": 28,
+    "sourceVotes": 593199,
+    "targetSeatCycleObservations": 8,
+    "targetReportedContests": 5,
+    "targetSourceAbsentObservations": 3,
+    "contests2026": 0,
+    "sourceContestSetSha256": "7c1b8fbf54488fa9d90a6598b9fa322e097ceea40e6d4fc6ec28b41d7be86ec5",
+    "targetObservationSetSha256": "8c373fa281d18f7bc686c168fc2b3c10cf75039cc7da54138d3f0b68fa92404d",
+    "evaluatorNumericValues": 0,
+    "scoreEligibleContests": 0
+  },
+  "limitations": [
+    "The retained result flat files are portal-reported rows; the retained official-document pages identify event-level canvass instruments but do not expose the exact report bytes for candidate-by-candidate reconciliation.",
+    "A district absent from the DFL U.S. House result file is unresolved: Minnesota law permits some single-filer offices to be omitted, but absence alone does not prove one filer, no filer, no primary, an uncontested disposition, nomination, or zero votes.",
+    "The raw Minnesota party label DFL is preserved and is not silently rewritten to DEM.",
+    "The August 11, 2026 primary date is derived from the retained statutory second-Tuesday-in-August rule; the event had not occurred at the source cutoff and contributes zero result rows."
+  ],
+  "unresolvedGates": [
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "decide_nonstandard_primary_disposition_treatment",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "336094811277f867f5370b53f7b8568733a73a3d2c45b7fa4e5faa3071866e84"
+}

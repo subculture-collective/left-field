@@ -1,0 +1,27 @@
+MN;;;0104;U.S. Representative District 1;1;0301;Gregory A. Goetzman;;;R;749;749;1409;4.26;33065
+MN;;;0104;U.S. Representative District 1;1;0302;Brad Finstad;;;R;749;749;30057;90.90;33065
+MN;;;0104;U.S. Representative District 1;1;0303;Shawn Tweten;;;R;749;749;1599;4.84;33065
+MN;;;0104;U.S. Representative District 1;1;0401;Rachel Bohman;;;DFL;749;749;26406;100.00;26406
+MN;;;0105;U.S. Representative District 2;2;0301;Joe Teirab;;;R;257;257;16748;76.00;22038
+MN;;;0105;U.S. Representative District 2;2;0302;Tayler J. Rahm;;;R;257;257;5290;24.00;22038
+MN;;;0105;U.S. Representative District 2;2;0401;Angie Craig;;;DFL;257;257;26865;91.02;29514
+MN;;;0105;U.S. Representative District 2;2;0402;Marc Ives;;;DFL;257;257;2649;8.98;29514
+MN;;;0107;U.S. Representative District 4;4;0301;May Lor Xiong;;;R;212;212;7777;63.05;12335
+MN;;;0107;U.S. Representative District 4;4;0302;Gene Rechtzigel;;;R;212;212;4558;36.95;12335
+MN;;;0107;U.S. Representative District 4;4;0401;Betty McCollum;;;DFL;212;212;37530;100.00;37530
+MN;;;0108;U.S. Representative District 5;5;0301;Dalia Al-Aqidi;;;R;217;217;3380;100.00;3380
+MN;;;0108;U.S. Representative District 5;5;0401;Ilhan Omar;;;DFL;217;217;67926;56.23;120801
+MN;;;0108;U.S. Representative District 5;5;0402;Nate Schluter;;;DFL;217;217;575;0.48;120801
+MN;;;0108;U.S. Representative District 5;5;0403;Abena A. McKenzie;;;DFL;217;217;461;0.38;120801
+MN;;;0108;U.S. Representative District 5;5;0404;Don Samuels;;;DFL;217;217;51839;42.91;120801
+MN;;;0109;U.S. Representative District 6;6;0301;Chris Corey;;;R;274;274;3218;12.95;24842
+MN;;;0109;U.S. Representative District 6;6;0302;Tom Emmer;;;R;274;274;21624;87.05;24842
+MN;;;0109;U.S. Representative District 6;6;0401;Austin D. Winkelman;;;DFL;274;274;2878;16.19;17773
+MN;;;0109;U.S. Representative District 6;6;0402;Jeanne Hendricks;;;DFL;274;274;14895;83.81;17773
+MN;;;0110;U.S. Representative District 7;7;0301;Steve Boyd;;;R;1329;1329;16645;35.34;47103
+MN;;;0110;U.S. Representative District 7;7;0302;Michelle Fischbach;;;R;1329;1329;30458;64.66;47103
+MN;;;0110;U.S. Representative District 7;7;0401;AJ (John) Peters;;;DFL;1329;1329;16828;100.00;16828
+MN;;;0111;U.S. Representative District 8;8;0301;Pete Stauber;;;R;834;834;36928;90.51;40802
+MN;;;0111;U.S. Representative District 8;8;0302;Harry R Welty;;;R;834;834;3874;9.49;40802
+MN;;;0111;U.S. Representative District 8;8;0401;Jen Schultz;;;DFL;834;834;32149;90.96;35343
+MN;;;0111;U.S. Representative District 8;8;0402;John Munter;;;DFL;834;834;3194;9.04;35343
