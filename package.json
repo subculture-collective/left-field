@@ -86,6 +86,7 @@
     "fetch:nm-house-primary-results": "node scripts/fetch-new-mexico-house-primary-results.mjs",
     "generate:ga-house-primary-results-receipt": "tsx scripts/generate-georgia-house-democratic-primary-results-receipt.ts",
     "generate:nm-house-primary-results-receipt": "tsx scripts/generate-new-mexico-house-democratic-primary-results-receipt.ts",
+    "generate:nm-current-incumbent-primary-linkage-v1": "tsx scripts/generate-new-mexico-current-incumbent-primary-linkage-candidate.ts",
     "generate:ga-current-incumbent-primary-linkage-v1": "tsx scripts/generate-georgia-current-incumbent-primary-linkage-candidate.ts",
     "generate:ga-cd118-cd119-block-crosswalk-v1": "tsx scripts/generate-georgia-cd118-cd119-block-crosswalk-candidate.ts",
     "generate:ga-primary-geography-v1": "tsx scripts/generate-georgia-primary-geography-compatibility-candidate.ts",
