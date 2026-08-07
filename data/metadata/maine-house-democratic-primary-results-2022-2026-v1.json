@@ -1,0 +1,656 @@
+{
+  "schema": "maine-house-democratic-primary-results-receipt-v1",
+  "version": 1,
+  "generatedAt": "2026-08-07T08:45:00.000Z",
+  "sourceCutoff": "2026-08-07",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "originalPublisher": "Maine Secretary of State",
+  "status": "official_primary_result_candidate",
+  "licenseOrReuseTerms": "not_stated_by_source",
+  "parentProposal": {
+    "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+    "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+    "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+  },
+  "decisionSupport": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+    }
+  ],
+  "inheritedDecisionResolutions": [
+    {
+      "decisionId": "collect-official-state-primary-results-and-certification-v1",
+      "resolution": null
+    },
+    {
+      "decisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "resolution": null
+    }
+  ],
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "electionDate": "2022-06-14",
+      "contests": 2,
+      "candidates": 2,
+      "workbookCandidateVotes": 68691,
+      "blankVotes": 5620,
+      "totalBallotsCast": 74311
+    },
+    {
+      "cycleYear": 2024,
+      "electionDate": "2024-06-11",
+      "contests": 2,
+      "candidates": 2,
+      "workbookCandidateVotes": 69490,
+      "blankVotes": 4862,
+      "totalBallotsCast": 74352
+    },
+    {
+      "cycleYear": 2026,
+      "electionDate": "2026-06-09",
+      "contests": 2,
+      "candidates": 5,
+      "workbookCandidateVotes": 206981,
+      "blankVotes": 15420,
+      "totalBallotsCast": 222401
+    }
+  ],
+  "sources": [
+    {
+      "id": "maine-2022-election-results-index",
+      "url": "https://www.maine.gov/sos/elections-voting/election-results-data/election-results-2022",
+      "retainedPath": "data/source/elections/primary-results/maine/2022/results-index.html",
+      "retainedStatus": "retained",
+      "byteSize": 91949,
+      "sha256": "6aa4043e4381dd478001c13dd44cf9cc0cf3b123b6eb69bc00faf7c2bc040c3c",
+      "kind": "official_election_results_index",
+      "parentIds": []
+    },
+    {
+      "id": "maine-2022-house-democratic-primary-cd01-results",
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/dist1reptocong622.xlsx",
+      "retainedPath": "data/source/elections/primary-results/maine/2022/democratic-cd01.xlsx",
+      "retainedStatus": "retained",
+      "byteSize": 23933,
+      "sha256": "ccc458e06f6e32e0254c72e7f6c5aae1945d002830e59ce0c52af7f81fe4247c",
+      "kind": "official_primary_result_workbook",
+      "parentIds": [
+        "maine-2022-election-results-index"
+      ]
+    },
+    {
+      "id": "maine-2022-house-democratic-primary-cd02-results",
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/dist2reptocong622.xlsx",
+      "retainedPath": "data/source/elections/primary-results/maine/2022/democratic-cd02.xlsx",
+      "retainedStatus": "retained",
+      "byteSize": 39910,
+      "sha256": "0862338441e04b99ec6eeafbe38e83bdcc50bc55f595d962df73973bd35e35a3",
+      "kind": "official_primary_result_workbook",
+      "parentIds": [
+        "maine-2022-election-results-index"
+      ]
+    },
+    {
+      "id": "maine-2024-election-results-index",
+      "url": "https://www.maine.gov/sos/elections-voting/election-results-data/election-results-2024",
+      "retainedPath": "data/source/elections/primary-results/maine/2024/results-index.html",
+      "retainedStatus": "retained",
+      "byteSize": 89290,
+      "sha256": "c7629e287de1ad4a54bf6cea39b82f4e5bea15f702b38535a3a4b15241b9acca",
+      "kind": "official_election_results_index",
+      "parentIds": []
+    },
+    {
+      "id": "maine-2024-house-democratic-primary-cd01-results",
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/2-20Rep-20to-20Congress-20Dist-201-20Dem-20--20FINAL.xlsx",
+      "retainedPath": "data/source/elections/primary-results/maine/2024/democratic-cd01.xlsx",
+      "retainedStatus": "retained",
+      "byteSize": 22841,
+      "sha256": "d5bc8beab80e6d93b0d46c925b36d604e2168b339545b92a960c928a5061179e",
+      "kind": "official_primary_result_workbook",
+      "parentIds": [
+        "maine-2024-election-results-index"
+      ]
+    },
+    {
+      "id": "maine-2024-house-democratic-primary-cd02-results",
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/content/assets/3-20Rep-20to-20Congress-20Dist-202-20Dem--20FINAL.xlsx",
+      "retainedPath": "data/source/elections/primary-results/maine/2024/democratic-cd02.xlsx",
+      "retainedStatus": "retained",
+      "byteSize": 29362,
+      "sha256": "9b52fa0124f30b6bc3fd296b52d81270720ce49ddcefe4c6ef11412d77ab13d4",
+      "kind": "official_primary_result_workbook",
+      "parentIds": [
+        "maine-2024-election-results-index"
+      ]
+    },
+    {
+      "id": "maine-2026-election-results-index",
+      "url": "https://www.maine.gov/sos/elections-voting/election-results-data",
+      "retainedPath": "data/source/elections/primary-results/maine/2026/results-index.html",
+      "retainedStatus": "retained",
+      "byteSize": 102103,
+      "sha256": "9ad0566686fe3d7a8365c07cf1c2ea0af8e975d63e09e4adc770034094b74eb4",
+      "kind": "official_election_results_index",
+      "parentIds": []
+    },
+    {
+      "id": "maine-2026-house-democratic-primary-cd01-results",
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/Rep%20to%20Congress%20Dist%201%20FINAL.xlsx",
+      "retainedPath": "data/source/elections/primary-results/maine/2026/democratic-cd01.xlsx",
+      "retainedStatus": "retained",
+      "byteSize": 18714,
+      "sha256": "18656f07026c2dd1532f8597f920295f13700ca7ab7b1e7e841c805f0a16c11a",
+      "kind": "official_primary_result_workbook",
+      "parentIds": [
+        "maine-2026-election-results-index"
+      ]
+    },
+    {
+      "id": "maine-2026-house-democratic-primary-cd02-first-choice-results",
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/Representative%20to%20Congress%20District%202%20-%20Democratic.xlsx",
+      "retainedPath": "data/source/elections/primary-results/maine/2026/democratic-cd02-first-choice.xlsx",
+      "retainedStatus": "retained",
+      "byteSize": 42349,
+      "sha256": "6f0df9d41a38bff5180ef9bbee6b048f87092aada34343b6ff474b9ba6b2dea5",
+      "kind": "official_ranked_choice_first_choice_workbook",
+      "parentIds": [
+        "maine-2026-election-results-index"
+      ]
+    },
+    {
+      "id": "maine-2026-house-democratic-primary-cd02-rcv-summary",
+      "url": "https://www.maine.gov/sos/sites/maine.gov.sos/files/inline-files/CG2%20Democratic%20RCV%20Summary%20Report.pdf",
+      "retainedPath": "data/source/elections/primary-results/maine/2026/democratic-cd02-rcv-summary.pdf",
+      "retainedStatus": "retained",
+      "byteSize": 36422,
+      "sha256": "d308d461baf07b2ca4ebaab087eea30ad118710e19a67c3c9c54cb8fcad2ad38",
+      "kind": "official_ranked_choice_summary",
+      "parentIds": [
+        "maine-2026-election-results-index"
+      ]
+    },
+    {
+      "id": "maine-2026-house-democratic-primary-cd02-rcv-summary-layout-text",
+      "url": "urn:dsa-seats:derived-extract:maine-2026-cd02-democratic-rcv-summary:pdftotext-layout",
+      "retainedPath": "data/source/elections/primary-results/maine/2026/democratic-cd02-rcv-summary.txt",
+      "retainedStatus": "retained",
+      "byteSize": 949,
+      "sha256": "64a534b9204e1291a2fb567d7d70adcdc302dac1f75c749f6f4c78d8b0719f60",
+      "kind": "derived_extract",
+      "parentIds": [
+        "maine-2026-house-democratic-primary-cd02-rcv-summary"
+      ]
+    }
+  ],
+  "contests": [
+    {
+      "contestId": "me:2022:regular:us-house:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-14",
+      "stateCode": "ME",
+      "districtCode": "01",
+      "office": "U.S. House of Representatives",
+      "rawParty": "Democratic",
+      "eventKind": "regular",
+      "stage": "primary",
+      "sourceLockIds": [
+        "maine-2022-house-democratic-primary-cd01-results"
+      ],
+      "resultAuthorityStatus": "maine_secretary_of_state_primary_tabulation_retained",
+      "certificationStatus": "separate_signed_certification_not_retained",
+      "nominationSystem": "plurality_workbook",
+      "candidates": [
+        {
+          "sourceCandidateName": "Pingree, Chellie M.",
+          "workbookFirstChoiceVotes": 43007
+        }
+      ],
+      "workbookCandidateVotes": 43007,
+      "blankVotes": 2722,
+      "totalBallotsCast": 45729,
+      "rankedChoice": null,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "fa96255f0d961c549e60d6cd7e66bd0fa1e0f597ca11523a757c80f6af383ff9"
+    },
+    {
+      "contestId": "me:2022:regular:us-house:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-14",
+      "stateCode": "ME",
+      "districtCode": "02",
+      "office": "U.S. House of Representatives",
+      "rawParty": "Democratic",
+      "eventKind": "regular",
+      "stage": "primary",
+      "sourceLockIds": [
+        "maine-2022-house-democratic-primary-cd02-results"
+      ],
+      "resultAuthorityStatus": "maine_secretary_of_state_primary_tabulation_retained",
+      "certificationStatus": "separate_signed_certification_not_retained",
+      "nominationSystem": "plurality_workbook",
+      "candidates": [
+        {
+          "sourceCandidateName": "Golden, Jared Forrest",
+          "workbookFirstChoiceVotes": 25684
+        }
+      ],
+      "workbookCandidateVotes": 25684,
+      "blankVotes": 2898,
+      "totalBallotsCast": 28582,
+      "rankedChoice": null,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "d664af22cde70d8a60941b6c740e47b177ebd15f69202f2e5af3f17d76860c07"
+    },
+    {
+      "contestId": "me:2024:regular:us-house:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-11",
+      "stateCode": "ME",
+      "districtCode": "01",
+      "office": "U.S. House of Representatives",
+      "rawParty": "Democratic",
+      "eventKind": "regular",
+      "stage": "primary",
+      "sourceLockIds": [
+        "maine-2024-house-democratic-primary-cd01-results"
+      ],
+      "resultAuthorityStatus": "maine_secretary_of_state_primary_tabulation_retained",
+      "certificationStatus": "final_labeled_workbook_retained_separate_signed_certification_not_retained",
+      "nominationSystem": "plurality_workbook",
+      "candidates": [
+        {
+          "sourceCandidateName": "Pingree, Chellie",
+          "workbookFirstChoiceVotes": 46307
+        }
+      ],
+      "workbookCandidateVotes": 46307,
+      "blankVotes": 2914,
+      "totalBallotsCast": 49221,
+      "rankedChoice": null,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "63a485ef18ae2c4787965c17da51b9c9891afe1e07df89358a9ddbb58f2657ac"
+    },
+    {
+      "contestId": "me:2024:regular:us-house:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-11",
+      "stateCode": "ME",
+      "districtCode": "02",
+      "office": "U.S. House of Representatives",
+      "rawParty": "Democratic",
+      "eventKind": "regular",
+      "stage": "primary",
+      "sourceLockIds": [
+        "maine-2024-house-democratic-primary-cd02-results"
+      ],
+      "resultAuthorityStatus": "maine_secretary_of_state_primary_tabulation_retained",
+      "certificationStatus": "final_labeled_workbook_retained_separate_signed_certification_not_retained",
+      "nominationSystem": "plurality_workbook",
+      "candidates": [
+        {
+          "sourceCandidateName": "Golden, Jared Forrest",
+          "workbookFirstChoiceVotes": 23183
+        }
+      ],
+      "workbookCandidateVotes": 23183,
+      "blankVotes": 1948,
+      "totalBallotsCast": 25131,
+      "rankedChoice": null,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "00ee61704be536fda0b774da830840f141379e63d5e4c1fba9d8f2123004ff88"
+    },
+    {
+      "contestId": "me:2026:regular:us-house:01:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-09",
+      "stateCode": "ME",
+      "districtCode": "01",
+      "office": "U.S. House of Representatives",
+      "rawParty": "Democratic",
+      "eventKind": "regular",
+      "stage": "primary",
+      "sourceLockIds": [
+        "maine-2026-house-democratic-primary-cd01-results"
+      ],
+      "resultAuthorityStatus": "maine_secretary_of_state_primary_tabulation_retained",
+      "certificationStatus": "final_labeled_workbook_retained_separate_signed_certification_not_retained",
+      "nominationSystem": "plurality_workbook",
+      "candidates": [
+        {
+          "sourceCandidateName": "PINGREE, CHELLIE",
+          "workbookFirstChoiceVotes": 128257
+        }
+      ],
+      "workbookCandidateVotes": 128257,
+      "blankVotes": 10664,
+      "totalBallotsCast": 138921,
+      "rankedChoice": null,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerSourceCandidateName": null,
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "571258a7410168890c11ebe3ccc7bea2af422e7ce3637f1c1ccf04ea6e405378"
+    },
+    {
+      "contestId": "me:2026:regular:us-house:02:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-09",
+      "stateCode": "ME",
+      "districtCode": "02",
+      "office": "U.S. House of Representatives",
+      "rawParty": "Democratic",
+      "eventKind": "regular",
+      "stage": "primary",
+      "sourceLockIds": [
+        "maine-2026-house-democratic-primary-cd02-first-choice-results",
+        "maine-2026-house-democratic-primary-cd02-rcv-summary-layout-text"
+      ],
+      "resultAuthorityStatus": "maine_secretary_of_state_primary_tabulation_retained",
+      "certificationStatus": "rcv_central_count_summary_retained_separate_signed_certification_not_retained",
+      "nominationSystem": "ranked_choice",
+      "candidates": [
+        {
+          "sourceCandidateName": "BALDACCI, JOSEPH M",
+          "workbookFirstChoiceVotes": 24944
+        },
+        {
+          "sourceCandidateName": "DUNLAP, MATTHEW G",
+          "workbookFirstChoiceVotes": 22920
+        },
+        {
+          "sourceCandidateName": "LOUD, PAIGE",
+          "workbookFirstChoiceVotes": 8182
+        },
+        {
+          "sourceCandidateName": "WOOD, JORDAN",
+          "workbookFirstChoiceVotes": 22678
+        }
+      ],
+      "workbookCandidateVotes": 78724,
+      "blankVotes": 4756,
+      "totalBallotsCast": 83480,
+      "rankedChoice": {
+        "firstChoiceDetailAuthorityStatus": "secretary_workbook_retained",
+        "rcvCentralCountAuthorityStatus": "secretary_rcv_summary_retained",
+        "workbookNamedFirstChoiceVotes": 78724,
+        "centralCountRoundOneNamedCandidateVotes": 78805,
+        "firstChoiceNamedCandidateDelta": 81,
+        "threshold": 34240,
+        "winnerSourceCandidateName": "Dunlap, Matthew G.",
+        "reconciliationStatus": "distinct_official_projections_not_flattened",
+        "sourcePrecedenceResolution": null,
+        "rounds": [
+          {
+            "round": 1,
+            "candidateVotes": {
+              "Baldacci, Joseph M.": 24966,
+              "Dunlap, Matthew G.": 22933,
+              "Loud, Paige": 8194,
+              "Wood, Jordan": 22712
+            },
+            "exhaustedBallots": 4675,
+            "eliminated": "Loud, Paige",
+            "elected": null
+          },
+          {
+            "round": 2,
+            "candidateVotes": {
+              "Baldacci, Joseph M.": 25923,
+              "Dunlap, Matthew G.": 25681,
+              "Loud, Paige": 0,
+              "Wood, Jordan": 25377
+            },
+            "exhaustedBallots": 6499,
+            "eliminated": "Wood, Jordan",
+            "elected": null
+          },
+          {
+            "round": 3,
+            "candidateVotes": {
+              "Baldacci, Joseph M.": 32555,
+              "Dunlap, Matthew G.": 35924,
+              "Loud, Paige": 0,
+              "Wood, Jordan": 0
+            },
+            "exhaustedBallots": 15001,
+            "eliminated": null,
+            "elected": "Dunlap, Matthew G."
+          }
+        ]
+      },
+      "sourceWinnerStatus": "explicit_rcv_summary_winner",
+      "winnerSourceCandidateName": "Dunlap, Matthew G.",
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "currentIdentityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "selectionStatus": "unselected",
+      "scoreEligible": false,
+      "evaluatorValues": {
+        "priorPrimaryMargin": null,
+        "priorDemocraticPrimaryVotes": null,
+        "priorProgressivePrimaryShare": null
+      },
+      "contestSha256": "ebe7c8770eb404681d06c681723f0574c77ccd495d96e88df0c9b5bc6ae32f19"
+    }
+  ],
+  "targetObservations": [
+    {
+      "observationId": "me:target:2022:01",
+      "targetSeatId": "seat_house_me_01_current",
+      "bioguideId": "P000597",
+      "cycleYear": 2022,
+      "currentTargetDistrictCode": "01",
+      "sourceDistrictCode": "01",
+      "contestId": "me:2022:regular:us-house:01:democratic",
+      "contestSha256": "fa96255f0d961c549e60d6cd7e66bd0fa1e0f597ca11523a757c80f6af383ff9",
+      "sourceCandidateNameObservation": "Pingree, Chellie M.",
+      "sourceCandidateAppearanceStatus": "source_candidate_observed_identity_not_reviewed",
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "1718906cb5095a53f646d98e093adc31261ef2f71c42ca69cebbe672b583685e"
+    },
+    {
+      "observationId": "me:target:2022:02",
+      "targetSeatId": "seat_house_me_02_current",
+      "bioguideId": "G000592",
+      "cycleYear": 2022,
+      "currentTargetDistrictCode": "02",
+      "sourceDistrictCode": "02",
+      "contestId": "me:2022:regular:us-house:02:democratic",
+      "contestSha256": "d664af22cde70d8a60941b6c740e47b177ebd15f69202f2e5af3f17d76860c07",
+      "sourceCandidateNameObservation": "Golden, Jared Forrest",
+      "sourceCandidateAppearanceStatus": "source_candidate_observed_identity_not_reviewed",
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "66c896688ff144b8885f17f37d670b09395a44046b8906dd5e42a1989fded519"
+    },
+    {
+      "observationId": "me:target:2024:01",
+      "targetSeatId": "seat_house_me_01_current",
+      "bioguideId": "P000597",
+      "cycleYear": 2024,
+      "currentTargetDistrictCode": "01",
+      "sourceDistrictCode": "01",
+      "contestId": "me:2024:regular:us-house:01:democratic",
+      "contestSha256": "63a485ef18ae2c4787965c17da51b9c9891afe1e07df89358a9ddbb58f2657ac",
+      "sourceCandidateNameObservation": "Pingree, Chellie",
+      "sourceCandidateAppearanceStatus": "source_candidate_observed_identity_not_reviewed",
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "f97e1d7b59f3d512a987f0274592e39b8b8a71ddf566ece0b00dd62bc1214f36"
+    },
+    {
+      "observationId": "me:target:2024:02",
+      "targetSeatId": "seat_house_me_02_current",
+      "bioguideId": "G000592",
+      "cycleYear": 2024,
+      "currentTargetDistrictCode": "02",
+      "sourceDistrictCode": "02",
+      "contestId": "me:2024:regular:us-house:02:democratic",
+      "contestSha256": "00ee61704be536fda0b774da830840f141379e63d5e4c1fba9d8f2123004ff88",
+      "sourceCandidateNameObservation": "Golden, Jared Forrest",
+      "sourceCandidateAppearanceStatus": "source_candidate_observed_identity_not_reviewed",
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "76d66ed735bc9772f31e36d587320ae4833c0ec41588deeab100f2d2500bee8a"
+    },
+    {
+      "observationId": "me:target:2026:01",
+      "targetSeatId": "seat_house_me_01_current",
+      "bioguideId": "P000597",
+      "cycleYear": 2026,
+      "currentTargetDistrictCode": "01",
+      "sourceDistrictCode": "01",
+      "contestId": "me:2026:regular:us-house:01:democratic",
+      "contestSha256": "571258a7410168890c11ebe3ccc7bea2af422e7ce3637f1c1ccf04ea6e405378",
+      "sourceCandidateNameObservation": "PINGREE, CHELLIE",
+      "sourceCandidateAppearanceStatus": "source_candidate_observed_identity_not_reviewed",
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "6a362539fa9d32dcaf0c37fc5502c03a8ad45ac1248ea338039b0cb9957bb33e"
+    },
+    {
+      "observationId": "me:target:2026:02",
+      "targetSeatId": "seat_house_me_02_current",
+      "bioguideId": "G000592",
+      "cycleYear": 2026,
+      "currentTargetDistrictCode": "02",
+      "sourceDistrictCode": "02",
+      "contestId": "me:2026:regular:us-house:02:democratic",
+      "contestSha256": "ebe7c8770eb404681d06c681723f0574c77ccd495d96e88df0c9b5bc6ae32f19",
+      "sourceCandidateNameObservation": null,
+      "sourceCandidateAppearanceStatus": "current_incumbent_not_observed_in_source_identity_not_reviewed",
+      "identityStatus": "not_reviewed",
+      "geographyStatus": "not_reviewed",
+      "historicalGeographyCompatibilityClaim": null,
+      "identityApproved": false,
+      "geographyApproved": false,
+      "scoreEligible": false,
+      "observationSha256": "7ed886c1f8d11985a95e6a6d584e63a5298905f01e81f9dd25f0bc2b76885694"
+    }
+  ],
+  "summary": {
+    "contests": 6,
+    "candidates": 9,
+    "workbookCandidateVotes": 345162,
+    "blankVotes": 25902,
+    "totalBallotsCast": 371064,
+    "targetObservations": 6,
+    "rcvContests": 1,
+    "explicitSourceWinnerMarkers": 1,
+    "inferredSourceWinnerMarkers": 0,
+    "nominationConclusions": 0,
+    "evaluatorNumericValues": 0,
+    "scoreEligibleRows": 0,
+    "contestSetSha256": "2499c8b1d270d192b5372594c87b516b971fe19f6452b017945ed54492af105c",
+    "targetObservationSetSha256": "fc0e3ed9891c3b2bca20aa245bc9225e9314d7dcb119e31c2cf85d30a63414bd"
+  },
+  "limitations": [
+    "The six official workbooks are result tabulations, but no separate signed statewide certification instrument is retained. FINAL in a filename is not treated as a candidate-level certification or winner marker.",
+    "The five single-candidate workbooks contain no source winner field. Candidate count and vote rank create no winner, nominee, uncontested, or evaluator conclusion.",
+    "The 2026 district 2 first-choice workbook and central-count RCV summary are distinct official projections. Their 81-vote named-candidate difference is retained without flattening, summing, or source precedence.",
+    "Jared Golden does not appear in the 2026 district 2 source candidate set. This remains source nonappearance pending separate identity review, not zero votes, no primary, retirement, or a nomination conclusion.",
+    "Current identity, historical geography, progressive classification, evaluator selection, scoring, publication, and deployment remain outside this receipt."
+  ],
+  "unresolvedGates": [
+    "review_result_authority_and_certification_boundary",
+    "review_ranked_choice_primary_disposition_and_formula",
+    "review_incumbent_candidate_identity",
+    "review_historical_district_compatibility",
+    "review_progressive_candidate_classification",
+    "complete_human_data_review_and_publication_approval"
+  ],
+  "packageSha256": "cc50030cb023eb43b1cced7b893563f98e70082cc6ae21484360775cd2e81c3e"
+}
