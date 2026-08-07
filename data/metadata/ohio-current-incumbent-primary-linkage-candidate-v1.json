@@ -1,0 +1,541 @@
+{
+  "schema": "ohio-current-incumbent-primary-linkage-candidate-v1",
+  "version": 1,
+  "generatedAt": "2026-08-07T04:20:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_authorized_identity_and_historical_geography_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "roster": {
+      "sourceLockId": "dsa-target-incumbent-roster-20260804-v1",
+      "fileSha256": "8ae9bb3423e6160d00b5395186c42550e28811b817a482650875d87de71079e1",
+      "rosterSha256": "cf068848595dee99882ae74a6bef2b76061597fe0daa3c86b30c71bdcae18fee"
+    },
+    "proposal": {
+      "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+    },
+    "houseClerk": {
+      "sourceLockId": "house-xml",
+      "fileSha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b"
+    },
+    "congressLegislators": {
+      "sourceLockId": "congress-legislators-current-20260804",
+      "fileSha256": "bc48cccd12df96164e5a2415fc41e838ca255fe85c297731515529692f7982cf"
+    },
+    "receipt": {
+      "sourceLockId": "ohio-house-democratic-primary-results-2022-2026-v4",
+      "fileSha256": "9104931022e1fdc671f69678fe2dc4a8d8da44d087f65575ca69af16a3dd2b09",
+      "packageSha256": "f8acd66b060daac23ad13c3054ff42a32c3124ea6986e356a9d82710bff1d295",
+      "contestSetSha256": "30c855938a5462946a0a7962ffc5f523a480f9875da752508810547396d8a3f7"
+    }
+  },
+  "sources": [
+    {
+      "id": "dsa-target-incumbent-roster-20260804-v1",
+      "url": "urn:dsa-seats:dsa-target-incumbent-roster:v1:2026-08-04",
+      "retainedPath": "data/metadata/dsa-target-incumbent-roster-20260804-v1.json",
+      "retainedStatus": "retained",
+      "byteSize": 21001,
+      "sha256": "8ae9bb3423e6160d00b5395186c42550e28811b817a482650875d87de71079e1",
+      "kind": "production_projection_receipt",
+      "parentIds": [
+        "congress-legislators-current-20260804",
+        "dsa-target-factual-projection-20260804-v1"
+      ]
+    },
+    {
+      "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "url": "urn:dsa-seats:house-democratic-primary-source-selection-proposal:v1:2026-08-04",
+      "retainedPath": "data/metadata/house-democratic-primary-source-selection-proposal-20260804-v1.json",
+      "retainedStatus": "retained",
+      "byteSize": 411793,
+      "sha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "kind": "review_proposal",
+      "parentIds": [
+        "dsa-target-factual-projection-20260804-v1",
+        "dsa-target-incumbent-roster-20260804-v1",
+        "fec-2026-congressional-primary-dates",
+        "geo-national-cd119"
+      ]
+    },
+    {
+      "id": "house-xml",
+      "url": "https://clerk.house.gov/xml/lists/MemberData.xml",
+      "retainedPath": "data/source/identity/house-member-data.xml",
+      "retainedStatus": "retained",
+      "byteSize": 556140,
+      "sha256": "4ccea8259aff2df6a175545e45bdac2dfcdf0085a9cc7ab6c46aa80527bc524b",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "congress-legislators-current-20260804",
+      "url": "https://unitedstates.github.io/congress-legislators/legislators-current.json",
+      "retainedPath": "data/source/identity/congress-legislators-current-20260804.json",
+      "retainedStatus": "retained",
+      "byteSize": 1466894,
+      "sha256": "bc48cccd12df96164e5a2415fc41e838ca255fe85c297731515529692f7982cf",
+      "kind": "source",
+      "parentIds": []
+    },
+    {
+      "id": "ohio-house-democratic-primary-results-2022-2026-v4",
+      "url": "urn:dsa-seats:ohio-house-democratic-primary-results:v4:2022-2026",
+      "retainedPath": "data/metadata/ohio-house-democratic-primary-results-2022-2026-v4.json",
+      "retainedStatus": "retained",
+      "byteSize": 38893,
+      "sha256": "9104931022e1fdc671f69678fe2dc4a8d8da44d087f65575ca69af16a3dd2b09",
+      "kind": "review_evidence_receipt",
+      "parentIds": [
+        "ohio-house-democratic-primary-results-2022-2026-v3",
+        "oh-2022-may-primary-fulton-results-index",
+        "oh-2022-may-primary-fulton-official-wrapper",
+        "oh-2022-may-primary-fulton-official-summary",
+        "oh-2022-may-primary-stark-official-tabulation"
+      ]
+    }
+  ],
+  "methodology": {
+    "scope": "five_current_ohio_democratic_target_seats_times_two_closed_statewide_cycles",
+    "cyclesIncluded": [
+      2024,
+      2026
+    ],
+    "partial2022CountySegmentsCreateIdentityObservations": false,
+    "directIdentifierBridgeAvailable": false,
+    "automaticDecisionClosure": false,
+    "evaluatorNumericValues": 0
+  },
+  "summary": {
+    "targetSeats": 5,
+    "reportedContestObservations": 10,
+    "exactNameObservations": 8,
+    "derivedNameRelationships": 2,
+    "proposedIdentityLinks": 10,
+    "partialCountyEvidenceExcluded2022": 12,
+    "districtIdentityObservations2022": 0,
+    "directIdentifierBridges": 0,
+    "automaticallyApprovedRows": 0,
+    "scoreEligibleRows": 0
+  },
+  "observations": [
+    {
+      "observationId": "oh:identity:2024:01",
+      "contestId": "oh:2024:regular:us-house:01:democratic",
+      "contestSha256": "eb79f8d3d54cae01f05e29130e10d6d3a1bbffe1ec2a44b6f564d60ce3756b1f",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-19",
+      "districtCode": "01",
+      "seatCycleId": "seat_house_oh_01_current",
+      "rosterIdentity": {
+        "bioguideId": "L000601",
+        "officialHouseName": "Greg Landsman"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Greg Landsman",
+        "candidacyKind": "named_candidate",
+        "votes": 28025
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 28025,
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_not_marked"
+      ],
+      "rowSha256": "2ab5193f82149fea165ba07da71315a52bba071912d5e7d2c13db09b35324ec3"
+    },
+    {
+      "observationId": "oh:identity:2024:03",
+      "contestId": "oh:2024:regular:us-house:03:democratic",
+      "contestSha256": "c7c34ea86db9302ee4f57f919581a03b52e4ea701e09b0a614b97e3f7fe7e120",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-19",
+      "districtCode": "03",
+      "seatCycleId": "seat_house_oh_03_current",
+      "rosterIdentity": {
+        "bioguideId": "B001281",
+        "officialHouseName": "Joyce Beatty"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Joyce Beatty",
+        "candidacyKind": "named_candidate",
+        "votes": 46733
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 46733,
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_not_marked"
+      ],
+      "rowSha256": "47660c5c81bb55c7f02a728a945875867a6a57d0056646f49cba1c67aa0f21f4"
+    },
+    {
+      "observationId": "oh:identity:2024:09",
+      "contestId": "oh:2024:regular:us-house:09:democratic",
+      "contestSha256": "74fbadc4b2b335ff46c0afbacb482026ae6fd7d2d2f7c1b4e4d47aaad5c25fd2",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-19",
+      "districtCode": "09",
+      "seatCycleId": "seat_house_oh_09_current",
+      "rosterIdentity": {
+        "bioguideId": "K000009",
+        "officialHouseName": "Marcy Kaptur"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Marcy Kaptur",
+        "candidacyKind": "named_candidate",
+        "votes": 38398
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 38398,
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_not_marked"
+      ],
+      "rowSha256": "0564969ce85bd847e2ba07ffccc233ea9bac17e8fac8d600529dff020f4c7a6e"
+    },
+    {
+      "observationId": "oh:identity:2024:11",
+      "contestId": "oh:2024:regular:us-house:11:democratic",
+      "contestSha256": "e94015232407e89f9630f0d6ba66aad14bb2721c726dfa31ca0820bccfca8fcd",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-19",
+      "districtCode": "11",
+      "seatCycleId": "seat_house_oh_11_current",
+      "rosterIdentity": {
+        "bioguideId": "B001313",
+        "officialHouseName": "Shontel M. Brown"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Shontel Brown",
+        "candidacyKind": "named_candidate",
+        "votes": 61573
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 61573,
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_house_first_last_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_house_first_last_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_not_marked"
+      ],
+      "rowSha256": "403ca59c2ae04ce040572bc434743d6f49705ebd11c595ae270e32ed3a8bab53"
+    },
+    {
+      "observationId": "oh:identity:2024:13",
+      "contestId": "oh:2024:regular:us-house:13:democratic",
+      "contestSha256": "382ef7d2ac32af4a765c70388609ec1d0c1b05c5af22e214d671a5f1db450eab",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-19",
+      "districtCode": "13",
+      "seatCycleId": "seat_house_oh_13_current",
+      "rosterIdentity": {
+        "bioguideId": "S001223",
+        "officialHouseName": "Emilia Strong Sykes"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Emilia Sykes",
+        "candidacyKind": "named_candidate",
+        "votes": 41257
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 41257,
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "derived_middle_name_omission_same_district",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "documented_middle_name_omission_same_district",
+        "house_clerk_first_last_name_matches_source",
+        "congress_legislators_official_identity_closure",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_not_marked"
+      ],
+      "rowSha256": "6c6884f2596f14f0ddf2a12d43335c57af7254d7777c148cd2a38e43b3e4887f"
+    },
+    {
+      "observationId": "oh:identity:2026:01",
+      "contestId": "oh:2026:regular:us-house:01:democratic",
+      "contestSha256": "bf321ae077a579c157d39418ac8b53bf7d41a669a248ae81a660815172c319d3",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-05",
+      "districtCode": "01",
+      "seatCycleId": "seat_house_oh_01_current",
+      "rosterIdentity": {
+        "bioguideId": "L000601",
+        "officialHouseName": "Greg Landsman"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Greg Landsman",
+        "candidacyKind": "named_candidate",
+        "votes": 36984
+      },
+      "sourceCandidateCount": 2,
+      "sourceContestVotes": 54467,
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_not_marked"
+      ],
+      "rowSha256": "9f6741a0cb24d35e1af989fa6f896e1c5d590006589778b22a70f36b10a966d2"
+    },
+    {
+      "observationId": "oh:identity:2026:03",
+      "contestId": "oh:2026:regular:us-house:03:democratic",
+      "contestSha256": "8e65426d6d16b04ca31319b58974a4c53dbd640b3e52b609556fd1a94dc4f2ba",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-05",
+      "districtCode": "03",
+      "seatCycleId": "seat_house_oh_03_current",
+      "rosterIdentity": {
+        "bioguideId": "B001281",
+        "officialHouseName": "Joyce Beatty"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Joyce Beatty",
+        "candidacyKind": "named_candidate",
+        "votes": 62851
+      },
+      "sourceCandidateCount": 2,
+      "sourceContestVotes": 79232,
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_not_marked"
+      ],
+      "rowSha256": "cb5d62def366c7e73066153397118d9fe0d173181418497a43c0a4ec98a73e02"
+    },
+    {
+      "observationId": "oh:identity:2026:09",
+      "contestId": "oh:2026:regular:us-house:09:democratic",
+      "contestSha256": "a6f8189ce9e3be8e704a6ed8924953be326c9c2616703179054a573412066a92",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-05",
+      "districtCode": "09",
+      "seatCycleId": "seat_house_oh_09_current",
+      "rosterIdentity": {
+        "bioguideId": "K000009",
+        "officialHouseName": "Marcy Kaptur"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Marcy Kaptur",
+        "candidacyKind": "named_candidate",
+        "votes": 45827
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 45827,
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_not_marked"
+      ],
+      "rowSha256": "bcf7f524e9cfddd7ec8dc365eae312e3599c651bb95ad4dd9d92088b782757bf"
+    },
+    {
+      "observationId": "oh:identity:2026:11",
+      "contestId": "oh:2026:regular:us-house:11:democratic",
+      "contestSha256": "117e6678a3c56778faa0b95995a15887dac5922afc45779353d65229d5805f59",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-05",
+      "districtCode": "11",
+      "seatCycleId": "seat_house_oh_11_current",
+      "rosterIdentity": {
+        "bioguideId": "B001313",
+        "officialHouseName": "Shontel M. Brown"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Shontel M. Brown",
+        "candidacyKind": "named_candidate",
+        "votes": 70357
+      },
+      "sourceCandidateCount": 3,
+      "sourceContestVotes": 82307,
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "exact_normalized_official_house_name_same_district",
+      "evidenceClass": "exact_name_observation",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "exact_normalized_official_house_name_same_district",
+        "same_district_and_cycle",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_not_marked"
+      ],
+      "rowSha256": "c9ecf1aa92fe848cd6e390d3ec072556295b5ca695cfcf1e06d02e99a7094c27"
+    },
+    {
+      "observationId": "oh:identity:2026:13",
+      "contestId": "oh:2026:regular:us-house:13:democratic",
+      "contestSha256": "a00262690a0bdfb2996f63ae1f9a3f142b320fa5ca5e5577ce96f130419e565c",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-05",
+      "districtCode": "13",
+      "seatCycleId": "seat_house_oh_13_current",
+      "rosterIdentity": {
+        "bioguideId": "S001223",
+        "officialHouseName": "Emilia Strong Sykes"
+      },
+      "sourceCandidate": {
+        "sourceCandidateName": "Emilia Sykes",
+        "candidacyKind": "named_candidate",
+        "votes": 62768
+      },
+      "sourceCandidateCount": 1,
+      "sourceContestVotes": 62768,
+      "resultAuthorityStatus": "secretary_official_canvass_workbook",
+      "certificationStatus": "official_canvass_workbook_separate_certificate_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identityStatus": "proposed_identity_link",
+      "directIdentifierBridgeAvailable": false,
+      "matchMethod": "derived_middle_name_omission_same_district",
+      "evidenceClass": "derived_name_relationship",
+      "confidence": "high",
+      "relationshipDisposition": "proposed_identity_link_pending_documented_review",
+      "identityApproved": false,
+      "historicalGeographyStatus": "separate_candidate_not_approved",
+      "evaluatorUse": "excluded_pending_authorized_identity_and_historical_geography_review",
+      "scoreEligible": false,
+      "rationaleCodes": [
+        "documented_middle_name_omission_same_district",
+        "house_clerk_first_last_name_matches_source",
+        "congress_legislators_official_identity_closure",
+        "source_candidate_has_no_direct_person_identifier",
+        "source_winner_not_marked"
+      ],
+      "rowSha256": "7ba7a99566b2384f17919026b852dff41b2479da92073ea132eb44197cdecccf"
+    }
+  ],
+  "observationSetSha256": "a6c2acd6383975e76cfd15055b2ebc388b6c6a7d953edb634b8323cf59fbe288",
+  "decisionSupport": {
+    "informsDecisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+    "analysisConclusion": "eight_exact_and_two_derived_identity_links_proposed_while_partial_2022_county_evidence_creates_no_identity_observation",
+    "lifecycle": "evidence_for_bound_existing_decision_not_an_independent_decision"
+  },
+  "packageSha256": "bbdf13d44228ca37c7076cedd0bca4dedb379b842d252f57c7c56fb8913f92b9"
+}
