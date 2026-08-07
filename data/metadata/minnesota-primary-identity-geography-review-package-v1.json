@@ -1,0 +1,761 @@
+{
+  "schema": "minnesota-primary-identity-geography-review-package-v1",
+  "version": 1,
+  "generatedAt": "2026-08-06T23:00:00.000Z",
+  "sourceCutoff": "2026-08-06",
+  "reviewerOnly": true,
+  "publicationEligible": false,
+  "defaultUse": "exclude_from_evaluator_until_independent_authority_identity_geography_disposition_classification_and_publication_review",
+  "review": {
+    "status": "proposed",
+    "reviewer": null,
+    "reviewedAt": null,
+    "resolution": null
+  },
+  "inputs": {
+    "sourceSelectionProposal": {
+      "sourceLockId": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "fileSha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "packageSha256": "a090e0be03dc2b0fa5edd0c1132a8261eed0f98ceb4df090154d0b150d8721fb"
+    },
+    "identity": {
+      "sourceLockId": "minnesota-current-incumbent-primary-linkage-candidate-v1",
+      "fileSha256": "fd010c1e43a61f6973154e0bf1ffb0e7259c089cea56700158387888a54dd234",
+      "packageSha256": "77baabd12581f1880c811dc75ab77a79481ca9a5388a920f5ca30cc85b0c3a61",
+      "observationSetSha256": "77f4eb4b2c3ff31d9e861c25a4e9eb66560f90860246f53c48a0afda23ac747c"
+    },
+    "geography": {
+      "sourceLockId": "minnesota-primary-geography-compatibility-candidate-v1",
+      "fileSha256": "5fa89511fb4453ff7dcfcc3684ed7af6cbb51ce12d360a98d7a54f50caedab23",
+      "packageSha256": "81b0592927b90c9903ada7d65111134e00aa8e507395125e01c6f6131ceabb81",
+      "rowSetSha256": "3404b652381d8316340e18f69dbdf06538da6fa46977e35bee225e49d0cbab0b"
+    }
+  },
+  "sources": [
+    {
+      "id": "house-democratic-primary-source-selection-proposal-20260804-v1",
+      "url": "urn:dsa-seats:house-democratic-primary-source-selection-proposal:v1:2026-08-04",
+      "retainedPath": "data/metadata/house-democratic-primary-source-selection-proposal-20260804-v1.json",
+      "retainedStatus": "retained",
+      "byteSize": 411793,
+      "sha256": "85246e9adfd181e6f24606b6eaa29250c45c9e8e42a6dd5af5cb162de17f45b1",
+      "kind": "review_proposal",
+      "parentIds": [
+        "dsa-target-factual-projection-20260804-v1",
+        "dsa-target-incumbent-roster-20260804-v1",
+        "fec-2026-congressional-primary-dates",
+        "geo-national-cd119"
+      ]
+    },
+    {
+      "id": "minnesota-current-incumbent-primary-linkage-candidate-v1",
+      "url": "urn:dsa-seats:minnesota-current-incumbent-primary-linkage-candidate:v1:2022-2024",
+      "retainedPath": "data/metadata/minnesota-current-incumbent-primary-linkage-candidate-v1.json",
+      "retainedStatus": "retained",
+      "byteSize": 15485,
+      "sha256": "fd010c1e43a61f6973154e0bf1ffb0e7259c089cea56700158387888a54dd234",
+      "kind": "review_candidate",
+      "parentIds": [
+        "dsa-target-incumbent-roster-20260804-v1",
+        "house-democratic-primary-source-selection-proposal-20260804-v1",
+        "house-xml",
+        "congress-legislators-current-20260804",
+        "minnesota-house-democratic-primary-results-2022-2026-v1"
+      ]
+    },
+    {
+      "id": "minnesota-primary-geography-compatibility-candidate-v1",
+      "url": "urn:dsa-seats:minnesota-primary-geography-compatibility-candidate:v1:2022-2024",
+      "retainedPath": "data/metadata/minnesota-primary-geography-compatibility-candidate-v1.json",
+      "retainedStatus": "retained",
+      "byteSize": 16047,
+      "sha256": "5fa89511fb4453ff7dcfcc3684ed7af6cbb51ce12d360a98d7a54f50caedab23",
+      "kind": "review_candidate",
+      "parentIds": [
+        "house-democratic-primary-source-selection-proposal-20260804-v1",
+        "minnesota-house-democratic-primary-results-2022-2026-v1",
+        "minnesota-current-incumbent-primary-linkage-candidate-v1",
+        "census-cd119-plan-change-authority-20260805",
+        "tiger-cd118-27",
+        "tiger-cd119-27"
+      ]
+    }
+  ],
+  "sourceSetSha256": "861a13ea5139b92382c4961e6819ffbc82cbc266b05cee979cfd8249f23e87fa",
+  "methodology": {
+    "joinKey": "identity_observation_id_and_parent_row_hash",
+    "decisionsReviewedIndependently": true,
+    "jointPackageApprovesParents": false,
+    "automaticApprovals": 0,
+    "evaluatorNumericValues": 0,
+    "rawTigerGeometryEqualityAssessed": false,
+    "overlapAssessed": false,
+    "populationEquivalenceAssessed": false
+  },
+  "summary": {
+    "reviewRecords": 8,
+    "identityAndGeographyCandidates": 5,
+    "geographyCandidateIdentitySourceUnobserved": 3,
+    "identityCandidates": 5,
+    "geographyCandidates": 8,
+    "officialPortalReportedAuthorityRecords": 5,
+    "reportedContestRecords": 5,
+    "sourceUnobservedRecords": 3,
+    "proposedDecisions": 5,
+    "jointApprovedRecords": 0,
+    "scoreEligibleRecords": 0
+  },
+  "records": [
+    {
+      "reviewRecordId": "mn-primary-joint:2022:02",
+      "identityObservationId": "mn:identity:2022:02",
+      "geographyObservationId": "mn:geography:2022:02",
+      "contestId": null,
+      "contestSha256": null,
+      "cycleYear": 2022,
+      "seatCycleId": "seat_house_mn_02_current",
+      "districtCode": "02",
+      "identity": {
+        "parentRowSha256": "3b3446035e1401fe22aaa3a3f5663f07ad51741e62ed9d54920ec9ff9a678fc6",
+        "status": "source_unobserved",
+        "identityStatus": "source_absent_district_cycle_unresolved",
+        "bioguideId": "C001119",
+        "officialHouseName": "Angie Craig",
+        "sourceCandidateId": null,
+        "sourceCandidateName": null,
+        "sourceCandidateVotes": null,
+        "sourceCandidatePercentage": null,
+        "evidenceClass": null,
+        "confidence": null,
+        "candidate": false,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "d83a1672b37fea3d23ed24643deb126affba65136f9eaede9238b47411a329b5",
+        "status": "candidate",
+        "targetCd119Geoid": "2702",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2702",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "sourcePartyCode": null,
+      "resultAuthorityStatus": null,
+      "certificationStatus": null,
+      "sourceWinnerStatus": "not_applicable_no_reported_contest",
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "reviewCategory": "geography_candidate_identity_source_unobserved",
+      "identityDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "jointApproved": false,
+      "progressiveClassificationStatus": "not_retained",
+      "evaluatorUse": "excluded_pending_authority_identity_historical_geography_disposition_classification_and_publication_review",
+      "scoreEligible": false,
+      "reviewerAction": "review_geography_while_preserving_source_unobserved_identity",
+      "rationaleCodes": [
+        "source_absent_identity_preserved",
+        "geography_candidate_does_not_create_contest_or_identity",
+        "no_zero_no_primary_uncontested_nomination_or_winner_inference",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "ea574a07c69df8b3d2db4f1c5308733b7fc3364cdeb21d808e533fca2b509af6"
+    },
+    {
+      "reviewRecordId": "mn-primary-joint:2022:03",
+      "identityObservationId": "mn:identity:2022:03",
+      "geographyObservationId": "mn:geography:2022:03",
+      "contestId": null,
+      "contestSha256": null,
+      "cycleYear": 2022,
+      "seatCycleId": "seat_house_mn_03_current",
+      "districtCode": "03",
+      "identity": {
+        "parentRowSha256": "695f12263702f42d441ab3e8c9c82718ee3029de2b89a9773ed05626ac492557",
+        "status": "source_unobserved",
+        "identityStatus": "source_absent_district_cycle_unresolved",
+        "bioguideId": "M001234",
+        "officialHouseName": "Kelly Morrison",
+        "sourceCandidateId": null,
+        "sourceCandidateName": null,
+        "sourceCandidateVotes": null,
+        "sourceCandidatePercentage": null,
+        "evidenceClass": null,
+        "confidence": null,
+        "candidate": false,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "73c85d5ab41d34eca8c571225d019db29d86b3985c59a76a7aa49d4a6136d2bd",
+        "status": "candidate",
+        "targetCd119Geoid": "2703",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2703",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "sourcePartyCode": null,
+      "resultAuthorityStatus": null,
+      "certificationStatus": null,
+      "sourceWinnerStatus": "not_applicable_no_reported_contest",
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "reviewCategory": "geography_candidate_identity_source_unobserved",
+      "identityDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "jointApproved": false,
+      "progressiveClassificationStatus": "not_retained",
+      "evaluatorUse": "excluded_pending_authority_identity_historical_geography_disposition_classification_and_publication_review",
+      "scoreEligible": false,
+      "reviewerAction": "review_geography_while_preserving_source_unobserved_identity",
+      "rationaleCodes": [
+        "source_absent_identity_preserved",
+        "geography_candidate_does_not_create_contest_or_identity",
+        "no_zero_no_primary_uncontested_nomination_or_winner_inference",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "bb7371bdef7a5f71a078893303ae3bd7806fbf0831b0d672cee4c4b8f4ebb5d8"
+    },
+    {
+      "reviewRecordId": "mn-primary-joint:2022:04",
+      "identityObservationId": "mn:identity:2022:04",
+      "geographyObservationId": "mn:geography:2022:04",
+      "contestId": "mn:2022:regular:us-house:04:dfl",
+      "contestSha256": "0dd26f681e7105750a815c105dbb4a23ef18dc6e033361012fcdd3ff837775c6",
+      "cycleYear": 2022,
+      "seatCycleId": "seat_house_mn_04_current",
+      "districtCode": "04",
+      "identity": {
+        "parentRowSha256": "448f668181d560a97346ac00285a37cd1ad267f55e7411ce3aff976d56c9ce85",
+        "status": "candidate",
+        "identityStatus": "proposed_identity_link",
+        "bioguideId": "M001143",
+        "officialHouseName": "Betty McCollum",
+        "sourceCandidateId": "01070403",
+        "sourceCandidateName": "Betty McCollum",
+        "sourceCandidateVotes": 58043,
+        "sourceCandidatePercentage": 83.4,
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "923ed139807073d323d8d64951f2639fe911d8b1dad32d0a3e5cab94dbd8b626",
+        "status": "candidate",
+        "targetCd119Geoid": "2704",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2704",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "sourcePartyCode": "DFL",
+      "resultAuthorityStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "certificationStatus": "event_metadata_only_exact_report_bytes_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "reviewCategory": "identity_and_geography_candidates",
+      "identityDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "jointApproved": false,
+      "progressiveClassificationStatus": "not_retained",
+      "evaluatorUse": "excluded_pending_authority_identity_historical_geography_disposition_classification_and_publication_review",
+      "scoreEligible": false,
+      "reviewerAction": "review_identity_and_geography_independently",
+      "rationaleCodes": [
+        "exact_same_district_name_candidate_pending_review",
+        "raw_party_dfl_preserved",
+        "portal_result_not_candidate_certification_or_winner",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "39feebe46f8d46c5b65159bd5ff052ab693f655d438cfb7635219896dab4605f"
+    },
+    {
+      "reviewRecordId": "mn-primary-joint:2022:05",
+      "identityObservationId": "mn:identity:2022:05",
+      "geographyObservationId": "mn:geography:2022:05",
+      "contestId": "mn:2022:regular:us-house:05:dfl",
+      "contestSha256": "9d79a673d9dc2c2f8c9b9c5239c98a8c9d9940d846acbcfbc04341bca6027b6c",
+      "cycleYear": 2022,
+      "seatCycleId": "seat_house_mn_05_current",
+      "districtCode": "05",
+      "identity": {
+        "parentRowSha256": "a557ffee2f751a8b21545d1df351d6dfba1ef91c966f55caad2d32983ff73592",
+        "status": "candidate",
+        "identityStatus": "proposed_identity_link",
+        "bioguideId": "O000173",
+        "officialHouseName": "Ilhan Omar",
+        "sourceCandidateId": "01080405",
+        "sourceCandidateName": "Ilhan Omar",
+        "sourceCandidateVotes": 57683,
+        "sourceCandidatePercentage": 50.35,
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "f54013a107a25a16e58ed0afd662705b0e09f8b7ee984e466ea73811311a96dd",
+        "status": "candidate",
+        "targetCd119Geoid": "2705",
+        "historicalCongressSession": "118",
+        "historicalGeoid": "2705",
+        "compatibilityDisposition": "official_no_plan_change_declaration_same_geoid_key_candidate",
+        "evidenceClass": "direct_official_plan_continuity_and_derived_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "sourcePartyCode": "DFL",
+      "resultAuthorityStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "certificationStatus": "event_metadata_only_exact_report_bytes_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "reviewCategory": "identity_and_geography_candidates",
+      "identityDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "jointApproved": false,
+      "progressiveClassificationStatus": "not_retained",
+      "evaluatorUse": "excluded_pending_authority_identity_historical_geography_disposition_classification_and_publication_review",
+      "scoreEligible": false,
+      "reviewerAction": "review_identity_and_geography_independently",
+      "rationaleCodes": [
+        "exact_same_district_name_candidate_pending_review",
+        "raw_party_dfl_preserved",
+        "portal_result_not_candidate_certification_or_winner",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "49c0d0d2ad5877f4cef639bf2e022fb9a58f9b11b932b676e92ab8bffc023fb4"
+    },
+    {
+      "reviewRecordId": "mn-primary-joint:2024:02",
+      "identityObservationId": "mn:identity:2024:02",
+      "geographyObservationId": "mn:geography:2024:02",
+      "contestId": "mn:2024:regular:us-house:02:dfl",
+      "contestSha256": "ad731c6d6a6fefc2f4c90e942e456ab7d8596e86481a2237af76ebd593f371bb",
+      "cycleYear": 2024,
+      "seatCycleId": "seat_house_mn_02_current",
+      "districtCode": "02",
+      "identity": {
+        "parentRowSha256": "85b9450e3c81b8a90c84fb26cefd7928aeb1da55229642ca279d19ef27c1c014",
+        "status": "candidate",
+        "identityStatus": "proposed_identity_link",
+        "bioguideId": "C001119",
+        "officialHouseName": "Angie Craig",
+        "sourceCandidateId": "01050401",
+        "sourceCandidateName": "Angie Craig",
+        "sourceCandidateVotes": 26865,
+        "sourceCandidatePercentage": 91.02,
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "23ae8248e3c9472fedd8b8d14eea28c407d01f414aa7dfc963689db3016d853f",
+        "status": "candidate",
+        "targetCd119Geoid": "2702",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2702",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "sourcePartyCode": "DFL",
+      "resultAuthorityStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "certificationStatus": "event_metadata_only_exact_report_bytes_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "reviewCategory": "identity_and_geography_candidates",
+      "identityDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "jointApproved": false,
+      "progressiveClassificationStatus": "not_retained",
+      "evaluatorUse": "excluded_pending_authority_identity_historical_geography_disposition_classification_and_publication_review",
+      "scoreEligible": false,
+      "reviewerAction": "review_identity_and_geography_independently",
+      "rationaleCodes": [
+        "exact_same_district_name_candidate_pending_review",
+        "raw_party_dfl_preserved",
+        "portal_result_not_candidate_certification_or_winner",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "6b327110c09b9e8a4c1626eec83b68a430f929e3af3d2ee5a978cb2f8a2c40e2"
+    },
+    {
+      "reviewRecordId": "mn-primary-joint:2024:03",
+      "identityObservationId": "mn:identity:2024:03",
+      "geographyObservationId": "mn:geography:2024:03",
+      "contestId": null,
+      "contestSha256": null,
+      "cycleYear": 2024,
+      "seatCycleId": "seat_house_mn_03_current",
+      "districtCode": "03",
+      "identity": {
+        "parentRowSha256": "3a0a3f12d9360e0a605a4e88450f231febac53ac8e93ac331d4a4e3ef33b6800",
+        "status": "source_unobserved",
+        "identityStatus": "source_absent_district_cycle_unresolved",
+        "bioguideId": "M001234",
+        "officialHouseName": "Kelly Morrison",
+        "sourceCandidateId": null,
+        "sourceCandidateName": null,
+        "sourceCandidateVotes": null,
+        "sourceCandidatePercentage": null,
+        "evidenceClass": null,
+        "confidence": null,
+        "candidate": false,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "b8a74460684f7ac62084664eaf383749891c546a530b2a6efba43031e8678587",
+        "status": "candidate",
+        "targetCd119Geoid": "2703",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2703",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "sourcePartyCode": null,
+      "resultAuthorityStatus": null,
+      "certificationStatus": null,
+      "sourceWinnerStatus": "not_applicable_no_reported_contest",
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "reviewCategory": "geography_candidate_identity_source_unobserved",
+      "identityDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "jointApproved": false,
+      "progressiveClassificationStatus": "not_retained",
+      "evaluatorUse": "excluded_pending_authority_identity_historical_geography_disposition_classification_and_publication_review",
+      "scoreEligible": false,
+      "reviewerAction": "review_geography_while_preserving_source_unobserved_identity",
+      "rationaleCodes": [
+        "source_absent_identity_preserved",
+        "geography_candidate_does_not_create_contest_or_identity",
+        "no_zero_no_primary_uncontested_nomination_or_winner_inference",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "7192030a0e28212848126937a2da5ab3276304f1485f2f9d9462bf7e29a0e647"
+    },
+    {
+      "reviewRecordId": "mn-primary-joint:2024:04",
+      "identityObservationId": "mn:identity:2024:04",
+      "geographyObservationId": "mn:geography:2024:04",
+      "contestId": "mn:2024:regular:us-house:04:dfl",
+      "contestSha256": "b1d9dae6713e5bc76c8b7acf169f5535623020465cf845ba85b1bc30b2780539",
+      "cycleYear": 2024,
+      "seatCycleId": "seat_house_mn_04_current",
+      "districtCode": "04",
+      "identity": {
+        "parentRowSha256": "1792ecc85954d6ae45b2f430a70aa06e576160fccb62dce3dfc36026d969aade",
+        "status": "candidate",
+        "identityStatus": "proposed_identity_link",
+        "bioguideId": "M001143",
+        "officialHouseName": "Betty McCollum",
+        "sourceCandidateId": "01070401",
+        "sourceCandidateName": "Betty McCollum",
+        "sourceCandidateVotes": 37530,
+        "sourceCandidatePercentage": 100,
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "0539fe71f5d34e47854321a2d5b09d1b07047c6833b3c3c56faec86560d017d1",
+        "status": "candidate",
+        "targetCd119Geoid": "2704",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2704",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "sourcePartyCode": "DFL",
+      "resultAuthorityStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "certificationStatus": "event_metadata_only_exact_report_bytes_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "reviewCategory": "identity_and_geography_candidates",
+      "identityDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "jointApproved": false,
+      "progressiveClassificationStatus": "not_retained",
+      "evaluatorUse": "excluded_pending_authority_identity_historical_geography_disposition_classification_and_publication_review",
+      "scoreEligible": false,
+      "reviewerAction": "review_identity_and_geography_independently",
+      "rationaleCodes": [
+        "exact_same_district_name_candidate_pending_review",
+        "raw_party_dfl_preserved",
+        "portal_result_not_candidate_certification_or_winner",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "f04e26d98aca7194fefa2166f7e5f6aa0baf77d3b3fdba3b8ad606252d1a6cf3"
+    },
+    {
+      "reviewRecordId": "mn-primary-joint:2024:05",
+      "identityObservationId": "mn:identity:2024:05",
+      "geographyObservationId": "mn:geography:2024:05",
+      "contestId": "mn:2024:regular:us-house:05:dfl",
+      "contestSha256": "fa5f5be4f0aea0d5a8e1dcc94b03fd07705afd27468a367c3bdd2ea948e8bf0c",
+      "cycleYear": 2024,
+      "seatCycleId": "seat_house_mn_05_current",
+      "districtCode": "05",
+      "identity": {
+        "parentRowSha256": "008df281e740f3d6110be27dc4a11589c1c146aef0d17247d415e694d9e4a453",
+        "status": "candidate",
+        "identityStatus": "proposed_identity_link",
+        "bioguideId": "O000173",
+        "officialHouseName": "Ilhan Omar",
+        "sourceCandidateId": "01080401",
+        "sourceCandidateName": "Ilhan Omar",
+        "sourceCandidateVotes": 67926,
+        "sourceCandidatePercentage": 56.23,
+        "evidenceClass": "exact_name_observation",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "geography": {
+        "parentRowSha256": "274a5e1afe440197c879429ca0e48fd7f1d3ed0849933ef8f666dbbef680b1da",
+        "status": "candidate",
+        "targetCd119Geoid": "2705",
+        "historicalCongressSession": "119",
+        "historicalGeoid": "2705",
+        "compatibilityDisposition": "same_cd119_session_and_geoid_exact_key_candidate",
+        "evidenceClass": "derived_exact_session_and_key",
+        "confidence": "high",
+        "candidate": true,
+        "approved": false
+      },
+      "sourcePartyCode": "DFL",
+      "resultAuthorityStatus": "official_portal_reported_result_not_claimed_as_certified_result_bytes",
+      "certificationStatus": "event_metadata_only_exact_report_bytes_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "nominationConclusion": null,
+      "resultConclusion": null,
+      "reviewCategory": "identity_and_geography_candidates",
+      "identityDispositionPreserved": true,
+      "dispositionDecisionStatus": "unresolved",
+      "jointApproved": false,
+      "progressiveClassificationStatus": "not_retained",
+      "evaluatorUse": "excluded_pending_authority_identity_historical_geography_disposition_classification_and_publication_review",
+      "scoreEligible": false,
+      "reviewerAction": "review_identity_and_geography_independently",
+      "rationaleCodes": [
+        "exact_same_district_name_candidate_pending_review",
+        "raw_party_dfl_preserved",
+        "portal_result_not_candidate_certification_or_winner",
+        "parent_candidates_not_approved_by_join"
+      ],
+      "reviewRecordSha256": "9dae1dfad12dc8c36bcac5924c00010ab74ba791ced5bfa0e177dc96743d138a"
+    }
+  ],
+  "parentProjectionSha256": "0184b77ee43e61213308094d5d850e528b299eb324a9eb5fc9a01ec728794165",
+  "reviewRecordSetSha256": "a5a3915e67bd909facf11846af3247d020177891ca6da3aabe0f3ab2be001316",
+  "decisions": [
+    {
+      "decisionId": "mn-primary:accept-official-portal-result-authority-v1",
+      "affectedComponent": "official portal-reported result authority",
+      "parentDecisionId": "collect-official-state-primary-results-and-certification-v1",
+      "question": "Review official portal-reported result authority independently for the scoped Minnesota records.",
+      "recommendedDecision": "accept_official_portal_reported_result_authority_without_claiming_candidate_certification",
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "alternatives": [
+        "accept_scoped_candidate_evidence",
+        "retain_exclusion_or_request_correction"
+      ],
+      "consequences": [
+        "accepted evidence remains separately gated from publication",
+        "nonacceptance preserves current exclusion without blocking other work"
+      ],
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "mn-primary-joint:2022:04",
+        "mn-primary-joint:2022:05",
+        "mn-primary-joint:2024:02",
+        "mn-primary-joint:2024:04",
+        "mn-primary-joint:2024:05"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": "Five reported contests retain portal observations and event-level canvass metadata; exact report bytes, candidate certification, winner, and nominee claims remain absent.",
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      }
+    },
+    {
+      "decisionId": "mn-primary:accept-geography-compatibility-v1",
+      "affectedComponent": "historical geography compatibility",
+      "parentDecisionId": "approve-historical-district-cd119-compatibility-v1",
+      "question": "Review historical geography compatibility independently for the scoped Minnesota records.",
+      "recommendedDecision": "accept_eight_geography_candidates_without_geometry_equality_overlap_or_population_equivalence_claim",
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "alternatives": [
+        "accept_scoped_candidate_evidence",
+        "retain_exclusion_or_request_correction"
+      ],
+      "consequences": [
+        "accepted evidence remains separately gated from publication",
+        "nonacceptance preserves current exclusion without blocking other work"
+      ],
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "mn-primary-joint:2022:02",
+        "mn-primary-joint:2022:03",
+        "mn-primary-joint:2022:04",
+        "mn-primary-joint:2022:05",
+        "mn-primary-joint:2024:02",
+        "mn-primary-joint:2024:03",
+        "mn-primary-joint:2024:04",
+        "mn-primary-joint:2024:05"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": "Complete CD118/CD119 district inventories and Census no-redraw authority are retained.",
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      }
+    },
+    {
+      "decisionId": "mn-primary:accept-identity-links-v1",
+      "affectedComponent": "candidate identity links",
+      "parentDecisionId": "approve-historic-primary-candidate-identity-resolution-v1",
+      "question": "Review candidate identity links independently for the scoped Minnesota records.",
+      "recommendedDecision": "accept_five_exact_same_district_name_links_and_preserve_three_source_unobserved_rows",
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "alternatives": [
+        "accept_scoped_candidate_evidence",
+        "retain_exclusion_or_request_correction"
+      ],
+      "consequences": [
+        "accepted evidence remains separately gated from publication",
+        "nonacceptance preserves current exclusion without blocking other work"
+      ],
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "mn-primary-joint:2022:04",
+        "mn-primary-joint:2022:05",
+        "mn-primary-joint:2024:02",
+        "mn-primary-joint:2024:04",
+        "mn-primary-joint:2024:05"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": "Five exact same-district reporter-name observations are retained without a direct person identifier bridge; three source-absent rows have no candidate record.",
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      }
+    },
+    {
+      "decisionId": "mn-primary:retain-primary-disposition-exclusion-v1",
+      "affectedComponent": "primary disposition treatment",
+      "parentDecisionId": "decide-nonstandard-primary-disposition-treatment-v1",
+      "question": "Review primary disposition treatment independently for the scoped Minnesota records.",
+      "recommendedDecision": "retain_reported_and_source_unobserved_distinctions_pending_review",
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "alternatives": [
+        "accept_scoped_candidate_evidence",
+        "retain_exclusion_or_request_correction"
+      ],
+      "consequences": [
+        "accepted evidence remains separately gated from publication",
+        "nonacceptance preserves current exclusion without blocking other work"
+      ],
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "mn-primary-joint:2022:02",
+        "mn-primary-joint:2022:03",
+        "mn-primary-joint:2022:04",
+        "mn-primary-joint:2022:05",
+        "mn-primary-joint:2024:02",
+        "mn-primary-joint:2024:03",
+        "mn-primary-joint:2024:04",
+        "mn-primary-joint:2024:05"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": "Source absence remains nonnumeric and does not imply no primary, zero votes, nomination, winner, or uncontested status.",
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      }
+    },
+    {
+      "decisionId": "mn-primary:retain-progressive-classification-exclusion-v1",
+      "affectedComponent": "progressive classification",
+      "parentDecisionId": "approve-progressive-candidate-classification-method-v1",
+      "question": "Review progressive classification independently for the scoped Minnesota records.",
+      "recommendedDecision": "retain_all_records_outside_progressive_classification_until_separate_evidence",
+      "defaultReversibleAssumption": "exclude_affected_records_from_evaluator_and_publication",
+      "alternatives": [
+        "accept_scoped_candidate_evidence",
+        "retain_exclusion_or_request_correction"
+      ],
+      "consequences": [
+        "accepted evidence remains separately gated from publication",
+        "nonacceptance preserves current exclusion without blocking other work"
+      ],
+      "confidence": "high",
+      "evidenceRecordIds": [
+        "mn-primary-joint:2022:02",
+        "mn-primary-joint:2022:03",
+        "mn-primary-joint:2022:04",
+        "mn-primary-joint:2022:05",
+        "mn-primary-joint:2024:02",
+        "mn-primary-joint:2024:03",
+        "mn-primary-joint:2024:04",
+        "mn-primary-joint:2024:05"
+      ],
+      "blocksAffectedPublication": true,
+      "blocksOtherWork": false,
+      "workCompletedWhileWaiting": "No progressive classification evidence is introduced by the identity/geography join.",
+      "review": {
+        "status": "proposed",
+        "reviewer": null,
+        "reviewedAt": null,
+        "resolution": null
+      }
+    }
+  ],
+  "decisionSetSha256": "fd6e6f5957c4d02c423d9b914e0ebc26f050038827a7f15a090df44994df6b9b",
+  "inheritedDecisionResolutions": {
+    "authority": null,
+    "identity": null,
+    "geography": null,
+    "disposition": null,
+    "progressiveClassification": null
+  },
+  "packageSha256": "7fcec72547e0b063bdd53937d7038551f705989d7a043ee342201ba592f4cc75"
+}
