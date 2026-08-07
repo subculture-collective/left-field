@@ -84,6 +84,7 @@
     "fetch:ct-primary-geography-authority": "node scripts/fetch-connecticut-primary-geography-authority.mjs",
     "fetch:ga-house-primary-results": "node scripts/fetch-georgia-house-primary-results.mjs",
     "fetch:nm-house-primary-results": "node scripts/fetch-new-mexico-house-primary-results.mjs",
+    "fetch:nm-primary-geography-authority": "node scripts/fetch-new-mexico-primary-geography-authority.mjs",
     "generate:ga-house-primary-results-receipt": "tsx scripts/generate-georgia-house-democratic-primary-results-receipt.ts",
     "generate:nm-house-primary-results-receipt": "tsx scripts/generate-new-mexico-house-democratic-primary-results-receipt.ts",
     "generate:nm-current-incumbent-primary-linkage-v1": "tsx scripts/generate-new-mexico-current-incumbent-primary-linkage-candidate.ts",
