@@ -235,6 +235,7 @@
     "import:mn-house-primary-results": "node scripts/import-mn-house-democratic-primary-results.mjs",
     "generate:mn-house-primary-results-receipt": "tsx scripts/generate-minnesota-house-democratic-primary-results-receipt.ts",
     "generate:mn-current-incumbent-primary-linkage-v1": "tsx scripts/generate-minnesota-current-incumbent-primary-linkage-candidate.ts",
+    "generate:me-current-incumbent-primary-linkage-v1": "tsx scripts/generate-maine-current-incumbent-primary-linkage-candidate.ts",
     "fetch:mn-primary-geography-authority": "node scripts/fetch-minnesota-primary-geography-authority.mjs",
     "generate:mn-primary-geography-compatibility-v1": "tsx scripts/generate-minnesota-primary-geography-compatibility-candidate.ts",
     "generate:mn-primary-joint-review-v1": "tsx scripts/generate-minnesota-primary-identity-geography-review-package.ts",
