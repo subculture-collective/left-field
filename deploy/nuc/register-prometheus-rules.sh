@@ -60,6 +60,7 @@ else
 fi
 chmod 0644 "$config_candidate"
 sed "s|$rule_reference|$container_rules|g" "$config_candidate" > "$validation_config"
+chmod 0644 "$validation_config"
 
 "$docker_bin" cp "$rules_candidate" "$prometheus_container:$container_rules"
 "$docker_bin" cp "$validation_config" "$prometheus_container:$container_config"

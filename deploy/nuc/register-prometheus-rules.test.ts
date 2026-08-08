@@ -15,7 +15,7 @@ describe("factual Prometheus rule registration", () => {
     const fakeDocker = join(root, "docker");
     writeFileSync(config, "global:\n  scrape_interval: 15s\nrule_files:\n  - /etc/prometheus/alerts/base.yml\nscrape_configs:\n  - job_name: prometheus\n");
     writeFileSync(sourceRules, "groups:\n  - name: dsa-seats-factual\n    rules:\n      - alert: DsaSeatsPublicRouteUnavailable\n        expr: vector(0)\n");
-    writeFileSync(fakeDocker, "#!/bin/sh\ncase \"$1\" in cp) exit 0;; exec) exit 0;; *) exit 1;; esac\n");
+    writeFileSync(fakeDocker, "#!/bin/sh\ncase \"$1\" in cp) [ \"$(stat -c %a \"$2\")\" = 644 ];; exec) exit 0;; *) exit 1;; esac\n");
     chmodSync(fakeDocker, 0o755);
 
     const env = {
