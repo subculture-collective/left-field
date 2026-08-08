@@ -1,0 +1,17 @@
+{ "election_name" : "Statewide Primary", "election_date" : "September 10, 2024", "last_updated" : "September 19, 2024 01:06 PM", "precinct_count" : "345", "precincts_reporting" : "345", "contests" : [
+  { "name" : "REP Senator in Congress", "contest_number" : "3", "contest_party_designation" : "REP", "precinct_count" : "345", "precincts_reporting" : "335", "total_votes" : "18789", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Patricia Morgan", "party_code" : "REP", "votes" : "12108" }, 
+    { "name" : "Raymond T. McKay", "party_code" : "REP", "votes" : "6681" } ] },
+  { "name" : "REP Representative in Congress District 1", "contest_number" : "4", "contest_party_designation" : "REP", "precinct_count" : "171", "precincts_reporting" : "168", "total_votes" : "5033", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Allen R. Waters", "party_code" : "REP", "votes" : "5033" } ] },
+  { "name" : "REP Representative in Congress District 2", "contest_number" : "5", "contest_party_designation" : "REP", "precinct_count" : "174", "precincts_reporting" : "166", "total_votes" : "10542", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Steven Corvi*", "party_code" : "REP", "votes" : "10542" } ] },
+  { "name" : "DEM Senator in Congress", "contest_number" : "50", "contest_party_designation" : "DEM", "precinct_count" : "345", "precincts_reporting" : "345", "total_votes" : "58973", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Sheldon Whitehouse*", "party_code" : "DEM", "votes" : "49401" }, 
+    { "name" : "Michael J. Costa", "party_code" : "DEM", "votes" : "9572" } ] },
+  { "name" : "DEM Representative in Congress District 1", "contest_number" : "51", "contest_party_designation" : "DEM", "precinct_count" : "171", "precincts_reporting" : "171", "total_votes" : "26696", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Gabriel Amo*", "party_code" : "DEM", "votes" : "26696" } ] },
+  { "name" : "DEM Representative in Congress District 2", "contest_number" : "52", "contest_party_designation" : "DEM", "precinct_count" : "174", "precincts_reporting" : "174", "total_votes" : "25157", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Seth Magaziner*", "party_code" : "DEM", "votes" : "25157" }
+  ]}
+]}

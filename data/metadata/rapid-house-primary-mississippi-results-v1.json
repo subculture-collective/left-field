@@ -1,0 +1,38 @@
+{
+  "schema": "rapid-house-primary-mississippi-results-v1",
+  "version": 1,
+  "results": [
+    {
+      "resultId": "ms:primary:2024:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-12",
+      "districtLabel": "MS-02",
+      "sourceLockIds": [
+        "ms-2024-primary-results",
+        "ms-2024-primary-statewide-democratic-recap",
+        "ms-2024-primary-statewide-democratic-recap-layout-text"
+      ],
+      "rawParty": "Democrat",
+      "sourceCandidateNames": [
+        "Bennie G. Thompson"
+      ],
+      "candidateVotes": [
+        44295
+      ],
+      "totalVotes": 44295,
+      "resultAuthorityStatus": "official_statewide_democratic_recap_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "6bc8e1e5ad2e582e243d16c67c67b88bb1ae8f6f36a5491f0cb9c25fe6c7180c"
+    }
+  ],
+  "resultSetSha256": "3a95cd1b47ef54c74a0b7be3b612534e61ba55c9a12b677d1677d1a15ac76af7",
+  "summary": {
+    "observations": 1,
+    "candidateRows": 1,
+    "candidateVotes": 44295,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "8869058b7eb7643d08c4957d3df7fc417f563af6172e4de8680ad9ba17df4e3c"
+}

@@ -1,0 +1,46 @@
+{ "election_name" : "Statewide Primary", "election_date" : "September 13, 2022", "last_updated" : "September 30, 2022 01:20 PM", "precinct_count" : "395", "precincts_reporting" : "394", "contests" : [
+  { "name" : "REP Representative in Congress District 1", "contest_number" : "3", "contest_party_designation" : "REP", "precinct_count" : "188", "precincts_reporting" : "185", "total_votes" : "6975", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Allen R. Waters*", "party_code" : "REP", "votes" : "6975" } ] },
+  { "name" : "DEM Representative in Congress District 1", "contest_number" : "4", "contest_party_designation" : "DEM", "precinct_count" : "188", "precincts_reporting" : "188", "total_votes" : "46610", "votes_allowed" : "1", "candidates" : [
+    { "name" : "David N. Cicilline*", "party_code" : "DEM", "votes" : "46610" } ] },
+  { "name" : "REP Representative in Congress District 2", "contest_number" : "5", "contest_party_designation" : "REP", "precinct_count" : "207", "precincts_reporting" : "198", "total_votes" : "12113", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Allan W. Fung*", "party_code" : "REP", "votes" : "12113" } ] },
+  { "name" : "DEM Representative in Congress District 2", "contest_number" : "6", "contest_party_designation" : "DEM", "precinct_count" : "207", "precincts_reporting" : "206", "total_votes" : "56102", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Seth M. Magaziner*", "party_code" : "DEM", "votes" : "30309" }, 
+    { "name" : "David A. Segal", "party_code" : "DEM", "votes" : "9067" }, 
+    { "name" : "Sarah E. Morgenthau", "party_code" : "DEM", "votes" : "6696" }, 
+    { "name" : "Joy Fox", "party_code" : "DEM", "votes" : "6112" }, 
+    { "name" : "Omar Bah", "party_code" : "DEM", "votes" : "2600" }, 
+    { "name" : "Spencer E. Dickinson", "party_code" : "DEM", "votes" : "1318" } ] },
+  { "name" : "REP Governor", "contest_number" : "7", "contest_party_designation" : "REP", "precinct_count" : "395", "precincts_reporting" : "384", "total_votes" : "20539", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Ashley Marie Kalus*", "party_code" : "REP", "votes" : "17188" }, 
+    { "name" : "Jonathan J. Riccitelli", "party_code" : "REP", "votes" : "3351" } ] },
+  { "name" : "DEM Governor", "contest_number" : "8", "contest_party_designation" : "DEM", "precinct_count" : "395", "precincts_reporting" : "394", "total_votes" : "113598", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Daniel J. McKee*", "party_code" : "DEM", "votes" : "37288" }, 
+    { "name" : "Helena Buonanno Foulkes", "party_code" : "DEM", "votes" : "33931" }, 
+    { "name" : "Nellie M. Gorbea", "party_code" : "DEM", "votes" : "29811" }, 
+    { "name" : "Matthew A. Brown", "party_code" : "DEM", "votes" : "9021" }, 
+    { "name" : "Luis Daniel Munoz", "party_code" : "DEM", "votes" : "3547" } ] },
+  { "name" : "REP Lieutenant Governor", "contest_number" : "9", "contest_party_designation" : "REP", "precinct_count" : "395", "precincts_reporting" : "384", "total_votes" : "19823", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Aaron C. Guckian*", "party_code" : "REP", "votes" : "13427" }, 
+    { "name" : "Paul E. Pence", "party_code" : "REP", "votes" : "6396" } ] },
+  { "name" : "DEM Lieutenant Governor", "contest_number" : "10", "contest_party_designation" : "DEM", "precinct_count" : "395", "precincts_reporting" : "394", "total_votes" : "107628", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Sabina Matos*", "party_code" : "DEM", "votes" : "50704" }, 
+    { "name" : "Deborah Ruggiero", "party_code" : "DEM", "votes" : "35620" }, 
+    { "name" : "Cynthia M. Mendes", "party_code" : "DEM", "votes" : "21304" } ] },
+  { "name" : "REP Secretary of State", "contest_number" : "11", "contest_party_designation" : "REP", "precinct_count" : "395", "precincts_reporting" : "384", "total_votes" : "18306", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Pat V. Cortellessa*", "party_code" : "REP", "votes" : "18306" } ] },
+  { "name" : "DEM Secretary of State", "contest_number" : "12", "contest_party_designation" : "DEM", "precinct_count" : "395", "precincts_reporting" : "394", "total_votes" : "101559", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Gregg Amore*", "party_code" : "DEM", "votes" : "65276" }, 
+    { "name" : "Stephanie E. Beaute", "party_code" : "DEM", "votes" : "36283" } ] },
+  { "name" : "REP Attorney General", "contest_number" : "13", "contest_party_designation" : "REP", "precinct_count" : "395", "precincts_reporting" : "384", "total_votes" : "18557", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Charles C. Calenda*", "party_code" : "REP", "votes" : "18557" } ] },
+  { "name" : "DEM Attorney General", "contest_number" : "14", "contest_party_designation" : "DEM", "precinct_count" : "395", "precincts_reporting" : "394", "total_votes" : "94665", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Peter F. Neronha*", "party_code" : "DEM", "votes" : "94665" } ] },
+  { "name" : "REP General Treasurer", "contest_number" : "15", "contest_party_designation" : "REP", "precinct_count" : "395", "precincts_reporting" : "384", "total_votes" : "18477", "votes_allowed" : "1", "candidates" : [
+    { "name" : "James L. Lathrop*", "party_code" : "REP", "votes" : "18477" } ] },
+  { "name" : "DEM General Treasurer", "contest_number" : "16", "contest_party_designation" : "DEM", "precinct_count" : "395", "precincts_reporting" : "394", "total_votes" : "105010", "votes_allowed" : "1", "candidates" : [
+    { "name" : "James A. Diossa*", "party_code" : "DEM", "votes" : "58335" }, 
+    { "name" : "Stefan I. Pryor", "party_code" : "DEM", "votes" : "46675" }
+  ]}
+]}

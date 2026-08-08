@@ -1,0 +1,484 @@
+{
+  "schema": "rapid-house-primary-structured-results-v1",
+  "version": 1,
+  "registrySha256": "0ff952ac9d7a46b234687d99629496ae00742979e08bf67db6120806721873ff",
+  "parentProjectionPackageSha256": "44d3a2e9cdbcbb9ad6154a10df1f3eff27665f5ee4458b6748eb4ac61da335ea",
+  "sourceLockIds": [
+    "de-2022-primary-results",
+    "de-2024-primary-results",
+    "hi-2022-primary-summary",
+    "hi-2024-primary-summary",
+    "ri-2022-statewide-primary",
+    "ri-2024-statewide-primary"
+  ],
+  "contests": [
+    {
+      "contestId": "de:primary:2024:al:democratic",
+      "stateCode": "DE",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "districtLabel": "DE-AL",
+      "sourceContestId": "U.S. Representative in Congress:Democratic Party",
+      "sourceOfficeTitle": "U.S. Representative in Congress",
+      "rawParty": "Democratic Party",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "totalPrecincts": null,
+      "reportingPrecincts": null,
+      "totalVotes": 83607,
+      "candidates": [
+        {
+          "sourceCandidateKey": "de:2024:al:1",
+          "sourceCandidateName": "EARL COOPER",
+          "rawParty": "Democratic Party",
+          "votes": 13557,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "de:2024:al:2",
+          "sourceCandidateName": "SARAH MCBRIDE",
+          "rawParty": "Democratic Party",
+          "votes": 66764,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "de:2024:al:3",
+          "sourceCandidateName": "ELIAS WEIR",
+          "rawParty": "Democratic Party",
+          "votes": 3286,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        }
+      ],
+      "sourceLockId": "de-2024-primary-results",
+      "contestSha256": "3d2ce716068a69c9d49b310ab4cce877a2c21fd8e35575ef1f9cb2555af51a6f"
+    },
+    {
+      "contestId": "hi:primary:2022:01:democratic",
+      "stateCode": "HI",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-13",
+      "districtLabel": "HI-01",
+      "sourceContestId": "3",
+      "sourceOfficeTitle": "U.S. Representative, Dist I",
+      "rawParty": "D",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "totalPrecincts": 112,
+      "reportingPrecincts": 0,
+      "totalVotes": 121031,
+      "candidates": [
+        {
+          "sourceCandidateKey": "hi-2022-primary-summary:3:1",
+          "sourceCandidateName": "CASE, Ed",
+          "rawParty": "D",
+          "votes": 100667,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "hi-2022-primary-summary:3:2",
+          "sourceCandidateName": "ALCUBILLA, Sergio (Serg)",
+          "rawParty": "D",
+          "votes": 20364,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        }
+      ],
+      "sourceLockId": "hi-2022-primary-summary",
+      "contestSha256": "81d0d2bd471380dd8240e6ea3dec5fe2d57c3cffda20305da3ca223f6685d30f"
+    },
+    {
+      "contestId": "hi:primary:2022:02:democratic",
+      "stateCode": "HI",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-13",
+      "districtLabel": "HI-02",
+      "sourceContestId": "4",
+      "sourceOfficeTitle": "U.S. Representative, Dist II",
+      "rawParty": "D",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "totalPrecincts": 138,
+      "reportingPrecincts": 0,
+      "totalVotes": 108145,
+      "candidates": [
+        {
+          "sourceCandidateKey": "hi-2022-primary-summary:4:2",
+          "sourceCandidateName": "TOKUDA, Jill N.",
+          "rawParty": "D",
+          "votes": 62275,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "hi-2022-primary-summary:4:5",
+          "sourceCandidateName": "BRANCO, Patrick Pihana",
+          "rawParty": "D",
+          "votes": 27057,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "hi-2022-primary-summary:4:1",
+          "sourceCandidateName": "YOSHIDA, Kyle T.",
+          "rawParty": "D",
+          "votes": 6624,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "hi-2022-primary-summary:4:3",
+          "sourceCandidateName": "SCHULTZ, Brendan",
+          "rawParty": "D",
+          "votes": 6115,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "hi-2022-primary-summary:4:6",
+          "sourceCandidateName": "GI, Nicole",
+          "rawParty": "D",
+          "votes": 3937,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "hi-2022-primary-summary:4:4",
+          "sourceCandidateName": "SPARKS, Steven B.",
+          "rawParty": "D",
+          "votes": 2137,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        }
+      ],
+      "sourceLockId": "hi-2022-primary-summary",
+      "contestSha256": "479966dfc0b2fb2308746170941175bae706f43e7441faab9798362446b8c3a0"
+    },
+    {
+      "contestId": "hi:primary:2024:01:democratic",
+      "stateCode": "HI",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-10",
+      "districtLabel": "HI-01",
+      "sourceContestId": "266",
+      "sourceOfficeTitle": "U.S. Representative, Dist I",
+      "rawParty": "D",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "totalPrecincts": 223,
+      "reportingPrecincts": 223,
+      "totalVotes": 91422,
+      "candidates": [
+        {
+          "sourceCandidateKey": "hi-2024-primary-summary:266:2",
+          "sourceCandidateName": "CASE, Ed",
+          "rawParty": "D",
+          "votes": 84114,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "hi-2024-primary-summary:266:1",
+          "sourceCandidateName": "HALE, Cecil R.",
+          "rawParty": "D",
+          "votes": 7308,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        }
+      ],
+      "sourceLockId": "hi-2024-primary-summary",
+      "contestSha256": "1bdd09eb8cb1e35a1444365e4130843652966eac9edc380ab4e45f5522936882"
+    },
+    {
+      "contestId": "hi:primary:2024:02:democratic",
+      "stateCode": "HI",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-10",
+      "districtLabel": "HI-02",
+      "sourceContestId": "70",
+      "sourceOfficeTitle": "U.S. Representative, Dist II",
+      "rawParty": "D",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "totalPrecincts": 273,
+      "reportingPrecincts": 273,
+      "totalVotes": 84978,
+      "candidates": [
+        {
+          "sourceCandidateKey": "hi-2024-primary-summary:70:1",
+          "sourceCandidateName": "TOKUDA, Jill N.",
+          "rawParty": "D",
+          "votes": 84978,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        }
+      ],
+      "sourceLockId": "hi-2024-primary-summary",
+      "contestSha256": "34a71d64bbdae8c90b492624eeb920a10f0c2913ec456c75e29209770a4b7c4f"
+    },
+    {
+      "contestId": "ri:primary:2022:01:democratic",
+      "stateCode": "RI",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "districtLabel": "RI-01",
+      "sourceContestId": "4",
+      "sourceOfficeTitle": "DEM Representative in Congress District 1",
+      "rawParty": "DEM",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "totalPrecincts": 188,
+      "reportingPrecincts": 188,
+      "totalVotes": 46610,
+      "candidates": [
+        {
+          "sourceCandidateKey": "ri-2022-statewide-primary:4:1",
+          "sourceCandidateName": "David N. Cicilline*",
+          "rawParty": "DEM",
+          "votes": 46610,
+          "sourceNameMarker": "trailing_asterisk",
+          "winnerStatus": "not_marked_by_source"
+        }
+      ],
+      "sourceLockId": "ri-2022-statewide-primary",
+      "contestSha256": "31e633d466c5f58d875ca18816020fdf0fa0ad3631c88e0701d95e7b491de720"
+    },
+    {
+      "contestId": "ri:primary:2022:02:democratic",
+      "stateCode": "RI",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "districtLabel": "RI-02",
+      "sourceContestId": "6",
+      "sourceOfficeTitle": "DEM Representative in Congress District 2",
+      "rawParty": "DEM",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "totalPrecincts": 207,
+      "reportingPrecincts": 206,
+      "totalVotes": 56102,
+      "candidates": [
+        {
+          "sourceCandidateKey": "ri-2022-statewide-primary:6:1",
+          "sourceCandidateName": "Seth M. Magaziner*",
+          "rawParty": "DEM",
+          "votes": 30309,
+          "sourceNameMarker": "trailing_asterisk",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "ri-2022-statewide-primary:6:2",
+          "sourceCandidateName": "David A. Segal",
+          "rawParty": "DEM",
+          "votes": 9067,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "ri-2022-statewide-primary:6:3",
+          "sourceCandidateName": "Sarah E. Morgenthau",
+          "rawParty": "DEM",
+          "votes": 6696,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "ri-2022-statewide-primary:6:4",
+          "sourceCandidateName": "Joy Fox",
+          "rawParty": "DEM",
+          "votes": 6112,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "ri-2022-statewide-primary:6:5",
+          "sourceCandidateName": "Omar Bah",
+          "rawParty": "DEM",
+          "votes": 2600,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        },
+        {
+          "sourceCandidateKey": "ri-2022-statewide-primary:6:6",
+          "sourceCandidateName": "Spencer E. Dickinson",
+          "rawParty": "DEM",
+          "votes": 1318,
+          "sourceNameMarker": "none",
+          "winnerStatus": "not_marked_by_source"
+        }
+      ],
+      "sourceLockId": "ri-2022-statewide-primary",
+      "contestSha256": "d8e6943a57958a51f3f38a04c7c7a72776d8bc53c04ecb9f0e6fe41dcff5f698"
+    },
+    {
+      "contestId": "ri:primary:2024:01:democratic",
+      "stateCode": "RI",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "districtLabel": "RI-01",
+      "sourceContestId": "51",
+      "sourceOfficeTitle": "DEM Representative in Congress District 1",
+      "rawParty": "DEM",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "totalPrecincts": 171,
+      "reportingPrecincts": 171,
+      "totalVotes": 26696,
+      "candidates": [
+        {
+          "sourceCandidateKey": "ri-2024-statewide-primary:51:1",
+          "sourceCandidateName": "Gabriel Amo*",
+          "rawParty": "DEM",
+          "votes": 26696,
+          "sourceNameMarker": "trailing_asterisk",
+          "winnerStatus": "not_marked_by_source"
+        }
+      ],
+      "sourceLockId": "ri-2024-statewide-primary",
+      "contestSha256": "c40af6ce42a7b0b5bf6447d7628b4eee62d1481ef5a7721c04bdda7b3d807d18"
+    },
+    {
+      "contestId": "ri:primary:2024:02:democratic",
+      "stateCode": "RI",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "districtLabel": "RI-02",
+      "sourceContestId": "52",
+      "sourceOfficeTitle": "DEM Representative in Congress District 2",
+      "rawParty": "DEM",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "totalPrecincts": 174,
+      "reportingPrecincts": 174,
+      "totalVotes": 25157,
+      "candidates": [
+        {
+          "sourceCandidateKey": "ri-2024-statewide-primary:52:1",
+          "sourceCandidateName": "Seth Magaziner*",
+          "rawParty": "DEM",
+          "votes": 25157,
+          "sourceNameMarker": "trailing_asterisk",
+          "winnerStatus": "not_marked_by_source"
+        }
+      ],
+      "sourceLockId": "ri-2024-statewide-primary",
+      "contestSha256": "995408012e3ddbef61a570574a333dfa7ed3bf9de20dc671dbfc51a46d2f6c41"
+    }
+  ],
+  "contestSetSha256": "c8a39cbf80f53b18c7e486491cc8347123a011c4343ba111edd57d6d2cff0d67",
+  "observations": [
+    {
+      "observationId": "de:structured-primary:2022:al",
+      "stateCode": "DE",
+      "cycleYear": 2022,
+      "districtLabel": "DE-AL",
+      "status": "source_absent_no_disposition_inference",
+      "contestId": null,
+      "sourceLockId": "de-2022-primary-results",
+      "scoreEligible": false
+    },
+    {
+      "observationId": "de:structured-primary:2024:al",
+      "stateCode": "DE",
+      "cycleYear": 2024,
+      "districtLabel": "DE-AL",
+      "status": "reported_contest",
+      "contestId": "de:primary:2024:al:democratic",
+      "sourceLockId": "de-2024-primary-results",
+      "scoreEligible": false
+    },
+    {
+      "observationId": "hi:structured-primary:2022:01",
+      "stateCode": "HI",
+      "cycleYear": 2022,
+      "districtLabel": "HI-01",
+      "status": "reported_contest",
+      "contestId": "hi:primary:2022:01:democratic",
+      "sourceLockId": "hi-2022-primary-summary",
+      "scoreEligible": false
+    },
+    {
+      "observationId": "hi:structured-primary:2022:02",
+      "stateCode": "HI",
+      "cycleYear": 2022,
+      "districtLabel": "HI-02",
+      "status": "reported_contest",
+      "contestId": "hi:primary:2022:02:democratic",
+      "sourceLockId": "hi-2022-primary-summary",
+      "scoreEligible": false
+    },
+    {
+      "observationId": "hi:structured-primary:2024:01",
+      "stateCode": "HI",
+      "cycleYear": 2024,
+      "districtLabel": "HI-01",
+      "status": "reported_contest",
+      "contestId": "hi:primary:2024:01:democratic",
+      "sourceLockId": "hi-2024-primary-summary",
+      "scoreEligible": false
+    },
+    {
+      "observationId": "hi:structured-primary:2024:02",
+      "stateCode": "HI",
+      "cycleYear": 2024,
+      "districtLabel": "HI-02",
+      "status": "reported_contest",
+      "contestId": "hi:primary:2024:02:democratic",
+      "sourceLockId": "hi-2024-primary-summary",
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ri:structured-primary:2022:01",
+      "stateCode": "RI",
+      "cycleYear": 2022,
+      "districtLabel": "RI-01",
+      "status": "reported_contest",
+      "contestId": "ri:primary:2022:01:democratic",
+      "sourceLockId": "ri-2022-statewide-primary",
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ri:structured-primary:2022:02",
+      "stateCode": "RI",
+      "cycleYear": 2022,
+      "districtLabel": "RI-02",
+      "status": "reported_contest",
+      "contestId": "ri:primary:2022:02:democratic",
+      "sourceLockId": "ri-2022-statewide-primary",
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ri:structured-primary:2024:01",
+      "stateCode": "RI",
+      "cycleYear": 2024,
+      "districtLabel": "RI-01",
+      "status": "reported_contest",
+      "contestId": "ri:primary:2024:01:democratic",
+      "sourceLockId": "ri-2024-statewide-primary",
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ri:structured-primary:2024:02",
+      "stateCode": "RI",
+      "cycleYear": 2024,
+      "districtLabel": "RI-02",
+      "status": "reported_contest",
+      "contestId": "ri:primary:2024:02:democratic",
+      "sourceLockId": "ri-2024-statewide-primary",
+      "scoreEligible": false
+    }
+  ],
+  "observationSetSha256": "f45c73a2b2ee3b533c66412d2edaddaf6b5e74b5c94daf359bc26ee10e1d1289",
+  "summary": {
+    "observations": 10,
+    "reportedContests": 9,
+    "sourceAbsent": 1,
+    "candidateRows": 23,
+    "contestVotes": 643748,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "2c6e872cf56a30ee805cb625c0796fbef9d74a7e8e9c96084313214fe901af0a"
+}

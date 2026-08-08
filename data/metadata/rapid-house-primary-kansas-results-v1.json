@@ -1,0 +1,58 @@
+{
+  "schema": "rapid-house-primary-kansas-results-v1",
+  "version": 1,
+  "results": [
+    {
+      "resultId": "ks:primary:2022:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "districtLabel": "KS-03",
+      "sourceLockId": "ks-2022-primary-us-house-precinct-results",
+      "rawParty": "Democratic",
+      "sourceCandidateName": "Davids, Sharice",
+      "candidateVotes": 103945,
+      "segmentVotes": {
+        "statewideMasterExcludingSpecialCountySheets": 4669,
+        "johnsonCounty": 93377,
+        "wyandotteCounty": 5899
+      },
+      "masterPrecinctRows": 145,
+      "redactedTargetPrecinctCells": 9,
+      "resultAuthorityStatus": "official_precinct_workbook_retained_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "362043036f1e5fd5c58435a4ad7cadc98e6e3964d3252cdf385a74e5df574da2"
+    },
+    {
+      "resultId": "ks:primary:2024:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "districtLabel": "KS-03",
+      "sourceLockId": "ks-2024-primary-us-house-precinct-results",
+      "rawParty": "Democratic",
+      "sourceCandidateName": "Davids, Sharice",
+      "candidateVotes": 37837,
+      "segmentVotes": {
+        "statewideMasterExcludingSpecialCountySheets": 1260,
+        "johnsonCounty": 34604,
+        "wyandotteCounty": 1973
+      },
+      "masterPrecinctRows": 146,
+      "redactedTargetPrecinctCells": 10,
+      "resultAuthorityStatus": "official_precinct_workbook_retained_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "ac251c9ecf0d2faf74b7b6d83635f049075935f1fd1f0bb5046445a7bd9e9dca"
+    }
+  ],
+  "resultSetSha256": "fd0e2629085b46033919a6cb47bd36cbc2374b8f8746ce7c25253487c6b438e5",
+  "summary": {
+    "observations": 2,
+    "candidateRows": 2,
+    "candidateVotes": 141782,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "c6e906101c36b44a6ee2616c295bc463f2a21eb363ff6a370f821cc5d76a2db1"
+}

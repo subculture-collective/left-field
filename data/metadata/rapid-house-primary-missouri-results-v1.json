@@ -1,0 +1,66 @@
+{
+  "schema": "rapid-house-primary-missouri-results-v1",
+  "version": 1,
+  "results": [
+    {
+      "resultId": "mo:primary:2024:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "districtLabel": "MO-01",
+      "sourceLockIds": [
+        "mo-2024-primary-results",
+        "mo-2024-primary-results-layout-text"
+      ],
+      "rawParty": "Democratic",
+      "sourceCandidateNames": [
+        "Cori Bush",
+        "Wesley Bell",
+        "Maria N. Chappelle-Nadal",
+        "Ron Harshaw"
+      ],
+      "candidateVotes": [
+        56723,
+        63521,
+        3279,
+        735
+      ],
+      "totalVotes": 124258,
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "0c1301cd3a2f3ad5b8678d6c0642e86a35323e72426a0a2a85ef03aa0882f2c8"
+    },
+    {
+      "resultId": "mo:primary:2024:05:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "districtLabel": "MO-05",
+      "sourceLockIds": [
+        "mo-2024-primary-results",
+        "mo-2024-primary-results-layout-text"
+      ],
+      "rawParty": "Democratic",
+      "sourceCandidateNames": [
+        "Emanuel Cleaver, II"
+      ],
+      "candidateVotes": [
+        65248
+      ],
+      "totalVotes": 65248,
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "4fc560bb82ca1528c5ee17737a98658c338031ae17a3bac910e3739680c3aeeb"
+    }
+  ],
+  "resultSetSha256": "edb6925850b98a9767ed1b985f6b8db99e81c14d966a13e209aab4ee64aec6d1",
+  "summary": {
+    "observations": 2,
+    "candidateRows": 5,
+    "candidateVotes": 189506,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "138f9c11e987bf37fb35de52d24c8309149c1669484ff8a8c1f70c8e0ce4cc5d"
+}

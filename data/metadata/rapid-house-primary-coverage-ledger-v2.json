@@ -1,0 +1,910 @@
+{
+  "schema": "rapid-house-primary-coverage-ledger-v2",
+  "version": 2,
+  "projectionSha256": "3fc087b693aee03f90c1c4b1ee79b4181dcf131ddb9bc19f96198ac706ad95d2",
+  "rows": [
+    {
+      "stateCode": "AL",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "AL-02",
+        "AL-07"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "AL",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "AL-02",
+        "AL-07"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "AL",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "AL-02",
+        "AL-07"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "DE",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "DE-AL"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 1,
+      "status": "source_absent",
+      "missingByReason": [
+        {
+          "reason": "source_absent_no_disposition_inference",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": [
+        "de-2022-primary-results"
+      ]
+    },
+    {
+      "stateCode": "DE",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "DE-AL"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 1,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "de-2024-primary-results"
+      ]
+    },
+    {
+      "stateCode": "DE",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "DE-AL"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "HI",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "HI-01",
+        "HI-02"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 2,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "hi-2022-primary-summary"
+      ]
+    },
+    {
+      "stateCode": "HI",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "HI-01",
+        "HI-02"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 2,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "hi-2024-primary-summary"
+      ]
+    },
+    {
+      "stateCode": "HI",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "HI-01",
+        "HI-02"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "IN",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "IN-01",
+        "IN-07"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": [
+        "in-2022-primary-settings"
+      ]
+    },
+    {
+      "stateCode": "IN",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "IN-01",
+        "IN-07"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": [
+        "in-2024-primary-settings"
+      ]
+    },
+    {
+      "stateCode": "IN",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "IN-01",
+        "IN-07"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "KS",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "KS-03"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": [
+        "ks-2022-primary-us-house-precinct-results"
+      ]
+    },
+    {
+      "stateCode": "KS",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "KS-03"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": [
+        "ks-2024-primary-us-house-precinct-results"
+      ]
+    },
+    {
+      "stateCode": "KS",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "KS-03"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "KY",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "KY-03"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "KY",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "KY-03"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": [
+        "ky-2024-primary-results"
+      ]
+    },
+    {
+      "stateCode": "KY",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "KY-03"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "LA",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "LA-02",
+        "LA-06"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "not_held",
+      "missingByReason": [
+        {
+          "reason": "not_held",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "LA",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "LA-02",
+        "LA-06"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "not_held",
+      "missingByReason": [
+        {
+          "reason": "not_held",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "LA",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "LA-02",
+        "LA-06"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "not_held",
+      "missingByReason": [
+        {
+          "reason": "not_held",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "MO",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "MO-01",
+        "MO-05"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "MO",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "MO-01",
+        "MO-05"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": [
+        "mo-2024-primary-results"
+      ]
+    },
+    {
+      "stateCode": "MO",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "MO-01",
+        "MO-05"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "MS",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "MS-02"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "MS",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "MS-02"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": [
+        "ms-2024-primary-results"
+      ]
+    },
+    {
+      "stateCode": "MS",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "MS-02"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "NH",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "NH-01",
+        "NH-02"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "NH",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "NH-01",
+        "NH-02"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": [
+        "nh-2024-primary-results"
+      ]
+    },
+    {
+      "stateCode": "NH",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "NH-01",
+        "NH-02"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "NV",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "NV-01",
+        "NV-03",
+        "NV-04"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 3
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "NV",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "NV-01",
+        "NV-03",
+        "NV-04"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 3
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "NV",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "NV-01",
+        "NV-03",
+        "NV-04"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 3
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "RI",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "RI-01",
+        "RI-02"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 2,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "ri-2022-statewide-primary"
+      ]
+    },
+    {
+      "stateCode": "RI",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "RI-01",
+        "RI-02"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 2,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "ri-2024-statewide-primary"
+      ]
+    },
+    {
+      "stateCode": "RI",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "RI-01",
+        "RI-02"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "SC",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "SC-06"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": [
+        "sc-2022-primary-enr"
+      ]
+    },
+    {
+      "stateCode": "SC",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "SC-06"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": [
+        "sc-2024-primary-enr"
+      ]
+    },
+    {
+      "stateCode": "SC",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "SC-06"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "TN",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "TN-09"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "TN",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "TN-09"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "TN",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "TN-09"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "VT",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "VT-AL"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "VT",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "VT-AL"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "VT",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "VT-AL"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "WI",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "WI-02",
+        "WI-04"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "WI",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "WI-02",
+        "WI-04"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "WI",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "WI-02",
+        "WI-04"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    }
+  ],
+  "rowSetSha256": "3cf7278f0d71467f17969af483ed73d1ae4d19a7ecb291bc165d1b89a5bdb1cc",
+  "packageSha256": "d1a971d63c9af26d9ef44fd9ddd4112b91e87abb00c0f9839a6f0636ee3caed9"
+}

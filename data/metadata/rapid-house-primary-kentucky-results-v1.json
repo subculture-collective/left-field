@@ -1,0 +1,41 @@
+{
+  "schema": "rapid-house-primary-kentucky-results-v1",
+  "version": 1,
+  "results": [
+    {
+      "resultId": "ky:primary:2024:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "districtLabel": "KY-03",
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-layout-text"
+      ],
+      "rawParty": "Democratic Party",
+      "sourceCandidateNames": [
+        "Morgan McGARVEY",
+        "Geoffrey M. \"Geoff\" YOUNG",
+        "Jared RANDALL"
+      ],
+      "candidateVotes": [
+        44275,
+        5875,
+        2491
+      ],
+      "totalVotes": 52641,
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "bd5ffefe97575593af32541109f06d8651152d6ca922ea3d2bb4f8fbe2653e1a"
+    }
+  ],
+  "resultSetSha256": "485bcdb51da392db7d7b9cfbc4fb046d2138b71c4738de731f3e21ae63f11a54",
+  "summary": {
+    "observations": 1,
+    "candidateRows": 3,
+    "candidateVotes": 52641,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "f92f3f6d6cb0a0e3d1cf17c9baa9c692f92590e6e083c66406ffa1cc89ee6cf3"
+}

@@ -1,0 +1,47 @@
+{
+  "schema": "rapid-local-context-coverage-v1",
+  "version": 1,
+  "releaseRelationship": "separate_rapid_acquisition_excluded_from_released_score",
+  "artifacts": [
+    {
+      "id": "rapid-county-demographics-projection-v1",
+      "label": "Nationwide county demographics",
+      "scope": "3,222 Census county-equivalent rows",
+      "summary": {
+        "counties": 3222,
+        "populationPresent": 3222,
+        "formulaEligibleRows": 0
+      },
+      "packageSha256": "f3285added7c4fcc1ef713c1a279bec90f918e12204ef184fb085895395cfceb",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-county-election-context-projection-v1",
+      "label": "County registration and turnout context",
+      "scope": "EAVS county rows for 2022 and 2024",
+      "summary": {
+        "countyCycleRows": 5946,
+        "exactCountyRows2022": 2974,
+        "exactCountyRows2024": 2972,
+        "formulaEligibleRows": 0
+      },
+      "packageSha256": "b43c7e5fab81467fe34df181247d9f66fe1e8cadec24218c583e0a60a9dd7788",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-indiana-state-legislative-primary-results-v1",
+      "label": "Indiana state-legislative primary pilot",
+      "scope": "Indiana 2022 and 2024 state House and Senate primaries",
+      "summary": {
+        "officeDistrictRows": 250,
+        "partyContests": 361,
+        "candidateRows": 486,
+        "formulaEligibleContests": 0
+      },
+      "packageSha256": "8b570d896be3bb772515697a2a1e7a8ad93e136e9bae93bf72521bce0660ad5f",
+      "formulaEligibleCount": 0
+    }
+  ],
+  "artifactSetSha256": "bde5639a6be5cf81cc21175b510a062f556e27308e0cae6cb2070ff65fde16a9",
+  "packageSha256": "86b5c94fc7f1d829428ae8241fe18141bb9ce7203b0cf243e8e5587474d750f2"
+}
