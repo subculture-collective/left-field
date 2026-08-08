@@ -160,6 +160,24 @@ contract. It emits no release, run, source, URL, address, or receipt identifiers
 as metric labels. Prometheus loads the DSA rules from
 `/etc/prometheus/alerts/dsa-seats-alerts.yml`.
 
+Register the checked-in rule group in the active NUC Prometheus configuration
+with the idempotent registrar. The active Prometheus container bind-mounts the
+configuration file itself, so restart that container after the registrar's
+atomic replacement; an HTTP reload alone can continue reading the old inode.
+
+```bash
+sudo env \
+  PROMETHEUS_CONFIG=/srv/apps/monitoring/config/prometheus/prometheus.yml \
+  INSTALLED_RULES=/srv/apps/monitoring/config/prometheus/alerts/dsa-seats-alerts.yml \
+  SOURCE_RULES=/path/to/release/deploy/nuc/dsa-seats-alerts.yml \
+  sh /path/to/release/deploy/nuc/register-prometheus-rules.sh
+docker restart prometheus
+curl -fsS 'http://10.0.0.56:9090/api/v1/rules?type=alert'
+```
+
+The API result must contain exactly one healthy `dsa-seats-factual` group with
+17 inactive rules before `production:health` is run.
+
 The encrypted factual backup runs through
 `dsa-seats-factual-backup.timer`. A successful backup includes the database,
 immutable raw objects, map objects, exact source archive and source lock,

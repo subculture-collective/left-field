@@ -55,6 +55,14 @@ describe("factual production monitoring artifacts", () => {
     expect(rules).not.toMatch(/receiver|webhook|token|address|correction|donor/i);
   });
 
+  it("ships an idempotent registrar for the active Prometheus configuration", async () => {
+    const registrar = await readFile(artifact("register-prometheus-rules.sh"), "utf8");
+    expect(registrar).toContain("promtool check rules");
+    expect(registrar).toContain("promtool check config");
+    expect(registrar).toContain("PROMETHEUS_RULE_REFERENCE");
+    expect(registrar).toContain("rollback");
+  });
+
   it("schedules a hardened one-shot probe with an explicit release environment", async () => {
     const [service, timer] = await Promise.all([
       readFile(artifact("dsa-seats-factual-monitor.service"), "utf8"),

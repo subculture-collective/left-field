@@ -68,6 +68,11 @@ route.
    change the Almaz Caddy upstream from `3044` to `3045`, validate Caddy, reload
    gracefully, and verify public HTTP and HTTPS bodies plus application assets.
 
+8. Register `deploy/nuc/dsa-seats-alerts.yml` in the active Prometheus
+   configuration with `deploy/nuc/register-prometheus-rules.sh`, restart the
+   Prometheus container so its file bind mount sees the atomic replacement, and
+   require all 17 `dsa-seats-factual` rules to be healthy and inactive.
+
 If factual R1 becomes unavailable and cannot be recovered in place, switch the
 public route to `seats-maintenance.Caddyfile` and return an explicit HTTP 503.
 Do not point public traffic at `10.0.0.56:3044`: serving synthetic records under
