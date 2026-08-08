@@ -64,6 +64,7 @@
     "generate:incumbent-alignment-tracker-v1": "tsx scripts/generate-incumbent-alignment-tracker-candidate.ts",
     "generate:dsa-target-provisional-v02": "tsx scripts/generate-dsa-target-provisional-score-v02.ts",
     "generate:dsa-target-priority-briefs-v1": "tsx scripts/generate-dsa-target-priority-briefs-v1.ts",
+    "export:house-priority-finance": "node scripts/export-house-priority-finance.cjs",
     "generate:current-incumbent-primary-linkage-v1": "tsx scripts/generate-current-incumbent-primary-candidate-linkage-candidate.ts",
     "fetch:nj-pa-primary-geography-authority": "node scripts/fetch-nj-pa-primary-geography-authority.mjs",
     "generate:nj-pa-primary-geography-v1": "tsx scripts/generate-nj-pa-primary-geography-compatibility-candidate.ts",

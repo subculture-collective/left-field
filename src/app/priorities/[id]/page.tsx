@@ -70,6 +70,10 @@ export default async function PriorityBrief({ params }: Props) {
                   ? "Not reported"
                   : fmtMoney(row.incumbentCashOnHand)}
               </dd>
+              <dt>Receipts / disbursements</dt>
+              <dd>{row.incumbentReceipts === null ? "Not reported" : fmtMoney(row.incumbentReceipts)} / {row.incumbentDisbursements === null ? "Not reported" : fmtMoney(row.incumbentDisbursements)}</dd>
+              <dt>Finance through</dt>
+              <dd>{row.financeCoverageThrough ?? "Not reported"}</dd>
               <dt>Route</dt>
               <dd>
                 {row.qualifyingRoute === "deep_blue"

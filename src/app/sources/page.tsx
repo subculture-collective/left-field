@@ -13,6 +13,7 @@ export default async function Sources() {
   return <Shell release={page.release}><main className="page sources-page">
     <p className="eyebrow">SOURCE LEDGER</p><h1>What we have, and what we do not.</h1>
     <p className="lede">Coverage is grouped into plain-language sections. Open a section for its exact scopes, missing reasons, snapshots, checksums, and parsers.</p>
+    <section className="record-section"><p className="eyebrow">PRIORITY INDEX INPUT</p><h2>House campaign finance</h2><p>The index now projects the published release&apos;s latest incumbent finance aggregate onto all 430 ranked Democratic and Republican seats. Cash on hand is available for 427 seats; MD-04, NY-04, and TX-03 remain explicitly not reported. Receipts and disbursements are shown as context, while only cash vulnerability changes the score.</p><p className="lineage">Release <code>rel_full_20260804_v2</code> · source cutoff Aug. 4, 2026 · deterministic projection <code>cf00b2bcfaf0…</code></p></section>
     <section className="coverage-overview" aria-label="Coverage overview">
       {groups.map(({ domain, rows }) => <CoverageGroup key={domain} domain={domain} rows={rows} />)}
     </section>
