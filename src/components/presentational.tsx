@@ -103,10 +103,10 @@ export function Shell({
           LEFT FIELD
         </Link>
         <nav aria-label="Primary navigation">
-          <Link prefetch={false} href="/priorities">
+          <Link prefetch={false} href="/">
             Priority index
           </Link>
-          <Link prefetch={false} href="/">
+          <Link prefetch={false} href="/browse">
             Browse
           </Link>
           <Link prefetch={false} href="/sources">
@@ -121,7 +121,7 @@ export function Shell({
       {children}
       <footer>
         LEFT FIELD · Federal seat research ·{" "}
-        <Link prefetch={false} href="/priorities">
+        <Link prefetch={false} href="/">
           Priority index
         </Link>{" "}
         ·{" "}
@@ -175,7 +175,7 @@ export function RouteState({
         <p className="eyebrow">RECORD STATUS</p>
         <h1>{copy[0]}</h1>
         <p>{copy[1]}</p>
-        <Link prefetch={false} className="button" href="/">
+        <Link prefetch={false} className="button" href="/browse">
           Return to browse
         </Link>
       </main>

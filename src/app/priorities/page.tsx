@@ -173,12 +173,12 @@ export default async function Priorities({ searchParams }: Props) {
         {visible.length === 0 && (
           <section className="empty">
             <h2>No seats match these filters.</h2>
-            <Link href="/priorities">Reset the index</Link>
+            <Link href="/">Reset the index</Link>
           </section>
         )}
         {!showAll && !query && !state && !route && (
           <div className="show-all">
-            <Link className="button" href="/priorities?show=all">
+            <Link className="button" href="/?show=all">
               Open all {briefs.length} seats
             </Link>
           </div>

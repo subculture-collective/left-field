@@ -21,7 +21,7 @@ export default async function PriorityBrief({ params }: Props) {
   return (
     <Shell>
       <main className="page priority-detail">
-        <Link className="back-link" href="/priorities">
+        <Link className="back-link" href="/">
           ← House Priority Index
         </Link>
         <header className="brief-hero">
