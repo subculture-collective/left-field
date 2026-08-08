@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Shell, fmtMoney } from "@/components/presentational";
-import { priorityBrief } from "@/lib/priority-briefs";
+import { formatPartisanMargin, housePriorityBrief, housePriorityBriefs } from "@/lib/house-priority-index";
 
 type Props = { params: Promise<{ id: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const row = priorityBrief((await params).id);
+  const row = housePriorityBrief((await params).id);
   return row
     ? {
         title: `${row.districtLabel} · ${row.officialHouseName}`,
@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PriorityBrief({ params }: Props) {
-  const row = priorityBrief((await params).id);
+  const row = housePriorityBrief((await params).id);
   if (!row) notFound();
   return (
     <Shell>
@@ -27,7 +27,7 @@ export default async function PriorityBrief({ params }: Props) {
         <header className="brief-hero">
           <div>
             <p className="eyebrow">
-              RANK {row.rank} / 212 · {row.districtLabel}
+              RANK {row.rank} / {housePriorityBriefs().length} · {row.districtLabel}
             </p>
             <h1>{row.officialHouseName}</h1>
             <p className="lede">{row.scoreSummary}</p>
@@ -53,9 +53,7 @@ export default async function PriorityBrief({ params }: Props) {
               <dd>{row.districtChangeCount}</dd>
               <dt>Alignment gap</dt>
               <dd>
-                {row.scoreDrivers
-                  .find((driver) => driver.key === "incumbent_alignment_gap")!
-                  .score!.toFixed(1)}
+                {row.scoreDrivers.find((driver) => driver.key === "incumbent_alignment_gap")?.score?.toFixed(1) ?? "Not used"}
               </dd>
             </dl>
           </article>
@@ -65,7 +63,7 @@ export default async function PriorityBrief({ params }: Props) {
             <p>{row.districtSummary}</p>
             <dl className="brief-facts">
               <dt>2024 presidential margin</dt>
-              <dd>D+{row.presidentialDemocraticMargin2024.toFixed(1)}</dd>
+              <dd>{formatPartisanMargin(row.presidentialDemocraticMargin2024)}</dd>
               <dt>Cash on hand</dt>
               <dd>
                 {row.incumbentCashOnHand === null
@@ -76,7 +74,9 @@ export default async function PriorityBrief({ params }: Props) {
               <dd>
                 {row.qualifyingRoute === "deep_blue"
                   ? "Deep blue"
-                  : "AIPAC-supported blue"}
+                  : row.qualifyingRoute === "aipac_supported_blue"
+                    ? "AIPAC-supported blue"
+                    : "Republican-held general-election fringe"}
               </dd>
               <dt>Baseline score</dt>
               <dd>{row.baselineTargetScore.toFixed(1)}</dd>

@@ -14,7 +14,7 @@ describe("UI data boundary", () => {
   it("preserves list metric missingness and explicit no-ranking disclosure", () => {
     const rows = projection.list(seatQuerySchema.parse({})); const model = compileBrowsePage(canonicalManifest.release, { releaseId: canonicalManifest.release.id, items: [...rows], total: rows.length, nextCursor: null }, seatQuerySchema.parse({}), projection.facets());
     expect(model.rows.find((row) => row.stateCode === "AL")?.presidentialMargin2024.value).toEqual({ kind: "missing", reason: "not_defensibly_modeled" });
-    expect(model.disclosure.rankings).toContain("No rankings");
+    expect(model.disclosure.rankings).toContain("Priority Index");
   });
   it("keeps unavailable election status and complete profile source closure", () => {
     const profile = projection.profile(canonicalManifest.profileSeatCycleIds[1]!); const seat = projection.list(seatQuerySchema.parse({})).find((row) => row.id === profile?.seatCycle.id); if (!profile || !seat) throw new Error("fixture missing"); const model = compileProfilePage(profile, seat);

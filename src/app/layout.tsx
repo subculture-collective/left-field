@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: { default: "Seat / Record", template: "%s | Seat / Record" },
+  title: { default: "Left Field", template: "%s | Left Field" },
   description: "Federal seat rankings, strategic briefs, and source-specific factual records.",
 };
 

@@ -100,7 +100,7 @@ export function Shell({
     <>
       <header className="masthead">
         <Link prefetch={false} className="wordmark" href="/">
-          SEAT / RECORD
+          LEFT FIELD
         </Link>
         <nav aria-label="Primary navigation">
           <Link prefetch={false} href="/priorities">
@@ -108,12 +108,6 @@ export function Shell({
           </Link>
           <Link prefetch={false} href="/">
             Browse
-          </Link>
-          <Link prefetch={false} href="/corrections">
-            Corrections
-          </Link>
-          <Link prefetch={false} href="/lookup">
-            Address lookup
           </Link>
           <Link prefetch={false} href="/sources">
             Sources
@@ -126,7 +120,7 @@ export function Shell({
       {release && <ReleaseStrip release={release} />}
       {children}
       <footer>
-        SEAT / RECORD · Federal seat research ·{" "}
+        LEFT FIELD · Federal seat research ·{" "}
         <Link prefetch={false} href="/priorities">
           Priority index
         </Link>{" "}

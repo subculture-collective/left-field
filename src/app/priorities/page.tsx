@@ -1,13 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Shell } from "@/components/presentational";
-import { priorityBriefs } from "@/lib/priority-briefs";
+import { formatPartisanMargin, housePriorityBriefs } from "@/lib/house-priority-index";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "House Priority Index",
   description:
-    "Ranked strategic profiles for 212 Democratic-held U.S. House seats.",
+    "Ranked strategic profiles for Democratic-held and Republican-held U.S. House seats.",
 };
 type Props = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
@@ -16,14 +16,13 @@ const value = (input: string | string[] | undefined): string =>
   typeof input === "string" ? input : "";
 
 export default async function Priorities({ searchParams }: Props) {
-  const data = priorityBriefs(),
-    params = await searchParams;
+  const briefs = housePriorityBriefs(), params = await searchParams;
   const query = value(params.q).trim().toLocaleLowerCase("en-US"),
     state = value(params.state),
     route = value(params.route),
     showAll = value(params.show) === "all";
-  const states = [...new Set(data.briefs.map((row) => row.stateCode))].sort();
-  const filtered = data.briefs.filter(
+  const states = [...new Set(briefs.map((row) => row.stateCode))].sort();
+  const filtered = briefs.filter(
     (row) =>
       (!query ||
         `${row.districtLabel} ${row.incumbentName} ${row.officialHouseName}`
@@ -35,7 +34,10 @@ export default async function Priorities({ searchParams }: Props) {
   const visible =
     showAll || query || state || route
       ? filtered
-      : filtered.slice(0, data.selection.defaultPublicViewCount);
+      : filtered.slice(0, 50);
+  const rank50Score = briefs[49]!.provisionalTargetScore;
+  const seatsAtOrAbove60 = briefs.filter((row) => row.provisionalTargetScore >= 60).length;
+  const republicanSeats = briefs.filter((row) => row.incumbentParty === "Republican").length;
   return (
     <Shell>
       <main className="page priorities-page">
@@ -44,13 +46,14 @@ export default async function Priorities({ searchParams }: Props) {
             <p className="eyebrow">2026 HOUSE PRIORITY INDEX</p>
             <h1>Where the field bends.</h1>
             <p className="lede">
-              A ranked field guide to every Democratic-held House seat,
-              combining structural opportunity, primary feasibility, AIPAC
-              support, and incumbent alignment.
+              A ranked field guide to 430 occupied House seats. Democratic-held
+              seats combine primary opportunity, AIPAC evidence, and incumbent
+              alignment; Republican-held seats enter through a deliberately
+              capped general-election fringe screen.
             </p>
           </div>
           <div className="index-mark">
-            <strong>212</strong>
+            <strong>{briefs.length}</strong>
             <span>seats scored</span>
             <b>50</b>
             <span>in the opening field</span>
@@ -60,19 +63,19 @@ export default async function Priorities({ searchParams }: Props) {
         <section className="priority-stats" aria-label="Priority index summary">
           <div>
             <span>Top score</span>
-            <strong>{data.briefs[0]!.provisionalTargetScore.toFixed(1)}</strong>
+            <strong>{briefs[0]!.provisionalTargetScore.toFixed(1)}</strong>
           </div>
           <div>
             <span>Rank 50</span>
-            <strong>{data.selection.rank50Score.toFixed(1)}</strong>
+            <strong>{rank50Score.toFixed(1)}</strong>
           </div>
           <div>
             <span>At least 60</span>
-            <strong>{data.selection.seatsAtOrAbove60}</strong>
+            <strong>{seatsAtOrAbove60}</strong>
           </div>
           <div>
-            <span>AIPAC route</span>
-            <strong>{data.summary.aipacSupportedBlueRoute}</strong>
+            <span>GOP fringe screened</span>
+            <strong>{republicanSeats}</strong>
           </div>
         </section>
 
@@ -100,13 +103,14 @@ export default async function Priorities({ searchParams }: Props) {
               <option value="">All routes</option>
               <option value="aipac_supported_blue">AIPAC-supported blue</option>
               <option value="deep_blue">Deep blue</option>
+              <option value="republican_fringe_general">Republican-held fringe</option>
             </select>
           </label>
           <label>
             Field
             <select name="show" defaultValue={showAll ? "all" : "top50"}>
               <option value="top50">Opening 50</option>
-              <option value="all">All 212</option>
+              <option value="all">All {briefs.length}</option>
             </select>
           </label>
           <button>Apply</button>
@@ -120,21 +124,17 @@ export default async function Priorities({ searchParams }: Props) {
             <span>Route</span>
           </div>
           {visible.map((row) => (
-            <article className="priority-row" key={row.seatCycleId}>
+            <details className="priority-entry" key={row.seatCycleId}>
+              <summary className="priority-row">
               <div className="rank-lockup">
                 <span>#{row.rank}</span>
                 <strong>{row.provisionalTargetScore.toFixed(1)}</strong>
               </div>
               <div>
-                <Link
-                  className="priority-seat"
-                  href={`/priorities/${row.seatCycleId}`}
-                >
-                  {row.districtLabel}
-                </Link>
+                <span className="priority-seat">{row.districtLabel}</span>
                 <h2>{row.officialHouseName}</h2>
                 <p>
-                  D+{row.presidentialDemocraticMargin2024.toFixed(1)} ·{" "}
+                  {row.incumbentParty} · {formatPartisanMargin(row.presidentialDemocraticMargin2024)} ·{" "}
                   {row.cumulativeHouseServiceYears.toFixed(1)} years in House
                 </p>
               </div>
@@ -155,16 +155,19 @@ export default async function Priorities({ searchParams }: Props) {
                 <span className={`route-tag route-${row.qualifyingRoute}`}>
                   {row.qualifyingRoute === "deep_blue"
                     ? "Deep blue"
-                    : "AIPAC-supported blue"}
+                    : row.qualifyingRoute === "aipac_supported_blue"
+                      ? "AIPAC-supported blue"
+                      : "Republican-held fringe"}
                 </span>
-                <Link
-                  className="brief-link"
-                  href={`/priorities/${row.seatCycleId}`}
-                >
-                  Open brief →
-                </Link>
               </div>
-            </article>
+              </summary>
+              <Link className="brief-link priority-direct-link" href={`/priorities/${row.seatCycleId}`}>Open brief →</Link>
+              <div className="priority-expansion">
+                <div><p className="eyebrow">WHY IT RANKS</p><p>{row.scoreSummary}</p></div>
+                <div><p className="eyebrow">DISTRICT READ</p><p>{row.districtSummary}</p></div>
+                <Link className="button" href={`/priorities/${row.seatCycleId}`}>Read the full brief →</Link>
+              </div>
+            </details>
           ))}
         </div>
         {visible.length === 0 && (
@@ -176,7 +179,7 @@ export default async function Priorities({ searchParams }: Props) {
         {!showAll && !query && !state && !route && (
           <div className="show-all">
             <Link className="button" href="/priorities?show=all">
-              Open all 212 seats
+              Open all {briefs.length} seats
             </Link>
           </div>
         )}

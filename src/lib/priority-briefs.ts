@@ -1,4 +1,3 @@
-import "server-only";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import type { DsaTargetPriorityBriefsV1 } from "@/domain/dsa-target-priority-briefs-v1";
