@@ -2188,6 +2188,12 @@ integration("PostgreSQL integration", () => {
       await owner.query(`GRANT dsa_seats_web TO "${principals.reviewer}"`);
       await expect(reviewer.list({ limit: 1 })).rejects.toMatchObject({ code: "42501" });
       await owner.query(`REVOKE dsa_seats_web FROM "${principals.reviewer}"`);
+      for (const mixedRole of ["dsa_seats_address_lookup", "dsa_seats_fec_v2_acquisition"]) {
+        await owner.query(`GRANT ${mixedRole} TO "${principals.reviewer}"`);
+        await expect(reviewer.list({ limit: 1 })).rejects.toMatchObject({ code: "42501" });
+        await expect(reviewer.transition({ correctionId: first.correctionId!, expectedSequence: 1, expectedStatus: "submitted", toStatus: "in_review", reasonCode: "triaged" })).rejects.toMatchObject({ code: "42501" });
+        await owner.query(`REVOKE ${mixedRole} FROM "${principals.reviewer}"`);
+      }
 
       await owner.query("DELETE FROM operations.correction_rate_limit_buckets");
       const reviewable = await submit("review", "review"); const id = reviewable.correctionId!;

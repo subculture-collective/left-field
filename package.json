@@ -61,6 +61,7 @@
     "release:drill": "tsx scripts/release-drill.ts",
     "release:health": "tsx scripts/release-health.ts",
     "production:health": "tsx scripts/production-health.ts",
+    "corrections:review": "tsx scripts/review-corrections.ts",
     "release:lifecycle": "tsx scripts/release-lifecycle.ts",
     "measure:task5-queries": "tsx scripts/measure-task5-queries.ts",
     "inventory:fec-bulk": "tsx scripts/inventory-fec-bulk.ts",
