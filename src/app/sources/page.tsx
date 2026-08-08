@@ -1,6 +1,8 @@
+import Link from "next/link";
 import { loadSourcesPage } from "@/ui/server-data";
 import type { SourcesPageViewModel } from "@/ui/view-models";
 import { Shell, RouteState, Status, fmtDate, words } from "@/components/presentational";
+import { housePriorityBriefs } from "@/lib/house-priority-index";
 
 export const dynamic = "force-dynamic";
 type Coverage = SourcesPageViewModel["coverage"][number];
@@ -9,13 +11,38 @@ export default async function Sources() {
   const result = await loadSourcesPage();
   if (!result.ok) return <RouteState code={result.code} />;
   const { value: page } = result;
+  const indexRows = housePriorityBriefs();
+  const driverCoverage = (key: string) => indexRows.filter((row) => {
+    const driver = row.scoreDrivers.find((candidate) => candidate.key === key);
+    return driver && driver.score !== null;
+  }).length;
+  const democraticSeats = indexRows.filter((row) => row.incumbentParty === "Democratic").length;
+  const republicanSeats = indexRows.filter((row) => row.incumbentParty === "Republican").length;
   const groups = [...new Set(page.coverage.map((row) => row.domain))].sort().map((domain) => ({ domain, rows: page.coverage.filter((row) => row.domain === domain) }));
   return <Shell release={page.release}><main className="page sources-page">
     <p className="eyebrow">SOURCE LEDGER</p><h1>What we have, and what we do not.</h1>
-    <p className="lede">Coverage is grouped into plain-language sections. Open a section for its exact scopes, missing reasons, snapshots, checksums, and parsers.</p>
-    <section className="record-section"><p className="eyebrow">PRIORITY INDEX INPUT</p><h2>House campaign finance</h2><p>The index now projects the published release&apos;s latest incumbent finance aggregate onto all 430 ranked Democratic and Republican seats. Cash on hand is available for 427 seats; MD-04, NY-04, and TX-03 remain explicitly not reported. Receipts and disbursements are shown as context, while only cash vulnerability changes the score.</p><p className="lineage">Release <code>rel_full_20260804_v2</code> · source cutoff Aug. 4, 2026 · deterministic projection <code>cf00b2bcfaf0…</code></p></section>
+    <p className="lede">Start with the six inputs that affect the public ranking. The broader release ledger and exact retained snapshots remain available below for audit.</p>
+    <section className="source-scorecard" aria-label="Priority Index source coverage">
+      <article><span>Ranked universe</span><strong>{indexRows.length}</strong><p>{democraticSeats} Democratic · {republicanSeats} Republican</p></article>
+      <article><span>Cash on hand</span><strong>{driverCoverage("cash_vulnerability")} / {indexRows.length}</strong><p>Three explicit not-reported outcomes</p></article>
+      <article><span>Source cutoff</span><strong>{fmtDate(page.release.sourceCutoff)}</strong><p>Published release facts, not live feeds</p></article>
+    </section>
+    <section className="record-section"><div className="section-heading-pair"><div><p className="eyebrow">WHAT FEEDS THE SCORE</p><h2>Six inputs, two routes</h2></div><p>Coverage means a usable numeric component is present. It does not mean every desirable historical or challenger-level field has been collected.</p></div>
+      <div className="source-input-grid">
+        <SourceInput title="District partisanship" coverage={`${indexRows.length} / ${indexRows.length}`} source="Retained 2024 presidential district results" use="Creates the Democratic blue baseline and Republican general-election competitiveness." />
+        <SourceInput title="Primary feasibility" coverage={`${driverCoverage("primary_feasibility")} / ${democraticSeats}`} source="Published election facts and retained primary evidence" use="Used only for Democratic-held seats; nationwide history remains uneven." />
+        <SourceInput title="AIPAC support" coverage={`${driverCoverage("aipac_support")} / ${democraticSeats}`} source="FEC-derived AIPAC-network evidence" use="Used only on the Democratic AIPAC-supported route; unavailable values stay missing." />
+        <SourceInput title="Incumbent alignment" coverage={`${driverCoverage("incumbent_alignment_gap")} / ${democraticSeats}`} source="119th House Left and Palestine trackers" use="Used only for Democratic incumbents; 210 are full and two are partial observations." />
+        <SourceInput title="Cash vulnerability" coverage={`${driverCoverage("cash_vulnerability")} / ${indexRows.length}`} source="Latest published incumbent FEC finance aggregate" use="Affects both routes. MD-04, NY-04, and TX-03 remain not reported." />
+        <SourceInput title="Member and service history" coverage={`${indexRows.length} / ${indexRows.length}`} source="House Clerk and Congress Legislators" use="Provides identity, biography, and tenure context; it does not independently change rank." />
+      </div>
+      <p className="source-method-link"><Link href="/methodology">See every weight, formula, and missing-data rule →</Link></p>
+    </section>
+    <section className="record-section"><p className="eyebrow">INDEX FINANCE PROJECTION</p><h2>One published finance row per ranked seat</h2><p>The index projects the latest incumbent finance aggregate from <code>rel_full_20260804_v2</code> onto the 430-seat ranking. Cash changes the score; receipts and disbursements are displayed as context and do not receive separate weights.</p><div className="source-projection-facts"><span><b>427</b> cash values</span><span><b>3</b> not reported</span><span><b>cf00b2bcfaf0…</b> projection</span><span><b>a908273c32fe…</b> retained file</span></div></section>
+    <section className="record-section"><div className="section-heading-pair"><div><p className="eyebrow">RELEASE COVERAGE</p><h2>Open a domain for exact scopes</h2></div><p>These are factual-release coverage records, not score weights. Counts inside different scopes should not be added together as if they shared one denominator.</p></div>
     <section className="coverage-overview" aria-label="Coverage overview">
       {groups.map(({ domain, rows }) => <CoverageGroup key={domain} domain={domain} rows={rows} />)}
+    </section>
     </section>
     <section className="record-section"><p className="eyebrow">SOURCE INVENTORY</p><h2>Publishers and retained snapshots</h2><p className="muted">{page.snapshotScope}</p>
       <div className="source-disclosures">{page.sources.map(({ source, snapshots }) => <details className="ledger-disclosure" key={String(source.id)}><summary><span><strong>{source.name}</strong><small>{source.id}</small></span><span><Status>{source.authority}</Status><b>{snapshots.length} {snapshots.length === 1 ? "snapshot" : "snapshots"}</b></span></summary><div className="ledger-body"><p><a href={source.homepageUrl}>Open publisher homepage ↗</a></p>{snapshots.length === 0 ? <p className="empty-copy">No snapshots fall within this page closure.</p> : <div className="table-wrap" role="region" tabIndex={0} aria-label={`${source.name} snapshots`}><table><thead><tr><th>Snapshot</th><th>Dates</th><th>License / usage</th><th>Checksum / parser</th></tr></thead><tbody>{snapshots.map((snapshot) => <tr key={String(snapshot.id)}><td><a href={snapshot.sourceUrl}>{snapshot.id}</a></td><td>Published: {fmtDate(snapshot.publishedAt)}<small>Retrieved: {fmtDate(snapshot.retrievedAt)}</small></td><td>{snapshot.license}<small><Status>{snapshot.usageStatus}</Status></small></td><td><code>{snapshot.checksumSha256.slice(0, 12)}…</code><small>{snapshot.parserVersion}</small></td></tr>)}</tbody></table></div>}</div></details>)}</div>
@@ -23,10 +50,13 @@ export default async function Sources() {
   </main></Shell>;
 }
 
+function SourceInput({ title, coverage, source, use }: { title: string; coverage: string; source: string; use: string }) {
+  return <article><div><h3>{title}</h3><strong>{coverage}</strong></div><p>{source}</p><small>{use}</small></article>;
+}
+
 function CoverageGroup({ domain, rows }: { domain: string; rows: readonly Coverage[] }) {
-  const observed = rows.reduce((sum, row) => sum + row.observedCount, 0), expected = rows.reduce((sum, row) => sum + row.expectedCount, 0);
   const incomplete = rows.filter((row) => row.observedCount < row.expectedCount || row.status !== "complete").length;
-  return <details className="coverage-group"><summary><span><strong>{coverageTitle(domain)}</strong><small>{coverageDescription(domain)}</small></span><span><b>{observed.toLocaleString()} / {expected.toLocaleString()}</b><small>{incomplete ? `${incomplete} scope${incomplete === 1 ? "" : "s"} need attention` : "complete in every listed scope"}</small></span></summary><div className="ledger-body"><div className="table-wrap" role="region" tabIndex={0} aria-label={`${domain} coverage details`}><table><thead><tr><th>Scope</th><th>Status</th><th>Observed / expected</th><th>Unavailable or incompatible</th><th>Evidence</th></tr></thead><tbody>{rows.map((row) => <tr key={`${row.domain}-${scopeKey(row.scope)}-${row.status}`}><td><strong>{scopeLabel(row.scope)}</strong><small>{row.recordCount} ledger {row.recordCount === 1 ? "record" : "records"}</small></td><td><Status>{row.status}</Status></td><td>{row.observedCount} / {row.expectedCount}</td><td>{row.missingByReason.length ? row.missingByReason.map((item) => `${words(item.reason)}: ${item.count}`).join("; ") : "None recorded"}<small>Quarantined {row.quarantinedCount} · incompatible {row.incompatibleCount}</small></td><td>{row.inputSnapshotCount} input {row.inputSnapshotCount === 1 ? "snapshot" : "snapshots"}</td></tr>)}</tbody></table></div></div></details>;
+  return <details className="coverage-group"><summary><span><strong>{coverageTitle(domain)}</strong><small>{coverageDescription(domain)}</small></span><span><b>{rows.length} {rows.length === 1 ? "scope" : "scopes"}</b><small>{incomplete ? `${incomplete} need attention` : "all listed scopes complete"}</small></span></summary><div className="ledger-body"><div className="table-wrap" role="region" tabIndex={0} aria-label={`${domain} coverage details`}><table><thead><tr><th>Scope</th><th>Status</th><th>Observed / expected</th><th>Unavailable or incompatible</th><th>Evidence</th></tr></thead><tbody>{rows.map((row) => <tr key={`${row.domain}-${scopeKey(row.scope)}-${row.status}`}><td><strong>{scopeLabel(row.scope)}</strong><small>{row.recordCount} ledger {row.recordCount === 1 ? "record" : "records"}</small></td><td><Status>{row.status}</Status></td><td>{row.observedCount} / {row.expectedCount}</td><td>{row.missingByReason.length ? row.missingByReason.map((item) => `${words(item.reason)}: ${item.count}`).join("; ") : "None recorded"}<small>Quarantined {row.quarantinedCount} · incompatible {row.incompatibleCount}</small></td><td>{row.inputSnapshotCount} input {row.inputSnapshotCount === 1 ? "snapshot" : "snapshots"}</td></tr>)}</tbody></table></div></div></details>;
 }
 
 const coverageTitle = (domain: string) => ({ acs: "District demographics", election: "Election results", finance: "Campaign finance", geography: "District geography", identity: "Member identity", maps: "District maps", member: "Member records" } as Record<string, string>)[domain] ?? words(domain);
