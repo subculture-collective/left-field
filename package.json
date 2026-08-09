@@ -77,6 +77,7 @@
     "acquire:sd-county-fips-authority": "tsx scripts/rapid/acquire-south-dakota-county-fips-authority.ts",
     "generate:sd-county-fips-normalization": "tsx scripts/rapid/generate-south-dakota-county-fips-normalization.ts",
     "generate:house-score-v06-active": "tsx scripts/rapid/generate-house-score-v06-active.ts",
+    "generate:house-score-v07-active": "tsx scripts/rapid/generate-house-score-v07-active.ts",
     "generate:rapid-at-large-cd119-universe": "tsx scripts/rapid/generate-at-large-cd119-county-universe.ts",
     "acquire:rapid-county-election-context": "tsx scripts/rapid/acquire-county-election-context.ts",
     "generate:rapid-county-election-context": "tsx scripts/rapid/generate-county-election-context.ts",
