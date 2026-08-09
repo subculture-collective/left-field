@@ -1,0 +1,73 @@
+{
+  "schema": "rapid-house-primary-new-hampshire-results-v1",
+  "version": 1,
+  "results": [
+    {
+      "resultId": "nh:primary:2024:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "districtLabel": "NH-01",
+      "sourceLockId": "nh-2024-democratic-cd1-primary-workbook-archived",
+      "archivedOfficialSourceUrl": "https://www.sos.nh.gov/sites/g/files/ehbemt561/files/inline-documents/sonh/2024-sp-congressional-district-1-democratic_4.xlsx",
+      "candidates": [
+        {
+          "sourceCandidateName": "Chris Pappas",
+          "rawParty": "d",
+          "votes": 54927
+        },
+        {
+          "sourceCandidateName": "Kevin Rondeau",
+          "rawParty": "d",
+          "votes": 2783
+        }
+      ],
+      "candidateCount": 2,
+      "totalCandidateVotes": 57710,
+      "reportingUnitRows": 109,
+      "resultAuthorityStatus": "archived_copy_of_official_secretary_workbook_retained_live_host_403_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "f6a18d1a731f3ab4440ac325ec8b2c59162a38c193410831e6560181ed59bd9b"
+    },
+    {
+      "resultId": "nh:primary:2024:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "districtLabel": "NH-02",
+      "sourceLockId": "nh-2024-democratic-cd2-primary-workbook-archived",
+      "archivedOfficialSourceUrl": "https://www.sos.nh.gov/sites/g/files/ehbemt561/files/inline-documents/sonh/2024-sp-congressional-district-2-democratic_4.xlsx",
+      "candidates": [
+        {
+          "sourceCandidateName": "Maggie Goodlander",
+          "rawParty": "d",
+          "votes": 42960
+        },
+        {
+          "sourceCandidateName": "Colin Van Ostern",
+          "rawParty": "d",
+          "votes": 24342
+        }
+      ],
+      "candidateCount": 2,
+      "totalCandidateVotes": 67302,
+      "reportingUnitRows": 211,
+      "resultAuthorityStatus": "archived_copy_of_official_secretary_workbook_retained_live_host_403_not_claimed_certified",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "978dd45b67abbf35db2c680ae659afb3b74ef46fabf0218b65c5ef1ff836558f"
+    }
+  ],
+  "resultSetSha256": "13911ed6817823916202a0a73beab1f2f89ca0da01b42edc190c6b9d4b688254",
+  "summary": {
+    "observations": 2,
+    "candidateRows": 4,
+    "candidateVotes": 125012,
+    "sourceMarkedWinnerContests": 0,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "9109b6c1dad880ceb22a852b4e73d4e0c2738ca2d9d6eb6a006ca286c3b140f9"
+}
