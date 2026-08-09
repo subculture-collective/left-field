@@ -1,0 +1,138 @@
+{
+  "schema": "rapid-house-primary-wisconsin-results-v1",
+  "version": 1,
+  "sources": [
+    {
+      "cycleYear": 2022,
+      "pdfSourceLockId": "wi-2022-primary-us-house-canvass",
+      "textSourceLockId": "wi-2022-primary-us-house-canvass-layout-text"
+    },
+    {
+      "cycleYear": 2024,
+      "pdfSourceLockId": "wi-2024-primary-us-house-canvass",
+      "textSourceLockId": "wi-2024-primary-us-house-canvass-layout-text"
+    }
+  ],
+  "results": [
+    {
+      "resultId": "wi:primary:2022:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-09",
+      "districtLabel": "WI-02",
+      "sourceLockIds": [
+        "wi-2022-primary-us-house-canvass",
+        "wi-2022-primary-us-house-canvass-layout-text"
+      ],
+      "sourceContestId": "REPRESENTATIVE IN CONGRESS DISTRICT 2 - Democratic",
+      "sourceOfficeTitle": "REPRESENTATIVE IN CONGRESS DISTRICT 2 - Democratic",
+      "sourceCandidateNames": [
+        "Mark Pocan",
+        "SCATTERING"
+      ],
+      "candidateVotes": [
+        106595,
+        198
+      ],
+      "totalVotes": 106793,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_state_canvass_report_retained",
+      "certificationStatus": "official_canvass_report_no_separate_certification_instrument_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "b5ff43dca952255ca08455e77bc40f23fc5ffee23de0b132e49512a38876b82b"
+    },
+    {
+      "resultId": "wi:primary:2022:04:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-09",
+      "districtLabel": "WI-04",
+      "sourceLockIds": [
+        "wi-2022-primary-us-house-canvass",
+        "wi-2022-primary-us-house-canvass-layout-text"
+      ],
+      "sourceContestId": "REPRESENTATIVE IN CONGRESS DISTRICT 4 - Democratic",
+      "sourceOfficeTitle": "REPRESENTATIVE IN CONGRESS DISTRICT 4 - Democratic",
+      "sourceCandidateNames": [
+        "Gwen Moore",
+        "SCATTERING"
+      ],
+      "candidateVotes": [
+        72845,
+        325
+      ],
+      "totalVotes": 73170,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_state_canvass_report_retained",
+      "certificationStatus": "official_canvass_report_no_separate_certification_instrument_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "2685c38b3a91dea5857b8f8186bbdb272d65769f206ae24f4f1859f66f30d551"
+    },
+    {
+      "resultId": "wi:primary:2024:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-13",
+      "districtLabel": "WI-02",
+      "sourceLockIds": [
+        "wi-2024-primary-us-house-canvass",
+        "wi-2024-primary-us-house-canvass-layout-text"
+      ],
+      "sourceContestId": "REPRESENTATIVE IN CONGRESS DISTRICT 2 - Democratic",
+      "sourceOfficeTitle": "REPRESENTATIVE IN CONGRESS DISTRICT 2 - Democratic",
+      "sourceCandidateNames": [
+        "Mark Pocan",
+        "SCATTERING"
+      ],
+      "candidateVotes": [
+        149581,
+        316
+      ],
+      "totalVotes": 149897,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_state_canvass_report_retained",
+      "certificationStatus": "official_canvass_report_no_separate_certification_instrument_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "942a47bc4b3f91ff27ef7d26e4005d7a19d2dd39074ee1f5baca071374e8fe5b"
+    },
+    {
+      "resultId": "wi:primary:2024:04:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-13",
+      "districtLabel": "WI-04",
+      "sourceLockIds": [
+        "wi-2024-primary-us-house-canvass",
+        "wi-2024-primary-us-house-canvass-layout-text"
+      ],
+      "sourceContestId": "REPRESENTATIVE IN CONGRESS DISTRICT 4 - Democratic",
+      "sourceOfficeTitle": "REPRESENTATIVE IN CONGRESS DISTRICT 4 - Democratic",
+      "sourceCandidateNames": [
+        "Gwen S. Moore",
+        "SCATTERING"
+      ],
+      "candidateVotes": [
+        85017,
+        411
+      ],
+      "totalVotes": 85428,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_state_canvass_report_retained",
+      "certificationStatus": "official_canvass_report_no_separate_certification_instrument_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "7617e989ace211934f96374ff89451514c4815af66c7fe16514e7c4051f1e115"
+    }
+  ],
+  "resultSetSha256": "f6def10c9d55f7843a43738dbf9b604fc93aab1c3497e0d3d98798dafdad555d",
+  "summary": {
+    "reportedContests": 4,
+    "candidateRows": 8,
+    "candidateVotes": 415288,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "888314a82bd1aed4d6b2f67277a886f5cad4559fea56c272259077d76a1da7d4"
+}
