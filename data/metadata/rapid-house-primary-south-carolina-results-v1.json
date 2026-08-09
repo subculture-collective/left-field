@@ -1,0 +1,45 @@
+{
+  "schema": "rapid-house-primary-south-carolina-results-v1",
+  "version": 1,
+  "results": [
+    {
+      "resultId": "sc:primary:2022:06:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-14",
+      "districtLabel": "SC-06",
+      "sourceLockIds": [
+        "sc-2022-democratic-primary-district-06-results"
+      ],
+      "sourceCandidateNames": [
+        "James E. Jim Clyburn",
+        "Michael Addison",
+        "Gregg Marcel Dixon"
+      ],
+      "candidateVotes": [
+        48729,
+        4203,
+        2503
+      ],
+      "totalVotes": 55435,
+      "totalBallots": 83908,
+      "overvotesAndUndervotes": 28473,
+      "sourceWinnerStatus": "marked_by_source",
+      "sourceWinnerCandidateName": "James E. Jim Clyburn",
+      "resultAuthorityStatus": "official_state_election_history_contest_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "6fbe0b7e9040e252bf3b5b9496f35bebd4dcbe5e2f5ca931c30edd012d172a66"
+    }
+  ],
+  "resultSetSha256": "144c46438804f63f591c0fd4a7b9670ecf00dc8554f5a0b7f716b47ae84aec11",
+  "summary": {
+    "reportedContests": 1,
+    "candidateRows": 3,
+    "candidateVotes": 55435,
+    "sourceMarkedWinnerContests": 1,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "74bb8d6abb62c069d7095d11f1f31244218c9220448be78328a557f79088c254"
+}

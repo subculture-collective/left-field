@@ -1,0 +1,7 @@
+import { createHash } from "node:crypto";
+import { mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
+import { dirname } from "node:path";
+const source = { url: "https://electionhistory.scvotes.gov/_next/data/5Ai8KiM97zhAHt1qrHPfg/contest/3144.json?contestId=3144", path: "data/source/rapid/house-primary/sc/2022/democratic-primary-district-06.json", bytes: 8756, sha256: "fc23e017af8c7afd2c0f89772c1f1caa5e66bb000c0f825b82578dcb6d89b0bd" } as const;
+const sha = (bytes: Buffer) => createHash("sha256").update(bytes).digest("hex");
+async function main() { try { const bytes=await readFile(source.path); if(bytes.length!==source.bytes||sha(bytes)!==source.sha256) throw new Error("SOUTH_CAROLINA_SOURCE_CONFLICT"); return; } catch(error) { if((error as NodeJS.ErrnoException).code!=="ENOENT") throw error; } const response=await fetch(source.url); if(!response.ok) throw new Error(`SOUTH_CAROLINA_FETCH_FAILED:${response.status}`); const bytes=Buffer.from(await response.arrayBuffer()); if(bytes.length!==source.bytes||sha(bytes)!==source.sha256) throw new Error("SOUTH_CAROLINA_SOURCE_DRIFT"); await mkdir(dirname(source.path),{recursive:true}); const temporary=`${source.path}.tmp-${process.pid}`; await writeFile(temporary,bytes,{flag:"wx"}); try{await rename(temporary,source.path);}finally{await rm(temporary,{force:true});} }
+main().catch((error)=>{process.stderr.write(`${error instanceof Error?error.message:"SOUTH_CAROLINA_ACQUISITION_FAILED"}\n`);process.exitCode=1;});
