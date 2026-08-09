@@ -1,0 +1,154 @@
+{
+  "schema": "rapid-house-primary-nevada-results-v1",
+  "version": 1,
+  "observations": [
+    {
+      "observationId": "nv:primary:2022:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-14",
+      "districtLabel": "NV-01",
+      "sourceLockId": "nv-2022-official-statewide-primary-results-archived",
+      "sourceContestTitle": "U.S. Representative in Congress, District 1 (Democratic)",
+      "observationStatus": "reported_contest",
+      "sourceCandidateNames": [
+        "TITUS, DINA",
+        "VILELA, AMY"
+      ],
+      "candidateVotes": [
+        33565,
+        8482
+      ],
+      "totalVotes": 42047,
+      "resultAuthorityStatus": "archived_official_statewide_primary_results_page",
+      "certificationStatus": "page_marked_official_no_separate_certification_instrument_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "observationSha256": "557f28bb14f286f7b2c8dfaba115230bc59cb1734e7b9ba5f892a5ff093e02f1"
+    },
+    {
+      "observationId": "nv:primary:2022:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-14",
+      "districtLabel": "NV-03",
+      "sourceLockId": "nv-2022-official-statewide-primary-results-archived",
+      "sourceContestTitle": "U.S. Representative in Congress, District 3 (Democratic)",
+      "observationStatus": "reported_contest",
+      "sourceCandidateNames": [
+        "HYNES, RANDELL \"RANDY\"",
+        "LEE, SUSIE"
+      ],
+      "candidateVotes": [
+        4265,
+        37069
+      ],
+      "totalVotes": 41334,
+      "resultAuthorityStatus": "archived_official_statewide_primary_results_page",
+      "certificationStatus": "page_marked_official_no_separate_certification_instrument_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "observationSha256": "537d5ea291df25c2d7f7636c63196706eba978da5b24232aebe7b8fb01038bc8"
+    },
+    {
+      "observationId": "nv:primary:2022:04:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-14",
+      "districtLabel": "NV-04",
+      "sourceLockId": "nv-2022-official-statewide-primary-results-archived",
+      "sourceContestTitle": null,
+      "observationStatus": "source_absent_complete_official_statewide_results_page",
+      "sourceCandidateNames": null,
+      "candidateVotes": null,
+      "totalVotes": null,
+      "resultAuthorityStatus": "archived_official_statewide_primary_results_page",
+      "certificationStatus": "page_marked_official_no_separate_certification_instrument_retained",
+      "sourceWinnerStatus": "not_applicable_no_reported_contest",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "observationSha256": "c8c17367e8ec837c1113bba9fe6288fa48a640026a407f3d02f8ae79281f44b6"
+    },
+    {
+      "observationId": "nv:primary:2024:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-11",
+      "districtLabel": "NV-01",
+      "sourceLockId": "nv-2024-official-statewide-primary-results-archived",
+      "sourceContestTitle": null,
+      "observationStatus": "source_absent_complete_official_statewide_results_page",
+      "sourceCandidateNames": null,
+      "candidateVotes": null,
+      "totalVotes": null,
+      "resultAuthorityStatus": "archived_official_statewide_primary_results_page",
+      "certificationStatus": "page_marked_official_no_separate_certification_instrument_retained",
+      "sourceWinnerStatus": "not_applicable_no_reported_contest",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "observationSha256": "72d4858c2950472f805dbe93486c318f1f6e23878000b9272176586b8d5b1f6a"
+    },
+    {
+      "observationId": "nv:primary:2024:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-11",
+      "districtLabel": "NV-03",
+      "sourceLockId": "nv-2024-official-statewide-primary-results-archived",
+      "sourceContestTitle": "U.S. Representative in Congress, District 3 (Democratic)",
+      "observationStatus": "reported_contest",
+      "sourceCandidateNames": [
+        "BRITTAIN, ROCKATHENA",
+        "LEE, SUSIE"
+      ],
+      "candidateVotes": [
+        3036,
+        33901
+      ],
+      "totalVotes": 36937,
+      "resultAuthorityStatus": "archived_official_statewide_primary_results_page",
+      "certificationStatus": "page_marked_official_no_separate_certification_instrument_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "observationSha256": "5dd6a916843d276204e0d24b9df086ef480bb467a99a3162abf3555bb6955005"
+    },
+    {
+      "observationId": "nv:primary:2024:04:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-11",
+      "districtLabel": "NV-04",
+      "sourceLockId": "nv-2024-official-statewide-primary-results-archived",
+      "sourceContestTitle": "U.S. Representative in Congress, District 4 (Democratic)",
+      "observationStatus": "reported_contest",
+      "sourceCandidateNames": [
+        "HORSFORD, STEVEN",
+        "SHULTZ, LEVY"
+      ],
+      "candidateVotes": [
+        34861,
+        4084
+      ],
+      "totalVotes": 38945,
+      "resultAuthorityStatus": "archived_official_statewide_primary_results_page",
+      "certificationStatus": "page_marked_official_no_separate_certification_instrument_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "observationSha256": "a5e725c94dd6e0907087eb12bb7cb302d7d432aec305700670604b0b3b81f335"
+    }
+  ],
+  "observationSetSha256": "4465d41acad1b4784d2500375db2c9902f512066d1d63804c8bd232b0c890d15",
+  "summary": {
+    "targetObservations": 6,
+    "reportedContests": 4,
+    "sourceAbsent": 2,
+    "candidateRows": 8,
+    "candidateVotes": 159263,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "8be9088e767df172c29906516e35cf3b1f0340ad8a570814222ae385480b8f22"
+}
