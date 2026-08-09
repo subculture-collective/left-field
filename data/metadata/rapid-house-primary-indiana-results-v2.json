@@ -1,0 +1,202 @@
+{
+  "schema": "rapid-house-primary-indiana-results-v2",
+  "version": 2,
+  "parentPackageSha256": "9bc547196a331e9b4f269246a9959bcb763b4f5dfb2fe42d2e32651738e0fb97",
+  "results": [
+    {
+      "resultId": "in:primary:2022:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-03",
+      "districtLabel": "IN-01",
+      "sourceLockIds": [
+        "in-2022-primary-settings",
+        "in-2022-primary-us-house-results"
+      ],
+      "rawParty": "D",
+      "sourceCandidateNames": [
+        "Frank J. Mrvan",
+        "Richard E. Fantin"
+      ],
+      "candidateVotes": [
+        34489,
+        5413
+      ],
+      "sourceWinnerNames": [
+        "Frank J. Mrvan"
+      ],
+      "totalVotes": 39902,
+      "resultAuthorityStatus": "official_archive_house_json_retained",
+      "certificationStatus": "settings_certified_false_no_separate_certificate",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "d381adcf0e367912ae4f99916a92176437b2dc28850dea40ca20961ba603aa6c"
+    },
+    {
+      "resultId": "in:primary:2022:07:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-03",
+      "districtLabel": "IN-07",
+      "sourceLockIds": [
+        "in-2022-primary-settings",
+        "in-2022-primary-us-house-results"
+      ],
+      "rawParty": "D",
+      "sourceCandidateNames": [
+        "André D. Carson",
+        "Curtis D. Godfrey",
+        "Pierre Quincy Pullins"
+      ],
+      "candidateVotes": [
+        36242,
+        1526,
+        830
+      ],
+      "sourceWinnerNames": [
+        "André D. Carson"
+      ],
+      "totalVotes": 38598,
+      "resultAuthorityStatus": "official_archive_house_json_retained",
+      "certificationStatus": "settings_certified_false_no_separate_certificate",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "b237c54edca4365600f56dec0dcdc43c12c07a1754f9cea19c735dbac9da0260"
+    },
+    {
+      "resultId": "in:primary:2024:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-07",
+      "districtLabel": "IN-01",
+      "sourceLockIds": [
+        "in-2024-primary-settings",
+        "in-2024-primary-us-house-results"
+      ],
+      "rawParty": "D",
+      "sourceCandidateNames": [
+        "Frank J. Mrvan"
+      ],
+      "candidateVotes": [
+        31155
+      ],
+      "sourceWinnerNames": [
+        "Frank J. Mrvan"
+      ],
+      "totalVotes": 31155,
+      "resultAuthorityStatus": "official_archive_house_json_retained",
+      "certificationStatus": "settings_certified_true_no_separate_certificate",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "3b10842bfe8d60ed2bd09147e7752fecef55593231107ac543fdbae579c374bd"
+    },
+    {
+      "resultId": "in:primary:2024:07:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-07",
+      "districtLabel": "IN-07",
+      "sourceLockIds": [
+        "in-2024-primary-settings",
+        "in-2024-primary-us-house-results"
+      ],
+      "rawParty": "D",
+      "sourceCandidateNames": [
+        "André Carson",
+        "Curtis Godfrey",
+        "Pierre Quincy Pullins"
+      ],
+      "candidateVotes": [
+        30868,
+        1845,
+        1178
+      ],
+      "sourceWinnerNames": [
+        "André Carson"
+      ],
+      "totalVotes": 33891,
+      "resultAuthorityStatus": "official_archive_house_json_retained",
+      "certificationStatus": "settings_certified_true_no_separate_certificate",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "d7c14b6f8afa0a026bb56253fdfbb243ac91a1a1e76a04a7fc10043b53e219a7"
+    },
+    {
+      "resultId": "in:primary:2026:01:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-05",
+      "districtLabel": "IN-01",
+      "sourceLockIds": [
+        "in-2026-primary-settings",
+        "in-2026-primary-us-house-results"
+      ],
+      "rawParty": "D",
+      "sourceCandidateNames": [
+        "Frank J. Mrvan",
+        "LaVetta Sparks-Wade"
+      ],
+      "candidateVotes": [
+        42519,
+        10467
+      ],
+      "sourceWinnerNames": [
+        "Frank J. Mrvan"
+      ],
+      "totalVotes": 52986,
+      "resultAuthorityStatus": "official_current_house_json_retained",
+      "certificationStatus": "settings_certified_true_no_separate_certificate",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "2ed2a66393a391d35789c0074507a40a0a901a55c6dc868eed2a89fbebf1c736"
+    },
+    {
+      "resultId": "in:primary:2026:07:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-05",
+      "districtLabel": "IN-07",
+      "sourceLockIds": [
+        "in-2026-primary-settings",
+        "in-2026-primary-us-house-results"
+      ],
+      "rawParty": "D",
+      "sourceCandidateNames": [
+        "André Carson",
+        "Destiny Wells",
+        "George Hornedo",
+        "Denise Paul Hatch"
+      ],
+      "candidateVotes": [
+        44849,
+        16852,
+        7517,
+        2646
+      ],
+      "sourceWinnerNames": [
+        "André Carson"
+      ],
+      "totalVotes": 71864,
+      "resultAuthorityStatus": "official_current_house_json_retained",
+      "certificationStatus": "settings_certified_true_no_separate_certificate",
+      "sourceWinnerStatus": "marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "f6b24caefb05c31a1f7928b6d2f9a9014469a4d3d7ad0980fd7b4252ba44941e"
+    }
+  ],
+  "resultSetSha256": "576fb5c79ca9e81d1142650289ce3e1f1fa32f45f3d5d98beced6063ef5de9dd",
+  "summary": {
+    "observations": 6,
+    "candidateRows": 15,
+    "candidateVotes": 268396,
+    "sourceMarkedWinnerCandidates": 6,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "f75dfd04dda186f0bf1e34ee94ec82966a3abdfaffceddfc549c4be711950742"
+}
