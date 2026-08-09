@@ -1,0 +1,161 @@
+{
+  "schema": "rapid-house-primary-south-carolina-results-v2",
+  "version": 2,
+  "parentPackageSha256": "74bb8d6abb62c069d7095d11f1f31244218c9220448be78328a557f79088c254",
+  "results": [
+    {
+      "resultId": "sc:primary:2022:06:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-14",
+      "districtLabel": "SC-06",
+      "sourceLockIds": [
+        "sc-2022-democratic-primary-district-06-results"
+      ],
+      "sourceCandidateNames": [
+        "James E. Jim Clyburn",
+        "Michael Addison",
+        "Gregg Marcel Dixon"
+      ],
+      "candidateVotes": [
+        48729,
+        4203,
+        2503
+      ],
+      "totalVotes": 55435,
+      "totalBallots": 83908,
+      "overvotesAndUndervotes": 28473,
+      "sourceWinnerStatus": "marked_by_source",
+      "sourceWinnerCandidateName": "James E. Jim Clyburn",
+      "resultAuthorityStatus": "official_state_election_history_contest_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "6fbe0b7e9040e252bf3b5b9496f35bebd4dcbe5e2f5ca931c30edd012d172a66"
+    }
+  ],
+  "sourceAbsences": [
+    {
+      "observationId": "sc:primary:2024:06:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-11",
+      "districtLabel": "SC-06",
+      "status": "source_absent_no_disposition_inference",
+      "sourceLockIds": [
+        "sc-2024-house-primary-event-search"
+      ],
+      "eventInventoryContestCount": 9,
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false,
+      "rowSha256": "da9e721ec82172972bdef19e418b8587835cf5a2d9204c159d0fbe8e63b97325"
+    }
+  ],
+  "eventInventory": [
+    {
+      "contestId": "6898",
+      "primaryParty": "Democratic",
+      "district": "01",
+      "candidateNames": [
+        "Mac Deford",
+        "Michael B Moore"
+      ]
+    },
+    {
+      "contestId": "6899",
+      "primaryParty": "Republican",
+      "district": "01",
+      "candidateNames": [
+        "Bill Young",
+        "Catherine Templeton",
+        "Nancy Mace"
+      ]
+    },
+    {
+      "contestId": "6900",
+      "primaryParty": "Democratic",
+      "district": "02",
+      "candidateNames": [
+        "Daniel J Shrief",
+        "David Robinson II"
+      ]
+    },
+    {
+      "contestId": "6901",
+      "primaryParty": "Republican",
+      "district": "02",
+      "candidateNames": [
+        "Hamp Redmond",
+        "Joe Wilson"
+      ]
+    },
+    {
+      "contestId": "6902",
+      "primaryParty": "Democratic",
+      "district": "03",
+      "candidateNames": [
+        "Bryon L Best",
+        "Frances Guldner"
+      ]
+    },
+    {
+      "contestId": "6903",
+      "primaryParty": "Republican",
+      "district": "03",
+      "candidateNames": [
+        "Elspeth Snow Murday",
+        "Franky Franco",
+        "Kevin Bishop",
+        "Mark Burns",
+        "Phil Healy",
+        "Sheri Biggs",
+        "Stewart O. Jones"
+      ]
+    },
+    {
+      "contestId": "6904",
+      "primaryParty": "Republican",
+      "district": "04",
+      "candidateNames": [
+        "Adam Morgan",
+        "William Timmons"
+      ]
+    },
+    {
+      "contestId": "6905",
+      "primaryParty": "Republican",
+      "district": "06",
+      "candidateNames": [
+        "Duke Buckner",
+        "Justin Scott"
+      ]
+    },
+    {
+      "contestId": "6906",
+      "primaryParty": "Democratic",
+      "district": "07",
+      "candidateNames": [
+        "Daryl W Scott",
+        "Mal Hyman"
+      ]
+    }
+  ],
+  "resultSetSha256": "4438d19b12c4ae6b9d6dc0ac28b06b74018feeae3094252dcc2a2cf4f0919156",
+  "summary": {
+    "reportedContests": 1,
+    "sourceAbsentObservations": 1,
+    "eventInventoryContests": 9,
+    "democraticEventContests": 4,
+    "republicanEventContests": 5,
+    "candidateRows": 3,
+    "candidateVotes": 55435,
+    "sourceMarkedWinnerContests": 1,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "5455c4bb094585f59819b8aa4e38e8059e8807ee9081ada078dfefdc764b21ed"
+}
