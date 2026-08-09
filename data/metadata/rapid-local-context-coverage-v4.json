@@ -1,0 +1,86 @@
+{
+  "schema": "rapid-local-context-coverage-v4",
+  "version": 4,
+  "releaseRelationship": "separate_rapid_acquisition_excluded_from_released_score",
+  "artifacts": [
+    {
+      "id": "rapid-county-demographics-projection-v1",
+      "label": "Nationwide county demographics",
+      "scope": "3,222 Census county-equivalent rows",
+      "summary": {
+        "counties": 3222,
+        "populationPresent": 3222,
+        "formulaEligibleRows": 0
+      },
+      "packageSha256": "f3285added7c4fcc1ef713c1a279bec90f918e12204ef184fb085895395cfceb",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-county-election-context-projection-v1",
+      "label": "County registration and turnout context",
+      "scope": "EAVS county rows for 2022 and 2024",
+      "summary": {
+        "countyCycleRows": 5946,
+        "exactCountyRows2022": 2974,
+        "exactCountyRows2024": 2972,
+        "formulaEligibleRows": 0
+      },
+      "packageSha256": "b43c7e5fab81467fe34df181247d9f66fe1e8cadec24218c583e0a60a9dd7788",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-county-house-results-2022-projection-v1",
+      "label": "2022 county House context (research fallback)",
+      "scope": "2022 House county aggregates; strict TOTAL rows in 41 state archives",
+      "summary": {
+        "aggregateRows": 8948,
+        "exactCountyCount": 2260,
+        "stateCount": 38,
+        "formulaEligibleRows": 0
+      },
+      "packageSha256": "d79c2066fb19dce7feb73560104b5aeca783377df9fefd55fa43afaf8591826e",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-county-house-results-projection-v1",
+      "label": "County House context (research fallback)",
+      "scope": "2024 House county aggregates; strict TOTAL rows in 41 state archives",
+      "summary": {
+        "aggregateRows": 13076,
+        "exactCountyCount": 2609,
+        "stateCount": 40,
+        "formulaEligibleRows": 0
+      },
+      "packageSha256": "dbce551ba6a813f15a05dfc2541af69096d41ebcc5ad12c87ca8038246e0a933",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-county-senate-results-projection-v1",
+      "label": "County Senate context (research fallback)",
+      "scope": "2024 Senate county results; incomplete 29-state context",
+      "summary": {
+        "candidateRows": 8659,
+        "exactCountyCount": 1714,
+        "stateCount": 29,
+        "formulaEligibleRows": 0
+      },
+      "packageSha256": "c549da75c4004f4f1d6bf8199c0aa7b5849da94cdc83f865eb0746c4e3f89434",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-indiana-state-legislative-primary-results-v1",
+      "label": "Indiana state-legislative primary pilot",
+      "scope": "Indiana 2022 and 2024 state House and Senate primaries",
+      "summary": {
+        "officeDistrictRows": 250,
+        "partyContests": 361,
+        "candidateRows": 486,
+        "formulaEligibleContests": 0
+      },
+      "packageSha256": "8b570d896be3bb772515697a2a1e7a8ad93e136e9bae93bf72521bce0660ad5f",
+      "formulaEligibleCount": 0
+    }
+  ],
+  "artifactSetSha256": "e6052c97e111662a7f01aabeef2b0248fd02ee6aed93a3902c93d4eedbc6226c",
+  "packageSha256": "02906a672d024f843b9013154ca3330ae438299af7c30ed16fd8031bdd6c9e01"
+}
