@@ -47,6 +47,8 @@ type Legislator = { id?: { bioguide?: string }; bio?: { birthday?: string }; ter
 type FinanceFact = { kind: "value"; value: number } | { kind: "missing"; reason: string };
 type FinanceRow = { seatCycleId: string; incumbentParty: "democratic" | "republican"; coverageThrough: string | null; cashOnHand: FinanceFact; receipts: FinanceFact; disbursements: FinanceFact };
 type FinanceProjection = { schema: string; universe: { observed: number }; summary: { cashOnHandValues: number }; rows: FinanceRow[]; projectionSha256: string };
+type V04ActiveRow = { seatCycleId: string; districtLabel: string; previousScoreVersion: "v0.3"; previousScore: number; activeScoreVersion: "v0.4"; activeScore: number; localContext: number | null; localContextAvailableWeight: number; exactGeographyJoin: "at_large_statewide" | "not_yet_eligible"; movement: number };
+type V04ActiveProjection = { schema: "house-score-v04-active-projection-v1"; version: 1; activationPolicy: { status: "active"; scope: "exact_at_large_geography_only"; splitCountyAllocation: false; researchFallbackScoreInputs: false }; rows: V04ActiveRow[]; summary: { seats: 430; localContextActiveSeats: 3; unchangedSeats: 427; routeChanges: 0; movementCapBreaches: 0 }; rowSetSha256: string; packageSha256: string };
 const cutoff = "2026-08-04";
 const days = (start: string, end: string): number => (Date.parse(end) - Date.parse(start)) / 86_400_000;
 const one = (value: number): number => Math.round(value * 10) / 10;
@@ -156,9 +158,9 @@ function republicanBriefs(finance: Map<string, FinanceRow>): PublicPriorityBrief
   });
 }
 
-let cache: PublicPriorityBrief[] | undefined;
-export function housePriorityBriefs(): readonly PublicPriorityBrief[] {
-  if (!cache) {
+let cacheV03: PublicPriorityBrief[] | undefined;
+export function housePriorityBriefsV03(): readonly PublicPriorityBrief[] {
+  if (!cacheV03) {
     const finance = financeRows();
     const democrats: PublicPriorityBrief[] = priorityBriefs().briefs.map((row) => {
       const financeRow = finance.get(row.seatCycleId);
@@ -182,9 +184,49 @@ export function housePriorityBriefs(): readonly PublicPriorityBrief[] {
         districtSummary: `${row.districtSummary}${cash === null ? " Incumbent cash on hand is not reported in the release." : ` The incumbent reported $${Math.round(cash).toLocaleString("en-US")} cash on hand through ${financeRow.coverageThrough}.`}`,
       };
     });
-    cache = [...democrats, ...republicanBriefs(finance)]
+    cacheV03 = [...democrats, ...republicanBriefs(finance)]
       .sort((left, right) => right.provisionalTargetScore - left.provisionalTargetScore || left.seatCycleId.localeCompare(right.seatCycleId))
       .map((row, index) => ({ ...row, rank: index + 1 }));
+  }
+  return cacheV03;
+}
+
+function v04ActiveRows(): Map<string, V04ActiveRow> {
+  const path = "data/metadata/house-score-v04-active-projection-v1.json";
+  const bytes = readFileSync(join(process.cwd(), path));
+  const digest = createHash("sha256").update(bytes).digest("hex");
+  const lock = JSON.parse(readFileSync(join(process.cwd(), "data/source-lock.json"), "utf8")) as { entries: Array<{ id?: unknown; url?: unknown; retainedPath?: unknown; retainedStatus?: unknown; byteSize?: unknown; sha256?: unknown; kind?: unknown; parentIds?: unknown }> };
+  const entries = lock.entries.filter((entry) => entry.id === "house-score-v04-active-projection-v1");
+  if (bytes.length !== 272_726 || digest !== "8bd0a866867330a16f4fd2e5e1eea37d7a06f0650671e55831317ceb9941cc80" || entries.length !== 1 || entries[0]!.url !== "urn:dsa-seats:house-score-v04-active-projection:v1:2026-08-09" || entries[0]!.retainedPath !== path || entries[0]!.retainedStatus !== "retained" || entries[0]!.byteSize !== bytes.length || entries[0]!.sha256 !== digest || entries[0]!.kind !== "derived_artifact" || JSON.stringify(entries[0]!.parentIds) !== JSON.stringify(["house-score-v04-shadow-projection-v1"])) throw new Error("HOUSE_PRIORITY_V04_SOURCE_INVALID");
+  const value = JSON.parse(bytes.toString("utf8")) as V04ActiveProjection;
+  if (value.schema !== "house-score-v04-active-projection-v1" || value.version !== 1 || value.activationPolicy.status !== "active" || value.activationPolicy.scope !== "exact_at_large_geography_only" || value.activationPolicy.splitCountyAllocation !== false || value.activationPolicy.researchFallbackScoreInputs !== false || value.summary.seats !== 430 || value.summary.localContextActiveSeats !== 3 || value.summary.unchangedSeats !== 427 || value.summary.routeChanges !== 0 || value.summary.movementCapBreaches !== 0 || value.rows.length !== 430 || new Set(value.rows.map((row) => row.seatCycleId)).size !== 430 || value.rowSetSha256 !== "6ea048a3f259855ea94bbdb0b4682965152ef612f01eb9a24061305cfc4529c1" || value.packageSha256 !== "890685b51d73bc146e727ee21d2bd4d94c52a0686a0651c9d33ede54a0c868f0") throw new Error("HOUSE_PRIORITY_V04_PROJECTION_INVALID");
+  return new Map(value.rows.map((row) => [row.seatCycleId, row]));
+}
+
+let cache: PublicPriorityBrief[] | undefined;
+export function housePriorityBriefs(): readonly PublicPriorityBrief[] {
+  if (!cache) {
+    const active = v04ActiveRows();
+    const base = housePriorityBriefsV03();
+    if (active.size !== base.length) throw new Error("HOUSE_PRIORITY_V04_CLOSURE_INVALID");
+    cache = base.map((brief) => {
+      const row = active.get(brief.seatCycleId);
+      if (!row || row.districtLabel !== brief.districtLabel || row.previousScoreVersion !== "v0.3" || row.previousScore !== brief.provisionalTargetScore || row.activeScoreVersion !== "v0.4") throw new Error(`HOUSE_PRIORITY_V04_JOIN_INVALID:${brief.seatCycleId}`);
+      if (row.localContext === null) {
+        if (row.activeScore !== brief.provisionalTargetScore || row.movement !== 0) throw new Error(`HOUSE_PRIORITY_V04_MISSING_INVALID:${brief.seatCycleId}`);
+        return brief;
+      }
+      if (row.exactGeographyJoin !== "at_large_statewide" || row.localContextAvailableWeight < 0.6 || row.movement !== one(row.activeScore - brief.provisionalTargetScore)) throw new Error(`HOUSE_PRIORITY_V04_ELIGIBLE_INVALID:${brief.seatCycleId}`);
+      const explanation = `Exact at-large county context contributes ${row.localContext.toFixed(1)} from available turnout, registration, and demographic evidence (${Math.round(row.localContextAvailableWeight * 100)}% of the local-context component weight).`;
+      return {
+        ...brief,
+        provisionalTargetScore: row.activeScore,
+        formula: `${brief.formula}; v0.4 adds exact local context inside the structural route`,
+        scoreDrivers: [...brief.scoreDrivers, { key: "local_context", label: "Local context", score: row.localContext, coverage: row.localContextAvailableWeight, inferred: false, explanation }],
+        scoreSummary: `${brief.scoreSummary} The active v0.4 model adds exact at-large local context, moving the score ${row.movement >= 0 ? "+" : ""}${row.movement.toFixed(1)} to ${row.activeScore.toFixed(1)}.`,
+        districtSummary: `${brief.districtSummary} Exact statewide county coverage adds turnout, registration, and demographic context without allocating split counties.`,
+      };
+    }).sort((left, right) => right.provisionalTargetScore - left.provisionalTargetScore || left.seatCycleId.localeCompare(right.seatCycleId)).map((row, index) => ({ ...row, rank: index + 1 }));
   }
   return cache;
 }

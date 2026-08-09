@@ -65,6 +65,7 @@
     "acquire:rapid-county-cvap": "tsx scripts/rapid/acquire-county-cvap.ts",
     "generate:rapid-county-cvap": "tsx scripts/rapid/generate-county-cvap.ts",
     "generate:house-score-v04-shadow": "tsx scripts/rapid/generate-house-score-v04-shadow.ts",
+    "generate:house-score-v04-active": "tsx scripts/rapid/generate-house-score-v04-active.ts",
     "generate:rapid-at-large-cd119-universe": "tsx scripts/rapid/generate-at-large-cd119-county-universe.ts",
     "acquire:rapid-county-election-context": "tsx scripts/rapid/acquire-county-election-context.ts",
     "generate:rapid-county-election-context": "tsx scripts/rapid/generate-county-election-context.ts",

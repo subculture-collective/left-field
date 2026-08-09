@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { housePriorityBriefs } from "@/lib/house-priority-index";
+import { housePriorityBriefsV03 } from "@/lib/house-priority-index";
 
 type DemographicRow = { countyFips: string; stateCode: string; population: number; medianHouseholdIncome: number | null; renterShare: number | null; age18To34Share: number | null; populationDensityPerSquareMile: number };
 type ElectionRow = { countyFips: string; stateCode: string; cycleYear: number; registeredVoters: number | null; ballotsCast: number | null };
@@ -154,7 +154,7 @@ export function buildHouseScoreV04ShadowProjection(root = process.cwd()): HouseS
     }
   }
   const sourceLockIds = SOURCES.map(([id]) => id);
-  const rows = housePriorityBriefs().map((brief) => {
+  const rows = housePriorityBriefsV03().map((brief) => {
     const exactGeographyJoin = (brief.districtCode === "00" || brief.districtCode === "AL") && geographyByState.has(brief.stateCode) ? "at_large_statewide" as const : "not_yet_eligible" as const;
     const local = exactGeographyJoin === "at_large_statewide" ? localByState.get(brief.stateCode) : undefined;
     let shadowScore = brief.provisionalTargetScore;

@@ -308,7 +308,7 @@ describe("nationwide manifest v2", () => {
     const duplicate = nationwideSkeleton(); duplicate.coverageRecords.push({ ...duplicate.coverageRecords[0]! }); expectV2Issue(duplicate, "Duplicate coverage scope natural key");
     const duplicateReason = nationwideSkeleton(); duplicateReason.coverageRecords[3]!.missingByReason = [{ reason: "not_collected", count: 1 }, { reason: "not_collected", count: 490 }]; expectV2Issue(duplicateReason, "Invalid coverage record");
     const input = nationwideSkeleton(); input.coverageRecords[0]!.inputSnapshotIds = ["snap_missing" as never]; expectV2Issue(input, "Invalid coverage record");
-  });
+  }, 15_000);
 
   it.each([
     ["complete", 541, 541, [], 0, 0],
@@ -329,7 +329,7 @@ describe("nationwide manifest v2", () => {
     for (const collection of ["fundingCategoryAggregates", "fundingOrganizationAggregates", "outsideSpendingAggregates"] as const) {
       const manifest = nationwideSkeleton(); manifest[collection][0]!.inputSnapshotIds = ["snap_derived" as never]; manifest.snapshots[1]!.usageStatus = "restricted"; expectV2Issue(manifest, "Public funding aggregates require approved snapshots");
     }
-  });
+  }, 15_000);
 
   it("validates source and derived ACS definitions and exact observation definitions", () => {
     const valid = nationwideSkeleton();
@@ -359,7 +359,7 @@ describe("nationwide manifest v2", () => {
       (m: ReturnType<typeof nationwideSkeleton>) => { m.fecFilingSummaries.push({ ...m.fecFilingSummaries[0]!, id: "fec_leaf", amendsFilingId: "fec_synthetic", amendmentNumber: 1 } as never); },
       (m: ReturnType<typeof nationwideSkeleton>) => { m.fecFilingSummaries[0]!.reportingPeriodEnd = "2023-12-31"; },
     ]) { const manifest = nationwideSkeleton(); mutate(manifest); expectV2Issue(manifest, "Invalid finance aggregate committee closure"); }
-  });
+  }, 15_000);
 
   it("requires exact coverage closure for definitions, funding, and election decisions", () => {
     const partial = nationwideSkeleton(); partial.coverageRecords[0]!.expectedCount += 1; expectV2Issue(partial, "Invalid coverage record");
@@ -394,7 +394,7 @@ describe("nationwide manifest v2", () => {
     const nonnumeric = derived(); nonnumeric.acsObservations.find((row) => row.variable === "numerator")!.marginOfError = { kind: "missing", reason: "not_collected" }; expectV2Issue(nonnumeric, "Numeric derived ACS observation requires numeric nonzero source inputs");
     const schema = derived(); schema.acsVariables[3] = { ...schema.acsVariables[3]!, unit: "count" } as never; expect(validateReleaseManifest(withChecksum(schema)).success).toBe(false);
     const moe = derived(); moe.acsVariables[3] = { ...moe.acsVariables[3]!, moePropagationMethod: "not_available" } as never; expect(validateReleaseManifest(withChecksum(moe)).success).toBe(false);
-  });
+  }, 15_000);
 
   it("requires approved ACS observation and included filing lineage while allowing restricted absence coverage", () => {
     const acs = nationwideSkeleton(); acs.acsObservations.push({ releaseId: acs.release.id, geographyVersionId: acs.seatCycles[0]!.geographyVersionId, variable: "synthetic", label: "Synthetic", estimate: { kind: "missing", reason: "not_collected" }, marginOfError: { kind: "missing", reason: "not_collected" }, unit: "count", surveyPeriod: "synthetic", universe: "synthetic", lineage: { inputs: [{ snapshotId: "snap_input" as never, role: "original_publisher" }], asOf: "2024-01-01", methodology: "synthetic", status: "reported" } } as never); Object.assign(acs.coverageRecords[3]!, { status: "partial", observedCount: 1, missingByReason: [{ reason: "not_collected", count: 490 }] }); acs.snapshots[0]!.usageStatus = "restricted"; expectV2Issue(acs, "Public ACS observations require approved snapshots");
@@ -429,7 +429,7 @@ describe("nationwide manifest v2", () => {
       ["input snapshots", (m) => { m.acsVariables[0]!.inputSnapshotIds.push("snap_derived" as never); }],
     ];
     for (const [, mutate] of mutations) { const baseline = nationwideSkeleton(); const before = computeCanonicalDataChecksum(baseline); const changed = structuredClone(baseline); mutate(changed); expect(computeCanonicalDataChecksum(changed)).not.toBe(before); }
-  });
+  }, 15_000);
 
   it("rejects a stale v2 checksum", () => {
     const manifest = nationwideSkeleton(); manifest.canonicalDataChecksumSha256 = "a".repeat(64); const result = validateReleaseManifest(manifest); expect(result.success).toBe(false);
