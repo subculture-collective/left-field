@@ -1,0 +1,91 @@
+{
+  "schema": "rapid-house-primary-mississippi-results-v3",
+  "version": 3,
+  "parentPackageSha256": "e0cf39961ee4dc8cf8f13ac07799a91cdf00c1b845f19f713dc96de9d290edab",
+  "results": [
+    {
+      "resultId": "ms:primary:2022:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "districtLabel": "MS-02",
+      "sourceLockIds": [
+        "ms-2022-primary-statewide-democratic-recap",
+        "ms-2022-primary-statewide-democratic-recap-layout-text"
+      ],
+      "rawParty": "Democrat",
+      "sourceCandidateNames": [
+        "Jerry Kerner",
+        "Bennie G. Thompson"
+      ],
+      "candidateVotes": [
+        1927,
+        49907
+      ],
+      "totalVotes": 51834,
+      "resultAuthorityStatus": "official_statewide_democratic_recap_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "1822cc5eda442006898693fc33f6aa78a2b444d6ccc90c4d21b607f77dfa034e"
+    },
+    {
+      "resultId": "ms:primary:2024:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-12",
+      "districtLabel": "MS-02",
+      "sourceLockIds": [
+        "ms-2024-primary-results",
+        "ms-2024-primary-statewide-democratic-recap",
+        "ms-2024-primary-statewide-democratic-recap-layout-text"
+      ],
+      "rawParty": "Democrat",
+      "sourceCandidateNames": [
+        "Bennie G. Thompson"
+      ],
+      "candidateVotes": [
+        44295
+      ],
+      "totalVotes": 44295,
+      "resultAuthorityStatus": "official_statewide_democratic_recap_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "6bc8e1e5ad2e582e243d16c67c67b88bb1ae8f6f36a5491f0cb9c25fe6c7180c"
+    },
+    {
+      "resultId": "ms:primary:2026:02:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-03-10",
+      "districtLabel": "MS-02",
+      "sourceLockIds": [
+        "ms-2026-primary-statewide-democratic-recap",
+        "ms-2026-primary-statewide-democratic-recap-layout-text"
+      ],
+      "rawParty": "Democrat",
+      "sourceCandidateNames": [
+        "Bennie G. Thompson",
+        "Evan Littleton Turnage",
+        "Pertis Herman Williams III"
+      ],
+      "candidateVotes": [
+        64334,
+        9249,
+        917
+      ],
+      "totalVotes": 74500,
+      "resultAuthorityStatus": "official_statewide_democratic_recap_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "7ec72c379ef33c0181cdb9da26af439ceae8f546d76bd97a05012f7c4e4463dc"
+    }
+  ],
+  "resultSetSha256": "acf54bbdd0074ff0920d9cc5510e4aaefaea98466d46186e0d9a3773ceb53baa",
+  "summary": {
+    "observations": 3,
+    "candidateRows": 6,
+    "candidateVotes": 170629,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "04272c72cd8d51941512aef6ca60ca1f50fca485f5731115ac8972af5fdbc19e"
+}
