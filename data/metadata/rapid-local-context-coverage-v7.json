@@ -1,0 +1,128 @@
+{
+  "schema": "rapid-local-context-coverage-v7",
+  "version": 7,
+  "releaseRelationship": "separate_rapid_acquisition_excluded_from_released_score",
+  "artifacts": [
+    {
+      "id": "rapid-county-demographics-projection-v1",
+      "label": "Nationwide county demographics",
+      "scope": "3,222 Census county-equivalent rows",
+      "summary": {
+        "counties": 3222,
+        "populationPresent": 3222,
+        "formulaEligibleRows": 0
+      },
+      "packageSha256": "f3285added7c4fcc1ef713c1a279bec90f918e12204ef184fb085895395cfceb",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-county-election-context-projection-v1",
+      "label": "County registration and turnout context",
+      "scope": "EAVS county rows for 2022 and 2024",
+      "summary": {
+        "countyCycleRows": 5946,
+        "exactCountyRows2022": 2974,
+        "exactCountyRows2024": 2972,
+        "formulaEligibleRows": 0
+      },
+      "packageSha256": "b43c7e5fab81467fe34df181247d9f66fe1e8cadec24218c583e0a60a9dd7788",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-county-house-results-2022-projection-v1",
+      "label": "2022 county House context (research fallback)",
+      "scope": "2022 House county aggregates; strict TOTAL rows in 41 state archives",
+      "summary": {
+        "aggregateRows": 8948,
+        "exactCountyCount": 2260,
+        "stateCount": 38,
+        "formulaEligibleRows": 0
+      },
+      "packageSha256": "d79c2066fb19dce7feb73560104b5aeca783377df9fefd55fa43afaf8591826e",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-county-house-results-projection-v1",
+      "label": "County House context (research fallback)",
+      "scope": "2024 House county aggregates; strict TOTAL rows in 41 state archives",
+      "summary": {
+        "aggregateRows": 13076,
+        "exactCountyCount": 2609,
+        "stateCount": 40,
+        "formulaEligibleRows": 0
+      },
+      "packageSha256": "dbce551ba6a813f15a05dfc2541af69096d41ebcc5ad12c87ca8038246e0a933",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-county-senate-results-projection-v1",
+      "label": "County Senate context (research fallback)",
+      "scope": "2024 Senate county results; incomplete 29-state context",
+      "summary": {
+        "candidateRows": 8659,
+        "exactCountyCount": 1714,
+        "stateCount": 29,
+        "formulaEligibleRows": 0
+      },
+      "packageSha256": "c549da75c4004f4f1d6bf8199c0aa7b5849da94cdc83f865eb0746c4e3f89434",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-indiana-state-legislative-primary-results-v1",
+      "label": "Indiana state-legislative primary pilot",
+      "scope": "Indiana 2022 and 2024 state House and Senate primaries",
+      "summary": {
+        "officeDistrictRows": 250,
+        "partyContests": 361,
+        "candidateRows": 486,
+        "formulaEligibleContests": 0
+      },
+      "packageSha256": "8b570d896be3bb772515697a2a1e7a8ad93e136e9bae93bf72521bce0660ad5f",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-tennessee-state-legislative-primary-results-v1",
+      "label": "Tennessee state-legislative primary context",
+      "scope": "Tennessee 2022 and 2024 state House and Senate primaries",
+      "summary": {
+        "officeDistrictRows": 231,
+        "partyContests": 462,
+        "sourceObservationRows": 571,
+        "candidateVotes": 1793535,
+        "formulaEligibleContests": 0
+      },
+      "packageSha256": "cb51286822a270f830d853f8a9ccfdee7cd77b022681e3a9e44211ec1e4ba48c",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-georgia-state-legislative-primary-results-v1",
+      "label": "Georgia state-legislative primary context",
+      "scope": "Georgia 2022, 2024, and 2026 state House and Senate regular primaries",
+      "summary": {
+        "officeDistrictRows": 708,
+        "partyContests": 1090,
+        "candidateRows": 1469,
+        "candidateVotes": 8351342,
+        "formulaEligibleContests": 0
+      },
+      "packageSha256": "eabf8e932b04844ad1402f753644c0e1b424acee9f528359806a5d2c2c453b43",
+      "formulaEligibleCount": 0
+    },
+    {
+      "id": "rapid-north-carolina-state-legislative-primary-results-v1",
+      "label": "North Carolina state-legislative primary context",
+      "scope": "North Carolina 2022, 2024, and 2026 state House and Senate primaries",
+      "summary": {
+        "officeDistrictRows": 164,
+        "partyContests": 176,
+        "candidateRows": 404,
+        "candidateVotes": 1829202,
+        "formulaEligibleContests": 0
+      },
+      "packageSha256": "9cf0e078e65459d188d953fd47c8305cd0f6b657111dcd4fbaf3588dfab7e1cf",
+      "formulaEligibleCount": 0
+    }
+  ],
+  "artifactSetSha256": "8243f22550131ff5b478c4bc831627b688a7e132d51f1f5fc055dd5ce3a63e6d",
+  "packageSha256": "be4feb94c7318e3c3c99dc55526e696c2d5e9704ef95d6243c69785cfc0a420f"
+}
