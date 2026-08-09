@@ -1,0 +1,137 @@
+{
+  "schema": "rapid-house-primary-alabama-results-v1",
+  "version": 1,
+  "results": [
+    {
+      "resultId": "al:primary:2022:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "districtLabel": "AL-02",
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "sourceCandidateNames": [
+        "Phyllis Harvey-Hall",
+        "Vimal Patel"
+      ],
+      "candidateVotes": [
+        16889,
+        7668
+      ],
+      "totalVotes": 24557,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "65763105049fa6fde699c0c4cb5d59d1bc1fc88460860354106226069ac7eada"
+    },
+    {
+      "resultId": "al:primary:2024:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-05",
+      "districtLabel": "AL-02",
+      "sourceLockIds": [
+        "al-2024-primary-precinct-results"
+      ],
+      "sourceCandidateNames": [
+        "Anthony Daniels",
+        "James Averhart",
+        "Jeremy Gray",
+        "Juandalynn \"Le Le\" Givan",
+        "Larry Darnell Simpson",
+        "Merika Coleman",
+        "Napoleon Bracy, Jr.",
+        "Phyllis Harvey-Hall",
+        "Shomari Figures",
+        "Vimal Patel",
+        "Willie J. Lenard"
+      ],
+      "candidateVotes": [
+        12879,
+        1623,
+        1580,
+        1260,
+        247,
+        3445,
+        9010,
+        2007,
+        24979,
+        289,
+        199
+      ],
+      "totalVotes": 57518,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "b9bd700b58c7bc30cb1c6a72bd80d96d838bda0f6b2c361a9310931736778299"
+    },
+    {
+      "resultId": "al:primary:2024:07:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-05",
+      "districtLabel": "AL-07",
+      "sourceLockIds": [
+        "al-2024-primary-precinct-results"
+      ],
+      "sourceCandidateNames": [
+        "Chris Davis",
+        "Terri A. Sewell"
+      ],
+      "candidateVotes": [
+        4712,
+        59091
+      ],
+      "totalVotes": 63803,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "bf2f20926882b3099bbc3c5d5c8cd0da916d3b9900ed5dc26b4f41995a406971"
+    }
+  ],
+  "sourceAbsent": [
+    {
+      "observationId": "al:primary:2022:07",
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "status": "source_absent_no_disposition_inference"
+    }
+  ],
+  "runoffEvidence": {
+    "evidenceId": "al:primary-runoff:2024:02:democratic",
+    "sourceLockIds": [
+      "al-2024-primary-runoff-precinct-results"
+    ],
+    "sourceCandidateNames": [
+      "Anthony Daniels",
+      "Shomari Figures"
+    ],
+    "candidateVotes": [
+      14006,
+      21962
+    ],
+    "totalVotes": 35968,
+    "sourceWinnerStatus": "not_marked_by_source",
+    "winnerIdentity": null,
+    "scoreEligible": false
+  },
+  "resultSetSha256": "dc09d7a9f4e99b394f17a06309bd6b68cc08e6344578c370e5790759fac55ddd",
+  "summary": {
+    "reportedContests": 3,
+    "sourceAbsent": 1,
+    "regularCandidateRows": 15,
+    "regularCandidateVotes": 145878,
+    "runoffCandidateRows": 2,
+    "runoffCandidateVotes": 35968,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "e19ff027f5964cc5ecf37e73179587cd93bf771ebbc63ca87e4009488e094424"
+}

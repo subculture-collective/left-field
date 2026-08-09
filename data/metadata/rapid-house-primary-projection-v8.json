@@ -1,0 +1,2287 @@
+{
+  "schema": "rapid-house-primary-projection-v8",
+  "version": 8,
+  "parentProjectionPackageSha256": "628582d4f382310f8610202aaf251836d18485ba5b213f922ad36b66e4cf1bc1",
+  "alabamaResultsPackageSha256": "e19ff027f5964cc5ecf37e73179587cd93bf771ebbc63ca87e4009488e094424",
+  "observations": [
+    {
+      "observationId": "al:primary:2022:02",
+      "stateCode": "AL",
+      "cycleYear": 2022,
+      "districtLabel": "AL-02",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "sourceContestId": "al:primary:2022:02:democratic",
+      "candidateCount": 2,
+      "votes": 24557,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "al:primary:2022:07",
+      "stateCode": "AL",
+      "cycleYear": 2022,
+      "districtLabel": "AL-07",
+      "parseStatus": "source_absent",
+      "missingReason": "source_absent",
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "al:primary:2024:02",
+      "stateCode": "AL",
+      "cycleYear": 2024,
+      "districtLabel": "AL-02",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "al-2024-primary-precinct-results"
+      ],
+      "sourceContestId": "al:primary:2024:02:democratic",
+      "candidateCount": 11,
+      "votes": 57518,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "al:primary:2024:07",
+      "stateCode": "AL",
+      "cycleYear": 2024,
+      "districtLabel": "AL-07",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "al-2024-primary-precinct-results"
+      ],
+      "sourceContestId": "al:primary:2024:07:democratic",
+      "candidateCount": 2,
+      "votes": 63803,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "al:primary:2026:02",
+      "stateCode": "AL",
+      "cycleYear": 2026,
+      "districtLabel": "AL-02",
+      "parseStatus": "future_event",
+      "missingReason": "future_event",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "al:primary:2026:07",
+      "stateCode": "AL",
+      "cycleYear": 2026,
+      "districtLabel": "AL-07",
+      "parseStatus": "future_event",
+      "missingReason": "future_event",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "de:primary:2022:al",
+      "stateCode": "DE",
+      "cycleYear": 2022,
+      "districtLabel": "DE-AL",
+      "parseStatus": "source_absent",
+      "missingReason": "source_absent_no_disposition_inference",
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "de:primary:2024:al",
+      "stateCode": "DE",
+      "cycleYear": 2024,
+      "districtLabel": "DE-AL",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "de-2024-primary-results"
+      ],
+      "sourceContestId": "de:primary:2024:al:democratic",
+      "candidateCount": 3,
+      "votes": 83607,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "de:primary:2026:al",
+      "stateCode": "DE",
+      "cycleYear": 2026,
+      "districtLabel": "DE-AL",
+      "parseStatus": "future_event",
+      "missingReason": "future_event",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "hi:primary:2022:01",
+      "stateCode": "HI",
+      "cycleYear": 2022,
+      "districtLabel": "HI-01",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "hi-2022-primary-summary"
+      ],
+      "sourceContestId": "hi:primary:2022:01:democratic",
+      "candidateCount": 2,
+      "votes": 121031,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "hi:primary:2022:02",
+      "stateCode": "HI",
+      "cycleYear": 2022,
+      "districtLabel": "HI-02",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "hi-2022-primary-summary"
+      ],
+      "sourceContestId": "hi:primary:2022:02:democratic",
+      "candidateCount": 6,
+      "votes": 108145,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "hi:primary:2024:01",
+      "stateCode": "HI",
+      "cycleYear": 2024,
+      "districtLabel": "HI-01",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "hi-2024-primary-summary"
+      ],
+      "sourceContestId": "hi:primary:2024:01:democratic",
+      "candidateCount": 2,
+      "votes": 91422,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "hi:primary:2024:02",
+      "stateCode": "HI",
+      "cycleYear": 2024,
+      "districtLabel": "HI-02",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "hi-2024-primary-summary"
+      ],
+      "sourceContestId": "hi:primary:2024:02:democratic",
+      "candidateCount": 1,
+      "votes": 84978,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "hi:primary:2026:01",
+      "stateCode": "HI",
+      "cycleYear": 2026,
+      "districtLabel": "HI-01",
+      "parseStatus": "future_event",
+      "missingReason": "future_event",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "hi:primary:2026:02",
+      "stateCode": "HI",
+      "cycleYear": 2026,
+      "districtLabel": "HI-02",
+      "parseStatus": "future_event",
+      "missingReason": "future_event",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "in:primary:2022:01",
+      "stateCode": "IN",
+      "cycleYear": 2022,
+      "districtLabel": "IN-01",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "in-2022-primary-settings",
+        "in-2022-primary-us-house-results"
+      ],
+      "sourceContestId": "in:primary:2022:01:democratic",
+      "candidateCount": 2,
+      "votes": 39902,
+      "sourceWinnerStatus": "marked_by_source",
+      "resultAuthorityStatus": "official_archive_house_json_retained",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "in:primary:2022:07",
+      "stateCode": "IN",
+      "cycleYear": 2022,
+      "districtLabel": "IN-07",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "in-2022-primary-settings",
+        "in-2022-primary-us-house-results"
+      ],
+      "sourceContestId": "in:primary:2022:07:democratic",
+      "candidateCount": 3,
+      "votes": 38598,
+      "sourceWinnerStatus": "marked_by_source",
+      "resultAuthorityStatus": "official_archive_house_json_retained",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "in:primary:2024:01",
+      "stateCode": "IN",
+      "cycleYear": 2024,
+      "districtLabel": "IN-01",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "in-2024-primary-settings",
+        "in-2024-primary-us-house-results"
+      ],
+      "sourceContestId": "in:primary:2024:01:democratic",
+      "candidateCount": 1,
+      "votes": 31155,
+      "sourceWinnerStatus": "marked_by_source",
+      "resultAuthorityStatus": "official_archive_house_json_retained",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "in:primary:2024:07",
+      "stateCode": "IN",
+      "cycleYear": 2024,
+      "districtLabel": "IN-07",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "in-2024-primary-settings",
+        "in-2024-primary-us-house-results"
+      ],
+      "sourceContestId": "in:primary:2024:07:democratic",
+      "candidateCount": 3,
+      "votes": 33891,
+      "sourceWinnerStatus": "marked_by_source",
+      "resultAuthorityStatus": "official_archive_house_json_retained",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "in:primary:2026:01",
+      "stateCode": "IN",
+      "cycleYear": 2026,
+      "districtLabel": "IN-01",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "in:primary:2026:07",
+      "stateCode": "IN",
+      "cycleYear": 2026,
+      "districtLabel": "IN-07",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ks:primary:2022:03",
+      "stateCode": "KS",
+      "cycleYear": 2022,
+      "districtLabel": "KS-03",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "ks-2022-primary-us-house-precinct-results"
+      ],
+      "sourceContestId": "ks:primary:2022:03:democratic",
+      "candidateCount": 1,
+      "votes": 103945,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_precinct_workbook_retained_not_claimed_certified",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ks:primary:2024:03",
+      "stateCode": "KS",
+      "cycleYear": 2024,
+      "districtLabel": "KS-03",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "ks-2024-primary-us-house-precinct-results"
+      ],
+      "sourceContestId": "ks:primary:2024:03:democratic",
+      "candidateCount": 1,
+      "votes": 37837,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_precinct_workbook_retained_not_claimed_certified",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ks:primary:2026:03",
+      "stateCode": "KS",
+      "cycleYear": 2026,
+      "districtLabel": "KS-03",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ky:primary:2022:03",
+      "stateCode": "KY",
+      "cycleYear": 2022,
+      "districtLabel": "KY-03",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ky:primary:2024:03",
+      "stateCode": "KY",
+      "cycleYear": 2024,
+      "districtLabel": "KY-03",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-layout-text"
+      ],
+      "sourceContestId": "ky:primary:2024:03:democratic",
+      "candidateCount": 3,
+      "votes": 52641,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ky:primary:2026:03",
+      "stateCode": "KY",
+      "cycleYear": 2026,
+      "districtLabel": "KY-03",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "la:primary:2022:02",
+      "stateCode": "LA",
+      "cycleYear": 2022,
+      "districtLabel": "LA-02",
+      "parseStatus": "not_held",
+      "missingReason": "not_held",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "la:primary:2022:06",
+      "stateCode": "LA",
+      "cycleYear": 2022,
+      "districtLabel": "LA-06",
+      "parseStatus": "not_held",
+      "missingReason": "not_held",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "la:primary:2024:02",
+      "stateCode": "LA",
+      "cycleYear": 2024,
+      "districtLabel": "LA-02",
+      "parseStatus": "not_held",
+      "missingReason": "not_held",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "la:primary:2024:06",
+      "stateCode": "LA",
+      "cycleYear": 2024,
+      "districtLabel": "LA-06",
+      "parseStatus": "not_held",
+      "missingReason": "not_held",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "la:primary:2026:02",
+      "stateCode": "LA",
+      "cycleYear": 2026,
+      "districtLabel": "LA-02",
+      "parseStatus": "not_held",
+      "missingReason": "not_held",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "la:primary:2026:06",
+      "stateCode": "LA",
+      "cycleYear": 2026,
+      "districtLabel": "LA-06",
+      "parseStatus": "not_held",
+      "missingReason": "not_held",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "mo:primary:2022:01",
+      "stateCode": "MO",
+      "cycleYear": 2022,
+      "districtLabel": "MO-01",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "mo:primary:2022:05",
+      "stateCode": "MO",
+      "cycleYear": 2022,
+      "districtLabel": "MO-05",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "mo:primary:2024:01",
+      "stateCode": "MO",
+      "cycleYear": 2024,
+      "districtLabel": "MO-01",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "mo-2024-primary-results",
+        "mo-2024-primary-results-layout-text"
+      ],
+      "sourceContestId": "mo:primary:2024:01:democratic",
+      "candidateCount": 4,
+      "votes": 124258,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "mo:primary:2024:05",
+      "stateCode": "MO",
+      "cycleYear": 2024,
+      "districtLabel": "MO-05",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "mo-2024-primary-results",
+        "mo-2024-primary-results-layout-text"
+      ],
+      "sourceContestId": "mo:primary:2024:05:democratic",
+      "candidateCount": 1,
+      "votes": 65248,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "mo:primary:2026:01",
+      "stateCode": "MO",
+      "cycleYear": 2026,
+      "districtLabel": "MO-01",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "mo:primary:2026:05",
+      "stateCode": "MO",
+      "cycleYear": 2026,
+      "districtLabel": "MO-05",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ms:primary:2022:02",
+      "stateCode": "MS",
+      "cycleYear": 2022,
+      "districtLabel": "MS-02",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ms:primary:2024:02",
+      "stateCode": "MS",
+      "cycleYear": 2024,
+      "districtLabel": "MS-02",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "ms-2024-primary-results",
+        "ms-2024-primary-statewide-democratic-recap",
+        "ms-2024-primary-statewide-democratic-recap-layout-text"
+      ],
+      "sourceContestId": "ms:primary:2024:02:democratic",
+      "candidateCount": 1,
+      "votes": 44295,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_democratic_recap_pdf_retained_no_separate_certification_instrument",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ms:primary:2026:02",
+      "stateCode": "MS",
+      "cycleYear": 2026,
+      "districtLabel": "MS-02",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nh:primary:2022:01",
+      "stateCode": "NH",
+      "cycleYear": 2022,
+      "districtLabel": "NH-01",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nh:primary:2022:02",
+      "stateCode": "NH",
+      "cycleYear": 2022,
+      "districtLabel": "NH-02",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nh:primary:2024:01",
+      "stateCode": "NH",
+      "cycleYear": 2024,
+      "districtLabel": "NH-01",
+      "parseStatus": "ready_unparsed",
+      "missingReason": "parser_not_implemented",
+      "sourceLockIds": [
+        "nh-2024-primary-results"
+      ],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nh:primary:2024:02",
+      "stateCode": "NH",
+      "cycleYear": 2024,
+      "districtLabel": "NH-02",
+      "parseStatus": "ready_unparsed",
+      "missingReason": "parser_not_implemented",
+      "sourceLockIds": [
+        "nh-2024-primary-results"
+      ],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nh:primary:2026:01",
+      "stateCode": "NH",
+      "cycleYear": 2026,
+      "districtLabel": "NH-01",
+      "parseStatus": "future_event",
+      "missingReason": "future_event",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nh:primary:2026:02",
+      "stateCode": "NH",
+      "cycleYear": 2026,
+      "districtLabel": "NH-02",
+      "parseStatus": "future_event",
+      "missingReason": "future_event",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nv:primary:2022:01",
+      "stateCode": "NV",
+      "cycleYear": 2022,
+      "districtLabel": "NV-01",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nv:primary:2022:03",
+      "stateCode": "NV",
+      "cycleYear": 2022,
+      "districtLabel": "NV-03",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nv:primary:2022:04",
+      "stateCode": "NV",
+      "cycleYear": 2022,
+      "districtLabel": "NV-04",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nv:primary:2024:01",
+      "stateCode": "NV",
+      "cycleYear": 2024,
+      "districtLabel": "NV-01",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nv:primary:2024:03",
+      "stateCode": "NV",
+      "cycleYear": 2024,
+      "districtLabel": "NV-03",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nv:primary:2024:04",
+      "stateCode": "NV",
+      "cycleYear": 2024,
+      "districtLabel": "NV-04",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nv:primary:2026:01",
+      "stateCode": "NV",
+      "cycleYear": 2026,
+      "districtLabel": "NV-01",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nv:primary:2026:03",
+      "stateCode": "NV",
+      "cycleYear": 2026,
+      "districtLabel": "NV-03",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "nv:primary:2026:04",
+      "stateCode": "NV",
+      "cycleYear": 2026,
+      "districtLabel": "NV-04",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ri:primary:2022:01",
+      "stateCode": "RI",
+      "cycleYear": 2022,
+      "districtLabel": "RI-01",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "ri-2022-statewide-primary"
+      ],
+      "sourceContestId": "ri:primary:2022:01:democratic",
+      "candidateCount": 1,
+      "votes": 46610,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ri:primary:2022:02",
+      "stateCode": "RI",
+      "cycleYear": 2022,
+      "districtLabel": "RI-02",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "ri-2022-statewide-primary"
+      ],
+      "sourceContestId": "ri:primary:2022:02:democratic",
+      "candidateCount": 6,
+      "votes": 56102,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ri:primary:2024:01",
+      "stateCode": "RI",
+      "cycleYear": 2024,
+      "districtLabel": "RI-01",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "ri-2024-statewide-primary"
+      ],
+      "sourceContestId": "ri:primary:2024:01:democratic",
+      "candidateCount": 1,
+      "votes": 26696,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ri:primary:2024:02",
+      "stateCode": "RI",
+      "cycleYear": 2024,
+      "districtLabel": "RI-02",
+      "parseStatus": "parsed",
+      "missingReason": null,
+      "sourceLockIds": [
+        "ri-2024-statewide-primary"
+      ],
+      "sourceContestId": "ri:primary:2024:02:democratic",
+      "candidateCount": 1,
+      "votes": 25157,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_result_bytes_retained_not_claimed_certified",
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ri:primary:2026:01",
+      "stateCode": "RI",
+      "cycleYear": 2026,
+      "districtLabel": "RI-01",
+      "parseStatus": "future_event",
+      "missingReason": "future_event",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "ri:primary:2026:02",
+      "stateCode": "RI",
+      "cycleYear": 2026,
+      "districtLabel": "RI-02",
+      "parseStatus": "future_event",
+      "missingReason": "future_event",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "sc:primary:2022:06",
+      "stateCode": "SC",
+      "cycleYear": 2022,
+      "districtLabel": "SC-06",
+      "parseStatus": "ready_unparsed",
+      "missingReason": "parser_not_implemented",
+      "sourceLockIds": [
+        "sc-2022-primary-enr"
+      ],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "sc:primary:2024:06",
+      "stateCode": "SC",
+      "cycleYear": 2024,
+      "districtLabel": "SC-06",
+      "parseStatus": "ready_unparsed",
+      "missingReason": "parser_not_implemented",
+      "sourceLockIds": [
+        "sc-2024-primary-enr"
+      ],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "sc:primary:2026:06",
+      "stateCode": "SC",
+      "cycleYear": 2026,
+      "districtLabel": "SC-06",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "tn:primary:2022:09",
+      "stateCode": "TN",
+      "cycleYear": 2022,
+      "districtLabel": "TN-09",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "tn:primary:2024:09",
+      "stateCode": "TN",
+      "cycleYear": 2024,
+      "districtLabel": "TN-09",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "tn:primary:2026:09",
+      "stateCode": "TN",
+      "cycleYear": 2026,
+      "districtLabel": "TN-09",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "vt:primary:2022:al",
+      "stateCode": "VT",
+      "cycleYear": 2022,
+      "districtLabel": "VT-AL",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "vt:primary:2024:al",
+      "stateCode": "VT",
+      "cycleYear": 2024,
+      "districtLabel": "VT-AL",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "vt:primary:2026:al",
+      "stateCode": "VT",
+      "cycleYear": 2026,
+      "districtLabel": "VT-AL",
+      "parseStatus": "future_event",
+      "missingReason": "future_event",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "wi:primary:2022:02",
+      "stateCode": "WI",
+      "cycleYear": 2022,
+      "districtLabel": "WI-02",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "wi:primary:2022:04",
+      "stateCode": "WI",
+      "cycleYear": 2022,
+      "districtLabel": "WI-04",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "wi:primary:2024:02",
+      "stateCode": "WI",
+      "cycleYear": 2024,
+      "districtLabel": "WI-02",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "wi:primary:2024:04",
+      "stateCode": "WI",
+      "cycleYear": 2024,
+      "districtLabel": "WI-04",
+      "parseStatus": "source_blocked",
+      "missingReason": "source_blocked",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "wi:primary:2026:02",
+      "stateCode": "WI",
+      "cycleYear": 2026,
+      "districtLabel": "WI-02",
+      "parseStatus": "future_event",
+      "missingReason": "future_event",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    },
+    {
+      "observationId": "wi:primary:2026:04",
+      "stateCode": "WI",
+      "cycleYear": 2026,
+      "districtLabel": "WI-04",
+      "parseStatus": "future_event",
+      "missingReason": "future_event",
+      "sourceLockIds": [],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false
+    }
+  ],
+  "observationSetSha256": "6866c57c1b541ee8c9bda066f0e0d74e34c2ac531c4cd8bcf3a1031c75c15fd1",
+  "coverageRows": [
+    {
+      "stateCode": "AL",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "AL-02",
+        "AL-07"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 1,
+      "sourceAbsentDistrictCount": 1,
+      "status": "parsed",
+      "missingByReason": [
+        {
+          "reason": "source_absent",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": [
+        "al-2022-primary-precinct-results"
+      ]
+    },
+    {
+      "stateCode": "AL",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "AL-02",
+        "AL-07"
+      ],
+      "retainedArtifactCount": 2,
+      "parsedDistrictCount": 2,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "al-2024-primary-precinct-results",
+        "al-2024-primary-runoff-precinct-results"
+      ]
+    },
+    {
+      "stateCode": "AL",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "AL-02",
+        "AL-07"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "DE",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "DE-AL"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 1,
+      "status": "source_absent",
+      "missingByReason": [
+        {
+          "reason": "source_absent_no_disposition_inference",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": [
+        "de-2022-primary-results"
+      ]
+    },
+    {
+      "stateCode": "DE",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "DE-AL"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 1,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "de-2024-primary-results"
+      ]
+    },
+    {
+      "stateCode": "DE",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "DE-AL"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "HI",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "HI-01",
+        "HI-02"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 2,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "hi-2022-primary-summary"
+      ]
+    },
+    {
+      "stateCode": "HI",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "HI-01",
+        "HI-02"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 2,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "hi-2024-primary-summary"
+      ]
+    },
+    {
+      "stateCode": "HI",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "HI-01",
+        "HI-02"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "IN",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "IN-01",
+        "IN-07"
+      ],
+      "retainedArtifactCount": 2,
+      "parsedDistrictCount": 2,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "in-2022-primary-settings",
+        "in-2022-primary-us-house-results"
+      ]
+    },
+    {
+      "stateCode": "IN",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "IN-01",
+        "IN-07"
+      ],
+      "retainedArtifactCount": 2,
+      "parsedDistrictCount": 2,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "in-2024-primary-settings",
+        "in-2024-primary-us-house-results"
+      ]
+    },
+    {
+      "stateCode": "IN",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "IN-01",
+        "IN-07"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "KS",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "KS-03"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 1,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "ks-2022-primary-us-house-precinct-results"
+      ]
+    },
+    {
+      "stateCode": "KS",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "KS-03"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 1,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "ks-2024-primary-us-house-precinct-results"
+      ]
+    },
+    {
+      "stateCode": "KS",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "KS-03"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "KY",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "KY-03"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "KY",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "KY-03"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 1,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-layout-text"
+      ]
+    },
+    {
+      "stateCode": "KY",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "KY-03"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "LA",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "LA-02",
+        "LA-06"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "not_held",
+      "missingByReason": [
+        {
+          "reason": "not_held",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "LA",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "LA-02",
+        "LA-06"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "not_held",
+      "missingByReason": [
+        {
+          "reason": "not_held",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "LA",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "LA-02",
+        "LA-06"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "not_held",
+      "missingByReason": [
+        {
+          "reason": "not_held",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "MO",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "MO-01",
+        "MO-05"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "MO",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "MO-01",
+        "MO-05"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 2,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "mo-2024-primary-results",
+        "mo-2024-primary-results-layout-text"
+      ]
+    },
+    {
+      "stateCode": "MO",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "MO-01",
+        "MO-05"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "MS",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "MS-02"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "MS",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "MS-02"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 1,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "ms-2024-primary-results",
+        "ms-2024-primary-statewide-democratic-recap",
+        "ms-2024-primary-statewide-democratic-recap-layout-text"
+      ]
+    },
+    {
+      "stateCode": "MS",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "MS-02"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "NH",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "NH-01",
+        "NH-02"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "NH",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "NH-01",
+        "NH-02"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": [
+        "nh-2024-primary-results"
+      ]
+    },
+    {
+      "stateCode": "NH",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "NH-01",
+        "NH-02"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "NV",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "NV-01",
+        "NV-03",
+        "NV-04"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 3
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "NV",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "NV-01",
+        "NV-03",
+        "NV-04"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 3
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "NV",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "NV-01",
+        "NV-03",
+        "NV-04"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 3
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "RI",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "RI-01",
+        "RI-02"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 2,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "ri-2022-statewide-primary"
+      ]
+    },
+    {
+      "stateCode": "RI",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "RI-01",
+        "RI-02"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 2,
+      "sourceAbsentDistrictCount": 0,
+      "status": "parsed",
+      "missingByReason": [],
+      "artifactLockIds": [
+        "ri-2024-statewide-primary"
+      ]
+    },
+    {
+      "stateCode": "RI",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "RI-01",
+        "RI-02"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "SC",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "SC-06"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": [
+        "sc-2022-primary-enr"
+      ]
+    },
+    {
+      "stateCode": "SC",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "SC-06"
+      ],
+      "retainedArtifactCount": 1,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "ready_unparsed",
+      "missingByReason": [
+        {
+          "reason": "parser_not_implemented",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": [
+        "sc-2024-primary-enr"
+      ]
+    },
+    {
+      "stateCode": "SC",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "SC-06"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "TN",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "TN-09"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "TN",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "TN-09"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "TN",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "TN-09"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "VT",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "VT-AL"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "VT",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "VT-AL"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "VT",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "VT-AL"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 1
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "WI",
+      "cycleYear": 2022,
+      "expectedTargetDistricts": [
+        "WI-02",
+        "WI-04"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "WI",
+      "cycleYear": 2024,
+      "expectedTargetDistricts": [
+        "WI-02",
+        "WI-04"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "source_blocked",
+      "missingByReason": [
+        {
+          "reason": "source_blocked",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    },
+    {
+      "stateCode": "WI",
+      "cycleYear": 2026,
+      "expectedTargetDistricts": [
+        "WI-02",
+        "WI-04"
+      ],
+      "retainedArtifactCount": 0,
+      "parsedDistrictCount": 0,
+      "sourceAbsentDistrictCount": 0,
+      "status": "future_event",
+      "missingByReason": [
+        {
+          "reason": "future_event",
+          "count": 2
+        }
+      ],
+      "artifactLockIds": []
+    }
+  ],
+  "coverageSetSha256": "a1289a8e4905e1de9ee5ea3e353559b92b7da031a8c146cba822052ee9b8368e",
+  "summary": {
+    "stateCycles": 48,
+    "districtObservations": 78,
+    "reportedContests": 22,
+    "sourceAbsent": 2,
+    "processedDistricts": 24,
+    "candidateRows": 58,
+    "retainedCandidateVotes": 1361396,
+    "sourceMarkedWinnerContests": 4,
+    "scoreEligibleDistricts": 0
+  },
+  "packageSha256": "652004e911af3212cdf44d1453965e18e94c0d97de48520560d849cd60123342"
+}
