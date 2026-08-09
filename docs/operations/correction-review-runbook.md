@@ -18,11 +18,32 @@ Migration `0015_correction_reviewer_exclusivity.sql` also rejects a reviewer
 LOGIN that inherits any other `dsa_seats_*` capability, including address and
 FEC roles added after the original correction schema.
 
+Production provisions that principal from the independently generated
+`db_correction_reviewer_password` secret. Run the CLI only through the isolated
+Compose tool service, which mounts that one database secret and neither the
+migration-owner nor release-operator credentials:
+
+```bash
+docker compose -p dsa-seats-r1 \
+  --env-file /srv/apps/projects/dsa-seats-r1/runtime/factual.env \
+  -f deploy/nuc/factual.compose.yml run --rm correction-reviewer \
+  npm run corrections:review -- list --limit 50
+```
+
+Create the secret once with a cryptographically random value, mode `0600`, in
+the factual `SECRETS_DIR`; then rerun `role-grants` so the dedicated login is
+created or rotated. Do not copy any existing database password.
+
 ## List the queue
 
 ```bash
 npm run corrections:review -- list --limit 50
 ```
+
+The bare npm examples in the sections below are for a controlled development
+shell with `CORRECTION_REVIEWER_DATABASE_URL` already injected. On the NUC,
+replace them with the isolated Compose invocation above and pass the same CLI
+arguments after `npm run corrections:review --`.
 
 The default JSON output includes identifiers, field path, time, status,
 sequence, and booleans indicating whether content exists. It omits the submitted

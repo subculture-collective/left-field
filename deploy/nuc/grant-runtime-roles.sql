@@ -32,6 +32,10 @@ SELECT format(
   'CREATE ROLE dsa_seats_fec_v2_replay_verifier_login LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT NOREPLICATION PASSWORD %L',
   :'fec_v2_replay_verifier_password'
 ) WHERE NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'dsa_seats_fec_v2_replay_verifier_login') \gexec
+SELECT format(
+  'CREATE ROLE dsa_seats_correction_reviewer_login LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT NOREPLICATION PASSWORD %L',
+  :'correction_reviewer_password'
+) WHERE NOT EXISTS (SELECT FROM pg_roles WHERE rolname = 'dsa_seats_correction_reviewer_login') \gexec
 
 ALTER ROLE dsa_seats_web_login PASSWORD :'web_password';
 ALTER ROLE dsa_seats_ingest_login PASSWORD :'ingest_password';
@@ -41,6 +45,7 @@ ALTER ROLE dsa_seats_launch_verifier_login PASSWORD :'launch_verifier_password';
 ALTER ROLE dsa_seats_nationwide_finalizer_login PASSWORD :'nationwide_finalizer_password';
 ALTER ROLE dsa_seats_fec_v2_acquisition_login PASSWORD :'fec_v2_acquisition_password';
 ALTER ROLE dsa_seats_fec_v2_replay_verifier_login PASSWORD :'fec_v2_replay_verifier_password';
+ALTER ROLE dsa_seats_correction_reviewer_login PASSWORD :'correction_reviewer_password';
 ALTER ROLE dsa_seats_web_login INHERIT;
 ALTER ROLE dsa_seats_ingest_login INHERIT;
 ALTER ROLE dsa_seats_preflight_login INHERIT;
@@ -49,6 +54,7 @@ ALTER ROLE dsa_seats_launch_verifier_login INHERIT;
 ALTER ROLE dsa_seats_nationwide_finalizer_login INHERIT;
 ALTER ROLE dsa_seats_fec_v2_acquisition_login INHERIT;
 ALTER ROLE dsa_seats_fec_v2_replay_verifier_login INHERIT;
+ALTER ROLE dsa_seats_correction_reviewer_login NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS INHERIT;
 
 GRANT dsa_seats_web TO dsa_seats_web_login WITH INHERIT TRUE, SET TRUE;
 GRANT dsa_seats_ingest TO dsa_seats_ingest_login WITH INHERIT TRUE, SET TRUE;
@@ -58,6 +64,7 @@ GRANT dsa_seats_launch_verifier TO dsa_seats_launch_verifier_login WITH INHERIT 
 GRANT dsa_seats_nationwide_finalizer TO dsa_seats_nationwide_finalizer_login WITH INHERIT TRUE, SET TRUE;
 GRANT dsa_seats_fec_v2_acquisition TO dsa_seats_fec_v2_acquisition_login WITH INHERIT TRUE, SET TRUE;
 GRANT dsa_seats_fec_v2_replay_verifier TO dsa_seats_fec_v2_replay_verifier_login WITH INHERIT TRUE, SET TRUE;
+GRANT dsa_seats_correction_reviewer TO dsa_seats_correction_reviewer_login WITH INHERIT TRUE, SET TRUE;
 
 ALTER ROLE dsa_seats_web_login SET statement_timeout = '15s';
 ALTER ROLE dsa_seats_web_login SET lock_timeout = '1s';
@@ -67,6 +74,8 @@ ALTER ROLE dsa_seats_fec_v2_acquisition_login SET statement_timeout = '5min';
 ALTER ROLE dsa_seats_fec_v2_acquisition_login SET lock_timeout = '5s';
 ALTER ROLE dsa_seats_fec_v2_replay_verifier_login SET statement_timeout = '5min';
 ALTER ROLE dsa_seats_fec_v2_replay_verifier_login SET lock_timeout = '5s';
+ALTER ROLE dsa_seats_correction_reviewer_login SET statement_timeout = '15s';
+ALTER ROLE dsa_seats_correction_reviewer_login SET lock_timeout = '2s';
 
 -- Migration 0010 isolates FEC acquisition capabilities from ordinary
 -- application roles. Release preflight still needs read-only access to the

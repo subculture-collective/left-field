@@ -6,6 +6,27 @@ const read = (name: string): string =>
   readFileSync(resolve(process.cwd(), "deploy/nuc", name), "utf8");
 
 describe("factual production FEC runtime wiring", () => {
+  it("provides correction review through a dedicated least-privilege tool service", () => {
+    const compose = read("factual.compose.yml");
+    const sql = read("grant-runtime-roles.sql");
+    const wrapper = read("run-with-secrets.sh");
+    const reviewer = compose.slice(compose.indexOf("\n  correction-reviewer:"), compose.indexOf("\nvolumes:"));
+
+    expect(compose).toContain("db_correction_reviewer_password:");
+    expect(reviewer).toContain('profiles: ["tools"]');
+    expect(reviewer).toContain('- db_correction_reviewer_password');
+    expect(reviewer).not.toContain("db_admin_password");
+    expect(reviewer).not.toContain("db_operator_password");
+    expect(sql).toContain("CREATE ROLE dsa_seats_correction_reviewer_login LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT NOREPLICATION");
+    expect(sql).toContain("ALTER ROLE dsa_seats_correction_reviewer_login NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS INHERIT");
+    expect(sql).toContain("GRANT dsa_seats_correction_reviewer TO dsa_seats_correction_reviewer_login");
+    expect(wrapper).toContain('CORRECTION_REVIEWER_DATABASE_URL="postgresql://dsa_seats_correction_reviewer_login:');
+
+    const postgres = compose.slice(compose.indexOf("  postgres:"), compose.indexOf("\n  rawstore:"));
+    expect(postgres).toContain("- db_admin_password");
+    expect(postgres).not.toContain("db_correction_reviewer_password");
+  });
+
   it("mounts distinct acquisition, replay-verifier, and API credential secrets only into operator tooling", () => {
     const compose = read("factual.compose.yml");
 

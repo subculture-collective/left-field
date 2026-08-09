@@ -10,6 +10,7 @@ x-db-secrets: &db-secrets
   - db_nationwide_finalizer_password
   - db_fec_v2_acquisition_password
   - db_fec_v2_replay_verifier_password
+  - db_correction_reviewer_password
 
 x-release-environment: &release-environment
   NODE_ENV: production
@@ -38,7 +39,10 @@ services:
       POSTGRES_DB: dsa_seats_r1
       POSTGRES_USER: dsa_seats_admin
       POSTGRES_PASSWORD_FILE: /run/secrets/db_admin_password
-    secrets: *db-secrets
+    # PostgreSQL only needs its bootstrap principal. Runtime-role passwords are
+    # mounted on the ephemeral role-grants job, never on the database daemon.
+    secrets:
+      - db_admin_password
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
@@ -182,6 +186,7 @@ services:
           --set nationwide_finalizer_password="$$(tr -d '\r\n' < /run/secrets/db_nationwide_finalizer_password)" \
           --set fec_v2_acquisition_password="$$(tr -d '\r\n' < /run/secrets/db_fec_v2_acquisition_password)" \
           --set fec_v2_replay_verifier_password="$$(tr -d '\r\n' < /run/secrets/db_fec_v2_replay_verifier_password)" \
+          --set correction_reviewer_password="$$(tr -d '\r\n' < /run/secrets/db_correction_reviewer_password)" \
           --host postgres --username dsa_seats_admin --dbname dsa_seats_r1 \
           --file /config/grant-runtime-roles.sql
     secrets: *db-secrets
@@ -247,6 +252,21 @@ services:
       - ${FEC_V2_TLS_DIR:?FEC_V2_TLS_DIR is required}/CAs/root.crt:/etc/dsa-seats/fec-v2-root.crt:ro
       - ${FEC_V2_RETENTION_EVIDENCE_FILE_HOST:?FEC_V2_RETENTION_EVIDENCE_FILE_HOST is required}:/etc/dsa-seats/fec-v2-retention-evidence.txt:ro
 
+  correction-reviewer:
+    profiles: ["tools"]
+    image: ${APP_IMAGE:?APP_IMAGE is required}
+    depends_on:
+      role-grants:
+        condition: service_completed_successfully
+    entrypoint: ["/app/deploy/nuc/run-with-secrets.sh"]
+    command: ["npm", "run", "corrections:review", "--", "list"]
+    environment:
+      NODE_ENV: production
+      DATABASE_HOST: postgres
+      DATABASE_NAME: dsa_seats_r1
+    secrets:
+      - db_correction_reviewer_password
+
 volumes:
   postgres_data:
   raw_objects:
@@ -272,6 +292,8 @@ secrets:
     file: ${SECRETS_DIR:-./secrets}/db_fec_v2_acquisition_password
   db_fec_v2_replay_verifier_password:
     file: ${SECRETS_DIR:-./secrets}/db_fec_v2_replay_verifier_password
+  db_correction_reviewer_password:
+    file: ${SECRETS_DIR:-./secrets}/db_correction_reviewer_password
   raw_root_user:
     file: ${SECRETS_DIR:-./secrets}/raw_root_user
   raw_root_password:

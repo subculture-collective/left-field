@@ -47,6 +47,10 @@ if [ -r /run/secrets/db_fec_v2_replay_verifier_password ]; then
   fec_v2_replay_verifier_password=$(encode_password /run/secrets/db_fec_v2_replay_verifier_password)
   export FEC_V2_REPLAY_VERIFIER_DATABASE_URL="postgresql://dsa_seats_fec_v2_replay_verifier_login:${fec_v2_replay_verifier_password}@${database_host}:5432/${database_name}"
 fi
+if [ -r /run/secrets/db_correction_reviewer_password ]; then
+  correction_reviewer_password=$(encode_password /run/secrets/db_correction_reviewer_password)
+  export CORRECTION_REVIEWER_DATABASE_URL="postgresql://dsa_seats_correction_reviewer_login:${correction_reviewer_password}@${database_host}:5432/${database_name}"
+fi
 if [ -r /run/secrets/fec_api_credential ]; then
   FEC_API_CREDENTIAL=$(tr -d '\r\n' < /run/secrets/fec_api_credential)
   [ -n "$FEC_API_CREDENTIAL" ] || { printf '%s\n' "empty secret: /run/secrets/fec_api_credential" >&2; exit 1; }
