@@ -3,8 +3,9 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export type RapidLocalContextArtifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0 }>;
-export type RapidLocalContextCoverageViewModel = Readonly<{ schema: "rapid-local-context-coverage-v1" | "rapid-local-context-coverage-v2" | "rapid-local-context-coverage-v3" | "rapid-local-context-coverage-v4" | "rapid-local-context-coverage-v5"; version: 1 | 2 | 3 | 4 | 5; artifacts: readonly RapidLocalContextArtifact[] }>;
+export type RapidLocalContextCoverageViewModel = Readonly<{ schema: "rapid-local-context-coverage-v1" | "rapid-local-context-coverage-v2" | "rapid-local-context-coverage-v3" | "rapid-local-context-coverage-v4" | "rapid-local-context-coverage-v5" | "rapid-local-context-coverage-v6"; version: 1 | 2 | 3 | 4 | 5 | 6; artifacts: readonly RapidLocalContextArtifact[] }>;
 const coveragePaths = (root = process.cwd()) => [
+  { schema: "rapid-local-context-coverage-v6" as const, version: 6 as const, id: "rapid-local-context-coverage-v6", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v6.json"), artifactCount: 8 },
   { schema: "rapid-local-context-coverage-v5" as const, version: 5 as const, id: "rapid-local-context-coverage-v5", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v5.json"), artifactCount: 7 },
   { schema: "rapid-local-context-coverage-v4" as const, version: 4 as const, id: "rapid-local-context-coverage-v4", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v4.json"), artifactCount: 6 },
   { schema: "rapid-local-context-coverage-v3" as const, version: 3 as const, id: "rapid-local-context-coverage-v3", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v3.json"), artifactCount: 5 },
@@ -29,6 +30,7 @@ const childPaths: Readonly<Record<string, string>> = {
   "rapid-county-senate-results-projection-v1": "data/metadata/rapid-county-senate-results-projection-v1.json",
   "rapid-indiana-state-legislative-primary-results-v1": "data/metadata/rapid-indiana-state-legislative-primary-results-v1.json",
   "rapid-tennessee-state-legislative-primary-results-v1": "data/metadata/rapid-tennessee-state-legislative-primary-results-v1.json",
+  "rapid-georgia-state-legislative-primary-results-v1": "data/metadata/rapid-georgia-state-legislative-primary-results-v1.json",
 };
 
 /** Lightweight server read model: validates retained artifact bytes and source-lock topology, without rebuilding raw Census/EAVS inputs. */
