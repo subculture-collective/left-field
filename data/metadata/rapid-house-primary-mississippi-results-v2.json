@@ -1,0 +1,64 @@
+{
+  "schema": "rapid-house-primary-mississippi-results-v2",
+  "version": 2,
+  "parentPackageSha256": "8869058b7eb7643d08c4957d3df7fc417f563af6172e4de8680ad9ba17df4e3c",
+  "results": [
+    {
+      "resultId": "ms:primary:2022:02:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-07",
+      "districtLabel": "MS-02",
+      "sourceLockIds": [
+        "ms-2022-primary-statewide-democratic-recap",
+        "ms-2022-primary-statewide-democratic-recap-layout-text"
+      ],
+      "rawParty": "Democrat",
+      "sourceCandidateNames": [
+        "Jerry Kerner",
+        "Bennie G. Thompson"
+      ],
+      "candidateVotes": [
+        1927,
+        49907
+      ],
+      "totalVotes": 51834,
+      "resultAuthorityStatus": "official_statewide_democratic_recap_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "1822cc5eda442006898693fc33f6aa78a2b444d6ccc90c4d21b607f77dfa034e"
+    },
+    {
+      "resultId": "ms:primary:2024:02:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-03-12",
+      "districtLabel": "MS-02",
+      "sourceLockIds": [
+        "ms-2024-primary-results",
+        "ms-2024-primary-statewide-democratic-recap",
+        "ms-2024-primary-statewide-democratic-recap-layout-text"
+      ],
+      "rawParty": "Democrat",
+      "sourceCandidateNames": [
+        "Bennie G. Thompson"
+      ],
+      "candidateVotes": [
+        44295
+      ],
+      "totalVotes": 44295,
+      "resultAuthorityStatus": "official_statewide_democratic_recap_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "6bc8e1e5ad2e582e243d16c67c67b88bb1ae8f6f36a5491f0cb9c25fe6c7180c"
+    }
+  ],
+  "resultSetSha256": "22f100db791e3e76543af6c7d9f56d208a9412953975f98fc7f90fc68768b0d5",
+  "summary": {
+    "observations": 2,
+    "candidateRows": 3,
+    "candidateVotes": 96129,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "e0cf39961ee4dc8cf8f13ac07799a91cdf00c1b845f19f713dc96de9d290edab"
+}
