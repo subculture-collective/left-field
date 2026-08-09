@@ -4,11 +4,11 @@ import { join } from "node:path";
 
 export type RapidHousePrimaryCoverageStatus = "ready_unparsed" | "parsed" | "source_absent" | "future_event" | "not_held" | "source_blocked" | "authority_unavailable";
 export type RapidHousePrimaryCoverageRow = Readonly<{ stateCode: string; cycleYear: number; expectedTargetDistricts: readonly string[]; retainedArtifactCount: number; parsedDistrictCount: number; sourceAbsentDistrictCount: number; status: RapidHousePrimaryCoverageStatus; missingByReason?: readonly Readonly<{ reason: string; count: number }>[]; artifactLockIds?: readonly string[] }>;
-export type RapidHousePrimaryCoverageViewModel = Readonly<{ schema: "rapid-house-primary-coverage-ledger-v8"; version: 8; rows: readonly RapidHousePrimaryCoverageRow[] }>;
+export type RapidHousePrimaryCoverageViewModel = Readonly<{ schema: "rapid-house-primary-coverage-ledger-v9"; version: 9; rows: readonly RapidHousePrimaryCoverageRow[] }>;
 
 const files = {
-  ledger: { id: "rapid-house-primary-coverage-ledger-v8", path: "data/metadata/rapid-house-primary-coverage-ledger-v8.json", bytes: 20149, sha256: "431f9585a9b8c082c27263d1bcf70edb0f8d3a068e9bcaae8ff2293662e2f66c", parentIds: ["rapid-house-primary-projection-v8"] },
-  projection: { id: "rapid-house-primary-projection-v8", path: "data/metadata/rapid-house-primary-projection-v8.json", bytes: 60941, sha256: "75bfcc1c00057a9927e49dcc95c5b1aa6ae672257bd826159bb7725073d4ca28", parentIds: ["rapid-house-primary-projection-v7", "rapid-house-primary-alabama-results-v1"] },
+  ledger: { id: "rapid-house-primary-coverage-ledger-v9", path: "data/metadata/rapid-house-primary-coverage-ledger-v9.json", bytes: 20159, sha256: "bfcf2f0ce618b2be3cbad2760be983e0b9c8c07f45f2743e3b37a85210b83dfb", parentIds: ["rapid-house-primary-projection-v9"] },
+  projection: { id: "rapid-house-primary-projection-v9", path: "data/metadata/rapid-house-primary-projection-v9.json", bytes: 61272, sha256: "371d487cf42533f2acab9b6db957d8ba45e431a265571662b51682286542fb9d", parentIds: ["rapid-house-primary-projection-v8", "rapid-house-primary-vermont-results-v1"] },
 } as const;
 const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
 // Paths are an exact allowlist above. Ignore dynamic tracing because `root` exists only for fixture isolation.
@@ -33,9 +33,9 @@ export async function loadRapidHousePrimaryCoverage(root?: string): Promise<Rapi
   }
   if (!value || typeof value !== "object" || Array.isArray(value)) return null;
   const ledger = value as Record<string, unknown>;
-  if (ledger.schema !== "rapid-house-primary-coverage-ledger-v8" || ledger.version !== 8 || !Array.isArray(ledger.rows) || !ledger.rows.every(isRow)) return null;
-  if (projection.schema !== "rapid-house-primary-projection-v8" || projection.packageSha256 !== ledger.projectionSha256 || !Array.isArray(projection.coverageRows) || JSON.stringify(projection.coverageRows) !== JSON.stringify(ledger.rows)) return null;
+  if (ledger.schema !== "rapid-house-primary-coverage-ledger-v9" || ledger.version !== 9 || !Array.isArray(ledger.rows) || !ledger.rows.every(isRow)) return null;
+  if (projection.schema !== "rapid-house-primary-projection-v9" || projection.packageSha256 !== ledger.projectionSha256 || !Array.isArray(projection.coverageRows) || JSON.stringify(projection.coverageRows) !== JSON.stringify(ledger.rows)) return null;
   const rows = ledger.rows as RapidHousePrimaryCoverageRow[];
-  if (rows.length !== 48 || rows.flatMap((row) => row.expectedTargetDistricts).length !== 78 || rows.reduce((sum, row) => sum + row.parsedDistrictCount, 0) !== 22 || rows.reduce((sum, row) => sum + row.sourceAbsentDistrictCount, 0) !== 2) return null;
-  return { schema: "rapid-house-primary-coverage-ledger-v8", version: 8, rows: [...rows].sort((left, right) => left.stateCode.localeCompare(right.stateCode) || left.cycleYear - right.cycleYear) };
+  if (rows.length !== 48 || rows.flatMap((row) => row.expectedTargetDistricts).length !== 78 || rows.reduce((sum, row) => sum + row.parsedDistrictCount, 0) !== 24 || rows.reduce((sum, row) => sum + row.sourceAbsentDistrictCount, 0) !== 2) return null;
+  return { schema: "rapid-house-primary-coverage-ledger-v9", version: 9, rows: [...rows].sort((left, right) => left.stateCode.localeCompare(right.stateCode) || left.cycleYear - right.cycleYear) };
 }

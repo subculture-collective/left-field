@@ -1,0 +1,80 @@
+{
+  "schema": "rapid-house-primary-vermont-results-v1",
+  "version": 1,
+  "results": [
+    {
+      "resultId": "vt:primary:2022:al:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-09",
+      "districtLabel": "VT-AL",
+      "sourceLockIds": [
+        "vt-2022-primary-official-canvass",
+        "vt-2022-primary-official-canvass-text"
+      ],
+      "sourceCandidateNames": [
+        "Becca Balint",
+        "Sianay Chase Clifford",
+        "Molly Gray",
+        "Louis Meyers"
+      ],
+      "candidateVotes": [
+        61025,
+        885,
+        37266,
+        1593
+      ],
+      "candidateVoteSum": 100769,
+      "writeInVotes": 145,
+      "overvotes": 74,
+      "blankVotes": 1420,
+      "sourceTotalVotesCounted": 102408,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "sourceWinnerCandidateName": null,
+      "resultAuthorityStatus": "official_secretary_canvass_report_retained",
+      "certificationStatus": "official_canvassing_committee_report_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "71bebe686ce8777a429aeb3b94426e3c89f88cf415a84282d941868b7757b60c"
+    },
+    {
+      "resultId": "vt:primary:2024:al:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-13",
+      "districtLabel": "VT-AL",
+      "sourceLockIds": [
+        "vt-2024-primary-official-canvass",
+        "vt-2024-primary-official-canvass-text"
+      ],
+      "sourceCandidateNames": [
+        "Becca Balint"
+      ],
+      "candidateVotes": [
+        47638
+      ],
+      "candidateVoteSum": 47638,
+      "writeInVotes": 465,
+      "overvotes": 13,
+      "blankVotes": 3853,
+      "sourceTotalVotesCounted": 51969,
+      "sourceWinnerStatus": "marked_by_source",
+      "sourceWinnerCandidateName": "Becca Balint",
+      "resultAuthorityStatus": "official_secretary_canvass_report_retained",
+      "certificationStatus": "official_canvassing_committee_report_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "434d91364ab788f867a178680faddec83be45b0aa787806a600b063ed4f0321a"
+    }
+  ],
+  "resultSetSha256": "03bdaf7b5ddc8a51638b457a89bc1dfecdbc29bd38978289a59b5d53122dacdd",
+  "summary": {
+    "reportedContests": 2,
+    "candidateRows": 5,
+    "candidateVotes": 148407,
+    "sourceTotalVotesCounted": 154377,
+    "sourceMarkedWinnerContests": 1,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "58cdaf93692e198af5d76aae08fdfc065cc40241f7d0c85d7c8bd72215a17cec"
+}
