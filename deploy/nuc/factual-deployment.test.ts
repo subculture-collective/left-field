@@ -27,6 +27,32 @@ describe("factual production FEC runtime wiring", () => {
     expect(postgres).not.toContain("db_correction_reviewer_password");
   });
 
+  it("provides correction cleanup through a separate maintenance-only tool service", () => {
+    const compose = read("factual.compose.yml");
+    const sql = read("grant-runtime-roles.sql");
+    const wrapper = read("run-with-secrets.sh");
+    const runner = read("run-correction-maintenance.sh");
+    const service = read("dsa-seats-correction-maintenance.service");
+    const timer = read("dsa-seats-correction-maintenance.timer");
+    const maintenance = compose.slice(compose.indexOf("\n  correction-maintenance:"), compose.indexOf("\nvolumes:"));
+
+    expect(compose).toContain("db_correction_maintenance_password:");
+    expect(maintenance).toContain('profiles: ["tools"]');
+    expect(maintenance).toContain('- db_correction_maintenance_password');
+    expect(maintenance).not.toContain("db_correction_reviewer_password");
+    expect(maintenance).not.toContain("db_admin_password");
+    expect(sql).toContain("CREATE ROLE dsa_seats_correction_maintenance_login LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT NOREPLICATION");
+    expect(sql).toContain("ALTER ROLE dsa_seats_correction_maintenance_login NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS INHERIT");
+    expect(sql).toContain("GRANT dsa_seats_correction_maintenance TO dsa_seats_correction_maintenance_login");
+    expect(wrapper).toContain('CORRECTION_MAINTENANCE_DATABASE_URL="postgresql://dsa_seats_correction_maintenance_login:');
+    expect(runner).toContain("release_dir=$app_base/releases/$release_id");
+    expect(runner).toContain("run --rm correction-maintenance");
+    expect(service).toContain("EnvironmentFile=/srv/apps/projects/dsa-seats-r1/runtime/factual.env");
+    expect(service).toContain("ExecStart=/usr/local/sbin/dsa-seats-correction-maintenance.sh");
+    expect(timer).toContain("Persistent=true");
+    expect(timer).toContain("Unit=dsa-seats-correction-maintenance.service");
+  });
+
   it("mounts distinct acquisition, replay-verifier, and API credential secrets only into operator tooling", () => {
     const compose = read("factual.compose.yml");
 

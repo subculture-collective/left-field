@@ -1,0 +1,11 @@
+[Unit]
+Description=Clean expired DSA Seats correction controls daily
+
+[Timer]
+OnCalendar=*-*-* 02:17:00
+Persistent=true
+RandomizedDelaySec=15m
+Unit=dsa-seats-correction-maintenance.service
+
+[Install]
+WantedBy=timers.target

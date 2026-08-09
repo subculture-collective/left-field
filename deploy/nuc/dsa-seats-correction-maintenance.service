@@ -1,0 +1,17 @@
+[Unit]
+Description=Clean expired DSA Seats correction intake controls
+Wants=network-online.target docker.service
+After=network-online.target docker.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=/srv/apps/projects/dsa-seats-r1/runtime/factual.env
+ExecStart=/usr/local/sbin/dsa-seats-correction-maintenance.sh
+User=root
+Group=root
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectHome=true
+ProtectSystem=strict
+ReadOnlyPaths=/srv/apps/projects/dsa-seats-r1
+UMask=0077

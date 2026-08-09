@@ -85,3 +85,44 @@ Public correction intake remains disabled until the separately documented
 signed activation, edge, retention, cleanup, backup-expiry, and two-person
 review requirements are satisfied. This CLI makes review executable; it does
 not claim those activation requirements have passed.
+
+## Clean expired intake controls
+
+Expired idempotency keys and rate-limit buckets are deleted only through
+`operations.cleanup_correction_controls_v1()`. The maintenance command uses a
+separate LOGIN that belongs exclusively to `dsa_seats_correction_maintenance`;
+it cannot list submissions, review content, transition corrections, or use the
+public intake connection.
+
+Create an independent `db_correction_maintenance_password` in the factual
+`SECRETS_DIR`, mode `0600`, then rerun `role-grants`. A manual bounded run is:
+
+```bash
+docker compose -p dsa-seats-r1 \
+  --env-file /srv/apps/projects/dsa-seats-r1/runtime/factual.env \
+  -f deploy/nuc/factual.compose.yml run --rm correction-maintenance
+```
+
+The command emits only the two nonnegative deletion counts. It never emits a
+correction identifier or submitted content. Production scheduling uses
+`dsa-seats-correction-maintenance.timer`; install the service, timer, and
+`run-correction-maintenance.sh` from the exact deployed release, then enable the
+timer. The runner derives the release directory from the exact 64-character
+`APP_IMAGE` tag in the factual environment and fails closed if that release or
+compose file is absent.
+
+```bash
+sudo install -m 0755 deploy/nuc/run-correction-maintenance.sh \
+  /usr/local/sbin/dsa-seats-correction-maintenance.sh
+sudo install -m 0644 deploy/nuc/dsa-seats-correction-maintenance.service \
+  deploy/nuc/dsa-seats-correction-maintenance.timer /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable --now dsa-seats-correction-maintenance.timer
+sudo systemctl start dsa-seats-correction-maintenance.service
+sudo systemctl status dsa-seats-correction-maintenance.service \
+  dsa-seats-correction-maintenance.timer
+```
+
+The timer is operational plumbing, not correction-intake approval. Keep intake
+disabled until the independent retention, backup-expiry, privacy, edge, and
+two-person activation evidence is complete.

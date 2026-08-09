@@ -11,6 +11,7 @@ x-db-secrets: &db-secrets
   - db_fec_v2_acquisition_password
   - db_fec_v2_replay_verifier_password
   - db_correction_reviewer_password
+  - db_correction_maintenance_password
 
 x-release-environment: &release-environment
   NODE_ENV: production
@@ -187,6 +188,7 @@ services:
           --set fec_v2_acquisition_password="$$(tr -d '\r\n' < /run/secrets/db_fec_v2_acquisition_password)" \
           --set fec_v2_replay_verifier_password="$$(tr -d '\r\n' < /run/secrets/db_fec_v2_replay_verifier_password)" \
           --set correction_reviewer_password="$$(tr -d '\r\n' < /run/secrets/db_correction_reviewer_password)" \
+          --set correction_maintenance_password="$$(tr -d '\r\n' < /run/secrets/db_correction_maintenance_password)" \
           --host postgres --username dsa_seats_admin --dbname dsa_seats_r1 \
           --file /config/grant-runtime-roles.sql
     secrets: *db-secrets
@@ -267,6 +269,21 @@ services:
     secrets:
       - db_correction_reviewer_password
 
+  correction-maintenance:
+    profiles: ["tools"]
+    image: ${APP_IMAGE:?APP_IMAGE is required}
+    depends_on:
+      role-grants:
+        condition: service_completed_successfully
+    entrypoint: ["/app/deploy/nuc/run-with-secrets.sh"]
+    command: ["npm", "run", "corrections:maintain", "--", "cleanup"]
+    environment:
+      NODE_ENV: production
+      DATABASE_HOST: postgres
+      DATABASE_NAME: dsa_seats_r1
+    secrets:
+      - db_correction_maintenance_password
+
 volumes:
   postgres_data:
   raw_objects:
@@ -294,6 +311,8 @@ secrets:
     file: ${SECRETS_DIR:-./secrets}/db_fec_v2_replay_verifier_password
   db_correction_reviewer_password:
     file: ${SECRETS_DIR:-./secrets}/db_correction_reviewer_password
+  db_correction_maintenance_password:
+    file: ${SECRETS_DIR:-./secrets}/db_correction_maintenance_password
   raw_root_user:
     file: ${SECRETS_DIR:-./secrets}/raw_root_user
   raw_root_password:

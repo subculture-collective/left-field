@@ -16,7 +16,8 @@ route.
    SHA-256 and image digest.
 2. Create `deploy/nuc/secrets/` as mode `0700`. Every file must be mode `0600`;
    database and object-store passwords are independently generated hexadecimal
-   values. This includes the isolated `db_correction_reviewer_password`; never
+   values. This includes the isolated `db_correction_reviewer_password` and
+   `db_correction_maintenance_password`; never
    reuse a web, operator, or migration password. Never copy the preview `.env`.
 3. Set only identifiers and hashes in an untracked factual environment file.
 4. Start the factual stack without changing Caddy:

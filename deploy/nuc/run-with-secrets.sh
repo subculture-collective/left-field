@@ -51,6 +51,10 @@ if [ -r /run/secrets/db_correction_reviewer_password ]; then
   correction_reviewer_password=$(encode_password /run/secrets/db_correction_reviewer_password)
   export CORRECTION_REVIEWER_DATABASE_URL="postgresql://dsa_seats_correction_reviewer_login:${correction_reviewer_password}@${database_host}:5432/${database_name}"
 fi
+if [ -r /run/secrets/db_correction_maintenance_password ]; then
+  correction_maintenance_password=$(encode_password /run/secrets/db_correction_maintenance_password)
+  export CORRECTION_MAINTENANCE_DATABASE_URL="postgresql://dsa_seats_correction_maintenance_login:${correction_maintenance_password}@${database_host}:5432/${database_name}"
+fi
 if [ -r /run/secrets/fec_api_credential ]; then
   FEC_API_CREDENTIAL=$(tr -d '\r\n' < /run/secrets/fec_api_credential)
   [ -n "$FEC_API_CREDENTIAL" ] || { printf '%s\n' "empty secret: /run/secrets/fec_api_credential" >&2; exit 1; }
