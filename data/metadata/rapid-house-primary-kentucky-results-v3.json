@@ -1,0 +1,90 @@
+{
+  "schema": "rapid-house-primary-kentucky-results-v3",
+  "version": 3,
+  "parentPackageSha256": "878c831d8734fffa9c518fffb72f97a1dceb2a85013d2d6897c4279b76696fc4",
+  "results": [
+    {
+      "resultId": "ky:primary:2022:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "districtLabel": "KY-03",
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-layout-text"
+      ],
+      "rawParty": "Democratic Party",
+      "sourceCandidateNames": [
+        "Morgan McGARVEY",
+        "Attica SCOTT"
+      ],
+      "candidateVotes": [
+        52157,
+        30183
+      ],
+      "totalVotes": 82340,
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "bc6957173dd6be4eb3c3d984bc892afb10c2d17496e34b9b0ad9af3d17a52057"
+    },
+    {
+      "resultId": "ky:primary:2024:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "districtLabel": "KY-03",
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-layout-text"
+      ],
+      "rawParty": "Democratic Party",
+      "sourceCandidateNames": [
+        "Morgan McGARVEY",
+        "Geoffrey M. \"Geoff\" YOUNG",
+        "Jared RANDALL"
+      ],
+      "candidateVotes": [
+        44275,
+        5875,
+        2491
+      ],
+      "totalVotes": 52641,
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "bd5ffefe97575593af32541109f06d8651152d6ca922ea3d2bb4f8fbe2653e1a"
+    }
+  ],
+  "sourceAbsent": [
+    {
+      "observationId": "ky:primary:2026:03:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "districtLabel": "KY-03",
+      "status": "source_absent_no_disposition_inference",
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-layout-text"
+      ],
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false,
+      "absenceSha256": "66dd3168f0d90552cc1b8b53721eaa1caaa8f706e1f65f70c475b9f192b9f07c"
+    }
+  ],
+  "resultSetSha256": "b2cd081baf929f40a4d20f3b8f37f9b757e7c9a84ad64382f96a7cfb12ba39fb",
+  "summary": {
+    "reportedContests": 2,
+    "sourceAbsent": 1,
+    "candidateRows": 5,
+    "candidateVotes": 134981,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "68401535ae98878db5f734dac3ef0a0995452dc643773b2813f9ea0d8e6a07ce"
+}
