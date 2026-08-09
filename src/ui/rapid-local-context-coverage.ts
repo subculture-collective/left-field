@@ -3,8 +3,9 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export type RapidLocalContextArtifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0 }>;
-export type RapidLocalContextCoverageViewModel = Readonly<{ schema: "rapid-local-context-coverage-v1" | "rapid-local-context-coverage-v2"; version: 1 | 2; artifacts: readonly RapidLocalContextArtifact[] }>;
+export type RapidLocalContextCoverageViewModel = Readonly<{ schema: "rapid-local-context-coverage-v1" | "rapid-local-context-coverage-v2" | "rapid-local-context-coverage-v3"; version: 1 | 2 | 3; artifacts: readonly RapidLocalContextArtifact[] }>;
 const coveragePaths = (root = process.cwd()) => [
+  { schema: "rapid-local-context-coverage-v3" as const, version: 3 as const, id: "rapid-local-context-coverage-v3", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v3.json"), artifactCount: 5 },
   { schema: "rapid-local-context-coverage-v2" as const, version: 2 as const, id: "rapid-local-context-coverage-v2", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v2.json"), artifactCount: 4 },
   { schema: "rapid-local-context-coverage-v1" as const, version: 1 as const, id: "rapid-local-context-coverage-v1", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v1.json"), artifactCount: 3 },
 ] as const;
@@ -21,6 +22,7 @@ type Lock = Readonly<{ entries: readonly Readonly<{ id: string; retainedPath?: s
 const childPaths: Readonly<Record<string, string>> = {
   "rapid-county-demographics-projection-v1": "data/metadata/rapid-county-demographics-projection-v1.json",
   "rapid-county-election-context-projection-v1": "data/metadata/rapid-county-election-context-projection-v1.json",
+  "rapid-county-house-results-projection-v1": "data/metadata/rapid-county-house-results-projection-v1.json",
   "rapid-county-senate-results-projection-v1": "data/metadata/rapid-county-senate-results-projection-v1.json",
   "rapid-indiana-state-legislative-primary-results-v1": "data/metadata/rapid-indiana-state-legislative-primary-results-v1.json",
 };
@@ -37,7 +39,7 @@ export async function loadRapidLocalContextCoverage(root = process.cwd()): Promi
     const loaded = await loadCandidate(value, raw, lock, candidate, root);
     if (loaded) return loaded;
     // A retained v2 receipt is authoritative: do not silently fall back from a damaged v2.
-    if (candidate.version === 2) return null;
+    if (candidate.version >= 2) return null;
   }
   return null;
 }
