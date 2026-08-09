@@ -3,8 +3,10 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export type RapidLocalContextArtifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0 }>;
-export type RapidLocalContextCoverageViewModel = Readonly<{ schema: "rapid-local-context-coverage-v1" | "rapid-local-context-coverage-v2" | "rapid-local-context-coverage-v3" | "rapid-local-context-coverage-v4" | "rapid-local-context-coverage-v5" | "rapid-local-context-coverage-v6" | "rapid-local-context-coverage-v7"; version: 1 | 2 | 3 | 4 | 5 | 6 | 7; artifacts: readonly RapidLocalContextArtifact[] }>;
+export type RapidLocalContextCoverageViewModel = Readonly<{ schema: "rapid-local-context-coverage-v1" | "rapid-local-context-coverage-v2" | "rapid-local-context-coverage-v3" | "rapid-local-context-coverage-v4" | "rapid-local-context-coverage-v5" | "rapid-local-context-coverage-v6" | "rapid-local-context-coverage-v7" | "rapid-local-context-coverage-v8" | "rapid-local-context-coverage-v9"; version: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9; artifacts: readonly RapidLocalContextArtifact[] }>;
 const coveragePaths = (root = process.cwd()) => [
+  { schema: "rapid-local-context-coverage-v9" as const, version: 9 as const, id: "rapid-local-context-coverage-v9", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v9.json"), artifactCount: 11 },
+  { schema: "rapid-local-context-coverage-v8" as const, version: 8 as const, id: "rapid-local-context-coverage-v8", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v8.json"), artifactCount: 10 },
   { schema: "rapid-local-context-coverage-v7" as const, version: 7 as const, id: "rapid-local-context-coverage-v7", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v7.json"), artifactCount: 9 },
   { schema: "rapid-local-context-coverage-v6" as const, version: 6 as const, id: "rapid-local-context-coverage-v6", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v6.json"), artifactCount: 8 },
   { schema: "rapid-local-context-coverage-v5" as const, version: 5 as const, id: "rapid-local-context-coverage-v5", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v5.json"), artifactCount: 7 },
@@ -24,6 +26,8 @@ const isArtifact = (value: unknown): value is RapidLocalContextArtifact => {
 };
 type Lock = Readonly<{ entries: readonly Readonly<{ id: string; retainedPath?: string; retainedStatus: string; byteSize?: number; sha256?: string; parentIds: readonly string[] }>[] }>;
 const childPaths: Readonly<Record<string, string>> = {
+  "rapid-delaware-state-legislative-primary-results-v1": "data/metadata/rapid-delaware-state-legislative-primary-results-v1.json",
+  "rapid-alabama-state-legislative-primary-results-v1": "data/metadata/rapid-alabama-state-legislative-primary-results-v1.json",
   "rapid-county-demographics-projection-v1": "data/metadata/rapid-county-demographics-projection-v1.json",
   "rapid-county-election-context-projection-v1": "data/metadata/rapid-county-election-context-projection-v1.json",
   "rapid-county-house-results-2022-projection-v1": "data/metadata/rapid-county-house-results-2022-projection-v1.json",

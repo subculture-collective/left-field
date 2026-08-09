@@ -1,0 +1,1060 @@
+{
+  "schema": "rapid-delaware-state-legislative-primary-results-v1",
+  "version": 1,
+  "sourceScope": "reported_candidate_bearing_state_legislative_primary_contests_only",
+  "contests": [
+    {
+      "contestId": "de:state-leg-primary:2022:lower:001:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "lower",
+      "district": "001",
+      "rawOfficeTitle": "State Representative District 1",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "NNAMDI O. CHUKWUOCHA",
+          "machineVotes": 1082,
+          "absenteeVotes": 236,
+          "earlyVotes": 109,
+          "totalVotes": 1427,
+          "sourcePercentage": 51.6281
+        },
+        {
+          "sourceName": "SHANE' NICOLE DARBY",
+          "machineVotes": 1084,
+          "absenteeVotes": 162,
+          "earlyVotes": 91,
+          "totalVotes": 1337,
+          "sourcePercentage": 48.3719
+        }
+      ],
+      "totalVotes": 2764,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "c0b700d7d4060a304ac8814db51b5488e001bf4cc34aeeec54a25ac5eb863b27"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:lower:002:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "lower",
+      "district": "002",
+      "rawOfficeTitle": "State Representative District 2",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "STEPHANIE T. BOLDEN",
+          "machineVotes": 527,
+          "absenteeVotes": 134,
+          "earlyVotes": 50,
+          "totalVotes": 711,
+          "sourcePercentage": 62.0961
+        },
+        {
+          "sourceName": "JAMES J. TAYLOR",
+          "machineVotes": 352,
+          "absenteeVotes": 58,
+          "earlyVotes": 24,
+          "totalVotes": 434,
+          "sourcePercentage": 37.9039
+        }
+      ],
+      "totalVotes": 1145,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "0ac79d8745f60696b83a655fa45bdda8abaf622f3fd03c527e30fb187e5e3f12"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:lower:004:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "lower",
+      "district": "004",
+      "rawOfficeTitle": "State Representative District 4",
+      "rawParty": "Republican Party",
+      "candidates": [
+        {
+          "sourceName": "JEFF HILOVSKY",
+          "machineVotes": 1220,
+          "absenteeVotes": 106,
+          "earlyVotes": 46,
+          "totalVotes": 1372,
+          "sourcePercentage": 61.0592
+        },
+        {
+          "sourceName": "BRADLEY H. LAYFIELD",
+          "machineVotes": 796,
+          "absenteeVotes": 58,
+          "earlyVotes": 21,
+          "totalVotes": 875,
+          "sourcePercentage": 38.9408
+        }
+      ],
+      "totalVotes": 2247,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "2c4223086ff0d143f41f597ddc6ba9f3e4c2a6d912d15c7df29c5477774a5ae5"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:lower:006:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "lower",
+      "district": "006",
+      "rawOfficeTitle": "State Representative District 6",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "BECCA COTTO",
+          "machineVotes": 1015,
+          "absenteeVotes": 185,
+          "earlyVotes": 56,
+          "totalVotes": 1256,
+          "sourcePercentage": 44.4917
+        },
+        {
+          "sourceName": "DEBRA J. HEFFERNAN",
+          "machineVotes": 1251,
+          "absenteeVotes": 228,
+          "earlyVotes": 88,
+          "totalVotes": 1567,
+          "sourcePercentage": 55.5083
+        }
+      ],
+      "totalVotes": 2823,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "3c2a8d12f2705b0f0340c4306391b9a946069a4b3f010e5defb38a6bd5049222"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:lower:013:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "lower",
+      "district": "013",
+      "rawOfficeTitle": "State Representative District 13",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "JOHN L. MITCHELL JR",
+          "machineVotes": 526,
+          "absenteeVotes": 104,
+          "earlyVotes": 15,
+          "totalVotes": 645,
+          "sourcePercentage": 49.0868
+        },
+        {
+          "sourceName": "DESHANNA U. NEAL",
+          "machineVotes": 568,
+          "absenteeVotes": 87,
+          "earlyVotes": 14,
+          "totalVotes": 669,
+          "sourcePercentage": 50.9132
+        }
+      ],
+      "totalVotes": 1314,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "1baaa4148de70c3d8bf13e4d8273868fafda31cba187b326e96f63374677fd04"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:lower:018:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "lower",
+      "district": "018",
+      "rawOfficeTitle": "State Representative District 18",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "SOPHIE PHILLIPS",
+          "machineVotes": 649,
+          "absenteeVotes": 147,
+          "earlyVotes": 25,
+          "totalVotes": 821,
+          "sourcePercentage": 71.0823
+        },
+        {
+          "sourceName": "MARTIN C. WILLIS",
+          "machineVotes": 271,
+          "absenteeVotes": 52,
+          "earlyVotes": 11,
+          "totalVotes": 334,
+          "sourcePercentage": 28.9177
+        }
+      ],
+      "totalVotes": 1155,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "590be1785f1ee6046ac1b5677b5ba7d0ba2123a25c7fe6f257ded0fc4f0d2694"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:lower:025:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "lower",
+      "district": "025",
+      "rawOfficeTitle": "State Representative District 25",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "EDWARD J. KLIMA",
+          "machineVotes": 176,
+          "absenteeVotes": 33,
+          "earlyVotes": 4,
+          "totalVotes": 213,
+          "sourcePercentage": 15.0743
+        },
+        {
+          "sourceName": "CYNDIE ROMER",
+          "machineVotes": 902,
+          "absenteeVotes": 210,
+          "earlyVotes": 88,
+          "totalVotes": 1200,
+          "sourcePercentage": 84.9257
+        }
+      ],
+      "totalVotes": 1413,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "99698f860a38faac48e66b628762acf608992183359e415eb6ea945982092a99"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:lower:026:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "lower",
+      "district": "026",
+      "rawOfficeTitle": "State Representative District 26",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "KELLY WILLIAMS MARESCA",
+          "machineVotes": 403,
+          "absenteeVotes": 94,
+          "earlyVotes": 9,
+          "totalVotes": 506,
+          "sourcePercentage": 32.3323
+        },
+        {
+          "sourceName": "MADINAH WILSON-ANTON",
+          "machineVotes": 864,
+          "absenteeVotes": 131,
+          "earlyVotes": 64,
+          "totalVotes": 1059,
+          "sourcePercentage": 67.6677
+        }
+      ],
+      "totalVotes": 1565,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "8a5ca513db1bca88abaaa602290d846ebb26c23e37c0390b5b9ed690ac2d8e57"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:lower:027:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "lower",
+      "district": "027",
+      "rawOfficeTitle": "State Representative District 27",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "MICHAEL F. HERTZFELD",
+          "machineVotes": 501,
+          "absenteeVotes": 60,
+          "earlyVotes": 12,
+          "totalVotes": 573,
+          "sourcePercentage": 33.9656
+        },
+        {
+          "sourceName": "ERIC MORRISON",
+          "machineVotes": 880,
+          "absenteeVotes": 196,
+          "earlyVotes": 38,
+          "totalVotes": 1114,
+          "sourcePercentage": 66.0344
+        }
+      ],
+      "totalVotes": 1687,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "2baf9664212cf6d8bb2b4ce74dc199ae65395acdb9ff26bdcaf45f3f3eb4a89c"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:lower:032:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "lower",
+      "district": "032",
+      "rawOfficeTitle": "State Representative District 32",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "KERRI EVELYN HARRIS",
+          "machineVotes": 574,
+          "absenteeVotes": 113,
+          "earlyVotes": 38,
+          "totalVotes": 725,
+          "sourcePercentage": 64.5592
+        },
+        {
+          "sourceName": "LAVAUGHN MCCUTCHEN",
+          "machineVotes": 33,
+          "absenteeVotes": 18,
+          "earlyVotes": 1,
+          "totalVotes": 52,
+          "sourcePercentage": 4.63045
+        },
+        {
+          "sourceName": "PHIL MCGINNIS",
+          "machineVotes": 177,
+          "absenteeVotes": 72,
+          "earlyVotes": 21,
+          "totalVotes": 270,
+          "sourcePercentage": 24.0427
+        },
+        {
+          "sourceName": "LAMONT C. PIERCE",
+          "machineVotes": 58,
+          "absenteeVotes": 14,
+          "earlyVotes": 4,
+          "totalVotes": 76,
+          "sourcePercentage": 6.76759
+        }
+      ],
+      "totalVotes": 1123,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "555e6ace40c0e2d0147fdbc7c228ed01d092b5111706fabff27223a82d1c9c45"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:lower:036:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "lower",
+      "district": "036",
+      "rawOfficeTitle": "State Representative District 36",
+      "rawParty": "Republican Party",
+      "candidates": [
+        {
+          "sourceName": "BRYAN W. SHUPE",
+          "machineVotes": 1295,
+          "absenteeVotes": 71,
+          "earlyVotes": 28,
+          "totalVotes": 1394,
+          "sourcePercentage": 68.8055
+        },
+        {
+          "sourceName": "PATRICK SMITH",
+          "machineVotes": 607,
+          "absenteeVotes": 16,
+          "earlyVotes": 9,
+          "totalVotes": 632,
+          "sourcePercentage": 31.1945
+        }
+      ],
+      "totalVotes": 2026,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "857fbc448fcee2a2da67d20a903f884b453f0befe99aa2e5ee240f7f95c22943"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:upper:06:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "upper",
+      "district": "06",
+      "rawOfficeTitle": "State Senator District 6",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "JOHN \"JACK\" BUCCHIONI",
+          "machineVotes": 1089,
+          "absenteeVotes": 534,
+          "earlyVotes": 239,
+          "totalVotes": 1862,
+          "sourcePercentage": 32.1034
+        },
+        {
+          "sourceName": "RUSS HUXTABLE",
+          "machineVotes": 2555,
+          "absenteeVotes": 872,
+          "earlyVotes": 511,
+          "totalVotes": 3938,
+          "sourcePercentage": 67.8966
+        }
+      ],
+      "totalVotes": 5800,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "835a5df30117f02a9458aae72578c7d39e996e5c54a814809ee5e3944b2110dc"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:upper:14:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "upper",
+      "district": "14",
+      "rawOfficeTitle": "State Senator District 14",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "MICHAEL \"TATER\" HILL-SHANER",
+          "machineVotes": 681,
+          "absenteeVotes": 94,
+          "earlyVotes": 19,
+          "totalVotes": 794,
+          "sourcePercentage": 26.8879
+        },
+        {
+          "sourceName": "KYRA HOFFNER",
+          "machineVotes": 814,
+          "absenteeVotes": 177,
+          "earlyVotes": 24,
+          "totalVotes": 1015,
+          "sourcePercentage": 34.3718
+        },
+        {
+          "sourceName": "KEVIN MUSTO",
+          "machineVotes": 462,
+          "absenteeVotes": 88,
+          "earlyVotes": 20,
+          "totalVotes": 570,
+          "sourcePercentage": 19.3024
+        },
+        {
+          "sourceName": "SAM NOEL",
+          "machineVotes": 222,
+          "absenteeVotes": 36,
+          "earlyVotes": 4,
+          "totalVotes": 262,
+          "sourcePercentage": 8.87233
+        },
+        {
+          "sourceName": "ROBERT SEBASTIANO",
+          "machineVotes": 258,
+          "absenteeVotes": 41,
+          "earlyVotes": 13,
+          "totalVotes": 312,
+          "sourcePercentage": 10.5655
+        }
+      ],
+      "totalVotes": 2953,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "9baa525e2b97411c5ce74fb7cc581c9380169864bd577787be58a1fb5c622811"
+    },
+    {
+      "contestId": "de:state-leg-primary:2022:upper:16:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-09-13",
+      "sourceReportedAt": "2022-09-15T14:26:36.000",
+      "chamber": "upper",
+      "district": "16",
+      "rawOfficeTitle": "State Senator District 16",
+      "rawParty": "Republican Party",
+      "candidates": [
+        {
+          "sourceName": "COLIN BONINI",
+          "machineVotes": 674,
+          "absenteeVotes": 85,
+          "earlyVotes": 56,
+          "totalVotes": 815,
+          "sourcePercentage": 21.7507
+        },
+        {
+          "sourceName": "ERIC BUCKSON",
+          "machineVotes": 1644,
+          "absenteeVotes": 108,
+          "earlyVotes": 163,
+          "totalVotes": 1915,
+          "sourcePercentage": 51.1076
+        },
+        {
+          "sourceName": "KIM PETTERS",
+          "machineVotes": 952,
+          "absenteeVotes": 25,
+          "earlyVotes": 40,
+          "totalVotes": 1017,
+          "sourcePercentage": 27.1417
+        }
+      ],
+      "totalVotes": 3747,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2022-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "0a8e56b769f105da608c6450a0166e1015914722199c566a6f96d18ce98c0175"
+    },
+    {
+      "contestId": "de:state-leg-primary:2024:lower:002:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "sourceReportedAt": "2024-09-13T12:42:52.000",
+      "chamber": "lower",
+      "district": "002",
+      "rawOfficeTitle": "State Representative District 2",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "STEPHANIE T. BOLDEN",
+          "machineVotes": 1043,
+          "absenteeVotes": 120,
+          "earlyVotes": 213,
+          "totalVotes": 1376,
+          "sourcePercentage": 64.6009
+        },
+        {
+          "sourceName": "JAMES TAYLOR",
+          "machineVotes": 587,
+          "absenteeVotes": 53,
+          "earlyVotes": 114,
+          "totalVotes": 754,
+          "sourcePercentage": 35.3991
+        }
+      ],
+      "totalVotes": 2130,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2024-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "3909ad689adb4f083361bf4e94ba0d55f36ca608a91af21e8505421f92ca76b3"
+    },
+    {
+      "contestId": "de:state-leg-primary:2024:lower:010:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "sourceReportedAt": "2024-09-13T12:42:52.000",
+      "chamber": "lower",
+      "district": "010",
+      "rawOfficeTitle": "State Representative District 10",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "STEPHEN JANKOVIC",
+          "machineVotes": 156,
+          "absenteeVotes": 26,
+          "earlyVotes": 15,
+          "totalVotes": 197,
+          "sourcePercentage": 7.33433
+        },
+        {
+          "sourceName": "MELANIE ROSS LEVIN",
+          "machineVotes": 1462,
+          "absenteeVotes": 180,
+          "earlyVotes": 197,
+          "totalVotes": 1839,
+          "sourcePercentage": 68.4661
+        },
+        {
+          "sourceName": "DENNIS E. WILLIAMS",
+          "machineVotes": 481,
+          "absenteeVotes": 88,
+          "earlyVotes": 81,
+          "totalVotes": 650,
+          "sourcePercentage": 24.1996
+        }
+      ],
+      "totalVotes": 2686,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2024-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "982280e3a15826fa0364fe750353c62f6348233e1402ca93bc9e8dd416295c95"
+    },
+    {
+      "contestId": "de:state-leg-primary:2024:lower:014:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "sourceReportedAt": "2024-09-13T12:42:52.000",
+      "chamber": "lower",
+      "district": "014",
+      "rawOfficeTitle": "State Representative District 14",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "KATHLEEN K. MCGUINESS",
+          "machineVotes": 811,
+          "absenteeVotes": 202,
+          "earlyVotes": 225,
+          "totalVotes": 1238,
+          "sourcePercentage": 26.913
+        },
+        {
+          "sourceName": "MARTY RENDON",
+          "machineVotes": 874,
+          "absenteeVotes": 176,
+          "earlyVotes": 414,
+          "totalVotes": 1464,
+          "sourcePercentage": 31.8261
+        },
+        {
+          "sourceName": "CLAIRE SNYDER-HALL",
+          "machineVotes": 1003,
+          "absenteeVotes": 395,
+          "earlyVotes": 500,
+          "totalVotes": 1898,
+          "sourcePercentage": 41.2609
+        }
+      ],
+      "totalVotes": 4600,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2024-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "cca7498b57502b2c9615920e311b665b278c7e44dfab3cfd4be5e31f22ad2072"
+    },
+    {
+      "contestId": "de:state-leg-primary:2024:lower:015:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "sourceReportedAt": "2024-09-13T12:42:52.000",
+      "chamber": "lower",
+      "district": "015",
+      "rawOfficeTitle": "State Representative District 15",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "VALERIE LONGHURST",
+          "machineVotes": 992,
+          "absenteeVotes": 152,
+          "earlyVotes": 129,
+          "totalVotes": 1273,
+          "sourcePercentage": 46.6985
+        },
+        {
+          "sourceName": "KAMELA T. SMITH",
+          "machineVotes": 1249,
+          "absenteeVotes": 75,
+          "earlyVotes": 129,
+          "totalVotes": 1453,
+          "sourcePercentage": 53.3015
+        }
+      ],
+      "totalVotes": 2726,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2024-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "0d13c651ce6ffbc27d3e8cf2fbef39935846f7a7778728997d999db90b43a04b"
+    },
+    {
+      "contestId": "de:state-leg-primary:2024:lower:020:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "sourceReportedAt": "2024-09-13T12:42:52.000",
+      "chamber": "lower",
+      "district": "020",
+      "rawOfficeTitle": "State Representative District 20",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "BRIAN P. JENKINS",
+          "machineVotes": 363,
+          "absenteeVotes": 76,
+          "earlyVotes": 125,
+          "totalVotes": 564,
+          "sourcePercentage": 16.8963
+        },
+        {
+          "sourceName": "STELL PARKER SELBY",
+          "machineVotes": 1528,
+          "absenteeVotes": 447,
+          "earlyVotes": 799,
+          "totalVotes": 2774,
+          "sourcePercentage": 83.1037
+        }
+      ],
+      "totalVotes": 3338,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2024-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "ae4a11b4cf6866ea02c42fee44ff75e9d72fa0e3d141347a8ba07f4ca3ea3593"
+    },
+    {
+      "contestId": "de:state-leg-primary:2024:lower:021:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "sourceReportedAt": "2024-09-13T12:42:52.000",
+      "chamber": "lower",
+      "district": "021",
+      "rawOfficeTitle": "State Representative District 21",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "FRANK BURNS",
+          "machineVotes": 927,
+          "absenteeVotes": 117,
+          "earlyVotes": 98,
+          "totalVotes": 1142,
+          "sourcePercentage": 50.6655
+        },
+        {
+          "sourceName": "MICHAEL ALEXANDER SMITH",
+          "machineVotes": 886,
+          "absenteeVotes": 118,
+          "earlyVotes": 108,
+          "totalVotes": 1112,
+          "sourcePercentage": 49.3345
+        }
+      ],
+      "totalVotes": 2254,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2024-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "af5e8b03ee77023543246c805cfa49b31c7ccd93660088f0c17136d85fc97390"
+    },
+    {
+      "contestId": "de:state-leg-primary:2024:lower:027:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "sourceReportedAt": "2024-09-13T12:42:52.000",
+      "chamber": "lower",
+      "district": "027",
+      "rawOfficeTitle": "State Representative District 27",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "MARGIE LOPEZ WAITE",
+          "machineVotes": 925,
+          "absenteeVotes": 68,
+          "earlyVotes": 66,
+          "totalVotes": 1059,
+          "sourcePercentage": 40.2815
+        },
+        {
+          "sourceName": "ERIC MORRISON",
+          "machineVotes": 1277,
+          "absenteeVotes": 154,
+          "earlyVotes": 139,
+          "totalVotes": 1570,
+          "sourcePercentage": 59.7185
+        }
+      ],
+      "totalVotes": 2629,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2024-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "ef1e4a60abe097f93c3636177d59b48949b719c0ef1fc3cfdf575e86c88fce0b"
+    },
+    {
+      "contestId": "de:state-leg-primary:2024:lower:029:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "sourceReportedAt": "2024-09-13T12:42:52.000",
+      "chamber": "lower",
+      "district": "029",
+      "rawOfficeTitle": "State Representative District 29",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "WILLIAM BUSH",
+          "machineVotes": 1076,
+          "absenteeVotes": 216,
+          "earlyVotes": 375,
+          "totalVotes": 1667,
+          "sourcePercentage": 56.6044
+        },
+        {
+          "sourceName": "MONICA SHOCKLEY PORTER",
+          "machineVotes": 988,
+          "absenteeVotes": 118,
+          "earlyVotes": 172,
+          "totalVotes": 1278,
+          "sourcePercentage": 43.3956
+        }
+      ],
+      "totalVotes": 2945,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2024-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "c2f7c271830d370e934c0b96fd02946a92cc71459ceef16e1902050bcd6ddb08"
+    },
+    {
+      "contestId": "de:state-leg-primary:2024:lower:034:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "sourceReportedAt": "2024-09-13T12:42:52.000",
+      "chamber": "lower",
+      "district": "034",
+      "rawOfficeTitle": "State Representative District 34",
+      "rawParty": "Democratic Party",
+      "candidates": [
+        {
+          "sourceName": "ADE ADEWUNMI KUFORIJI",
+          "machineVotes": 438,
+          "absenteeVotes": 56,
+          "earlyVotes": 65,
+          "totalVotes": 559,
+          "sourcePercentage": 32.2935
+        },
+        {
+          "sourceName": "TRACEY M. MILLER",
+          "machineVotes": 852,
+          "absenteeVotes": 172,
+          "earlyVotes": 148,
+          "totalVotes": 1172,
+          "sourcePercentage": 67.7065
+        }
+      ],
+      "totalVotes": 1731,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2024-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "0e5f60912bada36e8f4f9e09c21d7e6f34e4b5eb264934aa8fb4966dcddf3f8f"
+    },
+    {
+      "contestId": "de:state-leg-primary:2024:lower:036:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "sourceReportedAt": "2024-09-13T12:42:52.000",
+      "chamber": "lower",
+      "district": "036",
+      "rawOfficeTitle": "State Representative District 36",
+      "rawParty": "Republican Party",
+      "candidates": [
+        {
+          "sourceName": "BRYAN WILLIAM SHUPE",
+          "machineVotes": 880,
+          "absenteeVotes": 81,
+          "earlyVotes": 196,
+          "totalVotes": 1157,
+          "sourcePercentage": 50.2606
+        },
+        {
+          "sourceName": "PATRICK SMITH",
+          "machineVotes": 923,
+          "absenteeVotes": 33,
+          "earlyVotes": 189,
+          "totalVotes": 1145,
+          "sourcePercentage": 49.7394
+        }
+      ],
+      "totalVotes": 2302,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2024-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "ff22aad2c0b10c32d0bd02be9279b1bca85848d1993ac72478be50210d8dec00"
+    },
+    {
+      "contestId": "de:state-leg-primary:2024:upper:18:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-09-10",
+      "sourceReportedAt": "2024-09-13T12:42:52.000",
+      "chamber": "upper",
+      "district": "18",
+      "rawOfficeTitle": "State Senator District 18",
+      "rawParty": "Republican Party",
+      "candidates": [
+        {
+          "sourceName": "ROBERT \"BOB\" REED",
+          "machineVotes": 836,
+          "absenteeVotes": 60,
+          "earlyVotes": 188,
+          "totalVotes": 1084,
+          "sourcePercentage": 24.2668
+        },
+        {
+          "sourceName": "DAVE WILSON",
+          "machineVotes": 2722,
+          "absenteeVotes": 141,
+          "earlyVotes": 520,
+          "totalVotes": 3383,
+          "sourcePercentage": 75.7332
+        }
+      ],
+      "totalVotes": 4467,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_statewide_primary_csv_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "de-2024-primary-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "cb9c1971180cd8f5e98c50f53b83cf8b10181b52bf64078f476ad8215897d777"
+    }
+  ],
+  "contestSetSha256": "ea6c16f3ec2c2707fcf93aaee53810a24b12b46ec51a1c0bdfc476e2e64149fa",
+  "summary": {
+    "cycles": 2,
+    "reportedPartyContests": 25,
+    "upperChamberContests": 4,
+    "lowerChamberContests": 21,
+    "democraticContests": 20,
+    "republicanContests": 5,
+    "candidateRows": 58,
+    "candidateVotes": 63570,
+    "inferredNoContestRows": 0,
+    "formulaEligibleContests": 0
+  },
+  "packageSha256": "da25511081a3516ae05f9bdf976d89ee9d03cb0581a2039db20705702b9b1809"
+}

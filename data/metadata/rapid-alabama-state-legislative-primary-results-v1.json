@@ -1,0 +1,2055 @@
+{
+  "schema": "rapid-alabama-state-legislative-primary-results-v1",
+  "version": 1,
+  "sourceScope": "reported_candidate_bearing_state_legislative_primary_contests_only",
+  "contests": [
+    {
+      "contestId": "al:state-leg-primary:2022:lower:001:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "001",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 1",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Maurice McCaney",
+          "votes": 3512
+        },
+        {
+          "sourceName": "Phillip Pettus",
+          "votes": 3875
+        }
+      ],
+      "totalVotes": 7387,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 40,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "4a27ecf0d274ad280e3db8a1d9cc2d8fe3d66004280b12cdf19074277a374a55"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:002:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "002",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 2",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Ben Harrison",
+          "votes": 3290
+        },
+        {
+          "sourceName": "Jason Spencer Black",
+          "votes": 3115
+        },
+        {
+          "sourceName": "Kimberly Butler",
+          "votes": 3101
+        },
+        {
+          "sourceName": "Terrance L. Irelan",
+          "votes": 522
+        }
+      ],
+      "totalVotes": 10028,
+      "countyWorkbookRows": 8,
+      "populatedVoteCells": 112,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "d62e81f631acb73945ca810f9ace8e0bc0eddb799154edd85afa001ba6671790"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:003:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "003",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 3",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Susan Warren Bentley",
+          "votes": 420
+        },
+        {
+          "sourceName": "Wesley Thompson",
+          "votes": 1237
+        }
+      ],
+      "totalVotes": 1657,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 58,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f73096bcffbc4bf68edf83ca30c27727ce99f53444c9f05772e078302840343d"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:003:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "003",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 3",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Fred Joly",
+          "votes": 2496
+        },
+        {
+          "sourceName": "Kerry \"Bubba\" Underwood",
+          "votes": 3219
+        }
+      ],
+      "totalVotes": 5715,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 58,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f1fecef9c7e966d10a68b77fc6741757786a2a1fa7c6c06d997778843c45ac39"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:004:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "004",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 4",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Parker Duncan Moore",
+          "votes": 3041
+        },
+        {
+          "sourceName": "Patrick Johnson",
+          "votes": 2535
+        },
+        {
+          "sourceName": "Sheila Banister",
+          "votes": 1398
+        }
+      ],
+      "totalVotes": 6974,
+      "countyWorkbookRows": 9,
+      "populatedVoteCells": 60,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "07bd7328937fcd23484f6507f1f951b343aa5c77369acbc892fe81bb47abef8e"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:007:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "007",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 7",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Ernie Yarbrough",
+          "votes": 4311
+        },
+        {
+          "sourceName": "Proncey D. Robertson",
+          "votes": 3635
+        }
+      ],
+      "totalVotes": 7946,
+      "countyWorkbookRows": 6,
+      "populatedVoteCells": 90,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "28bb7d72e1c509f54014903a9dd903da8279fd2b7aeb9cbf0cb7cb03005b12aa"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:013:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "013",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 13",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Charlie Waits",
+          "votes": 1337
+        },
+        {
+          "sourceName": "Greg Barnes",
+          "votes": 1082
+        },
+        {
+          "sourceName": "Keith Davis",
+          "votes": 980
+        },
+        {
+          "sourceName": "Matt Dozier",
+          "votes": 821
+        },
+        {
+          "sourceName": "Matt Woods",
+          "votes": 5238
+        }
+      ],
+      "totalVotes": 9458,
+      "countyWorkbookRows": 5,
+      "populatedVoteCells": 150,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "e985a38e58296e11a7be5d1e7b295e4847145afdf227cecea6f24da3a4c1dfc0"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:014:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "014",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 14",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Cory Franks",
+          "votes": 1664
+        },
+        {
+          "sourceName": "Timothy (Tim) Wadsworth",
+          "votes": 4907
+        },
+        {
+          "sourceName": "Tom Fredricks",
+          "votes": 3776
+        }
+      ],
+      "totalVotes": 10347,
+      "countyWorkbookRows": 12,
+      "populatedVoteCells": 147,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "389164101590f6c7e27f4103e061139dd66221a9d1bc7ceb205eac6d899b2b9a"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:015:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "015",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 15",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Brad Tompkins",
+          "votes": 2676
+        },
+        {
+          "sourceName": "Leigh Hulsey",
+          "votes": 3501
+        }
+      ],
+      "totalVotes": 6177,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 28,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "3bd0cc2eb24c2bd09d2ebd4aaabdbbe6209fdc3dca7070394e469f696671c1f5"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:020:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "020",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 20",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Angela McClure",
+          "votes": 1409
+        },
+        {
+          "sourceName": "Frances Taylor",
+          "votes": 2230
+        },
+        {
+          "sourceName": "James D. Brown",
+          "votes": 1162
+        },
+        {
+          "sourceName": "James Lomax",
+          "votes": 3765
+        }
+      ],
+      "totalVotes": 8566,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 68,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "2fedc21cfa63a46ff8c061090a08cdf2fd5c33fd468d72cb04e8358a476c33e5"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:023:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "023",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 23",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Mike Kirkland",
+          "votes": 3953
+        },
+        {
+          "sourceName": "Tommy Hanes",
+          "votes": 3708
+        }
+      ],
+      "totalVotes": 7661,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 58,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "82798bac6f53a7019150681e25507f9d67e3b50cfa77c21ead76500b37823b6a"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:024:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "024",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 24",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Don Stout",
+          "votes": 2894
+        },
+        {
+          "sourceName": "Nathaniel Ledbetter",
+          "votes": 6231
+        }
+      ],
+      "totalVotes": 9125,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 70,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "cea9ddcd92e4ac4ca68f783688fe368bc566c9bbe6e5bcda205d81c3f5df8937"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:025:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "025",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 25",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Buck Clemons",
+          "votes": 1799
+        },
+        {
+          "sourceName": "Phillip K. Rigsby",
+          "votes": 4316
+        }
+      ],
+      "totalVotes": 6115,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 32,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "8db9d683979e515605af1d6e8f69bc3216e0a57de3a1d60323d8060fe8751598"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:026:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "026",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 26",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Annette E. Holcomb",
+          "votes": 1288
+        },
+        {
+          "sourceName": "Brock Colvin",
+          "votes": 3022
+        },
+        {
+          "sourceName": "Todd Mitchem",
+          "votes": 1190
+        }
+      ],
+      "totalVotes": 5500,
+      "countyWorkbookRows": 3,
+      "populatedVoteCells": 39,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "4788c8313a6a0b32ba03c935c58a8ba0c8281c11f15f932f1ec6fa152f0144e8"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:028:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "028",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 28",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Gil F. Isbell",
+          "votes": 2465
+        },
+        {
+          "sourceName": "Mack N Butler",
+          "votes": 2684
+        }
+      ],
+      "totalVotes": 5149,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 50,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "d270d6e1c81775c830d657ee66d8183e2e4da24da1d7633edeadfc8d8879622e"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:029:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "029",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 29",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Jamie W Grant",
+          "votes": 3940
+        },
+        {
+          "sourceName": "Mark A. Gidley",
+          "votes": 4014
+        }
+      ],
+      "totalVotes": 7954,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 50,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "87d469a02ea9505612d6a4cbabaff170b13f8a67e44f00ca36c35c2a202288ee"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:031:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "031",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 31",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Chadwick Smith",
+          "votes": 2346
+        },
+        {
+          "sourceName": "Troy B. Stubbs",
+          "votes": 4731
+        }
+      ],
+      "totalVotes": 7077,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 46,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "8733aaacf941711d81e34c0b8ae1c8851635ccab7f344dc3bd6789f8f2835ab9"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:038:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "038",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 38",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Debbie Hamby Wood",
+          "votes": 3074
+        },
+        {
+          "sourceName": "Micah J. Messer",
+          "votes": 2311
+        }
+      ],
+      "totalVotes": 5385,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 36,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "4defce4012db794102f0018997078738b6eaf0a7b2d0bd567157bd9b1a13840d"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:039:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "039",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 39",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Brent Rhodes",
+          "votes": 2147
+        },
+        {
+          "sourceName": "Ginny Shaver",
+          "votes": 5344
+        }
+      ],
+      "totalVotes": 7491,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 88,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "50b0a9b42e243bc22ef34c4979125cbacf6e013b928c33a198c0aad51dfeb36c"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:040:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "040",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 40",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Bill Lester",
+          "votes": 1317
+        },
+        {
+          "sourceName": "Bill McAdams",
+          "votes": 1007
+        },
+        {
+          "sourceName": "Chad Robertson",
+          "votes": 1703
+        },
+        {
+          "sourceName": "Gayla Blanton",
+          "votes": 574
+        },
+        {
+          "sourceName": "Jakob Williamson",
+          "votes": 92
+        },
+        {
+          "sourceName": "Julie Borrelli",
+          "votes": 1553
+        },
+        {
+          "sourceName": "Katie Exum",
+          "votes": 1414
+        }
+      ],
+      "totalVotes": 7660,
+      "countyWorkbookRows": 14,
+      "populatedVoteCells": 231,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f93c8badda1877d09ee4b131e4114bc2ab9c364b1310acb029d98b22a3474330"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:045:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "045",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 45",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Dickie Drake",
+          "votes": 2486
+        },
+        {
+          "sourceName": "Susan Dubose",
+          "votes": 5099
+        }
+      ],
+      "totalVotes": 7585,
+      "countyWorkbookRows": 6,
+      "populatedVoteCells": 48,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "2fd768ac8a953de8dc892aeef593a1872a3201e25afc09686c36c3815e781007"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:047:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "047",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 47",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Christian Coleman",
+          "votes": 601
+        },
+        {
+          "sourceName": "Jim Toomey",
+          "votes": 596
+        }
+      ],
+      "totalVotes": 1197,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 28,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "ad6a808263c4aa43e8dcca415e452714aa43da763354b6e26c92c3d9e3480886"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:048:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "048",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 48",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Jim Carns",
+          "votes": 5207
+        },
+        {
+          "sourceName": "William C. Wentowski",
+          "votes": 2217
+        }
+      ],
+      "totalVotes": 7424,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 30,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "c9f2b1774484de957dac9b13d07512cfbb3db2b82c864256b1e80aa208b3a517"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:049:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "049",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 49",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Michael Hart",
+          "votes": 1670
+        },
+        {
+          "sourceName": "Russell Bedsole",
+          "votes": 4492
+        }
+      ],
+      "totalVotes": 6162,
+      "countyWorkbookRows": 6,
+      "populatedVoteCells": 38,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "6499f12f70d888fa143e452d156cb5c3e0c94423bd1902fd178f4ad2d4523895"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:052:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "052",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 52",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "John W. Rogers Jr.",
+          "votes": 3362
+        },
+        {
+          "sourceName": "Latanya Millhouse",
+          "votes": 1649
+        }
+      ],
+      "totalVotes": 5011,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 42,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "a9792768784b30b54e480babeba01f75c57f21e9919f26ca2011eadc8343c651"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:054:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "054",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 54",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Brit Blalock",
+          "votes": 502
+        },
+        {
+          "sourceName": "Edward Maddox",
+          "votes": 1411
+        },
+        {
+          "sourceName": "Neil Rafferty",
+          "votes": 2719
+        }
+      ],
+      "totalVotes": 4632,
+      "countyWorkbookRows": 3,
+      "populatedVoteCells": 57,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "bde37504f5da78e6e55cf40c71e4b0e446b573377ea93568b94cb44a4a2dd5ad"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:055:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "055",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 55",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Antwon Bernard Womack",
+          "votes": 594
+        },
+        {
+          "sourceName": "Fred \"Coach\" Plump",
+          "votes": 1080
+        },
+        {
+          "sourceName": "Phyllis E. Oden-Jones",
+          "votes": 1032
+        },
+        {
+          "sourceName": "Roderick \"Rod\" Scott",
+          "votes": 1212
+        },
+        {
+          "sourceName": "Travis Hendrix",
+          "votes": 915
+        }
+      ],
+      "totalVotes": 4833,
+      "countyWorkbookRows": 5,
+      "populatedVoteCells": 135,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "32bf7bb3bbcf19dbfdfe118be90ab790c070c2ee071700fd24ca2c90f2e417a4"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:056:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "056",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 56",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Cleo King",
+          "votes": 714
+        },
+        {
+          "sourceName": "Jesse Matthews",
+          "votes": 1011
+        },
+        {
+          "sourceName": "Ontario J. Tillman",
+          "votes": 2092
+        },
+        {
+          "sourceName": "Tereshia Huffman",
+          "votes": 1199
+        }
+      ],
+      "totalVotes": 5016,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 68,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "c52a31d9595d30fbc157c1777db372a98f089d552cff2c1ff78410c1fe49b61d"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:057:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "057",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 57",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Charles Ray Winston III",
+          "votes": 1370
+        },
+        {
+          "sourceName": "Kevin \"K.D.\" Dunn",
+          "votes": 1282
+        },
+        {
+          "sourceName": "Patrick Sellers",
+          "votes": 2363
+        }
+      ],
+      "totalVotes": 5015,
+      "countyWorkbookRows": 3,
+      "populatedVoteCells": 66,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "6285864084f286f03e34eca73f7e2a014fab3a4589789be6388a4586d369a7ee"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:060:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "060",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 60",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Juandalynn Givan",
+          "votes": 4561
+        },
+        {
+          "sourceName": "Nina Taylor",
+          "votes": 1286
+        }
+      ],
+      "totalVotes": 5847,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 40,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "70e1a4061f82109cf7ba23a0551843fccfc5d5b2aa1f378398f3bc6eef0a4cc7"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:061:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "061",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 61",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Kimberly A. Madison",
+          "votes": 2846
+        },
+        {
+          "sourceName": "Ron Bolton",
+          "votes": 4088
+        }
+      ],
+      "totalVotes": 6934,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 56,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "a0cc7d753444e10f270eb0e463f5a62728e58dcec1897a326935af2ce9ab8678"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:064:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "064",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 64",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Angelo Jacob Fermo",
+          "votes": 2910
+        },
+        {
+          "sourceName": "Donna Givens",
+          "votes": 3129
+        }
+      ],
+      "totalVotes": 6039,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 32,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "7025ffc839b5ecc474c285e334cf4f612d6a98b03d849488641a17a4160bac5f"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:065:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "065",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 65",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Brett Easterbrook",
+          "votes": 6760
+        },
+        {
+          "sourceName": "Dee Ann Campbell",
+          "votes": 2861
+        }
+      ],
+      "totalVotes": 9621,
+      "countyWorkbookRows": 8,
+      "populatedVoteCells": 168,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "81114d832d45bcc6f5d3d805a49d8076c37ae8c1ce9238b8b27cc608982b798c"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:067:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "067",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 67",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Larine Irby Pettway",
+          "votes": 3055
+        },
+        {
+          "sourceName": "Prince Chestnut",
+          "votes": 7210
+        }
+      ],
+      "totalVotes": 10265,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 88,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "ca9324a95468e9235b126260ef699f14efc4efa2d68351854911c0e981090c55"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:072:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "072",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 72",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Curtis L. Travis",
+          "votes": 3106
+        },
+        {
+          "sourceName": "Ralph A. Howard",
+          "votes": 2794
+        }
+      ],
+      "totalVotes": 5900,
+      "countyWorkbookRows": 8,
+      "populatedVoteCells": 88,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "9dff1f9e5b37fc4d904d837a65f653031406f75ca552eb7ad394107b26fa6041"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:074:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "074",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 74",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Malcolm Calhoun",
+          "votes": 1143
+        },
+        {
+          "sourceName": "Phillip Ensler",
+          "votes": 2170
+        }
+      ],
+      "totalVotes": 3313,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 30,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "692dfef20d6d607b748ae141ce9be677df312605bf643b1ffbdb6776986e2880"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:082:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "082",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 82",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Pebblin Walker Warren",
+          "votes": 2112
+        },
+        {
+          "sourceName": "Terrence Kareem Johnson",
+          "votes": 1735
+        }
+      ],
+      "totalVotes": 3847,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 42,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "15a54b9d0d449269e9abf81496a7561e5243a2925c0b5ff41db6fe1e8cd93422"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:087:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "087",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 87",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Eric E. Johnson",
+          "votes": 2003
+        },
+        {
+          "sourceName": "Jeff Sorrells",
+          "votes": 7286
+        }
+      ],
+      "totalVotes": 9289,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 64,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "9b74c74b884c9d425896b7674f6a07a96f021fa5964049eae162244284f44eaf"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:088:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "088",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 88",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Jerry Starnes",
+          "votes": 4104
+        },
+        {
+          "sourceName": "Will Dismukes",
+          "votes": 2520
+        }
+      ],
+      "totalVotes": 6624,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 30,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f97b11614f1f119f487a182728ba58be5dda6bf3bb006e88955c3304eab82a89"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:091:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "091",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 91",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Les W. Hogan",
+          "votes": 2571
+        },
+        {
+          "sourceName": "Rhett Marques",
+          "votes": 4813
+        }
+      ],
+      "totalVotes": 7384,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 36,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "aa369768c10e70998542df66c017919718ed63c534cd85b1deaf0bf2e76a7e35"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:092:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "092",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 92",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Greg White",
+          "votes": 4910
+        },
+        {
+          "sourceName": "Matthew Hammett",
+          "votes": 5251
+        }
+      ],
+      "totalVotes": 10161,
+      "countyWorkbookRows": 6,
+      "populatedVoteCells": 88,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "72aa15ebeb0e6cb93bca51c810500ecc8ef90a1d0a9cf59339ceb19bafb6cd68"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:094:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "094",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 94",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Jennifer Fidler",
+          "votes": 5623
+        },
+        {
+          "sourceName": "Joe Faust",
+          "votes": 3276
+        }
+      ],
+      "totalVotes": 8899,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 34,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "ca14ec48a94a21cea8cb5e753bbcb3f41a5f6b9660868bb4de43c8408ace58fe"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:095:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "095",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 95",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Frances Holk-Jones",
+          "votes": 4812
+        },
+        {
+          "sourceName": "Michael T. Ludvigsen, Jr.",
+          "votes": 1144
+        },
+        {
+          "sourceName": "Reginald C Pulliam",
+          "votes": 1345
+        }
+      ],
+      "totalVotes": 7301,
+      "countyWorkbookRows": 3,
+      "populatedVoteCells": 48,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f8373be208a9d4f833522fe3b189dbb8b0843f221703960a80b57d85aba15c4d"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:096:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "096",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 96",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Danielle R Duggar",
+          "votes": 2753
+        },
+        {
+          "sourceName": "Matt Simpson",
+          "votes": 3415
+        }
+      ],
+      "totalVotes": 6168,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 24,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "d9fc83939bb09f0386adf607e4bb43ed9e67ee4a2030b6d8230b7020a4bd9acd"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:099:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "099",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 99",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Levi Wright, Jr.",
+          "votes": 452
+        },
+        {
+          "sourceName": "Sam Jones",
+          "votes": 2709
+        }
+      ],
+      "totalVotes": 3161,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 34,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "2f01375e1f63000acab878b204fc95222f26ce9c3bf4fde6c947946fbdb95ad2"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:lower:100:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "lower",
+      "district": "100",
+      "rawOfficeTitle": "STATE REPRESENTATIVE, DISTRICT 100",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Joe Piggott",
+          "votes": 1289
+        },
+        {
+          "sourceName": "Mark Shirey",
+          "votes": 2432
+        },
+        {
+          "sourceName": "Pete Kupfer",
+          "votes": 1474
+        }
+      ],
+      "totalVotes": 5195,
+      "countyWorkbookRows": 3,
+      "populatedVoteCells": 30,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "c42df7a70fe38a69ad7f536f30c334ae8e57f7c3d3b39170e8745a557b553f10"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:01:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "01",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 1",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "John Sutherland",
+          "votes": 7361
+        },
+        {
+          "sourceName": "Tim Melson",
+          "votes": 16564
+        }
+      ],
+      "totalVotes": 23925,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 108,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "9b82382deebd170100a88de833773bd0a5770b10764bb5ff70b963fb485c9444"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:02:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "02",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 2",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Bill Holtzclaw",
+          "votes": 6789
+        },
+        {
+          "sourceName": "Tom Butler",
+          "votes": 9850
+        }
+      ],
+      "totalVotes": 16639,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 64,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "7d533cea8c4aadf3a509910dc71f9e418e1dec3eff2f7fdc297fd23f0492a822"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:11:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "11",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 11",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Lance Bell",
+          "votes": 12586
+        },
+        {
+          "sourceName": "Michael J Wright",
+          "votes": 4663
+        }
+      ],
+      "totalVotes": 17249,
+      "countyWorkbookRows": 6,
+      "populatedVoteCells": 106,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "4923d792459c8b1f9f8fe4a1bcdd39f62e3bb1e6370bc1003765977d1360d40d"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:12:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "12",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 12",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Keith Kelley",
+          "votes": 6387
+        },
+        {
+          "sourceName": "Wayne Willis",
+          "votes": 4560
+        },
+        {
+          "sourceName": "Wendy Ghee Draper",
+          "votes": 7083
+        }
+      ],
+      "totalVotes": 18030,
+      "countyWorkbookRows": 6,
+      "populatedVoteCells": 177,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "98e581423b907b94c8ce1c2f7a50a7129c0d138f0ac659d7009219e491256e0d"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:13:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "13",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 13",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "John Allen Coker",
+          "votes": 4039
+        },
+        {
+          "sourceName": "Randy Price",
+          "votes": 14888
+        }
+      ],
+      "totalVotes": 18927,
+      "countyWorkbookRows": 10,
+      "populatedVoteCells": 178,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "8e3a27fa047e0daa949eb76ca6885a86d7458da681583570b427edca2d697bc1"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:15:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "15",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 15",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Brian Christine",
+          "votes": 8212
+        },
+        {
+          "sourceName": "Dan Roberts",
+          "votes": 11980
+        }
+      ],
+      "totalVotes": 20192,
+      "countyWorkbookRows": 4,
+      "populatedVoteCells": 78,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "76be427f22b7a899991fbf03f5aa4c1c0b611aec9dbc8c81e01a7e55ebc8f558"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:17:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "17",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 17",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Mike Dunn",
+          "votes": 6583
+        },
+        {
+          "sourceName": "Shay Shelnutt",
+          "votes": 14338
+        }
+      ],
+      "totalVotes": 20921,
+      "countyWorkbookRows": 6,
+      "populatedVoteCells": 120,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "49bce8b808877e070cf60ece52439f1a33e8f8582bca10d162be17b6b27ac2fe"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:19:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "19",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 19",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Louise \"Lulu\" Alexander",
+          "votes": 4002
+        },
+        {
+          "sourceName": "Merika Coleman",
+          "votes": 10371
+        }
+      ],
+      "totalVotes": 14373,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 106,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "0fd9cb898c8c82340aaf79a08983594e04d0496836b0122268a0efb30ef00658"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:20:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "20",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 20",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Linda Coleman-Madison",
+          "votes": 11267
+        },
+        {
+          "sourceName": "Rodney Huntley",
+          "votes": 1640
+        }
+      ],
+      "totalVotes": 12907,
+      "countyWorkbookRows": 2,
+      "populatedVoteCells": 76,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "1036e794ac484ab68205f8c81d69d0b48c18d5fce6322297ed9d333ac1485578"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:22:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "22",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 22",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Greg Albritton",
+          "votes": 12360
+        },
+        {
+          "sourceName": "Stephen Sexton",
+          "votes": 6337
+        }
+      ],
+      "totalVotes": 18697,
+      "countyWorkbookRows": 8,
+      "populatedVoteCells": 174,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "8d82234825aeacbd6d91877fff723a69365cb74d7b9f9eb03b84505de5740e6e"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:23:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "23",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 23",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Darrio Melton",
+          "votes": 5545
+        },
+        {
+          "sourceName": "Hank Sanders",
+          "votes": 10635
+        },
+        {
+          "sourceName": "Robert L. Stewart",
+          "votes": 7166
+        },
+        {
+          "sourceName": "Thayer \"Bear\" Spencer",
+          "votes": 456
+        }
+      ],
+      "totalVotes": 23802,
+      "countyWorkbookRows": 32,
+      "populatedVoteCells": 780,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "5d410dda202193a2fd169cdfbf60c62f345ae53dfec302d0c8ee34b2f5d44e03"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:27:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "27",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 27",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Jay Hovey",
+          "votes": 8373
+        },
+        {
+          "sourceName": "Tom Whatley",
+          "votes": 8372
+        }
+      ],
+      "totalVotes": 16745,
+      "countyWorkbookRows": 6,
+      "populatedVoteCells": 108,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "9672e9ee67a4376bcb89fd65e51e1a375227d7b766248ed8889468e5d3521455"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:28:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "28",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 28",
+      "rawParty": "DEM",
+      "candidates": [
+        {
+          "sourceName": "Billy Beasley",
+          "votes": 6752
+        },
+        {
+          "sourceName": "Frank \"Chris\" Lee",
+          "votes": 4267
+        }
+      ],
+      "totalVotes": 11019,
+      "countyWorkbookRows": 12,
+      "populatedVoteCells": 174,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "dd782ff66e182517b26e8a1273e36aeb3903c553fcd298dcf38980b0d3f8a10a"
+    },
+    {
+      "contestId": "al:state-leg-primary:2022:upper:31:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-24",
+      "chamber": "upper",
+      "district": "31",
+      "rawOfficeTitle": "STATE SENATOR, DISTRICT 31",
+      "rawParty": "REP",
+      "candidates": [
+        {
+          "sourceName": "Josh Carnley",
+          "votes": 12436
+        },
+        {
+          "sourceName": "Mike Jones, Jr.",
+          "votes": 9996
+        },
+        {
+          "sourceName": "Stormin Norman Horton",
+          "votes": 2330
+        }
+      ],
+      "totalVotes": 24762,
+      "countyWorkbookRows": 12,
+      "populatedVoteCells": 312,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbooks_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "al-2022-primary-precinct-results"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "29bcc135ec596dbdaaf6692f8edab8bd294001749ee1500a2286706a96d52bcc"
+    }
+  ],
+  "contestSetSha256": "33304fff0fc92f314a3929745b4e5d809fed4a8bf401608f5596a5c87125d284",
+  "summary": {
+    "sourceCountyWorkbooks": 67,
+    "reportedPartyContests": 60,
+    "upperChamberContests": 14,
+    "lowerChamberContests": 46,
+    "democraticContests": 17,
+    "republicanContests": 43,
+    "candidateRows": 148,
+    "candidateVotes": 564383,
+    "countyWorkbookCandidateRows": 310,
+    "populatedVoteCells": 5516,
+    "inferredNoContestRows": 0,
+    "formulaEligibleContests": 0
+  },
+  "packageSha256": "6bbd639119ccfbe103568e40add2f7556af64f7a3379967b2d53a9388e183bdd"
+}
