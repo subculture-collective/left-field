@@ -55,6 +55,8 @@ type V06ActiveRow = { seatCycleId: string; districtLabel: string; previousScoreV
 type V06ActiveProjection = { schema: "house-score-v06-active-projection-v1"; version: 1; methodology: { status: "active"; scope: "exact_at_large_geography_with_official_identifier_normalization"; countyIdentifierNormalization: "only_official_census_documented_46113_to_46102_change"; splitCountyAllocation: false; researchFallbackScoreInputs: true; winnerInference: false }; rows: V06ActiveRow[]; summary: { seats: 430; downBallotActiveSeats: 3; newlyActivatedSeats: 1; unchangedSeats: 429; normalizedFipsSeats: 1; routeChanges: 0; movementCapBreaches: 0 }; rowSetSha256: string; packageSha256: string };
 type V07ActiveRow = { seatCycleId: string; districtLabel: string; previousScoreVersion: "v0.6"; previousScore: number; activeScoreVersion: "v0.7"; activeScore: number; localContext: number | null; localContextAvailableWeight: number; downBallotDemocraticOverperformance: number | null; houseDemocraticShare: number | null; presidentialDemocraticShare: number | null; houseMinusPresidentPercentagePoints: number | null; exactGeographyJoin: "at_large_statewide" | "not_yet_eligible"; evidenceConfidence: "research_fallback_exact_at_large" | "research_fallback_exact_at_large_official_fips_normalization" | "research_fallback_exact_at_large_partial_election_administration" | "not_available"; activationContextComponents: { inverseBallotsCastToCvap: number; inverseActiveRegistrationToCvap: null; downBallotDemocraticOverperformance: number; demographicOpportunity: number } | null; movementFromV06: number };
 type V07ActiveProjection = { schema: "house-score-v07-active-projection-v1"; version: 1; methodology: { status: "active"; scope: "exact_at_large_geography_with_partial_component_renormalization"; minimumAvailableWeight: 0.6; directElectionAdministrationMeasureRequired: true; splitCountyAllocation: false; researchFallbackScoreInputs: true; winnerInference: false }; rows: V07ActiveRow[]; summary: { seats: 430; downBallotActiveSeats: 4; newlyActivatedSeats: 1; unchangedSeats: 429; normalizedFipsSeats: 1; partialComponentSeats: 1; routeChanges: 0; movementCapBreaches: 0 }; rowSetSha256: string; packageSha256: string };
+type V08ActiveRow = { seatCycleId: string; districtLabel: string; incumbentParty: "Democratic" | "Republican"; qualifyingRoute: "deep_blue" | "aipac_supported_blue" | "republican_fringe_general"; previousScoreVersion: "v0.7"; previousScore: number; activeScoreVersion: "v0.8"; activeScore: number; previousPrimaryFeasibility: number | null; activePrimaryFeasibility: number | null; directPrimaryEvidence: boolean; primaryEvidenceId: string | null; primaryIdentityStatus: string | null; primaryGeographyStatus: string | null; incumbentPrimaryVotes: number | null; primaryContestVotes: number | null; incumbentPrimaryVoteShare: number | null; localContext: number | null; localContextAvailableWeight: number; downBallotDemocraticOverperformance: number | null; houseDemocraticShare: number | null; presidentialDemocraticShare: number | null; houseMinusPresidentPercentagePoints: number | null; structuralBaseline: number | null; movementFromV07: number; rowSha256: string };
+type V08ActiveProjection = { schema: "house-score-v08-active-projection-v1"; version: 1; methodology: { status: "active"; primaryMetric: "one_hundred_minus_incumbent_vote_share_in_retained_2024_democratic_primary_contest"; unresolvedIdentityBehavior: "preserve_v07_score_and_inferred_primary_component"; sourceWinnerInference: false }; rows: V08ActiveRow[]; summary: { seats: 430; directPrimaryActiveSeats: 21; unresolvedPrimaryRows: 1; changedSeats: 20; unchangedSeats: 410; routeChanges: 0; movementCapBreaches: 0 }; rowSetSha256: string; packageSha256: string };
 const cutoff = "2026-08-04";
 const days = (start: string, end: string): number => (Date.parse(end) - Date.parse(start)) / 86_400_000;
 const one = (value: number): number => Math.round(value * 10) / 10;
@@ -248,6 +250,19 @@ function v07ActiveRows(): Map<string, V07ActiveRow> {
   return new Map(value.rows.map((row) => [row.seatCycleId, row]));
 }
 
+function v08ActiveRows(): Map<string, V08ActiveRow> {
+  const path = "data/metadata/house-score-v08-active-projection-v1.json";
+  const bytes = readFileSync(join(process.cwd(), path));
+  const digest = createHash("sha256").update(bytes).digest("hex");
+  const lock = JSON.parse(readFileSync(join(process.cwd(), "data/source-lock.json"), "utf8")) as { entries: Array<{ id?: unknown; url?: unknown; retainedPath?: unknown; retainedStatus?: unknown; byteSize?: unknown; sha256?: unknown; kind?: unknown; parentIds?: unknown }> };
+  const entries = lock.entries.filter((entry) => entry.id === "house-score-v08-active-projection-v1");
+  const parentIds = ["house-score-v07-active-projection-v1", "rapid-house-primary-2024-incumbent-evidence-v1"];
+  if (bytes.length !== 511_918 || digest !== "76fcb690ccb7abfff5c8a8b6dca844cee2da688417250192b495c5e127e1328d" || entries.length !== 1 || entries[0]!.url !== "urn:dsa-seats:house-score-v08-active-projection:v1:2026-08-09" || entries[0]!.retainedPath !== path || entries[0]!.retainedStatus !== "retained" || entries[0]!.byteSize !== bytes.length || entries[0]!.sha256 !== digest || entries[0]!.kind !== "derived_artifact" || JSON.stringify(entries[0]!.parentIds) !== JSON.stringify(parentIds)) throw new Error("HOUSE_PRIORITY_V08_SOURCE_INVALID");
+  const value = JSON.parse(bytes.toString("utf8")) as V08ActiveProjection;
+  if (value.schema !== "house-score-v08-active-projection-v1" || value.version !== 1 || value.methodology.status !== "active" || value.methodology.primaryMetric !== "one_hundred_minus_incumbent_vote_share_in_retained_2024_democratic_primary_contest" || value.methodology.unresolvedIdentityBehavior !== "preserve_v07_score_and_inferred_primary_component" || value.methodology.sourceWinnerInference !== false || value.summary.seats !== 430 || value.summary.directPrimaryActiveSeats !== 21 || value.summary.unresolvedPrimaryRows !== 1 || value.summary.changedSeats !== 20 || value.summary.unchangedSeats !== 410 || value.summary.routeChanges !== 0 || value.summary.movementCapBreaches !== 0 || value.rows.length !== 430 || new Set(value.rows.map((row) => row.seatCycleId)).size !== 430 || value.rowSetSha256 !== "931f080522cc5a383d07402282c259dbaaaf429a6fe09c8399fe3adb578624b1" || value.packageSha256 !== "79b154e4e954d3f8327307e8a977b77e77fc59a311114193be22cff5e0ec913a") throw new Error("HOUSE_PRIORITY_V08_PROJECTION_INVALID");
+  return new Map(value.rows.map((row) => [row.seatCycleId, row]));
+}
+
 let cache: PublicPriorityBrief[] | undefined;
 export function housePriorityBriefs(): readonly PublicPriorityBrief[] {
   if (!cache) {
@@ -337,6 +352,27 @@ export function housePriorityBriefs(): readonly PublicPriorityBrief[] {
         scoreDrivers: [...brief.scoreDrivers, { key: "local_context", label: "Local context", score: row.localContext, coverage: row.localContextAvailableWeight, inferred: true, explanation }],
         scoreSummary: `${brief.scoreSummary} V0.7 adds exact North Dakota county context at 70% evidence coverage, moving the score ${row.movementFromV06 >= 0 ? "+" : ""}${row.movementFromV06.toFixed(1)} to ${row.activeScore.toFixed(1)}.`,
         districtSummary: `${brief.districtSummary} The retained 2024 House Democratic candidate share ran ${direction}${row.houseMinusPresidentPercentagePoints.toFixed(2)} points versus Harris; ballots/CVAP and demographics complete the 70% local-evidence threshold, while registration remains missing.`,
+      };
+    });
+    const v08 = v08ActiveRows();
+    if (v08.size !== cache.length) throw new Error("HOUSE_PRIORITY_V08_CLOSURE_INVALID");
+    cache = cache.map((brief) => {
+      const row = v08.get(brief.seatCycleId);
+      if (!row || row.districtLabel !== brief.districtLabel || row.previousScoreVersion !== "v0.7" || row.previousScore !== brief.provisionalTargetScore || row.activeScoreVersion !== "v0.8") throw new Error(`HOUSE_PRIORITY_V08_JOIN_INVALID:${brief.seatCycleId}`);
+      if (!row.directPrimaryEvidence) {
+        if (row.activeScore !== brief.provisionalTargetScore || row.movementFromV07 !== 0) throw new Error(`HOUSE_PRIORITY_V08_UNCHANGED_INVALID:${brief.seatCycleId}`);
+        return brief;
+      }
+      if (brief.incumbentParty !== "Democratic" || row.activePrimaryFeasibility === null || row.primaryEvidenceId === null || row.primaryIdentityStatus === null || row.primaryGeographyStatus !== "exact_cd119_session_and_district_key" || row.incumbentPrimaryVotes === null || row.primaryContestVotes === null || row.incumbentPrimaryVoteShare === null || row.structuralBaseline === null || row.movementFromV07 !== one(row.activeScore - brief.provisionalTargetScore)) throw new Error(`HOUSE_PRIORITY_V08_ELIGIBLE_INVALID:${brief.seatCycleId}`);
+      const primaryExplanation = `The retained official 2024 Democratic primary reports ${row.incumbentPrimaryVotes.toLocaleString("en-US")} incumbent votes out of ${row.primaryContestVotes.toLocaleString("en-US")} contest votes (${row.incumbentPrimaryVoteShare.toFixed(1)}%). Primary feasibility is the inverse share, ${row.activePrimaryFeasibility.toFixed(1)}. The candidate identity and CD119 district key are bound; no winner is inferred.`;
+      return {
+        ...brief,
+        provisionalTargetScore: row.activeScore,
+        baselineTargetScore: row.structuralBaseline,
+        formula: `${brief.formula}; v0.8 replaces inferred primary feasibility with 100 minus the directly linked 2024 incumbent vote share`,
+        scoreDrivers: brief.scoreDrivers.map((driver) => driver.key === "primary_feasibility" ? { ...driver, score: row.activePrimaryFeasibility, coverage: 1, inferred: false, explanation: primaryExplanation } : driver),
+        scoreSummary: `${brief.scoreSummary} V0.8 replaces the inferred primary component with direct 2024 contest evidence, moving the score ${row.movementFromV07 >= 0 ? "+" : ""}${row.movementFromV07.toFixed(1)} to ${row.activeScore.toFixed(1)}.`,
+        districtSummary: `${brief.districtSummary} The directly linked 2024 Democratic primary gives the incumbent ${row.incumbentPrimaryVoteShare.toFixed(1)}% of retained contest votes; this changes primary feasibility without making a winner or nomination claim.`,
       };
     }).sort((left, right) => right.provisionalTargetScore - left.provisionalTargetScore || left.seatCycleId.localeCompare(right.seatCycleId)).map((row, index) => ({ ...row, rank: index + 1 }));
   }

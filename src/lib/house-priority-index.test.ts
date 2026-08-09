@@ -29,17 +29,16 @@ describe("house priority index", () => {
     expect(rows.every((row) => row.scoreDrivers.some((driver) => driver.key === "cash_vulnerability"))).toBe(true);
   });
 
-  it("activates exact at-large local and down-ballot context without changing unsupported seats", () => {
+  it("activates exact local context and direct primary evidence without changing unsupported seats", () => {
     const active = housePriorityBriefs();
     const previous = new Map(housePriorityBriefsV03().map((row) => [row.seatCycleId, row]));
     const changed = active.filter((row) => row.provisionalTargetScore !== previous.get(row.seatCycleId)?.provisionalTargetScore);
 
-    expect(changed.map((row) => [row.districtLabel, row.provisionalTargetScore]).sort(([left], [right]) => String(left).localeCompare(String(right)))).toEqual([
-      ["DE-AL", 39.7],
-      ["ND-AL", 13.6],
-      ["SD-AL", 6.3],
-      ["WY-AL", 13.6],
-    ]);
+    expect(changed).toHaveLength(23);
+    expect(active.find((row) => row.districtLabel === "AL-02")?.provisionalTargetScore).toBe(34.3);
+    expect(active.find((row) => row.districtLabel === "ND-AL")?.provisionalTargetScore).toBe(13.6);
+    expect(active.find((row) => row.districtLabel === "RI-01")?.provisionalTargetScore).toBe(previous.get("seat_house_ri_01_current")?.provisionalTargetScore);
+    expect(active.filter((row) => row.scoreDrivers.some((driver) => driver.key === "primary_feasibility" && driver.inferred === false && driver.score !== null))).toHaveLength(21);
     expect(active.filter((row) => row.scoreDrivers.some((driver) => driver.key === "local_context")).map((row) => row.districtLabel).sort()).toEqual(["DE-AL", "ND-AL", "SD-AL", "WY-AL"]);
     expect(active.filter((row) => !changed.includes(row)).every((row) => row.provisionalTargetScore === previous.get(row.seatCycleId)?.provisionalTargetScore)).toBe(true);
   });
