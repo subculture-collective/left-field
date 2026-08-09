@@ -3,8 +3,9 @@ import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
 export type RapidLocalContextArtifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0 }>;
-export type RapidLocalContextCoverageViewModel = Readonly<{ schema: "rapid-local-context-coverage-v1" | "rapid-local-context-coverage-v2" | "rapid-local-context-coverage-v3" | "rapid-local-context-coverage-v4"; version: 1 | 2 | 3 | 4; artifacts: readonly RapidLocalContextArtifact[] }>;
+export type RapidLocalContextCoverageViewModel = Readonly<{ schema: "rapid-local-context-coverage-v1" | "rapid-local-context-coverage-v2" | "rapid-local-context-coverage-v3" | "rapid-local-context-coverage-v4" | "rapid-local-context-coverage-v5"; version: 1 | 2 | 3 | 4 | 5; artifacts: readonly RapidLocalContextArtifact[] }>;
 const coveragePaths = (root = process.cwd()) => [
+  { schema: "rapid-local-context-coverage-v5" as const, version: 5 as const, id: "rapid-local-context-coverage-v5", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v5.json"), artifactCount: 7 },
   { schema: "rapid-local-context-coverage-v4" as const, version: 4 as const, id: "rapid-local-context-coverage-v4", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v4.json"), artifactCount: 6 },
   { schema: "rapid-local-context-coverage-v3" as const, version: 3 as const, id: "rapid-local-context-coverage-v3", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v3.json"), artifactCount: 5 },
   { schema: "rapid-local-context-coverage-v2" as const, version: 2 as const, id: "rapid-local-context-coverage-v2", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v2.json"), artifactCount: 4 },
@@ -27,6 +28,7 @@ const childPaths: Readonly<Record<string, string>> = {
   "rapid-county-house-results-projection-v1": "data/metadata/rapid-county-house-results-projection-v1.json",
   "rapid-county-senate-results-projection-v1": "data/metadata/rapid-county-senate-results-projection-v1.json",
   "rapid-indiana-state-legislative-primary-results-v1": "data/metadata/rapid-indiana-state-legislative-primary-results-v1.json",
+  "rapid-tennessee-state-legislative-primary-results-v1": "data/metadata/rapid-tennessee-state-legislative-primary-results-v1.json",
 };
 
 /** Lightweight server read model: validates retained artifact bytes and source-lock topology, without rebuilding raw Census/EAVS inputs. */
@@ -40,7 +42,7 @@ export async function loadRapidLocalContextCoverage(root = process.cwd()): Promi
     try { raw = await readAllowlistedBytes(candidate.path); value = JSON.parse(raw.toString("utf8")); } catch (error) { if ((error as NodeJS.ErrnoException).code === "ENOENT") continue; return null; }
     const loaded = await loadCandidate(value, raw, lock, candidate, root);
     if (loaded) return loaded;
-    // A retained v2 receipt is authoritative: do not silently fall back from a damaged v2.
+    // A newer retained receipt is authoritative: do not silently fall back from damaged current data.
     if (candidate.version >= 2) return null;
   }
   return null;
