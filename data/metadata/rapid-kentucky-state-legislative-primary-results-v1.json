@@ -1,0 +1,4478 @@
+{
+  "schema": "rapid-kentucky-state-legislative-primary-results-v1",
+  "version": 1,
+  "extraction": "pdftotext_tsv_26_07_0_coordinate_columns",
+  "contests": [
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:001:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "001",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "25:111.96:1",
+          "sourceName": "Steven Jack RUDY",
+          "votes": 2176
+        },
+        {
+          "sourceCandidateKey": "25:111.96:2",
+          "sourceName": "Christopher M. TUCKER",
+          "votes": 1394
+        }
+      ],
+      "totalVotes": 3570,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "1c095b794d063603376f795544dca755bd346896d1efaec001abe09ae010acfc"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:004:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "004",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "25:292.68:1",
+          "sourceName": "D. Wade WILLIAMS",
+          "votes": 1665
+        },
+        {
+          "sourceCandidateKey": "25:292.68:2",
+          "sourceName": "David L. SHARP",
+          "votes": 835
+        }
+      ],
+      "totalVotes": 2500,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "cba1e45e2d2fe0d1a81067d8cafe15f6dd1bceaff1a1277385099faa37a775ee"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:008:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "008",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "25:420.72:1",
+          "sourceName": "Walker Wood THOMAS",
+          "votes": 2120
+        },
+        {
+          "sourceCandidateKey": "25:420.72:2",
+          "sourceName": "Larry CURLING",
+          "votes": 1542
+        }
+      ],
+      "totalVotes": 3662,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "0dea227058a2357b3f2d3862d38f5f549062a8ffe8af18af71125776231bce20"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:012:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "012",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "26:111.96:1",
+          "sourceName": "Jim GOOCH JR.",
+          "votes": 2442
+        },
+        {
+          "sourceCandidateKey": "26:111.96:2",
+          "sourceName": "Lynn BECHLER",
+          "votes": 1977
+        }
+      ],
+      "totalVotes": 4419,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "6f255643ab2fb5bc1ccc96c4650977ac2d4e9a2aa98210aeaf5fcc38460d2041"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:015:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "015",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "26:279.48:1",
+          "sourceName": "Rebecca RAYMER",
+          "votes": 2932
+        },
+        {
+          "sourceCandidateKey": "26:279.48:2",
+          "sourceName": "Timothy R. DUKES",
+          "votes": 1836
+        }
+      ],
+      "totalVotes": 4768,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "5113dc4f81b06285de8957e03a11b09540430f8c17477cae433be410dc1b39fa"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:018:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "018",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "26:420.72:1",
+          "sourceName": "Samara HEAVRIN",
+          "votes": 3181
+        },
+        {
+          "sourceCandidateKey": "26:420.72:2",
+          "sourceName": "Jacob CLARK",
+          "votes": 2366
+        }
+      ],
+      "totalVotes": 5547,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "7b476f500fe236164f368796453d1aa609e925129836f53200e9838e3e0d403a"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:020:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "020",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "27:111.96:1",
+          "sourceName": "Kevin JACKSON",
+          "votes": 2152
+        },
+        {
+          "sourceCandidateKey": "27:111.96:2",
+          "sourceName": "Leanette LOPEZ",
+          "votes": 359
+        }
+      ],
+      "totalVotes": 2511,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "e802237f56f51d2817a823b160b75b97bf6b31891c980a97fed82cf223329585"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:021:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "021",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "27:240.00:1",
+          "sourceName": "Amy NEIGHBORS",
+          "votes": 3609
+        },
+        {
+          "sourceCandidateKey": "27:240.00:2",
+          "sourceName": "Jimmy CARTER",
+          "votes": 3313
+        },
+        {
+          "sourceCandidateKey": "27:240.00:3",
+          "sourceName": "Joshua Wes ELLIS",
+          "votes": 1494
+        },
+        {
+          "sourceCandidateKey": "27:240.00:4",
+          "sourceName": "Terry David DUBREE",
+          "votes": 1375
+        },
+        {
+          "sourceCandidateKey": "27:240.00:5",
+          "sourceName": "Daniel Thomas GLASS",
+          "votes": 1079
+        }
+      ],
+      "totalVotes": 10870,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "2ff4f7691c50ef231de79e57d7d63524e2a6792b4b693a05715c7ce4916933a7"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:024:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "024",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "28:111.96:1",
+          "sourceName": "Keith PRUITT",
+          "votes": 1667
+        },
+        {
+          "sourceCandidateKey": "28:111.96:2",
+          "sourceName": "John W. PENNINGTON",
+          "votes": 714
+        }
+      ],
+      "totalVotes": 2381,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "d889798f1908502d98df3a814bef1624a9a5bddb113e67315b727340f1beb64e"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:024:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "024",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "27:407.52:1",
+          "sourceName": "Brandon REED",
+          "votes": 3769
+        },
+        {
+          "sourceCandidateKey": "27:407.52:2",
+          "sourceName": "Courtney GILBERT",
+          "votes": 1751
+        }
+      ],
+      "totalVotes": 5520,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "77cb7bb228026e5c6ef42772ba202e2bf7389d8266e484c0ef7515931b321584"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:025:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "025",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "28:266.28:1",
+          "sourceName": "Steve BRATCHER",
+          "votes": 1593
+        },
+        {
+          "sourceCandidateKey": "28:266.28:2",
+          "sourceName": "Bill BENNETT",
+          "votes": 765
+        }
+      ],
+      "totalVotes": 2358,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "9e90f3ecdc1b7195e76a1bc2899e8b9fcf3ff0ac2ea2e67750a765454fed56fb"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:026:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "026",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "28:394.32:1",
+          "sourceName": "Russell WEBBER",
+          "votes": 2000
+        }
+      ],
+      "totalVotes": 2000,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "011ba2f4c85ba38c447ab238be3bd198834bc62ec12012ce2a1c105735dc4c28"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:028:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "028",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "29:111.96:1",
+          "sourceName": "Charles W. MILLER",
+          "votes": 2221
+        },
+        {
+          "sourceCandidateKey": "29:111.96:2",
+          "sourceName": "Almaria BAKER",
+          "votes": 1167
+        }
+      ],
+      "totalVotes": 3388,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "6150d50af248b04678aa8ec066862e5f1bc518499ef01b27cfc200f301d140a3"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:030:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "030",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "29:240.00:1",
+          "sourceName": "Daniel GROSSBERG",
+          "votes": 1840
+        },
+        {
+          "sourceCandidateKey": "29:240.00:2",
+          "sourceName": "Tom BURCH",
+          "votes": 1719
+        },
+        {
+          "sourceCandidateKey": "29:240.00:3",
+          "sourceName": "Neal TURPIN",
+          "votes": 536
+        }
+      ],
+      "totalVotes": 4095,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "278ff19f4a6bcf408414b8abe942af24511bd6f36f86407af622b062dbe87d4a"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:031:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "031",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "30:111.96:1",
+          "sourceName": "Sue FOSTER",
+          "votes": 2767
+        },
+        {
+          "sourceCandidateKey": "30:111.96:2",
+          "sourceName": "Derek PENWELL",
+          "votes": 1593
+        }
+      ],
+      "totalVotes": 4360,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "22f6bfa5d12194a50a9a255f342afb95028f5ddd24234b69d3fa20adc8dccf86"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:031:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "031",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "29:368.04:1",
+          "sourceName": "Susan Tyler WITTEN",
+          "votes": 2769
+        },
+        {
+          "sourceCandidateKey": "29:368.04:2",
+          "sourceName": "Flint BRECKINRIDGE",
+          "votes": 862
+        }
+      ],
+      "totalVotes": 3631,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "a9b52b57b742f3a5c229822a95c9299fd146e527092172976c2c556bfbf81dfe"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:034:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "034",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "30:240.00:1",
+          "sourceName": "Sarah STALKER",
+          "votes": 4958
+        },
+        {
+          "sourceCandidateKey": "30:240.00:2",
+          "sourceName": "Jonathan LOWE",
+          "votes": 3132
+        }
+      ],
+      "totalVotes": 8090,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "dea4bad6be97baebbba6384a69e987277cb2613596865ecb1c5fb7aee12f2b79"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:036:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "036",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "30:368.04:1",
+          "sourceName": "John F. HODGSON",
+          "votes": 2015
+        },
+        {
+          "sourceCandidateKey": "30:368.04:2",
+          "sourceName": "David HOWSER",
+          "votes": 1466
+        },
+        {
+          "sourceCandidateKey": "30:368.04:3",
+          "sourceName": "Richard CRAWFORD",
+          "votes": 722
+        }
+      ],
+      "totalVotes": 4203,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "4a3a8818c68dbe5c0fdcc70669e6e89be8f1f012345c3b9b25de6c875dafeca2"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:037:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "037",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "31:111.96:1",
+          "sourceName": "Emily CALLAWAY",
+          "votes": 1302
+        },
+        {
+          "sourceCandidateKey": "31:111.96:2",
+          "sourceName": "Jimmy MARICLE",
+          "votes": 770
+        }
+      ],
+      "totalVotes": 2072,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f6c7c778ef46ce40e1c3b8d4f12c824dd829ee0f20cc3ec8b88012ec4523ede7"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:041:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "041",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "31:381.12:1",
+          "sourceName": "Josie RAYMOND",
+          "votes": 3753
+        },
+        {
+          "sourceCandidateKey": "31:381.12:2",
+          "sourceName": "Darryl J. YOUNG JR.",
+          "votes": 1088
+        }
+      ],
+      "totalVotes": 4841,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f1ab7a529e43e0a6c0ae7f45b4e60458d77423740a769e71f470c588490fe7fc"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:041:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "041",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "31:253.08:1",
+          "sourceName": "Carrie Sanders McKEEHAN",
+          "votes": 848
+        },
+        {
+          "sourceCandidateKey": "31:253.08:2",
+          "sourceName": "Sara-Elizabeth COTTRELL",
+          "votes": 630
+        },
+        {
+          "sourceCandidateKey": "31:253.08:3",
+          "sourceName": "Bryan SHEPHERD",
+          "votes": 430
+        }
+      ],
+      "totalVotes": 1908,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "5fd231e025bc93e75c013cc74cdafd2451e7378c3bde83567e689168b9b8b9b4"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:043:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "043",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "32:111.96:1",
+          "sourceName": "Pamela D. STEVENSON",
+          "votes": 2622
+        },
+        {
+          "sourceCandidateKey": "32:111.96:2",
+          "sourceName": "Robert LeVertis BELL",
+          "votes": 2255
+        }
+      ],
+      "totalVotes": 4877,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "01744c52d85325ff1542e600f6fe5e212f37bd64cc2327f589bef3ea2980bf4b"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:050:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "050",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "32:240.00:1",
+          "sourceName": "Candy D. MASSARONI",
+          "votes": 1523
+        },
+        {
+          "sourceCandidateKey": "32:240.00:2",
+          "sourceName": "John \"Trey\" BRADLEY",
+          "votes": 1444
+        }
+      ],
+      "totalVotes": 2967,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "dadb3291f5600c49d61ca0a732df69ca045282a6d7dab2ea2966f35452fcc550"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:052:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "052",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "32:368.04:1",
+          "sourceName": "Ken UPCHURCH",
+          "votes": 5438
+        },
+        {
+          "sourceCandidateKey": "32:368.04:2",
+          "sourceName": "Othel Wayne KING",
+          "votes": 3244
+        }
+      ],
+      "totalVotes": 8682,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "4fe5f9fffd9acff30df24bddd1c6d33d6fc3ac363c425bae18d999cdee35925d"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:055:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "055",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "33:111.96:1",
+          "sourceName": "Kim KING",
+          "votes": 2257
+        },
+        {
+          "sourceCandidateKey": "33:111.96:2",
+          "sourceName": "Tony L. WHEATLEY",
+          "votes": 1895
+        }
+      ],
+      "totalVotes": 4152,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "037b5b041a629b3a28ff7f0a21de34e55796dc278c64ff16fbfc58ddcf694c04"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:056:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "056",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "33:266.28:1",
+          "sourceName": "Grayson VANDEGRIFT",
+          "votes": 3005
+        },
+        {
+          "sourceCandidateKey": "33:266.28:2",
+          "sourceName": "Ben NOLAN",
+          "votes": 1604
+        }
+      ],
+      "totalVotes": 4609,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "50028d5a17ca6929723b5cf29110361f1514d7680cd71e1b0210b9e92858d773"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:059:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "059",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "33:420.72:1",
+          "sourceName": "David W. OSBORNE",
+          "votes": 4164
+        },
+        {
+          "sourceCandidateKey": "33:420.72:2",
+          "sourceName": "Bridgette EHLY",
+          "votes": 1975
+        }
+      ],
+      "totalVotes": 6139,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "ba9587f960c23d7c965495c08e7ea0baff6f0309aed4cf44ec527235fda94ea7"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:060:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "060",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "34:111.96:1",
+          "sourceName": "Marianne PROCTOR",
+          "votes": 1958
+        },
+        {
+          "sourceCandidateKey": "34:111.96:2",
+          "sourceName": "Sal SANTORO",
+          "votes": 1827
+        }
+      ],
+      "totalVotes": 3785,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f347e91fed2042846098b65c233d7351f267e7f412dd2d5d7c7746e160cee3cf"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:061:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "061",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "34:240.00:1",
+          "sourceName": "Savannah MADDOX",
+          "votes": 2949
+        },
+        {
+          "sourceCandidateKey": "34:240.00:2",
+          "sourceName": "Jarrod M. LYKINS",
+          "votes": 1192
+        }
+      ],
+      "totalVotes": 4141,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "e24d4a0f8ef8d97639b2e47e45fd64c80f283bdf288a18b9a7b06919ae8dd970"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:062:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "062",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "34:407.52:1",
+          "sourceName": "Phillip R. PRATT",
+          "votes": 3264
+        },
+        {
+          "sourceCandidateKey": "34:407.52:2",
+          "sourceName": "Michelle Karcz NANCE",
+          "votes": 827
+        }
+      ],
+      "totalVotes": 4091,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "6e93d296093b36c4376d2800f330aa6a5b7871fe4afa4f86467c8077e7631fd0"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:064:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "064",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "35:111.96:1",
+          "sourceName": "Kimberly Poore MOSER",
+          "votes": 2007
+        },
+        {
+          "sourceCandidateKey": "35:111.96:2",
+          "sourceName": "Christopher C. MANN",
+          "votes": 718
+        }
+      ],
+      "totalVotes": 2725,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "88a2f9920da96afeabf13c72e0c94df51b50b35ddc01c408785dab72dc1bfee6"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:066:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "066",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "35:240.00:1",
+          "sourceName": "Steve RAWLINGS",
+          "votes": 2695
+        },
+        {
+          "sourceCandidateKey": "35:240.00:2",
+          "sourceName": "C. Ed MASSEY",
+          "votes": 1227
+        }
+      ],
+      "totalVotes": 3922,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "a0a8c9172edd235f06058b3588bf01d270a7e574b894195007b6ca50c9746344"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:068:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "068",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "35:368.04:1",
+          "sourceName": "Mike CLINES",
+          "votes": 2827
+        },
+        {
+          "sourceCandidateKey": "35:368.04:2",
+          "sourceName": "Paul KLOEKER",
+          "votes": 1640
+        },
+        {
+          "sourceCandidateKey": "35:368.04:3",
+          "sourceName": "Mirna EADS",
+          "votes": 791
+        }
+      ],
+      "totalVotes": 5258,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "624e73f9e555d495d465a2af9177cd7da76d730637dc4a791bb46ae4d05819df"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:069:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "069",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "36:111.96:1",
+          "sourceName": "Steven DOAN",
+          "votes": 1369
+        },
+        {
+          "sourceCandidateKey": "36:111.96:2",
+          "sourceName": "Adam KOENIG",
+          "votes": 1179
+        }
+      ],
+      "totalVotes": 2548,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "469f1cda48c3e31bfd4a3d1998e6416b860f6274a0c4acd2cf104a904083c577"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:073:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "073",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "36:253.08:1",
+          "sourceName": "Thomas Weston ADAMS III.",
+          "votes": 1416
+        },
+        {
+          "sourceCandidateKey": "36:253.08:2",
+          "sourceName": "Rory HOULIHAN",
+          "votes": 1244
+        }
+      ],
+      "totalVotes": 2660,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "1f9f2206d6ffc909f02ecfb8cb96028d1dd351b8ef1ba183698dce30a4b12daa"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:075:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "075",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "36:394.32:1",
+          "sourceName": "Lindsey BURKE",
+          "votes": 2822
+        },
+        {
+          "sourceCandidateKey": "36:394.32:2",
+          "sourceName": "Chris COUCH",
+          "votes": 517
+        }
+      ],
+      "totalVotes": 3339,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "2ec1e438c7723fdaaad28160a702990a0071f84ad7903bbd2fbbfc0952bf0d4b"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:079:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "079",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "37:111.96:1",
+          "sourceName": "Chad AULL",
+          "votes": 2790
+        },
+        {
+          "sourceCandidateKey": "37:111.96:2",
+          "sourceName": "Justin BRAMHALL",
+          "votes": 422
+        }
+      ],
+      "totalVotes": 3212,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "ba3efd5aec78239299cebcdda2408d01055212713f29e5884cf90a49cabbce35"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:086:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "086",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "37:240.00:1",
+          "sourceName": "Tom Odell SMITH",
+          "votes": 4367
+        },
+        {
+          "sourceCandidateKey": "37:240.00:2",
+          "sourceName": "Keith DINSMORE",
+          "votes": 1344
+        }
+      ],
+      "totalVotes": 5711,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "5855a303c95a8188d3e85c9a24f861a4f25e1d55646166aea31affe1bc0315f2"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:091:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "091",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "37:381.12:1",
+          "sourceName": "Bill WESLEY",
+          "votes": 2510
+        },
+        {
+          "sourceCandidateKey": "37:381.12:2",
+          "sourceName": "Darrell W. BILLINGS",
+          "votes": 1459
+        }
+      ],
+      "totalVotes": 3969,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "4a43e98f19b100efb257c3482d5d88e9e8b8c2b52295b5d3ad5cea4bede9708c"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:094:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "094",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "38:111.96:1",
+          "sourceName": "Jacob D. JUSTICE",
+          "votes": 1677
+        },
+        {
+          "sourceCandidateKey": "38:111.96:2",
+          "sourceName": "Brandon EDWARDS",
+          "votes": 1578
+        }
+      ],
+      "totalVotes": 3255,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "6dfeaea6a4e043893b2d0749f42ae3b431c17fe5b5dce88d5f872dd57f404307"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:095:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "095",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "38:266.28:1",
+          "sourceName": "Brandon SPENCER",
+          "votes": 1110
+        },
+        {
+          "sourceCandidateKey": "38:266.28:2",
+          "sourceName": "David Kelly PENNINGTON",
+          "votes": 793
+        }
+      ],
+      "totalVotes": 1903,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "c7139e295c18c9c407cf80ca23b36b801d34c6ee05c2e796d2d0c4b2e7a395ec"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:097:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "097",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "38:407.52:1",
+          "sourceName": "Bobby W. McCOOL",
+          "votes": 4244
+        },
+        {
+          "sourceCandidateKey": "38:407.52:2",
+          "sourceName": "Norma Kirk McCORMICK",
+          "votes": 2778
+        }
+      ],
+      "totalVotes": 7022,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "e90b37ed3b8ac1c50741cfd211737ff384ad6f32ae16218d4a93094a2cf3c4f5"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:098:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "098",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "39:111.96:1",
+          "sourceName": "Danny R. BENTLEY",
+          "votes": 3495
+        },
+        {
+          "sourceCandidateKey": "39:111.96:2",
+          "sourceName": "James Arnold CAMPBELL",
+          "votes": 1294
+        }
+      ],
+      "totalVotes": 4789,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "2adc2991d0604d39f9e648a1a487e25c2246a1d9e239fc76e686d10466eea5e1"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:lower:099:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "lower",
+      "district": "099",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "39:253.08:1",
+          "sourceName": "Kevin ANDERSON",
+          "votes": 3284
+        },
+        {
+          "sourceCandidateKey": "39:253.08:2",
+          "sourceName": "Edward FRAZIER",
+          "votes": 1725
+        }
+      ],
+      "totalVotes": 5009,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "ea988d0dd48a35dc61c1c72fca44cba6a2893c2da2d466dc009ac96f0c7b43e8"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:upper:04:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "upper",
+      "district": "04",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "19:111.96:1",
+          "sourceName": "Robert M. \"Robby\" MILLS",
+          "votes": 4007
+        },
+        {
+          "sourceCandidateKey": "19:111.96:2",
+          "sourceName": "Roxan Lynn ASHBY",
+          "votes": 1132
+        }
+      ],
+      "totalVotes": 5139,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f467a90077f24043390f67055d46c286233f703c28349366c158721bfb2521b7"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:upper:06:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "upper",
+      "district": "06",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "19:279.48:1",
+          "sourceName": "Lindsey TICHENOR",
+          "votes": 6601
+        },
+        {
+          "sourceCandidateKey": "19:279.48:2",
+          "sourceName": "Bill FERKO",
+          "votes": 5616
+        }
+      ],
+      "totalVotes": 12217,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "46a01c9a070696be27f38a89e52574532e6ae71156866422cf7791e2009ef7fa"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:upper:20:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "upper",
+      "district": "20",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "20:111.96:1",
+          "sourceName": "Gex \"jay\" WILLIAMS",
+          "votes": 3332
+        },
+        {
+          "sourceCandidateKey": "20:111.96:2",
+          "sourceName": "Phyllis SPARKS",
+          "votes": 1836
+        },
+        {
+          "sourceCandidateKey": "20:111.96:3",
+          "sourceName": "Calen STUDLER",
+          "votes": 1452
+        },
+        {
+          "sourceCandidateKey": "20:111.96:4",
+          "sourceName": "Mike TEMPLEMAN",
+          "votes": 1263
+        }
+      ],
+      "totalVotes": 7883,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "b14f6180e07c0ee9748fbee0813d00881b0870827bba736b5b47aa90a8f71ef8"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:upper:22:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "upper",
+      "district": "22",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "20:305.76:1",
+          "sourceName": "Donald DOUGLAS",
+          "votes": 6114
+        },
+        {
+          "sourceCandidateKey": "20:305.76:2",
+          "sourceName": "Andrew COOPERRIDER",
+          "votes": 4840
+        }
+      ],
+      "totalVotes": 10954,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "48d486aceace0f59b9972c4ec617f93e455c0ad17cb0fca5607f3b9dca8ce991"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:upper:24:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "upper",
+      "district": "24",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "21:111.96:1",
+          "sourceName": "Shelley \"Funke\" FROMMEYER",
+          "votes": 4094
+        },
+        {
+          "sourceCandidateKey": "21:111.96:2",
+          "sourceName": "Jessica NEAL",
+          "votes": 3787
+        },
+        {
+          "sourceCandidateKey": "21:111.96:3",
+          "sourceName": "Chris ROBINSON",
+          "votes": 2731
+        }
+      ],
+      "totalVotes": 10612,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "affaa288a355b95bff7efc8e189843784b66f384ab9a9a086aca5057af8578e8"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:upper:26:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "upper",
+      "district": "26",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "21:279.48:1",
+          "sourceName": "James PEDEN",
+          "votes": 2774
+        },
+        {
+          "sourceCandidateKey": "21:279.48:2",
+          "sourceName": "Mark Hignite DOWNER",
+          "votes": 2368
+        },
+        {
+          "sourceCandidateKey": "21:279.48:3",
+          "sourceName": "Everett CORLEY",
+          "votes": 1370
+        }
+      ],
+      "totalVotes": 6512,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "c9afa269af886974c04539c6c7efcab604549eefced003b4401c260b4dcf54a8"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:upper:30:DEM",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "upper",
+      "district": "30",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "22:111.96:1",
+          "sourceName": "Sid ALLEN",
+          "votes": 7148
+        },
+        {
+          "sourceCandidateKey": "22:111.96:2",
+          "sourceName": "Terry V. SALYER",
+          "votes": 5468
+        }
+      ],
+      "totalVotes": 12616,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "33ac5fbee03920c29a335be4a7ab65b8d11167530db032323030c9ced1c5a816"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:upper:34:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "upper",
+      "district": "34",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "22:345.36:1",
+          "sourceName": "Jared K. CARPENTER",
+          "votes": 6086
+        },
+        {
+          "sourceCandidateKey": "22:345.36:2",
+          "sourceName": "Rhonda GOODE",
+          "votes": 1964
+        }
+      ],
+      "totalVotes": 8050,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "6371aefdf3b8ea27e9d0bf599db43c6bedf14f59aa19e35741126eec18a1c405"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:upper:36:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "upper",
+      "district": "36",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "23:111.96:1",
+          "sourceName": "Julie Raque ADAMS",
+          "votes": 9193
+        }
+      ],
+      "totalVotes": 9193,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "49825995acf7701d38869e9c8415ec996937504e9407bab3fcc80728c995051b"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2022:upper:38:REP",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "chamber": "upper",
+      "district": "38",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "23:240.00:1",
+          "sourceName": "Mike NEMES",
+          "votes": 5544
+        }
+      ],
+      "totalVotes": 5544,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "512143668ddd6ee5abc13b49ae0560f202198815d16173291426f15d56e548b7"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:002:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "002",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "24:111.96:1",
+          "sourceName": "Kimberly HOLLOWAY",
+          "votes": 1904
+        },
+        {
+          "sourceCandidateKey": "24:111.96:2",
+          "sourceName": "Richard HEATH",
+          "votes": 1743
+        }
+      ],
+      "totalVotes": 3647,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "2d9a04ec4a6f95c28595de1ddf345eee1e0858272bd775ff0a7288b70c28e9f1"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:010:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "010",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "24:271.08:1",
+          "sourceName": "Josh CALLOWAY",
+          "votes": 2773
+        },
+        {
+          "sourceCandidateKey": "24:271.08:2",
+          "sourceName": "Julie CANTWELL",
+          "votes": 738
+        }
+      ],
+      "totalVotes": 3511,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "b06a8dcbe2502b3d2702e8aff18da736637085f974bab31365551b18cfc37a6b"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:019:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "019",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "25:111.96:1",
+          "sourceName": "Michael Lee MEREDITH",
+          "votes": 3334
+        },
+        {
+          "sourceCandidateKey": "25:111.96:2",
+          "sourceName": "Kelcey ROCK",
+          "votes": 1059
+        }
+      ],
+      "totalVotes": 4393,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "e7d8c4d5f0e786b7de4fc1737f92609d6de92c6146afaadb039a8f1b762925d6"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:024:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "024",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "25:271.08:1",
+          "sourceName": "Ryan BIVENS",
+          "votes": 2636
+        },
+        {
+          "sourceCandidateKey": "25:271.08:2",
+          "sourceName": "Asa L. T. WAGGONER",
+          "votes": 878
+        }
+      ],
+      "totalVotes": 3514,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "c41a79a0a4524012b67a15e21ba8b6c391e0fcd810896b120f96c003fb540ee5"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:029:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "029",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "26:255.72:1",
+          "sourceName": "Timothy FINDLEY JR.",
+          "votes": 1027
+        },
+        {
+          "sourceCandidateKey": "26:255.72:2",
+          "sourceName": "Matthew PFAADT",
+          "votes": 982
+        },
+        {
+          "sourceCandidateKey": "26:255.72:3",
+          "sourceName": "Ricky SANTIAGO",
+          "votes": 443
+        }
+      ],
+      "totalVotes": 2452,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "25e7cc2cd3ca96be3332e1deadc6cf1af74e6a17f009a831036355ca7425457e"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:029:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "029",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "26:111.96:1",
+          "sourceName": "Chris LEWIS",
+          "votes": 2063
+        },
+        {
+          "sourceCandidateKey": "26:111.96:2",
+          "sourceName": "Debbie PEDEN",
+          "votes": 822
+        },
+        {
+          "sourceCandidateKey": "26:111.96:3",
+          "sourceName": "Wyatt ALLISON",
+          "votes": 151
+        }
+      ],
+      "totalVotes": 3036,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "c8789d8371a16062ab723a4ec32b8632be04eb6b5e2c1166ae09faff40fa93a5"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:030:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "030",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "26:399.48:1",
+          "sourceName": "Daniel GROSSBERG",
+          "votes": 1629
+        },
+        {
+          "sourceCandidateKey": "26:399.48:2",
+          "sourceName": "Mitra SUBEDI",
+          "votes": 1579
+        }
+      ],
+      "totalVotes": 3208,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "3f1c22c3d16397a7039d1c41edc6088c2da7575230e11d9d767da31ff799d95a"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:031:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "031",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "27:111.95:1",
+          "sourceName": "Colleen Orsella DAVIS",
+          "votes": 1889
+        },
+        {
+          "sourceCandidateKey": "27:111.95:2",
+          "sourceName": "Carma Bell MARSHALL",
+          "votes": 976
+        }
+      ],
+      "totalVotes": 2865,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "82a14d1b1bd0f7bf731001ccacfb53993541b4fe6423df9f77a7cb18ade99352"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:036:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "036",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "27:255.71:1",
+          "sourceName": "William \"Woody\" ZORN",
+          "votes": 1019
+        },
+        {
+          "sourceCandidateKey": "27:255.71:2",
+          "sourceName": "Colin Daugherty McDOWELL",
+          "votes": 1014
+        }
+      ],
+      "totalVotes": 2033,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "45739fdfae95d63cfc1e631ddb812ad6968c2415eff3b548aad508ddeb4ba562"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:041:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "041",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "28:111.96:1",
+          "sourceName": "Mary Lou MARZIAN",
+          "votes": 4946
+        },
+        {
+          "sourceCandidateKey": "28:111.96:2",
+          "sourceName": "William \"Rick\" ADAMS",
+          "votes": 2034
+        }
+      ],
+      "totalVotes": 6980,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "aab87e4f0124278b13a02092b15d7d0ac5d13543d4c8a0ebd37666ba53e4fbc9"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:042:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "042",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "28:255.72:1",
+          "sourceName": "Joshua WATKINS",
+          "votes": 2103
+        },
+        {
+          "sourceCandidateKey": "28:255.72:2",
+          "sourceName": "Jonathan MUSSELWHITE",
+          "votes": 951
+        },
+        {
+          "sourceCandidateKey": "28:255.72:3",
+          "sourceName": "Jack W. WALKER",
+          "votes": 914
+        }
+      ],
+      "totalVotes": 3968,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "eaef10b61865d3e6df3714c1c59e6853ad065b50c5219fa8ab7fa7c4be07af99"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:044:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "044",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "28:399.48:1",
+          "sourceName": "Beverly D. CHESTER-BURTON",
+          "votes": 1646
+        },
+        {
+          "sourceCandidateKey": "28:399.48:2",
+          "sourceName": "Shreeta WALDON",
+          "votes": 918
+        },
+        {
+          "sourceCandidateKey": "28:399.48:3",
+          "sourceName": "Daniel Deshawn COCKRELL",
+          "votes": 684
+        }
+      ],
+      "totalVotes": 3248,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f84c027e234eaedb627acc1d8a31d9ead330306dff799e09d0038172ff486926"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:045:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "045",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "29:111.96:1",
+          "sourceName": "Thomas JEFFERSON",
+          "votes": 2773
+        },
+        {
+          "sourceCandidateKey": "29:111.96:2",
+          "sourceName": "Killian TIMONEY",
+          "votes": 1072
+        }
+      ],
+      "totalVotes": 3845,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "7686140c03e0bbdaf718879bb6a01b3adb665c13f8d90a9cd7395d934e0a5b1c"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:047:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "047",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "29:271.08:1",
+          "sourceName": "Felicia RABOURN",
+          "votes": 2029
+        },
+        {
+          "sourceCandidateKey": "29:271.08:2",
+          "sourceName": "Mark A. GILKISON",
+          "votes": 1518
+        }
+      ],
+      "totalVotes": 3547,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "bb231ed874962870225e691d0ee04a295e0eec86343c1e1d351da7c48fa76f1f"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:048:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "048",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "30:111.96:1",
+          "sourceName": "Kate FARROW",
+          "votes": 1912
+        },
+        {
+          "sourceCandidateKey": "30:111.96:2",
+          "sourceName": "Debbie WESSLUND",
+          "votes": 1323
+        }
+      ],
+      "totalVotes": 3235,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "fc41ea6532b23dc50755423c7b2932043850c7341ea98a4423e9ac7e9c6b6f63"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:049:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "049",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "30:271.08:1",
+          "sourceName": "Thomas HUFF",
+          "votes": 1955
+        },
+        {
+          "sourceCandidateKey": "30:271.08:2",
+          "sourceName": "William HARNED",
+          "votes": 647
+        }
+      ],
+      "totalVotes": 2602,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "bae54652fe7051187146286f7751ab43a6d5678a3c923539d3c7f90f4f5c9966"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:050:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "050",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "30:414.96:1",
+          "sourceName": "Candy MASSARONI",
+          "votes": 2183
+        },
+        {
+          "sourceCandidateKey": "30:414.96:2",
+          "sourceName": "Andy STONE",
+          "votes": 1208
+        }
+      ],
+      "totalVotes": 3391,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "12851a93119d291d9b9fa0faa609a9af4ada42bbb8f0c31881887dd93bdaa704"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:056:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "056",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "31:111.96:1",
+          "sourceName": "Chantel BINGHAM",
+          "votes": 2609
+        },
+        {
+          "sourceCandidateKey": "31:111.96:2",
+          "sourceName": "Dencia Miche BRANSCUM",
+          "votes": 1336
+        }
+      ],
+      "totalVotes": 3945,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "e6264033f8130849a4d42ffea1a99cb426950b383c10f14afe8cec8096feef6e"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:057:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "057",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "31:286.56:1",
+          "sourceName": "Erika Marie HANCOCK",
+          "votes": 4467
+        },
+        {
+          "sourceCandidateKey": "31:286.56:2",
+          "sourceName": "Kristie POWE",
+          "votes": 2168
+        }
+      ],
+      "totalVotes": 6635,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "29bc711c645d26903d8ec7677b4e3ee2917d41678e0d2baab7ecf032f037d232"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:060:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "060",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "31:430.32:1",
+          "sourceName": "Marianne PROCTOR",
+          "votes": 3153
+        },
+        {
+          "sourceCandidateKey": "31:430.32:2",
+          "sourceName": "Christopher PAVESE",
+          "votes": 970
+        }
+      ],
+      "totalVotes": 4123,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "89e18e2839c50366b4ea14df6046ce5132bb4c52fece4f4042bf9947ba7a0231"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:061:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "061",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "32:111.96:1",
+          "sourceName": "Savannah MADDOX",
+          "votes": 2756
+        },
+        {
+          "sourceCandidateKey": "32:111.96:2",
+          "sourceName": "Jarrod M. LYKINS",
+          "votes": 568
+        }
+      ],
+      "totalVotes": 3324,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "45342a870a568c8516b110216c9e2e3e2696afc12404a3fd570a3c8c57c4103b"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:062:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "062",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "32:301.92:1",
+          "sourceName": "Tony HAMPTON",
+          "votes": 2895
+        },
+        {
+          "sourceCandidateKey": "32:301.92:2",
+          "sourceName": "Bill PARKER",
+          "votes": 1232
+        }
+      ],
+      "totalVotes": 4127,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "7f2cd6e237e4501b6984562b689595a3b6a69772bcfa2b03983e2b6755911555"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:064:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "064",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "33:111.95:1",
+          "sourceName": "Kimberly Poore MOSER",
+          "votes": 1542
+        },
+        {
+          "sourceCandidateKey": "33:111.95:2",
+          "sourceName": "Karen CAMPBELL",
+          "votes": 1458
+        }
+      ],
+      "totalVotes": 3000,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "9256e5b5da4f2f84995023f918a1f7040974a8d231a9867cc920e4359c11f357"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:066:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "066",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "33:255.71:1",
+          "sourceName": "T. J. ROBERTS",
+          "votes": 3365
+        },
+        {
+          "sourceCandidateKey": "33:255.71:2",
+          "sourceName": "C. Ed MASSEY",
+          "votes": 1173
+        }
+      ],
+      "totalVotes": 4538,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "20f0172fcb4061a70d1235024aee3ab4c6cef1dbd2611e856310ef0a4230576b"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:067:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "067",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "33:399.47:1",
+          "sourceName": "Terry W. HATTON",
+          "votes": 909
+        },
+        {
+          "sourceCandidateKey": "33:399.47:2",
+          "sourceName": "Brian K. ORMES",
+          "votes": 203
+        }
+      ],
+      "totalVotes": 1112,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "340fd0ea5bed6ed5ec55970ad2609f6657882a5385f6ba750233e580def41f8d"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:069:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "069",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "34:111.96:1",
+          "sourceName": "Steven DOAN",
+          "votes": 1675
+        },
+        {
+          "sourceCandidateKey": "34:111.96:2",
+          "sourceName": "Diane BROWN",
+          "votes": 534
+        }
+      ],
+      "totalVotes": 2209,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "15dd57a47456bfb59c681d780364887cd6dd707f1f6ccd6944f1b7f05baadbcc"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:076:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "076",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "34:271.08:1",
+          "sourceName": "Anne Gay DONWORTH",
+          "votes": 1777
+        },
+        {
+          "sourceCandidateKey": "34:271.08:2",
+          "sourceName": "James \"Jamie\" PALUMBO",
+          "votes": 1627
+        },
+        {
+          "sourceCandidateKey": "34:271.08:3",
+          "sourceName": "Joshua Daniel BUCKMAN",
+          "votes": 594
+        }
+      ],
+      "totalVotes": 3998,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "9fc3f6b9e928d87676944fe08f94be2831f4665c25a3cfd5931df9e40d83fe5d"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:077:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "077",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "34:414.96:1",
+          "sourceName": "George A. BROWN JR.",
+          "votes": 2128
+        },
+        {
+          "sourceCandidateKey": "34:414.96:2",
+          "sourceName": "Daniel E. WHITLEY",
+          "votes": 1234
+        }
+      ],
+      "totalVotes": 3362,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "2df2d4d7d8f672bb8495a73735b2c4c1731fdf988f0b7fb8d69f7d6be853448c"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:086:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "086",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "35:111.96:1",
+          "sourceName": "Tom O'dell SMITH",
+          "votes": 2913
+        },
+        {
+          "sourceCandidateKey": "35:111.96:2",
+          "sourceName": "Billy J. TAYLOR",
+          "votes": 1710
+        }
+      ],
+      "totalVotes": 4623,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "55c31a9edd29644bb3f324280aa1942db2844c165918748cdd6430c90278e00f"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:089:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "089",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "35:271.08:1",
+          "sourceName": "Timmy TRUETT",
+          "votes": 3018
+        },
+        {
+          "sourceCandidateKey": "35:271.08:2",
+          "sourceName": "Idalia HOLLAND",
+          "votes": 374
+        }
+      ],
+      "totalVotes": 3392,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "6d74bd2b43bca8d2d49d2c6845c225f350e5e202eaf34e56a13a1917a77be9f8"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:091:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "091",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "36:111.96:1",
+          "sourceName": "Billy E. WESLEY",
+          "votes": 1673
+        },
+        {
+          "sourceCandidateKey": "36:111.96:2",
+          "sourceName": "Darrell W. BILLINGS",
+          "votes": 1470
+        }
+      ],
+      "totalVotes": 3143,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "806a2dbab41336c4ed2ba922a65b494abbdda58498b0cc23bcf056f3bbcddf27"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:093:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "093",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "36:286.56:1",
+          "sourceName": "Adrielle CAMUEL",
+          "votes": 1985
+        },
+        {
+          "sourceCandidateKey": "36:286.56:2",
+          "sourceName": "Sarah RITTER",
+          "votes": 750
+        }
+      ],
+      "totalVotes": 2735,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "0c12c77329635c4d17bb3ce284f1ef2c03623f3968739d96f47be8c2bbcc690b"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:095:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "095",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "37:111.96:1",
+          "sourceName": "Brandon SPENCER",
+          "votes": 967
+        },
+        {
+          "sourceCandidateKey": "37:111.96:2",
+          "sourceName": "David PENNINGTON",
+          "votes": 478
+        }
+      ],
+      "totalVotes": 1445,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "7fd645e4abd535fcf8acac8afde120964369ef26f4a3ce11fe75d83cf1ba8b8e"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:lower:098:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "lower",
+      "district": "098",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "37:271.08:1",
+          "sourceName": "Tammie WOMACK",
+          "votes": 808
+        },
+        {
+          "sourceCandidateKey": "37:271.08:2",
+          "sourceName": "Joe VIRGIN",
+          "votes": 766
+        },
+        {
+          "sourceCandidateKey": "37:271.08:3",
+          "sourceName": "James M. Shawn RENEAU",
+          "votes": 179
+        },
+        {
+          "sourceCandidateKey": "37:271.08:4",
+          "sourceName": "Lawrence ASSAR",
+          "votes": 158
+        }
+      ],
+      "totalVotes": 1911,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "dc3ab488c88a8689a9c6bffb9aeb365ecbb0167d9e0224a351af32809171e401"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:upper:01:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "upper",
+      "district": "01",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "19:111.96:1",
+          "sourceName": "Jason G. HOWELL",
+          "votes": 5266
+        },
+        {
+          "sourceCandidateKey": "19:111.96:2",
+          "sourceName": "Lynn BECHLER",
+          "votes": 2258
+        }
+      ],
+      "totalVotes": 7524,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "3a98a1d8d5b9d5fcd711f30646f7275557211fbc8db69a578d9f3295b8876067"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:upper:05:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "upper",
+      "district": "05",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "19:348.24:1",
+          "sourceName": "Stephen MEREDITH",
+          "votes": 6060
+        },
+        {
+          "sourceCandidateKey": "19:348.24:2",
+          "sourceName": "Thomas BALLINGER",
+          "votes": 2386
+        }
+      ],
+      "totalVotes": 8446,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "647c291700157a6f310f1ce2e1c257e83e7ee04af95bf06b19290e6ee56af1a8"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:upper:07:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "upper",
+      "district": "07",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "20:111.96:1",
+          "sourceName": "Aaron REED",
+          "votes": 4826
+        },
+        {
+          "sourceCandidateKey": "20:111.96:2",
+          "sourceName": "Ed GALLREIN",
+          "votes": 4708
+        },
+        {
+          "sourceCandidateKey": "20:111.96:3",
+          "sourceName": "Adrienne E. SOUTHWORTH",
+          "votes": 2747
+        }
+      ],
+      "totalVotes": 12281,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "75024f93f7c5ee49f75156a4f971fcc88fc4dfb43965bbd76b303e3b932bae21"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:upper:11:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "upper",
+      "district": "11",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "20:301.92:1",
+          "sourceName": "Steve RAWLINGS",
+          "votes": 7482
+        },
+        {
+          "sourceCandidateKey": "20:301.92:2",
+          "sourceName": "Duane FROELICHER",
+          "votes": 2179
+        }
+      ],
+      "totalVotes": 9661,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "dd64bf5da2b46e78d5305f194525e1465bb639f72d3f2b67343614fd72d78618"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:upper:17:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "upper",
+      "district": "17",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "21:111.96:1",
+          "sourceName": "Matt NUNN",
+          "votes": 6291
+        },
+        {
+          "sourceCandidateKey": "21:111.96:2",
+          "sourceName": "Julia JADDOCK",
+          "votes": 3099
+        }
+      ],
+      "totalVotes": 9390,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "54a5a33fd681b5fc5c2f36a4724e4a7576b9f6ff391130a288a8a7172e2a8c07"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:upper:29:REP",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "upper",
+      "district": "29",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "21:301.92:1",
+          "sourceName": "Johnnie L. TURNER",
+          "votes": 4305
+        },
+        {
+          "sourceCandidateKey": "21:301.92:2",
+          "sourceName": "Randy THOMPSON",
+          "votes": 2181
+        },
+        {
+          "sourceCandidateKey": "21:301.92:3",
+          "sourceName": "Shawn Andrew GILLEY",
+          "votes": 491
+        }
+      ],
+      "totalVotes": 6977,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "578c412d003a733dec45750295999f22a6d87a9328f3e294e14428fb69d87c80"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2024:upper:33:DEM",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "chamber": "upper",
+      "district": "33",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "22:111.96:1",
+          "sourceName": "Gerald A. NEAL",
+          "votes": 4854
+        },
+        {
+          "sourceCandidateKey": "22:111.96:2",
+          "sourceName": "Attica Woodson SCOTT",
+          "votes": 3460
+        },
+        {
+          "sourceCandidateKey": "22:111.96:3",
+          "sourceName": "Michael W. CHURCHILL JR.",
+          "votes": 462
+        }
+      ],
+      "totalVotes": 8776,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_results_pdf_separate_candidate_certification_not_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "0ded5af7832b9d754066f4a72867218492ae49c3168cdc3bee88d78ffe99044d"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:002:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "002",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "28:111.96:1",
+          "sourceName": "Kim HOLLOWAY",
+          "votes": 3026
+        },
+        {
+          "sourceCandidateKey": "28:111.96:2",
+          "sourceName": "Richard HEATH",
+          "votes": 1740
+        },
+        {
+          "sourceCandidateKey": "28:111.96:3",
+          "sourceName": "Nate COX",
+          "votes": 566
+        }
+      ],
+      "totalVotes": 5332,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "22a40ecee98abcc23c347905d5c9a8f8c209525028fb4d556eb77a8de664e354"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:010:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "010",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "28:271.08:1",
+          "sourceName": "Josh CALLOWAY",
+          "votes": 4315
+        },
+        {
+          "sourceCandidateKey": "28:271.08:2",
+          "sourceName": "Julie CANTWELL",
+          "votes": 2353
+        }
+      ],
+      "totalVotes": 6668,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "6c02bfaa75a1b2d18d4fca42048616b965e3740f20890bf6ad5a567a386498a1"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:014:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "014",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "29:111.96:1",
+          "sourceName": "Wes PATE",
+          "votes": 3853
+        },
+        {
+          "sourceCandidateKey": "29:111.96:2",
+          "sourceName": "Marty SHEPHARD",
+          "votes": 2832
+        }
+      ],
+      "totalVotes": 6685,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "c47fd66fdb2aadfa4c1ea9c1279c9969ce4517467a9482bac4eab42009056fa9"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:024:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "024",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "29:286.56:1",
+          "sourceName": "Ryan Dale BIVENS",
+          "votes": 4478
+        },
+        {
+          "sourceCandidateKey": "29:286.56:2",
+          "sourceName": "Steven T. CAVEN",
+          "votes": 2384
+        }
+      ],
+      "totalVotes": 6862,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "99a949c6d9a22488fbe8135f25c8d1cd4ce30d5be6489136bf0046588393d937"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:027:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "027",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "30:111.96:1",
+          "sourceName": "Joseph REDMON",
+          "votes": 1558
+        },
+        {
+          "sourceCandidateKey": "30:111.96:2",
+          "sourceName": "Rachelle FRAZIER",
+          "votes": 1054
+        },
+        {
+          "sourceCandidateKey": "30:111.96:3",
+          "sourceName": "Paul SMITH",
+          "votes": 570
+        },
+        {
+          "sourceCandidateKey": "30:111.96:4",
+          "sourceName": "Sandra CARTER",
+          "votes": 443
+        }
+      ],
+      "totalVotes": 3625,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "3bf8adedd693f5f0ab023283eb4e199e3564a9d15d71d1db85fce69375f41476"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:030:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "030",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "30:271.08:1",
+          "sourceName": "Mitra SUBEDI",
+          "votes": 2095
+        },
+        {
+          "sourceCandidateKey": "30:271.08:2",
+          "sourceName": "Cassie LYLES",
+          "votes": 1495
+        },
+        {
+          "sourceCandidateKey": "30:271.08:3",
+          "sourceName": "Daniel GROSSBERG",
+          "votes": 1096
+        }
+      ],
+      "totalVotes": 4686,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "9d924657642b42b02f246c91beab3d40de2fb42aea561865dc6c68405e5c3d97"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:033:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "033",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "31:111.96:1",
+          "sourceName": "Jennifer HARDIN",
+          "votes": 2930
+        },
+        {
+          "sourceCandidateKey": "31:111.96:2",
+          "sourceName": "Tarah Combs LeBLANC",
+          "votes": 1544
+        }
+      ],
+      "totalVotes": 4474,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "39df51d504cb98b7dda6b0e23d0faceba4c7f8a133cebc5d3830e5ed355b313d"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:035:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "035",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "31:286.56:1",
+          "sourceName": "Bret SHULTZ",
+          "votes": 931
+        },
+        {
+          "sourceCandidateKey": "31:286.56:2",
+          "sourceName": "Charles JUNGBERT",
+          "votes": 342
+        }
+      ],
+      "totalVotes": 1273,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "05873c2378ac7a471afc262a723f9ed5d07b96f32701a009c36a00adc1d12b6a"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:036:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "036",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "31:430.32:1",
+          "sourceName": "John F. HODGSON",
+          "votes": 3576
+        },
+        {
+          "sourceCandidateKey": "31:430.32:2",
+          "sourceName": "Rex TOLER",
+          "votes": 815
+        }
+      ],
+      "totalVotes": 4391,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "b609686fd3360ec654a726e6d6cd32e829fca32959fe35066241d951985b3b14"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:040:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "040",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "32:111.96:1",
+          "sourceName": "Nima KULKARNI",
+          "votes": 3271
+        },
+        {
+          "sourceCandidateKey": "32:111.96:2",
+          "sourceName": "Patrick Bryant DUNEGAN",
+          "votes": 954
+        }
+      ],
+      "totalVotes": 4225,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "27cfb9aaaa33443e493929742ffdfe1a51cc157a951e8037dfba0ccd751da876"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:043:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "043",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "32:255.72:1",
+          "sourceName": "Robert LeVertis BELL",
+          "votes": 2938
+        },
+        {
+          "sourceCandidateKey": "32:255.72:2",
+          "sourceName": "Joi McATEE",
+          "votes": 2447
+        }
+      ],
+      "totalVotes": 5385,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "a8a092cb25f187d5c20505340ffdc214d6d46222e3f2b563a2dddc0b1d6f22df"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:044:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "044",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "32:399.48:1",
+          "sourceName": "Kenya WADE",
+          "votes": 2465
+        },
+        {
+          "sourceCandidateKey": "32:399.48:2",
+          "sourceName": "Beverly CHESTER-BURTON",
+          "votes": 2460
+        },
+        {
+          "sourceCandidateKey": "32:399.48:3",
+          "sourceName": "Jesten S. SLAW",
+          "votes": 711
+        }
+      ],
+      "totalVotes": 5636,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "ba41bb78eec689d9af6bfc38bbb2bac0871e3cc0a35fb305151dbeab079bb7f3"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:047:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "047",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "33:111.96:1",
+          "sourceName": "Felicia RABOURN",
+          "votes": 3707
+        },
+        {
+          "sourceCandidateKey": "33:111.96:2",
+          "sourceName": "Mark A. GILKISON",
+          "votes": 2679
+        }
+      ],
+      "totalVotes": 6386,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "777e45c933279733ef68886161b9b8017512a033604fa52c4995268d42736357"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:048:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "048",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "33:301.92:1",
+          "sourceName": "Suhas KULKARNI",
+          "votes": 4170
+        },
+        {
+          "sourceCandidateKey": "33:301.92:2",
+          "sourceName": "Nathan BELLOWS",
+          "votes": 1613
+        }
+      ],
+      "totalVotes": 5783,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f90392c2f7e05459c17a25ae9607f310074348a2105b7b023a4ed18d6671a5eb"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:052:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "052",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "34:111.96:1",
+          "sourceName": "Kevin G. JONES",
+          "votes": 5429
+        },
+        {
+          "sourceCandidateKey": "34:111.96:2",
+          "sourceName": "Michael Jonah NEAL",
+          "votes": 2922
+        }
+      ],
+      "totalVotes": 8351,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "5008ad2a1c6c2fd992571b4d7dafc8077b15157caa6af666ae5ed367e37fc132"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:055:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "055",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "34:286.56:1",
+          "sourceName": "Katrina A. SEXTON",
+          "votes": 1831
+        },
+        {
+          "sourceCandidateKey": "34:286.56:2",
+          "sourceName": "Nathan SAUCEDO",
+          "votes": 1347
+        }
+      ],
+      "totalVotes": 3178,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "4b9337614401300525608dfe008c20c578f69f8d136fb5c4b2946fe1855f8190"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:059:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "059",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "35:111.96:1",
+          "sourceName": "Stephanie WHITE",
+          "votes": 2635
+        },
+        {
+          "sourceCandidateKey": "35:111.96:2",
+          "sourceName": "Pandora SEARS",
+          "votes": 637
+        }
+      ],
+      "totalVotes": 3272,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f6c4bae230224e5df2184e3aecd4e08ab43e5c2568c9eca34f8d9dbdc917b151"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:063:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "063",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "35:255.72:1",
+          "sourceName": "Cole CUZICK",
+          "votes": 2220
+        },
+        {
+          "sourceCandidateKey": "35:255.72:2",
+          "sourceName": "Kim BANTA",
+          "votes": 2207
+        },
+        {
+          "sourceCandidateKey": "35:255.72:3",
+          "sourceName": "Seth Winslow YOUNG",
+          "votes": 435
+        }
+      ],
+      "totalVotes": 4862,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "5770389212e71822011d5ebae3f4ee80a18cc2729ddf8a99e2ed8384c836d097"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:064:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "064",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "36:111.96:1",
+          "sourceName": "William Nick WHALEN",
+          "votes": 1400
+        },
+        {
+          "sourceCandidateKey": "36:111.96:2",
+          "sourceName": "Nicholas C. McHARGUE",
+          "votes": 791
+        }
+      ],
+      "totalVotes": 2191,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "1c87d4210a5c6c72444ef94cff1d21e63bc6f2c12a6142aa0bceb3b5978182f9"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:064:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "064",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "35:414.96:1",
+          "sourceName": "Kimberly Poore MOSER",
+          "votes": 2835
+        },
+        {
+          "sourceCandidateKey": "35:414.96:2",
+          "sourceName": "Scott BERGER",
+          "votes": 2469
+        }
+      ],
+      "totalVotes": 5304,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "a187913023c8442175b5ff365faa646337dbf8d6db5c92560e0cb1de3dcd6cf9"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:069:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "069",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "36:414.96:1",
+          "sourceName": "Wilanne STANGEL",
+          "votes": 1029
+        },
+        {
+          "sourceCandidateKey": "36:414.96:2",
+          "sourceName": "Bryan G. SNAPP",
+          "votes": 896
+        }
+      ],
+      "totalVotes": 1925,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "b043164fd078e720538c41ad061cd62a571e2d9b4b34f54bc86ee71b68d27d55"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:069:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "069",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "36:255.72:1",
+          "sourceName": "Steven DOAN",
+          "votes": 2727
+        },
+        {
+          "sourceCandidateKey": "36:255.72:2",
+          "sourceName": "Jesse FOREMAN",
+          "votes": 758
+        }
+      ],
+      "totalVotes": 3485,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "fa2ae6b92ebc5958df5e2552c0dfe1ba98d957d625592a4b49bd73a587b4b5cf"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:070:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "070",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "37:111.96:1",
+          "sourceName": "Mike FISHER",
+          "votes": 3020
+        },
+        {
+          "sourceCandidateKey": "37:111.96:2",
+          "sourceName": "Travis HUBER",
+          "votes": 2196
+        }
+      ],
+      "totalVotes": 5216,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "3dbbd8513cb2ec17beb21f7c440dcbeb27b23957798e14c0924536cfe1379e5a"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:073:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "073",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "38:111.96:1",
+          "sourceName": "Chelsea KIRK",
+          "votes": 2226
+        },
+        {
+          "sourceCandidateKey": "38:111.96:2",
+          "sourceName": "Rory HOULIHAN",
+          "votes": 1377
+        }
+      ],
+      "totalVotes": 3603,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "478c28dde6efdcf51f112f4f9e5830e482f678ef4b136f5c431449ae9be86e99"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:073:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "073",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "37:301.92:1",
+          "sourceName": "Daniel KONSTANTOPOULOS",
+          "votes": 2871
+        },
+        {
+          "sourceCandidateKey": "37:301.92:2",
+          "sourceName": "Les YATES",
+          "votes": 1667
+        }
+      ],
+      "totalVotes": 4538,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f51a772af2f66c791e6b729b1d9c7814591225dac30753d831e572bd672c42a2"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:074:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "074",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "38:271.08:1",
+          "sourceName": "David F. CHARLES",
+          "votes": 3224
+        },
+        {
+          "sourceCandidateKey": "38:271.08:2",
+          "sourceName": "Shannon DENNISTON",
+          "votes": 1098
+        },
+        {
+          "sourceCandidateKey": "38:271.08:3",
+          "sourceName": "Aaron WILLIAMS",
+          "votes": 599
+        }
+      ],
+      "totalVotes": 4921,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "feb361284b0744d1918dbbe1f68d37d1b77ee2020c2ec1b4ad4534bd12f900e3"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:076:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "076",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "39:111.96:1",
+          "sourceName": "Anne Gay DONWORTH",
+          "votes": 3715
+        },
+        {
+          "sourceCandidateKey": "39:111.96:2",
+          "sourceName": "Jamie PALUMBO",
+          "votes": 2366
+        }
+      ],
+      "totalVotes": 6081,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "2be54c1af16324610c45d28ad702b7e7d2ae01b5e4424afcbd1b55d28795e8b4"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:078:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "078",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "39:255.72:1",
+          "sourceName": "Mark HART",
+          "votes": 4852
+        },
+        {
+          "sourceCandidateKey": "39:255.72:2",
+          "sourceName": "Brandon N. MONTANO",
+          "votes": 1683
+        }
+      ],
+      "totalVotes": 6535,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "473b3087adf10bfd4ca861a91d69acef677c6da7a4e7ad5ee9d8f1834c435979"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:081:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "081",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "40:111.96:1",
+          "sourceName": "Deanna Frazier GORDON",
+          "votes": 3212
+        },
+        {
+          "sourceCandidateKey": "40:111.96:2",
+          "sourceName": "Andrew SIMPSON",
+          "votes": 1682
+        }
+      ],
+      "totalVotes": 4894,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "0bcb279024eaff061e5f16ed15d296dca40a28ebdbd714d6b753766b466f9923"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:091:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "091",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "40:255.72:1",
+          "sourceName": "Darrell BILLINGS",
+          "votes": 2881
+        },
+        {
+          "sourceCandidateKey": "40:255.72:2",
+          "sourceName": "Jeff HENSLEY",
+          "votes": 2783
+        }
+      ],
+      "totalVotes": 5664,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "f8f8eaabe38f851de12d62a9df80268935e79d5224a1ea13938f2da5aa36d0f1"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:lower:095:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "lower",
+      "district": "095",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "41:111.96:1",
+          "sourceName": "Tanner HESTERBERG",
+          "votes": 2159
+        },
+        {
+          "sourceCandidateKey": "41:111.96:2",
+          "sourceName": "Willie CRASE JR.",
+          "votes": 1092
+        }
+      ],
+      "totalVotes": 3251,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "0352b6af6d9b16ce699935f50658f572a7a0b54623c749c30de6b49d68aad3e4"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:upper:06:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "upper",
+      "district": "06",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "23:111.96:1",
+          "sourceName": "Christian FURMAN",
+          "votes": 8425
+        },
+        {
+          "sourceCandidateKey": "23:111.96:2",
+          "sourceName": "Chaz STOESS",
+          "votes": 2591
+        }
+      ],
+      "totalVotes": 11016,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "9080471f29c21296cb4f48c4cee45eeb78ff3f8500df78f63e417fc71c5250b9"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:upper:10:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "upper",
+      "district": "10",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "23:286.56:1",
+          "sourceName": "Matt DENEEN",
+          "votes": 6872
+        },
+        {
+          "sourceCandidateKey": "23:286.56:2",
+          "sourceName": "Louis GRIDER",
+          "votes": 1394
+        }
+      ],
+      "totalVotes": 8266,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "1673978825e47194307d9c1c8b49cffd1c7fa4812fd0266b6eb7db62d58754f3"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:upper:14:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "upper",
+      "district": "14",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "24:295.08:1",
+          "sourceName": "Carrie Gribbins TRUITT",
+          "votes": 6808
+        },
+        {
+          "sourceCandidateKey": "24:295.08:2",
+          "sourceName": "Malcolm W. JONES",
+          "votes": 2469
+        }
+      ],
+      "totalVotes": 9277,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "fdc8650ac0b651cdf7ec7c49f949f4b1ccad81a02a5e93d8065097e834957c5a"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:upper:14:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "upper",
+      "district": "14",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "24:111.96:1",
+          "sourceName": "Ben MUDD",
+          "votes": 4122
+        },
+        {
+          "sourceCandidateKey": "24:111.96:2",
+          "sourceName": "Dallas ROBINSON",
+          "votes": 3759
+        },
+        {
+          "sourceCandidateKey": "24:111.96:3",
+          "sourceName": "James VICTERY",
+          "votes": 2088
+        },
+        {
+          "sourceCandidateKey": "24:111.96:4",
+          "sourceName": "Stephen CARNEY",
+          "votes": 1576
+        },
+        {
+          "sourceCandidateKey": "24:111.96:5",
+          "sourceName": "Lynn SHELBURNE",
+          "votes": 1390
+        },
+        {
+          "sourceCandidateKey": "24:111.96:6",
+          "sourceName": "Brian BAYERS",
+          "votes": 452
+        },
+        {
+          "sourceCandidateKey": "24:111.96:7",
+          "sourceName": "Peggy Brady SMITH",
+          "votes": 368
+        }
+      ],
+      "totalVotes": 13755,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "6aea145dc62a03138eadb37860131bcf7fe4793c7ea6e4f8ad7e275e59f843f5"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:upper:26:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "upper",
+      "district": "26",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "25:111.96:1",
+          "sourceName": "Everett C. CORLEY",
+          "votes": 4960
+        },
+        {
+          "sourceCandidateKey": "25:111.96:2",
+          "sourceName": "Sheeba JOLLY",
+          "votes": 1058
+        }
+      ],
+      "totalVotes": 6018,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "ce0e3cf8e576a3d54e380e55ca35bd075391db002701bef25f11b5cd471e0d1c"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:upper:30:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "upper",
+      "district": "30",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "25:255.72:1",
+          "sourceName": "Brandon D. SMITH",
+          "votes": 7275
+        },
+        {
+          "sourceCandidateKey": "25:255.72:2",
+          "sourceName": "Billy WESLEY",
+          "votes": 6248
+        }
+      ],
+      "totalVotes": 13523,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "7f7365672d05bedf546881e58da653bba27b43893ac6f248086d1b7baecf814e"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:upper:36:DEM",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "upper",
+      "district": "36",
+      "rawParty": "Democratic",
+      "candidates": [
+        {
+          "sourceCandidateKey": "26:255.72:1",
+          "sourceName": "Sarah Cole McINTOSH",
+          "votes": 7411
+        },
+        {
+          "sourceCandidateKey": "26:255.72:2",
+          "sourceName": "Luke WHITEHEAD",
+          "votes": 5391
+        }
+      ],
+      "totalVotes": 12802,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "c2f33f4b0541bc426b5c3e942917653efa90337900f6dd23a84fee7b312e9fb3"
+    },
+    {
+      "contestId": "ky:state-leg-primary:2026:upper:36:REP",
+      "cycleYear": 2026,
+      "electionDate": "2026-05-19",
+      "chamber": "upper",
+      "district": "36",
+      "rawParty": "Republican",
+      "candidates": [
+        {
+          "sourceCandidateKey": "26:111.96:1",
+          "sourceName": "Julie Raque ADAMS",
+          "votes": 9126
+        },
+        {
+          "sourceCandidateKey": "26:111.96:2",
+          "sourceName": "David J. FARLEY",
+          "votes": 2220
+        }
+      ],
+      "totalVotes": 11346,
+      "resultAuthorityStatus": "official_secretary_primary_results_pdf_retained",
+      "certificationStatus": "official_statewide_vote_totals_certification_pdf_retained",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "winnerIdentity": null,
+      "identity": null,
+      "sourceLockIds": [
+        "ky-2026-primary-certification-vote-totals",
+        "ky-2026-primary-certification-vote-totals-tsv-text"
+      ],
+      "formulaEligible": false,
+      "contestSha256": "399edcd0f5b0fe000ab82a58824a7d9b0c495903378253f43be5e2fb11a4d26b"
+    }
+  ],
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "reportedPartyContests": 54,
+      "candidateRows": 116,
+      "candidateVotes": 274179
+    },
+    {
+      "cycleYear": 2024,
+      "reportedPartyContests": 41,
+      "candidateRows": 92,
+      "candidateVotes": 180152
+    },
+    {
+      "cycleYear": 2026,
+      "reportedPartyContests": 39,
+      "candidateRows": 90,
+      "candidateVotes": 234685
+    }
+  ],
+  "contestSetSha256": "5c1313a1ef3c21bacfaea600dadb7bde58fc06a27d812304b290983b70b84a7b",
+  "summary": {
+    "cycles": 3,
+    "reportedPartyContests": 134,
+    "upperChamberContests": 25,
+    "lowerChamberContests": 109,
+    "democraticContests": 43,
+    "republicanContests": 91,
+    "candidateRows": 298,
+    "candidateVotes": 689016,
+    "formulaEligibleContests": 0
+  },
+  "packageSha256": "f2cde60a593c8e84520625cb01e5906bdd9300ba1a0b1fc22dec9d888c54e19c"
+}
