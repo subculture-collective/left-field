@@ -29,15 +29,15 @@ describe("house priority index", () => {
     expect(rows.every((row) => row.scoreDrivers.some((driver) => driver.key === "cash_vulnerability"))).toBe(true);
   });
 
-  it("activates exact at-large local context without changing unsupported seats", () => {
+  it("activates exact at-large local and down-ballot context without changing unsupported seats", () => {
     const active = housePriorityBriefs();
     const previous = new Map(housePriorityBriefsV03().map((row) => [row.seatCycleId, row]));
     const changed = active.filter((row) => row.provisionalTargetScore !== previous.get(row.seatCycleId)?.provisionalTargetScore);
 
     expect(changed.map((row) => [row.districtLabel, row.provisionalTargetScore]).sort(([left], [right]) => String(left).localeCompare(String(right)))).toEqual([
-      ["DE-AL", 39.5],
+      ["DE-AL", 39.7],
       ["SD-AL", 7.2],
-      ["WY-AL", 14.5],
+      ["WY-AL", 13.6],
     ]);
     expect(active.filter((row) => row.scoreDrivers.some((driver) => driver.key === "local_context")).map((row) => row.districtLabel).sort()).toEqual(["DE-AL", "SD-AL", "WY-AL"]);
     expect(active.filter((row) => !changed.includes(row)).every((row) => row.provisionalTargetScore === previous.get(row.seatCycleId)?.provisionalTargetScore)).toBe(true);

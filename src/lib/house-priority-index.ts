@@ -49,6 +49,8 @@ type FinanceRow = { seatCycleId: string; incumbentParty: "democratic" | "republi
 type FinanceProjection = { schema: string; universe: { observed: number }; summary: { cashOnHandValues: number }; rows: FinanceRow[]; projectionSha256: string };
 type V04ActiveRow = { seatCycleId: string; districtLabel: string; previousScoreVersion: "v0.3"; previousScore: number; activeScoreVersion: "v0.4"; activeScore: number; localContext: number | null; localContextAvailableWeight: number; exactGeographyJoin: "at_large_statewide" | "not_yet_eligible"; movement: number };
 type V04ActiveProjection = { schema: "house-score-v04-active-projection-v1"; version: 1; activationPolicy: { status: "active"; scope: "exact_at_large_geography_only"; splitCountyAllocation: false; researchFallbackScoreInputs: false }; rows: V04ActiveRow[]; summary: { seats: 430; localContextActiveSeats: 3; unchangedSeats: 427; routeChanges: 0; movementCapBreaches: 0 }; rowSetSha256: string; packageSha256: string };
+type V05ActiveRow = { seatCycleId: string; districtLabel: string; previousScoreVersion: "v0.4"; previousScore: number; activeScoreVersion: "v0.5"; activeScore: number; localContext: number | null; localContextAvailableWeight: number; downBallotDemocraticOverperformance: number | null; houseDemocraticShare: number | null; presidentialDemocraticShare: number | null; houseMinusPresidentPercentagePoints: number | null; exactGeographyJoin: "at_large_statewide" | "not_yet_eligible"; evidenceConfidence: "research_fallback_exact_at_large" | "not_available"; movementFromV04: number };
+type V05ActiveProjection = { schema: "house-score-v05-active-projection-v1"; version: 1; methodology: { status: "active"; scope: "exact_at_large_geography_only"; splitCountyAllocation: false; researchFallbackScoreInputs: true; winnerInference: false }; rows: V05ActiveRow[]; summary: { seats: 430; downBallotActiveSeats: 2; unchangedSeats: 428; geographyExcludedSeats: 1; routeChanges: 0; movementCapBreaches: 0 }; rowSetSha256: string; packageSha256: string };
 const cutoff = "2026-08-04";
 const days = (start: string, end: string): number => (Date.parse(end) - Date.parse(start)) / 86_400_000;
 const one = (value: number): number => Math.round(value * 10) / 10;
@@ -203,6 +205,19 @@ function v04ActiveRows(): Map<string, V04ActiveRow> {
   return new Map(value.rows.map((row) => [row.seatCycleId, row]));
 }
 
+function v05ActiveRows(): Map<string, V05ActiveRow> {
+  const path = "data/metadata/house-score-v05-active-projection-v1.json";
+  const bytes = readFileSync(join(process.cwd(), path));
+  const digest = createHash("sha256").update(bytes).digest("hex");
+  const lock = JSON.parse(readFileSync(join(process.cwd(), "data/source-lock.json"), "utf8")) as { entries: Array<{ id?: unknown; url?: unknown; retainedPath?: unknown; retainedStatus?: unknown; byteSize?: unknown; sha256?: unknown; kind?: unknown; parentIds?: unknown }> };
+  const entries = lock.entries.filter((entry) => entry.id === "house-score-v05-active-projection-v1");
+  const parentIds = ["house-score-v04-active-projection-v1", "house-score-v04-shadow-projection-v1", "rapid-county-house-results-projection-v1", "downballot-presidential-cd-2024-csv", "rapid-at-large-cd119-county-universe-v1"];
+  if (bytes.length !== 431_813 || digest !== "ffca4e473569876bc54044d778e7d804308b485f00034f5c86e56c00a597df74" || entries.length !== 1 || entries[0]!.url !== "urn:dsa-seats:house-score-v05-active-projection:v1:2026-08-09" || entries[0]!.retainedPath !== path || entries[0]!.retainedStatus !== "retained" || entries[0]!.byteSize !== bytes.length || entries[0]!.sha256 !== digest || entries[0]!.kind !== "derived_artifact" || JSON.stringify(entries[0]!.parentIds) !== JSON.stringify(parentIds)) throw new Error("HOUSE_PRIORITY_V05_SOURCE_INVALID");
+  const value = JSON.parse(bytes.toString("utf8")) as V05ActiveProjection;
+  if (value.schema !== "house-score-v05-active-projection-v1" || value.version !== 1 || value.methodology.status !== "active" || value.methodology.scope !== "exact_at_large_geography_only" || value.methodology.splitCountyAllocation !== false || value.methodology.researchFallbackScoreInputs !== true || value.methodology.winnerInference !== false || value.summary.seats !== 430 || value.summary.downBallotActiveSeats !== 2 || value.summary.unchangedSeats !== 428 || value.summary.geographyExcludedSeats !== 1 || value.summary.routeChanges !== 0 || value.summary.movementCapBreaches !== 0 || value.rows.length !== 430 || new Set(value.rows.map((row) => row.seatCycleId)).size !== 430 || value.rowSetSha256 !== "7500913c3255028140715c4baedef979a79461841e7d6ea37f9f3f3292c717c6" || value.packageSha256 !== "33ec23d4d41476c825c4bcf7df8e627411147719a80d37b59e07bbb0ef640dcd") throw new Error("HOUSE_PRIORITY_V05_PROJECTION_INVALID");
+  return new Map(value.rows.map((row) => [row.seatCycleId, row]));
+}
+
 let cache: PublicPriorityBrief[] | undefined;
 export function housePriorityBriefs(): readonly PublicPriorityBrief[] {
   if (!cache) {
@@ -225,6 +240,29 @@ export function housePriorityBriefs(): readonly PublicPriorityBrief[] {
         scoreDrivers: [...brief.scoreDrivers, { key: "local_context", label: "Local context", score: row.localContext, coverage: row.localContextAvailableWeight, inferred: false, explanation }],
         scoreSummary: `${brief.scoreSummary} The active v0.4 model adds exact at-large local context, moving the score ${row.movement >= 0 ? "+" : ""}${row.movement.toFixed(1)} to ${row.activeScore.toFixed(1)}.`,
         districtSummary: `${brief.districtSummary} Exact statewide county coverage adds turnout, registration, and demographic context without allocating split counties.`,
+      };
+    });
+    const v05 = v05ActiveRows();
+    if (v05.size !== cache.length) throw new Error("HOUSE_PRIORITY_V05_CLOSURE_INVALID");
+    cache = cache.map((brief) => {
+      const row = v05.get(brief.seatCycleId);
+      if (!row || row.districtLabel !== brief.districtLabel || row.previousScoreVersion !== "v0.4" || row.previousScore !== brief.provisionalTargetScore || row.activeScoreVersion !== "v0.5") throw new Error(`HOUSE_PRIORITY_V05_JOIN_INVALID:${brief.seatCycleId}`);
+      if (row.downBallotDemocraticOverperformance === null) {
+        if (row.activeScore !== brief.provisionalTargetScore || row.movementFromV04 !== 0) throw new Error(`HOUSE_PRIORITY_V05_MISSING_INVALID:${brief.seatCycleId}`);
+        return brief;
+      }
+      if (row.exactGeographyJoin !== "at_large_statewide" || row.evidenceConfidence !== "research_fallback_exact_at_large" || row.localContext === null || row.localContextAvailableWeight !== 1 || row.houseDemocraticShare === null || row.presidentialDemocraticShare === null || row.houseMinusPresidentPercentagePoints === null || row.movementFromV04 !== one(row.activeScore - brief.provisionalTargetScore)) throw new Error(`HOUSE_PRIORITY_V05_ELIGIBLE_INVALID:${brief.seatCycleId}`);
+      const localDriver = brief.scoreDrivers.find((driver) => driver.key === "local_context");
+      if (!localDriver) throw new Error(`HOUSE_PRIORITY_V05_LOCAL_DRIVER_MISSING:${brief.seatCycleId}`);
+      const direction = row.houseMinusPresidentPercentagePoints >= 0 ? "+" : "";
+      const explanation = `Exact at-large local context is ${row.localContext.toFixed(1)} with all component weights present. The research-fallback 2024 House Democratic candidate share was ${row.houseDemocraticShare.toFixed(2)}% versus ${row.presidentialDemocraticShare.toFixed(2)}% for Harris (${direction}${row.houseMinusPresidentPercentagePoints.toFixed(2)} points); this becomes a ${row.downBallotDemocraticOverperformance.toFixed(1)} down-ballot component. No winner is inferred.`;
+      return {
+        ...brief,
+        provisionalTargetScore: row.activeScore,
+        formula: `${brief.formula}; v0.5 fills the down-ballot local-context weight for an exact at-large research-fallback join`,
+        scoreDrivers: brief.scoreDrivers.map((driver) => driver.key === "local_context" ? { ...driver, score: row.localContext, coverage: 1, inferred: true, explanation } : driver),
+        scoreSummary: `${brief.scoreSummary} V0.5 adds the exact at-large House-versus-presidential comparison, moving the score ${row.movementFromV04 >= 0 ? "+" : ""}${row.movementFromV04.toFixed(1)} to ${row.activeScore.toFixed(1)}.`,
+        districtSummary: `${brief.districtSummary} The retained 2024 House Democratic candidate share ran ${direction}${row.houseMinusPresidentPercentagePoints.toFixed(2)} points versus Harris; this is research-fallback evidence, not an official canvass or winner claim.`,
       };
     }).sort((left, right) => right.provisionalTargetScore - left.provisionalTargetScore || left.seatCycleId.localeCompare(right.seatCycleId)).map((row, index) => ({ ...row, rank: index + 1 }));
   }

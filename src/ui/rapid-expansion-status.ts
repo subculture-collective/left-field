@@ -6,9 +6,11 @@ export type RapidExpansionStatus = Readonly<{
   score: Readonly<{
     seats: number;
     localContextActiveSeats: number;
+    downBallotActiveSeats: number;
     unchangedSeats: number;
-    version: "v0.4";
-    activeDistricts: readonly Readonly<{ districtLabel: string; previousScore: number; activeScore: number; movement: number; localContext: number }>[];
+    geographyExcludedSeats: number;
+    version: "v0.5";
+    activeDistricts: readonly Readonly<{ districtLabel: string; previousScore: number; activeScore: number; movement: number; localContext: number; houseMinusPresidentPercentagePoints: number }>[];
   }>;
   countyOffice: Readonly<{
     officeRows: number;
@@ -21,7 +23,7 @@ export type RapidExpansionStatus = Readonly<{
 }>;
 
 const files = {
-  score: { id: "house-score-v04-active-projection-v1", path: "data/metadata/house-score-v04-active-projection-v1.json", bytes: 272726, sha256: "8bd0a866867330a16f4fd2e5e1eea37d7a06f0650671e55831317ceb9941cc80" },
+  score: { id: "house-score-v05-active-projection-v1", path: "data/metadata/house-score-v05-active-projection-v1.json", bytes: 431813, sha256: "ffca4e473569876bc54044d778e7d804308b485f00034f5c86e56c00a597df74" },
   countyOffice: { id: "rapid-indiana-county-commissioner-primary-results-v1", path: "data/metadata/rapid-indiana-county-commissioner-primary-results-v1.json", bytes: 275292, sha256: "a64a49674816bcf2e9c40c705b8e4355301dbbaff43d6545d748b4beeb05d70c" },
 } as const;
 const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
@@ -38,11 +40,11 @@ export async function loadRapidExpansionStatus(root = process.cwd()): Promise<Ra
     }
     const score = JSON.parse(scoreBytes.toString("utf8")) as { schema?: unknown; summary?: Record<string, unknown>; rows?: readonly Record<string, unknown>[] };
     const countyOffice = JSON.parse(countyOfficeBytes.toString("utf8")) as { schema?: unknown; summary?: Record<string, unknown> };
-    if (score.schema !== "house-score-v04-active-projection-v1" || countyOffice.schema !== "rapid-indiana-county-commissioner-primary-results-v1" || !score.summary || !Array.isArray(score.rows) || !countyOffice.summary) return null;
-    const active = score.rows.filter((row) => row.localContext !== null).map((row) => ({ districtLabel: row.districtLabel as string, previousScore: row.previousScore as number, activeScore: row.activeScore as number, movement: row.movement as number, localContext: row.localContext as number }));
-    if (score.summary.seats !== 430 || score.summary.localContextActiveSeats !== 3 || score.summary.unchangedSeats !== 427 || active.length !== 3 || active.some((row) => !/^[A-Z]{2}-AL$/.test(row.districtLabel) || ![row.previousScore, row.activeScore, row.movement, row.localContext].every(Number.isFinite))) return null;
+    if (score.schema !== "house-score-v05-active-projection-v1" || countyOffice.schema !== "rapid-indiana-county-commissioner-primary-results-v1" || !score.summary || !Array.isArray(score.rows) || !countyOffice.summary) return null;
+    const active = score.rows.filter((row) => row.downBallotDemocraticOverperformance !== null).map((row) => ({ districtLabel: row.districtLabel as string, previousScore: row.previousScore as number, activeScore: row.activeScore as number, movement: row.movementFromV04 as number, localContext: row.localContext as number, houseMinusPresidentPercentagePoints: row.houseMinusPresidentPercentagePoints as number }));
+    if (score.summary.seats !== 430 || score.summary.downBallotActiveSeats !== 2 || score.summary.unchangedSeats !== 428 || score.summary.geographyExcludedSeats !== 1 || active.length !== 2 || active.some((row) => !/^[A-Z]{2}-AL$/.test(row.districtLabel) || ![row.previousScore, row.activeScore, row.movement, row.localContext, row.houseMinusPresidentPercentagePoints].every(Number.isFinite))) return null;
     const expectedCounty = { officeRows: 179, partyContests: 226, candidateRows: 376, exactCountyOfficeRows: 163, unmappedOfficeRows: 16, formulaEligibleContests: 0 } as const;
     if (Object.entries(expectedCounty).some(([key, value]) => countyOffice.summary![key] !== value)) return null;
-    return { score: { seats: 430, localContextActiveSeats: 3, unchangedSeats: 427, version: "v0.4", activeDistricts: active }, countyOffice: expectedCounty };
+    return { score: { seats: 430, localContextActiveSeats: 3, downBallotActiveSeats: 2, unchangedSeats: 428, geographyExcludedSeats: 1, version: "v0.5", activeDistricts: active }, countyOffice: expectedCounty };
   } catch (error) { if ((error as NodeJS.ErrnoException).code === "ENOENT") return null; return null; }
 }
