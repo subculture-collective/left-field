@@ -1174,70 +1174,6 @@
       "contestSha256": "784e2d2427ababd5bdd33b5003380aa95c15980e47c8ab3835f9f3f9cee009f2"
     },
     {
-      "contestId": "nm:county-primary:2022:35007:8239:DEM:countywide",
-      "cycleYear": 2022,
-      "electionDate": "2022-06-07",
-      "countyFips": "35007",
-      "countyName": "Colfax County",
-      "officeFamily": "county_assessor",
-      "sourceRaceId": "8239",
-      "rawOfficeTitle": "County Assessor - Colfax",
-      "rawArea": "",
-      "seats": 1,
-      "rawParty": "DEM",
-      "candidates": [
-        {
-          "sourceCandidateId": "13829",
-          "sourceName": "KRISTI E GRAHAM",
-          "votes": 580,
-          "voteComponents": {
-            "absentee": 51,
-            "electionDay": 463,
-            "early": 66
-          }
-        },
-        {
-          "sourceCandidateId": "13829",
-          "sourceName": "KRISTI E GRAHAM",
-          "votes": 580,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "14378",
-          "sourceName": "SUZANNE MARIE VALDEZ",
-          "votes": 569,
-          "voteComponents": {
-            "absentee": 50,
-            "electionDay": 436,
-            "early": 83
-          }
-        },
-        {
-          "sourceCandidateId": "14378",
-          "sourceName": "SUZANNE MARIE VALDEZ",
-          "votes": 569,
-          "voteComponents": null
-        }
-      ],
-      "totalVotes": 2298,
-      "precinctReportingStatus": "all_source_precincts_reporting",
-      "sourceWinnerStatus": "not_marked_by_source",
-      "resultAuthorityStatus": "secretary_official_county_results_export_retained",
-      "certificationStatus": "official_results_archive_retained_no_separate_signed_certificate",
-      "currentHolderIdentity": null,
-      "formulaEligible": false,
-      "formulaIneligibleReasons": [
-        "local_office_formula_not_defined",
-        "current_holder_identity_not_collected"
-      ],
-      "sourceLockIds": [
-        "nm-2022-primary-county-results-csv",
-        "nm-2022-election-results-archive",
-        "rapid-county-demographics-projection-v1"
-      ],
-      "contestSha256": "d51a1433153aad46b9724e640213e7cf62ae186948df3a85332ff927f2ee2e05"
-    },
-    {
       "contestId": "nm:county-primary:2022:35007:8240:DEM:DISTRICT 1",
       "cycleYear": 2022,
       "electionDate": "2022-06-07",
@@ -4902,76 +4838,6 @@
       "contestSha256": "c2da7703e3a47ae449f3420803f7ad80ab0c768e3dbd40e43f939dd6893dd62f"
     },
     {
-      "contestId": "nm:county-primary:2022:35033:8366:DEM:countywide",
-      "cycleYear": 2022,
-      "electionDate": "2022-06-07",
-      "countyFips": "35033",
-      "countyName": "Mora County",
-      "officeFamily": "county_commissioner",
-      "sourceRaceId": "8366",
-      "rawOfficeTitle": "County Commissioner At Large Position 2 - Mora - Mora",
-      "rawArea": "",
-      "seats": 1,
-      "rawParty": "DEM",
-      "candidates": [
-        {
-          "sourceCandidateId": "13825",
-          "sourceName": "TRINNIE B CORDOVA",
-          "votes": 513,
-          "voteComponents": {
-            "absentee": 35,
-            "electionDay": 340,
-            "early": 138
-          }
-        },
-        {
-          "sourceCandidateId": "13825",
-          "sourceName": "TRINNIE B CORDOVA",
-          "votes": 513,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "13910",
-          "sourceName": "LIONOR FRANK MAESTAS",
-          "votes": 225,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "13991",
-          "sourceName": "GEORGE A TRUJILLO",
-          "votes": 518,
-          "voteComponents": {
-            "absentee": 78,
-            "electionDay": 261,
-            "early": 179
-          }
-        },
-        {
-          "sourceCandidateId": "13991",
-          "sourceName": "GEORGE A TRUJILLO",
-          "votes": 518,
-          "voteComponents": null
-        }
-      ],
-      "totalVotes": 2287,
-      "precinctReportingStatus": "all_source_precincts_reporting",
-      "sourceWinnerStatus": "not_marked_by_source",
-      "resultAuthorityStatus": "secretary_official_county_results_export_retained",
-      "certificationStatus": "official_results_archive_retained_no_separate_signed_certificate",
-      "currentHolderIdentity": null,
-      "formulaEligible": false,
-      "formulaIneligibleReasons": [
-        "local_office_formula_not_defined",
-        "current_holder_identity_not_collected"
-      ],
-      "sourceLockIds": [
-        "nm-2022-primary-county-results-csv",
-        "nm-2022-election-results-archive",
-        "rapid-county-demographics-projection-v1"
-      ],
-      "contestSha256": "a10e8718c85ff380798f9aaf000e101d5fe211603ec5058a9c32f2e197bb362f"
-    },
-    {
       "contestId": "nm:county-primary:2022:35033:8377:DEM:countywide",
       "cycleYear": 2022,
       "electionDate": "2022-06-07",
@@ -5240,70 +5106,6 @@
         "rapid-county-demographics-projection-v1"
       ],
       "contestSha256": "915cca1df20a7ac746ad94dbf2bfd31eaad3dc89c1251e27cfa56c3ccae6104f"
-    },
-    {
-      "contestId": "nm:county-primary:2022:35035:8244:REP:DISTRICT 2",
-      "cycleYear": 2022,
-      "electionDate": "2022-06-07",
-      "countyFips": "35035",
-      "countyName": "Otero County",
-      "officeFamily": "county_commissioner",
-      "sourceRaceId": "8244",
-      "rawOfficeTitle": "County Commissioner by Commissioner District - Otero - Otero",
-      "rawArea": "DISTRICT 2",
-      "seats": 1,
-      "rawParty": "REP",
-      "candidates": [
-        {
-          "sourceCandidateId": "13823",
-          "sourceName": "GB OLIVER III",
-          "votes": 792,
-          "voteComponents": {
-            "absentee": 35,
-            "electionDay": 431,
-            "early": 326
-          }
-        },
-        {
-          "sourceCandidateId": "13823",
-          "sourceName": "GB OLIVER III",
-          "votes": 790,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "14112",
-          "sourceName": "AMY A BARELA",
-          "votes": 802,
-          "voteComponents": {
-            "absentee": 30,
-            "electionDay": 443,
-            "early": 329
-          }
-        },
-        {
-          "sourceCandidateId": "14112",
-          "sourceName": "AMY A BARELA",
-          "votes": 801,
-          "voteComponents": null
-        }
-      ],
-      "totalVotes": 3185,
-      "precinctReportingStatus": "all_source_precincts_reporting",
-      "sourceWinnerStatus": "not_marked_by_source",
-      "resultAuthorityStatus": "secretary_official_county_results_export_retained",
-      "certificationStatus": "official_results_archive_retained_no_separate_signed_certificate",
-      "currentHolderIdentity": null,
-      "formulaEligible": false,
-      "formulaIneligibleReasons": [
-        "local_office_formula_not_defined",
-        "current_holder_identity_not_collected"
-      ],
-      "sourceLockIds": [
-        "nm-2022-primary-county-results-csv",
-        "nm-2022-election-results-archive",
-        "rapid-county-demographics-projection-v1"
-      ],
-      "contestSha256": "b4c0046737024010cf51d3b0f98d7a1bbac10ca4bed965a7de62a8a2f1bbeb58"
     },
     {
       "contestId": "nm:county-primary:2022:35035:8212:REP:countywide",
@@ -5688,88 +5490,6 @@
         "rapid-county-demographics-projection-v1"
       ],
       "contestSha256": "7507857770b7406e251c3b2176e563a4af10f4df964b12a41a3a24b5f0a295fe"
-    },
-    {
-      "contestId": "nm:county-primary:2022:35039:8222:DEM:DISTRICT 2",
-      "cycleYear": 2022,
-      "electionDate": "2022-06-07",
-      "countyFips": "35039",
-      "countyName": "Rio Arriba County",
-      "officeFamily": "county_commissioner",
-      "sourceRaceId": "8222",
-      "rawOfficeTitle": "County Commissioner by Commissioner District - Rio Arriba - Rio Arriba",
-      "rawArea": "DISTRICT 2",
-      "seats": 1,
-      "rawParty": "DEM",
-      "candidates": [
-        {
-          "sourceCandidateId": "13899",
-          "sourceName": "GLORIA T GONZALES",
-          "votes": 287,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "14079",
-          "sourceName": "RALPH JOSE MARTINEZ",
-          "votes": 358,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "14091",
-          "sourceName": "RUBEN J ARCHULETA",
-          "votes": 618,
-          "voteComponents": {
-            "absentee": 18,
-            "electionDay": 386,
-            "early": 214
-          }
-        },
-        {
-          "sourceCandidateId": "14091",
-          "sourceName": "RUBEN J ARCHULETA",
-          "votes": 618,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "14245",
-          "sourceName": "ALEX M NARANJO",
-          "votes": 629,
-          "voteComponents": {
-            "absentee": 35,
-            "electionDay": 366,
-            "early": 228
-          }
-        },
-        {
-          "sourceCandidateId": "14245",
-          "sourceName": "ALEX M NARANJO",
-          "votes": 629,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "14340",
-          "sourceName": "CHRISTINE A BUSTOS",
-          "votes": 464,
-          "voteComponents": null
-        }
-      ],
-      "totalVotes": 3603,
-      "precinctReportingStatus": "all_source_precincts_reporting",
-      "sourceWinnerStatus": "not_marked_by_source",
-      "resultAuthorityStatus": "secretary_official_county_results_export_retained",
-      "certificationStatus": "official_results_archive_retained_no_separate_signed_certificate",
-      "currentHolderIdentity": null,
-      "formulaEligible": false,
-      "formulaIneligibleReasons": [
-        "local_office_formula_not_defined",
-        "current_holder_identity_not_collected"
-      ],
-      "sourceLockIds": [
-        "nm-2022-primary-county-results-csv",
-        "nm-2022-election-results-archive",
-        "rapid-county-demographics-projection-v1"
-      ],
-      "contestSha256": "4fc72a4a3539ccf1a897af88ab89775222644d3b61cc76a67c4520460c065de8"
     },
     {
       "contestId": "nm:county-primary:2022:35039:8225:DEM:countywide",
@@ -8666,76 +8386,6 @@
       "contestSha256": "f682c55de6ee9995ddf3f16077a4fb4a26d2c0897c5898ce63cf0e6637454382"
     },
     {
-      "contestId": "nm:county-primary:2022:35061:8291:REP:countywide",
-      "cycleYear": 2022,
-      "electionDate": "2022-06-07",
-      "countyFips": "35061",
-      "countyName": "Valencia County",
-      "officeFamily": "probate_judge",
-      "sourceRaceId": "8291",
-      "rawOfficeTitle": "Probate Judge - Valencia",
-      "rawArea": "",
-      "seats": 1,
-      "rawParty": "REP",
-      "candidates": [
-        {
-          "sourceCandidateId": "13832",
-          "sourceName": "WENDY EMILY WALLACE",
-          "votes": 1801,
-          "voteComponents": {
-            "absentee": 108,
-            "electionDay": 1046,
-            "early": 647
-          }
-        },
-        {
-          "sourceCandidateId": "13832",
-          "sourceName": "WENDY EMILY WALLACE",
-          "votes": 1801,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "14056",
-          "sourceName": "CYNTHIA A RUNYON",
-          "votes": 1125,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "14361",
-          "sourceName": "JENNIFER L JARAMILLO",
-          "votes": 1762,
-          "voteComponents": {
-            "absentee": 68,
-            "electionDay": 1156,
-            "early": 538
-          }
-        },
-        {
-          "sourceCandidateId": "14361",
-          "sourceName": "JENNIFER L JARAMILLO",
-          "votes": 1762,
-          "voteComponents": null
-        }
-      ],
-      "totalVotes": 8251,
-      "precinctReportingStatus": "all_source_precincts_reporting",
-      "sourceWinnerStatus": "not_marked_by_source",
-      "resultAuthorityStatus": "secretary_official_county_results_export_retained",
-      "certificationStatus": "official_results_archive_retained_no_separate_signed_certificate",
-      "currentHolderIdentity": null,
-      "formulaEligible": false,
-      "formulaIneligibleReasons": [
-        "local_office_formula_not_defined",
-        "current_holder_identity_not_collected"
-      ],
-      "sourceLockIds": [
-        "nm-2022-primary-county-results-csv",
-        "nm-2022-election-results-archive",
-        "rapid-county-demographics-projection-v1"
-      ],
-      "contestSha256": "bda77f8d51bb35b673c15307e390f6181a300efb3b690d37055e10e9124786d1"
-    },
-    {
       "contestId": "nm:county-primary:2024:35001:9649:DEM:countywide",
       "cycleYear": 2024,
       "electionDate": "2024-06-04",
@@ -11464,80 +11114,6 @@
         "rapid-county-demographics-projection-v1"
       ],
       "contestSha256": "1ebdb816c252464398e6d02afd21af3115f0aa58b24f40de6e0c51a97fe7a7c7"
-    },
-    {
-      "contestId": "nm:county-primary:2024:35019:9657:DEM:DISTRICT 3",
-      "cycleYear": 2024,
-      "electionDate": "2024-06-04",
-      "countyFips": "35019",
-      "countyName": "Guadalupe County",
-      "officeFamily": "county_commissioner",
-      "sourceRaceId": "9657",
-      "rawOfficeTitle": "County Commissioner by Commissioner District - Guadalupe - Guadalupe",
-      "rawArea": "DISTRICT 3",
-      "seats": 1,
-      "rawParty": "DEM",
-      "candidates": [
-        {
-          "sourceCandidateId": "16396",
-          "sourceName": "ERNEST CHAVEZ",
-          "votes": 310,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "16396",
-          "sourceName": "ERNEST CHAVEZ",
-          "votes": 310,
-          "voteComponents": {
-            "absentee": 44,
-            "electionDay": 145,
-            "early": 121
-          }
-        },
-        {
-          "sourceCandidateId": "16493",
-          "sourceName": "ERNEST STEVE TAPIA",
-          "votes": 218,
-          "voteComponents": {
-            "absentee": 34,
-            "electionDay": 106,
-            "early": 78
-          }
-        },
-        {
-          "sourceCandidateId": "16511",
-          "sourceName": "ALBERT E CAMPOS JR",
-          "votes": 316,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "16511",
-          "sourceName": "ALBERT E CAMPOS JR",
-          "votes": 316,
-          "voteComponents": {
-            "absentee": 80,
-            "electionDay": 151,
-            "early": 85
-          }
-        }
-      ],
-      "totalVotes": 1470,
-      "precinctReportingStatus": "all_source_precincts_reporting",
-      "sourceWinnerStatus": "not_marked_by_source",
-      "resultAuthorityStatus": "secretary_official_county_results_export_retained",
-      "certificationStatus": "state_canvass_certification_announcement_retained_exact_certificate_bytes_not_retained",
-      "currentHolderIdentity": null,
-      "formulaEligible": false,
-      "formulaIneligibleReasons": [
-        "local_office_formula_not_defined",
-        "current_holder_identity_not_collected"
-      ],
-      "sourceLockIds": [
-        "nm-2024-primary-county-results-csv",
-        "nm-2024-primary-certification-announcement",
-        "rapid-county-demographics-projection-v1"
-      ],
-      "contestSha256": "973c1d7328200085f5852ab7994093f8f30dcad11908423d2f0bbc96479ef596"
     },
     {
       "contestId": "nm:county-primary:2024:35019:9656:DEM:countywide",
@@ -14562,80 +14138,6 @@
       "contestSha256": "8670f5d8f1148cab04421697c6db00e89f7aedb8c11294b18cb203afdd489d39"
     },
     {
-      "contestId": "nm:county-primary:2024:35045:9552:REP:DISTRICT 3",
-      "cycleYear": 2024,
-      "electionDate": "2024-06-04",
-      "countyFips": "35045",
-      "countyName": "San Juan County",
-      "officeFamily": "county_commissioner",
-      "sourceRaceId": "9552",
-      "rawOfficeTitle": "County Commissioner by Commissioner District - San Juan - San Juan",
-      "rawArea": "DISTRICT 3",
-      "seats": 1,
-      "rawParty": "REP",
-      "candidates": [
-        {
-          "sourceCandidateId": "16584",
-          "sourceName": "SCOTT A ECKSTEIN",
-          "votes": 789,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "16584",
-          "sourceName": "SCOTT A ECKSTEIN",
-          "votes": 789,
-          "voteComponents": {
-            "absentee": 82,
-            "electionDay": 408,
-            "early": 299
-          }
-        },
-        {
-          "sourceCandidateId": "16628",
-          "sourceName": "JAMES D CROWLEY",
-          "votes": 383,
-          "voteComponents": {
-            "absentee": 35,
-            "electionDay": 185,
-            "early": 163
-          }
-        },
-        {
-          "sourceCandidateId": "16782",
-          "sourceName": "SANDRA L LANIER",
-          "votes": 801,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "16782",
-          "sourceName": "SANDRA L LANIER",
-          "votes": 801,
-          "voteComponents": {
-            "absentee": 61,
-            "electionDay": 413,
-            "early": 327
-          }
-        }
-      ],
-      "totalVotes": 3563,
-      "precinctReportingStatus": "all_source_precincts_reporting",
-      "sourceWinnerStatus": "not_marked_by_source",
-      "resultAuthorityStatus": "secretary_official_county_results_export_retained",
-      "certificationStatus": "state_canvass_certification_announcement_retained_exact_certificate_bytes_not_retained",
-      "currentHolderIdentity": null,
-      "formulaEligible": false,
-      "formulaIneligibleReasons": [
-        "local_office_formula_not_defined",
-        "current_holder_identity_not_collected"
-      ],
-      "sourceLockIds": [
-        "nm-2024-primary-county-results-csv",
-        "nm-2024-primary-certification-announcement",
-        "rapid-county-demographics-projection-v1"
-      ],
-      "contestSha256": "c60228300fa6959a6bf480b36cec10c6ed9d08c6b8d08ed7ff498ab0bf3279f2"
-    },
-    {
       "contestId": "nm:county-primary:2024:35045:9553:REP:DISTRICT 4",
       "cycleYear": 2024,
       "electionDate": "2024-06-04",
@@ -16712,80 +16214,6 @@
         "rapid-county-demographics-projection-v1"
       ],
       "contestSha256": "d4f94d8861a3abd05bb19337384583bb46085997a6d832966eaf093d07bb80a4"
-    },
-    {
-      "contestId": "nm:county-primary:2024:35061:9474:REP:countywide",
-      "cycleYear": 2024,
-      "electionDate": "2024-06-04",
-      "countyFips": "35061",
-      "countyName": "Valencia County",
-      "officeFamily": "county_treasurer",
-      "sourceRaceId": "9474",
-      "rawOfficeTitle": "County Treasurer - Valencia - Valencia",
-      "rawArea": "",
-      "seats": 1,
-      "rawParty": "REP",
-      "candidates": [
-        {
-          "sourceCandidateId": "16492",
-          "sourceName": "LEYDA MARTINEZ HAHN",
-          "votes": 942,
-          "voteComponents": {
-            "absentee": 118,
-            "electionDay": 460,
-            "early": 364
-          }
-        },
-        {
-          "sourceCandidateId": "16514",
-          "sourceName": "RONALD D SAIZ",
-          "votes": 1415,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "16514",
-          "sourceName": "RONALD D SAIZ",
-          "votes": 1415,
-          "voteComponents": {
-            "absentee": 163,
-            "electionDay": 738,
-            "early": 514
-          }
-        },
-        {
-          "sourceCandidateId": "16763",
-          "sourceName": "DANIELLE MARIE TRUJILLO",
-          "votes": 1388,
-          "voteComponents": null
-        },
-        {
-          "sourceCandidateId": "16763",
-          "sourceName": "DANIELLE MARIE TRUJILLO",
-          "votes": 1388,
-          "voteComponents": {
-            "absentee": 122,
-            "electionDay": 747,
-            "early": 519
-          }
-        }
-      ],
-      "totalVotes": 6548,
-      "precinctReportingStatus": "all_source_precincts_reporting",
-      "sourceWinnerStatus": "not_marked_by_source",
-      "resultAuthorityStatus": "secretary_official_county_results_export_retained",
-      "certificationStatus": "state_canvass_certification_announcement_retained_exact_certificate_bytes_not_retained",
-      "currentHolderIdentity": null,
-      "formulaEligible": false,
-      "formulaIneligibleReasons": [
-        "local_office_formula_not_defined",
-        "current_holder_identity_not_collected"
-      ],
-      "sourceLockIds": [
-        "nm-2024-primary-county-results-csv",
-        "nm-2024-primary-certification-announcement",
-        "rapid-county-demographics-projection-v1"
-      ],
-      "contestSha256": "c7ab69a08f33a21cb4850772e1b08b6cd56da06aab93dd25593e8a644ac6cd1d"
     },
     {
       "contestId": "nm:county-primary:2026:35001:11109:DEM:countywide",
@@ -27128,36 +26556,227 @@
       "contestSha256": "c7956bc81f7449377dc072624c1b238cc7adb66e869252836b801d36fa2b37a6"
     }
   ],
-  "cycles": [
+  "quarantines": [
     {
       "cycleYear": 2022,
-      "officeContests": 206,
-      "candidateRows": 350,
-      "candidateVotes": 644874
+      "countyFips": "35007",
+      "countyName": "Colfax County",
+      "sourceRaceId": "8239",
+      "rawOfficeTitle": "County Assessor - Colfax",
+      "rawArea": "",
+      "rawParty": "DEM",
+      "sourceObservationRows": 4,
+      "duplicatedSourceCandidateIds": [
+        "13829",
+        "14378"
+      ],
+      "sourceVoteObservationSum": 2298,
+      "reason": "duplicate_candidate_ids_with_conflicting_source_projection_semantics",
+      "sourceLockIds": [
+        "nm-2022-primary-county-results-csv",
+        "nm-2022-election-results-archive",
+        "rapid-county-demographics-projection-v1"
+      ]
+    },
+    {
+      "cycleYear": 2022,
+      "countyFips": "35033",
+      "countyName": "Mora County",
+      "sourceRaceId": "8366",
+      "rawOfficeTitle": "County Commissioner At Large Position 2 - Mora - Mora",
+      "rawArea": "",
+      "rawParty": "DEM",
+      "sourceObservationRows": 5,
+      "duplicatedSourceCandidateIds": [
+        "13825",
+        "13991"
+      ],
+      "sourceVoteObservationSum": 2287,
+      "reason": "duplicate_candidate_ids_with_conflicting_source_projection_semantics",
+      "sourceLockIds": [
+        "nm-2022-primary-county-results-csv",
+        "nm-2022-election-results-archive",
+        "rapid-county-demographics-projection-v1"
+      ]
+    },
+    {
+      "cycleYear": 2022,
+      "countyFips": "35035",
+      "countyName": "Otero County",
+      "sourceRaceId": "8244",
+      "rawOfficeTitle": "County Commissioner by Commissioner District - Otero - Otero",
+      "rawArea": "DISTRICT 2",
+      "rawParty": "REP",
+      "sourceObservationRows": 4,
+      "duplicatedSourceCandidateIds": [
+        "13823",
+        "14112"
+      ],
+      "sourceVoteObservationSum": 3185,
+      "reason": "duplicate_candidate_ids_with_conflicting_source_projection_semantics",
+      "sourceLockIds": [
+        "nm-2022-primary-county-results-csv",
+        "nm-2022-election-results-archive",
+        "rapid-county-demographics-projection-v1"
+      ]
+    },
+    {
+      "cycleYear": 2022,
+      "countyFips": "35039",
+      "countyName": "Rio Arriba County",
+      "sourceRaceId": "8222",
+      "rawOfficeTitle": "County Commissioner by Commissioner District - Rio Arriba - Rio Arriba",
+      "rawArea": "DISTRICT 2",
+      "rawParty": "DEM",
+      "sourceObservationRows": 7,
+      "duplicatedSourceCandidateIds": [
+        "14091",
+        "14245"
+      ],
+      "sourceVoteObservationSum": 3603,
+      "reason": "duplicate_candidate_ids_with_conflicting_source_projection_semantics",
+      "sourceLockIds": [
+        "nm-2022-primary-county-results-csv",
+        "nm-2022-election-results-archive",
+        "rapid-county-demographics-projection-v1"
+      ]
+    },
+    {
+      "cycleYear": 2022,
+      "countyFips": "35061",
+      "countyName": "Valencia County",
+      "sourceRaceId": "8291",
+      "rawOfficeTitle": "Probate Judge - Valencia",
+      "rawArea": "",
+      "rawParty": "REP",
+      "sourceObservationRows": 5,
+      "duplicatedSourceCandidateIds": [
+        "13832",
+        "14361"
+      ],
+      "sourceVoteObservationSum": 8251,
+      "reason": "duplicate_candidate_ids_with_conflicting_source_projection_semantics",
+      "sourceLockIds": [
+        "nm-2022-primary-county-results-csv",
+        "nm-2022-election-results-archive",
+        "rapid-county-demographics-projection-v1"
+      ]
     },
     {
       "cycleYear": 2024,
-      "officeContests": 173,
-      "candidateRows": 254,
-      "candidateVotes": 474778
+      "countyFips": "35019",
+      "countyName": "Guadalupe County",
+      "sourceRaceId": "9657",
+      "rawOfficeTitle": "County Commissioner by Commissioner District - Guadalupe - Guadalupe",
+      "rawArea": "DISTRICT 3",
+      "rawParty": "DEM",
+      "sourceObservationRows": 5,
+      "duplicatedSourceCandidateIds": [
+        "16396",
+        "16511"
+      ],
+      "sourceVoteObservationSum": 1470,
+      "reason": "duplicate_candidate_ids_with_conflicting_source_projection_semantics",
+      "sourceLockIds": [
+        "nm-2024-primary-county-results-csv",
+        "nm-2024-primary-certification-announcement",
+        "rapid-county-demographics-projection-v1"
+      ]
+    },
+    {
+      "cycleYear": 2024,
+      "countyFips": "35045",
+      "countyName": "San Juan County",
+      "sourceRaceId": "9552",
+      "rawOfficeTitle": "County Commissioner by Commissioner District - San Juan - San Juan",
+      "rawArea": "DISTRICT 3",
+      "rawParty": "REP",
+      "sourceObservationRows": 5,
+      "duplicatedSourceCandidateIds": [
+        "16584",
+        "16782"
+      ],
+      "sourceVoteObservationSum": 3563,
+      "reason": "duplicate_candidate_ids_with_conflicting_source_projection_semantics",
+      "sourceLockIds": [
+        "nm-2024-primary-county-results-csv",
+        "nm-2024-primary-certification-announcement",
+        "rapid-county-demographics-projection-v1"
+      ]
+    },
+    {
+      "cycleYear": 2024,
+      "countyFips": "35061",
+      "countyName": "Valencia County",
+      "sourceRaceId": "9474",
+      "rawOfficeTitle": "County Treasurer - Valencia - Valencia",
+      "rawArea": "",
+      "rawParty": "REP",
+      "sourceObservationRows": 5,
+      "duplicatedSourceCandidateIds": [
+        "16514",
+        "16763"
+      ],
+      "sourceVoteObservationSum": 6548,
+      "reason": "duplicate_candidate_ids_with_conflicting_source_projection_semantics",
+      "sourceLockIds": [
+        "nm-2024-primary-county-results-csv",
+        "nm-2024-primary-certification-announcement",
+        "rapid-county-demographics-projection-v1"
+      ]
+    }
+  ],
+  "cycles": [
+    {
+      "cycleYear": 2022,
+      "sourceContests": 206,
+      "sourceObservationRows": 350,
+      "sourceVoteObservationSum": 644874,
+      "retainedContests": 201,
+      "retainedCandidateRows": 325,
+      "retainedCandidateVotes": 625250,
+      "quarantinedContests": 5,
+      "quarantinedObservationRows": 25,
+      "quarantinedVoteObservationSum": 19624
+    },
+    {
+      "cycleYear": 2024,
+      "sourceContests": 173,
+      "sourceObservationRows": 254,
+      "sourceVoteObservationSum": 474778,
+      "retainedContests": 170,
+      "retainedCandidateRows": 239,
+      "retainedCandidateVotes": 463197,
+      "quarantinedContests": 3,
+      "quarantinedObservationRows": 15,
+      "quarantinedVoteObservationSum": 11581
     },
     {
       "cycleYear": 2026,
-      "officeContests": 210,
-      "candidateRows": 362,
-      "candidateVotes": 878901
+      "sourceContests": 210,
+      "sourceObservationRows": 362,
+      "sourceVoteObservationSum": 878901,
+      "retainedContests": 210,
+      "retainedCandidateRows": 362,
+      "retainedCandidateVotes": 878901,
+      "quarantinedContests": 0,
+      "quarantinedObservationRows": 0,
+      "quarantinedVoteObservationSum": 0
     }
   ],
   "summary": {
     "officeFamilies": 6,
-    "officeContests": 589,
-    "democraticContests": 275,
-    "republicanContests": 306,
+    "officeContests": 581,
+    "democraticContests": 271,
+    "republicanContests": 302,
     "libertarianContests": 8,
-    "candidateRows": 966,
-    "candidateVotes": 1998553,
+    "candidateRows": 926,
+    "candidateVotes": 1967348,
+    "quarantinedContests": 8,
+    "quarantinedObservationRows": 40,
+    "quarantinedVoteObservationSum": 31205,
     "formulaEligibleContests": 0
   },
-  "contestSetSha256": "de2bc371f20453d1b98a2b44d4909a11dbf8b9cae9747877c9bb96d18c20024d",
-  "packageSha256": "3a76dd92c2175bbc153799f6c953b8bb86863dbd8831e08efef917fdfbf3a6f6"
+  "contestSetSha256": "a619339d44029f2281801e977ab7cd2eb5fccebe9548ead976bbefdcbccbff30",
+  "packageSha256": "d99d29b51284919f06d5d406444ef9ad52eef52af1fb289d8cc75cc3a1c71328"
 }

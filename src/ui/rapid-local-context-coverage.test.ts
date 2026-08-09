@@ -27,7 +27,7 @@ describe("rapid local-context coverage read model", () => {
     expect(value?.artifacts.find((artifact) => artifact.id === "rapid-missouri-state-legislative-primary-results-v1")?.summary.partyContests).toBe(565);
     expect(value?.artifacts.find((artifact) => artifact.id === "rapid-kentucky-state-legislative-primary-results-v1")?.summary.reportedPartyContests).toBe(134);
     expect(value?.artifacts.find((artifact) => artifact.id === "rapid-north-carolina-local-office-primary-results-v1")?.summary.officeContests).toBe(1095);
-    expect(value?.artifacts.find((artifact) => artifact.id === "rapid-new-mexico-county-office-primary-results-v1")?.summary.officeContests).toBe(589);
+    expect(value?.artifacts.find((artifact) => artifact.id === "rapid-new-mexico-county-office-primary-results-v1")?.summary).toMatchObject({ officeContests: 581, candidateRows: 926, quarantinedContests: 8 });
   });
   it("falls back to the immutable v1 receipt when v2 is absent", async () => {
     const directory = await root(), metadata = join(directory, "data/metadata"), ids = new Set(["rapid-local-context-coverage-v1", "rapid-county-demographics-projection-v1", "rapid-county-election-context-projection-v1", "rapid-indiana-state-legislative-primary-results-v1"]);

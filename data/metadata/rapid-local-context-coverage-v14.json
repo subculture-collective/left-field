@@ -210,15 +210,16 @@
       "scope": "New Mexico 2022, 2024, and 2026 assessor, clerk, commissioner, sheriff, treasurer, and probate-judge primary contests",
       "summary": {
         "officeFamilies": 6,
-        "officeContests": 589,
-        "candidateRows": 966,
-        "candidateVotes": 1998553,
+        "officeContests": 581,
+        "candidateRows": 926,
+        "candidateVotes": 1967348,
+        "quarantinedContests": 8,
         "formulaEligibleContests": 0
       },
-      "packageSha256": "3a76dd92c2175bbc153799f6c953b8bb86863dbd8831e08efef917fdfbf3a6f6",
+      "packageSha256": "d99d29b51284919f06d5d406444ef9ad52eef52af1fb289d8cc75cc3a1c71328",
       "formulaEligibleCount": 0
     }
   ],
-  "artifactSetSha256": "791ae9eada1d1cb7c1d5adc4b7292e93a7b5d5657493f710c6b4b2d340a68dc4",
-  "packageSha256": "8ec430392dbfc073d369629eb65f3bc2357413c3d9135a2564ae29e9f61cd097"
+  "artifactSetSha256": "34f13e048e8ae0f1bcf2a9466b62e93d7f021d6bdb7220b1398617c7531ae80f",
+  "packageSha256": "ea2a6a5b314f4c8c653d72612302c106b2b7cbf2800234829198a963117f465a"
 }
