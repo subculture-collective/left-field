@@ -7,6 +7,6 @@ describe("rapid expansion status", () => {
     const value = await loadRapidExpansionStatus();
     expect(value?.score).toMatchObject({ version: "v0.8", directPrimaryActiveSeats: 21, unresolvedPrimaryRows: 1, unchangedSeats: 410 });
     expect(value?.score.activeDistricts.map((row) => [row.districtLabel, row.houseMinusPresidentPercentagePoints])).toEqual([["DE-AL", 1.23], ["ND-AL", -0.41], ["SD-AL", -6.28], ["WY-AL", -2.86]]);
-    expect(value?.countyOffice).toMatchObject({ officeRows: 179, partyContests: 226, exactCountyOfficeRows: 163, formulaEligibleContests: 0 });
+    expect(value?.countyOffice).toMatchObject({ officeCategories: 12, officeRows: 682, partyContests: 816, sourceMarkedWinnerCandidates: 1049, formulaEligibleContests: 0 });
   });
 });

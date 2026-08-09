@@ -257,6 +257,10 @@ The state-legislative intake now covers nine official state systems. Alabama add
 
 None of the state-legislative projections infers candidate identity, ideological alignment, or score applicability. The Alabama, Delaware, Hawaii, Kentucky, Missouri, Tennessee, Georgia, and North Carolina result sources contain no parsed winner marker bound by these projections; where a stronger statewide certification document is retained, it still does not create a candidate identity bridge or score rule. All nine projections are exposed as factual context on Sources with zero formula-eligible contests and do not alter the House Priority Index.
 
+### Rapid county and local office context
+
+Indiana's certified 2024 primary archive now contributes all 12 local result categories exposed by the official archive index: 682 office rows, 816 Democratic or Republican party contests, 1,520 candidate rows, 4,232,706 votes, and 1,049 source-marked winner candidates. The catalog preserves multi-seat counts and source winner markers, but does not treat those markers as current-holder identity. Current-holder identity, normalized township and municipal jurisdictions, and a local-office scoring method remain uncollected, so all 816 contests are formula-ineligible and do not alter the House Priority Index.
+
 ### Rapid House-primary acquisition
 
 The rapid primary ledger now processes 56 of 78 target district-cycle observations across the 16-state acquisition backlog: 50 retained reported contests and six explicit source absences. Alabama adds three reported Democratic regular-primary contests from complete official Secretary of State county-workbook ZIPs: AL-02 in 2022 (24,557 candidate votes), AL-02 in 2024 (57,518), and AL-07 in 2024 (63,803). The 2022 workbook set contains no Democratic AL-07 candidate row, which remains source-absent without a no-primary, uncontested, zero-vote, winner, or nomination inference.
