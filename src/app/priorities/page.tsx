@@ -43,7 +43,7 @@ export default async function Priorities({ searchParams }: Props) {
       <main className="page priorities-page">
         <header className="priority-hero">
           <div>
-            <p className="eyebrow">2026 HOUSE PRIORITY INDEX · MODEL V0.5</p>
+            <p className="eyebrow">2026 HOUSE PRIORITY INDEX · MODEL V0.6</p>
             <h1>Where the field bends.</h1>
             <p className="lede">
               A ranked field guide to 430 occupied House seats. Democratic-held

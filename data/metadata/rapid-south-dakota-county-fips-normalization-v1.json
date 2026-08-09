@@ -1,0 +1,82 @@
+{
+  "schema": "rapid-south-dakota-county-fips-normalization-v1",
+  "version": 1,
+  "authority": {
+    "source": "United States Census Bureau county changes for the 2010s",
+    "oldCountyName": "Shannon County",
+    "oldCountyFips": "46113",
+    "newCountyName": "Oglala Lakota County",
+    "newCountyFips": "46102",
+    "effectiveDate": "2015-05-01",
+    "changeType": "official_name_and_code_change",
+    "boundaryEquivalenceClaimed": false
+  },
+  "methodology": {
+    "scope": "only_2024_south_dakota_us_house_total_rows_labeled_oglala_lakota_with_source_fips_46113",
+    "normalization": "replace_obsolete_46113_with_current_46102_using_official_census_change_notice",
+    "rawSourcePreserved": true,
+    "winnerInference": false,
+    "formulaEligible": false
+  },
+  "rows": [
+    {
+      "stateCode": "SD",
+      "sourceCountyFips": "46113",
+      "currentCountyFips": "46102",
+      "countyName": "OGLALA LAKOTA",
+      "cycleYear": 2024,
+      "office": "US HOUSE",
+      "districtRaw": "AT-LARGE",
+      "candidateName": "DUSTY JOHNSON",
+      "candidateParty": "REPUBLICAN",
+      "candidatePartyDetailed": "REPUBLICAN",
+      "specialElection": false,
+      "writeIn": false,
+      "votes": 720,
+      "sourceRowCount": 9,
+      "sourceRowSetSha256": "73e534a0612896449b2a81ad639aed6d4ad2eac5ce233d98382b7f086d2b9403",
+      "sourceLockIds": [
+        "medsl-2024-house-state-sd",
+        "census-county-changes-2010s-20260809"
+      ],
+      "authority": "research_fallback_with_official_geographic_identifier_normalization",
+      "winnerIdentity": null,
+      "formulaEligible": false,
+      "rowSha256": "0cc73dce309589107e2f5c317fd58ed29b4aee37aa585797c594ac6b79e80bb3"
+    },
+    {
+      "stateCode": "SD",
+      "sourceCountyFips": "46113",
+      "currentCountyFips": "46102",
+      "countyName": "OGLALA LAKOTA",
+      "cycleYear": 2024,
+      "office": "US HOUSE",
+      "districtRaw": "AT-LARGE",
+      "candidateName": "SHERYL JOHNSON",
+      "candidateParty": "DEMOCRAT",
+      "candidatePartyDetailed": "DEMOCRAT",
+      "specialElection": false,
+      "writeIn": false,
+      "votes": 2313,
+      "sourceRowCount": 9,
+      "sourceRowSetSha256": "08c147fde349343761f0e75c64fcfbf4fffb901fb2b5208bd318ad31ea988e51",
+      "sourceLockIds": [
+        "medsl-2024-house-state-sd",
+        "census-county-changes-2010s-20260809"
+      ],
+      "authority": "research_fallback_with_official_geographic_identifier_normalization",
+      "winnerIdentity": null,
+      "formulaEligible": false,
+      "rowSha256": "388d9057dcd7b0ebd95921a152ef8506893b9b1b57885e42cf46ff37df801e55"
+    }
+  ],
+  "summary": {
+    "sourceRows": 18,
+    "normalizedCandidateRows": 2,
+    "candidateVotes": 3033,
+    "exactCurrentCountyKeysAdded": 1,
+    "formulaEligibleRows": 0
+  },
+  "rowSetSha256": "1aeec7e72944de5bbcc7fc06ccaef1033919b6f0104252aba11c225e1ed8b989",
+  "packageSha256": "5a9d28b799b4c7993f6e1865b564e9a9de27ee01c3a167f9dadccf36737d7a00"
+}

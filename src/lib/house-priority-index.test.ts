@@ -36,7 +36,7 @@ describe("house priority index", () => {
 
     expect(changed.map((row) => [row.districtLabel, row.provisionalTargetScore]).sort(([left], [right]) => String(left).localeCompare(String(right)))).toEqual([
       ["DE-AL", 39.7],
-      ["SD-AL", 7.2],
+      ["SD-AL", 6.3],
       ["WY-AL", 13.6],
     ]);
     expect(active.filter((row) => row.scoreDrivers.some((driver) => driver.key === "local_context")).map((row) => row.districtLabel).sort()).toEqual(["DE-AL", "SD-AL", "WY-AL"]);

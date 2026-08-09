@@ -51,6 +51,8 @@ type V04ActiveRow = { seatCycleId: string; districtLabel: string; previousScoreV
 type V04ActiveProjection = { schema: "house-score-v04-active-projection-v1"; version: 1; activationPolicy: { status: "active"; scope: "exact_at_large_geography_only"; splitCountyAllocation: false; researchFallbackScoreInputs: false }; rows: V04ActiveRow[]; summary: { seats: 430; localContextActiveSeats: 3; unchangedSeats: 427; routeChanges: 0; movementCapBreaches: 0 }; rowSetSha256: string; packageSha256: string };
 type V05ActiveRow = { seatCycleId: string; districtLabel: string; previousScoreVersion: "v0.4"; previousScore: number; activeScoreVersion: "v0.5"; activeScore: number; localContext: number | null; localContextAvailableWeight: number; downBallotDemocraticOverperformance: number | null; houseDemocraticShare: number | null; presidentialDemocraticShare: number | null; houseMinusPresidentPercentagePoints: number | null; exactGeographyJoin: "at_large_statewide" | "not_yet_eligible"; evidenceConfidence: "research_fallback_exact_at_large" | "not_available"; movementFromV04: number };
 type V05ActiveProjection = { schema: "house-score-v05-active-projection-v1"; version: 1; methodology: { status: "active"; scope: "exact_at_large_geography_only"; splitCountyAllocation: false; researchFallbackScoreInputs: true; winnerInference: false }; rows: V05ActiveRow[]; summary: { seats: 430; downBallotActiveSeats: 2; unchangedSeats: 428; geographyExcludedSeats: 1; routeChanges: 0; movementCapBreaches: 0 }; rowSetSha256: string; packageSha256: string };
+type V06ActiveRow = { seatCycleId: string; districtLabel: string; previousScoreVersion: "v0.5"; previousScore: number; activeScoreVersion: "v0.6"; activeScore: number; localContext: number | null; localContextAvailableWeight: number; downBallotDemocraticOverperformance: number | null; houseDemocraticShare: number | null; presidentialDemocraticShare: number | null; houseMinusPresidentPercentagePoints: number | null; exactGeographyJoin: "at_large_statewide" | "not_yet_eligible"; evidenceConfidence: "research_fallback_exact_at_large" | "research_fallback_exact_at_large_official_fips_normalization" | "not_available"; officialCountyFipsNormalizationApplied: boolean; movementFromV05: number };
+type V06ActiveProjection = { schema: "house-score-v06-active-projection-v1"; version: 1; methodology: { status: "active"; scope: "exact_at_large_geography_with_official_identifier_normalization"; countyIdentifierNormalization: "only_official_census_documented_46113_to_46102_change"; splitCountyAllocation: false; researchFallbackScoreInputs: true; winnerInference: false }; rows: V06ActiveRow[]; summary: { seats: 430; downBallotActiveSeats: 3; newlyActivatedSeats: 1; unchangedSeats: 429; normalizedFipsSeats: 1; routeChanges: 0; movementCapBreaches: 0 }; rowSetSha256: string; packageSha256: string };
 const cutoff = "2026-08-04";
 const days = (start: string, end: string): number => (Date.parse(end) - Date.parse(start)) / 86_400_000;
 const one = (value: number): number => Math.round(value * 10) / 10;
@@ -218,6 +220,19 @@ function v05ActiveRows(): Map<string, V05ActiveRow> {
   return new Map(value.rows.map((row) => [row.seatCycleId, row]));
 }
 
+function v06ActiveRows(): Map<string, V06ActiveRow> {
+  const path = "data/metadata/house-score-v06-active-projection-v1.json";
+  const bytes = readFileSync(join(process.cwd(), path));
+  const digest = createHash("sha256").update(bytes).digest("hex");
+  const lock = JSON.parse(readFileSync(join(process.cwd(), "data/source-lock.json"), "utf8")) as { entries: Array<{ id?: unknown; url?: unknown; retainedPath?: unknown; retainedStatus?: unknown; byteSize?: unknown; sha256?: unknown; kind?: unknown; parentIds?: unknown }> };
+  const entries = lock.entries.filter((entry) => entry.id === "house-score-v06-active-projection-v1");
+  const parentIds = ["house-score-v05-active-projection-v1", "house-score-v04-shadow-projection-v1", "rapid-county-house-results-projection-v1", "rapid-south-dakota-county-fips-normalization-v1", "downballot-presidential-cd-2024-csv", "rapid-at-large-cd119-county-universe-v1"];
+  if (bytes.length !== 456_292 || digest !== "70a67d1bc6d6e85343868ce25afd5efb53148061cee82c9ca890a6479e0a7a02" || entries.length !== 1 || entries[0]!.url !== "urn:dsa-seats:house-score-v06-active-projection:v1:2026-08-09" || entries[0]!.retainedPath !== path || entries[0]!.retainedStatus !== "retained" || entries[0]!.byteSize !== bytes.length || entries[0]!.sha256 !== digest || entries[0]!.kind !== "derived_artifact" || JSON.stringify(entries[0]!.parentIds) !== JSON.stringify(parentIds)) throw new Error("HOUSE_PRIORITY_V06_SOURCE_INVALID");
+  const value = JSON.parse(bytes.toString("utf8")) as V06ActiveProjection;
+  if (value.schema !== "house-score-v06-active-projection-v1" || value.version !== 1 || value.methodology.status !== "active" || value.methodology.scope !== "exact_at_large_geography_with_official_identifier_normalization" || value.methodology.countyIdentifierNormalization !== "only_official_census_documented_46113_to_46102_change" || value.methodology.splitCountyAllocation !== false || value.methodology.researchFallbackScoreInputs !== true || value.methodology.winnerInference !== false || value.summary.seats !== 430 || value.summary.downBallotActiveSeats !== 3 || value.summary.newlyActivatedSeats !== 1 || value.summary.unchangedSeats !== 429 || value.summary.normalizedFipsSeats !== 1 || value.summary.routeChanges !== 0 || value.summary.movementCapBreaches !== 0 || value.rows.length !== 430 || new Set(value.rows.map((row) => row.seatCycleId)).size !== 430 || value.rowSetSha256 !== "d5415153a54c2827941605a61dc691bce43321df8cbfe62893bf06b167bb8f4f" || value.packageSha256 !== "b20c1572d435126646ac3e41ab91477ad3a0372b10728854286d672bb98f0342") throw new Error("HOUSE_PRIORITY_V06_PROJECTION_INVALID");
+  return new Map(value.rows.map((row) => [row.seatCycleId, row]));
+}
+
 let cache: PublicPriorityBrief[] | undefined;
 export function housePriorityBriefs(): readonly PublicPriorityBrief[] {
   if (!cache) {
@@ -263,6 +278,29 @@ export function housePriorityBriefs(): readonly PublicPriorityBrief[] {
         scoreDrivers: brief.scoreDrivers.map((driver) => driver.key === "local_context" ? { ...driver, score: row.localContext, coverage: 1, inferred: true, explanation } : driver),
         scoreSummary: `${brief.scoreSummary} V0.5 adds the exact at-large House-versus-presidential comparison, moving the score ${row.movementFromV04 >= 0 ? "+" : ""}${row.movementFromV04.toFixed(1)} to ${row.activeScore.toFixed(1)}.`,
         districtSummary: `${brief.districtSummary} The retained 2024 House Democratic candidate share ran ${direction}${row.houseMinusPresidentPercentagePoints.toFixed(2)} points versus Harris; this is research-fallback evidence, not an official canvass or winner claim.`,
+      };
+    });
+    const v06 = v06ActiveRows();
+    if (v06.size !== cache.length) throw new Error("HOUSE_PRIORITY_V06_CLOSURE_INVALID");
+    cache = cache.map((brief) => {
+      const row = v06.get(brief.seatCycleId);
+      if (!row || row.districtLabel !== brief.districtLabel || row.previousScoreVersion !== "v0.5" || row.previousScore !== brief.provisionalTargetScore || row.activeScoreVersion !== "v0.6") throw new Error(`HOUSE_PRIORITY_V06_JOIN_INVALID:${brief.seatCycleId}`);
+      if (row.movementFromV05 === 0) {
+        if (row.activeScore !== brief.provisionalTargetScore) throw new Error(`HOUSE_PRIORITY_V06_UNCHANGED_INVALID:${brief.seatCycleId}`);
+        return brief;
+      }
+      if (row.districtLabel !== "SD-AL" || row.exactGeographyJoin !== "at_large_statewide" || row.evidenceConfidence !== "research_fallback_exact_at_large_official_fips_normalization" || !row.officialCountyFipsNormalizationApplied || row.localContext === null || row.localContextAvailableWeight !== 1 || row.downBallotDemocraticOverperformance === null || row.houseDemocraticShare === null || row.presidentialDemocraticShare === null || row.houseMinusPresidentPercentagePoints === null || row.movementFromV05 !== one(row.activeScore - brief.provisionalTargetScore)) throw new Error(`HOUSE_PRIORITY_V06_ELIGIBLE_INVALID:${brief.seatCycleId}`);
+      const localDriver = brief.scoreDrivers.find((driver) => driver.key === "local_context");
+      if (!localDriver) throw new Error(`HOUSE_PRIORITY_V06_LOCAL_DRIVER_MISSING:${brief.seatCycleId}`);
+      const direction = row.houseMinusPresidentPercentagePoints >= 0 ? "+" : "";
+      const explanation = `Exact at-large local context is ${row.localContext.toFixed(1)} with all component weights present. The retained 2024 House Democratic candidate share was ${row.houseDemocraticShare.toFixed(2)}% versus ${row.presidentialDemocraticShare.toFixed(2)}% for Harris (${direction}${row.houseMinusPresidentPercentagePoints.toFixed(2)} points), after the official Census 46113-to-46102 county-code normalization; this becomes a ${row.downBallotDemocraticOverperformance.toFixed(1)} down-ballot component. No winner is inferred.`;
+      return {
+        ...brief,
+        provisionalTargetScore: row.activeScore,
+        formula: `${brief.formula}; v0.6 adds the officially documented county-code normalization for SD-AL`,
+        scoreDrivers: brief.scoreDrivers.map((driver) => driver.key === "local_context" ? { ...driver, score: row.localContext, coverage: 1, inferred: true, explanation } : driver),
+        scoreSummary: `${brief.scoreSummary} V0.6 closes the South Dakota county identifier with Census authority, moving the score ${row.movementFromV05 >= 0 ? "+" : ""}${row.movementFromV05.toFixed(1)} to ${row.activeScore.toFixed(1)}.`,
+        districtSummary: `${brief.districtSummary} The retained 2024 House Democratic candidate share ran ${direction}${row.houseMinusPresidentPercentagePoints.toFixed(2)} points versus Harris after normalizing obsolete Shannon County FIPS 46113 to current Oglala Lakota County 46102; this remains research-fallback election evidence, not an official canvass or winner claim.`,
       };
     }).sort((left, right) => right.provisionalTargetScore - left.provisionalTargetScore || left.seatCycleId.localeCompare(right.seatCycleId)).map((row, index) => ({ ...row, rank: index + 1 }));
   }
