@@ -1,0 +1,96 @@
+{
+  "schema": "rapid-house-primary-south-carolina-results-v3",
+  "version": 3,
+  "parentPackageSha256": "5455c4bb094585f59819b8aa4e38e8059e8807ee9081ada078dfefdc764b21ed",
+  "results": [
+    {
+      "resultId": "sc:primary:2022:06:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-06-14",
+      "districtLabel": "SC-06",
+      "sourceLockIds": [
+        "sc-2022-democratic-primary-district-06-results"
+      ],
+      "sourceCandidateNames": [
+        "James E. Jim Clyburn",
+        "Michael Addison",
+        "Gregg Marcel Dixon"
+      ],
+      "candidateVotes": [
+        48729,
+        4203,
+        2503
+      ],
+      "totalVotes": 55435,
+      "totalBallots": 83908,
+      "overvotesAndUndervotes": 28473,
+      "sourceWinnerStatus": "marked_by_source",
+      "sourceWinnerCandidateName": "James E. Jim Clyburn",
+      "resultAuthorityStatus": "official_state_election_history_contest_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "6fbe0b7e9040e252bf3b5b9496f35bebd4dcbe5e2f5ca931c30edd012d172a66"
+    },
+    {
+      "resultId": "sc:primary:2026:06:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-06-09",
+      "districtLabel": "SC-06",
+      "sourceLockIds": [
+        "sc-2026-primary-enr-election-settings",
+        "sc-2026-primary-enr-summary"
+      ],
+      "sourceCandidateNames": [
+        "James E Jim Clyburn",
+        "Frederick R Goodwin"
+      ],
+      "candidateVotes": [
+        75411,
+        8145
+      ],
+      "totalVotes": 83556,
+      "sourceWinnerStatus": "marked_by_source",
+      "sourceWinnerCandidateName": "James E Jim Clyburn",
+      "resultAuthorityStatus": "official_state_enr_current_result_retained",
+      "certificationStatus": "portal_current_results_no_final_upload_or_separate_certificate",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "628756ce240c4695212fbba332ae31731df22a2e920eec27ea3a0fda9a1b4cb1"
+    }
+  ],
+  "sourceAbsences": [
+    {
+      "observationId": "sc:primary:2024:06:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-06-11",
+      "districtLabel": "SC-06",
+      "status": "source_absent_no_disposition_inference",
+      "sourceLockIds": [
+        "sc-2024-house-primary-event-search"
+      ],
+      "eventInventoryContestCount": 9,
+      "sourceContestId": null,
+      "candidateCount": null,
+      "votes": null,
+      "sourceWinnerStatus": null,
+      "resultAuthorityStatus": null,
+      "winner": null,
+      "identity": null,
+      "scoreEligible": false,
+      "rowSha256": "da9e721ec82172972bdef19e418b8587835cf5a2d9204c159d0fbe8e63b97325"
+    }
+  ],
+  "resultSetSha256": "a339494cc8ac6fd5c4280af867c5cfc07bacba584e4fd5ec4a8a24b54b16bcc7",
+  "summary": {
+    "reportedContests": 2,
+    "sourceAbsentObservations": 1,
+    "candidateRows": 5,
+    "candidateVotes": 138991,
+    "sourceMarkedWinnerContests": 2,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "87e991697a63daea3b221412012784771154c1080c3fc71cea51f1e637245702"
+}
