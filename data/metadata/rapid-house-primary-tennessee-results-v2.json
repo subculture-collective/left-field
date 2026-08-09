@@ -1,0 +1,103 @@
+{
+  "schema": "rapid-house-primary-tennessee-results-v2",
+  "version": 2,
+  "parentPackageSha256": "45db43e480800897d4f68a71c1d41ce6e166ac006934a10cf078a90bb05b7e9e",
+  "results": [
+    {
+      "resultId": "tn:primary:2022:09:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-04",
+      "districtLabel": "TN-09",
+      "sourceLockIds": [
+        "tn-2022-primary-precinct-results"
+      ],
+      "precinctRows": 125,
+      "sourceCandidateNames": [
+        "M. Latroy Alexandria-Williams",
+        "Steve Cohen",
+        "Write-In - Ollie O. Nelson"
+      ],
+      "candidateVotes": [
+        8449,
+        62055,
+        2
+      ],
+      "totalVotes": 70506,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbook_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "8e8e163cbb98c611435a86e1a34cf472e8caf326092d6bc3e3934f93d72c6610"
+    },
+    {
+      "resultId": "tn:primary:2024:09:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-01",
+      "districtLabel": "TN-09",
+      "sourceLockIds": [
+        "tn-2024-primary-precinct-results"
+      ],
+      "precinctRows": 125,
+      "sourceCandidateNames": [
+        "M Latroy A-Williams",
+        "Steve Cohen",
+        "Kasandra L Smith",
+        "Corey Strong"
+      ],
+      "candidateVotes": [
+        1936,
+        30042,
+        1523,
+        7258
+      ],
+      "totalVotes": 40759,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_secretary_precinct_workbook_retained",
+      "certificationStatus": "separate_certification_instrument_not_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "d4965eb8f026a0061a48c3eea420b605017b4baa4edacddfd69362d907ad3dd4"
+    },
+    {
+      "resultId": "tn:primary:2026:09:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-08-06",
+      "districtLabel": "TN-09",
+      "sourceLockIds": [
+        "tn-2026-congressional-primary-enr"
+      ],
+      "portalRaceCount": 18,
+      "sourceCandidateNames": [
+        "Justin J. Pearson",
+        "London Lamar",
+        "M. LaTroy A-Williams",
+        "Jim Torino"
+      ],
+      "candidateVotes": [
+        32092,
+        11870,
+        3318,
+        1531
+      ],
+      "totalVotes": 48811,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_state_enr_final_unofficial_result_snapshot_retained",
+      "certificationStatus": "final_unofficial_no_separate_certification_instrument_retained",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "1747431a0910d9261748e1171dcbacf642cecd1f4d84911c32d4496a9adf3bfd"
+    }
+  ],
+  "resultSetSha256": "95f6a8d2672c190ee8ac8ff350802f4774c931dfcb7f73eaf6daa95610bb6c5e",
+  "summary": {
+    "reportedContests": 3,
+    "candidateRows": 11,
+    "candidateVotes": 160076,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "523dcde249b8c4fc0d1b366c8d6418780135a632e3cfb159289a3a365cc7edd4"
+}

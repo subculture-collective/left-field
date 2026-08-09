@@ -1,0 +1,1109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0YXHW3CG35"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-057QCZXECT');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Night Reporting Dashboard</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/popupwidget.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="shortcut icon" href="/img/favicon.ico">
+    <link rel="icon" type="image/gif" href="/img/favicon.ico">
+</head>
+
+<body>
+
+    <header class="sticky-top">
+        <div class="w-100">
+    <nav class="navbar main-nav navbar-expand-lg p-0  ">
+        <div class="container-fluid px-3 mx-0">
+
+            <a class="navbar-brand d-flex align-items-center m-0" href="https://sos.tn.gov">
+                <img class="portrait-image mr-2 " src="/img/SecHargettHeaderImage.jpg" alt="Tre Hargett">
+                <div class="sos-brand d-flex flex-column align-items-center">
+                    <div class="tn-font-style">Tennessee</div>
+                    <div class="sos-font-style">Secretary of State</div>
+                    <div class="sos-name-style">Tre Hargett</div>
+                </div>
+            </a>
+
+            <button class="navbar-toggler navbar-dark" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse " id="navbarNav">
+                <ul id="menu-main-nav" class="navbar-nav nav-fill w-100 ">
+                    <!-- Add each <li> here, for example: -->
+                    <li class="nav-item">
+                        <a class="nav-link d-flex flex-column align-items-center" href="https://sos.tn.gov/business-services" target="_blank">
+                            <img class="nav-img" src="/img/icons/briefcase.png" alt="Briefcase">
+                            <span>Businesses</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex flex-column align-items-center ratio ratio-1x1"  href="https://sos.tn.gov/charitable" target="_blank">
+                            <img class="nav-img " src="/img/icons/handshake.png" alt="Handshake">
+                            <span>Charities</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex flex-column align-items-center"  href="https://sos.tn.gov/civics" target="_blank">
+                            <img  class="nav-img" src="/img/icons/capitol.png" alt="Capitol">
+                            <span>Civics</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex flex-column align-items-center"  href="https://sos.tn.gov/elections" target="_blank">
+                            <img  class="nav-img" src="/img/icons/vote.png" alt="Vote">
+                            <span>Elections</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex flex-column align-items-center"  href="https://sos.tn.gov/publications" target="_blank">
+                            <img class="nav-img " src="/img/icons/book.png" alt="Book">
+                            <span>Publications</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex flex-column align-items-center"  href="https://sos.tn.gov/tsla" target="_blank">
+                            <img class="nav-img ratio ratio-1x1" src="/img/icons/library.png" alt="Library">
+                            <span>Library & Archives</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex flex-column align-items-center"  href="https://sos.tn.gov/SafeAtHome" target="_blank">
+                            <img class="nav-img" src="/img/icons/safe.png" alt="Safe">
+                            <span>Safe At Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex flex-column align-items-center" href="https://sos.tn.gov/apd" target="_blank">
+                            <img class="nav-img" src="/img/icons/scales.png" alt="Scales">
+                            <span>Hearings</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link d-flex flex-column align-items-center"  href="https://sos.tn.gov/contacts" target="_blank">
+                            <img class="nav-img" src="/img/icons/phone.png" alt="Phone">
+                            <span>Contact Us</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>    </header>
+
+    <header>
+        <div class="container">
+    <div class="election-header-block">
+        <h1 class="header--election-title" id="electionTitle">
+                            August 6th, 2026 Unofficial Election Results
+                    </h1>
+                <div class="header--election-updated" id="lastUpdatedTimestamp"></div>
+                    <div class="header--election-message"><strong>Note: Results and reporting statistics are submitted by county election commissions to the Tennessee Coordinator of Elections, Mark Goins.</strong></div>
+            </div>
+</div>
+                
+        
+        
+        
+<div>
+    <div class="second-nav-group">
+        <nav class="navbar nav-2 navbar-expand-lg navbar-light">
+            <button class="navbar-toggler bg-light" type="button" data-toggle="collapse" data-target="#navbarNav1"
+                    aria-controls="navbarNav1" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-evenly " id="navbarNav1">
+                <ul class="navbar-nav main-nav-2 d-flex justify-content-evenly nav-fill w-100">
+                                            <li class="nav-item secondary-nav-link ">
+                            <a class="nav-link " href="/following">
+                                Following
+                            </a>
+                        </li>
+                                            <li class="nav-item secondary-nav-link ">
+                            <a class="nav-link " href="/results-by-county">
+                                Results by County
+                            </a>
+                        </li>
+                                            <li class="nav-item secondary-nav-link ">
+                            <a class="nav-link " href="/district/congressional">
+                                Results by District
+                            </a>
+                        </li>
+                                                                                    <li class="nav-item d-lg-none ">
+                            <a class="nav-link " href="/categories/governor/offices">
+                                Governor
+                            </a>
+                        </li>
+                                            <li class="nav-item d-lg-none active">
+                            <a class="nav-link active" href="/categories/congressional/offices">
+                                Congressional
+                            </a>
+                        </li>
+                                            <li class="nav-item d-lg-none ">
+                            <a class="nav-link " href="/categories/general-assembly/offices">
+                                General Assembly
+                            </a>
+                        </li>
+                                            <li class="nav-item d-lg-none ">
+                            <a class="nav-link " href="/categories/judicial/offices">
+                                Judicial
+                            </a>
+                        </li>
+                                            <li class="nav-item d-lg-none ">
+                            <a class="nav-link " href="/categories/state-executive-committee/offices">
+                                State Executive Committee
+                            </a>
+                        </li>
+                                    </ul>
+            </div>
+        </nav>
+        <nav class="navbar nav-3 navbar-expand-lg d-none d-lg-block">
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav2">
+                <ul class="navbar-nav nav-fill w-100">
+                                            <li class="nav-item w-25 ">
+                            <a class="nav-link " href="/categories/governor/offices">
+                                Governor
+                            </a>
+                        </li>
+                                            <li class="nav-item w-25 ">
+                            <a class="nav-link active" href="/categories/congressional/offices">
+                                Congressional
+                            </a>
+                        </li>
+                                            <li class="nav-item w-25 ">
+                            <a class="nav-link " href="/categories/general-assembly/offices">
+                                General Assembly
+                            </a>
+                        </li>
+                                            <li class="nav-item w-25 ">
+                            <a class="nav-link " href="/categories/judicial/offices">
+                                Judicial
+                            </a>
+                        </li>
+                                            <li class="nav-item w-25 ">
+                            <a class="nav-link " href="/categories/state-executive-committee/offices">
+                                State Executive Committee
+                            </a>
+                        </li>
+                                    </ul>
+            </div>
+        </nav>
+    </div>
+</div>    </header>
+
+    
+    <main class="container-fluid p-0 mx-0">
+        
+    <div class="page-title-header">Congressional</div>
+
+    <div class="info-banner d-flex flex-row justify-content-center align-items-center px-2 ">
+        <img class="info-img " src="/img/info-circle.svg" alt="info">
+        <div class="star-instruction-block px-2">Click the star on the right side of the results to save a race to the 'Following'
+            tab.
+        </div>
+    </div>
+
+    <div class="container mt-3">
+                    <div class="d-none d-lg-block" id="gridViewSwitch">
+    <div class="d-flex justify-content-end align-items-center">
+        <label class="switch mb-0" title="Toggle Grid View">
+            <input type="checkbox" id="grid-view" name="grid-view" value="grid-view" onchange="toggleGridView()">
+            <span class="slider round"></span>
+        </label>
+        <label for="grid-view" class="h4 ml-2 mb-0">Grid View</label>
+    </div>
+</div>            </div>
+
+    <div class="container column-view" id="charts">
+                                                                                        
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_Senate_Republican_Primary" id="chart-United_States_Senate_Republican_Primary" data-candidates="[{&quot;name&quot;:&quot;Bill Hagerty&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:629068}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States Senate Republican Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_Senate_Republican_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States Senate Republican Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States Senate Republican Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_Senate_Republican_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                95 of 95 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20Senate%20Republican%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_Senate_Democratic_Primary" id="chart-United_States_Senate_Democratic_Primary" data-candidates="[{&quot;name&quot;:&quot;Marquita Bradshaw&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:186154},{&quot;name&quot;:&quot;Maria Brewer&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:61042},{&quot;name&quot;:&quot;Kevin Lee McCants&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:34215},{&quot;name&quot;:&quot;Civil Miller-Watkins&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:29584},{&quot;name&quot;:&quot;Diana Onyejiaka&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:28796}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States Senate Democratic Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_Senate_Democratic_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States Senate Democratic Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States Senate Democratic Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_Senate_Democratic_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                95 of 95 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20Senate%20Democratic%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_1_Republican_Primary" id="chart-United_States_House_of_Representatives_District_1_Republican_Primary" data-candidates="[{&quot;name&quot;:&quot;Diana Harshbarger&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:75024}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 1 Republican Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_1_Republican_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 1 Republican Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 1 Republican Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_1_Republican_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                12 of 12 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%201%20Republican%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_1_Democratic_Primary" id="chart-United_States_House_of_Representatives_District_1_Democratic_Primary" data-candidates="[{&quot;name&quot;:&quot;Kristi Burke&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:12393},{&quot;name&quot;:&quot;David S. Kerr, Jr.&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:1925},{&quot;name&quot;:&quot;Hernan H. Garcia&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:1856}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 1 Democratic Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_1_Democratic_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 1 Democratic Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 1 Democratic Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_1_Democratic_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                12 of 12 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%201%20Democratic%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_2_Republican_Primary" id="chart-United_States_House_of_Representatives_District_2_Republican_Primary" data-candidates="[{&quot;name&quot;:&quot;Tim Burchett&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:86177}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 2 Republican Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_2_Republican_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 2 Republican Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 2 Republican Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_2_Republican_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                8 of 8 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%202%20Republican%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_2_Democratic_Primary" id="chart-United_States_House_of_Representatives_District_2_Democratic_Primary" data-candidates="[{&quot;name&quot;:&quot;Michaela Barnett&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:38877}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 2 Democratic Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_2_Democratic_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 2 Democratic Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 2 Democratic Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_2_Democratic_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                8 of 8 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%202%20Democratic%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_3_Republican_Primary" id="chart-United_States_House_of_Representatives_District_3_Republican_Primary" data-candidates="[{&quot;name&quot;:&quot;Chuck Fleischmann&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:76446}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 3 Republican Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_3_Republican_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 3 Republican Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 3 Republican Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_3_Republican_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                9 of 9 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%203%20Republican%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_3_Democratic_Primary" id="chart-United_States_House_of_Representatives_District_3_Democratic_Primary" data-candidates="[{&quot;name&quot;:&quot;Anna Golladay&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:27725},{&quot;name&quot;:&quot;Bryan Martin&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:7116}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 3 Democratic Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_3_Democratic_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 3 Democratic Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 3 Democratic Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_3_Democratic_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                9 of 9 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%203%20Democratic%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_4_Republican_Primary" id="chart-United_States_House_of_Representatives_District_4_Republican_Primary" data-candidates="[{&quot;name&quot;:&quot;Scott DesJarlais&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:39491},{&quot;name&quot;:&quot;Thomas E. Davis&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:9777},{&quot;name&quot;:&quot;Harold \&quot;Rocky\&quot; Jones&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:6064},{&quot;name&quot;:&quot;Joshua James&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:4596}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 4 Republican Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_4_Republican_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 4 Republican Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 4 Republican Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_4_Republican_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                11 of 11 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%204%20Republican%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_4_Democratic_Primary" id="chart-United_States_House_of_Representatives_District_4_Democratic_Primary" data-candidates="[{&quot;name&quot;:&quot;Victoria Broderick&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:12422},{&quot;name&quot;:&quot;Mike Cortese&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:9216},{&quot;name&quot;:&quot;Joyce E. Neal&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:7224},{&quot;name&quot;:&quot;Tim Lanier&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:2455},{&quot;name&quot;:&quot;Cliff Huffman&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:1478}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 4 Democratic Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_4_Democratic_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 4 Democratic Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 4 Democratic Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_4_Democratic_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                11 of 11 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%204%20Democratic%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_5_Republican_Primary" id="chart-United_States_House_of_Representatives_District_5_Republican_Primary" data-candidates="[{&quot;name&quot;:&quot;Charlie Hatcher&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:36544},{&quot;name&quot;:&quot;Andy Ogles&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:32091}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 5 Republican Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_5_Republican_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 5 Republican Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 5 Republican Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_5_Republican_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                17 of 17 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%205%20Republican%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_5_Democratic_Primary" id="chart-United_States_House_of_Representatives_District_5_Democratic_Primary" data-candidates="[{&quot;name&quot;:&quot;Chaz Molder&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:17729},{&quot;name&quot;:&quot;Yolanda Cooper-Sutton&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:14361},{&quot;name&quot;:&quot;Rachel Hurley&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:4857},{&quot;name&quot;:&quot;DeVante R. Hill&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:4324},{&quot;name&quot;:&quot;Carrie Ann Iacomini&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:2491}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 5 Democratic Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_5_Democratic_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 5 Democratic Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 5 Democratic Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_5_Democratic_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                17 of 17 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%205%20Democratic%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_6_Republican_Primary" id="chart-United_States_House_of_Representatives_District_6_Republican_Primary" data-candidates="[{&quot;name&quot;:&quot;Johnny Garrett&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:37371},{&quot;name&quot;:&quot;Van Hilleary&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:25485},{&quot;name&quot;:&quot;Jon Henry&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:16783},{&quot;name&quot;:&quot;Natisha Brooks&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:6013}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 6 Republican Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_6_Republican_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 6 Republican Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 6 Republican Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_6_Republican_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                17 of 17 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%206%20Republican%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_6_Democratic_Primary" id="chart-United_States_House_of_Representatives_District_6_Democratic_Primary" data-candidates="[{&quot;name&quot;:&quot;Mike Croley&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:11594},{&quot;name&quot;:&quot;Chaney Mosley&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:9625},{&quot;name&quot;:&quot;Lore Bergman&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:9216},{&quot;name&quot;:&quot;Miriam Leibowitz&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:6832},{&quot;name&quot;:&quot;Christopher Martin Finley&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:2855}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 6 Democratic Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_6_Democratic_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 6 Democratic Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 6 Democratic Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_6_Democratic_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                17 of 17 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%206%20Democratic%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_7_Republican_Primary" id="chart-United_States_House_of_Representatives_District_7_Republican_Primary" data-candidates="[{&quot;name&quot;:&quot;Matt Van Epps&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:60030}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 7 Republican Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_7_Republican_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 7 Republican Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 7 Republican Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_7_Republican_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                8 of 8 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%207%20Republican%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_7_Democratic_Primary" id="chart-United_States_House_of_Representatives_District_7_Democratic_Primary" data-candidates="[{&quot;name&quot;:&quot;Darden Copeland&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:16641},{&quot;name&quot;:&quot;Vincent Dixie&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:11385},{&quot;name&quot;:&quot;Saletta Holloway&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:9980},{&quot;name&quot;:&quot;Joshua Warren Sales&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:3741}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 7 Democratic Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_7_Democratic_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 7 Democratic Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 7 Democratic Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_7_Democratic_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                8 of 8 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%207%20Democratic%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_8_Republican_Primary" id="chart-United_States_House_of_Representatives_District_8_Republican_Primary" data-candidates="[{&quot;name&quot;:&quot;David Kustoff&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:65421}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 8 Republican Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_8_Republican_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 8 Republican Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 8 Republican Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_8_Republican_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                12 of 12 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%208%20Republican%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_8_Democratic_Primary" id="chart-United_States_House_of_Representatives_District_8_Democratic_Primary" data-candidates="[{&quot;name&quot;:&quot;Heidi Kuhn&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:23783},{&quot;name&quot;:&quot;Dewey Gordon Bryan&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:9609},{&quot;name&quot;:&quot;Leonard Perkins&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:7716},{&quot;name&quot;:&quot;Jordan D. Hinders&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:4670}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 8 Democratic Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_8_Democratic_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 8 Democratic Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 8 Democratic Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_8_Democratic_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                12 of 12 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%208%20Democratic%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_9_Republican_Primary" id="chart-United_States_House_of_Representatives_District_9_Republican_Primary" data-candidates="[{&quot;name&quot;:&quot;Brent Taylor&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:31057},{&quot;name&quot;:&quot;Todd Warner&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:17775},{&quot;name&quot;:&quot;Jeremy Thompson&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:13481},{&quot;name&quot;:&quot;Charlotte Bergmann&quot;,&quot;party&quot;:&quot;Republican&quot;,&quot;votes&quot;:5153}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 9 Republican Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_9_Republican_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 9 Republican Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 9 Republican Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_9_Republican_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                15 of 15 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%209%20Republican%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                                                                                
+    
+    
+
+            
+<div class="chart-container" data-race="United_States_House_of_Representatives_District_9_Democratic_Primary" id="chart-United_States_House_of_Representatives_District_9_Democratic_Primary" data-candidates="[{&quot;name&quot;:&quot;Justin J. Pearson&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:32092},{&quot;name&quot;:&quot;London Lamar&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:11870},{&quot;name&quot;:&quot;M. LaTroy A-Williams&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:3318},{&quot;name&quot;:&quot;Jim Torino&quot;,&quot;party&quot;:&quot;Democratic&quot;,&quot;votes&quot;:1531}]">
+    <div class="bar-head d-flex justify-content-between px-lg-4 px-md-2">
+        <h3 class="chart-title">United States House of Representatives District 9 Democratic Primary</h3>
+        <div class="d-flex align-items-center">
+            <img class="favoriteButton favoriteStar  justify-content-end flex-shrink-0"
+                 id="United_States_House_of_Representatives_District_9_Democratic_Primary"  src="/img/icons/star-fill.svg" alt="Favorite Race: United States House of Representatives District 9 Democratic Primary"
+                 title="Favorite Race" tabindex="0" data-office="United States House of Representatives District 9 Democratic Primary">
+        </div>
+    </div>
+            <div id="reporting-and-indicator-block">
+    <div class="row">
+        <div class="col">
+            <div class="unofficial-indicator-text px-lg-4 px-md-2 px-sm-2 United_States_House_of_Representatives_District_9_Democratic_Primary-unofficial-indicator-text race-is-finalized">
+                                    Final Unofficial Results
+                            </div>
+        </div>
+        <div class="col">
+            <div class="px-lg-4 px-md-2 county-reporting-header-text">
+                15 of 15 Counties Completed
+            </div>
+        </div>
+    </div>
+</div>        <div class="border-bottom border-1 county-breakdown-container">
+        <a class="px-lg-4 px-3" href="/county-breakdown/United%20States%20House%20of%20Representatives%20District%209%20Democratic%20Primary" target="_blank">View County Breakdown</a>
+    </div>
+</div>                                                        </div>
+
+                    </main>
+
+    
+    <!--<div>
+        <hr class="mb-3">
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script>
+
+<div id="search-bar-container">
+    <form id="search-form">
+        <input type="text" id="query" name="query" placeholder="Search..." autocomplete="off" title="Search" aria-label="Search">
+        <div id="search-results"></div>
+        <img id="search-image" src="/img/search.svg" alt="search">
+    </form>
+</div>
+
+<script>
+
+    const tennesseeCounties = ['Anderson County', 'Bedford County', 'Benton County', 'Bledsoe County', 'Blount County',
+        'Bradley County', 'Campbell County', 'Cannon County', 'Carroll County','Carter County', 'Cheatham County',
+        'Chester County', 'Claiborne County', 'Clay County', 'Cocke County', 'Coffee County', 'Crockett County',
+        'Cumberland County', 'Davidson County', 'Decatur County', 'DeKalb County', 'Dickson County', 'Dyer County',
+        'Fayette County', 'Fentress County', 'Franklin County', 'Gibson County', 'Giles County', 'Grainger County',
+        'Greene County', 'Grundy County', 'Hamblen County', 'Hamilton County', 'Hancock County', 'Hardeman County',
+        'Hardin County', 'Hawkins County', 'Haywood County', 'Henderson County', 'Henry County', 'Hickman County',
+        'Houston County', 'Humphreys County', 'Jackson County', 'Jefferson County', 'Johnson County', 'Knox County',
+        'Lake County', 'Lauderdale County', 'Lawrence County', 'Lewis County', 'Lincoln County', 'Loudon County',
+        'McMinn County', 'McNairy County', 'Macon County', 'Madison County', 'Marion County', 'Marshall County',
+        'Maury County', 'Meigs County', 'Monroe County', 'Montgomery County', 'Moore County', 'Morgan County',
+        'Obion County', 'Overton County', 'Perry County', 'Pickett County', 'Polk County', 'Putnam County',
+        'Rhea County', 'Roane County', 'Robertson County', 'Rutherford County', 'Scott County', 'Sequatchie County',
+        'Sevier County', 'Shelby County', 'Smith County', 'Stewart County', 'Sullivan County', 'Sumner County',
+        'Tipton County', 'Trousdale County', 'Unicoi County', 'Union County', 'Van Buren County', 'Warren County',
+        'Washington County', 'Wayne County', 'Weakley County', 'White County', 'Williamson County', 'Wilson County']
+
+    $(document).ready(function() {
+        let timer;
+        let selectedIndex = -1;
+        let urlList = [];
+        $('#query').on('input', function() {
+            clearTimeout(timer);
+            const query = $(this).val().trim();
+            timer = setTimeout(function() {
+                const resultsDiv = $('#search-results');
+                selectedIndex = -1;
+                urlList = [];
+                if (query.length > 0) {
+                    $.ajax({
+                        url: '/search-results',
+                        method: 'GET',
+                        data: { query: query },
+                        success: function(data) {
+                            resultsDiv.empty();
+                            try {
+                                const parsedData = JSON.parse(data);
+                                if (Object.keys(parsedData).length > 0) {
+                                    Object.entries(parsedData).forEach(function([url, result], index) {
+                                        const resultDiv = $('<div>').text(result);
+                                        resultDiv.on('click', function() {
+                                            localStorage.setItem('selectedResult', $(this).text());
+                                            window.location.href = url;
+                                        });
+                                        resultsDiv.append(resultDiv);
+                                        urlList.push(url);
+                                    });
+                                    resultsDiv.show();
+                                } else {
+                                    const resultDiv = $('<div>').text("Race not found...");
+                                    resultsDiv.append(resultDiv);
+                                    resultsDiv.show();
+                                }
+                            } catch (error) {
+                                console.error('Error parsing JSON:', error);
+                            }
+                        },
+                        error: function(err) {
+                            console.error('Error fetching suggestions:', err);
+                        }
+                    });
+                } else {
+                    resultsDiv.hide();
+                }
+            }, 100);
+        })
+            .on('keydown', function(event) {
+                const resultsDiv = $('#search-results');
+                const results = resultsDiv.find('div');
+                switch (event.key) {
+                    case 'ArrowUp':
+                        event.preventDefault();
+                        if (selectedIndex > 0) {
+                            selectedIndex--;
+                            results.eq(selectedIndex + 1).css('background-color', '');
+                            results.eq(selectedIndex).css('background-color', '#f0f0f0');
+                            const selectedItem = results.eq(selectedIndex);
+                            const scrollTop = resultsDiv.scrollTop();
+                            const itemTop = selectedItem.position().top + scrollTop;
+                            if (itemTop < scrollTop) {
+                                resultsDiv.scrollTop(itemTop);
+                            }
+                        }
+                        break;
+                    case 'ArrowDown':
+                        event.preventDefault();
+                        if (selectedIndex < results.length - 1) {
+                            selectedIndex++;
+                            results.eq(selectedIndex - 1).css('background-color', '');
+                            results.eq(selectedIndex).css('background-color', '#f0f0f0');
+                            const selectedItem = results.eq(selectedIndex);
+                            const itemHeight = selectedItem.outerHeight(true);
+                            const scrollTop = resultsDiv.scrollTop();
+                            const visibleHeight = resultsDiv.height();
+                            const itemTop = selectedItem.position().top + scrollTop;
+                            if (itemTop + itemHeight > scrollTop + visibleHeight) {
+                                resultsDiv.scrollTop(itemTop + itemHeight - visibleHeight);
+                            } else if (itemTop < scrollTop) {
+                                resultsDiv.scrollTop(itemTop);
+                            }
+                        }
+                        break;
+                    case 'Enter':
+                        event.preventDefault();
+                        if (selectedIndex !== -1) {
+                            const selectedResult = results.eq(selectedIndex).text();
+                            const selectedUrl = urlList[selectedIndex];
+                            if (selectedUrl) {
+                                localStorage.setItem('selectedResult', selectedResult);
+                                window.location.href = selectedUrl;
+                            }
+                        }
+                        break;
+                }
+            });
+    });
+
+    window.addEventListener('DOMContentLoaded', function() {
+        let result = localStorage.getItem('selectedResult');
+        // if they just select a county scroll to the top of the page
+        if (tennesseeCounties.includes(result)) {
+            localStorage.clear();
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        } else if (result !== null) {
+            scrollToSelectedChart(result);
+        }
+    });
+
+    setTimeout(function() {
+        let result = localStorage.getItem('selectedResult');
+        if (result !== null) {
+            addHighlightEffect(result)
+        }
+        localStorage.clear();
+    }, 1750);
+
+    function scrollToSelectedChart(result) {
+        let chartID = 'chart-' + buildChartID(result);
+        const selectedChart = document.getElementById(chartID);
+        if (selectedChart) {
+            const headerOffset = document.querySelector('header').offsetHeight;
+            const elementPosition = selectedChart.getBoundingClientRect().top + window.scrollY;
+            const countyMap = document.getElementById('county-map');
+            let mapHeightAdjustment = 0;
+            if (countyMap) {
+                const mapHeight = countyMap.getBoundingClientRect().height;
+                mapHeightAdjustment = mapHeight / 3;
+            }
+            const offsetPosition = elementPosition - headerOffset - mapHeightAdjustment - 30; // 30px just for a little extra space above
+            window.scrollTo({
+                top: offsetPosition,
+                behavior: 'smooth'
+            });
+        }
+    }
+
+    function addHighlightEffect(result){
+        let chartID = 'chart-' + buildChartID(result);
+        const selectedChart = document.getElementById(chartID);
+        if (selectedChart) {
+            selectedChart.classList.add('highlight-effect');
+        }
+        setTimeout(function () {
+            if (selectedChart) {
+                selectedChart.classList.remove('highlight-effect');
+            }
+        }, 3000);
+    }
+
+    function buildChartID(result){
+        result = result.replace(/[^a-zA-Z0-9-\s]/g, '')
+        result = result.replace(/\s+County/, '');
+        return result.replace(/\s/g, '_');
+    }
+
+</script>
+    </div>-->
+
+    
+<footer class="footer text-dark">
+    <div class="footer w-100 border-top">
+    <div class="footer-banner  d-flex align-items-center">
+        <div class="">
+            <img class="footer-tri-star-image" src="/img/tennessee-tristar-logo.png" alt="Blue and White Tennessee State Tristar Logo">
+        </div>
+        <div class="footer-banner-text d-flex flex-column">
+            <div class="tnsos-foot">
+                <p class="mb-0">Tennessee Secretary of State</p>
+            </div>
+            <div class="policies ">
+                <p class="mb-0">
+                    &copy; 2026 Tennessee Secretary Of State |
+                    <a href="https://sos.tn.gov/web-and-social-media-policies" target="_blank">Web and Social Media Policies</a>
+                </p>
+            </div>
+        </div>
+    </div>
+        <div class="social-row d-flex flex-column justify-content-center">
+            <div class="d-flex flex-row justify-content-around align-items-center w-100">
+                <div class="d-flex justify-content-center align-items-center"><a href="/home"><img class="social-icon" src="/img/icons/information-icon.png" alt="Information icon"/></a></div>
+                <div class="d-flex justify-content-center align-items-center"><a href="https://www.facebook.com/TennesseeSecretaryofState" target="_blank"><img class="social-icon" src="/img/icons/facebook-icon.png" alt="Facebook icon"/></a></div>
+                <div class="d-flex justify-content-center align-items-center"><a href="https://x.com/tnsecofstate" target="_blank"><img class="social-icon x-icon" src="/img/icons/x-icon-white.png" alt="X icon"/></a></div>
+                <div class="d-flex justify-content-center align-items-center"><a href="https://www.instagram.com/tnsecofstate/" target="_blank"><img class="social-icon" src="/img/icons/instagram-icon.png" alt="Instagram icon"/></a></div>
+                <div class="d-flex justify-content-center align-items-center"><a href="https://sos.tn.gov/elections/services/download-the-govotetn-app" target="_blank"><img class="promo-image" src="/img/icons/go-vote-tn-app.webp" alt="go vote icon"/></a></div>
+                <div class="d-flex justify-content-center align-items-center"><a href="https://ovr.govote.tn.gov/" target="_blank"><img class="vote-promo-image" src="/img/tn-registration.png" alt="online voter app icon"/></a></div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <div class="tooltip"></div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function(event) {
+            let scrollpos = localStorage.getItem('scrollpos');
+            if (scrollpos) window.scrollTo(0, scrollpos);
+        });
+
+        window.onbeforeunload = function(e) {
+            localStorage.setItem('scrollpos', window.scrollY);
+        };
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"></script>
+    <script>
+        function submitForm() {
+            document.getElementById('countyForm').submit();
+        }
+    </script>
+
+    <script src="/js/d3.v7.min.js"></script>
+    <script src="https://d3js.org/topojson.v3.min.js"></script>
+    <script src="/js/countychartd3.js"></script>
+    <script src="/js/barchartd3.js"></script>
+    <script src="/js/gridView.js"></script>
+    <script src="/js/favoringCharts.js"></script>
+    <script src="/js/userTimezone.js"></script>
+    <script src="/js/popupwidget.js"></script>
+
+    
+            
+    <script type="text/javascript">
+        let eventTypes = ["statewidegovernor","countygovernor","statewideussenate","countyussenate","statewideushouse","countyushouse","statewidetnsenate","countytnsenate","statewidetnhouse","countytnhouse","statewidepublicdefender","countypublicdefender","statewidecircuitcourt","countycircuitcourt","statewidechancellor","countychancellor","statewidecriminalcourt","countycriminalcourt","statewidedistrictattorney","countydistrictattorney","statewideexecutivecommittee","countyexecutivecommittee"];
+        let judicialEventTypes = ["statewidesupremecourt","countysupremecourt","statewidecourtofappeals","countycourtofappeals","statewidecriminalcourtofappeals","countycriminalcourtofappeals"];
+        initializeStatewideServerSentEvent("congressional");
+    </script>
+
+</body>
+
+</html>
