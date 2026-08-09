@@ -1,0 +1,83 @@
+{
+  "schema": "rapid-house-primary-hawaii-results-2026-v1",
+  "version": 1,
+  "sourceLockId": "hi-2026-primary-summary",
+  "results": [
+    {
+      "resultId": "hi:primary:2026:01:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-08-08",
+      "districtLabel": "HI-01",
+      "sourceLockIds": [
+        "hi-2026-primary-summary"
+      ],
+      "sourceContestId": "266",
+      "sourceOfficeTitle": "U.S. Representative, Dist I",
+      "sourceCandidateNames": [
+        "CASE, Ed",
+        "KEOHOKALOLE, Jarrett K.",
+        "BOOKER, Jennifer",
+        "KISWANTO, Nicholas (Nick)",
+        "FATULA, Ben"
+      ],
+      "candidateVotes": [
+        58853,
+        35371,
+        2158,
+        859,
+        837
+      ],
+      "totalVotes": 98078,
+      "totalPrecincts": 223,
+      "countedPrecincts": 1,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_state_election_result_snapshot_retained_not_claimed_certified",
+      "certificationStatus": "official_report_snapshot_no_certification_claim",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "8da816a58c53bddd0bfb0e38a42c1f3c116b121b72d4ab38abdb797a7743e370"
+    },
+    {
+      "resultId": "hi:primary:2026:02:democratic",
+      "cycleYear": 2026,
+      "electionDate": "2026-08-08",
+      "districtLabel": "HI-02",
+      "sourceLockIds": [
+        "hi-2026-primary-summary"
+      ],
+      "sourceContestId": "70",
+      "sourceOfficeTitle": "U.S. Representative, Dist II",
+      "sourceCandidateNames": [
+        "TOKUDA, Jill N.",
+        "KING, Steven",
+        "GUITHUES, Greg",
+        "BASIN, Kirill"
+      ],
+      "candidateVotes": [
+        80133,
+        3434,
+        2621,
+        1320
+      ],
+      "totalVotes": 87508,
+      "totalPrecincts": 273,
+      "countedPrecincts": 0,
+      "sourceWinnerStatus": "not_marked_by_source",
+      "resultAuthorityStatus": "official_state_election_result_snapshot_retained_not_claimed_certified",
+      "certificationStatus": "official_report_snapshot_no_certification_claim",
+      "winnerIdentity": null,
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "48b90da7c0294a884c62a0c0ae46b4c204d10c4342f4715ca7a79146e251cf1d"
+    }
+  ],
+  "resultSetSha256": "5b9ff2e71b5879a61aeebc93782f099110127a53519c649dd3323984c873a472",
+  "summary": {
+    "reportedContests": 2,
+    "candidateRows": 9,
+    "candidateVotes": 185586,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "c27685c96e6acd7cdb535e76900746ba855b807ac502b3e1bb80af9498fbe7b5"
+}
