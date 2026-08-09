@@ -1,0 +1,67 @@
+{
+  "schema": "rapid-house-primary-kentucky-results-v2",
+  "version": 2,
+  "parentPackageSha256": "f92f3f6d6cb0a0e3d1cf17c9baa9c692f92590e6e083c66406ffa1cc89ee6cf3",
+  "results": [
+    {
+      "resultId": "ky:primary:2022:03:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-05-17",
+      "districtLabel": "KY-03",
+      "sourceLockIds": [
+        "ky-2022-primary-results",
+        "ky-2022-primary-results-layout-text"
+      ],
+      "rawParty": "Democratic Party",
+      "sourceCandidateNames": [
+        "Morgan McGARVEY",
+        "Attica SCOTT"
+      ],
+      "candidateVotes": [
+        52157,
+        30183
+      ],
+      "totalVotes": 82340,
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "bc6957173dd6be4eb3c3d984bc892afb10c2d17496e34b9b0ad9af3d17a52057"
+    },
+    {
+      "resultId": "ky:primary:2024:03:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-05-21",
+      "districtLabel": "KY-03",
+      "sourceLockIds": [
+        "ky-2024-primary-results",
+        "ky-2024-primary-results-layout-text"
+      ],
+      "rawParty": "Democratic Party",
+      "sourceCandidateNames": [
+        "Morgan McGARVEY",
+        "Geoffrey M. \"Geoff\" YOUNG",
+        "Jared RANDALL"
+      ],
+      "candidateVotes": [
+        44275,
+        5875,
+        2491
+      ],
+      "totalVotes": 52641,
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "bd5ffefe97575593af32541109f06d8651152d6ca922ea3d2bb4f8fbe2653e1a"
+    }
+  ],
+  "resultSetSha256": "c62c570e208a74873b5111ec5792a8f6d4d0f28fc0b4eae8b0205f13a44add29",
+  "summary": {
+    "observations": 2,
+    "candidateRows": 5,
+    "candidateVotes": 134981,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "878c831d8734fffa9c518fffb72f97a1dceb2a85013d2d6897c4279b76696fc4"
+}
