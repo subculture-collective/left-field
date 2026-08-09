@@ -15,12 +15,12 @@ describe("rapid House-primary coverage read model", () => {
     const value = await loadRapidHousePrimaryCoverage();
     expect(value?.rows).toHaveLength(48);
     expect(value?.rows.flatMap((row) => row.expectedTargetDistricts)).toHaveLength(78);
-    expect(value?.rows.reduce((sum, row) => sum + row.parsedDistrictCount, 0)).toBe(24);
+    expect(value?.rows.reduce((sum, row) => sum + row.parsedDistrictCount, 0)).toBe(26);
     expect(value?.rows.reduce((sum, row) => sum + row.sourceAbsentDistrictCount, 0)).toBe(2);
   });
   it("rejects a well-shaped but unverified ledger", async () => {
     const directory = await root(); await mkdir(join(directory, "data/metadata"), { recursive: true });
-    await writeFile(join(directory, "data/metadata/rapid-house-primary-coverage-ledger-v9.json"), JSON.stringify({ schema: "rapid-house-primary-coverage-ledger-v9", version: 9, rows: [{ stateCode: "SC", cycleYear: 2024, expectedTargetDistricts: ["SC-06"], retainedArtifactCount: 1, parsedDistrictCount: 0, sourceAbsentDistrictCount: 0, status: "ready_unparsed" }] }));
+    await writeFile(join(directory, "data/metadata/rapid-house-primary-coverage-ledger-v10.json"), JSON.stringify({ schema: "rapid-house-primary-coverage-ledger-v10", version: 10, rows: [{ stateCode: "SC", cycleYear: 2024, expectedTargetDistricts: ["SC-06"], retainedArtifactCount: 1, parsedDistrictCount: 0, sourceAbsentDistrictCount: 0, status: "ready_unparsed" }] }));
     await expect(loadRapidHousePrimaryCoverage(directory)).resolves.toBeNull();
   });
 });
