@@ -1,0 +1,123 @@
+{
+  "schema": "rapid-house-primary-missouri-results-v2",
+  "version": 2,
+  "parentPackageSha256": "138f9c11e987bf37fb35de52d24c8309149c1669484ff8a8c1f70c8e0ce4cc5d",
+  "results": [
+    {
+      "resultId": "mo:primary:2022:01:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "districtLabel": "MO-01",
+      "sourceLockIds": [
+        "mo-2022-primary-results-archived",
+        "mo-2022-primary-results-layout-text"
+      ],
+      "rawParty": "Democratic",
+      "sourceCandidateNames": [
+        "Ron Harshaw",
+        "Michael Daniels",
+        "Cori Bush",
+        "Earl Childress",
+        "Steve Roberts"
+      ],
+      "candidateVotes": [
+        1065,
+        1683,
+        65326,
+        929,
+        25015
+      ],
+      "totalVotes": 94018,
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "01ba883e58629315cf091806e80e33a96c63724444926ab89d9a81728b60ad9e"
+    },
+    {
+      "resultId": "mo:primary:2022:05:democratic",
+      "cycleYear": 2022,
+      "electionDate": "2022-08-02",
+      "districtLabel": "MO-05",
+      "sourceLockIds": [
+        "mo-2022-primary-results-archived",
+        "mo-2022-primary-results-layout-text"
+      ],
+      "rawParty": "Democratic",
+      "sourceCandidateNames": [
+        "Emanuel Cleaver, II",
+        "Maite Salazar"
+      ],
+      "candidateVotes": [
+        60399,
+        10147
+      ],
+      "totalVotes": 70546,
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "8f5eb2044a7c837e06d4bdb514290091eda355df2daba6d2abee4e002883f959"
+    },
+    {
+      "resultId": "mo:primary:2024:01:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "districtLabel": "MO-01",
+      "sourceLockIds": [
+        "mo-2024-primary-results",
+        "mo-2024-primary-results-layout-text"
+      ],
+      "rawParty": "Democratic",
+      "sourceCandidateNames": [
+        "Cori Bush",
+        "Wesley Bell",
+        "Maria N. Chappelle-Nadal",
+        "Ron Harshaw"
+      ],
+      "candidateVotes": [
+        56723,
+        63521,
+        3279,
+        735
+      ],
+      "totalVotes": 124258,
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "0c1301cd3a2f3ad5b8678d6c0642e86a35323e72426a0a2a85ef03aa0882f2c8"
+    },
+    {
+      "resultId": "mo:primary:2024:05:democratic",
+      "cycleYear": 2024,
+      "electionDate": "2024-08-06",
+      "districtLabel": "MO-05",
+      "sourceLockIds": [
+        "mo-2024-primary-results",
+        "mo-2024-primary-results-layout-text"
+      ],
+      "rawParty": "Democratic",
+      "sourceCandidateNames": [
+        "Emanuel Cleaver, II"
+      ],
+      "candidateVotes": [
+        65248
+      ],
+      "totalVotes": 65248,
+      "resultAuthorityStatus": "official_primary_result_pdf_retained_no_separate_certification_instrument",
+      "sourceWinnerStatus": "not_marked_by_source",
+      "identity": null,
+      "scoreEligible": false,
+      "resultSha256": "4fc560bb82ca1528c5ee17737a98658c338031ae17a3bac910e3739680c3aeeb"
+    }
+  ],
+  "resultSetSha256": "259bbb665a8d9d961584caa69b7b402f95b7288520bf7f423c837f61d97f42a0",
+  "summary": {
+    "observations": 4,
+    "candidateRows": 12,
+    "candidateVotes": 354070,
+    "scoreEligibleRows": 0
+  },
+  "packageSha256": "491b5ec35f4dda3d3410e80be77d39f6fe81580c586e4375f685c6d4f9d9b2ac"
+}
