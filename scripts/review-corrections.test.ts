@@ -1,7 +1,32 @@
 import { describe, expect, it } from "vitest";
-import { correctionReviewerPoolConfig, executeCorrectionReview, parseCorrectionReviewArguments } from "./review-corrections";
+import packageJson from "../package.json";
+import { correctionReviewerPoolConfig, executeCorrectionReview, parseCorrectionReviewArguments, runCorrectionReviewCli } from "./review-corrections";
 
 describe("correction reviewer CLI", () => {
+  it("renders help and version without opening a database connection", async () => {
+    const help: string[] = [];
+    const version: string[] = [];
+    const forbiddenPool = () => { throw new Error("database must not be opened"); };
+
+    await expect(runCorrectionReviewCli(["--help"], {}, { write: value => help.push(value), createPool: forbiddenPool })).resolves.toBe(0);
+    await expect(runCorrectionReviewCli(["--version"], {}, { write: value => version.push(value), createPool: forbiddenPool })).resolves.toBe(0);
+
+    expect(help.join("")).toContain("corrections:review -- list [options]");
+    expect(help.join("")).toContain("corrections:review -- transition [options]");
+    expect(version.join("").trim()).toBe(packageJson.version);
+  });
+
+  it("generates bash, zsh, and fish completion scripts without opening a database connection", async () => {
+    const forbiddenPool = () => { throw new Error("database must not be opened"); };
+    for (const shell of ["bash", "zsh", "fish"] as const) {
+      const output: string[] = [];
+      await expect(runCorrectionReviewCli(["completion", shell], {}, { write: value => output.push(value), createPool: forbiddenPool })).resolves.toBe(0);
+      expect(output.join("")).toContain("list");
+      expect(output.join("")).toContain("transition");
+    }
+    await expect(runCorrectionReviewCli(["completion", "powershell"], {}, { write: () => undefined, createPool: forbiddenPool })).rejects.toThrow("bash, zsh, or fish");
+  });
+
   it("lists review metadata without exposing submitted content by default", async () => {
     const args = parseCorrectionReviewArguments(["list", "--limit", "10"]);
     const repository = {

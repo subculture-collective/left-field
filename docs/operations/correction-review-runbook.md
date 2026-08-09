@@ -40,6 +40,25 @@ created or rotated. Do not copy any existing database password.
 npm run corrections:review -- list --limit 50
 ```
 
+The operator CLI exposes its complete command reference and package version
+without opening a database connection:
+
+```bash
+npm run corrections:review -- --help
+npm run corrections:review -- --version
+```
+
+It can also emit Bash, Zsh, or Fish completion definitions for a local
+`corrections-review` wrapper. The wrapper must invoke the approved npm or
+isolated Compose command above; generating completions does not create a new
+connection path or grant database access.
+
+```bash
+npm run corrections:review -- completion bash
+npm run corrections:review -- completion zsh
+npm run corrections:review -- completion fish
+```
+
 The bare npm examples in the sections below are for a controlled development
 shell with `CORRECTION_REVIEWER_DATABASE_URL` already injected. On the NUC,
 replace them with the isolated Compose invocation above and pass the same CLI

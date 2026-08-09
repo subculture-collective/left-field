@@ -1,11 +1,46 @@
 import { Pool, type PoolConfig } from "pg";
 import { CorrectionReviewerRepository, type CorrectionListItem, type TransitionCorrectionInput, type TransitionCorrectionResult } from "@/corrections/repository";
+import packageJson from "../package.json";
 
 export type CorrectionReviewArguments =
   | { readonly operation: "list"; readonly limit: number; readonly after?: { readonly submittedAt: Date; readonly id: string }; readonly includeContent: boolean }
   | ({ readonly operation: "transition" } & TransitionCorrectionInput);
 
 type ReviewerRepository = Pick<CorrectionReviewerRepository, "list" | "transition">;
+
+const HELP = `Usage:
+  npm run corrections:review -- list [options]
+  npm run corrections:review -- transition [options]
+  npm run corrections:review -- completion <bash|zsh|fish>
+
+Commands:
+  list        List correction metadata without submitted content by default
+  transition  Append an optimistic correction-review state transition
+  completion  Print a shell completion script for a corrections-review wrapper
+
+Global options:
+  --help      Show this help
+  --version   Show the CLI version
+
+List options:
+  --limit <1-100>
+  --after-time <canonical ISO-8601> --after-id <uuid>
+  --include-content  Interactive TTY only
+
+Transition options:
+  --id <uuid> --expected-sequence <integer> --expected-status <status>
+  --to-status <status> --reason <reason-code>
+  [--candidate-release <release-id>] [--approved-snapshot <snapshot-id>]
+`;
+
+const COMPLETION_WORDS = "list transition completion --help --version --limit --after-time --after-id --include-content --id --expected-sequence --expected-status --to-status --reason --candidate-release --approved-snapshot";
+
+function renderCompletion(shell: string): string {
+  if (shell === "bash") return `_dsa_seats_corrections_review() { COMPREPLY=( $(compgen -W '${COMPLETION_WORDS}' -- "\${COMP_WORDS[COMP_CWORD]}") ); }\ncomplete -F _dsa_seats_corrections_review corrections-review\n`;
+  if (shell === "zsh") return `#compdef corrections-review\n_arguments '1:command:(list transition completion)' '*:option:(${COMPLETION_WORDS})'\n`;
+  if (shell === "fish") return `complete -c corrections-review -f -a 'list transition completion'\ncomplete -c corrections-review -l help -d 'Show help'\ncomplete -c corrections-review -l version -d 'Show version'\n`;
+  throw new Error("Completion shell must be bash, zsh, or fish");
+}
 
 const uuid = /^[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i;
 
@@ -128,15 +163,40 @@ export function correctionReviewerPoolConfig(env: Readonly<Record<string, string
   return { connectionString, max: 2, connectionTimeoutMillis: 5_000, statement_timeout: 15_000, lock_timeout: 1_000, query_timeout: 15_000 };
 }
 
-export async function main(argv = process.argv.slice(2), env = process.env): Promise<void> {
+export async function runCorrectionReviewCli(
+  argv: readonly string[],
+  env: Readonly<Record<string, string | undefined>>,
+  dependencies: { readonly write: (value: string) => void; readonly createPool: (config: PoolConfig) => Pool } = {
+    write: value => process.stdout.write(value),
+    createPool: config => new Pool(config),
+  },
+): Promise<number> {
+  if (argv.length === 1 && (argv[0] === "--help" || argv[0] === "-h")) {
+    dependencies.write(HELP);
+    return 0;
+  }
+  if (argv.length === 1 && (argv[0] === "--version" || argv[0] === "-V")) {
+    dependencies.write(`${packageJson.version}\n`);
+    return 0;
+  }
+  if (argv[0] === "completion") {
+    if (argv.length !== 2) throw new Error("Completion shell must be bash, zsh, or fish");
+    dependencies.write(renderCompletion(argv[1]!));
+    return 0;
+  }
   const args = parseCorrectionReviewArguments(argv);
-  const pool = new Pool(correctionReviewerPoolConfig(env));
+  const pool = dependencies.createPool(correctionReviewerPoolConfig(env));
   try {
     const result = await executeCorrectionReview(args, new CorrectionReviewerRepository(pool));
-    process.stdout.write(`${JSON.stringify(result)}\n`);
+    dependencies.write(`${JSON.stringify(result)}\n`);
   } finally {
     await pool.end();
   }
+  return 0;
+}
+
+export async function main(argv = process.argv.slice(2), env = process.env): Promise<void> {
+  process.exitCode = await runCorrectionReviewCli(argv, env);
 }
 
 if (process.argv[1]?.endsWith("review-corrections.ts")) void main().catch(() => { process.stderr.write("Correction review failed\n"); process.exitCode = 1; });
