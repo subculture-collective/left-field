@@ -1,7 +1,7 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { type MissouriPrimaryResult, validateMissouriPrimaryResults } from "./house-primary-missouri-results";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface MissouriPrimaryResult2022 {
   readonly resultId: "mo:primary:2022:01:democratic" | "mo:primary:2022:05:democratic";
@@ -30,11 +30,6 @@ export interface MissouriPrimaryResultsV2 {
 }
 const PDF = { id: "mo-2022-primary-results-archived", url: "https://web.archive.org/web/20250826141506id_/https://www.sos.mo.gov/CMSImages/ElectionResultsStatistics/ActualResults-August22022.pdf", path: "data/source/rapid/house-primary/mo/2022/primary-results.pdf", bytes: 1_283_832, sha256: "9d62384135197ee0722eb5be00ac4c2b4eb05a05b65b04c9723298a26b06db06", kind: "archived_official_source", parentIds: [] } as const;
 const TEXT = { id: "mo-2022-primary-results-layout-text", url: "urn:dsa-seats:derived-extract:mo-2022-primary-results-archived:pdftotext-layout", path: "data/source/rapid/house-primary/mo/2022/primary-results-layout.txt", bytes: 228_460, sha256: "fc7bf0c8dbb53609eff74250310f9bf5bf13d36eb309ddd8c00d5b02ee51dee5", kind: "derived_extract", parentIds: [PDF.id] } as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (bytes: Buffer) => createHash("sha256").update(bytes).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 export function buildMissouriPrimaryResultsV2(root = process.cwd()): MissouriPrimaryResultsV2 {
   const parent = validateMissouriPrimaryResults(JSON.parse(readFileSync(join(root, "data/metadata/rapid-house-primary-missouri-results-v1.json"), "utf8")), root);

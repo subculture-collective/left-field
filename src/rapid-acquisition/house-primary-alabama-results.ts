@@ -4,6 +4,7 @@ import { mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "n
 import { tmpdir } from "node:os";
 import { basename, join } from "node:path";
 import { unzipSync } from "fflate";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface AlabamaPrimaryResult {
   readonly resultId: string;
@@ -53,11 +54,6 @@ const EXPECTED = {
   "2024": { "02": [["Anthony Daniels",12879],["James Averhart",1623],["Jeremy Gray",1580],["Juandalynn \"Le Le\" Givan",1260],["Larry Darnell Simpson",247],["Merika Coleman",3445],["Napoleon Bracy, Jr.",9010],["Phyllis Harvey-Hall",2007],["Shomari Figures",24979],["Vimal Patel",289],["Willie J. Lenard",199]], "07": [["Chris Davis",4712],["Terri A. Sewell",59091]] },
   "2024-runoff": { "02": [["Anthony Daniels",14006],["Shomari Figures",21962]] },
 } as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function parseCsv(input: string): string[][] {
   const rows: string[][] = []; let row: string[] = [], field = "", quote = false;

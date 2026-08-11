@@ -1,7 +1,7 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { unzipSync } from "fflate";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface GeorgiaStateLegislativeCandidate { readonly sourceName: string; readonly sourceChoiceId: string; readonly rawCandidateParty: string; readonly votes: number }
 export interface GeorgiaStateLegislativeContest {
@@ -15,9 +15,6 @@ const SOURCES = [
   { year: 2024 as const, date: "2024-05-21" as const, id: "ga-2024-general-primary-total-votes-workbook", url: "https://results.sos.ga.gov/cdn/results/09378a07-e6cf-4f66-be7c-ca4aa534f99a/Total%20Votes%20Results_dd4a2851-411f-4720-abea-3ce4cf813d1f.xlsx", path: "data/source/elections/primary-results/georgia/2024/total-votes-results.xlsx", bytes: 681802, sha256: "1971b455dfcd609d3fa0cf3afe149bb85d8939c0e4551f3e3c34f9e52802714d", parent: "ga-2024-general-primary-election-metadata", contests: 349, candidates: 446, votes: 1976442 },
   { year: 2026 as const, date: "2026-05-19" as const, id: "ga-2026-general-primary-total-votes-workbook", url: "https://results.sos.ga.gov/cdn/results/09378a07-e6cf-4f66-be7c-ca4aa534f99a/Total%20Votes%20Results_f994c55e-4e3f-43f8-86ea-8ac4e9b45807.xlsx", path: "data/source/elections/primary-results/georgia/2026/total-votes-results.xlsx", bytes: 1276496, sha256: "eca6d40576e350db991ea3ec06625f90f71cb655ef912eac624d0d0a6f1a3ada", parent: "ga-2026-general-primary-election-metadata", contests: 391, candidates: 528, votes: 3325578 },
 ] as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex"), sha = (value: Buffer) => createHash("sha256").update(value).digest("hex"), exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 const decode = (value: string) => value.replace(/&quot;/g, '"').replace(/&apos;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">").replace(/&amp;/g, "&"), textNodes = (value: string) => [...value.matchAll(/<t(?:\s[^>]*)?>([\s\S]*?)<\/t>/g)].map((match) => decode(match[1]!)).join("");
 const fail = (code: string): never => { throw new Error(`GEORGIA_STATE_LEGISLATIVE_${code}`); }, integer = (value: string) => /^\d+$/.test(value) && Number.isSafeInteger(Number(value)) ? Number(value) : fail("INTEGER_INVALID");
 const file = (files: Record<string, Uint8Array>, name: string) => { const value = files[name] ?? files[`/${name}`]; if (!value) return fail(`WORKBOOK_PART_MISSING:${name}`); return Buffer.from(value).toString("utf8"); };

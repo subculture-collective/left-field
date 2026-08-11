@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -7,12 +6,10 @@ import { validateCountyElectionContextProjection } from "./county-election-conte
 import { validateCountyHouseResultsProjection } from "./county-house-results";
 import { validateCountySenateResultsProjection } from "./county-senate-results";
 import { validateIndianaStateLegislativeResults } from "./indiana-state-legislative-results";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 type Artifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0 }>;
 export interface RapidLocalContextCoverageV3 { readonly schema: "rapid-local-context-coverage-v3"; readonly version: 3; readonly releaseRelationship: "separate_rapid_acquisition_excluded_from_released_score"; readonly artifacts: readonly Artifact[]; readonly artifactSetSha256: string; readonly packageSha256: string }
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
 
 export function buildRapidLocalContextCoverageV3(root = process.cwd()): RapidLocalContextCoverageV3 {
   const demographics = validateCountyDemographicsProjection(JSON.parse(readFileSync(join(root, "data/metadata/rapid-county-demographics-projection-v1.json"), "utf8")), root);

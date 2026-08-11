@@ -2,6 +2,8 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
+
 import {
   type SouthCarolinaPrimaryResult,
   validateSouthCarolinaPrimaryResults,
@@ -76,11 +78,6 @@ const EXPECTED_INVENTORY: readonly SouthCarolinaEventInventoryRow[] = [
   { contestId:"6906",primaryParty:"Democratic",district:"07",candidateNames:["Daryl W Scott","Mal Hyman"] },
 ] as const;
 
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function eachCsvRow(input: string, visit: (row: readonly string[], rowNumber: number) => void) {
   let row: string[] = [], field = "", quote = false, rowNumber = 0;

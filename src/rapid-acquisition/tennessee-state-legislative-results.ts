@@ -3,6 +3,7 @@ import { execFileSync } from "node:child_process";
 import { mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface TennesseeStateLegislativeSourceObservation {
   readonly sourceName: string;
@@ -44,11 +45,6 @@ const SOURCES = [
 ] as const;
 const HEADER = ["COUNTY","PRCTSEQ","PRECINCT","BALSEQID","JURISID","SECJURISID","CANDGROUP","OFFICENAME","ELECTDATE","ELECTTYPE",...Array.from({ length: 10 }, (_, index) => [`COL${index + 1}HDG`,`RNAME${index + 1}`,`PARTY${index + 1}`,`PVTALLY${index + 1}`]).flat()];
 const EXPECTED = { 2022: { offices: 116, contests: 232, observations: 287, votes: 974115, precinctRows: 6325 }, 2024: { offices: 115, contests: 230, observations: 284, votes: 819420, precinctRows: 6613 } } as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function parseCsv(input: string): string[][] {
   const rows: string[][] = []; let row: string[] = [], field = "", quote = false;

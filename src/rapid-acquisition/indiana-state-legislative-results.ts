@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface IndianaStateLegislativeCandidate { readonly sourceName: string; readonly votes: number; readonly sourceWinnerMarked: boolean; }
 export interface IndianaStateLegislativeContest {
@@ -39,11 +40,6 @@ const SOURCES = [
   { cycleYear: 2024 as const, chamber: "upper" as const, id: "in-2024-primary-state-senate-results", url: "https://enr.indianavoters.in.gov/archive/2024Primary/data/OffCatC_1018_B.json", path: "data/source/rapid/state-legislative/in/2024/state-senate-results.json", bytes: 76767, sha256: "ab4459eb9167726633102e447814af7dea2903b394b872685f9aec51ddb69bd6", races: 25 },
   { cycleYear: 2024 as const, chamber: "lower" as const, id: "in-2024-primary-state-house-results", url: "https://enr.indianavoters.in.gov/archive/2024Primary/data/OffCatC_1039_B.json", path: "data/source/rapid/state-legislative/in/2024/state-house-results.json", bytes: 296437, sha256: "63aca0ab21d7296dc54362d53197912a24d31b97af42e8051f3a3a3ceaab4fd8", races: 100 },
 ] as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 type RawCandidate = { NAME_ON_BALLOT: string; isWinner: string; PARTY?: string; PARTY_ABBREV?: string; TOTAL?: number; TOTAL_VOTES?: number };
 type RawRace = { OFFICE_TITLE: string; NumofSeats: string; Candidates: { Candidate: RawCandidate | RawCandidate[] } };
 

@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Shell, fmtMoney } from "@/components/presentational";
-import { formatPartisanMargin, housePriorityBrief, housePriorityBriefs } from "@/lib/house-priority-index";
+import { formatPartisanMargin } from "@/lib/house-priority-index";
+import { getDefaultPriorityRepository } from "@/lib/priority-index-store";
 
 type Props = { params: Promise<{ id: string }> };
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const row = housePriorityBrief((await params).id);
+  const row = getDefaultPriorityRepository().getBrief((await params).id);
   return row
     ? {
         title: `${row.districtLabel} · ${row.officialHouseName}`,
@@ -16,7 +17,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 export default async function PriorityBrief({ params }: Props) {
-  const row = housePriorityBrief((await params).id);
+  const repo = getDefaultPriorityRepository();
+  const model = repo.getModelRelease();
+  const briefs = repo.getBriefs();
+  const row = repo.getBrief((await params).id);
   if (!row) notFound();
   return (
     <Shell>
@@ -27,7 +31,7 @@ export default async function PriorityBrief({ params }: Props) {
         <header className="brief-hero">
           <div>
             <p className="eyebrow">
-              RANK {row.rank} / {housePriorityBriefs().length} · {row.districtLabel} · MODEL V0.8
+              RANK {row.rank} / {briefs.length} · {row.districtLabel} · MODEL {model.version}
             </p>
             <h1>{row.officialHouseName}</h1>
             <p className="lede">{row.scoreSummary}</p>
@@ -137,7 +141,7 @@ export default async function PriorityBrief({ params }: Props) {
             <strong>Formula</strong> {row.formula}
           </p>
           <p>
-            Source cutoff August 4, 2026 · deterministic rank and narrative ·{" "}
+            Source cutoff {model.cutoffDate} · deterministic rank and narrative ·{" "}
             <Link href="/methodology">Methodology</Link>
           </p>
         </section>

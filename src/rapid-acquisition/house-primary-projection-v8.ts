@@ -1,17 +1,13 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { validateAlabamaPrimaryResults } from "./house-primary-alabama-results";
 import { type HousePrimaryCoverageLedgerV7, type HousePrimaryProjectionV7, validateHousePrimaryProjectionV7 } from "./house-primary-projection-v7";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 type ParentObservation = HousePrimaryProjectionV7["observations"][number];
 export type HousePrimaryV8Observation = Omit<ParentObservation, "resultAuthorityStatus"> & Readonly<{ resultAuthorityStatus: ParentObservation["resultAuthorityStatus"] | "official_secretary_precinct_workbooks_retained" }>;
 export interface HousePrimaryProjectionV8 { readonly schema: "rapid-house-primary-projection-v8"; readonly version: 8; readonly parentProjectionPackageSha256: string; readonly alabamaResultsPackageSha256: string; readonly observations: readonly HousePrimaryV8Observation[]; readonly observationSetSha256: string; readonly coverageRows: HousePrimaryProjectionV7["coverageRows"]; readonly coverageSetSha256: string; readonly summary: Readonly<{ stateCycles: 48; districtObservations: 78; reportedContests: 22; sourceAbsent: 2; processedDistricts: 24; candidateRows: 58; retainedCandidateVotes: 1361396; sourceMarkedWinnerContests: 4; scoreEligibleDistricts: 0 }>; readonly packageSha256: string; }
 export interface HousePrimaryCoverageLedgerV8 extends Omit<HousePrimaryCoverageLedgerV7, "schema" | "version" | "projectionSha256"> { readonly schema: "rapid-house-primary-coverage-ledger-v8"; readonly version: 8; readonly projectionSha256: string; }
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 export function buildHousePrimaryProjectionV8(root = process.cwd()): HousePrimaryProjectionV8 {
   const parent = validateHousePrimaryProjectionV7(JSON.parse(readFileSync(join(root, "data/metadata/rapid-house-primary-projection-v7.json"), "utf8")), root), alabama = validateAlabamaPrimaryResults(JSON.parse(readFileSync(join(root, "data/metadata/rapid-house-primary-alabama-results-v1.json"), "utf8")), root), byObservation = new Map(alabama.results.map((row) => [`al:primary:${row.cycleYear}:${row.districtLabel.slice(-2)}`, row]));

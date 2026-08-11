@@ -1,9 +1,9 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { validateHousePrimaryProjection } from "./house-primary-projection";
 import { validateHousePrimarySourceRegistry } from "./source-registry";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface StructuredPrimaryCandidate {
   readonly sourceCandidateKey: string;
@@ -54,11 +54,6 @@ export interface StructuredPrimaryResults {
   readonly summary: Readonly<{ observations: 10; reportedContests: 9; sourceAbsent: 1; candidateRows: 23; contestVotes: 643748; scoreEligibleRows: 0 }>;
   readonly packageSha256: string;
 }
-
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function csvRows(text: string): string[][] {
   const rows: string[][] = []; let row: string[] = [], field = "", quoted = false;

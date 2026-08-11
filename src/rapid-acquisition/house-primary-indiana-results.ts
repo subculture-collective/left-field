@@ -1,6 +1,6 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface IndianaPrimaryResult { readonly resultId: string; readonly cycleYear: 2022 | 2024; readonly electionDate: "2022-05-03" | "2024-05-07"; readonly districtLabel: "IN-01" | "IN-07"; readonly sourceLockIds: readonly string[]; readonly rawParty: "D"; readonly sourceCandidateNames: readonly string[]; readonly candidateVotes: readonly number[]; readonly sourceWinnerNames: readonly string[]; readonly totalVotes: number; readonly resultAuthorityStatus: "official_archive_house_json_retained"; readonly certificationStatus: "settings_certified_false_no_separate_certificate" | "settings_certified_true_no_separate_certificate"; readonly sourceWinnerStatus: "marked_by_source"; readonly winnerIdentity: null; readonly identity: null; readonly scoreEligible: false; readonly resultSha256: string; }
 export interface IndianaPrimaryResults { readonly schema: "rapid-house-primary-indiana-results-v1"; readonly version: 1; readonly results: readonly IndianaPrimaryResult[]; readonly resultSetSha256: string; readonly summary: Readonly<{ observations: 4; candidateRows: 9; candidateVotes: 143546; sourceMarkedWinnerCandidates: 4; scoreEligibleRows: 0 }>; readonly packageSha256: string; }
@@ -9,11 +9,6 @@ const PINS = {
   2024: { settings: { id: "in-2024-primary-settings", url: "https://enr.indianavoters.in.gov/archive/2024Primary/data/settings.json", path: "data/source/rapid/house-primary/in/2024/settings.json", bytes: 3028, sha256: "430de937a82b87f5320a5047d37877f44612f824e3fc3696d650bbcfc61692cb", parents: [] }, results: { id: "in-2024-primary-us-house-results", url: "https://enr.indianavoters.in.gov/archive/2024Primary/data/OffCatC_1005_B.json", path: "data/source/rapid/house-primary/in/2024/us-house-results.json", bytes: 220193, sha256: "831988be62f9d7bbe132a05c4f657d99eab85d998c9f36e8a5921991684cc3ed", parents: ["in-2024-primary-settings"] }, certified: "T", electionDate: "2024-05-07" },
 } as const;
 const EXPECTED = { 2022: { "IN-01": [["Frank J. Mrvan",34489,"T"],["Richard E. Fantin",5413,"F"]], "IN-07": [["André D. Carson",36242,"T"],["Curtis D. Godfrey",1526,"F"],["Pierre Quincy Pullins",830,"F"]] }, 2024: { "IN-01": [["Frank J. Mrvan",31155,"T"]], "IN-07": [["André Carson",30868,"T"],["Curtis Godfrey",1845,"F"],["Pierre Quincy Pullins",1178,"F"]] } } as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
 type Candidate = { NAME_ON_BALLOT: string; isWinner: string; PARTY: string; TOTAL: number };
 type Race = { OFFICE_TITLE: string; Candidates: { Candidate: Candidate | Candidate[] } };
 

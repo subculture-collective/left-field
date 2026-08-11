@@ -1,6 +1,6 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface KentuckyPrimaryResult {
   readonly resultId: "ky:primary:2024:03:democratic";
@@ -30,11 +30,6 @@ export interface KentuckyPrimaryResults {
 
 const PDF = { id: "ky-2024-primary-results", url: "https://elect.ky.gov/results/2020-2029/Documents/2024%20Primary%20Results.pdf", path: "data/source/rapid/house-primary/ky/2024/primary-results.pdf", bytes: 211411, sha256: "9308e1c41742ab18cd8b9a28b0b6fc3d2318515a1ce9f4eec7b869b3d01f39d8", kind: "source", parentIds: [] } as const;
 const TEXT = { id: "ky-2024-primary-results-layout-text", url: "urn:dsa-seats:derived-extract:ky-2024-primary-results:pdftotext-layout", path: "data/source/rapid/house-primary/ky/2024/primary-results-layout.txt", bytes: 75426, sha256: "622352708fd7a67ca9884ad00cc183dd866d0432bd05eec97e15193656914fa2", kind: "derived_extract", parentIds: [PDF.id] } as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
 
 export function buildKentuckyPrimaryResults(root = process.cwd()): KentuckyPrimaryResults {
   const lock = JSON.parse(readFileSync(join(root, "data/source-lock.json"), "utf8")) as { entries: readonly Record<string, unknown>[] };

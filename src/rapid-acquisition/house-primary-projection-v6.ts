@@ -1,17 +1,13 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { validateMississippiPrimaryResults } from "./house-primary-mississippi-results";
 import { type HousePrimaryCoverageLedgerV5, type HousePrimaryProjectionV5, validateHousePrimaryProjectionV5 } from "./house-primary-projection-v5";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 type ParentObservation = HousePrimaryProjectionV5["observations"][number];
 export type HousePrimaryV6Observation = Omit<ParentObservation, "resultAuthorityStatus"> & Readonly<{ resultAuthorityStatus: ParentObservation["resultAuthorityStatus"] | "official_statewide_democratic_recap_pdf_retained_no_separate_certification_instrument" }>;
 export interface HousePrimaryProjectionV6 { readonly schema: "rapid-house-primary-projection-v6"; readonly version: 6; readonly parentProjectionPackageSha256: string; readonly mississippiResultsPackageSha256: string; readonly observations: readonly HousePrimaryV6Observation[]; readonly observationSetSha256: string; readonly coverageRows: HousePrimaryProjectionV5["coverageRows"]; readonly coverageSetSha256: string; readonly summary: Readonly<{ stateCycles: 48; districtObservations: 78; reportedContests: 15; sourceAbsent: 1; processedDistricts: 16; candidateRows: 34; retainedCandidateVotes: 1071972; scoreEligibleDistricts: 0 }>; readonly packageSha256: string; }
 export interface HousePrimaryCoverageLedgerV6 extends Omit<HousePrimaryCoverageLedgerV5, "schema" | "version" | "projectionSha256"> { readonly schema: "rapid-house-primary-coverage-ledger-v6"; readonly version: 6; readonly projectionSha256: string; }
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 export function buildHousePrimaryProjectionV6(root = process.cwd()): HousePrimaryProjectionV6 {
   const parent = validateHousePrimaryProjectionV5(JSON.parse(readFileSync(join(root, "data/metadata/rapid-house-primary-projection-v5.json"), "utf8")), root), mississippi = validateMississippiPrimaryResults(JSON.parse(readFileSync(join(root, "data/metadata/rapid-house-primary-mississippi-results-v1.json"), "utf8")), root), result = mississippi.results[0];
   const observations: HousePrimaryV6Observation[] = parent.observations.map((row) => { if (row.observationId !== "ms:primary:2024:02") return row; if (row.parseStatus !== "ready_unparsed" || !exact(row.sourceLockIds, ["ms-2024-primary-results"])) throw new Error("HOUSE_PRIMARY_V6_MISSISSIPPI_PARENT_INVALID"); return { ...row, parseStatus: "parsed", missingReason: null, sourceLockIds: result.sourceLockIds, sourceContestId: result.resultId, candidateCount: 1, votes: result.totalVotes, sourceWinnerStatus: result.sourceWinnerStatus, resultAuthorityStatus: result.resultAuthorityStatus }; });

@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface CountyCvapRow {
   readonly countyFips: string;
@@ -45,11 +46,6 @@ const DEMOGRAPHICS = {
   sha256: "ebbeb1127151a78985e97a7971d580edd637f746b63b6845353c63407989c8fc",
 } as const;
 const FIELDS = ["B05003_E008", "B05003_E009", "B05003_E011", "B05003_E019", "B05003_E020", "B05003_E022"] as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function parseTable(bytes: Buffer): Map<string, Record<(typeof FIELDS)[number], number>> {
   const lines = bytes.toString("utf8").trimEnd().split(/\r?\n/);

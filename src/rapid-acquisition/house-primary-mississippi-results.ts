@@ -1,6 +1,6 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface MississippiPrimaryResult {
   readonly resultId: "ms:primary:2024:02:democratic";
@@ -22,11 +22,6 @@ export interface MississippiPrimaryResults { readonly schema: "rapid-house-prima
 const INDEX = { id: "ms-2024-primary-results", url: "https://www.sos.ms.gov/elections/electionResults/2024DemocraticPrimary.asp", path: "data/source/rapid/house-primary/ms/2024/primary-results.html", bytes: 22695, sha256: "73d36cc3d47095e7378db4414d239fb9f84c3e1a9a48bfe3cc48b758b996796f", kind: "source", parentIds: [] } as const;
 const PDF = { id: "ms-2024-primary-statewide-democratic-recap", url: "https://www.sos.ms.gov/elections/electionResults/2024DemocraticPrimary/Statewide%20Democratic%20Recap.pdf", path: "data/source/rapid/house-primary/ms/2024/statewide-democratic-recap.pdf", bytes: 1490416, sha256: "c885b427e8950f4aa5255697aaeb065c315cc47289563f09621a39e7dd98dd03", kind: "source", parentIds: [INDEX.id] } as const;
 const TEXT = { id: "ms-2024-primary-statewide-democratic-recap-layout-text", url: "urn:dsa-seats:derived-extract:ms-2024-primary-statewide-democratic-recap:pdftotext-layout", path: "data/source/rapid/house-primary/ms/2024/statewide-democratic-recap-layout.txt", bytes: 20231, sha256: "b641a76e838ddbbb3ed9f4995d9147d9e813a5d15106bd56d7990579cdf7a38c", kind: "derived_extract", parentIds: [PDF.id] } as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
 
 export function buildMississippiPrimaryResults(root = process.cwd()): MississippiPrimaryResults {
   const lock = JSON.parse(readFileSync(join(root, "data/source-lock.json"), "utf8")) as { entries: readonly Record<string, unknown>[] };

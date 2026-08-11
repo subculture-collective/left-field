@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { unzipSync } from "fflate";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface AtLargeCd119CountyUniverseRow {
   readonly stateCode: "AK" | "DE" | "ND" | "SD" | "VT" | "WY";
@@ -30,11 +31,6 @@ export interface AtLargeCd119CountyUniverseProjection {
 const BUNDLE = { id: "census-cd119-block-equivalency-bundle-20260805", url: "https://www2.census.gov/programs-surveys/decennial/rdo/mapping-files/2025/119-congressional-district-befs/cd119.zip", path: "data/source/elections/primary-results/geography/north-carolina/current/census-cd119-block-equivalency-bundle.zip", bytes: 22959130, sha256: "1433feb5178dc7b4188ee30f5f7f715851f4400740b8fe1ce606a876c6294bd6" } as const;
 const DEMOGRAPHICS = { id: "rapid-county-demographics-projection-v1", path: "data/metadata/rapid-county-demographics-projection-v1.json", bytes: 2441846, sha256: "ebbeb1127151a78985e97a7971d580edd637f746b63b6845353c63407989c8fc" } as const;
 const STATES = [["AK", "02", 30], ["DE", "10", 3], ["ND", "38", 53], ["SD", "46", 66], ["VT", "50", 14], ["WY", "56", 23]] as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 export function buildAtLargeCd119CountyUniverse(root = process.cwd()): AtLargeCd119CountyUniverseProjection {
   const lock = JSON.parse(readFileSync(join(root, "data/source-lock.json"), "utf8")) as { entries: readonly Record<string, unknown>[] };

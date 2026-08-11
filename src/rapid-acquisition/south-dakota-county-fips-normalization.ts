@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { unzipSync } from "fflate";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface SouthDakotaCountyFipsNormalizationRow {
   readonly stateCode: "SD";
@@ -56,11 +57,6 @@ export interface SouthDakotaCountyFipsNormalization {
 const SOURCE = { id: "medsl-2024-house-state-sd", url: "https://raw.githubusercontent.com/MEDSL/2024-elections-official/df531089c78e6d0098db1a6bfb3849a066a06995/individual_states/sd24.zip", path: "data/source/rapid/county-house-results/2024/sd24.zip", bytes: 189_810, sha256: "06517ec31937a56860cde5a6e105cd668bc6b2915e6d19d6eb8db693a0d91a3c" } as const;
 const AUTHORITY = { id: "census-county-changes-2010s-20260809", url: "https://www.census.gov/programs-surveys/geography/technical-documentation/county-changes.2010.html", path: "data/source/rapid/geography/census-county-changes-2010s.html", bytes: 329_445, sha256: "edbee4c6ab07c5c544e5161bf5b5b0afe06829aa23ce2b8b91f9931e81cf992c" } as const;
 const OUTPUT = { id: "rapid-south-dakota-county-fips-normalization-v1", url: "urn:dsa-seats:rapid-south-dakota-county-fips-normalization:v1:2024", path: "data/metadata/rapid-south-dakota-county-fips-normalization-v1.json" } as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (bytes: Buffer | Uint8Array) => createHash("sha256").update(bytes).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function csvLine(line: string): string[] {
   const fields: string[] = []; let field = "", quoted = false;

@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Shell } from "@/components/presentational";
-import { formatPartisanMargin, housePriorityBriefs } from "@/lib/house-priority-index";
+import { formatPartisanMargin } from "@/lib/house-priority-index";
+import { getDefaultPriorityRepository } from "@/lib/priority-index-store";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
@@ -16,7 +17,10 @@ const value = (input: string | string[] | undefined): string =>
   typeof input === "string" ? input : "";
 
 export default async function Priorities({ searchParams }: Props) {
-  const briefs = housePriorityBriefs(), params = await searchParams;
+  const repo = getDefaultPriorityRepository();
+  const briefs = repo.getBriefs();
+  const model = repo.getModelRelease();
+  const params = await searchParams;
   const query = value(params.q).trim().toLocaleLowerCase("en-US"),
     state = value(params.state),
     route = value(params.route),
@@ -43,7 +47,7 @@ export default async function Priorities({ searchParams }: Props) {
       <main className="page priorities-page">
         <header className="priority-hero">
           <div>
-            <p className="eyebrow">2026 HOUSE PRIORITY INDEX · MODEL V0.8</p>
+            <p className="eyebrow">{`2026 HOUSE PRIORITY INDEX · MODEL ${model.version}`}</p>
             <h1>Where the field bends.</h1>
             <p className="lede">
               A ranked field guide to 430 occupied House seats. Democratic-held

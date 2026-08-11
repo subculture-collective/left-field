@@ -2,6 +2,8 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
+
 import {
   type TennesseePrimaryResult,
   validateTennesseePrimaryResults,
@@ -62,11 +64,6 @@ const EXPECTED_DEMOCRATIC = [
   [["Justin J. Pearson", 32_092], ["London Lamar", 11_870], ["M. LaTroy A-Williams", 3_318], ["Jim Torino", 1_531]],
 ] as const;
 
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function decodeAttribute(value: string): string {
   return value.split("&quot;").join('"').split("&#039;").join("'").split("&amp;").join("&").split("&lt;").join("<").split("&gt;").join(">");

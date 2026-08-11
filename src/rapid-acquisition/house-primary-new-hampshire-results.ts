@@ -1,7 +1,7 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { unzipSync } from "fflate";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface NewHampshirePrimaryCandidate {
   readonly sourceCandidateName: string;
@@ -40,11 +40,6 @@ const SOURCES = [
   { id:"nh-2024-democratic-cd2-primary-workbook-archived",archiveUrl:"https://web.archive.org/web/20260218161927id_/https://www.sos.nh.gov/sites/g/files/ehbemt561/files/inline-documents/sonh/2024-sp-congressional-district-2-democratic_4.xlsx",officialUrl:"https://www.sos.nh.gov/sites/g/files/ehbemt561/files/inline-documents/sonh/2024-sp-congressional-district-2-democratic_4.xlsx",path:"data/source/rapid/house-primary/nh/2024/congressional-district-2-democratic.xlsx",bytes:37_838,sha256:"1f6dfb3b1d759f89845f5947add0b4cd8867ad2da442e2f501046f796809ec92",district:"02" as const,sheet:"Con2 Dem",title:"Congressional District 2 - Democratic",rows:211,totalRow:215,headers:["Maggie Goodlander,  d","Colin Van Ostern, d","Tom Alciere, r","Gerard Beloin, r","Michael A Callis, r","Randall Clark, r","Casey Crane, r","Robert D'Arcy, r","Bill Hamlen, r","William Harvey, r","Vikram Mansharamani, r","Jay Mercer, r","Jason Riddle, r","Lily Tang Williams, r","Paul M. Wagner, r","Write-Ins","Overvotes","Undervotes"],votes:[42_960,24_342] as const },
 ] as const;
 
-const byteCompare=(left:string,right:string)=>left<right?-1:left>right?1:0;
-const canonical=(value:unknown):string=>value===null||typeof value!=="object"?JSON.stringify(value):Array.isArray(value)?`[${value.map(canonical).join(",")}]`:`{${Object.keys(value as object).sort(byteCompare).map(key=>`${JSON.stringify(key)}:${canonical((value as Record<string,unknown>)[key])}`).join(",")}}`;
-const hash=(domain:string,value:unknown)=>createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha=(value:Buffer)=>createHash("sha256").update(value).digest("hex");
-const exact=(left:unknown,right:unknown)=>canonical(left)===canonical(right);
 const decode=(value:string)=>value.replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&");
 const textNodes=(value:string)=>[...value.matchAll(/<t(?:\s[^>]*)?>([\s\S]*?)<\/t>/g)].map(match=>decode(match[1]!)).join("");
 const integer=(value:string,code:string)=>{const parsed=Number(value);if(!/^\d+$/.test(value)||!Number.isSafeInteger(parsed))throw new Error(code);return parsed;};

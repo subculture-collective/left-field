@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { unzipSync } from "fflate";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface CountyDemographicRow {
   readonly countyFips: string;
@@ -37,11 +38,6 @@ const SOURCES = [
   { id: "census-2024-gazetteer-counties-national", url: "https://www2.census.gov/geo/docs/maps-data/data/gazetteer/2024_Gazetteer/2024_Gaz_counties_national.zip", path: "data/source/rapid/county-demographics/2024_Gaz_counties_national.zip", bytes: 141679, sha256: "3c337402b5c6e8d5aa26b4278ccf4edc8989f2683765b3ffbf22296cdb2df3a0" },
 ] as const;
 const ALL_SOURCE_IDS = SOURCES.map((source) => source.id);
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function table(bytes: Buffer, required: readonly string[]) {
   const lines = bytes.toString("utf8").trimEnd().split(/\r?\n/), headers = lines[0]!.split("|");

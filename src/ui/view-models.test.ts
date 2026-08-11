@@ -6,8 +6,7 @@ import { InMemorySeatResearchRepository } from "@/repositories/in-memory";
 import { createManifestSeatProjection } from "@/repositories/manifest-projection";
 import { encodeSeatCursor } from "@/repositories/pagination";
 import { nationwideSkeleton } from "@/test/fixtures/nationwide-skeleton";
-import { classifyProfileLookup, classifyProfileRequest, loadBrowsePage, loadMethodologyPage, loadProfilePage, loadSourcesPage, parseBrowseQuery } from "./server-data";
-import { compileBrowsePage, compileMethodologyPage, compileProfilePage, compileSourcesPage } from "./view-models";
+import { classifyProfileLookup, classifyProfileRequest, compileBrowsePage, compileMethodologyPage, compileProfilePage, compileSourcesPage, loadBrowsePage, loadMethodologyPage, loadProfilePage, loadSourcesPage, parseBrowseQuery } from "./server-data";
 
 describe("UI data boundary", () => {
   const projection = createManifestSeatProjection(canonicalManifest);

@@ -5,6 +5,7 @@ import { join } from "node:path";
 import { unzipSync } from "fflate";
 
 import { validateCountyDemographicsProjection } from "./county-demographics";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface CountyElectionContextRow {
   readonly countyFips: string;
@@ -33,11 +34,6 @@ const SOURCES = {
   2022: { id: "eac-2022-eavs-public-release-v1-1-csv", url: "https://www.eac.gov/sites/default/files/2023-12/2022_EAVS_for_Public_Release_nolabel_V1.1_CSV.zip", path: "data/source/rapid/county-election-context/2022_EAVS_for_Public_Release_nolabel_V1.1_CSV.zip", bytes: 2048270, sha256: "063a38eca8ee1e82aa4b60ef33eee124a58bd288f10d05126957620719d32acc", member: "2022_EAVS_for_Public_Release_nolabel_V1.1_CSV.csv" },
   2024: { id: "eac-2024-eavs-public-release-v2-csv", url: "https://www.eac.gov/sites/default/files/2026-02/2024_EAVS_for_Public_Release_nolabel_V2_csv.zip", path: "data/source/rapid/county-election-context/2024_EAVS_for_Public_Release_nolabel_V2_csv.zip", bytes: 2119187, sha256: "4073b9f48e1791d44a78ddc543379f6c040c31ce733dfa47676330b4d7f6d6df", member: "2024_EAVS_for_Public_Release_nolabel_V2.csv" },
 } as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function csv(text: string): string[][] {
   const rows: string[][] = [], row: string[] = []; let field = "", quoted = false;

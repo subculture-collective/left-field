@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -6,6 +5,7 @@ import { housePriorityBriefsV03 } from "@/lib/house-priority-index";
 import { validateCountyHouseResultsProjection } from "./county-house-results";
 import { validateHouseScoreV04ActiveProjection } from "./house-score-v04-active";
 import { validateHouseScoreV04ShadowProjection } from "./house-score-v04-shadow";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 type CountyHouseRow = Readonly<{
   countyFips: string;
@@ -81,13 +81,8 @@ const FILES = {
 } as const;
 const OUTPUT = { id: "house-score-v05-active-projection-v1", path: "data/metadata/house-score-v05-active-projection-v1.json", url: "urn:dsa-seats:house-score-v05-active-projection:v1:2026-08-09" } as const;
 const STATES = ["DE", "WY"] as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (bytes: Buffer) => createHash("sha256").update(bytes).digest("hex");
 const one = (value: number) => Math.round(value * 10) / 10;
 const two = (value: number) => Math.round(value * 100) / 100;
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function csvRows(input: string): string[][] {
   const rows: string[][] = []; let row: string[] = [], value = "", quoted = false;

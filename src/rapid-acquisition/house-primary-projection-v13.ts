@@ -1,9 +1,9 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { validateNewHampshirePrimaryResults } from "./house-primary-new-hampshire-results";
 import { type HousePrimaryCoverageLedgerV12,type HousePrimaryProjectionV12,validateHousePrimaryProjectionV12 } from "./house-primary-projection-v12";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 type ParentObservation=HousePrimaryProjectionV12["observations"][number];
 export type HousePrimaryV13Observation=Omit<ParentObservation,"resultAuthorityStatus">&Readonly<{resultAuthorityStatus:ParentObservation["resultAuthorityStatus"]|"archived_copy_of_official_secretary_workbook_retained_live_host_403_not_claimed_certified"}>;
@@ -13,9 +13,6 @@ export interface HousePrimaryProjectionV13 {
   readonly summary:Readonly<{stateCycles:48;districtObservations:78;reportedContests:29;sourceAbsent:3;processedDistricts:32;candidateRows:77;retainedCandidateVotes:1_801_515;sourceMarkedWinnerContests:6;scoreEligibleDistricts:0}>;readonly packageSha256:string;
 }
 export interface HousePrimaryCoverageLedgerV13 extends Omit<HousePrimaryCoverageLedgerV12,"schema"|"version"|"projectionSha256">{readonly schema:"rapid-house-primary-coverage-ledger-v13";readonly version:13;readonly projectionSha256:string;}
-const byteCompare=(left:string,right:string)=>left<right?-1:left>right?1:0;
-const canonical=(value:unknown):string=>value===null||typeof value!=="object"?JSON.stringify(value):Array.isArray(value)?`[${value.map(canonical).join(",")}]`:`{${Object.keys(value as object).sort(byteCompare).map(key=>`${JSON.stringify(key)}:${canonical((value as Record<string,unknown>)[key])}`).join(",")}}`;
-const hash=(domain:string,value:unknown)=>createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");const exact=(left:unknown,right:unknown)=>canonical(left)===canonical(right);
 export function buildHousePrimaryProjectionV13(root=process.cwd()):HousePrimaryProjectionV13{
   const parent=validateHousePrimaryProjectionV12(JSON.parse(readFileSync(join(root,"data/metadata/rapid-house-primary-projection-v12.json"),"utf8")),root),nh=validateNewHampshirePrimaryResults(JSON.parse(readFileSync(join(root,"data/metadata/rapid-house-primary-new-hampshire-results-v1.json"),"utf8")),root),byDistrict=new Map(nh.results.map(row=>[row.districtLabel,row]));
   const observations:HousePrimaryV13Observation[]=parent.observations.map(row=>{if(row.stateCode!=="NH"||row.cycleYear!==2024)return row;const result=byDistrict.get(row.districtLabel as "NH-01"|"NH-02");if(!result)throw new Error("HOUSE_PRIMARY_V13_NH_RESULT_MISSING");return{...row,parseStatus:"parsed" as const,missingReason:null,sourceLockIds:[result.sourceLockId],sourceContestId:result.resultId,candidateCount:result.candidateCount,votes:result.totalCandidateVotes,sourceWinnerStatus:result.sourceWinnerStatus,resultAuthorityStatus:result.resultAuthorityStatus,winner:null,identity:null,scoreEligible:false as const};});

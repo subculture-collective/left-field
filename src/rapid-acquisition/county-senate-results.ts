@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { validateCountyDemographicsProjection } from "./county-demographics";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 const SOURCE = {
   id: "medsl-2024-senate-county-results",
@@ -42,11 +43,6 @@ export interface CountySenateResultsProjection {
   readonly packageSha256: string;
 }
 
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function csv(text: string): string[][] {
   const rows: string[][] = [], row: string[] = []; let field = "", quoted = false;

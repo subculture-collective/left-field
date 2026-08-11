@@ -1,8 +1,8 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { unzipSync } from "fflate";
 import { type NewHampshirePrimaryResult, validateNewHampshirePrimaryResults } from "./house-primary-new-hampshire-results";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface NewHampshirePrimaryResult2022 {
   readonly resultId: `nh:primary:2022:${"01" | "02"}:democratic`;
@@ -38,11 +38,6 @@ const SOURCES = [
   { id:"nh-2022-democratic-cd2-primary-workbook-archived",archiveUrl:"https://web.archive.org/web/20250613143132id_/https://www.sos.nh.gov/sites/g/files/ehbemt561/files/inline-documents/sonh/2022-sp-congressional-district-2-democratic_1.xlsx",officialUrl:"https://www.sos.nh.gov/sites/g/files/ehbemt561/files/inline-documents/sonh/2022-sp-congressional-district-2-democratic_1.xlsx",path:"data/source/rapid/house-primary/nh/2022/congressional-district-2-democratic.xlsx",bytes:22_696,sha256:"856b0e14aacb6455772cb7e4cb24af33dd2bb5c1357a37e8a04b16e60811da1f",district:"02" as const,sheet:"Con2 Dem",title:"Congressional District 2 - Democratic",rows:211,totalRow:215,headers:["Ann McLane Kuster, d","Scott Black, r","Robert Burns, r","Michael Callis, r","George Hansel, r","Jay Mercer, r","Dean A Poirier, r","Lily Tang Williams, r","Scatter"],votes:[48_630] as const },
 ] as const;
 
-const byteCompare=(left:string,right:string)=>left<right?-1:left>right?1:0;
-const canonical=(value:unknown):string=>value===null||typeof value!=="object"?JSON.stringify(value):Array.isArray(value)?`[${value.map(canonical).join(",")}]`:`{${Object.keys(value as object).sort(byteCompare).map(key=>`${JSON.stringify(key)}:${canonical((value as Record<string,unknown>)[key])}`).join(",")}}`;
-const hash=(domain:string,value:unknown)=>createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha=(value:Buffer)=>createHash("sha256").update(value).digest("hex");
-const exact=(left:unknown,right:unknown)=>canonical(left)===canonical(right);
 const decode=(value:string)=>value.replace(/&quot;/g,'"').replace(/&apos;/g,"'").replace(/&lt;/g,"<").replace(/&gt;/g,">").replace(/&amp;/g,"&");
 const textNodes=(value:string)=>[...value.matchAll(/<t(?:\s[^>]*)?>([\s\S]*?)<\/t>/g)].map(match=>decode(match[1]!)).join("");
 const integer=(value:string,code:string)=>{const parsed=Number(value);if(!/^\d+$/.test(value)||!Number.isSafeInteger(parsed))throw new Error(code);return parsed;};

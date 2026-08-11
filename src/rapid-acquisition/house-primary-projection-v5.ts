@@ -1,9 +1,9 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { validateMissouriPrimaryResults } from "./house-primary-missouri-results";
 import { type HousePrimaryCoverageLedgerV4, type HousePrimaryProjectionV4, type HousePrimaryV4Observation, validateHousePrimaryProjectionV4 } from "./house-primary-projection-v4";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface HousePrimaryProjectionV5 {
   readonly schema: "rapid-house-primary-projection-v5";
@@ -18,10 +18,6 @@ export interface HousePrimaryProjectionV5 {
   readonly packageSha256: string;
 }
 export interface HousePrimaryCoverageLedgerV5 extends Omit<HousePrimaryCoverageLedgerV4, "schema" | "version" | "projectionSha256"> { readonly schema: "rapid-house-primary-coverage-ledger-v5"; readonly version: 5; readonly projectionSha256: string; }
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 export function buildHousePrimaryProjectionV5(root = process.cwd()): HousePrimaryProjectionV5 {
   const parent = validateHousePrimaryProjectionV4(JSON.parse(readFileSync(join(root, "data/metadata/rapid-house-primary-projection-v4.json"), "utf8")), root);

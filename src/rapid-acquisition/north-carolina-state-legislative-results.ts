@@ -1,7 +1,7 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { unzipSync } from "fflate";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface NorthCarolinaStateLegislativeCandidate { readonly sourceName: string; readonly rawCandidateParty: "DEM" | "REP"; readonly votes: number }
 export interface NorthCarolinaStateLegislativeContest {
@@ -15,9 +15,6 @@ const SOURCES = [
   { year: 2024 as const, date: "2024-03-05" as const, id: "nc-2024-primary-official-results-archive", url: "https://s3.amazonaws.com/dl.ncsbe.gov/ENRS/2024_03_05/results_pct_20240305.zip", path: "data/source/elections/primary-results/north-carolina/2024/official-results.zip", bytes: 4464845, sha256: "0b0475a6df5ecd0d47a21ee51c96782934de768f8ef60eb3a9ae7d83021fea30", member: "results_pct_20240305.txt", offices: 42, contests: 43, candidates: 102, rows: 3270, votes: 488918 },
   { year: 2026 as const, date: "2026-03-03" as const, id: "nc-2026-primary-official-results-archive", url: "https://s3.amazonaws.com/dl.ncsbe.gov/ENRS/2026_03_03/results_pct_20260303.zip", path: "data/source/elections/primary-results/north-carolina/2026/official-results.zip", bytes: 1427371, sha256: "d5450bfad8386ab12cf69f558776c79bc2301f89d33cce510de0fb7a26add484", member: "results_pct_20260303.txt", offices: 56, contests: 60, candidates: 132, rows: 4772, votes: 600320 },
 ] as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex"), sha = (value: Buffer) => createHash("sha256").update(value).digest("hex"), exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 const fail = (code: string): never => { throw new Error(`NORTH_CAROLINA_STATE_LEGISLATIVE_${code}`); };
 const integer = (value: string) => /^\d+$/.test(value) && Number.isSafeInteger(Number(value)) ? Number(value) : fail("INTEGER_INVALID");
 

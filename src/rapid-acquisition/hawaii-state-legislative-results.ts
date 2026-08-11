@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface HawaiiStateLegislativeCandidate {
   readonly sourceCandidateId: string;
@@ -54,11 +55,6 @@ const SOURCES = [
   { year: 2024 as const, date: "2024-08-10" as const, id: "hi-2024-primary-summary", url: "https://files.hawaii.gov/elections/files/results/2024/Primary/summary.txt", path: "data/source/rapid/house-primary/hi/2024/summary.txt", bytes: 77898, sha256: "e5a0f37a2f5a3c6d29b48d76375f901b8926a8c907ad3d3d1ffb4c893a943915", contests: 106, candidates: 147, votes: 295659 },
 ] as const;
 const HEADER = ["#Contest ID","Contest Title","Contest Seq Nbr","Contest Type","Contest Party","Mail Blank Votes","In-Person Blank Votes","Mail Over Votes","In-Person Over Votes","Mail Invalid Votes","In-Person Invalid Votes","Registered Voters","Total Precincts","Counted Precincts","Candidate ID","Candidate Name","Candidate Seq Nbr","Candidate Party","Mail Votes","In-Person Votes","Total Votes"];
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 const fail = (code: string): never => { throw new Error(`HAWAII_STATE_LEGISLATIVE_${code}`); };
 const integer = (value: string) => /^\d+$/.test(value) && Number.isSafeInteger(Number(value)) ? Number(value) : fail("INTEGER_INVALID");
 

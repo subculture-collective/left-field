@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { validateHouseScoreV04ShadowProjection } from "./house-score-v04-shadow";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export type HouseScoreV04ActiveRow = Readonly<{
   seatCycleId: string;
@@ -42,11 +43,7 @@ export type HouseScoreV04ActiveProjection = Readonly<{
 
 const SHADOW_PATH = "data/metadata/house-score-v04-shadow-projection-v1.json";
 const SHADOW_SHA = "9f11120f810c8eebb5f1c13e069113e3cbfa965c5db4930f89ba698f13dbc80b";
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
 const fileSha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 export function buildHouseScoreV04ActiveProjection(root = process.cwd()): HouseScoreV04ActiveProjection {
   const bytes = readFileSync(join(root, SHADOW_PATH));

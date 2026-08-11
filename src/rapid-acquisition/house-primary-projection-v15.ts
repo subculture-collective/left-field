@@ -3,13 +3,11 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { validateNewHampshirePrimaryResultsV2 } from "./house-primary-new-hampshire-results-v2";
 import { type HousePrimaryCoverageLedgerV14, type HousePrimaryProjectionV14, validateHousePrimaryProjectionV14 } from "./house-primary-projection-v14";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface HousePrimaryProjectionV15 { readonly schema:"rapid-house-primary-projection-v15";readonly version:15;readonly parentProjectionPackageSha256:string;readonly newHampshireResultsV2PackageSha256:string;readonly observations:HousePrimaryProjectionV14["observations"];readonly observationSetSha256:string;readonly coverageRows:HousePrimaryProjectionV14["coverageRows"];readonly coverageSetSha256:string;readonly summary:Readonly<{stateCycles:48;districtObservations:78;reportedContests:32;sourceAbsent:3;processedDistricts:35;candidateRows:81;retainedCandidateVotes:1974475;sourceMarkedWinnerContests:6;scoreEligibleDistricts:0}>;readonly packageSha256:string }
 export interface HousePrimaryCoverageLedgerV15 extends Omit<HousePrimaryCoverageLedgerV14,"schema"|"version"|"projectionSha256"> { readonly schema:"rapid-house-primary-coverage-ledger-v15";readonly version:15;readonly projectionSha256:string }
 
-const byteCompare=(left:string,right:string)=>left<right?-1:left>right?1:0;
-const canonical=(value:unknown):string=>value===null||typeof value!=="object"?JSON.stringify(value):Array.isArray(value)?`[${value.map(canonical).join(",")}]`:`{${Object.keys(value as object).sort(byteCompare).map(key=>`${JSON.stringify(key)}:${canonical((value as Record<string,unknown>)[key])}`).join(",")}}`;
-const hash=(domain:string,value:unknown)=>createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex"),exact=(left:unknown,right:unknown)=>canonical(left)===canonical(right);
 
 export function buildHousePrimaryProjectionV15(root=process.cwd()):HousePrimaryProjectionV15 {
   const parent=validateHousePrimaryProjectionV14(JSON.parse(readFileSync(join(root,"data/metadata/rapid-house-primary-projection-v14.json"),"utf8")),root),nh=validateNewHampshirePrimaryResultsV2(JSON.parse(readFileSync(join(root,"data/metadata/rapid-house-primary-new-hampshire-results-v2.json"),"utf8")),root),byDistrict=new Map(nh.results.filter(row=>row.cycleYear===2022).map(row=>[row.districtLabel,row]));

@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { validateHousePrimarySourceRegistry, type HousePrimaryFinalClosure } from "./source-registry";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export type HousePrimaryParseStatus = "ready_unparsed" | "source_blocked" | "authority_unavailable" | "future_event" | "not_held";
 export interface HousePrimaryProjectedSource {
@@ -79,12 +80,6 @@ export interface HousePrimaryCoverageLedger {
 type LockEntry = Readonly<{ id: string; url: string; retainedPath: string | null; retainedStatus: string; byteSize: number | null; sha256: string | null }>;
 type Lock = Readonly<{ version: number; entries: readonly LockEntry[] }>;
 
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object"
-  ? JSON.stringify(value)
-  : Array.isArray(value)
-    ? `[${value.map(canonical).join(",")}]`
-    : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
 const sha256 = (value: string | Uint8Array) => createHash("sha256").update(value).digest("hex");
 const domainHash = (domain: string, value: unknown) => sha256(`${domain}\0${canonical(value)}`);
 const exactCanonical = (left: unknown, right: unknown) => canonical(left) === canonical(right);

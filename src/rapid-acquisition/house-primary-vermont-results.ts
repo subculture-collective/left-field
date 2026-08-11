@@ -1,6 +1,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 export interface VermontPrimaryResult {
   readonly resultId: `vt:primary:${2022 | 2024}:al:democratic`;
@@ -41,11 +42,6 @@ const EXPECTED = {
   2022: { date: "2022-08-09" as const, candidates: [["Becca Balint", 61025], ["Sianay Chase Clifford", 885], ["Molly Gray", 37266], ["Louis Meyers", 1593]] as const, writeIn: 145, overvotes: 74, blank: 1420, total: 102408, winnerStatus: "not_marked_by_source" as const, winner: null },
   2024: { date: "2024-08-13" as const, candidates: [["Becca Balint", 47638]] as const, writeIn: 465, overvotes: 13, blank: 3853, total: 51969, winnerStatus: "marked_by_source" as const, winner: "Becca Balint" as const },
 } as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function requireText(year: 2022 | 2024, text: string) {
   const common = ["OFFICIAL REPORT OF THE CANVASSING COMMITTEE", "UNITED STATES AND VERMONT STATEWIDE OFFICES", "For REPRESENTATIVE TO CONGRESS", "STATEWIDE TOTALS", "DEMOCRATIC"];

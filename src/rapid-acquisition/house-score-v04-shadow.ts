@@ -1,8 +1,8 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { housePriorityBriefsV03 } from "@/lib/house-priority-index";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 type DemographicRow = { countyFips: string; stateCode: string; population: number; medianHouseholdIncome: number | null; renterShare: number | null; age18To34Share: number | null; populationDensityPerSquareMile: number };
 type ElectionRow = { countyFips: string; stateCode: string; cycleYear: number; registeredVoters: number | null; ballotsCast: number | null };
@@ -74,12 +74,7 @@ const SOURCES = [
   ["rapid-county-cvap-projection-v1", "data/metadata/rapid-county-cvap-projection-v1.json", 1601784, "7245c27c31bdd588a613ccf3d897a8c3b4545a6fe57fb81ac1f3191b4f5e3583"],
   ["rapid-at-large-cd119-county-universe-v1", "data/metadata/rapid-at-large-cd119-county-universe-v1.json", 6685, "9c4505a7aeebbfe59e25ca2b90d7e6e4f23628220f343f1b0ab46cf2bb62e54f"],
 ] as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (value: Buffer) => createHash("sha256").update(value).digest("hex");
 const one = (value: number) => Math.round(value * 10) / 10;
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 function midranks(values: readonly number[], inverse = false): number[] {
   if (values.length === 1) return [50];

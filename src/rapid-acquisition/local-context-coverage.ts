@@ -1,10 +1,10 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { validateCountyDemographicsProjection } from "./county-demographics";
 import { validateCountyElectionContextProjection } from "./county-election-context";
 import { validateIndianaStateLegislativeResults } from "./indiana-state-legislative-results";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 type Artifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0 }>;
 export interface RapidLocalContextCoverage {
@@ -15,11 +15,6 @@ export interface RapidLocalContextCoverage {
   readonly artifactSetSha256: string;
   readonly packageSha256: string;
 }
-
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 
 /** Builds the small coverage receipt. Full source reconstruction happens only here, never in the web read model. */
 export function buildRapidLocalContextCoverage(root = process.cwd()): RapidLocalContextCoverage {

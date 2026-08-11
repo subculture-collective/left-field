@@ -1,4 +1,3 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
@@ -7,6 +6,7 @@ import { validateCountyHouseResultsProjection } from "./county-house-results";
 import { validateHouseScoreV04ShadowProjection } from "./house-score-v04-shadow";
 import { validateHouseScoreV05ActiveProjection } from "./house-score-v05-active";
 import { validateSouthDakotaCountyFipsNormalization } from "./south-dakota-county-fips-normalization";
+import { byteCompare, canonical, hash, sha, exact } from "./shared";
 
 type CountyHouseRow = Readonly<{ countyFips: string; stateCode: string; districtRaw: string | null; candidateName: string; candidateParty: string; specialElection: boolean; writeIn: boolean; votes: number | null; suppressedSourceRows: number; sourceLockId: string; authority: string; winnerIdentity: null; formulaEligible: false }>;
 
@@ -69,11 +69,6 @@ const FILES = {
   geography: ["rapid-at-large-cd119-county-universe-v1", "data/metadata/rapid-at-large-cd119-county-universe-v1.json", 6_685, "9c4505a7aeebbfe59e25ca2b90d7e6e4f23628220f343f1b0ab46cf2bb62e54f"],
 } as const;
 const OUTPUT = { id: "house-score-v06-active-projection-v1", path: "data/metadata/house-score-v06-active-projection-v1.json", url: "urn:dsa-seats:house-score-v06-active-projection:v1:2026-08-09" } as const;
-const byteCompare = (left: string, right: string) => left < right ? -1 : left > right ? 1 : 0;
-const canonical = (value: unknown): string => value === null || typeof value !== "object" ? JSON.stringify(value) : Array.isArray(value) ? `[${value.map(canonical).join(",")}]` : `{${Object.keys(value as object).sort(byteCompare).map((key) => `${JSON.stringify(key)}:${canonical((value as Record<string, unknown>)[key])}`).join(",")}}`;
-const hash = (domain: string, value: unknown) => createHash("sha256").update(`${domain}\0${canonical(value)}`).digest("hex");
-const sha = (bytes: Buffer) => createHash("sha256").update(bytes).digest("hex");
-const exact = (left: unknown, right: unknown) => canonical(left) === canonical(right);
 const one = (value: number) => Math.round(value * 10) / 10;
 const two = (value: number) => Math.round(value * 100) / 100;
 
