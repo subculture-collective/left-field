@@ -253,7 +253,19 @@ main() {
   printf '%s\n' "$timestamp" > "$BACKUP_ROOT/LAST_SUCCESS"
   chmod 0600 "$BACKUP_ROOT/LAST_SUCCESS"
   write_metrics 1 "$(date -u +%s)" "$(date -u -d "${timestamp:0:4}-${timestamp:4:2}-${timestamp:6:2} ${timestamp:9:2}:${timestamp:11:2}:${timestamp:13:2}" +%s)"
-  find "$BACKUP_ROOT" -mindepth 1 -maxdepth 1 -type d -name '20????????T??????Z' -mtime +31 -exec rm -rf -- {} +
+  # Restic owns the long-term 14-daily/8-weekly/12-monthly retention above.
+  # Keep only the seven newest local staging generations so a burst of manual
+  # backups cannot exhaust /srv before age-based cleanup has a chance to run.
+  mapfile -t expired_local_backups < <(
+    find "$BACKUP_ROOT" -mindepth 1 -maxdepth 1 -type d \
+      -name '20??????T??????Z' -printf '%f\n' \
+      | LC_ALL=C sort \
+      | head -n -7
+  )
+  if ((${#expired_local_backups[@]})); then
+    printf '%s\0' "${expired_local_backups[@]}" \
+      | xargs -0 -r -I{} rm -rf -- "$BACKUP_ROOT/{}"
+  fi
   log "factual backup complete: $final"
 }
 
