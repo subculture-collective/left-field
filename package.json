@@ -120,6 +120,7 @@
     "generate:rapid-local-context-coverage-v13": "tsx scripts/rapid/generate-local-context-coverage-v13.ts",
     "generate:rapid-local-context-coverage-v14": "tsx scripts/rapid/generate-local-context-coverage-v14.ts",
     "generate:rapid-local-context-coverage-v15": "tsx scripts/rapid/generate-local-context-coverage-v15.ts",
+    "generate:rapid-local-context-coverage-v16": "tsx scripts/rapid/generate-local-context-coverage-v16.ts",
     "acquire:rapid-indiana-county-office": "tsx scripts/rapid/acquire-indiana-county-office.ts",
     "acquire:rapid-indiana-local-offices": "tsx scripts/rapid/acquire-indiana-local-office-results.ts",
     "generate:rapid-indiana-county-office": "tsx scripts/rapid/generate-indiana-county-office-results.ts",
