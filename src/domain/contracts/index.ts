@@ -13,4 +13,5 @@ export * from "./coverage";
 export * from "./biography";
 export * from "./maps";
 export * from "./fec-v2";
+export * from "./office-universe";
 export * from "./prototype-manifest";
