@@ -27,7 +27,7 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - run: docker compose up -d --wait
       - run: docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U dsa_seats -d postgres -c "CREATE DATABASE dsa_seats_acceptance_integration_test OWNER dsa_seats;" -c "CREATE DATABASE dsa_seats_acceptance_query_test OWNER dsa_seats;" -c "CREATE DATABASE dsa_seats_acceptance_browser_test OWNER dsa_seats;"
-      - run: docker compose run --rm migrate
+      - run: npm run db:migrate
       - run: docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U dsa_seats -d postgres -c "CREATE ROLE acceptance_web LOGIN PASSWORD 'acceptance_web' NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS; GRANT dsa_seats_web TO acceptance_web;"
       - run: npm run test:acceptance
       - if: always()
