@@ -9,11 +9,11 @@ jobs:
     env:
       ACCEPTANCE_TESTS: "1"
       NODE_ENV: test
-      DATABASE_URL: postgresql://dsa_seats:dsa_seats@127.0.0.1:5432/dsa_seats_acceptance_integration_test
-      TEST_DATABASE_URL: postgresql://dsa_seats:dsa_seats@127.0.0.1:5432/dsa_seats_acceptance_integration_test
-      QUERY_DATABASE_URL: postgresql://dsa_seats:dsa_seats@127.0.0.1:5432/dsa_seats_acceptance_query_test
-      E2E_DATABASE_URL: postgresql://dsa_seats:dsa_seats@127.0.0.1:5432/dsa_seats_acceptance_browser_test
-      WEB_DATABASE_URL: postgresql://acceptance_web:acceptance_web@127.0.0.1:5432/dsa_seats_acceptance_browser_test
+      DATABASE_URL: postgresql://dsa_seats:dsa_seats@postgres:5432/dsa_seats_acceptance_integration_test
+      TEST_DATABASE_URL: postgresql://dsa_seats:dsa_seats@postgres:5432/dsa_seats_acceptance_integration_test
+      QUERY_DATABASE_URL: postgresql://dsa_seats:dsa_seats@postgres:5432/dsa_seats_acceptance_query_test
+      E2E_DATABASE_URL: postgresql://dsa_seats:dsa_seats@postgres:5432/dsa_seats_acceptance_browser_test
+      WEB_DATABASE_URL: postgresql://acceptance_web:acceptance_web@postgres:5432/dsa_seats_acceptance_browser_test
       ACCEPTANCE_MAP_ARTIFACT_ROOT: /tmp/dsa-seats-task13-acceptance/task10-maps
       E2E_MAP_PROFILE_PATH: /seats/seat_0
       COMPOSE_PROJECT_NAME: dsa_seats_acceptance
@@ -26,6 +26,7 @@ jobs:
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: docker compose up -d --wait
+      - run: docker network connect "${COMPOSE_PROJECT_NAME}_default" "$(hostname)"
       - run: docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U dsa_seats -d postgres -c "CREATE DATABASE dsa_seats_acceptance_integration_test OWNER dsa_seats;" -c "CREATE DATABASE dsa_seats_acceptance_query_test OWNER dsa_seats;" -c "CREATE DATABASE dsa_seats_acceptance_browser_test OWNER dsa_seats;"
       - run: npm run db:migrate
       - run: docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U dsa_seats -d postgres -c "CREATE ROLE acceptance_web LOGIN PASSWORD 'acceptance_web' NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS; GRANT dsa_seats_web TO acceptance_web;"
