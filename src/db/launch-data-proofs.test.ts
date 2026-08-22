@@ -126,6 +126,10 @@ describe("launch data proof contracts", () => {
     expect(reviewSubjectSha256("vacancy", row)).toBe(row.subject_sha256);
     expect(reviewSubjectSha256("vacancy", { ...row, receipt_id: "tampered" })).not.toBe(row.subject_sha256);
   });
+  it("normalizes committee effective dates before hashing", () => {
+    const subject = { release_id: "release", review_id: "review", subject_sha256: "", seat_cycle_id: "seat", fec_candidate_id: "candidate", committee_id: "committee", designation: "principal", effective_from: "2026-01-01T06:00:00.000Z", effective_to: null, receipt_id: "receipt" };
+    expect(reviewSubjectSha256("committee_mapping", subject)).toBe(reviewSubjectSha256("committee_mapping", { ...subject, effective_from: "2026-01-01T00:00:00.000Z" }));
+  });
   it.each([["2026-07-18", "2026-07-18"], ["2026-07-18T19:00:00-05:00", "2026-07-19"], [new Date("2026-07-18T12:00:00Z"), "2026-07-18"], ["bad", undefined]])("normalizes cutoff %s", (value, expected) => expect(sourceCutoff(value)).toBe(expected));
 });
 

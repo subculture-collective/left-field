@@ -113,6 +113,13 @@ export function canonicalReviewSubject(subjectType: SubjectType, row: Row): Reco
   // Data-review signatures authenticate clone-stable facts. The release-scoped
   // publication signature binds those reviewed facts to one candidate release.
   const subject = { ...row };
+  if (subjectType === "committee_mapping") {
+    const effectiveFrom = subject.effective_from;
+    if (effectiveFrom instanceof Date || typeof effectiveFrom === "string") {
+      const date = sourceCutoff(effectiveFrom);
+      if (date) subject.effective_from = date;
+    }
+  }
   delete subject.release_id;
   delete subject.review_id;
   delete subject.subject_sha256;
