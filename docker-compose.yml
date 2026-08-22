@@ -15,5 +15,16 @@ services:
       interval: 5s
       timeout: 5s
       retries: 10
+  migrate:
+    image: node:22
+    working_dir: /workspace
+    command: npm run db:migrate
+    environment:
+      DATABASE_URL: postgresql://dsa_seats:dsa_seats@postgres:5432/dsa_seats_acceptance_integration_test
+    volumes:
+      - .:/workspace
+    depends_on:
+      postgres:
+        condition: service_healthy
 volumes:
   postgres_data:
