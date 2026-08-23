@@ -6,6 +6,18 @@ on:
 jobs:
   acceptance:
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgis/postgis:16-3.4
+        env:
+          POSTGRES_DB: dsa_seats
+          POSTGRES_USER: dsa_seats
+          POSTGRES_PASSWORD: dsa_seats
+        options: >-
+          --health-cmd "pg_isready -U dsa_seats -d dsa_seats"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 10
     env:
       ACCEPTANCE_TESTS: "1"
       NODE_ENV: test
@@ -16,8 +28,6 @@ jobs:
       WEB_DATABASE_URL: postgresql://acceptance_web:acceptance_web@postgres:5432/dsa_seats_acceptance_browser_test
       ACCEPTANCE_MAP_ARTIFACT_ROOT: /tmp/dsa-seats-task13-acceptance/task10-maps
       E2E_MAP_PROFILE_PATH: /seats/seat_0
-      COMPOSE_PROJECT_NAME: dsa_seats_acceptance_${{ github.run_id }}
-      POSTGRES_PORT: "0"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -26,11 +36,23 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npx playwright install --with-deps chromium
-      - run: docker compose up -d --wait
-      - run: docker network connect "${COMPOSE_PROJECT_NAME}_default" "$(hostname)"
-      - run: docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U dsa_seats -d postgres -c "CREATE DATABASE dsa_seats_acceptance_integration_test OWNER dsa_seats;" -c "CREATE DATABASE dsa_seats_acceptance_query_test OWNER dsa_seats;" -c "CREATE DATABASE dsa_seats_acceptance_browser_test OWNER dsa_seats;"
+      - name: Create acceptance databases
+        run: >-
+          node --input-type=module -e '
+          import pg from "pg";
+          const client = new pg.Client({ connectionString: "postgresql://dsa_seats:dsa_seats@postgres:5432/postgres" });
+          await client.connect();
+          for (const name of ["dsa_seats_acceptance_integration_test", "dsa_seats_acceptance_query_test", "dsa_seats_acceptance_browser_test"])
+            await client.query(`CREATE DATABASE ${name} OWNER dsa_seats`);
+          await client.end();'
       - run: npm run db:migrate
-      - run: docker compose exec -T postgres psql -v ON_ERROR_STOP=1 -U dsa_seats -d postgres -c "CREATE ROLE acceptance_web LOGIN PASSWORD 'acceptance_web' NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS; GRANT dsa_seats_web TO acceptance_web;"
+      - name: Create browser role
+        run: >-
+          node --input-type=module -e '
+          import pg from "pg";
+          const client = new pg.Client({ connectionString: "postgresql://dsa_seats:dsa_seats@postgres:5432/postgres" });
+          await client.connect();
+          await client.query("CREATE ROLE acceptance_web LOGIN PASSWORD '\''acceptance_web'\'' NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS");
+          await client.query("GRANT dsa_seats_web TO acceptance_web");
+          await client.end();'
       - run: npm run test:acceptance
-      - if: always()
-        run: docker compose down -v
