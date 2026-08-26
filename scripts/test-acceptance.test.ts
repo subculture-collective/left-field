@@ -17,6 +17,10 @@ describe("acceptance harness", () => {
     expect(() => assertAcceptanceEnvironment({ ...safe, DATABASE_URL: "postgresql://dsa_seats@localhost/dsa_acceptance_integration_test?sslmode=disable" })).toThrow("parameters");
     expect(() => assertAcceptanceEnvironment({ ...safe, QUERY_DATABASE_URL: "postgresql://localhost/dsa_acceptance_query_test" })).toThrow("LOGIN username");
     expect(() => assertAcceptanceEnvironment({ ...safe, NODE_ENV: "production" })).toThrow("refuses NODE_ENV");
+    const ci = Object.fromEntries(Object.entries(safe).map(([name, value]) => [name, name.endsWith("DATABASE_URL") ? value.replace(/(?:127\.0\.0\.1|localhost)/, "postgres") : value]));
+    expect(() => assertAcceptanceEnvironment(ci)).toThrow("isolated CI job container");
+    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true" })).toThrow("isolated CI job container");
+    expect(assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1" })).toMatchObject({ integrationDatabaseUrl: expect.stringContaining("@postgres:") });
   });
   it("runs the pinned lane order with lane-specific environments", () => {
     expect(acceptanceCommands.map(({ lane, command, args }) => `${lane}: ${command} ${args.join(" ")}`)).toEqual([

@@ -25,7 +25,8 @@ export function assertAcceptanceEnvironment(env: Readonly<Record<string, string 
     let url: URL;
     try { url = new URL(value); } catch { throw new Error(`${name} must be a PostgreSQL URL`); }
     if (!(["postgres:", "postgresql:"] as string[]).includes(url.protocol)) throw new Error(`${name} must be a PostgreSQL URL`);
-    if (!(["localhost", "127.0.0.1", "::1"] as string[]).includes(url.hostname.toLowerCase())) throw new Error(`${name} must use a loopback host`);
+    const hostname = url.hostname.toLowerCase();
+    if (!(["localhost", "127.0.0.1", "::1"] as string[]).includes(hostname) && !(env.CI === "true" && env.ACCEPTANCE_JOB_CONTAINER === "1" && hostname === "postgres")) throw new Error(`${name} must use a loopback host, or postgres in an isolated CI job container`);
     if (url.search || url.hash) throw new Error(`${name} must not include query parameters or fragments`);
     if (!url.username) throw new Error(`${name} must include a LOGIN username`);
     const database = decodeURIComponent(url.pathname).replace(/^\//, "");
