@@ -7,8 +7,9 @@ The Census describes these as legal boundaries and names as of January 1,
 
 The national Task 4 source corpus is the 56 jurisdiction CD119 archives plus
 the national state archive; Census publishes no national TIGER CD ZIP. The
-immutable national bundle is under `geometry/versions/9a5e...4871/`; the
-`geometry/current` symlink points to that bundle.
+immutable national bundle is under `geometry/versions/9a5e...4871/`. Consumers
+must use that source-locked path directly; the repository has no mutable
+`geometry/current` alias.
 
 The selected EPSG:4326 GeoJSON artifacts under `geometry/` contain only the
 ten prototype House districts and their four states. They were produced with
