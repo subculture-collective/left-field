@@ -133,7 +133,7 @@ describe("database schema", () => {
     const migration = readFileSync(resolve(process.cwd(), "drizzle/0002_ingestion_integrity.sql"), "utf8");
     const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0002_snapshot.json"), "utf8")) as { tables: Record<string, { columns: Record<string, unknown> }> };
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_fec_v2_acquisition_invalidation", "0018_launch_attestation_proof_kinds"]);
     expect(snapshot.tables["public.ingest_runs"]?.columns).toEqual(expect.objectContaining({ snapshot_id: expect.anything(), lease_token: expect.anything(), failure_code: expect.anything() }));
     for (const name of ["guard_ingest_run", "guard_ingest_publication", "data_releases_ingest_publication_guard", "ingest_runs_one_live_identity_uq"]) expect(migration).toContain(name);
   });
@@ -193,7 +193,7 @@ describe("database schema", () => {
 
   it("keeps Task 10 in migration 0003 only", () => {
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_fec_v2_acquisition_invalidation", "0018_launch_attestation_proof_kinds"]);
     expect(() => readFileSync(resolve(process.cwd(), "drizzle/0004_task10_oracle_hardening.sql"))).toThrow();
   });
 
@@ -202,7 +202,7 @@ describe("database schema", () => {
     const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0004_snapshot.json"), "utf8")) as { prevId: string; tables: Record<string, { isRLSEnabled?: boolean }> };
     const prior = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0003_snapshot.json"), "utf8")) as { id: string };
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_fec_v2_acquisition_invalidation", "0018_launch_attestation_proof_kinds"]);
     for (const table of ["correction_submissions", "correction_review_events", "correction_idempotency_keys", "correction_rate_limit_buckets"]) expect(snapshot.tables[`operations.${table}`]).toBeDefined();
     expect(snapshot.prevId).toBe(prior.id);
     for (const table of ["correction_submissions", "correction_review_events", "correction_idempotency_keys", "correction_rate_limit_buckets"]) expect(snapshot.tables[`operations.${table}`]!.isRLSEnabled).toBe(true);
@@ -656,5 +656,22 @@ describe("database schema", () => {
     expect(migration).toContain("'src_acs_2024'");
     expect(migration).toContain("target_member=predecessor_member");
     expect(migration.trimEnd()).toMatch(/COMMIT;$/);
+  });
+
+  it("invalidates finance validation for FEC V2 acquisition content in 0017", () => {
+    const migration = readFileSync(resolve(process.cwd(), "drizzle/0017_fec_v2_acquisition_invalidation.sql"), "utf8");
+    for (const table of ["fec_v2_acquisition_outcomes", "fec_v2_acquisition_receipts", "fec_v2_acquisition_seals"]) {
+      expect(migration).toContain(`AFTER INSERT OR UPDATE OR DELETE ON public.${table}`);
+    }
+    expect(migration.match(/guard_nationwide_content\('finance'\)/g)).toHaveLength(3);
+    expect(migration).toContain("DELETE FROM public.nationwide_validation_gates");
+    expect(migration).toContain("d.domain='finance' AND r.status='candidate'");
+    expect(migration).toContain("SET validated_at=NULL");
+    expect(migration.trimEnd()).toMatch(/COMMIT;$/);
+  });
+
+  it("keeps all factual and FEC V2 launch proof kinds in 0018", () => {
+    const migration = readFileSync(resolve(process.cwd(), "drizzle/0018_launch_attestation_proof_kinds.sql"), "utf8");
+    expect(migration).toContain("'member','acs','finance','election','maps','fec_v2_finance','fec_v2_election','fec_v2_maps'");
   });
 });

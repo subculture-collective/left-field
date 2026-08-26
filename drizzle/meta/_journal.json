@@ -120,6 +120,20 @@
       "when": 1786259000000,
       "tag": "0016_correction_maintenance_exclusivity",
       "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1787702400000,
+      "tag": "0017_fec_v2_acquisition_invalidation",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1787781584135,
+      "tag": "0018_launch_attestation_proof_kinds",
+      "breakpoints": true
     }
   ]
 }

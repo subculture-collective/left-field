@@ -1,0 +1,2 @@
+ALTER TABLE "release_launch_verifier_attestations" DROP CONSTRAINT "release_launch_verifier_attestations_kind_ck";--> statement-breakpoint
+ALTER TABLE "release_launch_verifier_attestations" ADD CONSTRAINT "release_launch_verifier_attestations_kind_ck" CHECK ("release_launch_verifier_attestations"."proof_kind" IN ('member','acs','finance','election','maps','fec_v2_finance','fec_v2_election','fec_v2_maps'));
