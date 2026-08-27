@@ -6,6 +6,14 @@ services:
       POSTGRES_DB: dsa_seats
       POSTGRES_USER: dsa_seats
       POSTGRES_PASSWORD: dsa_seats
+    command:
+      - postgres
+      - -c
+      - fsync=${POSTGRES_FSYNC:-on}
+      - -c
+      - synchronous_commit=${POSTGRES_SYNCHRONOUS_COMMIT:-on}
+      - -c
+      - full_page_writes=${POSTGRES_FULL_PAGE_WRITES:-on}
     ports:
       - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
     volumes:

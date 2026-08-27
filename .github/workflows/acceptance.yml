@@ -14,6 +14,9 @@ jobs:
       ACCEPTANCE_MAP_ARTIFACT_ROOT: /tmp/dsa-seats-task13-acceptance/task10-maps
       E2E_MAP_PROFILE_PATH: /seats/seat_0
       POSTGRES_PORT: "0"
+      POSTGRES_FSYNC: "off"
+      POSTGRES_SYNCHRONOUS_COMMIT: "off"
+      POSTGRES_FULL_PAGE_WRITES: "off"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
