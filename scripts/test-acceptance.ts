@@ -27,8 +27,8 @@ export function assertAcceptanceEnvironment(env: Readonly<Record<string, string 
     if (!(["postgres:", "postgresql:"] as string[]).includes(url.protocol)) throw new Error(`${name} must be a PostgreSQL URL`);
     const hostname = url.hostname.toLowerCase();
     const configuredDatabaseHost = env.ACCEPTANCE_DATABASE_HOST;
-    const isolatedContainerHost = env.CI === "true" && env.ACCEPTANCE_JOB_CONTAINER === "1" && configuredDatabaseHost !== undefined && /^acceptance-postgres-[0-9a-f]{12}-[0-9]+-[0-9]+$/.test(configuredDatabaseHost) && hostname === configuredDatabaseHost.toLowerCase();
-    if (!(["localhost", "127.0.0.1", "::1"] as string[]).includes(hostname) && !isolatedContainerHost) throw new Error(`${name} must use a loopback host or the exact isolated CI database alias`);
+    const isolatedComposeHost = env.CI === "true" && env.ACCEPTANCE_JOB_CONTAINER === "1" && configuredDatabaseHost === "postgres" && hostname === configuredDatabaseHost && /^dsa_seats_acceptance_[0-9a-f]{12}_[0-9]+_[0-9]+$/.test(env.COMPOSE_PROJECT_NAME ?? "");
+    if (!(["localhost", "127.0.0.1", "::1"] as string[]).includes(hostname) && !isolatedComposeHost) throw new Error(`${name} must use a loopback host or the isolated CI Compose database`);
     if (url.search || url.hash) throw new Error(`${name} must not include query parameters or fragments`);
     if (!url.username) throw new Error(`${name} must include a LOGIN username`);
     const database = decodeURIComponent(url.pathname).replace(/^\//, "");

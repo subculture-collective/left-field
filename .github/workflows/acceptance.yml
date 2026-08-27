@@ -40,20 +40,14 @@ jobs:
       - name: Configure isolated database transport
         run: |
           if docker inspect "$(hostname)" >/dev/null 2>&1; then
-            : "${ACCEPTANCE_REPOSITORY_KEY:?ACCEPTANCE_REPOSITORY_KEY must be set}"
-            : "${GITHUB_RUN_ID:?GITHUB_RUN_ID must be set}"
-            : "${GITHUB_RUN_ATTEMPT:?GITHUB_RUN_ATTEMPT must be set}"
-            postgres_container="$(docker compose ps -q postgres)"
-            link_network="dsa-seats-acceptance-link-${ACCEPTANCE_REPOSITORY_KEY}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-            database_host="acceptance-postgres-${ACCEPTANCE_REPOSITORY_KEY}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+            : "${COMPOSE_PROJECT_NAME:?COMPOSE_PROJECT_NAME must be set}"
+            compose_network="${COMPOSE_PROJECT_NAME}_default"
+            database_host=postgres
             database_port=5432
             echo "ACCEPTANCE_JOB_CONTAINER=1" >> "$GITHUB_ENV"
             echo "ACCEPTANCE_DATABASE_HOST=$database_host" >> "$GITHUB_ENV"
-            echo "ACCEPTANCE_LINK_NETWORK=$link_network" >> "$GITHUB_ENV"
-            echo "ACCEPTANCE_POSTGRES_CONTAINER=$postgres_container" >> "$GITHUB_ENV"
-            docker network create "$link_network"
-            docker network connect "$link_network" "$(hostname)"
-            docker network connect --alias "$database_host" "$link_network" "$postgres_container"
+            echo "ACCEPTANCE_COMPOSE_NETWORK=$compose_network" >> "$GITHUB_ENV"
+            docker network connect "$compose_network" "$(hostname)"
           else
             database_host=127.0.0.1
             database_port="$(docker compose port postgres 5432)"
@@ -85,8 +79,6 @@ jobs:
       - if: always()
         run: |
           if [ "${ACCEPTANCE_JOB_CONTAINER:-0}" = 1 ]; then
-            docker network disconnect "${ACCEPTANCE_LINK_NETWORK}" "${ACCEPTANCE_POSTGRES_CONTAINER}" || true
-            docker network disconnect "${ACCEPTANCE_LINK_NETWORK}" "$(hostname)" || true
-            docker network rm "${ACCEPTANCE_LINK_NETWORK}" || true
+            docker network disconnect "${ACCEPTANCE_COMPOSE_NETWORK}" "$(hostname)" || true
           fi
           docker compose down --volumes --remove-orphans

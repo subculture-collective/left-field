@@ -18,16 +18,15 @@ describe("acceptance harness", () => {
     expect(() => assertAcceptanceEnvironment({ ...safe, DATABASE_URL: "postgresql://dsa_seats@localhost/dsa_acceptance_integration_test?sslmode=disable" })).toThrow("parameters");
     expect(() => assertAcceptanceEnvironment({ ...safe, QUERY_DATABASE_URL: "postgresql://localhost/dsa_acceptance_query_test" })).toThrow("LOGIN username");
     expect(() => assertAcceptanceEnvironment({ ...safe, NODE_ENV: "production" })).toThrow("refuses NODE_ENV");
-    const databaseHost = "acceptance-postgres-012345abcdef-5371-1";
+    const databaseHost = "postgres";
     const ci = withDatabaseHost(databaseHost);
-    expect(() => assertAcceptanceEnvironment({ ...ci, ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: databaseHost })).toThrow("exact isolated CI database alias");
-    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_DATABASE_HOST: databaseHost })).toThrow("exact isolated CI database alias");
-    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1" })).toThrow("exact isolated CI database alias");
-    expect(() => assertAcceptanceEnvironment({ ...withDatabaseHost("database.internal"), CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: "database.internal" })).toThrow("exact isolated CI database alias");
-    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: databaseHost.toUpperCase() })).toThrow("exact isolated CI database alias");
-    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: "acceptance-postgres-fedcba987654-5371-1" })).toThrow("exact isolated CI database alias");
-    expect(() => assertAcceptanceEnvironment({ ...withDatabaseHost("postgres"), CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: "postgres" })).toThrow("exact isolated CI database alias");
-    expect(assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: databaseHost })).toMatchObject({ integrationDatabaseUrl: expect.stringContaining(`@${databaseHost}:`) });
+    expect(() => assertAcceptanceEnvironment({ ...ci, ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: databaseHost, COMPOSE_PROJECT_NAME: "dsa_seats_acceptance_012345abcdef_5375_1" })).toThrow("isolated CI Compose database");
+    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_DATABASE_HOST: databaseHost, COMPOSE_PROJECT_NAME: "dsa_seats_acceptance_012345abcdef_5375_1" })).toThrow("isolated CI Compose database");
+    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", COMPOSE_PROJECT_NAME: "dsa_seats_acceptance_012345abcdef_5375_1" })).toThrow("isolated CI Compose database");
+    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: databaseHost })).toThrow("isolated CI Compose database");
+    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: databaseHost, COMPOSE_PROJECT_NAME: "dsa_seats_acceptance_not-a-hash_5375_1" })).toThrow("isolated CI Compose database");
+    expect(() => assertAcceptanceEnvironment({ ...withDatabaseHost("database.internal"), CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: "database.internal", COMPOSE_PROJECT_NAME: "dsa_seats_acceptance_012345abcdef_5375_1" })).toThrow("isolated CI Compose database");
+    expect(assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: databaseHost, COMPOSE_PROJECT_NAME: "dsa_seats_acceptance_012345abcdef_5375_1" })).toMatchObject({ integrationDatabaseUrl: expect.stringContaining(`@${databaseHost}:`) });
   });
   it("runs the pinned lane order with lane-specific environments", () => {
     expect(acceptanceCommands.map(({ lane, command, args }) => `${lane}: ${command} ${args.join(" ")}`)).toEqual([
