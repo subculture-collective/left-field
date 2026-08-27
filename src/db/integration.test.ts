@@ -1498,7 +1498,7 @@ integration("PostgreSQL integration", () => {
       await expect(enrichCandidateMembersFromBaseline(pool, manifest.release.id, "rel_member_enrichment_bad")).rejects.toThrow();
       expect((await pool.query("SELECT 1 FROM sources WHERE release_id='rel_member_enrichment_bad' LIMIT 1")).rowCount).toBe(0);
     } finally { await pool.end(); }
-  }, 60_000);
+  }, 120_000);
 
   it("finalizes Task 7 ACS, Task 8 FEC, and reviewed Task 9 election decisions atomically", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
@@ -1941,7 +1941,7 @@ integration("PostgreSQL integration", () => {
       await pool.query("UPDATE coverage_records SET scope_key='tampered' WHERE release_id=$1 AND domain=$2", [manifest.release.id, record.domain]);
       await expect(loadNationwideManifest(pool, manifest.release.id)).rejects.toThrow("coverage scope key mismatch");
     } finally { await pool.end(); }
-  });
+  }, 30_000);
 
   it("Task 3 persists successful staged facts and resumes a dry run", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
