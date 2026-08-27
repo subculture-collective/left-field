@@ -13,7 +13,6 @@ jobs:
       NODE_ENV: test
       ACCEPTANCE_MAP_ARTIFACT_ROOT: /tmp/dsa-seats-task13-acceptance/task10-maps
       E2E_MAP_PROFILE_PATH: /seats/seat_0
-      COMPOSE_PROJECT_NAME: dsa_seats_acceptance_${{ github.run_id }}_${{ github.run_attempt }}
       POSTGRES_PORT: "0"
     steps:
       - uses: actions/checkout@v4
@@ -27,22 +26,29 @@ jobs:
           apt-get install --yes --no-install-recommends libreoffice-calc poppler-utils
       - run: npm ci
       - run: npx playwright install --with-deps chromium
+      - name: Configure isolated Compose namespace
+        run: |
+          : "${GITHUB_REPOSITORY_ID:?GITHUB_REPOSITORY_ID must be set}"
+          : "${GITHUB_RUN_ID:?GITHUB_RUN_ID must be set}"
+          : "${GITHUB_RUN_ATTEMPT:?GITHUB_RUN_ATTEMPT must be set}"
+          echo "COMPOSE_PROJECT_NAME=dsa_seats_acceptance_${GITHUB_REPOSITORY_ID}_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_ENV"
       - run: docker compose up -d --wait
       - name: Configure isolated database transport
         run: |
           if docker inspect "$(hostname)" >/dev/null 2>&1; then
-            mapfile -t job_networks < <(docker inspect --format '{{range $name, $_ := .NetworkSettings.Networks}}{{println $name}}{{end}}' "$(hostname)")
-            if [ "${#job_networks[@]}" -ne 1 ]; then
-              printf 'expected one job-container network, found %s\n' "${#job_networks[@]}" >&2
-              exit 1
-            fi
+            : "${GITHUB_REPOSITORY_ID:?GITHUB_REPOSITORY_ID must be set}"
+            : "${GITHUB_RUN_ID:?GITHUB_RUN_ID must be set}"
+            : "${GITHUB_RUN_ATTEMPT:?GITHUB_RUN_ATTEMPT must be set}"
             postgres_container="$(docker compose ps -q postgres)"
-            database_host="acceptance-postgres-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-            docker network connect --alias "$database_host" "${job_networks[0]}" "$postgres_container"
+            link_network="dsa-seats-acceptance-link-${GITHUB_REPOSITORY_ID}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+            database_host="acceptance-postgres-${GITHUB_REPOSITORY_ID}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
             database_port=5432
             echo "ACCEPTANCE_JOB_CONTAINER=1" >> "$GITHUB_ENV"
-            echo "ACCEPTANCE_JOB_NETWORK=${job_networks[0]}" >> "$GITHUB_ENV"
+            echo "ACCEPTANCE_LINK_NETWORK=$link_network" >> "$GITHUB_ENV"
             echo "ACCEPTANCE_POSTGRES_CONTAINER=$postgres_container" >> "$GITHUB_ENV"
+            docker network create "$link_network"
+            docker network connect "$link_network" "$(hostname)"
+            docker network connect --alias "$database_host" "$link_network" "$postgres_container"
           else
             database_host=127.0.0.1
             database_port="$(docker compose port postgres 5432)"
@@ -74,6 +80,8 @@ jobs:
       - if: always()
         run: |
           if [ "${ACCEPTANCE_JOB_CONTAINER:-0}" = 1 ]; then
-            docker network disconnect "${ACCEPTANCE_JOB_NETWORK}" "${ACCEPTANCE_POSTGRES_CONTAINER}" || true
+            docker network disconnect "${ACCEPTANCE_LINK_NETWORK}" "${ACCEPTANCE_POSTGRES_CONTAINER}" || true
+            docker network disconnect "${ACCEPTANCE_LINK_NETWORK}" "$(hostname)" || true
+            docker network rm "${ACCEPTANCE_LINK_NETWORK}" || true
           fi
           docker compose down --volumes --remove-orphans
