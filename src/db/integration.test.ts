@@ -626,6 +626,10 @@ integration("PostgreSQL integration", () => {
       const token = "e".repeat(64), wrongToken = "f".repeat(64), run = `run_${suffix}`;
       await expect(owner.query("INSERT INTO fec_v2_runs(run_id,release_id,plan_sha256,receipt_cutoff,started_at,status,owner_token_sha256,heartbeat_at,lease_expires_at,run_deadline_at) VALUES($3,$1,$2,'2026-07-18',clock_timestamp(),'running','a',clock_timestamp(),clock_timestamp()+interval '5 minutes',clock_timestamp()+interval '6 hours')", [releaseId, canonical.digest, `direct_running_${suffix}`])).rejects.toMatchObject({ code: "42501" });
       await expect(owner.query("INSERT INTO fec_v2_runs(run_id,release_id,plan_sha256,receipt_cutoff,started_at,status,completed_at,run_deadline_at) VALUES($3,$1,$2,'2026-07-18',clock_timestamp(),'failed',clock_timestamp(),clock_timestamp()+interval '6 hours')", [releaseId, canonical.digest, `direct_terminal_${suffix}`])).rejects.toMatchObject({ code: "42501" });
+      const maxRun = `a${"._:-".repeat(127)}bcd`;
+      await acquisition.query("SELECT * FROM public.claim_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, maxRun, token]);
+      await acquisition.query("SELECT public.abort_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, maxRun, token]);
+      await expect(acquisition.query("SELECT * FROM public.claim_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, "a".repeat(513), token])).rejects.toMatchObject({ code: "22023" });
       await acquisition.query("SELECT * FROM public.claim_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, run, token]);
       await expect(owner.query("UPDATE fec_v2_runs SET status='failed',completed_at=clock_timestamp(),owner_token_sha256=NULL,heartbeat_at=NULL,lease_expires_at=NULL WHERE release_id=$1 AND plan_sha256=$2 AND run_id=$3", [releaseId, canonical.digest, run])).rejects.toMatchObject({ code: "42501" });
       await expect(acquisition.query("SELECT * FROM public.heartbeat_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, run, wrongToken])).rejects.toMatchObject({ code: "42501" });

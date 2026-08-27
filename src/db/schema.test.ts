@@ -133,7 +133,7 @@ describe("database schema", () => {
     const migration = readFileSync(resolve(process.cwd(), "drizzle/0002_ingestion_integrity.sql"), "utf8");
     const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0002_snapshot.json"), "utf8")) as { tables: Record<string, { columns: Record<string, unknown> }> };
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_fec_v2_acquisition_invalidation", "0018_launch_attestation_proof_kinds"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_fec_v2_acquisition_invalidation", "0018_launch_attestation_proof_kinds", "0019_sour_deathstrike"]);
     expect(snapshot.tables["public.ingest_runs"]?.columns).toEqual(expect.objectContaining({ snapshot_id: expect.anything(), lease_token: expect.anything(), failure_code: expect.anything() }));
     for (const name of ["guard_ingest_run", "guard_ingest_publication", "data_releases_ingest_publication_guard", "ingest_runs_one_live_identity_uq"]) expect(migration).toContain(name);
   });
@@ -193,7 +193,7 @@ describe("database schema", () => {
 
   it("keeps Task 10 in migration 0003 only", () => {
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_fec_v2_acquisition_invalidation", "0018_launch_attestation_proof_kinds"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_fec_v2_acquisition_invalidation", "0018_launch_attestation_proof_kinds", "0019_sour_deathstrike"]);
     expect(() => readFileSync(resolve(process.cwd(), "drizzle/0004_task10_oracle_hardening.sql"))).toThrow();
   });
 
@@ -202,7 +202,7 @@ describe("database schema", () => {
     const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0004_snapshot.json"), "utf8")) as { prevId: string; tables: Record<string, { isRLSEnabled?: boolean }> };
     const prior = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0003_snapshot.json"), "utf8")) as { id: string };
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_fec_v2_acquisition_invalidation", "0018_launch_attestation_proof_kinds"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_fec_v2_acquisition_invalidation", "0018_launch_attestation_proof_kinds", "0019_sour_deathstrike"]);
     for (const table of ["correction_submissions", "correction_review_events", "correction_idempotency_keys", "correction_rate_limit_buckets"]) expect(snapshot.tables[`operations.${table}`]).toBeDefined();
     expect(snapshot.prevId).toBe(prior.id);
     for (const table of ["correction_submissions", "correction_review_events", "correction_idempotency_keys", "correction_rate_limit_buckets"]) expect(snapshot.tables[`operations.${table}`]!.isRLSEnabled).toBe(true);
@@ -583,17 +583,26 @@ describe("database schema", () => {
     expect(() => readFileSync(resolve(process.cwd(), "drizzle/0011_task7_completed_reuse.sql"))).toThrow();
   });
 
-  it("keeps the FEC V2 run-id grammar in the 0010 schema and admission APIs", () => {
-    const migration = readFileSync(resolve(process.cwd(), "drizzle/0010_lyrical_silver_samurai.sql"), "utf8");
-    const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0010_snapshot.json"), "utf8")) as { tables: Record<string, { checkConstraints: Record<string, { value: string }> }> };
-    const grammar = "^[A-Za-z0-9][A-Za-z0-9._:-]{0,511}$";
-    expect(migration).toContain(`ADD CONSTRAINT \"f2runs_id_ck\" CHECK (\"fec_v2_runs\".\"run_id\" ~ '${grammar}')`);
-    expect(snapshot.tables["public.fec_v2_runs"]!.checkConstraints.f2runs_id_ck!.value).toContain(grammar);
-    const effective = (name: string) => migration.slice(migration.lastIndexOf(`CREATE OR REPLACE FUNCTION public.${name}`)).match(/CREATE OR REPLACE FUNCTION[\s\S]*?END \$\$/)?.[0] ?? "";
-    const claim = effective("claim_fec_v2_run");
-    const reaper = effective("reap_expired_fec_v2_run");
-    expect(claim.indexOf(grammar)).toBeLessThan(claim.indexOf("fec_v2_owner_token_sha256"));
-    expect(reaper.indexOf(grammar)).toBeLessThan(reaper.indexOf("new_hash:=public.fec_v2_owner_token_sha256"));
+  it("bounds FEC V2 run ids without exceeding PostgreSQL's repetition limit", () => {
+    const migration = readFileSync(resolve(process.cwd(), "drizzle/0019_sour_deathstrike.sql"), "utf8");
+    const original = readFileSync(resolve(process.cwd(), "drizzle/0010_lyrical_silver_samurai.sql"), "utf8");
+    const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0019_snapshot.json"), "utf8")) as { tables: Record<string, { checkConstraints: Record<string, { value: string }> }> };
+    const grammar = "^[A-Za-z0-9][A-Za-z0-9._:-]*$";
+    const constraint = `length(\"fec_v2_runs\".\"run_id\") BETWEEN 1 AND 512 AND \"fec_v2_runs\".\"run_id\" ~ '${grammar}'`;
+    expect(migration).toContain('DROP CONSTRAINT "f2runs_id_ck"');
+    expect(migration).toContain(`ADD CONSTRAINT "f2runs_id_ck" CHECK (${constraint})`);
+    expect(snapshot.tables["public.fec_v2_runs"]!.checkConstraints.f2runs_id_ck!.value).toContain(constraint);
+    const effective = (source: string, name: string) => source.slice(source.lastIndexOf(`CREATE OR REPLACE FUNCTION public.${name}`)).match(/CREATE OR REPLACE FUNCTION[\s\S]*?END \$\$/)?.[0] ?? "";
+    const claim = effective(migration, "claim_fec_v2_run");
+    const reaper = effective(migration, "reap_expired_fec_v2_run");
+    expect(claim).toContain(`length(p_run) BETWEEN 1 AND 512 AND p_run ~ '${grammar}'`);
+    expect(reaper).toContain(`length(p_expired_run) BETWEEN 1 AND 512 AND p_expired_run ~ '${grammar}'`);
+    expect(reaper).toContain(`length(p_new_run) BETWEEN 1 AND 512 AND p_new_run ~ '${grammar}'`);
+    expect(migration).not.toContain("{0,511}");
+    const withoutValidation = (definition: string) => definition.split("\n").filter((line) => !line.includes("invalid FEC V2 run id")).join("\n");
+    expect(withoutValidation(claim)).toBe(withoutValidation(effective(original, "claim_fec_v2_run")));
+    expect(withoutValidation(reaper)).toBe(withoutValidation(effective(original, "reap_expired_fec_v2_run")));
+    expect(migration).not.toMatch(/(?:DROP|ALTER) FUNCTION|(?:REVOKE|GRANT) /);
   });
 
   it("adds the bounded FEC V2 replay expectation reader in 0011", () => {
