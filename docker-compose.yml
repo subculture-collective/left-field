@@ -18,6 +18,10 @@ services:
       - "127.0.0.1:${POSTGRES_PORT:-5432}:5432"
     volumes:
       - postgres_data:/var/lib/postgresql/data
+    networks:
+      default:
+        aliases:
+          - ${POSTGRES_NETWORK_ALIAS:-postgres}
     healthcheck:
       # The image's temporary initialization server can satisfy pg_isready.
       # PID 1 becomes postgres only after the final server replaces entrypoint.

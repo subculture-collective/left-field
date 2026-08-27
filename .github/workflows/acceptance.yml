@@ -39,13 +39,15 @@ jobs:
           repository_key="${repository_key:0:12}"
           echo "ACCEPTANCE_REPOSITORY_KEY=$repository_key" >> "$GITHUB_ENV"
           echo "COMPOSE_PROJECT_NAME=dsa_seats_acceptance_${repository_key}_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_ENV"
+          echo "POSTGRES_NETWORK_ALIAS=acceptance-postgres-${repository_key}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_ENV"
       - run: docker compose up -d --wait
       - name: Configure isolated database transport
         run: |
           if docker inspect "$(hostname)" >/dev/null 2>&1; then
             : "${COMPOSE_PROJECT_NAME:?COMPOSE_PROJECT_NAME must be set}"
+            : "${POSTGRES_NETWORK_ALIAS:?POSTGRES_NETWORK_ALIAS must be set}"
             compose_network="${COMPOSE_PROJECT_NAME}_default"
-            database_host=postgres
+            database_host="$POSTGRES_NETWORK_ALIAS"
             database_port=5432
             echo "ACCEPTANCE_JOB_CONTAINER=1" >> "$GITHUB_ENV"
             echo "ACCEPTANCE_DATABASE_HOST=$database_host" >> "$GITHUB_ENV"
