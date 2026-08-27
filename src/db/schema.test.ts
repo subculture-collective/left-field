@@ -596,10 +596,11 @@ describe("database schema", () => {
     const claim = effective(migration, "claim_fec_v2_run");
     const reaper = effective(migration, "reap_expired_fec_v2_run");
     expect(claim).toContain(`length(p_run) BETWEEN 1 AND 512 AND p_run ~ '${grammar}'`);
+    expect(claim).toContain("FROM public.fec_v2_runs r WHERE r.release_id=p_release AND r.plan_sha256=p_plan AND r.status IN ('running','completed')");
     expect(reaper).toContain(`length(p_expired_run) BETWEEN 1 AND 512 AND p_expired_run ~ '${grammar}'`);
     expect(reaper).toContain(`length(p_new_run) BETWEEN 1 AND 512 AND p_new_run ~ '${grammar}'`);
     expect(migration).not.toContain("{0,511}");
-    const withoutValidation = (definition: string) => definition.split("\n").filter((line) => !line.includes("invalid FEC V2 run id")).join("\n");
+    const withoutValidation = (definition: string) => definition.split("\n").filter((line) => !line.includes("invalid FEC V2 run id")).join("\n").replace("FROM public.fec_v2_runs r WHERE r.release_id=p_release AND r.plan_sha256=p_plan AND r.status", "FROM public.fec_v2_runs WHERE release_id=p_release AND plan_sha256=p_plan AND status");
     expect(withoutValidation(claim)).toBe(withoutValidation(effective(original, "claim_fec_v2_run")));
     expect(withoutValidation(reaper)).toBe(withoutValidation(effective(original, "reap_expired_fec_v2_run")));
     expect(migration).not.toMatch(/(?:DROP|ALTER) FUNCTION|(?:REVOKE|GRANT) /);

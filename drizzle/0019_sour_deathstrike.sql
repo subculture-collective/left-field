@@ -8,7 +8,7 @@ BEGIN
   IF NOT (length(p_run) BETWEEN 1 AND 512 AND p_run ~ '^[A-Za-z0-9][A-Za-z0-9._:-]*$') THEN RAISE EXCEPTION 'invalid FEC V2 run id' USING ERRCODE='22023'; END IF;
   PERFORM public.assert_fec_v2_acquisition_admission(); PERFORM pg_advisory_xact_lock(hashtext('dsa_seats_release_promotion')); PERFORM pg_advisory_xact_lock(hashtext('dsa_seats_release:'||p_release)); now_at:=clock_timestamp();
   IF NOT EXISTS (SELECT 1 FROM public.data_releases d JOIN public.fec_v2_plans p ON p.release_id=d.id WHERE d.id=p_release AND d.status='candidate' AND p.plan_sha256=p_plan AND p.sealed_at IS NOT NULL) THEN RAISE EXCEPTION 'candidate sealed plan required' USING ERRCODE='55000'; END IF;
-  IF EXISTS (SELECT 1 FROM public.fec_v2_runs WHERE release_id=p_release AND plan_sha256=p_plan AND status IN ('running','completed')) THEN RAISE EXCEPTION 'active run exists' USING ERRCODE='23505'; END IF;
+  IF EXISTS (SELECT 1 FROM public.fec_v2_runs r WHERE r.release_id=p_release AND r.plan_sha256=p_plan AND r.status IN ('running','completed')) THEN RAISE EXCEPTION 'active run exists' USING ERRCODE='23505'; END IF;
   INSERT INTO public.fec_v2_runs(run_id,release_id,plan_sha256,receipt_cutoff,started_at,status,owner_token_sha256,heartbeat_at,lease_expires_at,run_deadline_at) VALUES(p_run,p_release,p_plan,DATE '2026-07-18',now_at,'running',public.fec_v2_owner_token_sha256(p_owner_token),now_at,now_at+interval '300 seconds',now_at+interval '6 hours');
   RETURN QUERY SELECT r.release_id,r.plan_sha256,r.run_id,r.started_at,r.heartbeat_at,r.lease_expires_at,r.run_deadline_at FROM public.fec_v2_runs r WHERE r.release_id=p_release AND r.plan_sha256=p_plan AND r.run_id=p_run;
 END $$;
