@@ -48,6 +48,7 @@ jobs:
             database_host="acceptance-postgres-${ACCEPTANCE_REPOSITORY_KEY}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
             database_port=5432
             echo "ACCEPTANCE_JOB_CONTAINER=1" >> "$GITHUB_ENV"
+            echo "ACCEPTANCE_DATABASE_HOST=$database_host" >> "$GITHUB_ENV"
             echo "ACCEPTANCE_LINK_NETWORK=$link_network" >> "$GITHUB_ENV"
             echo "ACCEPTANCE_POSTGRES_CONTAINER=$postgres_container" >> "$GITHUB_ENV"
             docker network create "$link_network"
