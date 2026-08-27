@@ -21,6 +21,10 @@ jobs:
         with:
           node-version: 22
           cache: npm
+      - name: Install source-evidence tools
+        run: |
+          apt-get update
+          apt-get install --yes --no-install-recommends libreoffice-calc poppler-utils
       - run: npm ci
       - run: npx playwright install --with-deps chromium
       - run: docker compose up -d --wait
