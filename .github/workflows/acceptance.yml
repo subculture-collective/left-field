@@ -28,20 +28,24 @@ jobs:
       - run: npx playwright install --with-deps chromium
       - name: Configure isolated Compose namespace
         run: |
-          : "${GITHUB_REPOSITORY_ID:?GITHUB_REPOSITORY_ID must be set}"
+          : "${GITHUB_REPOSITORY:?GITHUB_REPOSITORY must be set}"
           : "${GITHUB_RUN_ID:?GITHUB_RUN_ID must be set}"
           : "${GITHUB_RUN_ATTEMPT:?GITHUB_RUN_ATTEMPT must be set}"
-          echo "COMPOSE_PROJECT_NAME=dsa_seats_acceptance_${GITHUB_REPOSITORY_ID}_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_ENV"
+          repository_hash="$(printf '%s' "$GITHUB_REPOSITORY" | sha256sum)"
+          repository_key="${repository_hash%% *}"
+          repository_key="${repository_key:0:12}"
+          echo "ACCEPTANCE_REPOSITORY_KEY=$repository_key" >> "$GITHUB_ENV"
+          echo "COMPOSE_PROJECT_NAME=dsa_seats_acceptance_${repository_key}_${GITHUB_RUN_ID}_${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_ENV"
       - run: docker compose up -d --wait
       - name: Configure isolated database transport
         run: |
           if docker inspect "$(hostname)" >/dev/null 2>&1; then
-            : "${GITHUB_REPOSITORY_ID:?GITHUB_REPOSITORY_ID must be set}"
+            : "${ACCEPTANCE_REPOSITORY_KEY:?ACCEPTANCE_REPOSITORY_KEY must be set}"
             : "${GITHUB_RUN_ID:?GITHUB_RUN_ID must be set}"
             : "${GITHUB_RUN_ATTEMPT:?GITHUB_RUN_ATTEMPT must be set}"
             postgres_container="$(docker compose ps -q postgres)"
-            link_network="dsa-seats-acceptance-link-${GITHUB_REPOSITORY_ID}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-            database_host="acceptance-postgres-${GITHUB_REPOSITORY_ID}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+            link_network="dsa-seats-acceptance-link-${ACCEPTANCE_REPOSITORY_KEY}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+            database_host="acceptance-postgres-${ACCEPTANCE_REPOSITORY_KEY}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
             database_port=5432
             echo "ACCEPTANCE_JOB_CONTAINER=1" >> "$GITHUB_ENV"
             echo "ACCEPTANCE_LINK_NETWORK=$link_network" >> "$GITHUB_ENV"
