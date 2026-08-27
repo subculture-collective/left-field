@@ -11,7 +11,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U dsa_seats -d dsa_seats"]
+      # The image's temporary initialization server can satisfy pg_isready.
+      # PID 1 becomes postgres only after the final server replaces entrypoint.
+      test: ["CMD-SHELL", "test \"$$(cat /proc/1/comm)\" = postgres && pg_isready -U dsa_seats -d dsa_seats"]
       interval: 5s
       timeout: 5s
       retries: 10
