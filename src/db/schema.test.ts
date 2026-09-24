@@ -2,6 +2,8 @@ import { describe, expect, it } from "vitest";
 import { readdirSync, readFileSync } from "node:fs";
 import { resolve } from "node:path";
 import { createHash } from "node:crypto";
+import { getTableColumns } from "drizzle-orm";
+import type { PgTable } from "drizzle-orm/pg-core";
 import * as schema from "./schema";
 import { contentTableRegistry } from "./catalog-release";
 
@@ -133,7 +135,7 @@ describe("database schema", () => {
     const migration = readFileSync(resolve(process.cwd(), "drizzle/0002_ingestion_integrity.sql"), "utf8");
     const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0002_snapshot.json"), "utf8")) as { tables: Record<string, { columns: Record<string, unknown> }> };
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_nationwide_office_universe_intake"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_nationwide_office_universe_intake", "0018_office_universe_pilot_readiness"]);
     expect(snapshot.tables["public.ingest_runs"]?.columns).toEqual(expect.objectContaining({ snapshot_id: expect.anything(), lease_token: expect.anything(), failure_code: expect.anything() }));
     for (const name of ["guard_ingest_run", "guard_ingest_publication", "data_releases_ingest_publication_guard", "ingest_runs_one_live_identity_uq"]) expect(migration).toContain(name);
   });
@@ -193,7 +195,7 @@ describe("database schema", () => {
 
   it("keeps Task 10 in migration 0003 only", () => {
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_nationwide_office_universe_intake"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_nationwide_office_universe_intake", "0018_office_universe_pilot_readiness"]);
     expect(() => readFileSync(resolve(process.cwd(), "drizzle/0004_task10_oracle_hardening.sql"))).toThrow();
   });
 
@@ -202,7 +204,7 @@ describe("database schema", () => {
     const snapshot = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0004_snapshot.json"), "utf8")) as { prevId: string; tables: Record<string, { isRLSEnabled?: boolean }> };
     const prior = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/0003_snapshot.json"), "utf8")) as { id: string };
     const journal = JSON.parse(readFileSync(resolve(process.cwd(), "drizzle/meta/_journal.json"), "utf8")) as { entries: Array<{ tag: string }> };
-    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_nationwide_office_universe_intake"]);
+    expect(journal.entries.map((entry) => entry.tag)).toEqual(["0000_phase_1", "0001_phase_1_nationwide", "0002_ingestion_integrity", "0003_steep_kid_colt", "0004_large_johnny_storm", "0005_petite_black_bolt", "0006_launch_data_proofs", "0007_parallel_scrambler", "0008_hot_living_tribunal", "0009_ledger_identity_transcript", "0010_lyrical_silver_samurai", "0011_fec_v2_plan_expectation", "0012_factual_release_stages", "0013_nationwide_finalizer_role", "0014_acs_inheritance_proof", "0015_correction_reviewer_exclusivity", "0016_correction_maintenance_exclusivity", "0017_nationwide_office_universe_intake", "0018_office_universe_pilot_readiness"]);
     for (const table of ["correction_submissions", "correction_review_events", "correction_idempotency_keys", "correction_rate_limit_buckets"]) expect(snapshot.tables[`operations.${table}`]).toBeDefined();
     expect(snapshot.prevId).toBe(prior.id);
     for (const table of ["correction_submissions", "correction_review_events", "correction_idempotency_keys", "correction_rate_limit_buckets"]) expect(snapshot.tables[`operations.${table}`]!.isRLSEnabled).toBe(true);
@@ -263,6 +265,37 @@ describe("database schema", () => {
     expect(migration).not.toContain("REFERENCES public.");
     expect(migration).not.toContain("REFERENCES data_releases");
     expect(Object.keys(schema)).toEqual(expect.arrayContaining(["officeUniverse", "universeSourceRegistrations", "universeRawPayloads", "universeCoverage"]));
+  });
+
+  it("persists reviewed-source provenance and pilot run state as append-only office_universe data", () => {
+    const migration = readFileSync(resolve(process.cwd(), "drizzle/0018_office_universe_pilot_readiness.sql"), "utf8");
+    const parity: ReadonlyArray<readonly [string, PgTable]> = [["source_definitions", schema.universeSourceDefinitions], ["retained_object_receipts", schema.universeRetainedObjectReceipts], ["intake_runs", schema.universeIntakeRuns], ["intake_snapshots", schema.universeIntakeSnapshots], ["snapshot_issues", schema.universeSnapshotIssues]];
+    const tableList = parity.map(([table]) => `office_universe.${table}`).join(",");
+    for (const [table, drizzleTable] of parity) {
+      const ddl = migration.match(new RegExp(`CREATE TABLE office_universe\\.${table} \\((.*)\\);`))?.[1];
+      expect(migration).toContain(`CREATE TABLE office_universe.${table}`);
+      expect(ddl).toBeDefined();
+      const sqlColumns = [...ddl!.matchAll(/(?:^|, )([a-z_0-9]+) (?:text|jsonb|integer|bigint|boolean|timestamptz)\b/g)].map((match) => match[1]);
+      expect(Object.values(getTableColumns(drizzleTable)).map((column) => column.name).sort()).toEqual([...sqlColumns].sort());
+    }
+    expect(migration).toContain("REFERENCES office_universe.source_definitions(id)");
+    expect(migration).toContain("REFERENCES office_universe.retained_object_receipts(id)");
+    expect(migration).toContain("REFERENCES office_universe.intake_runs(id)");
+    expect(migration).toContain("REFERENCES office_universe.intake_snapshots(id)");
+    expect(migration.match(/REFERENCES\s+([a-z_.]+)/g)?.every((edge) => edge.startsWith("REFERENCES office_universe."))).toBe(true);
+    expect(migration).not.toMatch(/REFERENCES\s+(public\.|offices|seat_cycles)/);
+    expect(migration).not.toMatch(/raw_payloads[^\n]*REFERENCES/);
+    expect(migration).toContain("CHECK(status IN ('running','succeeded','failed','cancelled'))");
+    expect(migration).toContain("CHECK(disposition IN ('accepted','accepted_with_row_quarantine','quarantined'))");
+    expect(migration).toContain("CHECK(privacy_policy IN ('public_office_only','finance_allowlist'))");
+    expect(migration).toContain("CHECK(status IN ('draft','reviewed','rejected','retired'))");
+    expect(migration).toContain("CHECK(sha256 ~ '^[a-f0-9]{64}$')");
+    expect(migration).toContain("CHECK(source_url ~ '^https://')");
+    expect(migration).toContain(`GRANT SELECT,INSERT ON ${tableList} TO dsa_seats_ingest;`);
+    expect(migration).toContain(`REVOKE UPDATE,DELETE ON ${tableList} FROM dsa_seats_ingest;`);
+    expect(migration).toContain(`GRANT SELECT,INSERT,UPDATE,DELETE ON ${tableList} TO dsa_seats_migration_owner;`);
+    expect(migration).not.toMatch(/GRANT[^\n]*(UPDATE|DELETE|ALL)[^\n]*TO[^\n]*dsa_seats_ingest/);
+    expect(readFileSync(resolve(process.cwd(), "drizzle/0017_nationwide_office_universe_intake.sql"), "utf8")).not.toContain("0018");
   });
 
   it("isolates Task 12 address admission state and grants only current published reads", () => {
