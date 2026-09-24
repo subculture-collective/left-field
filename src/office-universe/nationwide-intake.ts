@@ -90,15 +90,57 @@ const ISO = ISO_UTC;
 export const isIsoUtc = (value: string): boolean => ISO_UTC.test(value) && !Number.isNaN(Date.parse(value));
 export const isUnsafeLocator = (locator: string): boolean =>
   locator.length === 0 || locator.startsWith("/") || locator.includes("\\") || locator.split("/").includes("..");
-const forbidden = /(?:\baddress\b|\bcontributor\b|\bsocial security\b)/i;
+export type PrivacyPolicy = SourceDefinition["privacyPolicy"];
+export type RawIntakeOptions = Readonly<{ privacyPolicy?: PrivacyPolicy }>;
+
+/** Reviewed payload keys for `public_office_only` sources. Every key at every
+ * depth must be listed; anything else quarantines the row. Extending this set
+ * is a privacy review, not a parser convenience. */
+export const PUBLIC_OFFICE_PAYLOAD_KEYS: ReadonlySet<string> = new Set([
+  "office", "district", "chamber", "body", "jurisdiction", "seat", "level", "state",
+  "name", "party", "candidate", "candidates", "incumbent", "winner",
+  "term", "term_start", "term_end", "cycle", "election", "election_date", "contest", "contests",
+  "source", "url", "observed_at", "status", "id", "key", "title",
+  "votes", "total_votes", "percent", "results", "result", "precincts_reporting", "precincts_total",
+]);
+
+/** No source-specific reviewed finance allowlist exists yet, so every
+ * `finance_allowlist` payload is rejected with this stable code. */
+export const FINANCE_ALLOWLIST_PENDING = "FINANCE_ALLOWLIST_PENDING";
+
+/** Walks nested objects and arrays and returns the dotted paths of keys outside `allowed`. */
+export function disallowedKeyPaths(payload: unknown, allowed: ReadonlySet<string>): readonly string[] {
+  const found: string[] = [];
+  const walk = (value: unknown, path: string): void => {
+    if (Array.isArray(value)) { value.forEach((item, index) => walk(item, `${path}[${index}]`)); return; }
+    if (value === null || typeof value !== "object") return;
+    for (const [key, child] of Object.entries(value as Record<string, unknown>)) {
+      const next = path ? `${path}.${key}` : key;
+      if (!allowed.has(key)) found.push(next);
+      walk(child, next);
+    }
+  };
+  walk(payload, "");
+  return found;
+}
+
+export function assessPayloadPrivacy(payload: unknown, privacyPolicy: PrivacyPolicy): readonly IntakeIssue[] {
+  if (privacyPolicy === "finance_allowlist")
+    return [{ code: FINANCE_ALLOWLIST_PENDING, diagnostic: "finance payloads are rejected until a source-specific reviewed allowlist exists" }];
+  return disallowedKeyPaths(payload, PUBLIC_OFFICE_PAYLOAD_KEYS).map((path) => ({ code: "PROHIBITED_PERSONAL_DATA", diagnostic: `payload key "${path}" is not in the reviewed public_office_only allowlist` }));
+}
 const naturalKey = (value: string | null) => value === null || value.trim().length > 0;
 
 /**
  * This is intentionally a quarantine-only gate. It protects raw retention and
  * graph integrity without requiring complete coverage, certification, or a
- * formula before data can enter the statewide/local intake lane.
+ * formula before data can enter the statewide/local intake lane. Privacy is
+ * enforced by reviewed key allowlists, not keyword scanning: the policy comes
+ * from the source definition, defaulting to `finance_allowlist` for finance
+ * rows and `public_office_only` otherwise.
  */
-export function assessRawIntake(record: RawIntakeRecord): IntakeDecision {
+export function assessRawIntake(record: RawIntakeRecord, options: RawIntakeOptions = {}): IntakeDecision {
+  const privacyPolicy = options.privacyPolicy ?? (record.kind === "finance" ? "finance_allowlist" : "public_office_only");
   const issues: IntakeIssue[] = [];
   if (!record.sourceKey || !record.snapshotId || !record.payloadLocator || !SHA.test(record.payloadSha256))
     issues.push({ code: "SOURCE_REFERENCE_INVALID", diagnostic: "source snapshot or immutable payload receipt is invalid" });
@@ -109,8 +151,7 @@ export function assessRawIntake(record: RawIntakeRecord): IntakeDecision {
     issues.push({ code: "OBSERVATION_TIME_INVALID", diagnostic: "observedAt is not an ISO UTC timestamp" });
   if (record.payload === null || typeof record.payload !== "object")
     issues.push({ code: "PAYLOAD_INVALID", diagnostic: "payload must be an object or array" });
-  if (forbidden.test(JSON.stringify(record.payload)))
-    issues.push({ code: "PROHIBITED_PERSONAL_DATA", diagnostic: "payload requires scoped privacy review" });
+  else issues.push(...assessPayloadPrivacy(record.payload, privacyPolicy));
   return { disposition: issues.length ? "quarantined" : "accepted", issues };
 }
 

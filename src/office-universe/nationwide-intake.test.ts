@@ -1,8 +1,11 @@
 import { describe, expect, it } from "vitest";
 
 import {
+  FINANCE_ALLOWLIST_PENDING,
+  PUBLIC_OFFICE_PAYLOAD_KEYS,
   STATE_CODES,
   assessRawIntake,
+  disallowedKeyPaths,
   buildNationwideSourceRegistry,
   holderTransitionFromResult,
   selectCalculationInputs,
@@ -24,6 +27,25 @@ describe("nationwide office-universe intake", () => {
   it("quarantines only unsafe intake records and accepts incomplete reported results", () => {
     expect(assessRawIntake(raw)).toEqual({ disposition: "accepted", issues: [] });
     expect(assessRawIntake({ ...raw, payloadLocator: "../escape", payload: { address: "not allowed" } })).toMatchObject({ disposition: "quarantined", issues: expect.arrayContaining([expect.objectContaining({ code: "PAYLOAD_LOCATOR_INVALID" }), expect.objectContaining({ code: "PROHIBITED_PERSONAL_DATA" })]) });
+  });
+
+  it("accepts nested public_office_only payloads only through the reviewed key allowlist", () => {
+    const nested = { contest: "HD-01", results: [{ candidate: { name: "A", party: "D" }, votes: 10 }, { candidate: { name: "B", party: "R" }, votes: 9 }], source: { url: "https://x.example", observed_at: "2026-05-06T01:00:00Z" } };
+    expect(assessRawIntake({ ...raw, payload: nested })).toEqual({ disposition: "accepted", issues: [] });
+    expect(assessRawIntake({ ...raw, payload: nested }, { privacyPolicy: "public_office_only" })).toEqual({ disposition: "accepted", issues: [] });
+    const leak = { contest: "HD-01", results: [{ candidate: { name: "A", home_address: "1 Main St" }, votes: 10 }] };
+    expect(assessRawIntake({ ...raw, payload: leak })).toEqual({ disposition: "quarantined", issues: [{ code: "PROHIBITED_PERSONAL_DATA", diagnostic: 'payload key "results[0].candidate.home_address" is not in the reviewed public_office_only allowlist' }] });
+    expect(assessRawIntake({ ...raw, payload: [{ contest: "HD-01" }, { phone: "555" }] })).toMatchObject({ disposition: "quarantined", issues: [expect.objectContaining({ diagnostic: expect.stringContaining('"[1].phone"') })] });
+    expect(disallowedKeyPaths({ office: { chamber: "house", email: "x", meta: { votes: 1, ssn: "y" } } }, PUBLIC_OFFICE_PAYLOAD_KEYS)).toEqual(["office.email", "office.meta", "office.meta.ssn"]);
+    expect(PUBLIC_OFFICE_PAYLOAD_KEYS.has("address")).toBe(false);
+    expect(PUBLIC_OFFICE_PAYLOAD_KEYS.has("contributor")).toBe(false);
+  });
+
+  it("rejects every finance_allowlist payload until a reviewed allowlist exists", () => {
+    const finance = { office: "HD-01", votes: 1 };
+    expect(assessRawIntake({ ...raw, payload: finance }, { privacyPolicy: "finance_allowlist" })).toEqual({ disposition: "quarantined", issues: [{ code: FINANCE_ALLOWLIST_PENDING, diagnostic: expect.stringContaining("finance") }] });
+    expect(assessRawIntake({ ...raw, kind: "finance", payload: finance })).toMatchObject({ disposition: "quarantined", issues: [{ code: FINANCE_ALLOWLIST_PENDING }] });
+    expect(assessRawIntake({ ...raw, kind: "finance", payload: {} }, { privacyPolicy: "finance_allowlist" })).toMatchObject({ disposition: "quarantined" });
   });
 
   it("keeps a primary winner pending until a sourced term transition and separates calculation workspaces", () => {
