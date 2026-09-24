@@ -1,9 +1,8 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { validateCountyDemographicsProjection } from "./county-demographics";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, sha, exact } from "./shared";
 
 const SOURCE = {
   id: "medsl-2024-senate-county-results",

@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, sha, exact } from "./shared";
 
 export interface MissouriStateLegislativeContest { readonly contestId: string; readonly cycleYear: 2022 | 2024; readonly electionDate: "2022-08-02" | "2024-08-06"; readonly chamber: "upper" | "lower"; readonly district: string; readonly rawParty: "Democratic" | "Republican"; readonly candidates: readonly Readonly<{ sourceCandidateKey: string; sourceName: string; votes: number }>[]; readonly totalVotes: number; readonly resultAuthorityStatus: "official_secretary_primary_results_pdf_retained"; readonly certificationStatus: "separate_candidate_level_certification_instrument_not_retained"; readonly sourceWinnerStatus: "not_marked_by_source"; readonly winnerIdentity: null; readonly identity: null; readonly sourceLockIds: readonly string[]; readonly formulaEligible: false; readonly contestSha256: string }
 type CycleSummary = Readonly<{ cycleYear: 2022 | 2024; districtTables: 180; partyContests: number; candidateRows: number; candidateVotes: number }>;

@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { validateMissouriPrimaryResults } from "./house-primary-missouri-results";
 import { type HousePrimaryCoverageLedgerV4, type HousePrimaryProjectionV4, type HousePrimaryV4Observation, validateHousePrimaryProjectionV4 } from "./house-primary-projection-v4";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, exact } from "./shared";
 
 export interface HousePrimaryProjectionV5 {
   readonly schema: "rapid-house-primary-projection-v5";

@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { housePriorityBriefsV03 } from "@/lib/house-priority-index";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, exact, hash, houseRoute, sha } from "./shared";
 
 type DemographicRow = { countyFips: string; stateCode: string; population: number; medianHouseholdIncome: number | null; renterShare: number | null; age18To34Share: number | null; populationDensityPerSquareMile: number };
 type ElectionRow = { countyFips: string; stateCode: string; cycleYear: number; registeredVoters: number | null; ballotsCast: number | null };
@@ -170,7 +170,7 @@ export function buildHouseScoreV04ShadowProjection(root = process.cwd()): HouseS
       }
     }
     const movement = one(shadowScore - brief.provisionalTargetScore);
-    const unsigned = { seatCycleId: brief.seatCycleId, districtLabel: brief.districtLabel, incumbentParty: brief.incumbentParty, qualifyingRoute: brief.qualifyingRoute, activeScoreVersion: "v0.3" as const, activeScore: brief.provisionalTargetScore, localContext: local ? one(local.value) : null, localContextAvailableWeight: local?.availableWeight ?? 0, localContextComponents: local?.components ?? { inverseBallotsCastToCvap: null, inverseActiveRegistrationToCvap: null, downBallotDemocraticOverperformance: null, demographicOpportunity: null }, exactGeographyJoin, shadowScoreVersion: "v0.4-shadow" as const, shadowScore, movement, activationEligible: false, sourceLockIds };
+    const unsigned = { seatCycleId: brief.seatCycleId, districtLabel: brief.districtLabel, incumbentParty: brief.incumbentParty, qualifyingRoute: houseRoute(brief.qualifyingRoute), activeScoreVersion: "v0.3" as const, activeScore: brief.provisionalTargetScore, localContext: local ? one(local.value) : null, localContextAvailableWeight: local?.availableWeight ?? 0, localContextComponents: local?.components ?? { inverseBallotsCastToCvap: null, inverseActiveRegistrationToCvap: null, downBallotDemocraticOverperformance: null, demographicOpportunity: null }, exactGeographyJoin, shadowScoreVersion: "v0.4-shadow" as const, shadowScore, movement, activationEligible: false, sourceLockIds };
     return { ...unsigned, rowSha256: hash("dsa-seats:house-score-v04-shadow-row:v1", unsigned) };
   }).sort((left, right) => byteCompare(left.seatCycleId, right.seatCycleId));
   const routeChanges = 0 as const, activeScoreChanges = 0 as const;

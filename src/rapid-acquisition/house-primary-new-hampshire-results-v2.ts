@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { unzipSync } from "fflate";
 import { type NewHampshirePrimaryResult, validateNewHampshirePrimaryResults } from "./house-primary-new-hampshire-results";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, sha, exact } from "./shared";
 
 export interface NewHampshirePrimaryResult2022 {
   readonly resultId: `nh:primary:2022:${"01" | "02"}:democratic`;

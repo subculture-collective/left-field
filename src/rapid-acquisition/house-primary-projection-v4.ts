@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { validateKentuckyPrimaryResults } from "./house-primary-kentucky-results";
 import { type HousePrimaryCoverageLedgerV3, type HousePrimaryProjectionV3, type HousePrimaryV3Observation, validateHousePrimaryProjectionV3 } from "./house-primary-projection-v3";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, exact } from "./shared";
 
 export type HousePrimaryV4Observation = Omit<HousePrimaryV3Observation, "resultAuthorityStatus"> & Readonly<{
   resultAuthorityStatus: HousePrimaryV3Observation["resultAuthorityStatus"] | "official_primary_result_pdf_retained_no_separate_certification_instrument";

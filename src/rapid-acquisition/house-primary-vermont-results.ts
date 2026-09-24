@@ -1,7 +1,6 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, sha, exact } from "./shared";
 
 export interface VermontPrimaryResult {
   readonly resultId: `vt:primary:${2022 | 2024}:al:democratic`;

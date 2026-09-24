@@ -8,7 +8,7 @@ import { validateCountyDemographicsProjection } from "./county-demographics";
 import { validateCountyElectionContextProjection } from "./county-election-context";
 import { validateCountyHouseResultsProjection } from "./county-house-results";
 import { validateHouseScoreV06ActiveProjection } from "./house-score-v06-active";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, exact, hash, houseRoute, sha } from "./shared";
 
 type ActivationContext = Readonly<{
   inverseBallotsCastToCvap: number;
@@ -170,7 +170,7 @@ export function buildHouseScoreV07ActiveProjection(root = process.cwd()): HouseS
     const newlyEligible = brief.districtLabel === "ND-AL" && parent.downBallotDemocraticOverperformance === null && parent.exactGeographyJoin === "at_large_statewide";
     const activeScore = newlyEligible ? score(brief, localContext) : parent.activeScore;
     const unsigned = {
-      seatCycleId: brief.seatCycleId, districtLabel: brief.districtLabel, incumbentParty: brief.incumbentParty, qualifyingRoute: brief.qualifyingRoute,
+      seatCycleId: brief.seatCycleId, districtLabel: brief.districtLabel, incumbentParty: brief.incumbentParty, qualifyingRoute: houseRoute(brief.qualifyingRoute),
       previousScoreVersion: "v0.6" as const, previousScore: parent.activeScore, activeScoreVersion: "v0.7" as const, activeScore,
       localContext: newlyEligible ? localContext : parent.localContext, localContextAvailableWeight: newlyEligible ? availableWeight : parent.localContextAvailableWeight,
       downBallotDemocraticOverperformance: newlyEligible ? component : parent.downBallotDemocraticOverperformance,

@@ -106,7 +106,9 @@ const date = (raw: string): string => {
   const match = /^(\d{2})(\d{2})(\d{4})$/.exec(raw);
   if (!match) throw new Error("AIPAC_NUMERIC_PAS2_DATE_INVALID");
   const value = `${match[3]}-${match[1]}-${match[2]}`;
-  if (new Date(`${value}T00:00:00.000Z`).toISOString().slice(0, 10) !== value) throw new Error("AIPAC_NUMERIC_PAS2_DATE_INVALID");
+  const parsed = new Date(`${value}T00:00:00.000Z`);
+  // An out-of-range month or day yields an invalid Date; report the documented code rather than a raw RangeError.
+  if (Number.isNaN(parsed.getTime()) || parsed.toISOString().slice(0, 10) !== value) throw new Error("AIPAC_NUMERIC_PAS2_DATE_INVALID");
   return value;
 };
 const cents = (raw: string): bigint => {

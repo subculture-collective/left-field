@@ -1,27 +1,31 @@
 import type { PriorityIndexRepository, ModelRelease } from "./priority-index-repository";
 import type { PublicPriorityBrief } from "./house-priority-index";
 import { housePriorityBriefs } from "./house-priority-index";
-
-// This is the runtime-relevant version string shown in the UI.
-const CURRENT_VERSION = "v0.8";
-const CURRENT_PUBLISHED_AT = "2026-08-09";
-const CURRENT_CUTOFF_DATE = "2026-08-04";
+import { readPriorityIndexRelease, type PriorityIndexRelease } from "./priority-index-release";
+import { senatePriorityBriefs } from "./senate-priority-index";
 
 let _instance: FilesystemPriorityIndexRepository | undefined;
 
+/** One list across chambers: sorted by score, then by stable seat id, then ranked. */
+export const rankAcrossChambers = (briefs: readonly PublicPriorityBrief[]): PublicPriorityBrief[] =>
+  [...briefs].sort((a, b) => b.provisionalTargetScore - a.provisionalTargetScore || a.seatCycleId.localeCompare(b.seatCycleId)).map((row, index) => ({ ...row, rank: index + 1 }));
+
 export class FilesystemPriorityIndexRepository implements PriorityIndexRepository {
   private _briefs: PublicPriorityBrief[] | undefined;
+  private _release: PriorityIndexRelease | undefined;
+
+  getRelease(): PriorityIndexRelease {
+    if (!this._release) this._release = readPriorityIndexRelease();
+    return this._release;
+  }
 
   getModelRelease(): ModelRelease {
-    return {
-      version: CURRENT_VERSION,
-      publishedAt: CURRENT_PUBLISHED_AT,
-      cutoffDate: CURRENT_CUTOFF_DATE,
-    };
+    const release = this.getRelease();
+    return { version: release.modelVersion, publishedAt: release.publishedAt, cutoffDate: release.sourceCutoff };
   }
 
   getBriefs(): readonly PublicPriorityBrief[] {
-    if (!this._briefs) this._briefs = [...housePriorityBriefs()];
+    if (!this._briefs) this._briefs = rankAcrossChambers([...housePriorityBriefs(), ...senatePriorityBriefs()]);
     return this._briefs;
   }
 

@@ -12,7 +12,7 @@ describe("rapid local-context coverage read model", () => {
   it("is absent without the generated receipt", async () => expect(await loadRapidLocalContextCoverage(await root())).toBeNull());
   it("loads locked local-context coverage without rebuilding source archives", async () => {
     const value = await loadRapidLocalContextCoverage();
-    expect(value?.schema).toBe("rapid-local-context-coverage-v15");
+    expect(value?.schema).toBe("rapid-local-context-coverage-v16");
     expect(value?.artifacts).toHaveLength(17);
     expect(value?.artifacts.every((artifact) => artifact.formulaEligibleCount === 0)).toBe(true);
     expect(value?.artifacts.find((artifact) => artifact.id === "rapid-county-senate-results-projection-v1")?.scope).toContain("incomplete 29-state");

@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { type MissouriPrimaryResult, validateMissouriPrimaryResults } from "./house-primary-missouri-results";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, sha, exact } from "./shared";
 
 export interface MissouriPrimaryResult2022 {
   readonly resultId: "mo:primary:2022:01:democratic" | "mo:primary:2022:05:democratic";

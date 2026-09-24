@@ -1,11 +1,10 @@
-import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { unzipSync } from "fflate";
 
 import { validateCountyDemographicsProjection } from "./county-demographics";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, sha, exact } from "./shared";
 
 export interface CountyElectionContextRow {
   readonly countyFips: string;

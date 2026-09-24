@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { validateHousePrimaryProjection } from "./house-primary-projection";
 import { validateHousePrimarySourceRegistry } from "./source-registry";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, exact } from "./shared";
 
 export interface StructuredPrimaryCandidate {
   readonly sourceCandidateKey: string;

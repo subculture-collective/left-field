@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { validateMississippiPrimaryResults } from "./house-primary-mississippi-results";
 import { type HousePrimaryCoverageLedgerV5, type HousePrimaryProjectionV5, validateHousePrimaryProjectionV5 } from "./house-primary-projection-v5";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, exact } from "./shared";
 
 type ParentObservation = HousePrimaryProjectionV5["observations"][number];
 export type HousePrimaryV6Observation = Omit<ParentObservation, "resultAuthorityStatus"> & Readonly<{ resultAuthorityStatus: ParentObservation["resultAuthorityStatus"] | "official_statewide_democratic_recap_pdf_retained_no_separate_certification_instrument" }>;

@@ -7,7 +7,7 @@ import { validateCountyHouseResults2022Projection } from "./county-house-results
 import { validateCountyHouseResultsProjection } from "./county-house-results";
 import { validateCountySenateResultsProjection } from "./county-senate-results";
 import { validateIndianaStateLegislativeResults } from "./indiana-state-legislative-results";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { canonical, hash } from "./shared";
 
 type Artifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0 }>;
 export interface RapidLocalContextCoverageV4 { readonly schema: "rapid-local-context-coverage-v4"; readonly version: 4; readonly releaseRelationship: "separate_rapid_acquisition_excluded_from_released_score"; readonly artifacts: readonly Artifact[]; readonly artifactSetSha256: string; readonly packageSha256: string }

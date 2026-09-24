@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { releaseIdSchema, seatCycleIdSchema, contestIdSchema, candidacyIdSchema, resultOptionIdSchema, personIdSchema, geographyVersionIdSchema, isoDateSchema } from "./primitives";
-import { partySchema, provenanceReferenceSchema, factValueSchema, factStatusSchema } from "./shared";
+import { partySchema, provenanceReferenceSchema, factValueSchema } from "./shared";
 import { lineageSchema } from "./identity";
 
 const sourcedRecord = {

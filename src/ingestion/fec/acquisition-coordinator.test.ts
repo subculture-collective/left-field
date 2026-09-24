@@ -22,7 +22,7 @@ describe("Task7 decoded evidence vectors", () => {
     const source = readFileSync("src/ingestion/fec/acquisition-coordinator.ts", "utf8");
     expect(source).toContain('id.rawAvailability !== "available" ? "source_unavailable"');
     expect(source).toContain('FEC_V2_ACQUISITION_EVIDENCE_INCONSISTENT');
-    expect(source).toContain('e.code === "FEC_SANITIZED_ACQUISITION_UNAVAILABLE" && e.processingOutcome === "source_unavailable"');
+    expect(source).toContain('error.code === "FEC_SANITIZED_ACQUISITION_UNAVAILABLE" && error.processingOutcome === "source_unavailable"');
     expect(source).not.toContain("e.processingOutcome) return x.acquisition.stageAcquisitionOutcome");
   });
   it("replays completed closures through the same graph proof before issuing its reuse attestation", () => {

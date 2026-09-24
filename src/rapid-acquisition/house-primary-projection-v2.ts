@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { validateHousePrimaryProjection } from "./house-primary-projection";
 import { validateStructuredPrimaryResults } from "./house-primary-structured-results";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, exact } from "./shared";
 
 export type HousePrimaryV2Status = "parsed" | "source_absent" | "ready_unparsed" | "source_blocked" | "authority_unavailable" | "future_event" | "not_held";
 export interface HousePrimaryV2Observation {

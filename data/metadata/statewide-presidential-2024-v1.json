@@ -1,0 +1,532 @@
+{
+  "schema": "statewide-presidential-2024-v1",
+  "version": 1,
+  "sourceIds": [
+    "clerk-text"
+  ],
+  "methodology": {
+    "marginDefinition": "democratic_minus_republican_share_of_all_listed_presidential_elector_votes",
+    "partyLabels": "Republican_and_Democratic_lines_only_others_summed"
+  },
+  "rows": [
+    {
+      "stateCode": "AK",
+      "stateName": "Alaska",
+      "republicanVotes": 184458,
+      "democraticVotes": 140026,
+      "otherVotes": 13693,
+      "totalVotes": 338177,
+      "democraticMarginPercentagePoints": -13.14,
+      "rowSha256": "69c904193951087ebb6aa5cdb9f3ac6afe57b4d4029518c6017d975c1e8e2031"
+    },
+    {
+      "stateCode": "AL",
+      "stateName": "Alabama",
+      "republicanVotes": 1462616,
+      "democraticVotes": 772412,
+      "otherVotes": 30062,
+      "totalVotes": 2265090,
+      "democraticMarginPercentagePoints": -30.47,
+      "rowSha256": "c4edb94e0c71d88d52723d0f22c5b6ad8315df36835023d4e02435132253869e"
+    },
+    {
+      "stateCode": "AR",
+      "stateName": "Arkansas",
+      "republicanVotes": 759241,
+      "democraticVotes": 396905,
+      "otherVotes": 26530,
+      "totalVotes": 1182676,
+      "democraticMarginPercentagePoints": -30.64,
+      "rowSha256": "49eedfa51a697c46336072509147613ef25c83a27c7a61fd2021602f2fa7a1e0"
+    },
+    {
+      "stateCode": "AZ",
+      "stateName": "Arizona",
+      "republicanVotes": 1770242,
+      "democraticVotes": 1582860,
+      "otherVotes": 37059,
+      "totalVotes": 3390161,
+      "democraticMarginPercentagePoints": -5.53,
+      "rowSha256": "422f9d3d49bbfae1e8c8999c90a724117ed35d0fe37876e499677d79b5e1c57a"
+    },
+    {
+      "stateCode": "CA",
+      "stateName": "California",
+      "republicanVotes": 6081697,
+      "democraticVotes": 9276179,
+      "otherVotes": 507599,
+      "totalVotes": 15865475,
+      "democraticMarginPercentagePoints": 20.13,
+      "rowSha256": "669a8e25484a1f9c976aed9535e2b4b7b19f6aa166962ecd8ce1b105c83b31a5"
+    },
+    {
+      "stateCode": "CO",
+      "stateName": "Colorado",
+      "republicanVotes": 1377441,
+      "democraticVotes": 1728159,
+      "otherVotes": 87145,
+      "totalVotes": 3192745,
+      "democraticMarginPercentagePoints": 10.98,
+      "rowSha256": "8ee5add5d0026e16b0177d4c3537a10534542143e0406a9db1bb682f5d76bb3e"
+    },
+    {
+      "stateCode": "CT",
+      "stateName": "Connecticut",
+      "republicanVotes": 736918,
+      "democraticVotes": 992053,
+      "otherVotes": 30039,
+      "totalVotes": 1759010,
+      "democraticMarginPercentagePoints": 14.5,
+      "rowSha256": "afd48143e4ed5bd099819e4eb5c90989a1fb6f674ed27b07c9feeab21472c76f"
+    },
+    {
+      "stateCode": "DC",
+      "stateName": "District of Columbia",
+      "republicanVotes": 21076,
+      "democraticVotes": 294185,
+      "otherVotes": 13143,
+      "totalVotes": 328404,
+      "democraticMarginPercentagePoints": 83.16,
+      "rowSha256": "e5c6f4322e3ddb94f86fe3c2f07be11157a40dd249afca83255241740833b604"
+    },
+    {
+      "stateCode": "DE",
+      "stateName": "Delaware",
+      "republicanVotes": 214351,
+      "democraticVotes": 289758,
+      "otherVotes": 8803,
+      "totalVotes": 512912,
+      "democraticMarginPercentagePoints": 14.7,
+      "rowSha256": "1357fa7dbe43ccf41f201f66386abe44df79c7c492ddd9191c09f79afdb3fc81"
+    },
+    {
+      "stateCode": "FL",
+      "stateName": "Florida",
+      "republicanVotes": 6110125,
+      "democraticVotes": 4683038,
+      "otherVotes": 100589,
+      "totalVotes": 10893752,
+      "democraticMarginPercentagePoints": -13.1,
+      "rowSha256": "e99c6b45d9828f9d233e80caac434fed3fc5bc35a86e5c5896317f65e2890a60"
+    },
+    {
+      "stateCode": "GA",
+      "stateName": "Georgia",
+      "republicanVotes": 2663117,
+      "democraticVotes": 2548017,
+      "otherVotes": 38913,
+      "totalVotes": 5250047,
+      "democraticMarginPercentagePoints": -2.19,
+      "rowSha256": "698b7c6511653d9cdb58be539f38e9bea6fa4d2c8def38ad3db6920aa47df2bc"
+    },
+    {
+      "stateCode": "HI",
+      "stateName": "Hawaii",
+      "republicanVotes": 193661,
+      "democraticVotes": 313044,
+      "otherVotes": 15531,
+      "totalVotes": 522236,
+      "democraticMarginPercentagePoints": 22.86,
+      "rowSha256": "ed6198c05abc584eb72d665d6a07947578ee0efac6ed5252f59b61c70685be04"
+    },
+    {
+      "stateCode": "IA",
+      "stateName": "Iowa",
+      "republicanVotes": 927019,
+      "democraticVotes": 707278,
+      "otherVotes": 29209,
+      "totalVotes": 1663506,
+      "democraticMarginPercentagePoints": -13.21,
+      "rowSha256": "1eeffd9bb84b2478de9718cb16e33ad0a0302693513bd071105099145dbe219a"
+    },
+    {
+      "stateCode": "ID",
+      "stateName": "Idaho",
+      "republicanVotes": 605246,
+      "democraticVotes": 274972,
+      "otherVotes": 37248,
+      "totalVotes": 917466,
+      "democraticMarginPercentagePoints": -36,
+      "rowSha256": "3d02e04f78c6e897a0f0f117288797994067563eed1e92e18c2d20cfb3cc41d7"
+    },
+    {
+      "stateCode": "IL",
+      "stateName": "Illinois",
+      "republicanVotes": 2449079,
+      "democraticVotes": 3062863,
+      "otherVotes": 121368,
+      "totalVotes": 5633310,
+      "democraticMarginPercentagePoints": 10.9,
+      "rowSha256": "0115ff3bfcadc91607c0c99a5c809c84f3fd533ab7f142e2fecccc9163b5b0dd"
+    },
+    {
+      "stateCode": "IN",
+      "stateName": "Indiana",
+      "republicanVotes": 1720347,
+      "democraticVotes": 1163603,
+      "otherVotes": 52727,
+      "totalVotes": 2936677,
+      "democraticMarginPercentagePoints": -18.96,
+      "rowSha256": "4f852cad715d0f12a1b09f9dd39289812fef8f52a5b8c607d31e7c3c67872fb8"
+    },
+    {
+      "stateCode": "KS",
+      "stateName": "Kansas",
+      "republicanVotes": 758802,
+      "democraticVotes": 544853,
+      "otherVotes": 23936,
+      "totalVotes": 1327591,
+      "democraticMarginPercentagePoints": -16.12,
+      "rowSha256": "c49cbccca08222bee1147401027d5018eb5e40bcde17a118404d48d250314c84"
+    },
+    {
+      "stateCode": "KY",
+      "stateName": "Kentucky",
+      "republicanVotes": 1337494,
+      "democraticVotes": 704043,
+      "otherVotes": 32993,
+      "totalVotes": 2074530,
+      "democraticMarginPercentagePoints": -30.53,
+      "rowSha256": "94f500c2b8c062b0238e64466f9d6a25d3808413c0dcbe0db4da38512701783e"
+    },
+    {
+      "stateCode": "LA",
+      "stateName": "Louisiana",
+      "republicanVotes": 1208505,
+      "democraticVotes": 766870,
+      "otherVotes": 31239,
+      "totalVotes": 2006614,
+      "democraticMarginPercentagePoints": -22.01,
+      "rowSha256": "8b874ebd32a22f2dc387bcf0192f49cb91d98425e3cda54cb01ca08ee0819de6"
+    },
+    {
+      "stateCode": "MA",
+      "stateName": "Massachusetts",
+      "republicanVotes": 1251303,
+      "democraticVotes": 2126518,
+      "otherVotes": 135109,
+      "totalVotes": 3512930,
+      "democraticMarginPercentagePoints": 24.91,
+      "rowSha256": "0b757bbff7f17a4dda8dc741a64d7632871e0c40ac585febde79153bc9e2f246"
+    },
+    {
+      "stateCode": "MD",
+      "stateName": "Maryland",
+      "republicanVotes": 1035550,
+      "democraticVotes": 1902577,
+      "otherVotes": 100207,
+      "totalVotes": 3038334,
+      "democraticMarginPercentagePoints": 28.54,
+      "rowSha256": "d3e72d43cdd1596183d4c45b1316488c127d7ac740b6e923048f61fdf1b8dba8"
+    },
+    {
+      "stateCode": "ME",
+      "stateName": "Maine",
+      "republicanVotes": 377837,
+      "democraticVotes": 435351,
+      "otherVotes": 29259,
+      "totalVotes": 842447,
+      "democraticMarginPercentagePoints": 6.83,
+      "rowSha256": "0c0b51bb5ceb602f1d16916e45d9c7804bd5f28998af50fdf53a8349b7c60563"
+    },
+    {
+      "stateCode": "MI",
+      "stateName": "Michigan",
+      "republicanVotes": 2816636,
+      "democraticVotes": 2736533,
+      "otherVotes": 111017,
+      "totalVotes": 5664186,
+      "democraticMarginPercentagePoints": -1.41,
+      "rowSha256": "b984b0c0495d41943d5395a4fdad6facdb258c7429d53b0ddbf45e1c3d294d1b"
+    },
+    {
+      "stateCode": "MN",
+      "stateName": "Minnesota",
+      "republicanVotes": 1519032,
+      "democraticVotes": 1656979,
+      "otherVotes": 77909,
+      "totalVotes": 3253920,
+      "democraticMarginPercentagePoints": 4.24,
+      "rowSha256": "e5e660b61d8856abb4e65dd926995e4de8f5d465846a19c4250ad327688f6811"
+    },
+    {
+      "stateCode": "MO",
+      "stateName": "Missouri",
+      "republicanVotes": 1751986,
+      "democraticVotes": 1200599,
+      "otherVotes": 42742,
+      "totalVotes": 2995327,
+      "democraticMarginPercentagePoints": -18.41,
+      "rowSha256": "f3bf9a8ca88a1f9c659ed223e65e997ee83dd6150125787909f1a51c1266ad27"
+    },
+    {
+      "stateCode": "MS",
+      "stateName": "Mississippi",
+      "republicanVotes": 747744,
+      "democraticVotes": 466668,
+      "otherVotes": 13596,
+      "totalVotes": 1228008,
+      "democraticMarginPercentagePoints": -22.89,
+      "rowSha256": "e7b4d1052c494702c05294533aefd5fca996e622666170c2738f3504184187e8"
+    },
+    {
+      "stateCode": "MT",
+      "stateName": "Montana",
+      "republicanVotes": 352079,
+      "democraticVotes": 231906,
+      "otherVotes": 18978,
+      "totalVotes": 602963,
+      "democraticMarginPercentagePoints": -19.93,
+      "rowSha256": "dcce6f85c4ad642e1733eebb5f525a8d58e8d3f9e2ea9fbae6fb3275463a8487"
+    },
+    {
+      "stateCode": "NC",
+      "stateName": "North Carolina",
+      "republicanVotes": 2898423,
+      "democraticVotes": 2715375,
+      "otherVotes": 85343,
+      "totalVotes": 5699141,
+      "democraticMarginPercentagePoints": -3.21,
+      "rowSha256": "fa24ca35ba92f63fd45c18cc016696e1dc156cfee0e0acfd3d6278ac5775ae51"
+    },
+    {
+      "stateCode": "ND",
+      "stateName": "North Dakota",
+      "republicanVotes": 246505,
+      "democraticVotes": 112327,
+      "otherVotes": 9323,
+      "totalVotes": 368155,
+      "democraticMarginPercentagePoints": -36.45,
+      "rowSha256": "66d8c570f8b5dab71e3c48feb20a0126c304a633311eed32fc02cc4504834c9f"
+    },
+    {
+      "stateCode": "NE",
+      "stateName": "Nebraska",
+      "republicanVotes": 564816,
+      "democraticVotes": 369995,
+      "otherVotes": 17371,
+      "totalVotes": 952182,
+      "democraticMarginPercentagePoints": -20.46,
+      "rowSha256": "2cf50ca7cfd28d0f24d200a1e73776612268eda7f69c641c9cfa3ab4c1c520f9"
+    },
+    {
+      "stateCode": "NH",
+      "stateName": "New Hampshire",
+      "republicanVotes": 395523,
+      "democraticVotes": 418488,
+      "otherVotes": 17022,
+      "totalVotes": 831033,
+      "democraticMarginPercentagePoints": 2.76,
+      "rowSha256": "37ae402620d90b3b1ba7e0f60b0c16a31da052b85ac47ab53a05884ed2bc64ab"
+    },
+    {
+      "stateCode": "NJ",
+      "stateName": "New Jersey",
+      "republicanVotes": 1968215,
+      "democraticVotes": 2220713,
+      "otherVotes": 83797,
+      "totalVotes": 4272725,
+      "democraticMarginPercentagePoints": 5.91,
+      "rowSha256": "1f88ec0b451c65c3085f138a2da598fbb2f59cad5ed365eb0e376d5710484be2"
+    },
+    {
+      "stateCode": "NM",
+      "stateName": "New Mexico",
+      "republicanVotes": 423391,
+      "democraticVotes": 478802,
+      "otherVotes": 21210,
+      "totalVotes": 923403,
+      "democraticMarginPercentagePoints": 6,
+      "rowSha256": "f3e483cefb36d7e70d965f2a278aa83b746bdfe073ef9dd52909442fe8b4e787"
+    },
+    {
+      "stateCode": "NV",
+      "stateName": "Nevada",
+      "republicanVotes": 751205,
+      "democraticVotes": 705197,
+      "otherVotes": 28438,
+      "totalVotes": 1484840,
+      "democraticMarginPercentagePoints": -3.1,
+      "rowSha256": "5e09b208aeeeb22a5bec501cfb251100d5473f86d2b24046f42c9f0e34d3c1b7"
+    },
+    {
+      "stateCode": "NY",
+      "stateName": "New York",
+      "republicanVotes": 3257166,
+      "democraticVotes": 4341375,
+      "otherVotes": 781917,
+      "totalVotes": 8380458,
+      "democraticMarginPercentagePoints": 12.94,
+      "rowSha256": "41a4632d179796ae58b2b71d566d4da1860c22ec799458a8c98a4bd1104fa209"
+    },
+    {
+      "stateCode": "OH",
+      "stateName": "Ohio",
+      "republicanVotes": 3180116,
+      "democraticVotes": 2533699,
+      "otherVotes": 53973,
+      "totalVotes": 5767788,
+      "democraticMarginPercentagePoints": -11.21,
+      "rowSha256": "8c0904f168c33d68334b2f8a445744ca94e729f7ac915e2cca49c6cc33f2fe9d"
+    },
+    {
+      "stateCode": "OK",
+      "stateName": "Oklahoma",
+      "republicanVotes": 1036213,
+      "democraticVotes": 499599,
+      "otherVotes": 30361,
+      "totalVotes": 1566173,
+      "democraticMarginPercentagePoints": -34.26,
+      "rowSha256": "1080be5457268f44e7addd28e7546286847d78ed607753b10e6083f2f2e295b2"
+    },
+    {
+      "stateCode": "OR",
+      "stateName": "Oregon",
+      "republicanVotes": 919480,
+      "democraticVotes": 1240600,
+      "otherVotes": 84413,
+      "totalVotes": 2244493,
+      "democraticMarginPercentagePoints": 14.31,
+      "rowSha256": "dbcbee82217661838d4cb23578233a4df333b39b5b80323a9ddc95a451ef52ac"
+    },
+    {
+      "stateCode": "PA",
+      "stateName": "Pennsylvania",
+      "republicanVotes": 3543308,
+      "democraticVotes": 3423042,
+      "otherVotes": 67856,
+      "totalVotes": 7034206,
+      "democraticMarginPercentagePoints": -1.71,
+      "rowSha256": "8eaf406340af07f9995ab4e871c206b0b592a6e124e1841edbb62d4da44d413d"
+    },
+    {
+      "stateCode": "RI",
+      "stateName": "Rhode Island",
+      "republicanVotes": 214406,
+      "democraticVotes": 285156,
+      "otherVotes": 13824,
+      "totalVotes": 513386,
+      "democraticMarginPercentagePoints": 13.78,
+      "rowSha256": "484355d2cab92723d4b58f83056864c751f06cf884c3aad447a77d865e855859"
+    },
+    {
+      "stateCode": "SC",
+      "stateName": "South Carolina",
+      "republicanVotes": 1483747,
+      "democraticVotes": 1028452,
+      "otherVotes": 30589,
+      "totalVotes": 2542788,
+      "democraticMarginPercentagePoints": -17.91,
+      "rowSha256": "16bf1d9ea2df7ec5483d3ae6fcbf052aacae729a27a019adb21e0f3cc2bd58eb"
+    },
+    {
+      "stateCode": "SD",
+      "stateName": "South Dakota",
+      "republicanVotes": 272081,
+      "democraticVotes": 146859,
+      "otherVotes": 9982,
+      "totalVotes": 428922,
+      "democraticMarginPercentagePoints": -29.19,
+      "rowSha256": "ff69e9ba2c1941f62b111c3e022bcfc0e32a93f7516dbdd82f65ee76862ffab2"
+    },
+    {
+      "stateCode": "TN",
+      "stateName": "Tennessee",
+      "republicanVotes": 1966865,
+      "democraticVotes": 1056265,
+      "otherVotes": 40812,
+      "totalVotes": 3063942,
+      "democraticMarginPercentagePoints": -29.72,
+      "rowSha256": "9baec154899c942dbcb10671069c9cd6addf6c506d1679060df6a128af3b232f"
+    },
+    {
+      "stateCode": "TX",
+      "stateName": "Texas",
+      "republicanVotes": 6393597,
+      "democraticVotes": 4835250,
+      "otherVotes": 159827,
+      "totalVotes": 11388674,
+      "democraticMarginPercentagePoints": -13.68,
+      "rowSha256": "03cd4e8fb7036bd0aa634c369b7aa08cf2e653939941f1db4b4781427ba8f173"
+    },
+    {
+      "stateCode": "UT",
+      "stateName": "Utah",
+      "republicanVotes": 883818,
+      "democraticVotes": 562566,
+      "otherVotes": 42110,
+      "totalVotes": 1488494,
+      "democraticMarginPercentagePoints": -21.58,
+      "rowSha256": "dee19fd899be56ab8ad55da9c66e16dba7543744c64342946495e04f8ae65c6e"
+    },
+    {
+      "stateCode": "VA",
+      "stateName": "Virginia",
+      "republicanVotes": 2075085,
+      "democraticVotes": 2335395,
+      "otherVotes": 95461,
+      "totalVotes": 4505941,
+      "democraticMarginPercentagePoints": 5.78,
+      "rowSha256": "e19da5f549fcc8d3ad54c80f30c2c0fd6b4866d50fc4ec75aac37a3adc430dc4"
+    },
+    {
+      "stateCode": "VT",
+      "stateName": "Vermont",
+      "republicanVotes": 119395,
+      "democraticVotes": 235791,
+      "otherVotes": 17699,
+      "totalVotes": 372885,
+      "democraticMarginPercentagePoints": 31.21,
+      "rowSha256": "665d75f4f8fd4722c6d94d434d313782c23b6286c3d83fa713a38c866727930d"
+    },
+    {
+      "stateCode": "WA",
+      "stateName": "Washington",
+      "republicanVotes": 1530923,
+      "democraticVotes": 2245849,
+      "otherVotes": 147471,
+      "totalVotes": 3924243,
+      "democraticMarginPercentagePoints": 18.22,
+      "rowSha256": "8b238c840e30c141c5a9f0159ff6bd8764f693c20695a562fdc1549396a395ae"
+    },
+    {
+      "stateCode": "WI",
+      "stateName": "Wisconsin",
+      "republicanVotes": 1697626,
+      "democraticVotes": 1668229,
+      "otherVotes": 57063,
+      "totalVotes": 3422918,
+      "democraticMarginPercentagePoints": -0.86,
+      "rowSha256": "6a415eb589ab7eeb72221185e646bab6b06a7840e65734f35131fc9023d4c617"
+    },
+    {
+      "stateCode": "WV",
+      "stateName": "West Virginia",
+      "republicanVotes": 533556,
+      "democraticVotes": 214309,
+      "otherVotes": 14719,
+      "totalVotes": 762584,
+      "democraticMarginPercentagePoints": -41.86,
+      "rowSha256": "703fd649e494d1bc7e8c8f6326079e2aba4a525279d9345ddfbb7ab4e36739d4"
+    },
+    {
+      "stateCode": "WY",
+      "stateName": "Wyoming",
+      "republicanVotes": 192633,
+      "democraticVotes": 69527,
+      "otherVotes": 8963,
+      "totalVotes": 271123,
+      "democraticMarginPercentagePoints": -45.41,
+      "rowSha256": "a1b0c3fa15fd1871643285d163c58c8f535504926223c4245c181ef8fb39a304"
+    }
+  ],
+  "summary": {
+    "jurisdictions": 51,
+    "states": 50,
+    "democraticWins": 20,
+    "republicanWins": 31,
+    "totalVotes": 155408991
+  },
+  "rowSetSha256": "df49e7afd26efb97af1637ea9a176a004d9ee45445857d28af9d74e5b06b5c64",
+  "packageSha256": "e41c1361f9a93e481e14bba9b017cac282360c3b27aa8cd34a8d1746338bd24f"
+}

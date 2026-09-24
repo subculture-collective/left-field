@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { validateNewHampshirePrimaryResults } from "./house-primary-new-hampshire-results";
 import { type HousePrimaryCoverageLedgerV12,type HousePrimaryProjectionV12,validateHousePrimaryProjectionV12 } from "./house-primary-projection-v12";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, exact } from "./shared";
 
 type ParentObservation=HousePrimaryProjectionV12["observations"][number];
 export type HousePrimaryV13Observation=Omit<ParentObservation,"resultAuthorityStatus">&Readonly<{resultAuthorityStatus:ParentObservation["resultAuthorityStatus"]|"archived_copy_of_official_secretary_workbook_retained_live_host_403_not_claimed_certified"}>;

@@ -17,3 +17,9 @@ export const sha = (value: Buffer): string =>
 
 export const exact = (left: unknown, right: unknown): boolean =>
   canonical(left) === canonical(right);
+export type HouseRoute = "deep_blue" | "aipac_supported_blue" | "republican_fringe_general";
+/** The frozen House layers only carry House routes; any other route reaching them is a join error. */
+export const houseRoute = (route: string): HouseRoute => {
+  if (route !== "deep_blue" && route !== "aipac_supported_blue" && route !== "republican_fringe_general") throw new Error(`HOUSE_ROUTE_INVALID:${route}`);
+  return route;
+};

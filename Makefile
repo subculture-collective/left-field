@@ -15,7 +15,7 @@ COMPOSE := env -u COMPOSE_FILE COMPOSE_PROJECT_NAME=$(DEV_PROJECT) docker compos
 CLEAN_ENV := env -u NODE_ENV -u DATABASE_URL -u TEST_DATABASE_URL -u WEB_DATABASE_URL -u INGEST_DATABASE_URL -u RELEASE_PREFLIGHT_DATABASE_URL -u RELEASE_OPERATOR_DATABASE_URL
 
 .PHONY: help local-contract install browser-install dev dev-db dev-seed db-up db-down db-logs db-migrate db-generate db-studio \
-	test-db e2e-db test test-unit test-integration test-all production-contract e2e typecheck lint verify audit build check \
+	test-db e2e-db test test-unit test-fast test-integration test-all production-contract e2e typecheck lint verify audit build check \
 	acceptance clean reset-db
 
 help: ## Show available targets.
@@ -34,6 +34,7 @@ help: ## Show available targets.
 	  '' \
 	  'Tests and checks:' \
 	  '  make test              Run non-DB Vitest once (never watch mode)' \
+	  '  make test-fast         Run intake, scoring, and UI unit tests only (no artifact rebuilds)' \
 	  '  make test-integration  Create/migrate the local _test DB and run guarded DB tests' \
 	  '  make test-all          Run non-DB and guarded DB tests' \
 	  '  make production-contract  Verify the offline production environment safety contract' \
@@ -100,6 +101,9 @@ e2e-db: db-up ## Idempotently create the disposable browser-test database.
 
 test test-unit: ## Run non-integration Vitest once.
 	$(CLEAN_ENV) npm run test:run -- --exclude src/db/integration.test.ts
+
+test-fast: ## Run unit tests that do not rebuild retained artifacts from raw sources.
+	$(CLEAN_ENV) npm run test:fast
 
 test-integration: test-db ## Run guarded PostgreSQL integration tests.
 	env TEST_DATABASE_URL='$(TEST_DATABASE_URL_LOCAL)' npm run test:integration

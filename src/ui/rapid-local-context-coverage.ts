@@ -2,9 +2,14 @@ import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
 
-export type RapidLocalContextArtifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0 }>;
-export type RapidLocalContextCoverageViewModel = Readonly<{ schema: "rapid-local-context-coverage-v1" | "rapid-local-context-coverage-v2" | "rapid-local-context-coverage-v3" | "rapid-local-context-coverage-v4" | "rapid-local-context-coverage-v5" | "rapid-local-context-coverage-v6" | "rapid-local-context-coverage-v7" | "rapid-local-context-coverage-v8" | "rapid-local-context-coverage-v9" | "rapid-local-context-coverage-v10" | "rapid-local-context-coverage-v11" | "rapid-local-context-coverage-v12" | "rapid-local-context-coverage-v13" | "rapid-local-context-coverage-v14" | "rapid-local-context-coverage-v15"; version: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15; artifacts: readonly RapidLocalContextArtifact[] }>;
+import { registeredArtifacts } from "@/rapid-acquisition/intake/registry";
+
+export type RapidLocalContextArtifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0; cyclesThrough?: number }>;
+export type RapidLocalContextCoverageViewModel = Readonly<{ schema: "rapid-local-context-coverage-v16" | "rapid-local-context-coverage-v1" | "rapid-local-context-coverage-v2" | "rapid-local-context-coverage-v3" | "rapid-local-context-coverage-v4" | "rapid-local-context-coverage-v5" | "rapid-local-context-coverage-v6" | "rapid-local-context-coverage-v7" | "rapid-local-context-coverage-v8" | "rapid-local-context-coverage-v9" | "rapid-local-context-coverage-v10" | "rapid-local-context-coverage-v11" | "rapid-local-context-coverage-v12" | "rapid-local-context-coverage-v13" | "rapid-local-context-coverage-v14" | "rapid-local-context-coverage-v15"; version: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16; artifacts: readonly RapidLocalContextArtifact[] }>;
+const registry = registeredArtifacts();
 const coveragePaths = (root = process.cwd()) => [
+  // v16 is registry-driven and regenerated in place; its artifact count is the registry length.
+  { schema: "rapid-local-context-coverage-v16" as const, version: 16 as const, id: "rapid-local-context-coverage-v16", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v16.json"), artifactCount: registry.length },
   { schema: "rapid-local-context-coverage-v15" as const, version: 15 as const, id: "rapid-local-context-coverage-v15", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v15.json"), artifactCount: 17 },
   { schema: "rapid-local-context-coverage-v14" as const, version: 14 as const, id: "rapid-local-context-coverage-v14", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v14.json"), artifactCount: 16 },
   { schema: "rapid-local-context-coverage-v13" as const, version: 13 as const, id: "rapid-local-context-coverage-v13", path: join(/*turbopackIgnore: true*/ root, "data/metadata/rapid-local-context-coverage-v13.json"), artifactCount: 15 },
@@ -28,28 +33,10 @@ const readAllowlistedText = (path: string) => readFile(/*turbopackIgnore: true*/
 const isArtifact = (value: unknown): value is RapidLocalContextArtifact => {
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
   const row = value as Record<string, unknown>;
-  return typeof row.id === "string" && typeof row.label === "string" && typeof row.scope === "string" && typeof row.packageSha256 === "string" && /^[a-f0-9]{64}$/.test(row.packageSha256) && row.formulaEligibleCount === 0 && !!row.summary && typeof row.summary === "object" && !Array.isArray(row.summary) && Object.values(row.summary).every((value) => Number.isSafeInteger(value) && value >= 0);
+  return typeof row.id === "string" && typeof row.label === "string" && typeof row.scope === "string" && typeof row.packageSha256 === "string" && /^[a-f0-9]{64}$/.test(row.packageSha256) && row.formulaEligibleCount === 0 && (row.cyclesThrough === undefined || (Number.isSafeInteger(row.cyclesThrough) && (row.cyclesThrough as number) >= 2000)) && !!row.summary && typeof row.summary === "object" && !Array.isArray(row.summary) && Object.values(row.summary).every((value) => Number.isSafeInteger(value) && value >= 0);
 };
 type Lock = Readonly<{ entries: readonly Readonly<{ id: string; retainedPath?: string; retainedStatus: string; byteSize?: number; sha256?: string; parentIds: readonly string[] }>[] }>;
-const childPaths: Readonly<Record<string, string>> = {
-  "rapid-ohio-state-legislative-democratic-primary-results-v1": "data/metadata/rapid-ohio-state-legislative-democratic-primary-results-v1.json",
-  "rapid-new-mexico-county-office-primary-results-v1": "data/metadata/rapid-new-mexico-county-office-primary-results-v1.json",
-  "rapid-north-carolina-local-office-primary-results-v1": "data/metadata/rapid-north-carolina-local-office-primary-results-v1.json",
-  "rapid-kentucky-state-legislative-primary-results-v1": "data/metadata/rapid-kentucky-state-legislative-primary-results-v1.json",
-  "rapid-missouri-state-legislative-primary-results-v1": "data/metadata/rapid-missouri-state-legislative-primary-results-v1.json",
-  "rapid-hawaii-state-legislative-primary-results-v1": "data/metadata/rapid-hawaii-state-legislative-primary-results-v1.json",
-  "rapid-delaware-state-legislative-primary-results-v1": "data/metadata/rapid-delaware-state-legislative-primary-results-v1.json",
-  "rapid-alabama-state-legislative-primary-results-v1": "data/metadata/rapid-alabama-state-legislative-primary-results-v1.json",
-  "rapid-county-demographics-projection-v1": "data/metadata/rapid-county-demographics-projection-v1.json",
-  "rapid-county-election-context-projection-v1": "data/metadata/rapid-county-election-context-projection-v1.json",
-  "rapid-county-house-results-2022-projection-v1": "data/metadata/rapid-county-house-results-2022-projection-v1.json",
-  "rapid-county-house-results-projection-v1": "data/metadata/rapid-county-house-results-projection-v1.json",
-  "rapid-county-senate-results-projection-v1": "data/metadata/rapid-county-senate-results-projection-v1.json",
-  "rapid-indiana-state-legislative-primary-results-v1": "data/metadata/rapid-indiana-state-legislative-primary-results-v1.json",
-  "rapid-tennessee-state-legislative-primary-results-v1": "data/metadata/rapid-tennessee-state-legislative-primary-results-v1.json",
-  "rapid-georgia-state-legislative-primary-results-v1": "data/metadata/rapid-georgia-state-legislative-primary-results-v1.json",
-  "rapid-north-carolina-state-legislative-primary-results-v1": "data/metadata/rapid-north-carolina-state-legislative-primary-results-v1.json",
-};
+const childPaths: Readonly<Record<string, string>> = Object.fromEntries(registry.map((artifact) => [artifact.id, artifact.path]));
 
 /** Lightweight server read model: validates retained artifact bytes and source-lock topology, without rebuilding raw Census/EAVS inputs. */
 export async function loadRapidLocalContextCoverage(root = process.cwd()): Promise<RapidLocalContextCoverageViewModel | null> {

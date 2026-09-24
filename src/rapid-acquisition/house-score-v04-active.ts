@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { validateHouseScoreV04ShadowProjection } from "./house-score-v04-shadow";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, exact, hash, houseRoute } from "./shared";
 
 export type HouseScoreV04ActiveRow = Readonly<{
   seatCycleId: string;
@@ -57,7 +57,7 @@ export function buildHouseScoreV04ActiveProjection(root = process.cwd()): HouseS
       seatCycleId: row.seatCycleId,
       districtLabel: row.districtLabel,
       incumbentParty: row.incumbentParty,
-      qualifyingRoute: row.qualifyingRoute,
+      qualifyingRoute: houseRoute(row.qualifyingRoute),
       previousScoreVersion: "v0.3" as const,
       previousScore: row.activeScore,
       activeScoreVersion: "v0.4" as const,

@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { validateMissouriPrimaryResultsV2 } from "./house-primary-missouri-results-v2";
 import { type HousePrimaryCoverageLedgerV15, type HousePrimaryProjectionV15, validateHousePrimaryProjectionV15 } from "./house-primary-projection-v15";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, exact } from "./shared";
 
 export interface HousePrimaryProjectionV16 { readonly schema: "rapid-house-primary-projection-v16"; readonly version: 16; readonly parentProjectionPackageSha256: string; readonly missouriResultsV2PackageSha256: string; readonly observations: HousePrimaryProjectionV15["observations"]; readonly observationSetSha256: string; readonly coverageRows: HousePrimaryProjectionV15["coverageRows"]; readonly coverageSetSha256: string; readonly summary: Readonly<{ stateCycles: 48; districtObservations: 78; reportedContests: 34; sourceAbsent: 3; processedDistricts: 37; candidateRows: 88; retainedCandidateVotes: 2139039; sourceMarkedWinnerContests: 6; scoreEligibleDistricts: 0 }>; readonly packageSha256: string }
 export interface HousePrimaryCoverageLedgerV16 extends Omit<HousePrimaryCoverageLedgerV15, "schema" | "version" | "projectionSha256"> { readonly schema: "rapid-house-primary-coverage-ledger-v16"; readonly version: 16; readonly projectionSha256: string }

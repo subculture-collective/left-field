@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { type HousePrimaryCoverageLedgerV9, type HousePrimaryProjectionV9, validateHousePrimaryProjectionV9 } from "./house-primary-projection-v9";
 import { validateTennesseePrimaryResults } from "./house-primary-tennessee-results";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, exact } from "./shared";
 
 type ParentObservation = HousePrimaryProjectionV9["observations"][number];
 export type HousePrimaryV10Observation = Omit<ParentObservation, "resultAuthorityStatus"> & Readonly<{ resultAuthorityStatus: ParentObservation["resultAuthorityStatus"] | "official_secretary_precinct_workbook_retained" }>;

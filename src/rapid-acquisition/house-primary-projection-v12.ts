@@ -7,7 +7,7 @@ import {
   validateHousePrimaryProjectionV11,
 } from "./house-primary-projection-v11";
 import { validateSouthCarolinaPrimaryResultsV2 } from "./house-primary-south-carolina-results-v2";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, exact } from "./shared";
 
 export interface HousePrimaryProjectionV12 {
   readonly schema: "rapid-house-primary-projection-v12";

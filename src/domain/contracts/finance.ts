@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { releaseIdSchema, seatCycleIdSchema, committeeIdSchema, committeeRelationshipIdSchema, candidacyIdSchema, fecFilingIdSchema, isoDateSchema, isoDateTimeSchema, snapshotIdSchema, sha256Schema, usStateCodeSchema } from "./primitives";
+import { releaseIdSchema, seatCycleIdSchema, committeeIdSchema, committeeRelationshipIdSchema, candidacyIdSchema, fecFilingIdSchema, isoDateSchema, isoDateTimeSchema, snapshotIdSchema, usStateCodeSchema } from "./primitives";
 import { missingReasonSchema, provenanceReferenceSchema, factValueSchema } from "./shared";
 import { lineageSchema } from "./identity";
 

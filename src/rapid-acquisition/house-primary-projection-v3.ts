@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { validateKansasPrimaryResults } from "./house-primary-kansas-results";
 import { type HousePrimaryV2Observation, type HousePrimaryV2Status, validateHousePrimaryProjectionV2 } from "./house-primary-projection-v2";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, exact } from "./shared";
 
 export type HousePrimaryV3Observation = Omit<HousePrimaryV2Observation, "resultAuthorityStatus"> & Readonly<{
   resultAuthorityStatus: "official_result_bytes_retained_not_claimed_certified" | "official_precinct_workbook_retained_not_claimed_certified" | null;

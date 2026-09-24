@@ -4,7 +4,7 @@ import { join } from "node:path";
 import { validateCountyDemographicsProjection } from "./county-demographics";
 import { validateCountyElectionContextProjection } from "./county-election-context";
 import { validateIndianaStateLegislativeResults } from "./indiana-state-legislative-results";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, exact } from "./shared";
 
 type Artifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0 }>;
 export interface RapidLocalContextCoverage {

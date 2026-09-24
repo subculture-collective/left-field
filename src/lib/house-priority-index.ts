@@ -1,6 +1,8 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
+import { readHouseScoreV09ActiveProjection, type HouseScoreV09ActiveRow } from "@/rapid-acquisition/house-score-v09-active";
+
 import { priorityBriefs } from "./priority-briefs";
 
 export type PriorityDriver = Readonly<{
@@ -12,9 +14,16 @@ export type PriorityDriver = Readonly<{
   explanation: string;
 }>;
 
+export type PriorityChamber = "house" | "senate";
+export type PriorityRoute = "deep_blue" | "aipac_supported_blue" | "republican_fringe_general" | "democratic_incumbent_primary";
+
 export type PublicPriorityBrief = Readonly<{
   rank: number;
   seatCycleId: string;
+  /** Chamber of the seat; House rows are the frozen v0.9 layer, Senate rows come from the Senate projection. */
+  chamber: PriorityChamber;
+  /** Year of the seat's next regular or special election. */
+  nextElectionYear: number;
   districtLabel: string;
   stateCode: string;
   districtCode: string;
@@ -26,7 +35,7 @@ export type PublicPriorityBrief = Readonly<{
   provisionalTargetScore: number;
   baselineTargetScore: number;
   formula: string;
-  qualifyingRoute: "deep_blue" | "aipac_supported_blue" | "republican_fringe_general";
+  qualifyingRoute: PriorityRoute;
   scoreDrivers: readonly PriorityDriver[];
   presidentialDemocraticMargin2024: number;
   incumbentCashOnHand: number | null;
@@ -143,6 +152,8 @@ function republicanBriefs(finance: Map<string, FinanceRow>): PublicPriorityBrief
     return {
       rank: 0,
       seatCycleId,
+      chamber: "house" as const,
+      nextElectionYear: 2026,
       districtLabel, stateCode, districtCode,
       incumbentName: officialHouseName, officialHouseName, bioguideId,
       birthYear: Number(person.bio.birthday.slice(0, 4)), incumbentParty: "Republican" as const,
@@ -180,6 +191,8 @@ export function housePriorityBriefsV03(): readonly PublicPriorityBrief[] {
       const score = cashVulnerability === null ? one((0.65 * row.baselineTargetScore + 0.2 * alignment) / 0.85) : one(0.65 * row.baselineTargetScore + 0.2 * alignment + 0.15 * cashVulnerability);
       return {
         ...row,
+        chamber: "house" as const,
+        nextElectionYear: 2026,
         incumbentParty: "Democratic" as const,
         provisionalTargetScore: score,
         formula: cashVulnerability === null ? "available 0.65 structural + 0.20 alignment weights renormalized (finance unavailable)" : "0.65 × structural baseline + 0.20 × incumbent alignment gap + 0.15 × cash vulnerability",
@@ -261,6 +274,11 @@ function v08ActiveRows(): Map<string, V08ActiveRow> {
   const value = JSON.parse(bytes.toString("utf8")) as V08ActiveProjection;
   if (value.schema !== "house-score-v08-active-projection-v1" || value.version !== 1 || value.methodology.status !== "active" || value.methodology.primaryMetric !== "one_hundred_minus_incumbent_vote_share_in_retained_2024_democratic_primary_contest" || value.methodology.unresolvedIdentityBehavior !== "preserve_v07_score_and_inferred_primary_component" || value.methodology.sourceWinnerInference !== false || value.summary.seats !== 430 || value.summary.directPrimaryActiveSeats !== 21 || value.summary.unresolvedPrimaryRows !== 1 || value.summary.changedSeats !== 20 || value.summary.unchangedSeats !== 410 || value.summary.routeChanges !== 0 || value.summary.movementCapBreaches !== 0 || value.rows.length !== 430 || new Set(value.rows.map((row) => row.seatCycleId)).size !== 430 || value.rowSetSha256 !== "931f080522cc5a383d07402282c259dbaaaf429a6fe09c8399fe3adb578624b1" || value.packageSha256 !== "79b154e4e954d3f8327307e8a977b77e77fc59a311114193be22cff5e0ec913a") throw new Error("HOUSE_PRIORITY_V08_PROJECTION_INVALID");
   return new Map(value.rows.map((row) => [row.seatCycleId, row]));
+}
+
+function v09ActiveRows(): Map<string, HouseScoreV09ActiveRow> {
+  // Lock-verified read: the projection bytes must match their source-lock pin, the package digest must match, and the projection must close over 430 seats.
+  return new Map(readHouseScoreV09ActiveProjection().rows.map((row) => [row.seatCycleId, row]));
 }
 
 let cache: PublicPriorityBrief[] | undefined;
@@ -373,6 +391,44 @@ export function housePriorityBriefs(): readonly PublicPriorityBrief[] {
         scoreDrivers: brief.scoreDrivers.map((driver) => driver.key === "primary_feasibility" ? { ...driver, score: row.activePrimaryFeasibility, coverage: 1, inferred: false, explanation: primaryExplanation } : driver),
         scoreSummary: `${brief.scoreSummary} V0.8 replaces the inferred primary component with direct 2024 contest evidence, moving the score ${row.movementFromV07 >= 0 ? "+" : ""}${row.movementFromV07.toFixed(1)} to ${row.activeScore.toFixed(1)}.`,
         districtSummary: `${brief.districtSummary} The directly linked 2024 Democratic primary gives the incumbent ${row.incumbentPrimaryVoteShare.toFixed(1)}% of retained contest votes; this changes primary feasibility without making a winner or nomination claim.`,
+      };
+    });
+    const v09 = v09ActiveRows();
+    if (v09.size !== cache.length) throw new Error("HOUSE_PRIORITY_V09_CLOSURE_INVALID");
+    cache = cache.map((brief) => {
+      const row = v09.get(brief.seatCycleId);
+      if (!row || row.districtLabel !== brief.districtLabel || row.previousScoreVersion !== "v0.8" || row.previousScore !== brief.provisionalTargetScore || row.activeScoreVersion !== "v0.9" || row.movementFromV08 !== one(row.activeScore - brief.provisionalTargetScore)) throw new Error(`HOUSE_PRIORITY_V09_JOIN_INVALID:${brief.seatCycleId}`);
+      if (brief.incumbentParty === "Republican") {
+        const route = row.republicanRoute;
+        if (!route || row.directPrimaryEvidence) throw new Error(`HOUSE_PRIORITY_V09_ROUTE_INVALID:${brief.seatCycleId}`);
+        const pct = Math.round(route.availableWeight * 100);
+        const stateExplanation = route.stateContestation === null
+          ? "No retained state-legislative Democratic primary catalog records uncontested contests for this state, so the component is omitted and the available weight is renormalized."
+          : `The retained ${route.stateContestationCycleYear} state-legislative Democratic primaries in this state drew more than one candidate in enough contests to score ${route.stateContestation.toFixed(1)} on a scale where a 40% contested share is 100. This is state-level organizing context, not a district measure.`;
+        const drivers = brief.scoreDrivers.map((driver) => driver.key === "general_election_competitiveness" ? { ...driver, label: "General-election competitiveness" } : driver);
+        return {
+          ...brief,
+          provisionalTargetScore: row.activeScore,
+          formula: `v0.9 Republican-held route: renormalized 0.45 × competitiveness + 0.20 × cash vulnerability + 0.15 × local context + 0.20 × state Democratic primary contestation (${pct}% of component weight available) × ${route.coverageMultiplier.toFixed(3)} coverage multiplier; the former flat 0.70 cap is removed`,
+          scoreDrivers: [...drivers, { key: "state_primary_contestation", label: "State Democratic primary contestation", score: route.stateContestation, coverage: route.stateContestation === null ? 0 : 1, inferred: false, explanation: stateExplanation }],
+          scoreSummary: `${brief.districtLabel} enters through the Republican-held flip route at ${row.activeScore.toFixed(1)}. V0.9 replaces the flat 0.70 cap with the same partial-coverage rule the Democratic route uses: ${pct}% of the route's evidence is available, so the weighted mean of ${route.weightedMean.toFixed(1)} is scaled by ${route.coverageMultiplier.toFixed(3)}, moving the score ${row.movementFromV08 >= 0 ? "+" : ""}${row.movementFromV08.toFixed(1)}.`,
+          limitations: "This is a structural flip screen for a Republican-held seat: general-election competitiveness, incumbent finance, and state-level Democratic primary organizing context. It is not a forecast, endorsement, candidate-quality assessment, or claim that a Democratic challenger is present.",
+        };
+      }
+      if (!row.newlyResolvedPrimaryEvidence) {
+        if (row.movementFromV08 !== 0) throw new Error(`HOUSE_PRIORITY_V09_UNCHANGED_INVALID:${brief.seatCycleId}`);
+        return brief;
+      }
+      if (row.activePrimaryFeasibility === null || row.incumbentPrimaryVotes === null || row.primaryContestVotes === null || row.incumbentPrimaryVoteShare === null || row.structuralBaseline === null || row.primaryIdentityStatus !== "reviewed_alias_relationship") throw new Error(`HOUSE_PRIORITY_V09_ALIAS_INVALID:${brief.seatCycleId}`);
+      const primaryExplanation = `The retained official 2024 Democratic primary reports ${row.incumbentPrimaryVotes.toLocaleString("en-US")} incumbent votes out of ${row.primaryContestVotes.toLocaleString("en-US")} contest votes (${row.incumbentPrimaryVoteShare.toFixed(1)}%). The source spelling is bound to the incumbent through the reviewed identity alias table, not by inference. Primary feasibility is the inverse share, ${row.activePrimaryFeasibility.toFixed(1)}; no winner is inferred.`;
+      return {
+        ...brief,
+        provisionalTargetScore: row.activeScore,
+        baselineTargetScore: row.structuralBaseline,
+        formula: `${brief.formula}; v0.9 activates direct 2024 primary evidence through a reviewed identity alias`,
+        scoreDrivers: brief.scoreDrivers.map((driver) => driver.key === "primary_feasibility" ? { ...driver, score: row.activePrimaryFeasibility, coverage: 1, inferred: false, explanation: primaryExplanation } : driver),
+        scoreSummary: `${brief.scoreSummary} V0.9 resolves the incumbent's source spelling through the reviewed alias table and applies the direct 2024 primary evidence, moving the score ${row.movementFromV08 >= 0 ? "+" : ""}${row.movementFromV08.toFixed(1)} to ${row.activeScore.toFixed(1)}.`,
+        districtSummary: `${brief.districtSummary} The directly linked 2024 Democratic primary gives the incumbent ${row.incumbentPrimaryVoteShare.toFixed(1)}% of retained contest votes.`,
       };
     }).sort((left, right) => right.provisionalTargetScore - left.provisionalTargetScore || left.seatCycleId.localeCompare(right.seatCycleId)).map((row, index) => ({ ...row, rank: index + 1 }));
   }

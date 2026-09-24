@@ -26,7 +26,7 @@ export default async function PriorityBrief({ params }: Props) {
     <Shell>
       <main className="page priority-detail">
         <Link className="back-link" href="/">
-          ← House Priority Index
+          ← Priority Index
         </Link>
         <header className="brief-hero">
           <div>
@@ -51,10 +51,10 @@ export default async function PriorityBrief({ params }: Props) {
             <dl className="brief-facts">
               <dt>BioGuide</dt>
               <dd>{row.bioguideId}</dd>
-              <dt>First House service</dt>
+              <dt>First {row.chamber === "senate" ? "Senate" : "House"} service</dt>
               <dd>{row.firstHouseServiceDate}</dd>
-              <dt>District changes</dt>
-              <dd>{row.districtChangeCount}</dd>
+              <dt>{row.chamber === "senate" ? "Next election" : "District changes"}</dt>
+              <dd>{row.chamber === "senate" ? row.nextElectionYear : row.districtChangeCount}</dd>
               <dt>Alignment gap</dt>
               <dd>
                 {row.scoreDrivers.find((driver) => driver.key === "incumbent_alignment_gap")?.score?.toFixed(1) ?? "Not used"}
@@ -62,7 +62,7 @@ export default async function PriorityBrief({ params }: Props) {
             </dl>
           </article>
           <article>
-            <p className="eyebrow">THE DISTRICT</p>
+            <p className="eyebrow">{row.chamber === "senate" ? "THE STATE" : "THE DISTRICT"}</p>
             <h2>{row.districtLabel}</h2>
             <p>{row.districtSummary}</p>
             <dl className="brief-facts">
@@ -84,7 +84,9 @@ export default async function PriorityBrief({ params }: Props) {
                   ? "Deep blue"
                   : row.qualifyingRoute === "aipac_supported_blue"
                     ? "AIPAC-supported blue"
-                    : "Republican-held general-election fringe"}
+                    : row.qualifyingRoute === "democratic_incumbent_primary"
+                      ? "Democratic incumbent route"
+                      : "Republican-held flip screen"}
               </dd>
               <dt>Baseline score</dt>
               <dd>{row.baselineTargetScore.toFixed(1)}</dd>
@@ -114,7 +116,7 @@ export default async function PriorityBrief({ params }: Props) {
         </section>
 
         <section className="record-section">
-          <p className="eyebrow">HOUSE HISTORY</p>
+          <p className="eyebrow">{row.chamber === "senate" ? "SENATE TERM" : "HOUSE HISTORY"}</p>
           <h2>Recorded service</h2>
           <div className="service-timeline">
             {row.serviceHistory.map((term) => (
@@ -124,7 +126,7 @@ export default async function PriorityBrief({ params }: Props) {
                   {term.currentAtCutoff ? "now" : term.end.slice(0, 4)}
                 </span>
                 <strong>
-                  {term.stateCode}-{String(term.district).padStart(2, "0")}
+                  {term.stateCode}-{typeof term.district === "number" ? String(term.district).padStart(2, "0") : term.district}
                 </strong>
                 <small>
                   {term.currentAtCutoff
