@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { unzipSync } from "fflate";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, sha, exact } from "./shared";
 
 export interface NorthCarolinaStateLegislativeCandidate { readonly sourceName: string; readonly rawCandidateParty: "DEM" | "REP"; readonly votes: number }
 export interface NorthCarolinaStateLegislativeContest {

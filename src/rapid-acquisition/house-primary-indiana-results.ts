@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, sha, exact } from "./shared";
 
 export interface IndianaPrimaryResult { readonly resultId: string; readonly cycleYear: 2022 | 2024; readonly electionDate: "2022-05-03" | "2024-05-07"; readonly districtLabel: "IN-01" | "IN-07"; readonly sourceLockIds: readonly string[]; readonly rawParty: "D"; readonly sourceCandidateNames: readonly string[]; readonly candidateVotes: readonly number[]; readonly sourceWinnerNames: readonly string[]; readonly totalVotes: number; readonly resultAuthorityStatus: "official_archive_house_json_retained"; readonly certificationStatus: "settings_certified_false_no_separate_certificate" | "settings_certified_true_no_separate_certificate"; readonly sourceWinnerStatus: "marked_by_source"; readonly winnerIdentity: null; readonly identity: null; readonly scoreEligible: false; readonly resultSha256: string; }
 export interface IndianaPrimaryResults { readonly schema: "rapid-house-primary-indiana-results-v1"; readonly version: 1; readonly results: readonly IndianaPrimaryResult[]; readonly resultSetSha256: string; readonly summary: Readonly<{ observations: 4; candidateRows: 9; candidateVotes: 143546; sourceMarkedWinnerCandidates: 4; scoreEligibleRows: 0 }>; readonly packageSha256: string; }

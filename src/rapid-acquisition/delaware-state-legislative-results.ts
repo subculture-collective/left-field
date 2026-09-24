@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, sha, exact } from "./shared";
 
 export interface DelawareStateLegislativeContest {
   readonly contestId: string; readonly cycleYear: 2022 | 2024; readonly electionDate: "2022-09-13" | "2024-09-10"; readonly sourceReportedAt: "2022-09-15T14:26:36.000" | "2024-09-13T12:42:52.000"; readonly chamber: "upper" | "lower"; readonly district: string; readonly rawOfficeTitle: string; readonly rawParty: "Democratic Party" | "Republican Party"; readonly candidates: readonly Readonly<{ sourceName: string; machineVotes: number; absenteeVotes: number; earlyVotes: number; totalVotes: number; sourcePercentage: number }>[]; readonly totalVotes: number; readonly sourceWinnerStatus: "not_marked_by_source"; readonly resultAuthorityStatus: "official_statewide_primary_csv_retained"; readonly certificationStatus: "separate_certification_instrument_not_retained"; readonly winnerIdentity: null; readonly identity: null; readonly sourceLockIds: readonly string[]; readonly formulaEligible: false; readonly contestSha256: string;

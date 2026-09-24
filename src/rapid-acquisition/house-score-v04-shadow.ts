@@ -2,7 +2,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { housePriorityBriefsV03 } from "@/lib/house-priority-index";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, sha, exact } from "./shared";
 
 type DemographicRow = { countyFips: string; stateCode: string; population: number; medianHouseholdIncome: number | null; renterShare: number | null; age18To34Share: number | null; populationDensityPerSquareMile: number };
 type ElectionRow = { countyFips: string; stateCode: string; cycleYear: number; registeredVoters: number | null; ballotsCast: number | null };

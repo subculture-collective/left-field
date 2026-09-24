@@ -2,7 +2,7 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { unzipSync } from "fflate";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, exact } from "./shared";
 
 type Cells = Map<string, string>;
 export interface KansasPrimaryResult {

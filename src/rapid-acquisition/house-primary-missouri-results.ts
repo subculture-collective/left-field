@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, sha, exact } from "./shared";
 
 export interface MissouriPrimaryResult {
   readonly resultId: string;

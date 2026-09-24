@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { validateIndianaPrimaryResults } from "./house-primary-indiana-results";
 import { type HousePrimaryCoverageLedgerV6, type HousePrimaryProjectionV6, validateHousePrimaryProjectionV6 } from "./house-primary-projection-v6";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { hash, exact } from "./shared";
 
 type ParentObservation = HousePrimaryProjectionV6["observations"][number];
 export type HousePrimaryV7Observation = Omit<ParentObservation, "sourceWinnerStatus" | "resultAuthorityStatus"> & Readonly<{

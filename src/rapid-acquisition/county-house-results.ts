@@ -1,6 +1,6 @@
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, canonical, hash, sha } from "./shared";
 
 const COMMIT = "df531089c78e6d0098db1a6bfb3849a066a06995";
 const STATES = "AK AL AR AZ CA CO CT DC DE FL GA HI IA ID IL IN KS KY LA MA MD ME MI MN MO MS MT NC ND NE NH NJ NM NV NY OH OK OR PA RI SC SD TN TX UT VA VT WA WI WV WY".split(" ");

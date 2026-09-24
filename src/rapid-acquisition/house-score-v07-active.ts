@@ -8,7 +8,7 @@ import { validateCountyDemographicsProjection } from "./county-demographics";
 import { validateCountyElectionContextProjection } from "./county-election-context";
 import { validateCountyHouseResultsProjection } from "./county-house-results";
 import { validateHouseScoreV06ActiveProjection } from "./house-score-v06-active";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, sha, exact } from "./shared";
 
 type ActivationContext = Readonly<{
   inverseBallotsCastToCvap: number;

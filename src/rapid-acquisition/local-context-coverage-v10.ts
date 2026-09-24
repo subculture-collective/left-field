@@ -3,7 +3,7 @@ import { join } from "node:path";
 
 import { validateHawaiiStateLegislativeResults } from "./hawaii-state-legislative-results";
 import { validateRapidLocalContextCoverageV9 } from "./local-context-coverage-v9";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { canonical, hash } from "./shared";
 
 type Artifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0 }>;
 export interface RapidLocalContextCoverageV10 { readonly schema: "rapid-local-context-coverage-v10"; readonly version: 10; readonly releaseRelationship: "separate_rapid_acquisition_excluded_from_released_score"; readonly artifacts: readonly Artifact[]; readonly artifactSetSha256: string; readonly packageSha256: string }

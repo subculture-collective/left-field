@@ -1,6 +1,6 @@
 import { z } from "zod";
 import { releaseIdSchema, geographyVersionIdSchema, snapshotIdSchema } from "./primitives";
-import { provenanceReferenceSchema, factValueSchema } from "./shared";
+import { factValueSchema } from "./shared";
 import { lineageSchema } from "./identity";
 
 export const acsObservationSchema = z.object({

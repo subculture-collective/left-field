@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { validateHouseScoreV04ShadowProjection } from "./house-score-v04-shadow";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, exact } from "./shared";
 
 export type HouseScoreV04ActiveRow = Readonly<{
   seatCycleId: string;

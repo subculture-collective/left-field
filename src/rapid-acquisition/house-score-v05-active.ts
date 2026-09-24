@@ -5,7 +5,7 @@ import { housePriorityBriefsV03 } from "@/lib/house-priority-index";
 import { validateCountyHouseResultsProjection } from "./county-house-results";
 import { validateHouseScoreV04ActiveProjection } from "./house-score-v04-active";
 import { validateHouseScoreV04ShadowProjection } from "./house-score-v04-shadow";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, sha, exact } from "./shared";
 
 type CountyHouseRow = Readonly<{
   countyFips: string;

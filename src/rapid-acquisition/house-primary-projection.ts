@@ -3,7 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { validateHousePrimarySourceRegistry, type HousePrimaryFinalClosure } from "./source-registry";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, canonical } from "./shared";
 
 export type HousePrimaryParseStatus = "ready_unparsed" | "source_blocked" | "authority_unavailable" | "future_event" | "not_held";
 export interface HousePrimaryProjectedSource {

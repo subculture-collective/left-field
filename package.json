@@ -111,6 +111,7 @@
     "generate:rapid-hawaii-state-legislative": "tsx scripts/rapid/generate-hawaii-state-legislative-results.ts",
     "generate:rapid-missouri-state-legislative": "tsx scripts/rapid/generate-missouri-state-legislative-results.ts",
     "generate:rapid-kentucky-state-legislative": "tsx scripts/rapid/generate-kentucky-state-legislative-results.ts",
+    "rapid:intake": "tsx scripts/rapid/intake.ts",
     "generate:rapid-ohio-state-legislative": "tsx scripts/rapid/generate-ohio-state-legislative-results.ts",
     "generate:rapid-local-context-coverage-v8": "tsx scripts/rapid/generate-local-context-coverage-v8.ts",
     "generate:rapid-local-context-coverage-v9": "tsx scripts/rapid/generate-local-context-coverage-v9.ts",

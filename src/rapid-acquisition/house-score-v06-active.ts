@@ -6,7 +6,7 @@ import { validateCountyHouseResultsProjection } from "./county-house-results";
 import { validateHouseScoreV04ShadowProjection } from "./house-score-v04-shadow";
 import { validateHouseScoreV05ActiveProjection } from "./house-score-v05-active";
 import { validateSouthDakotaCountyFipsNormalization } from "./south-dakota-county-fips-normalization";
-import { byteCompare, canonical, hash, sha, exact } from "./shared";
+import { byteCompare, hash, sha, exact } from "./shared";
 
 type CountyHouseRow = Readonly<{ countyFips: string; stateCode: string; districtRaw: string | null; candidateName: string; candidateParty: string; specialElection: boolean; writeIn: boolean; votes: number | null; suppressedSourceRows: number; sourceLockId: string; authority: string; winnerIdentity: null; formulaEligible: false }>;
 
