@@ -28,7 +28,15 @@ describe("nationwide office-universe intake", () => {
 
   it("keeps a primary winner pending until a sourced term transition and separates calculation workspaces", () => {
     const result = { contestId: "contest_in_hd01", sourceNaturalKey: "IN:2026:HD-01", observedAt: "2026-05-06T01:00:00Z", maturity: "provisional_winner" as const, winnerCandidateKey: "candidate_new", reportingCompletenessPercent: 100, sourceSnapshotId: "snapshot_in_primary" };
-    expect(holderTransitionFromResult(result, "office_in_hd01", "2027-01-01T00:00:00Z")).toMatchObject({ status: "holder_pending_transition", holderId: "candidate_new" });
+    const certified = { ...result, maturity: "certified_winner" as const, sourceSnapshotId: "snapshot_in_certified" };
+    expect(holderTransitionFromResult(certified, "office_in_hd01", "2027-01-01T00:00:00Z")).toEqual({ officeId: "office_in_hd01", holderId: "candidate_new", status: "holder_pending_transition", effectiveAt: "2027-01-01T00:00:00Z", sourceSnapshotId: "snapshot_in_certified" });
+    expect(holderTransitionFromResult(result, "office_in_hd01", "2027-01-01T00:00:00Z")).toBeNull();
+    for (const maturity of ["raw", "normalized", "reported_result", "superseded"] as const) expect(holderTransitionFromResult({ ...certified, maturity }, "office_in_hd01", "2027-01-01T00:00:00Z")).toBeNull();
+    expect(holderTransitionFromResult(certified, "office_in_hd01", null)).toBeNull();
+    expect(holderTransitionFromResult(certified, "office_in_hd01", "2027-01-01")).toBeNull();
+    expect(holderTransitionFromResult(certified, "office_in_hd01", "2027-01-01T00:00:00-05:00")).toBeNull();
+    expect(holderTransitionFromResult({ ...certified, winnerCandidateKey: null }, "office_in_hd01", "2027-01-01T00:00:00Z")).toBeNull();
+    expect(holderTransitionFromResult({ ...certified, sourceSnapshotId: "" }, "office_in_hd01", "2027-01-01T00:00:00Z")).toBeNull();
     const inputs = [
       { officeId: "office_in_hd01", factKey: "primary_result", maturity: "provisional_winner" as const, value: 51, missingReason: null, sourceSnapshotId: "snapshot_in_primary" },
       { officeId: "office_in_hd01", factKey: "certified_result", maturity: "certified_winner" as const, value: 51, missingReason: null, sourceSnapshotId: "snapshot_in_certified" },

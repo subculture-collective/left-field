@@ -47,9 +47,49 @@ export type RawIntakeRecord = Readonly<{
 }>;
 export type IntakeIssue = Readonly<{ code: string; diagnostic: string }>;
 export type IntakeDecision = Readonly<{ disposition: IntakeDisposition; issues: readonly IntakeIssue[] }>;
+export type RawIntakeKind = RawIntakeRecord["kind"];
+export const RAW_INTAKE_KINDS: readonly RawIntakeKind[] = ["jurisdiction", "body", "office", "term", "holder", "contest", "result", "filing", "calendar", "finance", "geography"];
 
-const SHA = /^[a-f0-9]{64}$/;
-const ISO = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
+/** A reviewed, scoped source definition. Only `reviewed` definitions may back a snapshot. */
+export type SourceDefinitionStatus = "draft" | "reviewed" | "rejected" | "retired";
+export type SourceDefinition = Readonly<{
+  id: string;
+  stateCode: StateCode;
+  family: SourceFamily;
+  sourceKey: string;
+  authorityTier: "official" | "aggregator";
+  authorityScope: readonly [string, ...string[]];
+  precedence: number;
+  sourceUrl: string;
+  retentionBasis: string;
+  allowedKinds: readonly [RawIntakeKind, ...RawIntakeKind[]];
+  privacyPolicy: "public_office_only" | "finance_allowlist";
+  status: SourceDefinitionStatus;
+}>;
+
+/** Receipt for bytes retained outside Postgres. `verified` is only set by the
+ * read-only retained-object verifier; an unverified receipt cannot back a snapshot. */
+export type RetainedObjectReceipt = Readonly<{
+  sourceId: string;
+  locator: string;
+  byteSize: number;
+  sha256: string;
+  retrievedAt: string;
+  finalUrl: string;
+  parserVersion: string;
+  verified: boolean;
+}>;
+
+/** Systemic faults quarantine the whole snapshot; isolated row faults quarantine only their rows. */
+export type SnapshotDisposition = "accepted" | "accepted_with_row_quarantine" | "quarantined";
+
+export const SHA256_HEX = /^[a-f0-9]{64}$/;
+export const ISO_UTC = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d+)?Z$/;
+const SHA = SHA256_HEX;
+const ISO = ISO_UTC;
+export const isIsoUtc = (value: string): boolean => ISO_UTC.test(value) && !Number.isNaN(Date.parse(value));
+export const isUnsafeLocator = (locator: string): boolean =>
+  locator.length === 0 || locator.startsWith("/") || locator.includes("\\") || locator.split("/").includes("..");
 const forbidden = /(?:\baddress\b|\bcontributor\b|\bsocial security\b)/i;
 const naturalKey = (value: string | null) => value === null || value.trim().length > 0;
 
@@ -62,7 +102,7 @@ export function assessRawIntake(record: RawIntakeRecord): IntakeDecision {
   const issues: IntakeIssue[] = [];
   if (!record.sourceKey || !record.snapshotId || !record.payloadLocator || !SHA.test(record.payloadSha256))
     issues.push({ code: "SOURCE_REFERENCE_INVALID", diagnostic: "source snapshot or immutable payload receipt is invalid" });
-  if (record.payloadLocator.startsWith("/") || record.payloadLocator.includes("\\") || record.payloadLocator.split("/").includes(".."))
+  if (isUnsafeLocator(record.payloadLocator))
     issues.push({ code: "PAYLOAD_LOCATOR_INVALID", diagnostic: "payload locator escapes the raw store" });
   if (!naturalKey(record.sourceNaturalKey)) issues.push({ code: "NATURAL_KEY_INVALID", diagnostic: "source natural key is blank" });
   if (!ISO.test(record.observedAt) || Number.isNaN(Date.parse(record.observedAt)))
@@ -91,13 +131,19 @@ export type HolderTransition = Readonly<{
   sourceSnapshotId: string;
 }>;
 
-/** A reported primary/general winner is not the current officeholder until its term is effective. */
+/**
+ * A reported or provisional winner is never projected onto an office. Only a
+ * certified winner with a sourced ISO UTC term-effective time yields a
+ * transition, and that transition is always `holder_pending_transition`;
+ * promotion to `current_holder` is a separate, later decision.
+ */
 export function holderTransitionFromResult(
   result: ResultObservation,
   officeId: string,
   termStartsAt: string | null,
 ): HolderTransition | null {
-  if (!result.winnerCandidateKey || !termStartsAt) return null;
+  if (result.maturity !== "certified_winner" || !result.winnerCandidateKey || !result.sourceSnapshotId) return null;
+  if (termStartsAt === null || !isIsoUtc(termStartsAt)) return null;
   return {
     officeId,
     holderId: result.winnerCandidateKey,
