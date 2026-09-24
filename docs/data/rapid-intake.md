@@ -16,9 +16,16 @@ Now a state is one spec file plus one registry line. The shared code lives in `s
 | `source-lock.ts` | Read, verify, upsert, and serialise `data/source-lock.json` in the committed layout |
 | `registry.ts` | The list of local-context artifacts: 17 frozen legacy artifacts as data, plus every live spec |
 | `coverage.ts` | Registry-driven `rapid-local-context-coverage-v16`, verified from lock-pinned artifact bytes instead of a rebuild chain |
+| `pdf.ts` | `pdftotext` layout and coordinate-TSV extraction, retained beside the PDF as a `derived_extract` |
 | `specs/` | One file per state; `ohio-state-legislative.ts` is the worked example |
 
-`scripts/rapid/intake.ts` (`npm run rapid:intake`) replaces per-state generator scripts and manual lock edits.
+`scripts/rapid/intake.ts` (`npm run rapid:intake`) replaces per-state generator scripts and manual lock edits. Beyond `retain`, `build`, `coverage`, and `check`, it offers `pin <id> <path> <kind>` for reviewed inputs such as alias tables and `derive <id>` for derived artifacts registered in `scripts/rapid/derived-artifacts.ts` (scores, evidence, context). The fifteen chained coverage generator scripts are removed; the v1 through v15 receipts are frozen and reproduced by their own tests.
+
+PDF sources are not parsed at runtime. Declare `download.extract` on the source (`mode: "layout"` or `"tsv"`, plus the extract's lock id) and `retain` runs `pdftotext`, retains the extract next to the PDF, and pins it with the PDF as parent. The spec then parses the extract.
+
+## First formula use of the intake
+
+`rapid-state-legislative-primary-context-v1` (`src/rapid-acquisition/state-legislative-primary-context.ts`) reads the twelve local-context catalogs through the source lock and derives, per state, a Democratic primary contestation score that the v0.9 House score applies to Republican-held seats. Catalogs that retain only contested primaries are marked ineligible rather than silently compared. See [the v0.9 review note](../reviews/house-priority-republican-route-v09-2026-09-23.md). The coverage receipts themselves stay `formulaEligibleCount: 0`; formula use happens in a separately pinned derived artifact.
 
 The coverage receipt is regenerated in place. There is no v17; the artifact list is the registry, and the web read model takes its artifact count and child paths from the same registry.
 
@@ -48,4 +55,7 @@ Run on 2026-09-23 in this worktree:
 - The v16 receipt's artifact list equals the v15 receipt's artifact list.
 - `npm run typecheck`, `npm run lint` (zero warnings after removing 154 unused imports and one dead FEC coordinator function), and `npm run data:verify` (1,144 entries) pass.
 - Vitest now uses a 60-second per-test timeout in `vitest.config.mts`; rebuild-and-compare tests routinely exceed the 5-second default under parallel load.
-- The AIPAC numeric-evidence v4 tests skip, rather than fail, when the non-retained FEC PAS2 archives are absent; set `DSA_SEATS_AIPAC_PAS2_DIR` to run them.
+- The AIPAC numeric-evidence v4 tests skip, rather than fail, when the non-retained FEC PAS2 archives are absent; set `DSA_SEATS_AIPAC_PAS2_DIR` to run them. `src/ingestion/fec/aipac-numeric-pas2-parse.test.ts` now covers the PAS2 parsing and latest-filing selection offline with synthetic 22-field rows, and the date helper reports `AIPAC_NUMERIC_PAS2_DATE_INVALID` for out-of-range months instead of a raw RangeError.
+- `make test-fast` (`npm run test:fast`) runs intake, scoring, and UI unit tests without the artifact rebuild suites.
+- Coverage artifacts carry `cyclesThrough`, the latest election or survey year covered, and the sources page shows it.
+- The stale browser-gate heading for `/` was updated to the priorities page title; the browser gate itself was not run in this change.

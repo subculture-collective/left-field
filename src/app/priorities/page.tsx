@@ -47,13 +47,15 @@ export default async function Priorities({ searchParams }: Props) {
       <main className="page priorities-page">
         <header className="priority-hero">
           <div>
-            <p className="eyebrow">{`2026 HOUSE PRIORITY INDEX · MODEL ${model.version}`}</p>
+            <p className="eyebrow">{`2026 HOUSE PRIORITY INDEX · MODEL ${model.version} · PUBLISHED ${model.publishedAt} · SOURCE CUTOFF ${model.cutoffDate}`}</p>
             <h1>Where the field bends.</h1>
             <p className="lede">
               A ranked field guide to 430 occupied House seats. Democratic-held
               seats combine primary opportunity, AIPAC evidence, and incumbent
-              alignment; Republican-held seats enter through a deliberately
-              capped general-election fringe screen.
+              alignment; Republican-held seats enter through a flip screen
+              that combines general-election competitiveness, incumbent
+              finance, and state-level Democratic primary organizing context,
+              scaled by how much of that evidence is available.
             </p>
           </div>
           <div className="index-mark">
@@ -107,7 +109,7 @@ export default async function Priorities({ searchParams }: Props) {
               <option value="">All routes</option>
               <option value="aipac_supported_blue">AIPAC-supported blue</option>
               <option value="deep_blue">Deep blue</option>
-              <option value="republican_fringe_general">Republican-held fringe</option>
+              <option value="republican_fringe_general">Republican-held flip</option>
             </select>
           </label>
           <label>
@@ -161,7 +163,7 @@ export default async function Priorities({ searchParams }: Props) {
                     ? "Deep blue"
                     : row.qualifyingRoute === "aipac_supported_blue"
                       ? "AIPAC-supported blue"
-                      : "Republican-held fringe"}
+                      : "Republican-held flip"}
                 </span>
               </div>
               </summary>

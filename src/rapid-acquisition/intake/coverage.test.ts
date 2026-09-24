@@ -23,7 +23,7 @@ describe("registry-driven local context coverage v16", () => {
   it("matches the previous chained receipt artifact by artifact", () => {
     const current = buildRapidLocalContextCoverageV16();
     const prior = JSON.parse(readFileSync("data/metadata/rapid-local-context-coverage-v15.json", "utf8")) as { artifacts: unknown[] };
-    expect(current.artifacts).toEqual(prior.artifacts);
+    expect(current.artifacts.map(({ cyclesThrough, ...rest }) => ({ ...rest, observed: typeof cyclesThrough }))).toEqual(prior.artifacts.map((artifact) => ({ ...(artifact as object), observed: "number" })));
   });
 
   it("validates the retained receipt and rejects score activation", () => {

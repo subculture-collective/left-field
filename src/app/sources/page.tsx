@@ -350,6 +350,12 @@ export default async function Sources() {
                             {Object.entries(artifact.summary)
                               .map(([key, value]) => `${words(key)}: ${value}`)
                               .join(" · ")}
+                            {artifact.cyclesThrough !== undefined ? (
+                              <>
+                                <br />
+                                <small>Cycles through {artifact.cyclesThrough}</small>
+                              </>
+                            ) : null}
                           </td>
                           <td>
                             Excluded — {artifact.formulaEligibleCount} eligible

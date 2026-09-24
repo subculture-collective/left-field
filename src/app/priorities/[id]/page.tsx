@@ -84,7 +84,7 @@ export default async function PriorityBrief({ params }: Props) {
                   ? "Deep blue"
                   : row.qualifyingRoute === "aipac_supported_blue"
                     ? "AIPAC-supported blue"
-                    : "Republican-held general-election fringe"}
+                    : "Republican-held flip screen"}
               </dd>
               <dt>Baseline score</dt>
               <dd>{row.baselineTargetScore.toFixed(1)}</dd>

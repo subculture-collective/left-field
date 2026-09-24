@@ -1,5 +1,6 @@
-import { readFile, writeFile } from "node:fs/promises";
-import { join } from "node:path";
+import { readFileSync } from "node:fs";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
+import { dirname, join } from "node:path";
 
 import {
   buildRapidLocalContextCoverageV16,
@@ -19,7 +20,9 @@ import {
   type IntakeSpec,
 } from "@/rapid-acquisition/intake/package";
 import { findIntakeSpec, registeredArtifacts } from "@/rapid-acquisition/intake/registry";
+import { assertPdfHeader, extractPdfText, PDF_EXTRACT_TAG } from "@/rapid-acquisition/intake/pdf";
 import { INTAKE_SPECS } from "@/rapid-acquisition/intake/specs";
+import { DERIVED_ARTIFACTS } from "./derived-artifacts";
 import {
   derivedArtifactEntry,
   readSourceLock,
@@ -40,11 +43,13 @@ import { retainRapidSource } from "./retain-source";
  *   npm run rapid:intake -- build <artifact-id>    build the artifact, pin it, refresh coverage
  *   npm run rapid:intake -- coverage               rebuild the coverage receipt from the registry
  *   npm run rapid:intake -- check                  rebuild every registered intake artifact and compare
+ *   npm run rapid:intake -- pin <id> <path> <kind> [parent,...]   pin a reviewed input file (alias tables, ledgers) in the lock
+ *   npm run rapid:intake -- derive <artifact-id>   build a registered derived artifact (scores, evidence) and pin it
  *
  * Finish with `npm run data:verify`, which is still the repository gate.
  */
 
-const USAGE = "usage: rapid:intake <list|retain <id>|build <id>|coverage|check>";
+const USAGE = "usage: rapid:intake <list|retain <id>|build <id>|coverage|check|pin <id> <path> <kind> [parents]|derive <id>>";
 const out = (line: string) => process.stdout.write(`${line}\n`);
 
 const specOrFail = (id: string | undefined): IntakeSpec => {
@@ -83,8 +88,39 @@ async function retain(spec: IntakeSpec): Promise<void> {
       parentIds: source.authorityLockIds ?? [],
     });
     out(`${source.lockId}: ${result.status} ${result.sourceLockEntryCandidate.byteSize} bytes sha256 ${result.sourceLockEntryCandidate.sha256}`);
+    const extract = source.download.extract;
+    if (extract) {
+      const pdfPath = result.sourceLockEntryCandidate.retainedPath;
+      assertPdfHeader(readFileSync(pdfPath));
+      const extractPath = `${pdfPath.replace(/\.pdf$/i, "")}${extract.mode === "layout" ? "-layout.txt" : "-words.tsv"}`;
+      const bytes = extractPdfText(pdfPath, extract.mode);
+      const status = await writeArtifact(extractPath, bytes);
+      lock = upsertSourceLockEntry(lock, derivedArtifactEntry({ id: extract.lockId, url: `urn:dsa-seats:${PDF_EXTRACT_TAG[extract.mode]}:${source.lockId}`, retainedPath: extractPath, bytes, kind: "derived_extract", parentIds: [source.lockId] }));
+      out(`${extract.lockId}: ${status} extract (${PDF_EXTRACT_TAG[extract.mode]}) ${bytes.length} bytes sha256 ${sha(bytes)}`);
+    }
   }
   writeSourceLock(lock);
+}
+
+async function pin(id: string | undefined, path: string | undefined, kind: string | undefined, parents: string | undefined): Promise<void> {
+  if (!id || !path || !kind) throw new Error(USAGE);
+  const bytes = readFileSync(path);
+  const lock = upsertSourceLockEntry(readSourceLock(), derivedArtifactEntry({ id, url: `urn:dsa-seats:${id.replace(/-v(\d+)$/, ":v$1")}`, retainedPath: path, bytes, kind, parentIds: parents ? parents.split(",").filter(Boolean) : [] }));
+  writeSourceLock(lock);
+  out(`${id}: pinned ${bytes.length} bytes sha256 ${sha(bytes)} kind ${kind}`);
+}
+
+async function derive(id: string | undefined): Promise<void> {
+  const derived = DERIVED_ARTIFACTS.find((entry) => entry.id === id);
+  if (!derived) throw new Error(`DERIVED_ARTIFACT_UNKNOWN:${id ?? "(missing id)"}\nregistered: ${DERIVED_ARTIFACTS.map((entry) => entry.id).join(", ")}`);
+  const lock = readSourceLock();
+  const value = derived.build(process.cwd(), lock);
+  const bytes = Buffer.from(`${JSON.stringify(value, null, 2)}\n`);
+  await mkdir(dirname(derived.path), { recursive: true });
+  const status = await writeArtifact(derived.path, bytes);
+  writeSourceLock(upsertSourceLockEntry(lock, derivedArtifactEntry({ id: derived.id, url: derived.url, retainedPath: derived.path, bytes, kind: derived.kind, parentIds: derived.parentIds })));
+  out(`${derived.id}: ${status}; ${bytes.length} bytes; sha256 ${sha(bytes)}`);
+  for (const line of derived.describe(value)) out(`  ${line}`);
 }
 
 function pinCoverage(lock: SourceLock): SourceLock {
@@ -166,6 +202,10 @@ async function main(argv: readonly string[]): Promise<void> {
       return coverage();
     case "check":
       return check();
+    case "pin":
+      return pin(id, argv[2], argv[3], argv[4]);
+    case "derive":
+      return derive(id);
     default:
       throw new Error(USAGE);
   }

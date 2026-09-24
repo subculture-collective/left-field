@@ -94,6 +94,12 @@ export interface IntakeSource {
     outputPath: string;
     kind?: string;
     allowedFinalUrl?: string;
+    /**
+     * For PDF sources: also retain a `pdftotext` extract under `extract.lockId`
+     * (path = outputPath + "-layout.txt" or "-words.tsv"), pinned as a
+     * derived_extract whose parent is this source. Specs parse the extract.
+     */
+    extract?: Readonly<{ mode: "layout" | "tsv"; lockId: string }>;
   }>;
 }
 

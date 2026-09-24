@@ -29,6 +29,7 @@ export type CoverageArtifact = Readonly<{
   summary: Readonly<Record<string, number>>;
   packageSha256: string;
   formulaEligibleCount: 0;
+  cyclesThrough: number;
 }>;
 
 export interface RapidLocalContextCoverageV16 {
@@ -83,6 +84,7 @@ function coverageArtifact(
     summary: picked,
     packageSha256: packageSha256 as string,
     formulaEligibleCount: 0,
+    cyclesThrough: registered.cyclesThrough,
   };
 }
 

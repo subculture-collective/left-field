@@ -1,5 +1,7 @@
 # DSA primary target evaluation v0.1
 
+> Active model v0.9 (2026-09-23): Republican-held seats no longer receive a flat 0.70 multiplier. Their route is a coverage-scaled combination of general-election competitiveness (0.45), cash vulnerability (0.20), exact at-large local context (0.15), and state-level Democratic primary contestation (0.20); available weights are renormalized and multiplied by `0.6 + 0.4 × available weight`, the same partial-coverage rule the Democratic route applies. The state contestation component comes from the retained state-legislative primary catalogs. A reviewed identity alias table also resolves RI-01's direct 2024 primary evidence. See [the v0.9 review note](../reviews/house-priority-republican-route-v09-2026-09-23.md).
+
 > Deadline extension: the separately versioned `dsa-primary-target-provisional-v0.2` adds a 25% incumbent-alignment gap from the retained Left and Palestine trackers. It preserves v0.1 scores for the 140 originally qualified seats and uses an explicit component fallback to order the other 72, without mutating v0.1. See [the v0.2 review note](../reviews/dsa-target-provisional-score-v02-2026-08-07.md).
 
 ## Goal and scope

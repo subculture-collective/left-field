@@ -13,7 +13,8 @@
         "formulaEligibleRows": 0
       },
       "packageSha256": "f3285added7c4fcc1ef713c1a279bec90f918e12204ef184fb085895395cfceb",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2024
     },
     {
       "id": "rapid-county-election-context-projection-v1",
@@ -26,7 +27,8 @@
         "formulaEligibleRows": 0
       },
       "packageSha256": "b43c7e5fab81467fe34df181247d9f66fe1e8cadec24218c583e0a60a9dd7788",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2024
     },
     {
       "id": "rapid-county-house-results-2022-projection-v1",
@@ -39,7 +41,8 @@
         "formulaEligibleRows": 0
       },
       "packageSha256": "d79c2066fb19dce7feb73560104b5aeca783377df9fefd55fa43afaf8591826e",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2022
     },
     {
       "id": "rapid-county-house-results-projection-v1",
@@ -52,7 +55,8 @@
         "formulaEligibleRows": 0
       },
       "packageSha256": "dbce551ba6a813f15a05dfc2541af69096d41ebcc5ad12c87ca8038246e0a933",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2024
     },
     {
       "id": "rapid-county-senate-results-projection-v1",
@@ -65,7 +69,8 @@
         "formulaEligibleRows": 0
       },
       "packageSha256": "c549da75c4004f4f1d6bf8199c0aa7b5849da94cdc83f865eb0746c4e3f89434",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2024
     },
     {
       "id": "rapid-indiana-state-legislative-primary-results-v1",
@@ -78,7 +83,8 @@
         "formulaEligibleContests": 0
       },
       "packageSha256": "8b570d896be3bb772515697a2a1e7a8ad93e136e9bae93bf72521bce0660ad5f",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2024
     },
     {
       "id": "rapid-tennessee-state-legislative-primary-results-v1",
@@ -92,7 +98,8 @@
         "formulaEligibleContests": 0
       },
       "packageSha256": "cb51286822a270f830d853f8a9ccfdee7cd77b022681e3a9e44211ec1e4ba48c",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2024
     },
     {
       "id": "rapid-georgia-state-legislative-primary-results-v1",
@@ -106,7 +113,8 @@
         "formulaEligibleContests": 0
       },
       "packageSha256": "eabf8e932b04844ad1402f753644c0e1b424acee9f528359806a5d2c2c453b43",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2026
     },
     {
       "id": "rapid-north-carolina-state-legislative-primary-results-v1",
@@ -120,7 +128,8 @@
         "formulaEligibleContests": 0
       },
       "packageSha256": "9cf0e078e65459d188d953fd47c8305cd0f6b657111dcd4fbaf3588dfab7e1cf",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2026
     },
     {
       "id": "rapid-alabama-state-legislative-primary-results-v1",
@@ -134,7 +143,8 @@
         "formulaEligibleContests": 0
       },
       "packageSha256": "6bbd639119ccfbe103568e40add2f7556af64f7a3379967b2d53a9388e183bdd",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2022
     },
     {
       "id": "rapid-delaware-state-legislative-primary-results-v1",
@@ -148,7 +158,8 @@
         "formulaEligibleContests": 0
       },
       "packageSha256": "da25511081a3516ae05f9bdf976d89ee9d03cb0581a2039db20705702b9b1809",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2024
     },
     {
       "id": "rapid-hawaii-state-legislative-primary-results-v1",
@@ -162,7 +173,8 @@
         "formulaEligibleContests": 0
       },
       "packageSha256": "962979034dc9e4f7814f7cf406b77ab5087a3b8ca91326b58ce0a8db9d45260b",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2024
     },
     {
       "id": "rapid-missouri-state-legislative-primary-results-v1",
@@ -175,7 +187,8 @@
         "formulaEligibleContests": 0
       },
       "packageSha256": "325f92a7b507220a5dac2c2a6721796d18d1936c0d3f5f836327ed21032af746",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2024
     },
     {
       "id": "rapid-kentucky-state-legislative-primary-results-v1",
@@ -188,7 +201,8 @@
         "formulaEligibleContests": 0
       },
       "packageSha256": "f2cde60a593c8e84520625cb01e5906bdd9300ba1a0b1fc22dec9d888c54e19c",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2026
     },
     {
       "id": "rapid-north-carolina-local-office-primary-results-v1",
@@ -202,7 +216,8 @@
         "formulaEligibleContests": 0
       },
       "packageSha256": "d1d26b909ed73041a47d73022b9c4e5b6fd453db1f4c604613fbdc0ae405fb1c",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2026
     },
     {
       "id": "rapid-new-mexico-county-office-primary-results-v1",
@@ -217,7 +232,8 @@
         "formulaEligibleContests": 0
       },
       "packageSha256": "d99d29b51284919f06d5d406444ef9ad52eef52af1fb289d8cc75cc3a1c71328",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2026
     },
     {
       "id": "rapid-ohio-state-legislative-democratic-primary-results-v1",
@@ -231,9 +247,10 @@
         "formulaEligibleContests": 0
       },
       "packageSha256": "45612e0ce2949555193c1372cc3a6302c110f1776a47e2da8a63b5b0896cee04",
-      "formulaEligibleCount": 0
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2026
     }
   ],
-  "artifactSetSha256": "db8d55111852fe33a8b02f6eb14d4cc41f6414970a34d3e78fe8c9ee7859cec0",
-  "packageSha256": "8e2744d94d6e7ad4906d390012d60b37b770c9189ddf799e0f51a0c2a339bc8d"
+  "artifactSetSha256": "60ca073f5f7ae7c58de2c804503dc4a934744e5059df04c91c2e3dae60480325",
+  "packageSha256": "17a7cedb61528710adc55debbfbcca4adceb0f1585a157fe0aa4f8a6731706b2"
 }

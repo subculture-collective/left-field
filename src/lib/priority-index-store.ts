@@ -3,8 +3,8 @@ import type { PublicPriorityBrief } from "./house-priority-index";
 import { housePriorityBriefs } from "./house-priority-index";
 
 // This is the runtime-relevant version string shown in the UI.
-const CURRENT_VERSION = "v0.8";
-const CURRENT_PUBLISHED_AT = "2026-08-09";
+const CURRENT_VERSION = "v0.9";
+const CURRENT_PUBLISHED_AT = "2026-09-23";
 const CURRENT_CUTOFF_DATE = "2026-08-04";
 
 let _instance: FilesystemPriorityIndexRepository | undefined;

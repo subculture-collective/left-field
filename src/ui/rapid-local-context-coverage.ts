@@ -4,7 +4,7 @@ import { join } from "node:path";
 
 import { registeredArtifacts } from "@/rapid-acquisition/intake/registry";
 
-export type RapidLocalContextArtifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0 }>;
+export type RapidLocalContextArtifact = Readonly<{ id: string; label: string; scope: string; summary: Readonly<Record<string, number>>; packageSha256: string; formulaEligibleCount: 0; cyclesThrough?: number }>;
 export type RapidLocalContextCoverageViewModel = Readonly<{ schema: "rapid-local-context-coverage-v16" | "rapid-local-context-coverage-v1" | "rapid-local-context-coverage-v2" | "rapid-local-context-coverage-v3" | "rapid-local-context-coverage-v4" | "rapid-local-context-coverage-v5" | "rapid-local-context-coverage-v6" | "rapid-local-context-coverage-v7" | "rapid-local-context-coverage-v8" | "rapid-local-context-coverage-v9" | "rapid-local-context-coverage-v10" | "rapid-local-context-coverage-v11" | "rapid-local-context-coverage-v12" | "rapid-local-context-coverage-v13" | "rapid-local-context-coverage-v14" | "rapid-local-context-coverage-v15"; version: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16; artifacts: readonly RapidLocalContextArtifact[] }>;
 const registry = registeredArtifacts();
 const coveragePaths = (root = process.cwd()) => [
@@ -33,7 +33,7 @@ const readAllowlistedText = (path: string) => readFile(/*turbopackIgnore: true*/
 const isArtifact = (value: unknown): value is RapidLocalContextArtifact => {
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
   const row = value as Record<string, unknown>;
-  return typeof row.id === "string" && typeof row.label === "string" && typeof row.scope === "string" && typeof row.packageSha256 === "string" && /^[a-f0-9]{64}$/.test(row.packageSha256) && row.formulaEligibleCount === 0 && !!row.summary && typeof row.summary === "object" && !Array.isArray(row.summary) && Object.values(row.summary).every((value) => Number.isSafeInteger(value) && value >= 0);
+  return typeof row.id === "string" && typeof row.label === "string" && typeof row.scope === "string" && typeof row.packageSha256 === "string" && /^[a-f0-9]{64}$/.test(row.packageSha256) && row.formulaEligibleCount === 0 && (row.cyclesThrough === undefined || (Number.isSafeInteger(row.cyclesThrough) && (row.cyclesThrough as number) >= 2000)) && !!row.summary && typeof row.summary === "object" && !Array.isArray(row.summary) && Object.values(row.summary).every((value) => Number.isSafeInteger(value) && value >= 0);
 };
 type Lock = Readonly<{ entries: readonly Readonly<{ id: string; retainedPath?: string; retainedStatus: string; byteSize?: number; sha256?: string; parentIds: readonly string[] }>[] }>;
 const childPaths: Readonly<Record<string, string>> = Object.fromEntries(registry.map((artifact) => [artifact.id, artifact.path]));
