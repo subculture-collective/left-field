@@ -4,6 +4,7 @@ import { join } from "node:path";
 import { acceptanceCommands, assertAcceptanceEnvironment, runAcceptance } from "./test-acceptance";
 
 const safe = { ACCEPTANCE_TESTS: "1", DATABASE_URL: "postgresql://dsa_seats@127.0.0.1:5432/dsa_acceptance_integration_test", TEST_DATABASE_URL: "postgresql://dsa_seats@localhost:5432/dsa_acceptance_integration_test", QUERY_DATABASE_URL: "postgresql://dsa_seats@127.0.0.1:5432/dsa_acceptance_query_test", E2E_DATABASE_URL: "postgresql://dsa_seats@127.0.0.1:5432/dsa_acceptance_browser_test", WEB_DATABASE_URL: "postgresql://acceptance_web@127.0.0.1:5432/dsa_acceptance_browser_test", ACCEPTANCE_MAP_ARTIFACT_ROOT: join(tmpdir(), "dsa-seats-task13", "task10-maps"), E2E_MAP_PROFILE_PATH: "/seats/seat_0" };
+const withDatabaseHost = (hostname: string) => Object.fromEntries(Object.entries(safe).map(([name, value]) => [name, name.endsWith("DATABASE_URL") ? value.replace(/(?:127\.0\.0\.1|localhost)/, hostname) : value]));
 
 describe("acceptance harness", () => {
   afterEach(() => vi.restoreAllMocks());
@@ -17,10 +18,20 @@ describe("acceptance harness", () => {
     expect(() => assertAcceptanceEnvironment({ ...safe, DATABASE_URL: "postgresql://dsa_seats@localhost/dsa_acceptance_integration_test?sslmode=disable" })).toThrow("parameters");
     expect(() => assertAcceptanceEnvironment({ ...safe, QUERY_DATABASE_URL: "postgresql://localhost/dsa_acceptance_query_test" })).toThrow("LOGIN username");
     expect(() => assertAcceptanceEnvironment({ ...safe, NODE_ENV: "production" })).toThrow("refuses NODE_ENV");
+    const databaseHost = "acceptance-postgres-012345abcdef-5381-1";
+    const ci = withDatabaseHost(databaseHost);
+    expect(() => assertAcceptanceEnvironment({ ...ci, ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: databaseHost })).toThrow("exact isolated CI database alias");
+    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_DATABASE_HOST: databaseHost })).toThrow("exact isolated CI database alias");
+    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1" })).toThrow("exact isolated CI database alias");
+    expect(() => assertAcceptanceEnvironment({ ...withDatabaseHost("database.internal"), CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: "database.internal" })).toThrow("exact isolated CI database alias");
+    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: databaseHost.toUpperCase() })).toThrow("exact isolated CI database alias");
+    expect(() => assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: "acceptance-postgres-fedcba987654-5381-1" })).toThrow("exact isolated CI database alias");
+    expect(() => assertAcceptanceEnvironment({ ...withDatabaseHost("postgres"), CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: "postgres" })).toThrow("exact isolated CI database alias");
+    expect(assertAcceptanceEnvironment({ ...ci, CI: "true", ACCEPTANCE_JOB_CONTAINER: "1", ACCEPTANCE_DATABASE_HOST: databaseHost })).toMatchObject({ integrationDatabaseUrl: expect.stringContaining(`@${databaseHost}:`) });
   });
   it("runs the pinned lane order with lane-specific environments", () => {
     expect(acceptanceCommands.map(({ lane, command, args }) => `${lane}: ${command} ${args.join(" ")}`)).toEqual([
-      "integration: npm run db:migrate", "integration: npm run test:integration", "integration: npm run test:run -- --exclude src/db/integration.test.ts", "query: npm run db:migrate", "query: npm run measure:task5-queries", "browser: npm run test:e2e:task13", "static: npm run typecheck", "static: npm run lint", "static: npm run build", "static: npm run data:verify", "static: npm audit --audit-level=low", "static: docker compose config -q", "static: npm run db:generate", "static: git diff --exit-code -- drizzle",
+      "integration: npm run db:migrate", "integration: npm run test:integration", "integration: npm run test:run -- --exclude src/db/integration.test.ts --maxWorkers=1 --no-file-parallelism --pool=forks --execArgv=--max-old-space-size=4096", "query: npm run db:migrate", "query: npm run measure:task5-queries", "browser: npm run test:e2e:task13", "static: npm run typecheck", "static: npm run lint", "static: npm run build", "static: npm run data:verify", "static: npm audit --audit-level=low", "static: docker compose config -q", "static: npm run db:generate", "static: git diff --exit-code -- drizzle",
     ]);
     const environments = new Map<string, NodeJS.ProcessEnv>();
     vi.spyOn(process.stdout, "write").mockImplementation(() => true);

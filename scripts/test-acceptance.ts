@@ -25,7 +25,10 @@ export function assertAcceptanceEnvironment(env: Readonly<Record<string, string 
     let url: URL;
     try { url = new URL(value); } catch { throw new Error(`${name} must be a PostgreSQL URL`); }
     if (!(["postgres:", "postgresql:"] as string[]).includes(url.protocol)) throw new Error(`${name} must be a PostgreSQL URL`);
-    if (!(["localhost", "127.0.0.1", "::1"] as string[]).includes(url.hostname.toLowerCase())) throw new Error(`${name} must use a loopback host`);
+    const hostname = url.hostname.toLowerCase();
+    const configuredDatabaseHost = env.ACCEPTANCE_DATABASE_HOST;
+    const isolatedContainerHost = env.CI === "true" && env.ACCEPTANCE_JOB_CONTAINER === "1" && configuredDatabaseHost !== undefined && /^acceptance-postgres-[0-9a-f]{12}-[0-9]+-[0-9]+$/.test(configuredDatabaseHost) && hostname === configuredDatabaseHost.toLowerCase();
+    if (!(["localhost", "127.0.0.1", "::1"] as string[]).includes(hostname) && !isolatedContainerHost) throw new Error(`${name} must use a loopback host or the exact isolated CI database alias`);
     if (url.search || url.hash) throw new Error(`${name} must not include query parameters or fragments`);
     if (!url.username) throw new Error(`${name} must include a LOGIN username`);
     const database = decodeURIComponent(url.pathname).replace(/^\//, "");
@@ -51,7 +54,7 @@ export function assertAcceptanceEnvironment(env: Readonly<Record<string, string 
 export const acceptanceCommands: readonly AcceptanceCommand[] = [
   { lane: "integration", command: "npm", args: ["run", "db:migrate"] },
   { lane: "integration", command: "npm", args: ["run", "test:integration"] },
-  { lane: "integration", command: "npm", args: ["run", "test:run", "--", "--exclude", "src/db/integration.test.ts"] },
+  { lane: "integration", command: "npm", args: ["run", "test:run", "--", "--exclude", "src/db/integration.test.ts", "--maxWorkers=1", "--no-file-parallelism", "--pool=forks", "--execArgv=--max-old-space-size=4096"] },
   { lane: "query", command: "npm", args: ["run", "db:migrate"] },
   { lane: "query", command: "npm", args: ["run", "measure:task5-queries"] },
   { lane: "browser", command: "npm", args: ["run", "test:e2e:task13"] },
