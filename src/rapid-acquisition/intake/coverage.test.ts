@@ -23,7 +23,10 @@ describe("registry-driven local context coverage v16", () => {
   it("matches the previous chained receipt artifact by artifact", () => {
     const current = buildRapidLocalContextCoverageV16();
     const prior = JSON.parse(readFileSync("data/metadata/rapid-local-context-coverage-v15.json", "utf8")) as { artifacts: unknown[] };
-    expect(current.artifacts.map(({ cyclesThrough, ...rest }) => ({ ...rest, observed: typeof cyclesThrough }))).toEqual(prior.artifacts.map((artifact) => ({ ...(artifact as object), observed: "number" })));
+    // v16 carries every v15 artifact unchanged and adds the Indiana local-office receipt that v15 omitted (see the Phase B charter).
+    const carried = current.artifacts.filter((artifact) => artifact.id !== "rapid-indiana-local-office-primary-results-v1");
+    expect(carried.map(({ cyclesThrough, ...rest }) => ({ ...rest, observed: typeof cyclesThrough }))).toEqual(prior.artifacts.map((artifact) => ({ ...(artifact as object), observed: "number" })));
+    expect(current.artifacts.find((artifact) => artifact.id === "rapid-indiana-local-office-primary-results-v1")).toMatchObject({ formulaEligibleCount: 0, cyclesThrough: 2024 });
   });
 
   it("validates the retained receipt and rejects score activation", () => {

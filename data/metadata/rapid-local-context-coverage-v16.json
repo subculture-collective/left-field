@@ -236,6 +236,23 @@
       "cyclesThrough": 2026
     },
     {
+      "id": "rapid-indiana-local-office-primary-results-v1",
+      "label": "Indiana local-office primary context",
+      "scope": "Indiana 2024 certified county and local-office primary archive: 12 source categories, multi-seat contests, source-marked winners",
+      "summary": {
+        "officeCategories": 12,
+        "officeRows": 682,
+        "partyContests": 816,
+        "candidateRows": 1520,
+        "candidateVotes": 4232706,
+        "sourceMarkedWinnerCandidates": 1049,
+        "formulaEligibleContests": 0
+      },
+      "packageSha256": "052042778509c81b6e42586f341518348e140ecc88e4e0e843dccf377a0de390",
+      "formulaEligibleCount": 0,
+      "cyclesThrough": 2024
+    },
+    {
       "id": "rapid-ohio-state-legislative-democratic-primary-results-v1",
       "label": "Ohio Democratic state-legislative primary context",
       "scope": "Ohio 2024 and 2026 Democratic state House and Senate official-canvass contests",
@@ -251,6 +268,6 @@
       "cyclesThrough": 2026
     }
   ],
-  "artifactSetSha256": "60ca073f5f7ae7c58de2c804503dc4a934744e5059df04c91c2e3dae60480325",
-  "packageSha256": "17a7cedb61528710adc55debbfbcca4adceb0f1585a157fe0aa4f8a6731706b2"
+  "artifactSetSha256": "6ea29ae44dfa01b29b6e1be9c79909a6c7481e35cd450b37a37052a5877c1d03",
+  "packageSha256": "fec5fdc4a8d456cb1016c01ac7a08d5c73777b2a7503993058fd99deee2261f3"
 }
