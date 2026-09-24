@@ -1,3 +1,4 @@
+import { houseRoute } from "./shared";
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
@@ -105,7 +106,7 @@ export function buildHouseScoreV08ActiveProjection(root = process.cwd()): HouseS
       activeScore = cash === null ? one((0.65 * structuralBaseline + 0.2 * alignment) / 0.85) : one(0.65 * structuralBaseline + 0.2 * alignment + 0.15 * cash);
     }
     const unsigned = {
-      seatCycleId: brief.seatCycleId, districtLabel: brief.districtLabel, incumbentParty: brief.incumbentParty, qualifyingRoute: brief.qualifyingRoute,
+      seatCycleId: brief.seatCycleId, districtLabel: brief.districtLabel, incumbentParty: brief.incumbentParty, qualifyingRoute: houseRoute(brief.qualifyingRoute),
       previousScoreVersion: "v0.7" as const, previousScore: parent.activeScore, activeScoreVersion: "v0.8" as const, activeScore,
       previousPrimaryFeasibility, activePrimaryFeasibility: directPrimaryEvidence ? primary!.primaryVulnerability : previousPrimaryFeasibility,
       directPrimaryEvidence, primaryEvidenceId: directPrimaryEvidence ? primary!.evidenceId : null,

@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-import { sha } from "../shared";
+import { hash, sha } from "../shared";
 
 /**
  * Read, verify, and upsert `data/source-lock.json` entries.
@@ -61,6 +61,27 @@ export function readRetainedSource(
   if (bytes.length !== entry.byteSize || sha(bytes) !== entry.sha256)
     fail(`BYTES_MISMATCH:${id}`);
   return { entry, bytes };
+}
+
+/**
+ * Reads a retained derived package and checks its `packageSha256` against
+ * `hash(domain, unsigned)`. This is a lock-and-digest read, not a rebuild;
+ * use the artifact's `validate` function when a full reproduction is required.
+ */
+export function readPinnedPackage<T extends { packageSha256: string }>(
+  lock: SourceLock,
+  id: string,
+  domain: string,
+  root = process.cwd(),
+): { entry: SourceLockEntry; value: T } {
+  const { entry, bytes } = readRetainedSource(lock, id, root);
+  if (entry.kind !== "derived_artifact") fail(`NOT_DERIVED:${id}`);
+  const value = JSON.parse(bytes.toString("utf8")) as T;
+  if (typeof value !== "object" || value === null) fail(`PACKAGE_INVALID:${id}`);
+  const { packageSha256, ...unsigned } = value;
+  if (typeof packageSha256 !== "string" || hash(domain, unsigned) !== packageSha256)
+    fail(`PACKAGE_DIGEST_MISMATCH:${id}`);
+  return { entry, value };
 }
 
 /** Returns a new lock with `entry` replacing any same-id entry, else appended. */

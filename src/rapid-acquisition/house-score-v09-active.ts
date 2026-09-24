@@ -2,8 +2,8 @@ import { housePriorityBriefsV03 } from "@/lib/house-priority-index";
 
 import { readHousePrimaryIncumbentEvidenceV2, INCUMBENT_EVIDENCE_V2 } from "./house-primary-incumbent-evidence-v2";
 import { validateHouseScoreV08ActiveProjection, type HouseScoreV08ActiveRow } from "./house-score-v08-active";
-import { readRetainedSource, readSourceLock, type SourceLock } from "./intake/source-lock";
-import { byteCompare, exact, hash } from "./shared";
+import { readPinnedPackage, readRetainedSource, readSourceLock, type SourceLock } from "./intake/source-lock";
+import { byteCompare, exact, hash, houseRoute } from "./shared";
 import { readStateLegislativePrimaryContext, STATE_LEGISLATIVE_PRIMARY_CONTEXT } from "./state-legislative-primary-context";
 
 /**
@@ -124,7 +124,7 @@ export function buildHouseScoreV09ActiveProjection(root = process.cwd(), lock: S
     if (parent.districtLabel !== brief.districtLabel || parent.activeScoreVersion !== "v0.8" || parent.incumbentParty !== brief.incumbentParty) fail(`PARENT_JOIN_INVALID:${brief.seatCycleId}`);
     const primary = evidenceBySeat.get(brief.seatCycleId);
     const carried = {
-      seatCycleId: brief.seatCycleId, districtLabel: brief.districtLabel, incumbentParty: brief.incumbentParty, qualifyingRoute: brief.qualifyingRoute,
+      seatCycleId: brief.seatCycleId, districtLabel: brief.districtLabel, incumbentParty: brief.incumbentParty, qualifyingRoute: houseRoute(brief.qualifyingRoute),
       previousScoreVersion: "v0.8" as const, previousScore: parent.activeScore, activeScoreVersion: "v0.9" as const,
       localContext: parent.localContext, localContextAvailableWeight: parent.localContextAvailableWeight, parentV08RowSha256: parent.rowSha256,
     };
@@ -197,4 +197,19 @@ export function validateHouseScoreV09ActiveProjection(value: unknown, root = pro
   const expected = buildHouseScoreV09ActiveProjection(root);
   if (!exact(value, expected)) fail("ACTIVE_INVALID");
   return value as HouseScoreV09ActiveProjection;
+}
+
+/**
+ * Lock-verified read of the retained projection without rebuilding it: the
+ * bytes must match their lock pin, the parents must be the v0.9 parents, the
+ * package digest must match, and the projection must close over 430 seats.
+ */
+export function readHouseScoreV09ActiveProjection(root = process.cwd(), lock: SourceLock = readSourceLock(root)): HouseScoreV09ActiveProjection {
+  const { entry, value } = readPinnedPackage<HouseScoreV09ActiveProjection>(lock, HOUSE_SCORE_V09.id, "dsa-seats:house-score-v09-active-package:v1", root);
+  if (JSON.stringify(entry.parentIds) !== JSON.stringify(HOUSE_SCORE_V09.parentIds)) fail("SOURCE_INVALID");
+  if (
+    value.schema !== "house-score-v09-active-projection-v1" || value.version !== 1 || value.methodology.status !== "active" || value.methodology.republicanRouteCap !== "removed" || value.methodology.sourceWinnerInference !== false ||
+    value.summary.seats !== 430 || value.summary.republicanSeats !== 218 || value.summary.routeChanges !== 0 || !Array.isArray(value.rows) || value.rows.length !== 430 || new Set(value.rows.map((row) => row.seatCycleId)).size !== 430
+  ) fail("PROJECTION_INVALID");
+  return value;
 }

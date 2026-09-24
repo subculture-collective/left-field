@@ -6,15 +6,17 @@ import { getDefaultPriorityRepository } from "@/lib/priority-index-store";
 
 export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
-  title: "House Priority Index",
+  title: "Priority Index",
   description:
-    "Ranked strategic profiles for Democratic-held and Republican-held U.S. House seats.",
+    "Ranked strategic profiles for Democratic-held and Republican-held U.S. House and Senate seats.",
 };
 type Props = {
   searchParams: Promise<Record<string, string | string[] | undefined>>;
 };
 const value = (input: string | string[] | undefined): string =>
   typeof input === "string" ? input : "";
+const routeLabel = (route: string): string =>
+  route === "deep_blue" ? "Deep blue" : route === "aipac_supported_blue" ? "AIPAC-supported blue" : route === "democratic_incumbent_primary" ? "Democratic incumbent" : "Republican-held flip";
 
 export default async function Priorities({ searchParams }: Props) {
   const repo = getDefaultPriorityRepository();
@@ -24,6 +26,8 @@ export default async function Priorities({ searchParams }: Props) {
   const query = value(params.q).trim().toLocaleLowerCase("en-US"),
     state = value(params.state),
     route = value(params.route),
+    chamber = value(params.chamber),
+    cycle = value(params.cycle),
     showAll = value(params.show) === "all";
   const states = [...new Set(briefs.map((row) => row.stateCode))].sort();
   const filtered = briefs.filter(
@@ -33,12 +37,15 @@ export default async function Priorities({ searchParams }: Props) {
           .toLocaleLowerCase("en-US")
           .includes(query)) &&
       (!state || row.stateCode === state) &&
-      (!route || row.qualifyingRoute === route),
+      (!route || row.qualifyingRoute === route) &&
+      (!chamber || row.chamber === chamber) &&
+      (!cycle || String(row.nextElectionYear) === cycle),
   );
-  const visible =
-    showAll || query || state || route
-      ? filtered
-      : filtered.slice(0, 50);
+  const anyFilter = Boolean(query || state || route || chamber || cycle);
+  const visible = showAll || anyFilter ? filtered : filtered.slice(0, 50);
+  const houseSeats = briefs.filter((row) => row.chamber === "house").length;
+  const senateSeats = briefs.filter((row) => row.chamber === "senate").length;
+  const cycles = [...new Set(briefs.map((row) => row.nextElectionYear))].sort();
   const rank50Score = briefs[49]!.provisionalTargetScore;
   const seatsAtOrAbove60 = briefs.filter((row) => row.provisionalTargetScore >= 60).length;
   const republicanSeats = briefs.filter((row) => row.incumbentParty === "Republican").length;
@@ -47,11 +54,12 @@ export default async function Priorities({ searchParams }: Props) {
       <main className="page priorities-page">
         <header className="priority-hero">
           <div>
-            <p className="eyebrow">{`2026 HOUSE PRIORITY INDEX · MODEL ${model.version} · PUBLISHED ${model.publishedAt} · SOURCE CUTOFF ${model.cutoffDate}`}</p>
+            <p className="eyebrow">{`PRIORITY INDEX · MODEL ${model.version} · PUBLISHED ${model.publishedAt} · HOUSE SOURCE CUTOFF ${model.cutoffDate}`}</p>
             <h1>Where the field bends.</h1>
             <p className="lede">
-              A ranked field guide to 430 occupied House seats. Democratic-held
-              seats combine primary opportunity, AIPAC evidence, and incumbent
+              A ranked field guide to {houseSeats} occupied House seats and{" "}
+              {senateSeats} Senate seats. Democratic-held seats combine primary
+              opportunity, AIPAC evidence where retained, and incumbent
               alignment; Republican-held seats enter through a flip screen
               that combines general-election competitiveness, incumbent
               finance, and state-level Democratic primary organizing context,
@@ -104,11 +112,29 @@ export default async function Priorities({ searchParams }: Props) {
             </select>
           </label>
           <label>
+            Chamber
+            <select name="chamber" defaultValue={chamber}>
+              <option value="">Both chambers</option>
+              <option value="house">House</option>
+              <option value="senate">Senate</option>
+            </select>
+          </label>
+          <label>
+            Next election
+            <select name="cycle" defaultValue={cycle}>
+              <option value="">Any year</option>
+              {cycles.map((year) => (
+                <option key={year} value={String(year)}>{year}</option>
+              ))}
+            </select>
+          </label>
+          <label>
             Route
             <select name="route" defaultValue={route}>
               <option value="">All routes</option>
               <option value="aipac_supported_blue">AIPAC-supported blue</option>
               <option value="deep_blue">Deep blue</option>
+              <option value="democratic_incumbent_primary">Democratic incumbent (Senate)</option>
               <option value="republican_fringe_general">Republican-held flip</option>
             </select>
           </label>
@@ -141,7 +167,7 @@ export default async function Priorities({ searchParams }: Props) {
                 <h2>{row.officialHouseName}</h2>
                 <p>
                   {row.incumbentParty} · {formatPartisanMargin(row.presidentialDemocraticMargin2024)} ·{" "}
-                  {row.cumulativeHouseServiceYears.toFixed(1)} years in House
+                  {row.cumulativeHouseServiceYears.toFixed(1)} years in {row.chamber === "senate" ? "Senate" : "House"} · next election {row.nextElectionYear}
                 </p>
               </div>
               <div className="driver-snapshot">
@@ -159,11 +185,7 @@ export default async function Priorities({ searchParams }: Props) {
               </div>
               <div>
                 <span className={`route-tag route-${row.qualifyingRoute}`}>
-                  {row.qualifyingRoute === "deep_blue"
-                    ? "Deep blue"
-                    : row.qualifyingRoute === "aipac_supported_blue"
-                      ? "AIPAC-supported blue"
-                      : "Republican-held flip"}
+                  {routeLabel(row.qualifyingRoute)}
                 </span>
               </div>
               </summary>
@@ -182,7 +204,7 @@ export default async function Priorities({ searchParams }: Props) {
             <Link href="/">Reset the index</Link>
           </section>
         )}
-        {!showAll && !query && !state && !route && (
+        {!showAll && !anyFilter && (
           <div className="show-all">
             <Link className="button" href="/?show=all">
               Open all {briefs.length} seats

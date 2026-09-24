@@ -2,7 +2,8 @@ import { readFileSync } from "node:fs";
 
 import { describe, expect, it } from "vitest";
 
-import { buildHouseScoreV09ActiveProjection, HOUSE_SCORE_V09, republicanRouteScore, validateHouseScoreV09ActiveProjection } from "./house-score-v09-active";
+import { readSourceLock } from "./intake/source-lock";
+import { buildHouseScoreV09ActiveProjection, HOUSE_SCORE_V09, readHouseScoreV09ActiveProjection, republicanRouteScore, validateHouseScoreV09ActiveProjection } from "./house-score-v09-active";
 
 describe("house score v0.9 Republican route and alias activation", () => {
   it("scales the Republican route by available evidence instead of a flat cap", () => {
@@ -29,5 +30,14 @@ describe("house score v0.9 Republican route and alias activation", () => {
     const tampered = structuredClone(retained) as { rows: { activeScore: number }[] };
     tampered.rows[0]!.activeScore += 1;
     expect(() => validateHouseScoreV09ActiveProjection(tampered)).toThrow("HOUSE_V09_ACTIVE_INVALID");
+  });
+
+  it("reads the retained projection through the lock without rebuilding and rejects a wrong pin", () => {
+    const value = readHouseScoreV09ActiveProjection();
+    expect(value.packageSha256).toBe((JSON.parse(readFileSync(HOUSE_SCORE_V09.path, "utf8")) as { packageSha256: string }).packageSha256);
+    expect(value.rows).toHaveLength(430);
+    const lock = readSourceLock();
+    const wrongPin = { ...lock, entries: lock.entries.map((entry) => (entry.id === HOUSE_SCORE_V09.id ? { ...entry, sha256: "0".repeat(64) } : entry)) };
+    expect(() => readHouseScoreV09ActiveProjection(process.cwd(), wrongPin)).toThrow("BYTES_MISMATCH");
   });
 });

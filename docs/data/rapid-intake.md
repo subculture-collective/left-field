@@ -59,3 +59,16 @@ Run on 2026-09-23 in this worktree:
 - `make test-fast` (`npm run test:fast`) runs intake, scoring, and UI unit tests without the artifact rebuild suites.
 - Coverage artifacts carry `cyclesThrough`, the latest election or survey year covered, and the sources page shows it.
 - The stale browser-gate heading for `/` was updated to the priorities page title; the browser gate itself was not run in this change.
+
+## Refresh and publish (added 2026-09-24)
+
+Two commands keep the Senate and state-legislative layers current without editing source code.
+
+```sh
+npm run rapid:refresh                       # retain today's FEC candidate summary and Open States rosters, pin them, rewrite data/metadata/refresh-inputs.json
+npm run rapid:publish -- --version v1.1     # re-derive every registered artifact, write and pin data/metadata/priority-index-release.json, write a review-note skeleton, verify the lock
+```
+
+The refresh pointer names dated snapshots; builders read the pointer. The release descriptor is what the store and pages show as model version, publication date, and cutoffs. `.github/workflows/refresh.yml` runs both weekly and opens a pull request for review. The House layer is frozen at v0.9 and is only re-derived and re-verified by publish.
+
+Derived artifacts registered in `scripts/rapid/derived-artifacts.ts` may name their parents as a function of the lock when a parent is a dated snapshot.

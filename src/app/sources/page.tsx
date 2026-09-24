@@ -52,7 +52,7 @@ export default async function Sources() {
         <p className="eyebrow">SOURCE LEDGER</p>
         <h1>What we have, and what we do not.</h1>
         <p className="lede">
-          Start with the six inputs that affect the public ranking. The broader
+          Start with the seven inputs that affect the public ranking. The broader
           release ledger and exact retained snapshots remain available below for
           audit.
         </p>
@@ -62,9 +62,10 @@ export default async function Sources() {
         >
           <article>
             <span>Ranked universe</span>
-            <strong>{indexRows.length}</strong>
+            <strong>{indexRows.length + (expansionStatus?.senate.seats ?? 0)}</strong>
             <p>
-              {democraticSeats} Democratic · {republicanSeats} Republican
+              House {democraticSeats} Democratic · {republicanSeats} Republican
+              {expansionStatus ? ` · Senate ${expansionStatus.senate.democraticCaucus} Democratic caucus · ${expansionStatus.senate.republicanCaucus} Republican` : ""}
             </p>
           </article>
           <article>
@@ -84,7 +85,7 @@ export default async function Sources() {
           <div className="section-heading-pair">
             <div>
               <p className="eyebrow">WHAT FEEDS THE SCORE</p>
-              <h2>Six inputs, two routes</h2>
+              <h2>Seven inputs, two routes</h2>
             </div>
             <p>
               Coverage means a usable numeric component is present. It does not
@@ -103,7 +104,7 @@ export default async function Sources() {
               title="Primary feasibility"
               coverage={`${driverCoverage("primary_feasibility")} / ${democraticSeats}`}
               source="Published election facts and retained primary evidence"
-              use="V0.8 directly measures 21 linked 2024 incumbent contests; other seats retain the earlier partial estimate, and RI-01 remains unresolved."
+              use="V0.9 directly measures 22 linked 2024 incumbent contests, including RI-01 through a reviewed alias; other seats retain the earlier partial estimate."
             />
             <SourceInput
               title="AIPAC support"
@@ -128,6 +129,12 @@ export default async function Sources() {
               coverage={`${driverCoverage("local_context")} / ${indexRows.length}`}
               source="County CVAP, turnout, registration, demographics, 2024 House results, and exact CD119 at-large geography"
               use="Four at-large seats have exact county-universe context. Split-county seats remain unchanged."
+            />
+            <SourceInput
+              title="State primary contestation"
+              coverage={`${driverCoverage("state_primary_contestation")} / ${republicanSeats}`}
+              source="Retained state-legislative Democratic primary catalogs that record uncontested contests"
+              use="Used only on the Republican route as state-level context; six states carry a value and the rest omit the weight."
             />
             <SourceInput
               title="Member and service history"
@@ -192,9 +199,9 @@ export default async function Sources() {
             </div>
             <p>
               This file-backed workstream remains separate from the
-              factual-release ledger. V0.8 uses only the 21 official 2024
-              contests that pass exact incumbent identity and CD119 district-key
-              joins.
+              factual-release ledger. V0.9 uses only the 22 official 2024
+              contests that pass incumbent identity (exact, documented, or
+              reviewed alias) and CD119 district-key joins.
             </p>
           </div>
           {!rapidCoverage ? (
@@ -224,7 +231,7 @@ export default async function Sources() {
                     source absent
                   </b>
                   <small>
-                    Only the separately gated 2024 subset enters v0.8
+                    Only the separately gated 2024 subset enters v0.9
                   </small>
                 </span>
               </summary>
@@ -291,9 +298,10 @@ export default async function Sources() {
             </div>
             <p>
               These retained county and state-legislative inputs are
-              independently hash-verified. Only the exact at-large county subset
-              described below affects the Priority Index; the broader research
-              and office catalogs remain separate.
+              independently hash-verified. Two subsets affect the Priority
+              Index: the exact at-large county rows, and a state-level
+              Democratic contestation share from the state-legislative catalogs
+              that record uncontested contests. Office catalogs remain separate.
             </p>
           </div>
           {!localContextCoverage ? (
@@ -316,8 +324,12 @@ export default async function Sources() {
                   </small>
                 </span>
                 <span>
-                  <b>0 score-eligible rows</b>
-                  <small>Separate from released coverage and score</small>
+                  <b>
+                    {expansionStatus
+                      ? `${expansionStatus.stateContestation.statesWithContext} states feed contestation`
+                      : "0 score-eligible rows"}
+                  </b>
+                  <small>Separate from released coverage</small>
                 </span>
               </summary>
               <div className="ledger-body">
@@ -358,8 +370,14 @@ export default async function Sources() {
                             ) : null}
                           </td>
                           <td>
-                            Excluded — {artifact.formulaEligibleCount} eligible
-                            rows
+                            {(() => {
+                              const used = expansionStatus?.stateContestation.states.find(
+                                (row) => row.sourceArtifactId === artifact.id,
+                              );
+                              return used
+                                ? `State contestation for ${used.state} (${used.cycleYear}): ${used.contestationScore}`
+                                : `Excluded — ${artifact.formulaEligibleCount} eligible rows`;
+                            })()}
                           </td>
                         </tr>
                       ))}
@@ -373,19 +391,19 @@ export default async function Sources() {
         <section className="record-section">
           <div className="section-heading-pair">
             <div>
-              <p className="eyebrow">ACTIVE V0.8</p>
-              <h2>Direct primary evidence and exact county context</h2>
+              <p className="eyebrow">ACTIVE V0.9</p>
+              <h2>Coverage-scaled Republican route, direct primary evidence, and exact county context</h2>
             </div>
             <p>
-              V0.8 replaces inferred primary feasibility for 21 Democratic
-              incumbents with the inverse of their directly linked 2024 primary
-              vote share. The four exact at-large local-context rows remain
-              active.
+              V0.9 removes the flat Republican-route cap, adds a state-level
+              Democratic primary contestation component, and resolves RI-01
+              through a reviewed alias. The four exact at-large local-context
+              rows remain active.
             </p>
           </div>
           {!expansionStatus ? (
             <p className="muted">
-              The retained v0.8 activation receipt is unavailable.
+              The retained v0.9 projection is unavailable.
             </p>
           ) : (
             <div className="source-input-grid">
@@ -394,98 +412,157 @@ export default async function Sources() {
                   <h3>House {expansionStatus.score.version}</h3>
                   <strong>
                     {expansionStatus.score.directPrimaryActiveSeats} direct
-                    primary / {expansionStatus.score.seats}
+                    primary / {expansionStatus.score.democraticSeats} Democratic
                   </strong>
                 </div>
                 <p>
-                  {expansionStatus.score.downBallotActiveSeats} exact at-large
-                  down-ballot rows remain active:{" "}
-                  {expansionStatus.score.activeDistricts
+                  {expansionStatus.score.republicanSeatsWithStateContestation} of{" "}
+                  {expansionStatus.score.republicanSeats} Republican seats carry
+                  state contestation ·{" "}
+                  {expansionStatus.score.republicanSeatsWithLocalContext} carry
+                  exact local context · Republican maximum{" "}
+                  {expansionStatus.score.republicanMaxScore}
+                </p>
+                <small>
+                  {expansionStatus.score.newlyResolvedDistricts
                     .map(
                       (row) =>
-                        `${row.districtLabel} (${row.houseMinusPresidentPercentagePoints >= 0 ? "+" : ""}${row.houseMinusPresidentPercentagePoints.toFixed(2)} pp)`,
+                        `${row.districtLabel} activates through a reviewed alias (${row.previousScore} → ${row.activeScore})`,
+                    )
+                    .join("; ")}
+                  . {expansionStatus.score.unresolvedPrimaryRows} identity rows
+                  remain unresolved. {expansionStatus.score.unchangedSeats}{" "}
+                  seats reproduce {expansionStatus.score.previousVersion}{" "}
+                  exactly; the largest movement is{" "}
+                  {expansionStatus.score.maxAbsoluteMovement} points. No
+                  split-county allocation or winner inference is used.
+                </small>
+              </article>
+              <article>
+                <div>
+                  <h3>State Democratic primary contestation</h3>
+                  <strong>
+                    {expansionStatus.stateContestation.statesWithContext} states
+                  </strong>
+                </div>
+                <p>
+                  {expansionStatus.stateContestation.states
+                    .map(
+                      (row) =>
+                        `${row.state} ${row.cycleYear}: ${row.contestationScore}`,
                     )
                     .join(" · ")}
                 </p>
                 <small>
-                  RI-01 is retained but excluded from direct-primary activation
-                  because the source name Gabriel Amo is not bridged to current
-                  House name Gabe Amo in the retained identity authorities.{" "}
-                  {expansionStatus.score.unchangedSeats} seats reproduce v0.7
-                  exactly. No split-county allocation or winner inference is
-                  used.
+                  {expansionStatus.stateContestation.contestedDemocraticContests}{" "}
+                  of {expansionStatus.stateContestation.democraticContests}{" "}
+                  retained Democratic state-legislative contests drew more than
+                  one named candidate across{" "}
+                  {expansionStatus.stateContestation.catalogs} catalogs.{" "}
+                  {expansionStatus.stateContestation.formulaEligibleRows} of{" "}
+                  {expansionStatus.stateContestation.rows} state-cycle rows are
+                  comparable; catalogs that retain contested primaries only are
+                  ineligible.
                 </small>
               </article>
               <article>
                 <div>
-                  <h3>Indiana local offices</h3>
+                  <h3>Exact at-large local context</h3>
                   <strong>
-                    {expansionStatus.countyOffice.partyContests} contests
+                    {expansionStatus.score.localContextActiveSeats} seats
                   </strong>
                 </div>
                 <p>
-                  {expansionStatus.countyOffice.officeCategories} office
-                  categories · {expansionStatus.countyOffice.officeRows} office
-                  rows · {expansionStatus.countyOffice.candidateRows} candidate
-                  rows ·{" "}
-                  {expansionStatus.countyOffice.sourceMarkedWinnerCandidates}{" "}
-                  source-marked winners
+                  {expansionStatus.score.activeDistricts
+                    .map(
+                      (row) =>
+                        `${row.districtLabel} ${row.localContext} (${Math.round(row.localContextAvailableWeight * 100)}% weight)`,
+                    )
+                    .join(" · ")}
                 </p>
                 <small>
-                  Catalog only: current-holder identity and a local-office
-                  scoring method are not collected.
+                  County turnout, registration, demographics, and the House
+                  comparison apply only where every county closes against the
+                  current Census universe.
+                </small>
+              </article>
+              {expansionStatus.localOffice.map((catalog) => (
+                <article key={catalog.id}>
+                  <div>
+                    <h3>{catalog.label}</h3>
+                    <strong>{catalog.contests} contests</strong>
+                  </div>
+                  <p>
+                    {Object.entries(catalog.summary)
+                      .filter(([key]) => key !== "formulaEligibleContests")
+                      .map(([key, value]) => `${words(key)}: ${value}`)
+                      .join(" · ")}
+                  </p>
+                  <small>
+                    Catalog only: current-holder identity and a local-office
+                    scoring method are not collected, and no winner is inferred.
+                  </small>
+                </article>
+              ))}
+            </div>
+          )}
+        </section>
+        <section className="record-section">
+          <div className="section-heading-pair">
+            <div>
+              <p className="eyebrow">SENATE V0.1</p>
+              <h2>Senate seats scored on the same two routes</h2>
+            </div>
+            <p>
+              The 100 sitting senators are scored from the Congress Legislators
+              roster, the statewide 2024 presidential result, the FEC candidate
+              summary snapshot, the 119th Senate sheets of the alignment
+              trackers, and state Democratic primary contestation. No Senate
+              primary evidence is retained, so primary feasibility is omitted
+              rather than estimated.
+            </p>
+          </div>
+          {!expansionStatus ? (
+            <p className="muted">The retained Senate projection is unavailable.</p>
+          ) : (
+            <div className="source-input-grid">
+              <article>
+                <div>
+                  <h3>Senate {expansionStatus.senate.version}</h3>
+                  <strong>{expansionStatus.senate.seats} seats · {expansionStatus.senate.upIn2026} up in 2026</strong>
+                </div>
+                <p>
+                  {expansionStatus.senate.cashValues} cash values from{" "}
+                  <code>{expansionStatus.senate.financeSnapshotId}</code>
+                  {expansionStatus.senate.financeCoverageThrough ? ` (latest filing through ${expansionStatus.senate.financeCoverageThrough})` : ""} ·{" "}
+                  {expansionStatus.senate.alignmentValues} alignment values ·{" "}
+                  {expansionStatus.senate.stateContestationValues} state contestation values
+                </p>
+                <small>
+                  Democratic-caucus route leaders:{" "}
+                  {expansionStatus.senate.topDemocratic.map((row) => `${row.seatLabel} ${row.score} (${row.nextElectionYear})`).join(" · ")}.
+                  Republican-held flip leaders:{" "}
+                  {expansionStatus.senate.topRepublican.map((row) => `${row.seatLabel} ${row.score} (${row.nextElectionYear})`).join(" · ")}.
                 </small>
               </article>
               <article>
                 <div>
-                  <h3>North Carolina local offices</h3>
-                  <strong>
-                    {expansionStatus.northCarolinaLocalOffice.officeContests}{" "}
-                    contests
-                  </strong>
+                  <h3>State legislatures</h3>
+                  <strong>{expansionStatus.stateLegislative.legislators.toLocaleString("en-US")} legislators</strong>
                 </div>
                 <p>
-                  {expansionStatus.northCarolinaLocalOffice.officeFamilies}{" "}
-                  office families ·{" "}
-                  {expansionStatus.northCarolinaLocalOffice.democraticContests}{" "}
-                  Democratic ·{" "}
-                  {expansionStatus.northCarolinaLocalOffice.republicanContests}{" "}
-                  Republican ·{" "}
-                  {expansionStatus.northCarolinaLocalOffice.nonpartisanContests}{" "}
-                  nonpartisan
+                  {expansionStatus.stateLegislative.jurisdictions} jurisdictions ·{" "}
+                  {expansionStatus.stateLegislative.chambers} chambers ·{" "}
+                  {expansionStatus.stateLegislative.democraticHolders.toLocaleString("en-US")} Democratic ·{" "}
+                  {expansionStatus.stateLegislative.republicanHolders.toLocaleString("en-US")} Republican ·{" "}
+                  {expansionStatus.stateLegislative.independentHolders} independent or nonpartisan ·{" "}
+                  {expansionStatus.stateLegislative.multiMemberDistricts} multi-member districts
                 </p>
                 <small>
-                  {expansionStatus.northCarolinaLocalOffice.candidateRows}{" "}
-                  candidate rows. Catalog only: the source marks no winner,
-                  current-holder identity is not collected, and no local-office
-                  score is defined.
-                </small>
-              </article>
-              <article>
-                <div>
-                  <h3>New Mexico county offices</h3>
-                  <strong>
-                    {expansionStatus.newMexicoCountyOffice.officeContests}{" "}
-                    contests
-                  </strong>
-                </div>
-                <p>
-                  {expansionStatus.newMexicoCountyOffice.officeFamilies} office
-                  families ·{" "}
-                  {expansionStatus.newMexicoCountyOffice.democraticContests}{" "}
-                  Democratic ·{" "}
-                  {expansionStatus.newMexicoCountyOffice.republicanContests}{" "}
-                  Republican ·{" "}
-                  {expansionStatus.newMexicoCountyOffice.libertarianContests}{" "}
-                  Libertarian
-                </p>
-                <small>
-                  {expansionStatus.newMexicoCountyOffice.candidateRows}{" "}
-                  candidate rows;{" "}
-                  {expansionStatus.newMexicoCountyOffice.quarantinedContests}{" "}
-                  ambiguous source contests excluded. Catalog only: the source
-                  marks no winner, current-holder identity is not collected, and
-                  no local-office score is defined.
+                  Open States roster snapshot {expansionStatus.stateLegislative.snapshotDate} (CC0).{" "}
+                  {expansionStatus.stateLegislative.primaryMatched} Democratic holders in{" "}
+                  {expansionStatus.stateLegislative.catalogStates} catalog states match a candidate in their latest retained Democratic primary;{" "}
+                  {expansionStatus.stateLegislative.holdersNotInLatestPrimary} do not. These seats are not ranked: no open nationwide file gives 2024 presidential results by legislative district, so no partisan baseline exists yet.
                 </small>
               </article>
             </div>

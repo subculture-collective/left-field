@@ -64,4 +64,6 @@ npm run data:verify
 npm run lint
 ```
 
-The `rapid-expansion-status` panel still describes the v0.8 local-context expansion layer and reads that frozen artifact; it is unchanged by v0.9.
+## Site status panel
+
+The `rapid-expansion-status` loader now reads the v0.9 projection, the incumbent evidence v2 package, the state contestation package, and the three local-office catalogs through the source lock with package-digest checks, without rebuilding anything. The Methodology and Sources pages describe the v0.9 route, the reviewed alias, and the state contestation component, and the Sources intake table names the catalog and cycle each state contestation value comes from.

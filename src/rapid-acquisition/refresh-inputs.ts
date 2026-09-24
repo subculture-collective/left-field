@@ -1,0 +1,36 @@
+import { readRetainedSource, readSourceLock, type SourceLock } from "./intake/source-lock";
+
+/**
+ * Pointers to the dated inputs the refreshable layers read.
+ *
+ * `rapid:refresh` retains new dated snapshots, pins them, and rewrites this
+ * file; builders read the pointer instead of a hard-coded lock id, so a refresh
+ * never edits source code. The file itself is pinned as an editorial ledger.
+ */
+export interface RefreshInputs {
+  readonly schema: "refresh-inputs-v1";
+  readonly version: 1;
+  readonly snapshotDate: string;
+  readonly fecCandidateSummaryId: string;
+  readonly fecCandidateSummaryCycle: number;
+  readonly stateLegislativeRosterIds: readonly string[];
+}
+
+export const REFRESH_INPUTS = { id: "refresh-inputs-v1", path: "data/metadata/refresh-inputs.json" } as const;
+
+const fail = (code: string): never => { throw new Error(`REFRESH_INPUTS_${code}`); };
+
+export function validateRefreshInputs(value: unknown): RefreshInputs {
+  const input = value as Partial<RefreshInputs> | null;
+  if (!input || input.schema !== "refresh-inputs-v1" || input.version !== 1 || typeof input.snapshotDate !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(input.snapshotDate)) fail("SCHEMA_INVALID");
+  if (typeof input!.fecCandidateSummaryId !== "string" || !Number.isSafeInteger(input!.fecCandidateSummaryCycle)) fail("FEC_POINTER_INVALID");
+  if (!Array.isArray(input!.stateLegislativeRosterIds) || input!.stateLegislativeRosterIds.some((id) => typeof id !== "string")) fail("ROSTER_POINTER_INVALID");
+  return input as RefreshInputs;
+}
+
+export function readRefreshInputs(root = process.cwd(), lock: SourceLock = readSourceLock(root)): RefreshInputs {
+  const { bytes } = readRetainedSource(lock, REFRESH_INPUTS.id, root);
+  return validateRefreshInputs(JSON.parse(bytes.toString("utf8")));
+}
+
+export const serializeRefreshInputs = (value: RefreshInputs): string => `${JSON.stringify(value, null, 2)}\n`;

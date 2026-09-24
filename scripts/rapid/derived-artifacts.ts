@@ -1,7 +1,10 @@
 import { buildHousePrimaryIncumbentEvidenceV2, INCUMBENT_EVIDENCE_V2 } from "@/rapid-acquisition/house-primary-incumbent-evidence-v2";
 import { buildHouseScoreV09ActiveProjection, HOUSE_SCORE_V09 } from "@/rapid-acquisition/house-score-v09-active";
 import type { SourceLock } from "@/rapid-acquisition/intake/source-lock";
+import { buildSenateScoreV01Projection, SENATE_SCORE_V01 } from "@/rapid-acquisition/senate-score-v01";
 import { buildStateLegislativePrimaryContext, STATE_LEGISLATIVE_PRIMARY_CONTEXT } from "@/rapid-acquisition/state-legislative-primary-context";
+import { buildStateLegislativeRoster, STATE_LEGISLATIVE_ROSTER } from "@/rapid-acquisition/state-legislative-roster";
+import { buildStatewidePresidential2024, STATEWIDE_PRESIDENTIAL_2024 } from "@/rapid-acquisition/statewide-presidential-2024";
 
 /**
  * Derived artifacts that `rapid:intake derive <id>` can build and pin.
@@ -13,7 +16,8 @@ export type DerivedArtifact = Readonly<{
   path: string;
   url: string;
   kind: string;
-  parentIds: readonly string[];
+  /** Static parents, or a function when a parent is a dated snapshot named by the refresh pointer. */
+  parentIds: readonly string[] | ((root: string, lock: SourceLock) => readonly string[]);
   build: (root: string, lock: SourceLock) => unknown;
   describe: (value: unknown) => string[];
 }>;
@@ -52,4 +56,31 @@ export const DERIVED_ARTIFACTS: readonly DerivedArtifact[] = [
     build: (root, lock) => buildHouseScoreV09ActiveProjection(root, lock),
     describe: summaryLine,
   },
+  {
+    ...STATEWIDE_PRESIDENTIAL_2024,
+    kind: "derived_artifact",
+    build: (root, lock) => buildStatewidePresidential2024(root, lock),
+    describe: summaryLine,
+  },
+  {
+    id: SENATE_SCORE_V01.id,
+    path: SENATE_SCORE_V01.path,
+    url: SENATE_SCORE_V01.url,
+    kind: "derived_artifact",
+    parentIds: SENATE_SCORE_V01.parentIds,
+    build: (root, lock) => buildSenateScoreV01Projection(root, lock),
+    describe: summaryLine,
+  },
+  {
+    id: STATE_LEGISLATIVE_ROSTER.id,
+    path: STATE_LEGISLATIVE_ROSTER.path,
+    url: STATE_LEGISLATIVE_ROSTER.url,
+    kind: "derived_artifact",
+    parentIds: STATE_LEGISLATIVE_ROSTER.parentIds,
+    build: (root, lock) => buildStateLegislativeRoster(root, lock),
+    describe: summaryLine,
+  },
 ];
+
+export const derivedParentIds = (artifact: DerivedArtifact, root: string, lock: SourceLock): readonly string[] =>
+  typeof artifact.parentIds === "function" ? artifact.parentIds(root, lock) : artifact.parentIds;

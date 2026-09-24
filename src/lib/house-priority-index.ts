@@ -1,8 +1,7 @@
 import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
-import { readRetainedSource, readSourceLock } from "@/rapid-acquisition/intake/source-lock";
-import type { HouseScoreV09ActiveProjection, HouseScoreV09ActiveRow } from "@/rapid-acquisition/house-score-v09-active";
+import { readHouseScoreV09ActiveProjection, type HouseScoreV09ActiveRow } from "@/rapid-acquisition/house-score-v09-active";
 
 import { priorityBriefs } from "./priority-briefs";
 
@@ -15,9 +14,16 @@ export type PriorityDriver = Readonly<{
   explanation: string;
 }>;
 
+export type PriorityChamber = "house" | "senate";
+export type PriorityRoute = "deep_blue" | "aipac_supported_blue" | "republican_fringe_general" | "democratic_incumbent_primary";
+
 export type PublicPriorityBrief = Readonly<{
   rank: number;
   seatCycleId: string;
+  /** Chamber of the seat; House rows are the frozen v0.9 layer, Senate rows come from the Senate projection. */
+  chamber: PriorityChamber;
+  /** Year of the seat's next regular or special election. */
+  nextElectionYear: number;
   districtLabel: string;
   stateCode: string;
   districtCode: string;
@@ -29,7 +35,7 @@ export type PublicPriorityBrief = Readonly<{
   provisionalTargetScore: number;
   baselineTargetScore: number;
   formula: string;
-  qualifyingRoute: "deep_blue" | "aipac_supported_blue" | "republican_fringe_general";
+  qualifyingRoute: PriorityRoute;
   scoreDrivers: readonly PriorityDriver[];
   presidentialDemocraticMargin2024: number;
   incumbentCashOnHand: number | null;
@@ -146,6 +152,8 @@ function republicanBriefs(finance: Map<string, FinanceRow>): PublicPriorityBrief
     return {
       rank: 0,
       seatCycleId,
+      chamber: "house" as const,
+      nextElectionYear: 2026,
       districtLabel, stateCode, districtCode,
       incumbentName: officialHouseName, officialHouseName, bioguideId,
       birthYear: Number(person.bio.birthday.slice(0, 4)), incumbentParty: "Republican" as const,
@@ -183,6 +191,8 @@ export function housePriorityBriefsV03(): readonly PublicPriorityBrief[] {
       const score = cashVulnerability === null ? one((0.65 * row.baselineTargetScore + 0.2 * alignment) / 0.85) : one(0.65 * row.baselineTargetScore + 0.2 * alignment + 0.15 * cashVulnerability);
       return {
         ...row,
+        chamber: "house" as const,
+        nextElectionYear: 2026,
         incumbentParty: "Democratic" as const,
         provisionalTargetScore: score,
         formula: cashVulnerability === null ? "available 0.65 structural + 0.20 alignment weights renormalized (finance unavailable)" : "0.65 × structural baseline + 0.20 × incumbent alignment gap + 0.15 × cash vulnerability",
@@ -267,15 +277,8 @@ function v08ActiveRows(): Map<string, V08ActiveRow> {
 }
 
 function v09ActiveRows(): Map<string, HouseScoreV09ActiveRow> {
-  // Lock-verified read: the projection bytes must match their source-lock pin, and the projection must close over 430 seats.
-  const root = process.cwd();
-  const { entry, bytes } = readRetainedSource(readSourceLock(root), "house-score-v09-active-projection-v1", root);
-  if (entry.kind !== "derived_artifact" || JSON.stringify(entry.parentIds) !== JSON.stringify(["house-score-v08-active-projection-v1", "rapid-house-primary-2024-incumbent-evidence-v2", "rapid-state-legislative-primary-context-v1"])) throw new Error("HOUSE_PRIORITY_V09_SOURCE_INVALID");
-  const value = JSON.parse(bytes.toString("utf8")) as HouseScoreV09ActiveProjection;
-  const { packageSha256, ...unsigned } = value;
-  const digest = createHash("sha256").update("dsa-seats:house-score-v09-active-package:v1\0").update(canonical(unsigned)).digest("hex");
-  if (value.schema !== "house-score-v09-active-projection-v1" || value.version !== 1 || value.methodology.status !== "active" || value.methodology.republicanRouteCap !== "removed" || value.methodology.sourceWinnerInference !== false || value.summary.seats !== 430 || value.summary.republicanSeats !== 218 || value.summary.routeChanges !== 0 || value.rows.length !== 430 || new Set(value.rows.map((row) => row.seatCycleId)).size !== 430 || digest !== packageSha256) throw new Error("HOUSE_PRIORITY_V09_PROJECTION_INVALID");
-  return new Map(value.rows.map((row) => [row.seatCycleId, row]));
+  // Lock-verified read: the projection bytes must match their source-lock pin, the package digest must match, and the projection must close over 430 seats.
+  return new Map(readHouseScoreV09ActiveProjection().rows.map((row) => [row.seatCycleId, row]));
 }
 
 let cache: PublicPriorityBrief[] | undefined;

@@ -5,7 +5,7 @@ import { housePriorityBriefsV03 } from "@/lib/house-priority-index";
 import { validateCountyHouseResultsProjection } from "./county-house-results";
 import { validateHouseScoreV04ActiveProjection } from "./house-score-v04-active";
 import { validateHouseScoreV04ShadowProjection } from "./house-score-v04-shadow";
-import { byteCompare, hash, sha, exact } from "./shared";
+import { byteCompare, exact, hash, houseRoute, sha } from "./shared";
 
 type CountyHouseRow = Readonly<{
   countyFips: string;
@@ -163,7 +163,7 @@ export function buildHouseScoreV05ActiveProjection(root = process.cwd()): HouseS
     const localContext = eligible ? one(0.4 * parentShadow.localContextComponents.inverseBallotsCastToCvap! + 0.3 * parentShadow.localContextComponents.inverseActiveRegistrationToCvap! + 0.2 * item.component + 0.1 * parentShadow.localContextComponents.demographicOpportunity!) : parentActive.localContext;
     const activeScore = eligible ? score(brief, localContext!) : parentActive.activeScore;
     const unsigned = {
-      seatCycleId: brief.seatCycleId, districtLabel: brief.districtLabel, incumbentParty: brief.incumbentParty, qualifyingRoute: brief.qualifyingRoute,
+      seatCycleId: brief.seatCycleId, districtLabel: brief.districtLabel, incumbentParty: brief.incumbentParty, qualifyingRoute: houseRoute(brief.qualifyingRoute),
       previousScoreVersion: "v0.4" as const, previousScore: parentActive.activeScore, activeScoreVersion: "v0.5" as const, activeScore,
       localContext, localContextAvailableWeight: eligible ? 1 : parentActive.localContextAvailableWeight,
       downBallotDemocraticOverperformance: eligible ? item.component : null, houseDemocraticShare: eligible ? item.houseShare : null,
