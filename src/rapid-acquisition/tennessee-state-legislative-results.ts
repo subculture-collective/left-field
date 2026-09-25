@@ -1,7 +1,8 @@
-import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
+
+import { readSourceLock } from "./intake/source-lock";
+import { readWorkbookCsvExtract, workbookExtractId } from "./intake/workbook-extract";
 import { byteCompare, hash, sha, exact } from "./shared";
 
 export interface TennesseeStateLegislativeSourceObservation {
@@ -56,14 +57,10 @@ function expectedDistricts(year: 2022 | 2024, chamber: "upper" | "lower"): Set<s
   return new Set(Array.from({ length: year === 2022 ? 17 : 16 }, (_, index) => String(year === 2022 ? index * 2 + 1 : index * 2 + 2).padStart(2, "0")));
 }
 
-function extract(bytes: Buffer, source: typeof SOURCES[number]): TennesseeStateLegislativeContest[] {
-  if (bytes.subarray(0, 2).toString("binary") !== "PK") throw new Error(`TENNESSEE_STATE_LEGISLATIVE_WORKBOOK_INVALID:${source.year}`);
-  const workspace = mkdtempSync(join(tmpdir(), `dsa-seats-tn-leg-${source.year}-`));
-  try {
-    const workbook = join(workspace, `primary-${source.year}.xlsx`); writeFileSync(workbook, bytes);
-    execFileSync("libreoffice", [`-env:UserInstallation=file://${join(workspace, "profile")}`, "--headless", "--convert-to", "csv", "--outdir", workspace, workbook], { stdio: "ignore" });
-    const csv = readdirSync(workspace).find((name) => name.endsWith(".csv")); if (!csv) throw new Error(`TENNESSEE_STATE_LEGISLATIVE_CONVERSION_FAILED:${source.year}`);
-    const rows = parseCsv(readFileSync(join(workspace, csv), "utf8")); if (!exact(rows[0], HEADER)) throw new Error(`TENNESSEE_STATE_LEGISLATIVE_HEADER_INVALID:${source.year}`);
+function extract(csvText: string, source: typeof SOURCES[number]): TennesseeStateLegislativeContest[] {
+  {
+    // The CSV is the pinned LibreOffice extract of the retained workbook (see intake/workbook-extract.ts); no conversion runs here.
+    const rows = parseCsv(csvText); if (!exact(rows[0], HEADER)) throw new Error(`TENNESSEE_STATE_LEGISLATIVE_HEADER_INVALID:${source.year}`);
     const grouped = new Map<string, { chamber: "upper" | "lower"; district: string; title: string; party: "D" | "R"; precinctRows: number; totals: Map<string, number> }>();
     for (const row of rows.slice(1)) {
       const title = row[7]?.trim() ?? "", upper = title.match(/^Tennessee Senate District (\d+)$/), lower = title.match(/^Tennessee House of Representatives District (\d+)$/); if (!upper && !lower) continue;
@@ -83,7 +80,7 @@ function extract(bytes: Buffer, source: typeof SOURCES[number]): TennesseeStateL
     const expected = EXPECTED[source.year], offices = new Set(contests.map((row) => `${row.chamber}:${row.district}`)).size;
     if (offices !== expected.offices || contests.length !== expected.contests || contests.reduce((sum, row) => sum + row.sourceObservations.length, 0) !== expected.observations || contests.reduce((sum, row) => sum + row.totalVotes, 0) !== expected.votes || contests.reduce((sum, row) => sum + row.precinctRows, 0) !== expected.precinctRows) throw new Error(`TENNESSEE_STATE_LEGISLATIVE_SUMMARY_INVALID:${source.year}`);
     return contests;
-  } finally { rmSync(workspace, { recursive: true, force: true }); }
+  }
 }
 
 export function buildTennesseeStateLegislativeResults(root = process.cwd()): TennesseeStateLegislativeResults {
@@ -91,7 +88,8 @@ export function buildTennesseeStateLegislativeResults(root = process.cwd()): Ten
   for (const source of SOURCES) {
     const bytes = readFileSync(join(root, source.path)), expectedLock = { id: source.id, url: source.url, retainedPath: source.path, retainedStatus: "retained", byteSize: source.bytes, sha256: source.sha256, kind: "source", parentIds: [] };
     if (bytes.length !== source.bytes || sha(bytes) !== source.sha256 || lock.entries.filter((entry) => entry.id === source.id).length !== 1 || !exact(lock.entries.find((entry) => entry.id === source.id), expectedLock)) throw new Error(`TENNESSEE_STATE_LEGISLATIVE_SOURCE_INVALID:${source.year}`);
-    contests.push(...extract(bytes, source));
+    if (bytes.subarray(0, 2).toString("binary") !== "PK") throw new Error(`TENNESSEE_STATE_LEGISLATIVE_WORKBOOK_INVALID:${source.year}`);
+    contests.push(...extract(readWorkbookCsvExtract(readSourceLock(root), workbookExtractId(source.id), source.id, root), source));
   }
   contests.sort((left, right) => left.cycleYear - right.cycleYear || byteCompare(left.chamber, right.chamber) || byteCompare(left.district, right.district) || byteCompare(left.rawParty, right.rawParty));
   const markers = contests.reduce((sum, row) => sum + row.sourceObservations.filter((entry) => entry.entryKind === "source_no_candidate_qualified_marker").length, 0);

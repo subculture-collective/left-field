@@ -72,3 +72,13 @@ npm run rapid:publish -- --version v1.1     # re-derive every registered artifac
 The refresh pointer names dated snapshots; builders read the pointer. The release descriptor is what the store and pages show as model version, publication date, and cutoffs. `.github/workflows/refresh.yml` runs both weekly and opens a pull request for review. The House layer is frozen at v0.9 and is only re-derived and re-verified by publish.
 
 Derived artifacts registered in `scripts/rapid/derived-artifacts.ts` may name their parents as a function of the lock when a parent is a dated snapshot.
+
+## Workbook extracts (added 2026-09-25)
+
+`.xls` and `.xlsx` sources are converted to CSV once with LibreOffice through the intake CLI and the CSV bytes are retained beside the workbook as a `derived_extract` whose parent is the workbook's lock id:
+
+```sh
+npm run rapid:intake -- extract-workbook tn-2024-primary-precinct-results data/source/rapid/house-primary/tn/2024/primary-results-by-precinct-libreoffice.csv
+```
+
+A zip of workbooks produces a deterministic zip of CSVs. Readers call `readWorkbookCsvExtract` or `readWorkbookCsvZipExtract` from `src/rapid-acquisition/intake/workbook-extract.ts`, which verify the pin and lineage; no build or test runs LibreOffice. The Alabama and Tennessee result modules read their extracts this way and reproduce their pinned artifacts unchanged.

@@ -1,7 +1,8 @@
-import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
+import { readFileSync } from "node:fs";
 import { join } from "node:path";
+
+import { readSourceLock } from "./intake/source-lock";
+import { readWorkbookCsvExtract, workbookExtractId } from "./intake/workbook-extract";
 import { hash, sha, exact } from "./shared";
 
 export interface TennesseePrimaryResult {
@@ -47,21 +48,16 @@ function parseCsv(input: string): string[][] {
   if (quote) throw new Error("TENNESSEE_CSV_UNTERMINATED_QUOTE"); if (field || row.length) { row.push(field); rows.push(row); } return rows;
 }
 
-function extract(bytes: Buffer, year: 2022 | 2024): { precinctRows: number; candidates: readonly (readonly [string, number])[] } {
-  if (bytes.subarray(0, 2).toString("binary") !== "PK") throw new Error(`TENNESSEE_WORKBOOK_INVALID:${year}`);
-  const workspace = mkdtempSync(join(tmpdir(), `dsa-seats-tn-${year}-`));
-  try {
-    const workbook = join(workspace, `primary-${year}.xlsx`); writeFileSync(workbook, bytes);
-    execFileSync("libreoffice", [`-env:UserInstallation=file://${join(workspace, "profile")}`, "--headless", "--convert-to", "csv", "--outdir", workspace, workbook], { stdio: "ignore" });
-    const csv = readdirSync(workspace).find((name) => name.endsWith(".csv"));
-    if (!csv) throw new Error(`TENNESSEE_WORKBOOK_CONVERSION_FAILED:${year}`);
-    const rows = parseCsv(readFileSync(join(workspace, csv), "utf8"));
+function extract(csvText: string, year: 2022 | 2024): { precinctRows: number; candidates: readonly (readonly [string, number])[] } {
+  {
+    // The CSV is the pinned LibreOffice extract of the retained workbook (see intake/workbook-extract.ts); no conversion runs here.
+    const rows = parseCsv(csvText);
     if (!exact(rows[0], HEADER)) throw new Error(`TENNESSEE_HEADER_INVALID:${year}`);
     const target = rows.slice(1).filter((row) => row[7]?.trim() === "United States House of Representatives District 9" && row[9]?.trim() === "Democratic Primary");
     const totals = new Map<string, number>();
     for (const row of target) for (let candidate = 0; candidate < 10; candidate++) { const name = row[11 + candidate * 4]?.trim(), party = row[12 + candidate * 4]?.trim(), votes = row[13 + candidate * 4]?.trim(); if (!name && !votes) continue; if (!name || party !== "Democratic" || !votes || !/^\d+$/.test(votes)) throw new Error(`TENNESSEE_CANDIDATE_INVALID:${year}`); totals.set(name, (totals.get(name) ?? 0) + Number(votes)); }
     return { precinctRows: target.length, candidates: [...totals] };
-  } finally { rmSync(workspace, { recursive: true, force: true }); }
+  }
 }
 
 export function buildTennesseePrimaryResults(root = process.cwd()): TennesseePrimaryResults {
@@ -71,7 +67,8 @@ export function buildTennesseePrimaryResults(root = process.cwd()): TennesseePri
     const bytes = readFileSync(join(root, source.path));
     const expectedLock = { id: source.id, url: source.url, retainedPath: source.path, retainedStatus: "retained", byteSize: source.bytes, sha256: source.sha256, kind: "source", parentIds: [] };
     if (bytes.length !== source.bytes || sha(bytes) !== source.sha256 || lock.entries.filter((entry) => entry.id === source.id).length !== 1 || !exact(lock.entries.find((entry) => entry.id === source.id), expectedLock)) throw new Error(`TENNESSEE_SOURCE_BINDING_INVALID:${source.year}`);
-    const extracted = extract(bytes, source.year);
+    if (bytes.subarray(0, 2).toString("binary") !== "PK") throw new Error(`TENNESSEE_WORKBOOK_INVALID:${source.year}`);
+    const extracted = extract(readWorkbookCsvExtract(readSourceLock(root), workbookExtractId(source.id), source.id, root), source.year);
     if (extracted.precinctRows !== 125 || !exact(extracted.candidates, EXPECTED[source.year])) throw new Error(`TENNESSEE_EXTRACTED_RESULTS_INVALID:${source.year}`);
     const sourceCandidateNames = extracted.candidates.map((row) => row[0]), candidateVotes = extracted.candidates.map((row) => row[1]), totalVotes = candidateVotes.reduce((sum, value) => sum + value, 0);
     const unsigned = { resultId: `tn:primary:${source.year}:09:democratic` as const, cycleYear: source.year, electionDate: source.year === 2022 ? "2022-08-04" as const : "2024-08-01" as const, districtLabel: "TN-09" as const, sourceLockIds: [source.id], precinctRows: 125 as const, sourceCandidateNames, candidateVotes, totalVotes, sourceWinnerStatus: "not_marked_by_source" as const, resultAuthorityStatus: "official_secretary_precinct_workbook_retained" as const, certificationStatus: "separate_certification_instrument_not_retained" as const, winnerIdentity: null, identity: null, scoreEligible: false as const };

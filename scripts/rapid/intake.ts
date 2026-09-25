@@ -23,12 +23,14 @@ import { findIntakeSpec, registeredArtifacts } from "@/rapid-acquisition/intake/
 import { assertPdfHeader, extractPdfText, PDF_EXTRACT_TAG } from "@/rapid-acquisition/intake/pdf";
 import { INTAKE_SPECS } from "@/rapid-acquisition/intake/specs";
 import { DERIVED_ARTIFACTS, derivedParentIds } from "./derived-artifacts";
+import { convertWorkbookToCsv, convertWorkbookZipToCsvZip, workbookExtractId } from "@/rapid-acquisition/intake/workbook-extract";
 import {
   derivedArtifactEntry,
+  readRetainedSource,
   readSourceLock,
+  type SourceLock,
   upsertSourceLockEntry,
   writeSourceLock,
-  type SourceLock,
 } from "@/rapid-acquisition/intake/source-lock";
 import { sha } from "@/rapid-acquisition/shared";
 
@@ -44,12 +46,13 @@ import { retainRapidSource } from "./retain-source";
  *   npm run rapid:intake -- coverage               rebuild the coverage receipt from the registry
  *   npm run rapid:intake -- check                  rebuild every registered intake artifact and compare
  *   npm run rapid:intake -- pin <id> <path> <kind> [parent,...] [url]   pin a reviewed input or downloaded file in the lock (url defaults to a urn)
+ *   npm run rapid:intake -- extract-workbook <sourceId> <outputPath>       convert a retained .xls/.xlsx (or a zip of them) to CSV once with LibreOffice and pin the extract
  *   npm run rapid:intake -- derive <artifact-id>   build a registered derived artifact (scores, evidence) and pin it
  *
  * Finish with `npm run data:verify`, which is still the repository gate.
  */
 
-const USAGE = "usage: rapid:intake <list|retain <id>|build <id>|coverage|check|pin <id> <path> <kind> [parents]|derive <id>>";
+const USAGE = "usage: rapid:intake <list|retain <id>|build <id>|coverage|check|pin <id> <path> <kind> [parents] [url]|derive <id>|extract-workbook <sourceId> <outputPath>>";
 const out = (line: string) => process.stdout.write(`${line}\n`);
 
 const specOrFail = (id: string | undefined): IntakeSpec => {
@@ -108,6 +111,18 @@ async function pin(id: string | undefined, path: string | undefined, kind: strin
   const lock = upsertSourceLockEntry(readSourceLock(), derivedArtifactEntry({ id, url: url ?? `urn:dsa-seats:${id.replace(/-v(\d+)$/, ":v$1")}`, retainedPath: path, bytes, kind, parentIds: parents ? parents.split(",").filter(Boolean) : [] }));
   writeSourceLock(lock);
   out(`${id}: pinned ${bytes.length} bytes sha256 ${sha(bytes)} kind ${kind}`);
+}
+
+async function extractWorkbook(sourceId: string | undefined, outputPath: string | undefined): Promise<void> {
+  if (!sourceId || !outputPath) throw new Error(USAGE);
+  const lock = readSourceLock();
+  const { entry, bytes } = readRetainedSource(lock, sourceId);
+  const extracted = /\.zip$/i.test(entry.retainedPath ?? "") ? convertWorkbookZipToCsvZip(bytes) : convertWorkbookToCsv(entry.retainedPath ?? sourceId, bytes);
+  await mkdir(dirname(outputPath), { recursive: true });
+  const status = await writeArtifact(outputPath, extracted);
+  const id = workbookExtractId(sourceId);
+  writeSourceLock(upsertSourceLockEntry(lock, derivedArtifactEntry({ id, url: `urn:dsa-seats:workbook-extract:${sourceId}`, retainedPath: outputPath, bytes: extracted, kind: "derived_extract", parentIds: [sourceId] })));
+  out(`${id}: ${status}; ${extracted.length} bytes; sha256 ${sha(extracted)}; parent ${sourceId}`);
 }
 
 async function derive(id: string | undefined): Promise<void> {
@@ -206,6 +221,8 @@ async function main(argv: readonly string[]): Promise<void> {
       return pin(id, argv[2], argv[3], argv[4], argv[5]);
     case "derive":
       return derive(id);
+    case "extract-workbook":
+      return extractWorkbook(id, argv[2]);
     default:
       throw new Error(USAGE);
   }
