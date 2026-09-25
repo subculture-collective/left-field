@@ -2,7 +2,7 @@
 
 ## Status
 
-**Implementation-ready foundation; no state is qualified as a Phase B pilot yet.**
+**Runtime foundation implemented and proven on a disposable database (2026-09-25); no state is qualified as a Phase B pilot.** Both qualification packets are `not_qualified`; see `docs/data/office-universe/pilot-advancement-decision-2026-09-25.md`.
 
 This charter is a local planning and intake assessment as of 2026-08-20. It does not establish production coverage, publication approval, current source availability, or election certification beyond the retained source artifacts named below. The federal catalog, release-health checks, address lookup, public routes, and House Priority Index remain outside this charter.
 

@@ -8,8 +8,8 @@ async function main(): Promise<void> {
   if (!connectionString) throw new Error("OFFICE_UNIVERSE_DATABASE_URL is required; no database is selected implicitly");
   const pool = new Pool({ connectionString, max: 1, connectionTimeoutMillis: 5_000, statement_timeout: 30_000 });
   try {
-    await seedSourceRegistry(pool, buildNationwideSourceRegistry());
-    process.stdout.write("Seeded 250 office-universe source registry slots for 50 states.\n");
+    const { inserted, existing } = await seedSourceRegistry(pool, buildNationwideSourceRegistry());
+    process.stdout.write(`Office-universe source registry: inserted ${inserted}, existing ${existing} (insert-only; existing rows untouched).\n`);
   } finally {
     await pool.end();
   }
