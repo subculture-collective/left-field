@@ -1,19 +1,21 @@
 {
   "schema": "priority-index-release-v1",
   "version": 1,
-  "modelVersion": "v1.0",
-  "publishedAt": "2026-09-24",
+  "modelVersion": "v1.1",
+  "publishedAt": "2026-09-25",
   "sourceCutoff": "2026-08-04",
   "chambers": {
     "house": {
-      "artifactId": "house-score-v09-active-projection-v1",
-      "modelVersion": "v0.9",
-      "sourceCutoff": "2026-08-04"
+      "artifactId": "house-score-v10-active-projection-v1",
+      "modelVersion": "v0.10",
+      "sourceCutoff": "2026-08-04",
+      "financeAsOf": "2026-09-24"
     },
     "senate": {
       "artifactId": "senate-score-v01-projection-v1",
       "modelVersion": "v0.1",
-      "sourceCutoff": "2026-09-24"
+      "sourceCutoff": "2026-09-24",
+      "financeAsOf": "2026-09-24"
     }
   },
   "refreshInputsId": "refresh-inputs-v1"

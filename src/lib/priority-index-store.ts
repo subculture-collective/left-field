@@ -1,6 +1,6 @@
 import type { PriorityIndexRepository, ModelRelease } from "./priority-index-repository";
 import type { PublicPriorityBrief } from "./house-priority-index";
-import { housePriorityBriefs } from "./house-priority-index";
+import { housePriorityBriefsV10 } from "./house-priority-index";
 import { readPriorityIndexRelease, type PriorityIndexRelease } from "./priority-index-release";
 import { senatePriorityBriefs } from "./senate-priority-index";
 
@@ -25,7 +25,7 @@ export class FilesystemPriorityIndexRepository implements PriorityIndexRepositor
   }
 
   getBriefs(): readonly PublicPriorityBrief[] {
-    if (!this._briefs) this._briefs = rankAcrossChambers([...housePriorityBriefs(), ...senatePriorityBriefs()]);
+    if (!this._briefs) this._briefs = rankAcrossChambers([...housePriorityBriefsV10(), ...senatePriorityBriefs()]);
     return this._briefs;
   }
 

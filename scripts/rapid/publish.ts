@@ -16,7 +16,7 @@ import { dirname } from "node:path";
 import { derivedArtifactEntry, readSourceLock, upsertSourceLockEntry, writeSourceLock } from "@/rapid-acquisition/intake/source-lock";
 import { readRefreshInputs } from "@/rapid-acquisition/refresh-inputs";
 import { sha } from "@/rapid-acquisition/shared";
-import { HOUSE_SCORE_V09 } from "@/rapid-acquisition/house-score-v09-active";
+import { HOUSE_SCORE_V10 } from "@/rapid-acquisition/house-score-v10-active";
 import { SENATE_SCORE_V01 } from "@/rapid-acquisition/senate-score-v01";
 import { PRIORITY_INDEX_RELEASE, readPriorityIndexRelease, serializePriorityIndexRelease, type PriorityIndexRelease } from "@/lib/priority-index-release";
 
@@ -51,8 +51,8 @@ function main(): void {
     modelVersion: version,
     publishedAt: date,
     chambers: {
-      house: { ...previous.chambers.house, artifactId: HOUSE_SCORE_V09.id },
-      senate: { artifactId: SENATE_SCORE_V01.id, modelVersion: previous.chambers.senate.modelVersion, sourceCutoff: inputs.snapshotDate },
+      house: { ...previous.chambers.house, artifactId: HOUSE_SCORE_V10.id, modelVersion: "v0.10", financeAsOf: inputs.snapshotDate },
+      senate: { artifactId: SENATE_SCORE_V01.id, modelVersion: previous.chambers.senate.modelVersion, sourceCutoff: inputs.snapshotDate, financeAsOf: inputs.snapshotDate },
     },
   };
   const bytes = Buffer.from(serializePriorityIndexRelease(release));

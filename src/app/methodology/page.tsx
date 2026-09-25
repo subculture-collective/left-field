@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { loadMethodologyPage } from "@/ui/server-data";
 import { Shell, RouteState, fmtDate } from "@/components/presentational";
-import { housePriorityBriefs } from "@/lib/house-priority-index";
+import { housePriorityBriefsV10 } from "@/lib/house-priority-index";
 import { loadRapidExpansionStatus } from "@/ui/rapid-expansion-status";
 
 export const dynamic = "force-dynamic";
@@ -10,7 +10,7 @@ export default async function Methodology() {
   const [result, expansionStatus] = await Promise.all([loadMethodologyPage(), loadRapidExpansionStatus()]);
   if (!result.ok) return <RouteState code={result.code} />;
   const { value: page } = result;
-  const rows = housePriorityBriefs();
+  const rows = housePriorityBriefsV10();
   const democrats = rows.filter((row) => row.incumbentParty === "Democratic");
   const republicans = rows.filter((row) => row.incumbentParty === "Republican");
   const covered = (key: string, candidates = rows) => candidates.filter((row) => row.scoreDrivers.some((driver) => driver.key === key && driver.score !== null)).length;
@@ -52,7 +52,7 @@ export default async function Methodology() {
       <MethodComponent title="Primary feasibility" meta="0–100 · contest evidence" copy="For 22 linked 2024 incumbent contests, this is 100 minus the incumbent's share of all retained Democratic-primary contest votes. Nineteen links use exact normalized names, two use documented name relationships, and RI-01 uses a reviewed alias. Other seats retain the earlier partial estimate. It is not a challenger forecast or winner claim." />
       <MethodComponent title="AIPAC support" meta="0–100 · FEC evidence" copy="Numeric retained evidence connected to the AIPAC network. Tracker labels may add context, but are not counted a second time." />
       <MethodComponent title="Incumbent alignment gap" meta="0–100 · voting-record gap" copy="Distance between retained Left and Palestine tracker scores and full alignment. Available trackers are normalized and partial coverage receives a missingness penalty." />
-      <MethodComponent title="Cash vulnerability" meta="0–100 · FEC finance" copy="An inverse logarithmic cash-on-hand scale. It measures the incumbent's financial vulnerability, not challenger fundraising strength." />
+      <MethodComponent title="Cash vulnerability" meta="0–100 · FEC finance" copy="An inverse logarithmic cash-on-hand scale. It measures the incumbent's financial vulnerability, not challenger fundraising strength. Since v0.10 the value comes from the FEC candidate summary snapshot named by the refresh pointer and is the one component that moves on refresh." />
       <MethodComponent title="General-election competitiveness" meta="0–100 · Republican route" copy="Closeness of a Republican-held district using the 2024 presidential result. A tied district starts at 100; every Republican margin point subtracts four." />
       <MethodComponent title="State Democratic primary contestation" meta="0–100 · Republican route" copy="Share of the state's latest retained state-legislative Democratic primaries that drew more than one named candidate, scaled so a 40% contested share is 100. Six states carry a value; catalogs that retain only contested primaries are ineligible. It is state-level organizing context, not a district measure." />
       <MethodComponent title="Local context" meta="0–100 · exact county joins" copy="An available-weight blend of inverse turnout/CVAP, inverse registration/CVAP, down-ballot overperformance, and demographic opportunity. DE-AL, SD-AL, and WY-AL have all weights; ND-AL has 70% and renormalizes the available weights." />
