@@ -2,6 +2,7 @@
  * Publish a new Priority Index release from the current retained inputs.
  *
  *   npm run rapid:publish -- --version v1.1 [--date 2026-10-01]
+ *   npm run rapid:publish -- --bump [--date 2026-10-01]        next minor version after the pinned descriptor
  *
  * Steps, in order: re-derive every registered derived artifact whose parents
  * changed (all of them, in registry order, to keep the chain closed); write and
@@ -24,14 +25,17 @@ import { DERIVED_ARTIFACTS, derivedParentIds } from "./derived-artifacts";
 
 const args = process.argv.slice(2);
 const option = (name: string): string | undefined => { const index = args.indexOf(`--${name}`); return index >= 0 ? args[index + 1] : undefined; };
-const version = option("version") ?? (() => { throw new Error("usage: rapid:publish --version vX.Y [--date YYYY-MM-DD]"); })();
-if (!/^v\d+\.\d+$/.test(version)) throw new Error(`PUBLISH_VERSION_INVALID:${version}`);
+const requestedVersion = option("version");
+if (!requestedVersion && !args.includes("--bump")) throw new Error("usage: rapid:publish (--version vX.Y | --bump) [--date YYYY-MM-DD]");
+if (requestedVersion && !/^v\d+\.\d+$/.test(requestedVersion)) throw new Error(`PUBLISH_VERSION_INVALID:${requestedVersion}`);
+const bumpMinor = (current: string): string => { const match = current.match(/^v(\d+)\.(\d+)$/); if (!match) throw new Error(`PUBLISH_VERSION_INVALID:${current}`); return `v${match[1]}.${Number(match[2]) + 1}`; };
 const date = option("date") ?? new Date().toISOString().slice(0, 10);
 const out = (line: string) => process.stdout.write(`${line}\n`);
 
 function main(): void {
   const root = process.cwd();
   const previous = readPriorityIndexRelease(root);
+  const version = requestedVersion ?? bumpMinor(previous.modelVersion);
   const digests: string[] = [];
   for (const artifact of DERIVED_ARTIFACTS) {
     const lock = readSourceLock(root);
