@@ -2,6 +2,7 @@ import { createHash } from "node:crypto";
 import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { readHouseScoreV09ActiveProjection, type HouseScoreV09ActiveRow } from "@/rapid-acquisition/house-score-v09-active";
+import { readHouseScoreV10ActiveProjection, type HouseScoreV10ActiveRow } from "@/rapid-acquisition/house-score-v10-active";
 
 import { priorityBriefs } from "./priority-briefs";
 
@@ -279,6 +280,49 @@ function v08ActiveRows(): Map<string, V08ActiveRow> {
 function v09ActiveRows(): Map<string, HouseScoreV09ActiveRow> {
   // Lock-verified read: the projection bytes must match their source-lock pin, the package digest must match, and the projection must close over 430 seats.
   return new Map(readHouseScoreV09ActiveProjection().rows.map((row) => [row.seatCycleId, row]));
+}
+
+function v10ActiveRows(): Map<string, HouseScoreV10ActiveRow> {
+  return new Map(readHouseScoreV10ActiveProjection().rows.map((row) => [row.seatCycleId, row]));
+}
+
+/**
+ * v0.10 layer: incumbent finance refreshed from the FEC candidate summary
+ * snapshot. Applied on top of the frozen v0.9 briefs; every other component
+ * is carried. Kept separate from `housePriorityBriefs()` so the v0.9 layer
+ * remains reproducible and the v0.10 builder can read it as its parent.
+ */
+let cacheV10: PublicPriorityBrief[] | undefined;
+export function housePriorityBriefsV10(): readonly PublicPriorityBrief[] {
+  if (!cacheV10) {
+    const v10 = v10ActiveRows();
+    const base = housePriorityBriefs();
+    if (v10.size !== base.length) throw new Error("HOUSE_PRIORITY_V10_CLOSURE_INVALID");
+    cacheV10 = base.map((brief) => {
+      const row = v10.get(brief.seatCycleId);
+      if (!row || row.districtLabel !== brief.districtLabel || row.previousScoreVersion !== "v0.9" || row.previousScore !== brief.provisionalTargetScore || row.activeScoreVersion !== "v0.10" || row.movementFromV09 !== one(row.activeScore - brief.provisionalTargetScore)) throw new Error(`HOUSE_PRIORITY_V10_JOIN_INVALID:${brief.seatCycleId}`);
+      if (row.financeSource === "release_aggregate_retained") {
+        if (row.movementFromV09 !== 0) throw new Error(`HOUSE_PRIORITY_V10_RETAINED_INVALID:${brief.seatCycleId}`);
+        return { ...brief, limitations: `${brief.limitations} The FEC candidate summary snapshot has no principal-campaign row for this incumbent, so the retained release finance aggregate still applies.` };
+      }
+      const cashExplanation = row.cashOnHand === null
+        ? "The FEC candidate summary snapshot reports no cash-on-hand value, so finance is omitted and the available weights are renormalized."
+        : `The FEC candidate summary snapshot (${row.financeCoverageThrough}) reports $${Math.round(row.cashOnHand).toLocaleString("en-US")} cash on hand${row.previousCashOnHand === null ? "" : `, replacing the $${Math.round(row.previousCashOnHand).toLocaleString("en-US")} release aggregate`}. The inverse log scale is 100 at $50,000 or less and 0 at $5 million or more.`;
+      const movement = row.movementFromV09 === 0 ? "leaving the score unchanged" : `moving the score ${row.movementFromV09 >= 0 ? "+" : ""}${row.movementFromV09.toFixed(1)} to ${row.activeScore.toFixed(1)}`;
+      return {
+        ...brief,
+        provisionalTargetScore: row.activeScore,
+        incumbentCashOnHand: row.cashOnHand,
+        incumbentReceipts: row.receipts,
+        incumbentDisbursements: row.disbursements,
+        financeCoverageThrough: row.financeCoverageThrough,
+        formula: `${brief.formula}; v0.10 refreshes cash vulnerability from the FEC candidate summary snapshot`,
+        scoreDrivers: brief.scoreDrivers.map((driver) => driver.key === "cash_vulnerability" ? { ...driver, score: row.cashVulnerability, coverage: row.cashVulnerability === null ? 0 : 1, explanation: cashExplanation } : driver),
+        scoreSummary: `${brief.scoreSummary} V0.10 refreshes incumbent finance from the FEC candidate summary through ${row.financeCoverageThrough}, ${movement}.`,
+      };
+    }).sort((left, right) => right.provisionalTargetScore - left.provisionalTargetScore || left.seatCycleId.localeCompare(right.seatCycleId)).map((row, index) => ({ ...row, rank: index + 1 }));
+  }
+  return cacheV10;
 }
 
 let cache: PublicPriorityBrief[] | undefined;

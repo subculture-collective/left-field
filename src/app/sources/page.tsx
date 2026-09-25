@@ -8,7 +8,7 @@ import {
   fmtDate,
   words,
 } from "@/components/presentational";
-import { housePriorityBriefs } from "@/lib/house-priority-index";
+import { housePriorityBriefsV10 } from "@/lib/house-priority-index";
 import { loadRapidHousePrimaryCoverage } from "@/ui/rapid-house-primary-coverage";
 import { loadRapidLocalContextCoverage } from "@/ui/rapid-local-context-coverage";
 import { loadRapidExpansionStatus } from "@/ui/rapid-expansion-status";
@@ -26,7 +26,7 @@ export default async function Sources() {
     ]);
   if (!result.ok) return <RouteState code={result.code} />;
   const { value: page } = result;
-  const indexRows = housePriorityBriefs();
+  const indexRows = housePriorityBriefsV10();
   const driverCoverage = (key: string) =>
     indexRows.filter((row) => {
       const driver = row.scoreDrivers.find(
@@ -121,8 +121,8 @@ export default async function Sources() {
             <SourceInput
               title="Cash vulnerability"
               coverage={`${driverCoverage("cash_vulnerability")} / ${indexRows.length}`}
-              source="Latest published incumbent FEC finance aggregate"
-              use="Affects both routes. MD-04, NY-04, and TX-03 remain not reported."
+              source="FEC candidate summary snapshot named by the refresh pointer; the release aggregate is retained where the snapshot has no row"
+              use="Affects both routes and is refreshed by rapid:refresh. Seats without a snapshot row keep the release aggregate."
             />
             <SourceInput
               title="Local context"
@@ -153,9 +153,11 @@ export default async function Sources() {
           <p className="eyebrow">INDEX FINANCE PROJECTION</p>
           <h2>One published finance row per ranked seat</h2>
           <p>
-            The index projects the latest incumbent finance aggregate from{" "}
-            <code>rel_full_20260804_v2</code> onto the 430-seat ranking. Cash
-            changes the score; receipts and disbursements are displayed as
+            The v0.3 through v0.9 layers project the incumbent finance aggregate from{" "}
+            <code>rel_full_20260804_v2</code> onto the 430-seat ranking. Since
+            v0.10 the active score refreshes cash from the FEC candidate summary
+            snapshot; the release aggregate below remains the retained fallback.
+            Cash changes the score; receipts and disbursements are displayed as
             context and do not receive separate weights.
           </p>
           <div className="source-projection-facts">
