@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ACCEPTANCE_TESTS: "1"
+      # Date columns come back from pg as local-midnight Dates; pin the lane's timezone so subject hashes are reproducible.
+      TZ: UTC
       NODE_ENV: test
       ACCEPTANCE_MAP_ARTIFACT_ROOT: /tmp/dsa-seats-task13-acceptance/task10-maps
       E2E_MAP_PROFILE_PATH: /seats/seat_0
