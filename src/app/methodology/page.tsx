@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { loadMethodologyPage } from "@/ui/server-data";
 import { Shell, RouteState, fmtDate } from "@/components/presentational";
-import { housePriorityBriefsV10 } from "@/lib/house-priority-index";
+import { housePriorityBriefsV11 } from "@/lib/house-priority-index";
 import { loadRapidExpansionStatus } from "@/ui/rapid-expansion-status";
 
 export const dynamic = "force-dynamic";
@@ -10,7 +10,7 @@ export default async function Methodology() {
   const [result, expansionStatus] = await Promise.all([loadMethodologyPage(), loadRapidExpansionStatus()]);
   if (!result.ok) return <RouteState code={result.code} />;
   const { value: page } = result;
-  const rows = housePriorityBriefsV10();
+  const rows = housePriorityBriefsV11();
   const democrats = rows.filter((row) => row.incumbentParty === "Democratic");
   const republicans = rows.filter((row) => row.incumbentParty === "Republican");
   const covered = (key: string, candidates = rows) => candidates.filter((row) => row.scoreDrivers.some((driver) => driver.key === key && driver.score !== null)).length;

@@ -1,6 +1,8 @@
 import { buildHousePrimaryIncumbentEvidenceV2, INCUMBENT_EVIDENCE_V2 } from "@/rapid-acquisition/house-primary-incumbent-evidence-v2";
 import { buildHouseScoreV09ActiveProjection, HOUSE_SCORE_V09 } from "@/rapid-acquisition/house-score-v09-active";
+import { buildHouseIncumbentCandidacy, HOUSE_INCUMBENT_CANDIDACY } from "@/rapid-acquisition/house-incumbent-candidacy";
 import { buildHouseScoreV10ActiveProjection, HOUSE_SCORE_V10 } from "@/rapid-acquisition/house-score-v10-active";
+import { buildHouseScoreV11ActiveProjection, HOUSE_SCORE_V11 } from "@/rapid-acquisition/house-score-v11-active";
 import type { SourceLock } from "@/rapid-acquisition/intake/source-lock";
 import { buildSenateScoreV01Projection, SENATE_SCORE_V01 } from "@/rapid-acquisition/senate-score-v01";
 import { buildStateLegislativePrimaryContext, STATE_LEGISLATIVE_PRIMARY_CONTEXT } from "@/rapid-acquisition/state-legislative-primary-context";
@@ -79,6 +81,21 @@ export const DERIVED_ARTIFACTS: readonly DerivedArtifact[] = [
     kind: "derived_artifact",
     parentIds: HOUSE_SCORE_V10.parentIds,
     build: (root, lock) => buildHouseScoreV10ActiveProjection(root, lock),
+    describe: summaryLine,
+  },
+  {
+    id: HOUSE_INCUMBENT_CANDIDACY.id,
+    path: HOUSE_INCUMBENT_CANDIDACY.path,
+    url: HOUSE_INCUMBENT_CANDIDACY.url,
+    kind: "derived_artifact",
+    parentIds: HOUSE_INCUMBENT_CANDIDACY.parentIds,
+    build: (root, lock) => buildHouseIncumbentCandidacy(root, lock),
+    describe: summaryLine,
+  },
+  {
+    ...HOUSE_SCORE_V11,
+    kind: "derived_artifact",
+    build: (root, lock) => buildHouseScoreV11ActiveProjection(root, lock),
     describe: summaryLine,
   },
   {

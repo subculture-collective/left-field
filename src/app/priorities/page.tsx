@@ -163,7 +163,7 @@ export default async function Priorities({ searchParams }: Props) {
                 <strong>{row.provisionalTargetScore.toFixed(1)}</strong>
               </div>
               <div>
-                <span className="priority-seat">{row.districtLabel}</span>
+                <span className="priority-seat">{row.districtLabel}{row.openSeatSignal ? " · open seat" : ""}</span>
                 <h2>{row.officialHouseName}</h2>
                 <p>
                   {row.incumbentParty} · {formatPartisanMargin(row.presidentialDemocraticMargin2024)} ·{" "}

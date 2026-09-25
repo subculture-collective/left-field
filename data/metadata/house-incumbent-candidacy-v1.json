@@ -1,0 +1,5756 @@
+{
+  "schema": "house-incumbent-candidacy-v1",
+  "version": 1,
+  "methodology": {
+    "source": "fec-candidate-master-2026-20260925",
+    "snapshotDate": "2026-09-24",
+    "senateNameGate": "same_state_same_last_name_given_token_or_initial_or_unique_last_name",
+    "retirementsAndStateOffice": "not_observed_in_federal_filings",
+    "winnerInference": false
+  },
+  "sourceIds": [
+    "congress-legislators-current-20260804",
+    "refresh-inputs-v1",
+    "fec-candidate-master-2026-20260925"
+  ],
+  "rows": [
+    {
+      "seatCycleId": "seat_house_ak_al_current",
+      "districtLabel": "AK-AL",
+      "bioguideId": "B001323",
+      "incumbentName": "Nicholas J. Begich III",
+      "houseCandidateIds": [
+        "H2AK01083"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c8505419f7948d95d643b3a30e2fa4d75bae9f2cc206e56edf1a15ce0d229828"
+    },
+    {
+      "seatCycleId": "seat_house_al_01_current",
+      "districtLabel": "AL-01",
+      "bioguideId": "M001212",
+      "incumbentName": "Barry Moore",
+      "houseCandidateIds": [
+        "H8AL02171"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6AL00476",
+          "candidateName": "MOORE, FELIX BARRY",
+          "status": "C",
+          "incumbentChallengerStatus": "O",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "8f7eae2a4614bb2b430f58bd38bb4c901a3397b8bd61925869892aaf20ef1f09"
+    },
+    {
+      "seatCycleId": "seat_house_al_02_current",
+      "districtLabel": "AL-02",
+      "bioguideId": "F000481",
+      "incumbentName": "Shomari Figures",
+      "houseCandidateIds": [
+        "H4AL02170"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "69238cb97395bbca1e1f53b46a9d40a10e46b0a32bc265d66c4ae492411c8794"
+    },
+    {
+      "seatCycleId": "seat_house_al_03_current",
+      "districtLabel": "AL-03",
+      "bioguideId": "R000575",
+      "incumbentName": "Mike Rogers",
+      "houseCandidateIds": [
+        "H2AL03032"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "25224867b9d182f1d7e275182ee1bb1db3277a943e1b544da93f2e5734abf80d"
+    },
+    {
+      "seatCycleId": "seat_house_al_04_current",
+      "districtLabel": "AL-04",
+      "bioguideId": "A000055",
+      "incumbentName": "Robert B. Aderholt",
+      "houseCandidateIds": [
+        "H6AL04098"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "dc135130dbe47e8dad5c1fa7d029d29e743038b28016be8998eee3ef5fbbbbed"
+    },
+    {
+      "seatCycleId": "seat_house_al_05_current",
+      "districtLabel": "AL-05",
+      "bioguideId": "S001220",
+      "incumbentName": "Dale W. Strong",
+      "houseCandidateIds": [
+        "H2AL05102"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0424b95998f6caca9243fe709a41db6f7b2028e6a7b89456d2a17af3b9451d6d"
+    },
+    {
+      "seatCycleId": "seat_house_al_06_current",
+      "districtLabel": "AL-06",
+      "bioguideId": "P000609",
+      "incumbentName": "Gary J. Palmer",
+      "houseCandidateIds": [
+        "H4AL06098"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "51fd7b390dad0d78df3660c3d33451900c21dcddeee8f4e1013cde08ccb1f3fe"
+    },
+    {
+      "seatCycleId": "seat_house_al_07_current",
+      "districtLabel": "AL-07",
+      "bioguideId": "S001185",
+      "incumbentName": "Terri A. Sewell",
+      "houseCandidateIds": [
+        "H0AL07086"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9f99a7d0b5aa2bd29daa590f1ef86c56be37a56541b988c3347478e103d4b8a5"
+    },
+    {
+      "seatCycleId": "seat_house_ar_01_current",
+      "districtLabel": "AR-01",
+      "bioguideId": "C001087",
+      "incumbentName": "Eric A. \"Rick\" Crawford",
+      "houseCandidateIds": [
+        "H0AR01083"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "00fe4833d836fc3b66e18b6976a9a35fd1048e7fdf48cf4691767f1fbae4d95e"
+    },
+    {
+      "seatCycleId": "seat_house_ar_02_current",
+      "districtLabel": "AR-02",
+      "bioguideId": "H001072",
+      "incumbentName": "J. French Hill",
+      "houseCandidateIds": [
+        "H4AR02141"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "86d54807ad97a47d16508037a0afeaaa5e96afebe8a76bf1ed87fca47ede8fc0"
+    },
+    {
+      "seatCycleId": "seat_house_ar_03_current",
+      "districtLabel": "AR-03",
+      "bioguideId": "W000809",
+      "incumbentName": "Steve Womack",
+      "houseCandidateIds": [
+        "H0AR03055"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4d9a7b12f84df54a593996e39bdfa9489f6b6df121dbd8caf539bd0f907ec157"
+    },
+    {
+      "seatCycleId": "seat_house_ar_04_current",
+      "districtLabel": "AR-04",
+      "bioguideId": "W000821",
+      "incumbentName": "Bruce Westerman",
+      "houseCandidateIds": [
+        "H4AR04048"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "872e20bf11f3f32d125217bcfe57bee1c93d013965da377c854f77d3e588170d"
+    },
+    {
+      "seatCycleId": "seat_house_az_01_current",
+      "districtLabel": "AZ-01",
+      "bioguideId": "S001183",
+      "incumbentName": "David Schweikert",
+      "houseCandidateIds": [
+        "H4AZ06045",
+        "H8AZ05097"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "22be5c3c8a5f7c65ef65ec19e080620f80cca38479553b6bc789cc303013ca48"
+    },
+    {
+      "seatCycleId": "seat_house_az_02_current",
+      "districtLabel": "AZ-02",
+      "bioguideId": "C001132",
+      "incumbentName": "Elijah Crane",
+      "houseCandidateIds": [
+        "H2AZ01354"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "607e4f40c72a8f6ce61170ce496a057d20d0319c09008745e06b36354d9d4472"
+    },
+    {
+      "seatCycleId": "seat_house_az_03_current",
+      "districtLabel": "AZ-03",
+      "bioguideId": "A000381",
+      "incumbentName": "Yassamin Ansari",
+      "houseCandidateIds": [
+        "H4AZ03109"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a70860f6ab0697739ded4cb7c8ccd20f7bf50c572a2883f6c11d9077bd5b5845"
+    },
+    {
+      "seatCycleId": "seat_house_az_04_current",
+      "districtLabel": "AZ-04",
+      "bioguideId": "S001211",
+      "incumbentName": "Greg Stanton",
+      "houseCandidateIds": [
+        "H8AZ09040"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "5a1b571a1e18446bbab0e4b77e933bc72e892906314346a26ebc08e093e3b80d"
+    },
+    {
+      "seatCycleId": "seat_house_az_05_current",
+      "districtLabel": "AZ-05",
+      "bioguideId": "B001302",
+      "incumbentName": "Andy Biggs",
+      "houseCandidateIds": [
+        "H6AZ05083"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "f1c0a2fc44f210ce45abebf752d8d1426016fcaecf4bb0ce34c69143598a77e3"
+    },
+    {
+      "seatCycleId": "seat_house_az_06_current",
+      "districtLabel": "AZ-06",
+      "bioguideId": "C001133",
+      "incumbentName": "Juan Ciscomani",
+      "houseCandidateIds": [
+        "H2AZ02360"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "139ec63bc67112723f9dd43678df1dd74131d5a549f642110d35988aabdd8850"
+    },
+    {
+      "seatCycleId": "seat_house_az_07_current",
+      "districtLabel": "AZ-07",
+      "bioguideId": "G000606",
+      "incumbentName": "Adelita S. Grijalva",
+      "houseCandidateIds": [
+        "H6AZ07121"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a98dda8042fbcc17fb0e9a5874c46093092572681081ecbb6a9000369a8c3bd8"
+    },
+    {
+      "seatCycleId": "seat_house_az_08_current",
+      "districtLabel": "AZ-08",
+      "bioguideId": "H001098",
+      "incumbentName": "Abraham J. Hamadeh",
+      "houseCandidateIds": [
+        "H4AZ08108"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "f4db62b4d704112d9cca704e653ad260a0a65b96b7e3a3723558226ad8a3bd89"
+    },
+    {
+      "seatCycleId": "seat_house_az_09_current",
+      "districtLabel": "AZ-09",
+      "bioguideId": "G000565",
+      "incumbentName": "Paul A. Gosar",
+      "houseCandidateIds": [
+        "H0AZ01259"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "63956fb8afadd7588711cf19fc3aa7dc766af17ef9c5e0a25badb5c498ea62de"
+    },
+    {
+      "seatCycleId": "seat_house_ca_01_current",
+      "districtLabel": "CA-01",
+      "bioguideId": "G000607",
+      "incumbentName": "James Gallagher",
+      "houseCandidateIds": [
+        "H6CA01285"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "34b80a8dc8c6aa317a66f6336d62edd215ccc639e381819fb400d47c66673025"
+    },
+    {
+      "seatCycleId": "seat_house_ca_02_current",
+      "districtLabel": "CA-02",
+      "bioguideId": "H001068",
+      "incumbentName": "Jared Huffman",
+      "houseCandidateIds": [
+        "H2CA06259"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "497be555c696d96a3cecd8ccdb52abec73281bf750bf59f438cccd1f7e9e4345"
+    },
+    {
+      "seatCycleId": "seat_house_ca_04_current",
+      "districtLabel": "CA-04",
+      "bioguideId": "T000460",
+      "incumbentName": "Mike Thompson",
+      "houseCandidateIds": [
+        "H8CA01109"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "8b8c762180c94c2720f988bab1550d4ebabd991c17ea3b714f29dc816a42d6e1"
+    },
+    {
+      "seatCycleId": "seat_house_ca_05_current",
+      "districtLabel": "CA-05",
+      "bioguideId": "M001177",
+      "incumbentName": "Tom McClintock",
+      "houseCandidateIds": [
+        "H6CA21135",
+        "H8CA04152"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "bd072075fbe68e57d902c357b7223f1d291451212d0bac748f152bd1b04bde93"
+    },
+    {
+      "seatCycleId": "seat_house_ca_06_current",
+      "districtLabel": "CA-06",
+      "bioguideId": "B001287",
+      "incumbentName": "Ami Bera",
+      "houseCandidateIds": [
+        "H0CA03078"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ef4af32121f3f7077d5ec7733d0b3a1367cd800184727cca3d78f8da49d4ef6c"
+    },
+    {
+      "seatCycleId": "seat_house_ca_07_current",
+      "districtLabel": "CA-07",
+      "bioguideId": "M001163",
+      "incumbentName": "Doris O. Matsui",
+      "houseCandidateIds": [
+        "H6CA05195"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "92d26ef3d735af4102ae37f138ce85ab83b767114d68a1322e3053d163d56dad"
+    },
+    {
+      "seatCycleId": "seat_house_ca_08_current",
+      "districtLabel": "CA-08",
+      "bioguideId": "G000559",
+      "incumbentName": "John Garamendi",
+      "houseCandidateIds": [
+        "H0CA10149"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "5d808fb2cf41f4b817ed00b6cd72755a4f1e7e8b29971b29933704cd91894763"
+    },
+    {
+      "seatCycleId": "seat_house_ca_09_current",
+      "districtLabel": "CA-09",
+      "bioguideId": "H001090",
+      "incumbentName": "Josh Harder",
+      "houseCandidateIds": [
+        "H8CA10126"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0619bd453e38d485ee59cb8353ff42500434511c99f2f90098936779f67e4ca5"
+    },
+    {
+      "seatCycleId": "seat_house_ca_10_current",
+      "districtLabel": "CA-10",
+      "bioguideId": "D000623",
+      "incumbentName": "Mark DeSaulnier",
+      "houseCandidateIds": [
+        "H0CA10073"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "93e3415ae15282bc3ce79c4cf8e9bf60b5648b57c1fc1691da19f5a56710127f"
+    },
+    {
+      "seatCycleId": "seat_house_ca_11_current",
+      "districtLabel": "CA-11",
+      "bioguideId": "P000197",
+      "incumbentName": "Nancy Pelosi",
+      "houseCandidateIds": [
+        "H8CA05035"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a3a1c257c04b3019e18d156e739e2d9c284856a78c9b0201bbcd0594e158757b"
+    },
+    {
+      "seatCycleId": "seat_house_ca_12_current",
+      "districtLabel": "CA-12",
+      "bioguideId": "S001231",
+      "incumbentName": "Lateefah Simon",
+      "houseCandidateIds": [
+        "H4CA12154"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9feb3b7163fd352ef6751d6143e43dc0246c8d2272a4a925c26d37a5e118f731"
+    },
+    {
+      "seatCycleId": "seat_house_ca_13_current",
+      "districtLabel": "CA-13",
+      "bioguideId": "G000605",
+      "incumbentName": "Adam Gray",
+      "houseCandidateIds": [
+        "H2CA13115"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9cdd926ea692fb05f7734fa7cea19ca89ba30872e3c75e0449ef561b0df73d92"
+    },
+    {
+      "seatCycleId": "seat_house_ca_15_current",
+      "districtLabel": "CA-15",
+      "bioguideId": "M001225",
+      "incumbentName": "Kevin Mullin",
+      "houseCandidateIds": [
+        "H2CA14162"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "bbba23619a811c8559e3e2130c774e0ffea3473f40dc4ed38b9d91146ac61a66"
+    },
+    {
+      "seatCycleId": "seat_house_ca_16_current",
+      "districtLabel": "CA-16",
+      "bioguideId": "L000607",
+      "incumbentName": "Sam T. Liccardo",
+      "houseCandidateIds": [
+        "H4CA16197"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "20b60345105d7e49d4b7155296a3120bd30e5e4afeda8eac1e718b7b9fb04b87"
+    },
+    {
+      "seatCycleId": "seat_house_ca_17_current",
+      "districtLabel": "CA-17",
+      "bioguideId": "K000389",
+      "incumbentName": "Ro Khanna",
+      "houseCandidateIds": [
+        "H4CA12055"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e64e9b38d3c3c46c10dbc3673b378f6c79b97aa09db06de9737d953ee59bec7c"
+    },
+    {
+      "seatCycleId": "seat_house_ca_18_current",
+      "districtLabel": "CA-18",
+      "bioguideId": "L000397",
+      "incumbentName": "Zoe Lofgren",
+      "houseCandidateIds": [
+        "H4CA16049"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e0a754b4f4f802adb295878529ffbfd5b42387a8984f1e8e7147cb444a53eecf"
+    },
+    {
+      "seatCycleId": "seat_house_ca_19_current",
+      "districtLabel": "CA-19",
+      "bioguideId": "P000613",
+      "incumbentName": "Jimmy Panetta",
+      "houseCandidateIds": [
+        "H6CA20152"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2a7023b8806f2be2ae7351cd7d4ef12844857c5bd2073c57bc4d0571262ff8a3"
+    },
+    {
+      "seatCycleId": "seat_house_ca_20_current",
+      "districtLabel": "CA-20",
+      "bioguideId": "F000480",
+      "incumbentName": "Vince Fong",
+      "houseCandidateIds": [
+        "H4CA20181"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9bb264e32d26540edf44cbabdd72b03fc58d33fac5998143778217929097b54d"
+    },
+    {
+      "seatCycleId": "seat_house_ca_21_current",
+      "districtLabel": "CA-21",
+      "bioguideId": "C001059",
+      "incumbentName": "Jim Costa",
+      "houseCandidateIds": [
+        "H4CA20082"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "069dcd160676e083064a2da6ee741bac8feb8c33451ba9d2b4d335b23671fe9b"
+    },
+    {
+      "seatCycleId": "seat_house_ca_22_current",
+      "districtLabel": "CA-22",
+      "bioguideId": "V000129",
+      "incumbentName": "David G. Valadao",
+      "houseCandidateIds": [
+        "H2CA20094"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d8cb5e8c62a118b21774f89f2a5e69ef44aea0adc83f91ececb0639fef111279"
+    },
+    {
+      "seatCycleId": "seat_house_ca_23_current",
+      "districtLabel": "CA-23",
+      "bioguideId": "O000019",
+      "incumbentName": "Jay Obernolte",
+      "houseCandidateIds": [
+        "H0CA08135"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "6fde83c6833929bff42aa6b080f0e6bc138ab1a91ffb0c9fd6f3eef61b8257a0"
+    },
+    {
+      "seatCycleId": "seat_house_ca_24_current",
+      "districtLabel": "CA-24",
+      "bioguideId": "C001112",
+      "incumbentName": "Salud O. Carbajal",
+      "houseCandidateIds": [
+        "H6CA24303"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "3c029c3738c6572611591611e6d49f523f4b7eaa9920115ddfeee02fb930793b"
+    },
+    {
+      "seatCycleId": "seat_house_ca_25_current",
+      "districtLabel": "CA-25",
+      "bioguideId": "R000599",
+      "incumbentName": "Raul Ruiz",
+      "houseCandidateIds": [
+        "H2CA36439"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0529d8e1d353fa3cae8ebf1e376e98bd51675137fac6943c0134efb8130856c1"
+    },
+    {
+      "seatCycleId": "seat_house_ca_26_current",
+      "districtLabel": "CA-26",
+      "bioguideId": "B001285",
+      "incumbentName": "Julia Brownley",
+      "houseCandidateIds": [
+        "H2CA00120"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4769d9c23adb04b2ebbda6e4a336f13e822d23da04db14f3b4c2d2a163e380b9"
+    },
+    {
+      "seatCycleId": "seat_house_ca_27_current",
+      "districtLabel": "CA-27",
+      "bioguideId": "W000830",
+      "incumbentName": "George Whitesides",
+      "houseCandidateIds": [
+        "H4CA27111"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "06e37281d2989bcad101b94f7aa35c57da00edde241362cbdccf9c63e2ffdbed"
+    },
+    {
+      "seatCycleId": "seat_house_ca_28_current",
+      "districtLabel": "CA-28",
+      "bioguideId": "C001080",
+      "incumbentName": "Judy Chu",
+      "houseCandidateIds": [
+        "H0CA32101"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d7aa994606980cb3ff7dbbffa3ca7a926e811732c4428832ae5ec4025a0c2045"
+    },
+    {
+      "seatCycleId": "seat_house_ca_29_current",
+      "districtLabel": "CA-29",
+      "bioguideId": "R000620",
+      "incumbentName": "Luz M. Rivas",
+      "houseCandidateIds": [
+        "H4CA29141"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e4d381b2a497dacc4053f8b068136143bacf050765cfab86880c0811f6bb9b67"
+    },
+    {
+      "seatCycleId": "seat_house_ca_30_current",
+      "districtLabel": "CA-30",
+      "bioguideId": "F000483",
+      "incumbentName": "Laura Friedman",
+      "houseCandidateIds": [
+        "H4CA30149"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4e584eb6adbdb5fb90edf6eb4f5f8436b905355ca13f3ff2e65f0a5a660b1ec3"
+    },
+    {
+      "seatCycleId": "seat_house_ca_31_current",
+      "districtLabel": "CA-31",
+      "bioguideId": "C001123",
+      "incumbentName": "Gilbert Ray Cisneros, Jr.",
+      "houseCandidateIds": [
+        "H4CA31170",
+        "H8CA39174"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "bb8b7252542625b7b2535d950c6d8f346143227e17d341e27e0b4d3961ae81cf"
+    },
+    {
+      "seatCycleId": "seat_house_ca_32_current",
+      "districtLabel": "CA-32",
+      "bioguideId": "S000344",
+      "incumbentName": "Brad Sherman",
+      "houseCandidateIds": [
+        "H6CA24113"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a82e45f1888c02ba4599bbe6c2ba656e1f4ea650fcff39697b6b6d0279a8f646"
+    },
+    {
+      "seatCycleId": "seat_house_ca_33_current",
+      "districtLabel": "CA-33",
+      "bioguideId": "A000371",
+      "incumbentName": "Pete Aguilar",
+      "houseCandidateIds": [
+        "H2CA31125"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "32ec23f3c47c84057176b19c3463ee700251a6342e89eb92e09d84a53b41a945"
+    },
+    {
+      "seatCycleId": "seat_house_ca_34_current",
+      "districtLabel": "CA-34",
+      "bioguideId": "G000585",
+      "incumbentName": "Jimmy Gomez",
+      "houseCandidateIds": [
+        "H8CA34266"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d55733c4515c39d4dcfca1c5d805cb2e93fc0cfb28b4df4acda031284e181683"
+    },
+    {
+      "seatCycleId": "seat_house_ca_35_current",
+      "districtLabel": "CA-35",
+      "bioguideId": "T000474",
+      "incumbentName": "Norma J. Torres",
+      "houseCandidateIds": [
+        "H4CA35031"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b211973b60c1db3f00119e1ac480da26d4151fb765b246fd61ac5284a7de4859"
+    },
+    {
+      "seatCycleId": "seat_house_ca_36_current",
+      "districtLabel": "CA-36",
+      "bioguideId": "L000582",
+      "incumbentName": "Ted Lieu",
+      "houseCandidateIds": [
+        "H4CA33119"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4b627f339815bacc20fc68279048d28431d0573171e645d117282092cdb471c0"
+    },
+    {
+      "seatCycleId": "seat_house_ca_37_current",
+      "districtLabel": "CA-37",
+      "bioguideId": "K000400",
+      "incumbentName": "Sydney Kamlager-Dove",
+      "houseCandidateIds": [
+        "H2CA37304"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "1584abcd41404004073feadf80b0427cc1ef494394d6906840c2fd29d090e9ff"
+    },
+    {
+      "seatCycleId": "seat_house_ca_38_current",
+      "districtLabel": "CA-38",
+      "bioguideId": "S001156",
+      "incumbentName": "Linda T. Sánchez",
+      "houseCandidateIds": [
+        "H2CA39078"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "5cf51d8154620a8083e19441eee31572afab17d6a765a63f780e1aa3133f3590"
+    },
+    {
+      "seatCycleId": "seat_house_ca_39_current",
+      "districtLabel": "CA-39",
+      "bioguideId": "T000472",
+      "incumbentName": "Mark Takano",
+      "houseCandidateIds": [
+        "H2CA43245"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "26ea93d466ccaebbd0fe3ff590339d907b9acf5b0b868c337e3200cfa13119b1"
+    },
+    {
+      "seatCycleId": "seat_house_ca_40_current",
+      "districtLabel": "CA-40",
+      "bioguideId": "K000397",
+      "incumbentName": "Young Kim",
+      "houseCandidateIds": [
+        "H8CA39240"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "1f6d57b1b87c0805329b19568bd800660792b798177448efc0d8a9ddd1389e76"
+    },
+    {
+      "seatCycleId": "seat_house_ca_41_current",
+      "districtLabel": "CA-41",
+      "bioguideId": "C000059",
+      "incumbentName": "Ken Calvert",
+      "houseCandidateIds": [
+        "H2CA37023"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "686eab1229c2a4f59cfae49fe8a90751ded5c4891839c158c4ea05458f8d060f"
+    },
+    {
+      "seatCycleId": "seat_house_ca_42_current",
+      "districtLabel": "CA-42",
+      "bioguideId": "G000598",
+      "incumbentName": "Robert Garcia",
+      "houseCandidateIds": [
+        "H2CA47188"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "97c23a0b34452567b2ec225e72f51dfe1fd56a4b36f76004d6439540a88d186b"
+    },
+    {
+      "seatCycleId": "seat_house_ca_43_current",
+      "districtLabel": "CA-43",
+      "bioguideId": "W000187",
+      "incumbentName": "Maxine Waters",
+      "houseCandidateIds": [
+        "H4CA23011"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "3f4349735594ce3afa5a6a5e06db4711e80977e6577fdf05e5b6295fcf0c8d12"
+    },
+    {
+      "seatCycleId": "seat_house_ca_44_current",
+      "districtLabel": "CA-44",
+      "bioguideId": "B001300",
+      "incumbentName": "Nanette Diaz Barragán",
+      "houseCandidateIds": [
+        "H6CA44103"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "65a6ac65ed4ab143ed204ab5386ca634cf29f74e89c3d60540a073078449e8e8"
+    },
+    {
+      "seatCycleId": "seat_house_ca_45_current",
+      "districtLabel": "CA-45",
+      "bioguideId": "T000491",
+      "incumbentName": "Derek Tran",
+      "houseCandidateIds": [
+        "H4CA45170"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2392b153968fdebe853996c8fa3bbe7f8e20690f07472d9e7009dbd90341805f"
+    },
+    {
+      "seatCycleId": "seat_house_ca_46_current",
+      "districtLabel": "CA-46",
+      "bioguideId": "C001110",
+      "incumbentName": "J. Luis Correa",
+      "houseCandidateIds": [
+        "H6CA46116"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "577c3593be3d91fce40ccf7fb493c1806c55ab09bf08b427c7325044fe0234fb"
+    },
+    {
+      "seatCycleId": "seat_house_ca_47_current",
+      "districtLabel": "CA-47",
+      "bioguideId": "M001241",
+      "incumbentName": "Dave Min",
+      "houseCandidateIds": [
+        "H4CA47085"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "100da58dc13f717ec777317b308d0906b2453337fa307839c9d0dd04cae6fe72"
+    },
+    {
+      "seatCycleId": "seat_house_ca_48_current",
+      "districtLabel": "CA-48",
+      "bioguideId": "I000056",
+      "incumbentName": "Darrell Issa",
+      "houseCandidateIds": [
+        "H0CA48024"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c77c2f9357700d40e4cff3eb8d2f46c44858f1cf052a62d9145a674317498309"
+    },
+    {
+      "seatCycleId": "seat_house_ca_49_current",
+      "districtLabel": "CA-49",
+      "bioguideId": "L000593",
+      "incumbentName": "Mike Levin",
+      "houseCandidateIds": [
+        "H8CA49058"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e84bd80f2730e28a8e5d0e643ccd96c22667e65e458a9a8d8b56d82090989342"
+    },
+    {
+      "seatCycleId": "seat_house_ca_50_current",
+      "districtLabel": "CA-50",
+      "bioguideId": "P000608",
+      "incumbentName": "Scott H. Peters",
+      "houseCandidateIds": [
+        "H2CA52089"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "803308643d1962f6aca7f914c47336d1847fa809c82d3c03fb1d1e70b7c1e00a"
+    },
+    {
+      "seatCycleId": "seat_house_ca_51_current",
+      "districtLabel": "CA-51",
+      "bioguideId": "J000305",
+      "incumbentName": "Sara Jacobs",
+      "houseCandidateIds": [
+        "H8CA49074"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b6fb4849c8b709bdfe1fc98d8ea6beed272333ec3cf9f49735ad86c42d66bde8"
+    },
+    {
+      "seatCycleId": "seat_house_ca_52_current",
+      "districtLabel": "CA-52",
+      "bioguideId": "V000130",
+      "incumbentName": "Juan Vargas",
+      "houseCandidateIds": [
+        "H2CA50026"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0a6de00f3183aca1bab340290197933a4929260e59f4e46cc0edd8a8257d096f"
+    },
+    {
+      "seatCycleId": "seat_house_co_01_current",
+      "districtLabel": "CO-01",
+      "bioguideId": "D000197",
+      "incumbentName": "Diana DeGette",
+      "houseCandidateIds": [
+        "H6CO01141"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "daa4730799a8f6cdc3776b881525b8ce466c75a212467d514d474ca112c00e18"
+    },
+    {
+      "seatCycleId": "seat_house_co_02_current",
+      "districtLabel": "CO-02",
+      "bioguideId": "N000191",
+      "incumbentName": "Joe Neguse",
+      "houseCandidateIds": [
+        "H8CO02160"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b7c54dfcdbae1cb21dbab65748ae478d4a70954e49cd4438c0eea2fa71fda12d"
+    },
+    {
+      "seatCycleId": "seat_house_co_03_current",
+      "districtLabel": "CO-03",
+      "bioguideId": "H001100",
+      "incumbentName": "Jeff Hurd",
+      "houseCandidateIds": [
+        "H4CO03357"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "fa8857bb14764771731633505a70f4672c26d4940a6f67b7e40a238d3d943e15"
+    },
+    {
+      "seatCycleId": "seat_house_co_04_current",
+      "districtLabel": "CO-04",
+      "bioguideId": "B000825",
+      "incumbentName": "Lauren Boebert",
+      "houseCandidateIds": [
+        "H0CO03165"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "30dd49cbd9adedf41e13b181f3023dc5537a2c28950d5ffc133877ae0d27e68d"
+    },
+    {
+      "seatCycleId": "seat_house_co_05_current",
+      "districtLabel": "CO-05",
+      "bioguideId": "C001137",
+      "incumbentName": "Jeff Crank",
+      "houseCandidateIds": [
+        "H6CO05142"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d1c5d41c3ca5172c59e571d0ed98f6058c61a43c438d6d2d4604b1662e2c41d7"
+    },
+    {
+      "seatCycleId": "seat_house_co_06_current",
+      "districtLabel": "CO-06",
+      "bioguideId": "C001121",
+      "incumbentName": "Jason Crow",
+      "houseCandidateIds": [
+        "H8CO06229"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "154c9c0f9becc7d6056a728fe7c738051eaa64e1329f7ee7fbb9ce597f676512"
+    },
+    {
+      "seatCycleId": "seat_house_co_07_current",
+      "districtLabel": "CO-07",
+      "bioguideId": "P000620",
+      "incumbentName": "Brittany Pettersen",
+      "houseCandidateIds": [
+        "H8CO07045"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4889d950904657c1e7ccaca20fe5d97f634ea1241d75dc053875862f405a53e8"
+    },
+    {
+      "seatCycleId": "seat_house_co_08_current",
+      "districtLabel": "CO-08",
+      "bioguideId": "E000300",
+      "incumbentName": "Gabe Evans",
+      "houseCandidateIds": [
+        "H4CO08034"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "cab3242adf95e42352f4d0a4a0c010db96edbf68c2dfb3e37cdf5988900c50e1"
+    },
+    {
+      "seatCycleId": "seat_house_ct_01_current",
+      "districtLabel": "CT-01",
+      "bioguideId": "L000557",
+      "incumbentName": "John B. Larson",
+      "houseCandidateIds": [
+        "H8CT01046"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "185c7ebd0617a3ad695330fdb3142352be3915f2533c0b6c541f40745d670c9d"
+    },
+    {
+      "seatCycleId": "seat_house_ct_02_current",
+      "districtLabel": "CT-02",
+      "bioguideId": "C001069",
+      "incumbentName": "Joe Courtney",
+      "houseCandidateIds": [
+        "H2CT02112"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2f86d353c8fd878ba9280fef063b8683077b1b01c9557798b18883df69d172f5"
+    },
+    {
+      "seatCycleId": "seat_house_ct_03_current",
+      "districtLabel": "CT-03",
+      "bioguideId": "D000216",
+      "incumbentName": "Rosa L. DeLauro",
+      "houseCandidateIds": [
+        "H0CT03072"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "738a801510c33730cdcd20ba68698a9cf032d2256b11a27180b0eaf668cf200b"
+    },
+    {
+      "seatCycleId": "seat_house_ct_04_current",
+      "districtLabel": "CT-04",
+      "bioguideId": "H001047",
+      "incumbentName": "James A. Himes",
+      "houseCandidateIds": [
+        "H8CT04172"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "6205f048221e920054c9656f8dbbb00c762f64344d15c154ce8a5b4ce3c72384"
+    },
+    {
+      "seatCycleId": "seat_house_ct_05_current",
+      "districtLabel": "CT-05",
+      "bioguideId": "H001081",
+      "incumbentName": "Jahana Hayes",
+      "houseCandidateIds": [
+        "H8CT05245"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "52d513c8778a24b9ec94ea265613ac7945b8e877d6e6343bcf5318c3d94538b0"
+    },
+    {
+      "seatCycleId": "seat_house_de_al_current",
+      "districtLabel": "DE-AL",
+      "bioguideId": "M001238",
+      "incumbentName": "Sarah McBride",
+      "houseCandidateIds": [
+        "H4DE00045"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d9233533bd0f66cd78481cc91c248e97fdb63575f657b4295e58c1dd3c0446d2"
+    },
+    {
+      "seatCycleId": "seat_house_fl_01_current",
+      "districtLabel": "FL-01",
+      "bioguideId": "P000622",
+      "incumbentName": "Jimmy Patronis",
+      "houseCandidateIds": [
+        "H6FL01390"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "cb5755b4b3f4d29f21f8795b308b0f2c7a16592dbe86e905d66645296d855573"
+    },
+    {
+      "seatCycleId": "seat_house_fl_02_current",
+      "districtLabel": "FL-02",
+      "bioguideId": "D000628",
+      "incumbentName": "Neal P. Dunn",
+      "houseCandidateIds": [
+        "H6FL02208"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "571dbfb05a5ed559b8ad967f73fe5d85e5a12a465edd8aca87db8b1754f09dd2"
+    },
+    {
+      "seatCycleId": "seat_house_fl_03_current",
+      "districtLabel": "FL-03",
+      "bioguideId": "C001039",
+      "incumbentName": "Kat Cammack",
+      "houseCandidateIds": [
+        "H0FL03175"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "946182778d27ac01e26a96012a8594759c69ffc8824e0837beb83d5344342939"
+    },
+    {
+      "seatCycleId": "seat_house_fl_04_current",
+      "districtLabel": "FL-04",
+      "bioguideId": "B001314",
+      "incumbentName": "Aaron Bean",
+      "houseCandidateIds": [
+        "H2FL04211"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2a4410ec143895bd67c26376a1cbfa9b78170006f98458df7e14e8e36565bdf8"
+    },
+    {
+      "seatCycleId": "seat_house_fl_05_current",
+      "districtLabel": "FL-05",
+      "bioguideId": "R000609",
+      "incumbentName": "John H. Rutherford",
+      "houseCandidateIds": [
+        "H6FL04105"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b1ffd551b7fac49b26b00b7ea75f7b50e8e8b3e59a18846069ccbf1abf18edd2"
+    },
+    {
+      "seatCycleId": "seat_house_fl_06_current",
+      "districtLabel": "FL-06",
+      "bioguideId": "F000484",
+      "incumbentName": "Randy Fine",
+      "houseCandidateIds": [
+        "H6FL06258"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9351cb0b588845aeaa5d8895f38c0c1d3f34079794fcab79e553db818c1696f1"
+    },
+    {
+      "seatCycleId": "seat_house_fl_07_current",
+      "districtLabel": "FL-07",
+      "bioguideId": "M001216",
+      "incumbentName": "Cory Mills",
+      "houseCandidateIds": [
+        "H2FL07156"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ace9de5d9ad526f9fe39bc80fe624618893bb92bca20b062f54ca9c31776711d"
+    },
+    {
+      "seatCycleId": "seat_house_fl_08_current",
+      "districtLabel": "FL-08",
+      "bioguideId": "H001099",
+      "incumbentName": "Mike Haridopolos",
+      "houseCandidateIds": [
+        "H4FL08168"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "5b786d7a3b1fb908d510e7823a6719a9922925d113196c3d83d4aeba4d668df9"
+    },
+    {
+      "seatCycleId": "seat_house_fl_09_current",
+      "districtLabel": "FL-09",
+      "bioguideId": "S001200",
+      "incumbentName": "Darren Soto",
+      "houseCandidateIds": [
+        "H6FL09179"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "197e289c3e2f710095b8080af427c6a692a614c03f7c96b829936cf1334fe86a"
+    },
+    {
+      "seatCycleId": "seat_house_fl_10_current",
+      "districtLabel": "FL-10",
+      "bioguideId": "F000476",
+      "incumbentName": "Maxwell Frost",
+      "houseCandidateIds": [
+        "H2FL10259"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "deef1513581f499e12daa2adcb80f8827968d117fc8fdc8b0001d4dc47624ca9"
+    },
+    {
+      "seatCycleId": "seat_house_fl_11_current",
+      "districtLabel": "FL-11",
+      "bioguideId": "W000806",
+      "incumbentName": "Daniel Webster",
+      "houseCandidateIds": [
+        "H0FL08208"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "fb42aaa19d1019b3532d2f533c4935897eb9d217678215e366ac200fe51d5932"
+    },
+    {
+      "seatCycleId": "seat_house_fl_12_current",
+      "districtLabel": "FL-12",
+      "bioguideId": "B001257",
+      "incumbentName": "Gus M. Bilirakis",
+      "houseCandidateIds": [
+        "H6FL09070"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "6ffba3fef5c127a8069104bcbc5e85150d39c7457346fa7ba7679015f8265dcb"
+    },
+    {
+      "seatCycleId": "seat_house_fl_13_current",
+      "districtLabel": "FL-13",
+      "bioguideId": "L000596",
+      "incumbentName": "Anna Paulina Luna",
+      "houseCandidateIds": [
+        "H0FL13158"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "967e5ba38ab96dacd8fc1cbad7a63beb352eb4b7f8ec228a3de1d8cf69ecee83"
+    },
+    {
+      "seatCycleId": "seat_house_fl_14_current",
+      "districtLabel": "FL-14",
+      "bioguideId": "C001066",
+      "incumbentName": "Kathy Castor",
+      "houseCandidateIds": [
+        "H6FL11126",
+        "H6FL11134"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "501645fb2d548a02a368c20d225d1b778956c264246f96dd82b353b1ee7d24ac"
+    },
+    {
+      "seatCycleId": "seat_house_fl_15_current",
+      "districtLabel": "FL-15",
+      "bioguideId": "L000597",
+      "incumbentName": "Laurel M. Lee",
+      "houseCandidateIds": [
+        "H2FL15241"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "30f8437bb256698429cf2f53a7b5cc9c8f53b8c827d2c5d38094c742e1ddfa6d"
+    },
+    {
+      "seatCycleId": "seat_house_fl_16_current",
+      "districtLabel": "FL-16",
+      "bioguideId": "B001260",
+      "incumbentName": "Vern Buchanan",
+      "houseCandidateIds": [
+        "H6FL13148"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b794e8f945c05297688f79f4bfc469e26843e395dc1d318681e49174d191fb2a"
+    },
+    {
+      "seatCycleId": "seat_house_fl_17_current",
+      "districtLabel": "FL-17",
+      "bioguideId": "S001214",
+      "incumbentName": "W. Gregory Steube",
+      "houseCandidateIds": [
+        "H8FL17053"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c64865e9679be19880ae28056c485a29ceebba6a52dc97a831a68d15c2bd14af"
+    },
+    {
+      "seatCycleId": "seat_house_fl_18_current",
+      "districtLabel": "FL-18",
+      "bioguideId": "F000472",
+      "incumbentName": "Scott Franklin",
+      "houseCandidateIds": [
+        "H0FL15104"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "bf66348e19f914f87c041edb819f1617fe67fdc405672789101e8496ae56a7a4"
+    },
+    {
+      "seatCycleId": "seat_house_fl_19_current",
+      "districtLabel": "FL-19",
+      "bioguideId": "D000032",
+      "incumbentName": "Byron Donalds",
+      "houseCandidateIds": [
+        "H2FL14186"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b997ea740f8989e379e5da6ae7844ae1ff2c8a3f2e7d4b44c2593435cc0b7389"
+    },
+    {
+      "seatCycleId": "seat_house_fl_21_current",
+      "districtLabel": "FL-21",
+      "bioguideId": "M001199",
+      "incumbentName": "Brian J. Mast",
+      "houseCandidateIds": [
+        "H6FL18097"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "7459630ecf0d3ad59fde9f449708b5934229b0664d1aacd5c4ce06b6b0e07fcb"
+    },
+    {
+      "seatCycleId": "seat_house_fl_22_current",
+      "districtLabel": "FL-22",
+      "bioguideId": "F000462",
+      "incumbentName": "Lois Frankel",
+      "houseCandidateIds": [
+        "H2FL14053",
+        "H2FL22080"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "839c320d325e8758f5184a2709d128626078e9f38b8a7da438cc22a7572f41b1"
+    },
+    {
+      "seatCycleId": "seat_house_fl_23_current",
+      "districtLabel": "FL-23",
+      "bioguideId": "M001217",
+      "incumbentName": "Jared Moskowitz",
+      "houseCandidateIds": [
+        "H2FL22171"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "92b8155d8d24cd4934e0ce0a958098c2dc50a6dc4f82471a173ed9cf6d9e8a8a"
+    },
+    {
+      "seatCycleId": "seat_house_fl_24_current",
+      "districtLabel": "FL-24",
+      "bioguideId": "W000808",
+      "incumbentName": "Frederica S. Wilson",
+      "houseCandidateIds": [
+        "H0FL17068"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "16e52358971e723b58567575bbd0b5b84ab65c2afc3971ef097a19401d3acb66"
+    },
+    {
+      "seatCycleId": "seat_house_fl_25_current",
+      "districtLabel": "FL-25",
+      "bioguideId": "W000797",
+      "incumbentName": "Debbie Wasserman Schultz",
+      "houseCandidateIds": [
+        "H4FL20023"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ceec4f6f87a3d57f78af7ff850916cd2c321c9658ced6bd4fde4695b6689a056"
+    },
+    {
+      "seatCycleId": "seat_house_fl_26_current",
+      "districtLabel": "FL-26",
+      "bioguideId": "D000600",
+      "incumbentName": "Mario Diaz-Balart",
+      "houseCandidateIds": [
+        "H2FL25018"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0af44c80cc665874c78d50b0d9cb8ca2bbd821f9bc781c470b410711ea263d20"
+    },
+    {
+      "seatCycleId": "seat_house_fl_27_current",
+      "districtLabel": "FL-27",
+      "bioguideId": "S000168",
+      "incumbentName": "Maria Elvira Salazar",
+      "houseCandidateIds": [
+        "H8FL27185"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "310feca77468e22f5ca09ec79d814ee64988b9e42a016819c95ed180e046b3a4"
+    },
+    {
+      "seatCycleId": "seat_house_fl_28_current",
+      "districtLabel": "FL-28",
+      "bioguideId": "G000593",
+      "incumbentName": "Carlos A. Gimenez",
+      "houseCandidateIds": [
+        "H0FL26036"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ea1813bed2bd69bdc2223b4ab1d0bb78ff78b3a8027517f58cd09eee18693ce3"
+    },
+    {
+      "seatCycleId": "seat_house_ga_01_current",
+      "districtLabel": "GA-01",
+      "bioguideId": "C001103",
+      "incumbentName": "Earl L. \"Buddy\" Carter",
+      "houseCandidateIds": [
+        "H4GA01039"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6GA00374",
+          "candidateName": "CARTER, EARL LEROY",
+          "status": "C",
+          "incumbentChallengerStatus": "C",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "c106f68f5ab4526b3f4c434b3412e9a8bda8ebc95c276560af50671a4a7c4992"
+    },
+    {
+      "seatCycleId": "seat_house_ga_02_current",
+      "districtLabel": "GA-02",
+      "bioguideId": "B000490",
+      "incumbentName": "Sanford D. Bishop, Jr.",
+      "houseCandidateIds": [
+        "H2GA02031"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "1c6e149a63d856f3011bf96b05235eb6c0b49967d043e3c5d571c2e10e018a87"
+    },
+    {
+      "seatCycleId": "seat_house_ga_03_current",
+      "districtLabel": "GA-03",
+      "bioguideId": "J000311",
+      "incumbentName": "Brian Jack",
+      "houseCandidateIds": [
+        "H4GA03126"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2c5d292e46742e0e0519d32668a3744ccfab5fc84d83218181aea8bd105b5fba"
+    },
+    {
+      "seatCycleId": "seat_house_ga_04_current",
+      "districtLabel": "GA-04",
+      "bioguideId": "J000288",
+      "incumbentName": "Henry C. \"Hank\" Johnson, Jr.",
+      "houseCandidateIds": [
+        "H6GA04129"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "18df72dc1744cf4e3d4db47ea2296c68bfd0087cd6b4a5f194b8a15e3c3c2663"
+    },
+    {
+      "seatCycleId": "seat_house_ga_05_current",
+      "districtLabel": "GA-05",
+      "bioguideId": "W000788",
+      "incumbentName": "Nikema Williams",
+      "houseCandidateIds": [
+        "H0GA05301"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a5576ab8f798ae020826d5aae4ed64aaefb01ad5ec70467b9694470d5e1423f1"
+    },
+    {
+      "seatCycleId": "seat_house_ga_06_current",
+      "districtLabel": "GA-06",
+      "bioguideId": "M001208",
+      "incumbentName": "Lucy McBath",
+      "houseCandidateIds": [
+        "H8GA06393"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0d7396e809aa658dd70c065b13ceec5c456cdfb9e19eaeb6e07bf1e02e2dd96f"
+    },
+    {
+      "seatCycleId": "seat_house_ga_07_current",
+      "districtLabel": "GA-07",
+      "bioguideId": "M001218",
+      "incumbentName": "Richard McCormick",
+      "houseCandidateIds": [
+        "H0GA07273"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "6af044f1f71639198be6ff72e4e3bcc67870df2722648a5eb73925b1b83fb701"
+    },
+    {
+      "seatCycleId": "seat_house_ga_08_current",
+      "districtLabel": "GA-08",
+      "bioguideId": "S001189",
+      "incumbentName": "Austin Scott",
+      "houseCandidateIds": [
+        "H0GA08099"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "7ae0e582ff4268ed9064304e80c45f22963518325c579edeba61b24dbf099379"
+    },
+    {
+      "seatCycleId": "seat_house_ga_09_current",
+      "districtLabel": "GA-09",
+      "bioguideId": "C001116",
+      "incumbentName": "Andrew S. Clyde",
+      "houseCandidateIds": [
+        "H0GA09246"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "86b9d54898aaa8a6944077ac9fca4a318c3b6f643ed0198774c63fc39cf2f29b"
+    },
+    {
+      "seatCycleId": "seat_house_ga_10_current",
+      "districtLabel": "GA-10",
+      "bioguideId": "C001129",
+      "incumbentName": "Mike Collins",
+      "houseCandidateIds": [
+        "H4GA10071"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c9a8bd1fff18b527bf83b4887cb82a89c786363190081556958d1a77e824cfd6"
+    },
+    {
+      "seatCycleId": "seat_house_ga_11_current",
+      "districtLabel": "GA-11",
+      "bioguideId": "L000583",
+      "incumbentName": "Barry Loudermilk",
+      "houseCandidateIds": [
+        "H4GA11061"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "cf5dbf3e8c0a5761d364cb123f8e341554d8cdedeec7720f661778413ecb2687"
+    },
+    {
+      "seatCycleId": "seat_house_ga_12_current",
+      "districtLabel": "GA-12",
+      "bioguideId": "A000372",
+      "incumbentName": "Rick W. Allen",
+      "houseCandidateIds": [
+        "H2GA12121"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "7d98c194c611860b5c21db98681af7452389d21988a98c2a7f3903c33c14f98f"
+    },
+    {
+      "seatCycleId": "seat_house_ga_14_current",
+      "districtLabel": "GA-14",
+      "bioguideId": "F000485",
+      "incumbentName": "Clay Fuller",
+      "houseCandidateIds": [
+        "H0GA14030"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c578e44362ffe91f95c5d4a0dbba6487b0d78b2d533c4283dc4c9607e908467f"
+    },
+    {
+      "seatCycleId": "seat_house_hi_01_current",
+      "districtLabel": "HI-01",
+      "bioguideId": "C001055",
+      "incumbentName": "Ed Case",
+      "houseCandidateIds": [
+        "H2HI02128"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c553cb29fdd4727b76a5bed8f43127bc9d860095d7c7e54414129886766ad3ff"
+    },
+    {
+      "seatCycleId": "seat_house_hi_02_current",
+      "districtLabel": "HI-02",
+      "bioguideId": "T000487",
+      "incumbentName": "Jill N. Tokuda",
+      "houseCandidateIds": [
+        "H2HI02581"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b83a870d4f0410236a03eb6048b2e9ba8d86ed32e47905490f6bf7862c7c3c21"
+    },
+    {
+      "seatCycleId": "seat_house_ia_01_current",
+      "districtLabel": "IA-01",
+      "bioguideId": "M001215",
+      "incumbentName": "Mariannette Miller-Meeks",
+      "houseCandidateIds": [
+        "H8IA02043"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "97f81c2d6599181b5f429d8a0c85f1bd12a88ae25646c0a7efd188a972df1be8"
+    },
+    {
+      "seatCycleId": "seat_house_ia_02_current",
+      "districtLabel": "IA-02",
+      "bioguideId": "H001091",
+      "incumbentName": "Ashley Hinson",
+      "houseCandidateIds": [
+        "H0IA01174"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0efe295edc39624567db7b4f799a62d392f515e3ce4f59ace52e7da28ef4b55a"
+    },
+    {
+      "seatCycleId": "seat_house_ia_03_current",
+      "districtLabel": "IA-03",
+      "bioguideId": "N000193",
+      "incumbentName": "Zachary Nunn",
+      "houseCandidateIds": [
+        "H2IA03119"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c2044bd91a3f506531f7c263cf6e2868b25034314896cc7595281465202756ab"
+    },
+    {
+      "seatCycleId": "seat_house_ia_04_current",
+      "districtLabel": "IA-04",
+      "bioguideId": "F000446",
+      "incumbentName": "Randy Feenstra",
+      "houseCandidateIds": [
+        "H0IA04145"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "74160de4d2cd37b52f0e44c7dd9052ac90cd01838870135682bf097223fdfac7"
+    },
+    {
+      "seatCycleId": "seat_house_id_01_current",
+      "districtLabel": "ID-01",
+      "bioguideId": "F000469",
+      "incumbentName": "Russ Fulcher",
+      "houseCandidateIds": [
+        "H8ID01124"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "de12a4161a9912cbbf2f5d829ca9860bd819f95d7f743c1ca2ed29445ad6e18b"
+    },
+    {
+      "seatCycleId": "seat_house_id_02_current",
+      "districtLabel": "ID-02",
+      "bioguideId": "S001148",
+      "incumbentName": "Michael K. Simpson",
+      "houseCandidateIds": [
+        "H8ID02064"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c0a56ea24ad8dadc0ec71cab03cca837b763a47c61d20d2251764c5ed645e489"
+    },
+    {
+      "seatCycleId": "seat_house_il_01_current",
+      "districtLabel": "IL-01",
+      "bioguideId": "J000309",
+      "incumbentName": "Jonathan L. Jackson",
+      "houseCandidateIds": [
+        "H2IL01349"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d7ffdbf2b8bfa211d70d7054518acf0600372e5a9f9eaf38f988b7be7516653f"
+    },
+    {
+      "seatCycleId": "seat_house_il_02_current",
+      "districtLabel": "IL-02",
+      "bioguideId": "K000385",
+      "incumbentName": "Robin L. Kelly",
+      "houseCandidateIds": [
+        "H2IL02172"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6IL00474",
+          "candidateName": "KELLY, ROBIN",
+          "status": "C",
+          "incumbentChallengerStatus": "O",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "5acff36ed2a5d626818718c699ff71a9f4583075f713a10a8f81db98ffb666f0"
+    },
+    {
+      "seatCycleId": "seat_house_il_03_current",
+      "districtLabel": "IL-03",
+      "bioguideId": "R000617",
+      "incumbentName": "Delia C. Ramirez",
+      "houseCandidateIds": [
+        "H2IL03162"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "428328975e34fc043d926bd1bda1559b014a22c5a22ecf7a0daea1081707d646"
+    },
+    {
+      "seatCycleId": "seat_house_il_04_current",
+      "districtLabel": "IL-04",
+      "bioguideId": "G000586",
+      "incumbentName": "Jesús G. \"Chuy\" García",
+      "houseCandidateIds": [
+        "H8IL04134"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "bf370b759351ff28f6cfe35bf33f0e2bcd85ab523e18d31730b6bc8c8885b628"
+    },
+    {
+      "seatCycleId": "seat_house_il_05_current",
+      "districtLabel": "IL-05",
+      "bioguideId": "Q000023",
+      "incumbentName": "Mike Quigley",
+      "houseCandidateIds": [
+        "H0IL05096"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "442ee8e47761afcd3147751e57b24203566f5d0f0cb5623158b6bd047d1b1c11"
+    },
+    {
+      "seatCycleId": "seat_house_il_06_current",
+      "districtLabel": "IL-06",
+      "bioguideId": "C001117",
+      "incumbentName": "Sean Casten",
+      "houseCandidateIds": [
+        "H8IL06139"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "7895e705682563fd8667e64c6c3c45a2e54ba01a9ba35794efedd4d2278b640c"
+    },
+    {
+      "seatCycleId": "seat_house_il_07_current",
+      "districtLabel": "IL-07",
+      "bioguideId": "D000096",
+      "incumbentName": "Danny K. Davis",
+      "houseCandidateIds": [
+        "H4IL07037"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e8345a996a61af9c693c18e31215be8cd24adfc9f3f2c894371abfc627aac575"
+    },
+    {
+      "seatCycleId": "seat_house_il_08_current",
+      "districtLabel": "IL-08",
+      "bioguideId": "K000391",
+      "incumbentName": "Raja Krishnamoorthi",
+      "houseCandidateIds": [
+        "H6IL08147"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6IL00482",
+          "candidateName": "KRISHNAMOORTHI, S",
+          "status": "C",
+          "incumbentChallengerStatus": "O",
+          "matchBasis": "unique_last_name_in_state"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "622266f792a3202cb0380ae804bfe3b3dcc30a91ed4df9598dce658aaee5da61"
+    },
+    {
+      "seatCycleId": "seat_house_il_09_current",
+      "districtLabel": "IL-09",
+      "bioguideId": "S001145",
+      "incumbentName": "Janice D. Schakowsky",
+      "houseCandidateIds": [
+        "H8IL09067"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c5297dd7044c27d68d295d99003e5058cf5118704f01c3d19f945206605e9459"
+    },
+    {
+      "seatCycleId": "seat_house_il_10_current",
+      "districtLabel": "IL-10",
+      "bioguideId": "S001190",
+      "incumbentName": "Bradley Scott Schneider",
+      "houseCandidateIds": [
+        "H2IL10068"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "865dcb174a9ba1c493c08aec77f0cc9fae4380eafba36dd47eaa589face54813"
+    },
+    {
+      "seatCycleId": "seat_house_il_11_current",
+      "districtLabel": "IL-11",
+      "bioguideId": "F000454",
+      "incumbentName": "Bill Foster",
+      "houseCandidateIds": [
+        "H2IL11124",
+        "H8IL14067"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "320a63994d96400201ddec2eef8b95b13ae31468596157cd73472be33c050a0a"
+    },
+    {
+      "seatCycleId": "seat_house_il_12_current",
+      "districtLabel": "IL-12",
+      "bioguideId": "B001295",
+      "incumbentName": "Mike Bost",
+      "houseCandidateIds": [
+        "H4IL12060"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "1428ccac2571a0d8d57d2202b3e5dda3e562f076a27634e6998eb0aba8a04e94"
+    },
+    {
+      "seatCycleId": "seat_house_il_13_current",
+      "districtLabel": "IL-13",
+      "bioguideId": "B001315",
+      "incumbentName": "Nikki Budzinski",
+      "houseCandidateIds": [
+        "H2IL13153"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "76826eb431494b19beed474b86d6c0085d579955ff615df9066c30e12b822571"
+    },
+    {
+      "seatCycleId": "seat_house_il_14_current",
+      "districtLabel": "IL-14",
+      "bioguideId": "U000040",
+      "incumbentName": "Lauren Underwood",
+      "houseCandidateIds": [
+        "H8IL14174"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "264f1b05ced448ce27664557ca1dc4bec120e9d505e4c415ea036e5e33210b36"
+    },
+    {
+      "seatCycleId": "seat_house_il_15_current",
+      "districtLabel": "IL-15",
+      "bioguideId": "M001211",
+      "incumbentName": "Mary E. Miller",
+      "houseCandidateIds": [
+        "H0IL15129"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "83dc30b51e87e7e7ffd4689ff01f83f64ed072592f69842ae39ca328962b1103"
+    },
+    {
+      "seatCycleId": "seat_house_il_16_current",
+      "districtLabel": "IL-16",
+      "bioguideId": "L000585",
+      "incumbentName": "Darin LaHood",
+      "houseCandidateIds": [
+        "H6IL18088"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "320fd187c845a7a34f0aa9c72eba049e9ff630f33d459bb1233324819687bd1d"
+    },
+    {
+      "seatCycleId": "seat_house_il_17_current",
+      "districtLabel": "IL-17",
+      "bioguideId": "S001225",
+      "incumbentName": "Eric Sorensen",
+      "houseCandidateIds": [
+        "H2IL17147"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d8a4d1078c6c32b34642ac83105be1840e04bae56348704ee9285ca3c1b68e9d"
+    },
+    {
+      "seatCycleId": "seat_house_in_01_current",
+      "districtLabel": "IN-01",
+      "bioguideId": "M001214",
+      "incumbentName": "Frank J. Mrvan",
+      "houseCandidateIds": [
+        "H0IN01150"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "5835c6e15dd38523120b6c31b70432254081d742c45bf9bdba7464c31c328fba"
+    },
+    {
+      "seatCycleId": "seat_house_in_02_current",
+      "districtLabel": "IN-02",
+      "bioguideId": "Y000067",
+      "incumbentName": "Rudy Yakym III",
+      "houseCandidateIds": [
+        "H2IN02295"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c81b1e6abc54773e77a0076d7f7e0a1b9604dea461053c00feb029da6175c801"
+    },
+    {
+      "seatCycleId": "seat_house_in_03_current",
+      "districtLabel": "IN-03",
+      "bioguideId": "S001188",
+      "incumbentName": "Marlin A. Stutzman",
+      "houseCandidateIds": [
+        "H0IN03198"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "31138f28ade6b42976f9eae57d0e0a5f4f2c58027fe56b120689f5027ab7164b"
+    },
+    {
+      "seatCycleId": "seat_house_in_04_current",
+      "districtLabel": "IN-04",
+      "bioguideId": "B001307",
+      "incumbentName": "James R. Baird",
+      "houseCandidateIds": [
+        "H8IN04199"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c7f3164afd930a1f45cfe5e2af4990c4202742c439b5860787ae2ec11d36fb2c"
+    },
+    {
+      "seatCycleId": "seat_house_in_05_current",
+      "districtLabel": "IN-05",
+      "bioguideId": "S000929",
+      "incumbentName": "Victoria Spartz",
+      "houseCandidateIds": [
+        "H0IN05326"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d2e72329c2491f64bdcc440391377829162e41e62c946059c0a5d25c7add2238"
+    },
+    {
+      "seatCycleId": "seat_house_in_06_current",
+      "districtLabel": "IN-06",
+      "bioguideId": "S001229",
+      "incumbentName": "Jefferson Shreve",
+      "houseCandidateIds": [
+        "H4IN06185"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2ce525f8fa84c4732ddb09bcfe2fd03f2acc2641f3dfeb07f83e8dd8439cadeb"
+    },
+    {
+      "seatCycleId": "seat_house_in_07_current",
+      "districtLabel": "IN-07",
+      "bioguideId": "C001072",
+      "incumbentName": "André Carson",
+      "houseCandidateIds": [
+        "H8IN07184"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "982a272b31a381a6e710d80c6e316ef4ea139d8ec066898d3690da1447673bb9"
+    },
+    {
+      "seatCycleId": "seat_house_in_08_current",
+      "districtLabel": "IN-08",
+      "bioguideId": "M001233",
+      "incumbentName": "Mark B. Messmer",
+      "houseCandidateIds": [
+        "H4IN08249"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "7c6f145b4aa859c4dcc8b874f03e279aeee6537f34a5738fe28c3a8bb18e0da1"
+    },
+    {
+      "seatCycleId": "seat_house_in_09_current",
+      "districtLabel": "IN-09",
+      "bioguideId": "H001093",
+      "incumbentName": "Erin Houchin",
+      "houseCandidateIds": [
+        "H6IN09143"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "611ab24bbbb474f14a6210f0b5bc20ca8a1355db7f42b47e1db869e9dd204f31"
+    },
+    {
+      "seatCycleId": "seat_house_ks_01_current",
+      "districtLabel": "KS-01",
+      "bioguideId": "M000871",
+      "incumbentName": "Tracey Mann",
+      "houseCandidateIds": [
+        "H0KS01123"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "1952b8dfeebd7703a024162948819d3d6a2042e100022b59ce49ccf733577d8b"
+    },
+    {
+      "seatCycleId": "seat_house_ks_02_current",
+      "districtLabel": "KS-02",
+      "bioguideId": "S001228",
+      "incumbentName": "Derek Schmidt",
+      "houseCandidateIds": [
+        "H4KS02164"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2f31c794630218e4beadfa808ade4f61a7f11419445b8ae8cb651d13fc3bc1a0"
+    },
+    {
+      "seatCycleId": "seat_house_ks_03_current",
+      "districtLabel": "KS-03",
+      "bioguideId": "D000629",
+      "incumbentName": "Sharice Davids",
+      "houseCandidateIds": [
+        "H8KS03155"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d6e322ec834b628c2a6a86ca40ad0c81cca95fcd9ea5151a1720e14a00ba636b"
+    },
+    {
+      "seatCycleId": "seat_house_ks_04_current",
+      "districtLabel": "KS-04",
+      "bioguideId": "E000298",
+      "incumbentName": "Ron Estes",
+      "houseCandidateIds": [
+        "H8KS04112"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "88436984ddc90c5bf0f30cd300ca0e4933486ff474d3e79c4c6ec2cadbdbb25c"
+    },
+    {
+      "seatCycleId": "seat_house_ky_01_current",
+      "districtLabel": "KY-01",
+      "bioguideId": "C001108",
+      "incumbentName": "James Comer",
+      "houseCandidateIds": [
+        "H6KY01110"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "41661126426088697c9405f745379bb83b03ae767d9a5b843adf9b5a2ded4366"
+    },
+    {
+      "seatCycleId": "seat_house_ky_02_current",
+      "districtLabel": "KY-02",
+      "bioguideId": "G000558",
+      "incumbentName": "Brett Guthrie",
+      "houseCandidateIds": [
+        "H8KY02031"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "042bd1707a447f4875444c523df9d08e2960e4a46922c125b1051cb9b805795e"
+    },
+    {
+      "seatCycleId": "seat_house_ky_03_current",
+      "districtLabel": "KY-03",
+      "bioguideId": "M001220",
+      "incumbentName": "Morgan McGarvey",
+      "houseCandidateIds": [
+        "H2KY03206"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "3383183090f95167a7dc342ae33b1690684b26b1cdfba4dc2f65575885fafabc"
+    },
+    {
+      "seatCycleId": "seat_house_ky_04_current",
+      "districtLabel": "KY-04",
+      "bioguideId": "M001184",
+      "incumbentName": "Thomas Massie",
+      "houseCandidateIds": [
+        "H2KY04121"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "856316a7de5ab356f7e8e5b1989d449729193cc1b164759264f96bdb97138bfa"
+    },
+    {
+      "seatCycleId": "seat_house_ky_05_current",
+      "districtLabel": "KY-05",
+      "bioguideId": "R000395",
+      "incumbentName": "Harold Rogers",
+      "houseCandidateIds": [
+        "H0KY05015"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e3ef616783a27334045e3baf7bd474b0c0a533990253ca8b4631b2500c478dea"
+    },
+    {
+      "seatCycleId": "seat_house_ky_06_current",
+      "districtLabel": "KY-06",
+      "bioguideId": "B001282",
+      "incumbentName": "Andy Barr",
+      "houseCandidateIds": [
+        "H0KY06104"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6KY00286",
+          "candidateName": "BARR, GARLAND ANDY",
+          "status": "C",
+          "incumbentChallengerStatus": "O",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "b42160b78b4dbd2c76e63d7e5c11ad113c1e8ed4b1567a93dfff755c6286f034"
+    },
+    {
+      "seatCycleId": "seat_house_la_01_current",
+      "districtLabel": "LA-01",
+      "bioguideId": "S001176",
+      "incumbentName": "Steve Scalise",
+      "houseCandidateIds": [
+        "H0LA01087"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "bb80aa7d84e1960156ed449c43c1eba8810cd033a2a6b33ba7ad4e299baff924"
+    },
+    {
+      "seatCycleId": "seat_house_la_02_current",
+      "districtLabel": "LA-02",
+      "bioguideId": "C001125",
+      "incumbentName": "Troy A. Carter",
+      "houseCandidateIds": [
+        "H2LA02149"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "02f87e9efcc7de1efa2d4f1f4f7b9759b2474bba1d5809abbbcafa3134d8cdbf"
+    },
+    {
+      "seatCycleId": "seat_house_la_03_current",
+      "districtLabel": "LA-03",
+      "bioguideId": "H001077",
+      "incumbentName": "Clay Higgins",
+      "houseCandidateIds": [
+        "H6LA03148"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "cf47dbbe8fe53f0e302775a4571addd126727b88ac02638f46a3d93e723cc68b"
+    },
+    {
+      "seatCycleId": "seat_house_la_04_current",
+      "districtLabel": "LA-04",
+      "bioguideId": "J000299",
+      "incumbentName": "Mike Johnson",
+      "houseCandidateIds": [
+        "H6LA04138"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "fedc1177aa88dc34c60432e26f199e6902e0a3785f857275862448387b558fd2"
+    },
+    {
+      "seatCycleId": "seat_house_la_05_current",
+      "districtLabel": "LA-05",
+      "bioguideId": "L000595",
+      "incumbentName": "Julia Letlow",
+      "houseCandidateIds": [
+        "H2LA05126"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6LA00664",
+          "candidateName": "LETLOW, JULIA",
+          "status": "C",
+          "incumbentChallengerStatus": "C",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "bdc287ca016c58e421ceef5086d8b1c36f021297aaedff6ea64b3ab00e4e6d36"
+    },
+    {
+      "seatCycleId": "seat_house_la_06_current",
+      "districtLabel": "LA-06",
+      "bioguideId": "F000110",
+      "incumbentName": "Cleo Fields",
+      "houseCandidateIds": [
+        "H4LA06211"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a15be4808a99f507873784df683d1e8739866fa0bbb58bb1be82cc8f22d5f3bf"
+    },
+    {
+      "seatCycleId": "seat_house_ma_01_current",
+      "districtLabel": "MA-01",
+      "bioguideId": "N000015",
+      "incumbentName": "Richard E. Neal",
+      "houseCandidateIds": [
+        "H8MA02041"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0e3a6c7f47e68f69b61f0cf9d3f44fa1d56053f9191896007d3c8e88e02020f5"
+    },
+    {
+      "seatCycleId": "seat_house_ma_02_current",
+      "districtLabel": "MA-02",
+      "bioguideId": "M000312",
+      "incumbentName": "James P. McGovern",
+      "houseCandidateIds": [
+        "H4MA03022"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "25d63f611b08039ce8136ecf391cd36ae69f14c5691713fbf550f6aa4830fd30"
+    },
+    {
+      "seatCycleId": "seat_house_ma_03_current",
+      "districtLabel": "MA-03",
+      "bioguideId": "T000482",
+      "incumbentName": "Lori Trahan",
+      "houseCandidateIds": [
+        "H8MA03106"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0c4307bc8c220d706a95025e89102e2765fe2e1ec02ef44791e8200e79d62b92"
+    },
+    {
+      "seatCycleId": "seat_house_ma_04_current",
+      "districtLabel": "MA-04",
+      "bioguideId": "A000148",
+      "incumbentName": "Jake Auchincloss",
+      "houseCandidateIds": [
+        "H0MA04192"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "485215c4e38ed0378b59c3210cc15aa558f1fe80c7b1e31d34bfc7b8305eaae6"
+    },
+    {
+      "seatCycleId": "seat_house_ma_05_current",
+      "districtLabel": "MA-05",
+      "bioguideId": "C001101",
+      "incumbentName": "Katherine M. Clark",
+      "houseCandidateIds": [
+        "H4MA05084"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "54a37cb21ed48b69051044af16a8b6ada418d8d608f5ae789e435b5ee65d9966"
+    },
+    {
+      "seatCycleId": "seat_house_ma_06_current",
+      "districtLabel": "MA-06",
+      "bioguideId": "M001196",
+      "incumbentName": "Seth Moulton",
+      "houseCandidateIds": [
+        "H4MA06090"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6MA00296",
+          "candidateName": "MOULTON, SETH",
+          "status": "C",
+          "incumbentChallengerStatus": "C",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "6b2aba79b2988e254954720c05a524e91aeddd7f7c5c513ba0d32ba4a016e41b"
+    },
+    {
+      "seatCycleId": "seat_house_ma_07_current",
+      "districtLabel": "MA-07",
+      "bioguideId": "P000617",
+      "incumbentName": "Ayanna Pressley",
+      "houseCandidateIds": [
+        "H8MA07032"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "867ddedc83777009b332c30cc83329bc756cabcd045edb17dbd028559fa7b9fe"
+    },
+    {
+      "seatCycleId": "seat_house_ma_08_current",
+      "districtLabel": "MA-08",
+      "bioguideId": "L000562",
+      "incumbentName": "Stephen F. Lynch",
+      "houseCandidateIds": [
+        "H2MA09072"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "69f9b39f5f5b2af88b0d422f702035e432d1ea01dbac79894a5ba73c0fe7e2ff"
+    },
+    {
+      "seatCycleId": "seat_house_ma_09_current",
+      "districtLabel": "MA-09",
+      "bioguideId": "K000375",
+      "incumbentName": "William R. Keating",
+      "houseCandidateIds": [
+        "H0MA10082"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "42f191471d5a6773bc28e87765bbecaba6b4c8279191ed3b5005446bfa8a2ad9"
+    },
+    {
+      "seatCycleId": "seat_house_md_01_current",
+      "districtLabel": "MD-01",
+      "bioguideId": "H001052",
+      "incumbentName": "Andy Harris",
+      "houseCandidateIds": [
+        "H8MD01094"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "df5c97903485ca1eb5ba53328ddaa6ad9da8c7c523fb761226fc96e4a36047a5"
+    },
+    {
+      "seatCycleId": "seat_house_md_02_current",
+      "districtLabel": "MD-02",
+      "bioguideId": "O000176",
+      "incumbentName": "Johnny Olszewski, Jr.",
+      "houseCandidateIds": [
+        "H4MD02232"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b99a7375dd51e60156c8d22581e96da638bdfbe8c430cd589b23c14bd320ae41"
+    },
+    {
+      "seatCycleId": "seat_house_md_03_current",
+      "districtLabel": "MD-03",
+      "bioguideId": "E000301",
+      "incumbentName": "Sarah Elfreth",
+      "houseCandidateIds": [
+        "H4MD03156"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ef8d071ca544ba8ad0084a3250a30359672989354968f34fafe54320fbc2268e"
+    },
+    {
+      "seatCycleId": "seat_house_md_04_current",
+      "districtLabel": "MD-04",
+      "bioguideId": "I000058",
+      "incumbentName": "Glenn Ivey",
+      "houseCandidateIds": [
+        "H2MD04315"
+      ],
+      "houseStatutoryCandidate2026": false,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "521a32883439127ee48a7c7e342f787d6cf4767132c257547cce73fb38832fb0"
+    },
+    {
+      "seatCycleId": "seat_house_md_05_current",
+      "districtLabel": "MD-05",
+      "bioguideId": "H000874",
+      "incumbentName": "Steny H. Hoyer",
+      "houseCandidateIds": [
+        "H2MD05155"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d96010637df14f62d530cf777eefd8950bd78abaa0f97a2c4764a32d580471e0"
+    },
+    {
+      "seatCycleId": "seat_house_md_06_current",
+      "districtLabel": "MD-06",
+      "bioguideId": "M001232",
+      "incumbentName": "April McClain Delaney",
+      "houseCandidateIds": [
+        "H4MD06340"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ff8c464af9f3fb97cf35da15d68f6ac616337fa1ab6831d503877d511a2dd96a"
+    },
+    {
+      "seatCycleId": "seat_house_md_07_current",
+      "districtLabel": "MD-07",
+      "bioguideId": "M000687",
+      "incumbentName": "Kweisi Mfume",
+      "houseCandidateIds": [
+        "H0MD07114",
+        "H6MD07020"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "dd86f050fdb5328f362fc9d1a1ff3ea98422558020e9fba79cd1c30c3e063dc6"
+    },
+    {
+      "seatCycleId": "seat_house_md_08_current",
+      "districtLabel": "MD-08",
+      "bioguideId": "R000606",
+      "incumbentName": "Jamie Raskin",
+      "houseCandidateIds": [
+        "H6MD08457"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "469e639b9b5f1551eed33772db952ef983f9c2788526f0c93466e47c07f6c465"
+    },
+    {
+      "seatCycleId": "seat_house_me_01_current",
+      "districtLabel": "ME-01",
+      "bioguideId": "P000597",
+      "incumbentName": "Chellie Pingree",
+      "houseCandidateIds": [
+        "H8ME01120"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "5e1ab5620f49a7505b99e2891453e4c80c5e95139e380484b0a7ed85a36d720f"
+    },
+    {
+      "seatCycleId": "seat_house_me_02_current",
+      "districtLabel": "ME-02",
+      "bioguideId": "G000592",
+      "incumbentName": "Jared F. Golden",
+      "houseCandidateIds": [
+        "H8ME02185"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0244236dbfbcba5fc86fda68442cc6fa2b0e45c4ff2f72c09aa0d546951576e7"
+    },
+    {
+      "seatCycleId": "seat_house_mi_01_current",
+      "districtLabel": "MI-01",
+      "bioguideId": "B001301",
+      "incumbentName": "Jack Bergman",
+      "houseCandidateIds": [
+        "H6MI01226"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "8be42f8e8737add0406d2f8c7769ba305e548c8b30553528452f30412b92cf27"
+    },
+    {
+      "seatCycleId": "seat_house_mi_02_current",
+      "districtLabel": "MI-02",
+      "bioguideId": "M001194",
+      "incumbentName": "John R. Moolenaar",
+      "houseCandidateIds": [
+        "H4MI04126"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "07121d8bab2897bbb9fdeadb51af7791eb5aceea80f1b7123f119d7c6c215bef"
+    },
+    {
+      "seatCycleId": "seat_house_mi_03_current",
+      "districtLabel": "MI-03",
+      "bioguideId": "S001221",
+      "incumbentName": "Hillary J. Scholten",
+      "houseCandidateIds": [
+        "H0MI03316"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "6e705808cb14dbecf8949c3faefc18ef11a111243266ae6a7d9ba386ee9a04af"
+    },
+    {
+      "seatCycleId": "seat_house_mi_04_current",
+      "districtLabel": "MI-04",
+      "bioguideId": "H001058",
+      "incumbentName": "Bill Huizenga",
+      "houseCandidateIds": [
+        "H0MI02094"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "55a20ff15e6f859e1ce17e8c74617aee17e0007b41c4e1b83bcaee9d29e17f5d"
+    },
+    {
+      "seatCycleId": "seat_house_mi_05_current",
+      "districtLabel": "MI-05",
+      "bioguideId": "W000798",
+      "incumbentName": "Tim Walberg",
+      "houseCandidateIds": [
+        "H4MI07103"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "47193d1de88d232bcb32443715893a886c5820ceea9d47a03149ab477fba33f6"
+    },
+    {
+      "seatCycleId": "seat_house_mi_06_current",
+      "districtLabel": "MI-06",
+      "bioguideId": "D000624",
+      "incumbentName": "Debbie Dingell",
+      "houseCandidateIds": [
+        "H4MI12079"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "75319f8f024aea5c403bb70d37d82f8f7843e9afc9d23e311ca0ed04435f0f02"
+    },
+    {
+      "seatCycleId": "seat_house_mi_07_current",
+      "districtLabel": "MI-07",
+      "bioguideId": "B001321",
+      "incumbentName": "Tom Barrett",
+      "houseCandidateIds": [
+        "H2MI07123"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e7026c1c9618189fdeb6e9799d128d80939d5d11034ad087e6df10499b8238fa"
+    },
+    {
+      "seatCycleId": "seat_house_mi_08_current",
+      "districtLabel": "MI-08",
+      "bioguideId": "M001237",
+      "incumbentName": "Kristen McDonald Rivet",
+      "houseCandidateIds": [
+        "H4MI08218"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "053f73b85b6f20282e5eea0e8378c210203ceac3632dc6437d269df39a74d744"
+    },
+    {
+      "seatCycleId": "seat_house_mi_09_current",
+      "districtLabel": "MI-09",
+      "bioguideId": "M001136",
+      "incumbentName": "Lisa C. McClain",
+      "houseCandidateIds": [
+        "H0MI10287"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b8304fb1d5fba24992eae8f5ab4a99316a7137247aa585cb57c296d19c706a50"
+    },
+    {
+      "seatCycleId": "seat_house_mi_10_current",
+      "districtLabel": "MI-10",
+      "bioguideId": "J000307",
+      "incumbentName": "John James",
+      "houseCandidateIds": [
+        "H2MI10150"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4c62bc98dc0d2832fcec6262cc7269abe8125a4e62b7f0216185858f4b9d4196"
+    },
+    {
+      "seatCycleId": "seat_house_mi_11_current",
+      "districtLabel": "MI-11",
+      "bioguideId": "S001215",
+      "incumbentName": "Haley M. Stevens",
+      "houseCandidateIds": [
+        "H8MI11254"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6MI00426",
+          "candidateName": "STEVENS, HALEY",
+          "status": "C",
+          "incumbentChallengerStatus": "O",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "5e2e306cd97d6a6e69911e8f1708d82d3e8d969c66a6503b77c3c76172ba2bd5"
+    },
+    {
+      "seatCycleId": "seat_house_mi_12_current",
+      "districtLabel": "MI-12",
+      "bioguideId": "T000481",
+      "incumbentName": "Rashida Tlaib",
+      "houseCandidateIds": [
+        "H8MI13250"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "67feb52ca1660adf5bed1d3dfbe2d10e7b9d801d963a6949ea1a65b46fcf7ee6"
+    },
+    {
+      "seatCycleId": "seat_house_mi_13_current",
+      "districtLabel": "MI-13",
+      "bioguideId": "T000488",
+      "incumbentName": "Shri Thanedar",
+      "houseCandidateIds": [
+        "H2MI13204"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9c564fed5adfe5473f87a5bfab97a531b06896311b9ede25f86c803cd55c39c5"
+    },
+    {
+      "seatCycleId": "seat_house_mn_01_current",
+      "districtLabel": "MN-01",
+      "bioguideId": "F000475",
+      "incumbentName": "Brad Finstad",
+      "houseCandidateIds": [
+        "H2MN01223"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "673b381ae747a5e18a53f41b9e63d04db742cc2f97a9323cbab22b5da75b99bc"
+    },
+    {
+      "seatCycleId": "seat_house_mn_02_current",
+      "districtLabel": "MN-02",
+      "bioguideId": "C001119",
+      "incumbentName": "Angie Craig",
+      "houseCandidateIds": [
+        "H6MN02131"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6MN00499",
+          "candidateName": "CRAIG, ANGIE",
+          "status": "C",
+          "incumbentChallengerStatus": "O",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "027f04f953e05dd0b370ca60c192a928c294d69ec2215cfee4f55484e931a228"
+    },
+    {
+      "seatCycleId": "seat_house_mn_03_current",
+      "districtLabel": "MN-03",
+      "bioguideId": "M001234",
+      "incumbentName": "Kelly Morrison",
+      "houseCandidateIds": [
+        "H4MN03118"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "7db5dafad5029dbb3e6e3de1ce94bc966aaacd03c6421edecef50b946621247f"
+    },
+    {
+      "seatCycleId": "seat_house_mn_04_current",
+      "districtLabel": "MN-04",
+      "bioguideId": "M001143",
+      "incumbentName": "Betty McCollum",
+      "houseCandidateIds": [
+        "H0MN04049"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "f9fdac4b59aea08807f12fd399a6074670da5683ae196f633c9897586a361c5b"
+    },
+    {
+      "seatCycleId": "seat_house_mn_05_current",
+      "districtLabel": "MN-05",
+      "bioguideId": "O000173",
+      "incumbentName": "Ilhan Omar",
+      "houseCandidateIds": [
+        "H8MN05239"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "34c45d60871f865a67eeb0bce45e5a78773ef81e12db930eeea232ef8e044f28"
+    },
+    {
+      "seatCycleId": "seat_house_mn_06_current",
+      "districtLabel": "MN-06",
+      "bioguideId": "E000294",
+      "incumbentName": "Tom Emmer",
+      "houseCandidateIds": [
+        "H4MN06087"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e9c9bfe64c6927f9068105654ad01ca6866840da780d7aa8fed58c78dc73d458"
+    },
+    {
+      "seatCycleId": "seat_house_mn_07_current",
+      "districtLabel": "MN-07",
+      "bioguideId": "F000470",
+      "incumbentName": "Michelle Fischbach",
+      "houseCandidateIds": [
+        "H0MN07091"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b1d2c3eb942fd803d87fb7a8ce15293ad4c840ad8553decc524442265c96a7c6"
+    },
+    {
+      "seatCycleId": "seat_house_mn_08_current",
+      "districtLabel": "MN-08",
+      "bioguideId": "S001212",
+      "incumbentName": "Pete Stauber",
+      "houseCandidateIds": [
+        "H8MN08043"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "8d97627de30a2b103edb98bb54fdbea286babfde6f4b3659e8c5531716f09df9"
+    },
+    {
+      "seatCycleId": "seat_house_mo_01_current",
+      "districtLabel": "MO-01",
+      "bioguideId": "B001324",
+      "incumbentName": "Wesley Bell",
+      "houseCandidateIds": [
+        "H4MO01134"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "57d57021eadcc89c1a7fd16081f2bbbeb1ab578e81e13fed347cf2e8eb6a448a"
+    },
+    {
+      "seatCycleId": "seat_house_mo_02_current",
+      "districtLabel": "MO-02",
+      "bioguideId": "W000812",
+      "incumbentName": "Ann Wagner",
+      "houseCandidateIds": [
+        "H2MO02102"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "f8129a54af393e23d677604be8b70b0d8fe28f38141573785e2a507ad6a4ac85"
+    },
+    {
+      "seatCycleId": "seat_house_mo_03_current",
+      "districtLabel": "MO-03",
+      "bioguideId": "O000177",
+      "incumbentName": "Robert F. Onder, Jr.",
+      "houseCandidateIds": [
+        "H4MO03221",
+        "H8MO09146"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "5895f79d395c900d16d71973e80d58d60b703a6521bca2d092d5176dce0ddd81"
+    },
+    {
+      "seatCycleId": "seat_house_mo_04_current",
+      "districtLabel": "MO-04",
+      "bioguideId": "A000379",
+      "incumbentName": "Mark Alford",
+      "houseCandidateIds": [
+        "H2MO04207"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "391006ec50665870b08143a2457f12da7fe45b84c9de953d3657611a81dd81e6"
+    },
+    {
+      "seatCycleId": "seat_house_mo_05_current",
+      "districtLabel": "MO-05",
+      "bioguideId": "C001061",
+      "incumbentName": "Emanuel Cleaver",
+      "houseCandidateIds": [
+        "H4MO05234"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9b8c4414a0d58cd345544750c7e16d38a4015ef4bb4b53d944e049edebbff232"
+    },
+    {
+      "seatCycleId": "seat_house_mo_06_current",
+      "districtLabel": "MO-06",
+      "bioguideId": "G000546",
+      "incumbentName": "Sam Graves",
+      "houseCandidateIds": [
+        "H0MO06073"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "8f42bae806f682aff7dd2182346c606742bc7e8bffddee96ff2a8ed775eedbb8"
+    },
+    {
+      "seatCycleId": "seat_house_mo_07_current",
+      "districtLabel": "MO-07",
+      "bioguideId": "B001316",
+      "incumbentName": "Eric Burlison",
+      "houseCandidateIds": [
+        "H2MO07143"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c058f221b2c2a034b387fba3d1525ba9806878a95d86a67ffaf0ea1929cd5d14"
+    },
+    {
+      "seatCycleId": "seat_house_mo_08_current",
+      "districtLabel": "MO-08",
+      "bioguideId": "S001195",
+      "incumbentName": "Jason Smith",
+      "houseCandidateIds": [
+        "H4MO08162"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c2d9774c994ceb19749ba151073b70f5644b95f923e8bf752766087a35031f62"
+    },
+    {
+      "seatCycleId": "seat_house_ms_01_current",
+      "districtLabel": "MS-01",
+      "bioguideId": "K000388",
+      "incumbentName": "Trent Kelly",
+      "houseCandidateIds": [
+        "H6MS01131"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ea6fe6c59567f65b95d4c781bebf108bba132506fe02a97b4c1c8405767cd653"
+    },
+    {
+      "seatCycleId": "seat_house_ms_02_current",
+      "districtLabel": "MS-02",
+      "bioguideId": "T000193",
+      "incumbentName": "Bennie G. Thompson",
+      "houseCandidateIds": [
+        "H4MS02068"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0f5a16b09d4076889eb4dcae6ea78c32eb01722fe153e6b8d47324a1d4df928c"
+    },
+    {
+      "seatCycleId": "seat_house_ms_03_current",
+      "districtLabel": "MS-03",
+      "bioguideId": "G000591",
+      "incumbentName": "Michael Guest",
+      "houseCandidateIds": [
+        "H8MS03125"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e59b328561f04732325bf1eeba06ef32277ae20f5dd31bc6134db83a85b13afc"
+    },
+    {
+      "seatCycleId": "seat_house_ms_04_current",
+      "districtLabel": "MS-04",
+      "bioguideId": "E000235",
+      "incumbentName": "Mike Ezell",
+      "houseCandidateIds": [
+        "H2MS04258"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "141a961672f894fa1de9053ef9766a08f2ae10e6cd8642792b02c5d9c87cac40"
+    },
+    {
+      "seatCycleId": "seat_house_mt_01_current",
+      "districtLabel": "MT-01",
+      "bioguideId": "Z000018",
+      "incumbentName": "Ryan K. Zinke",
+      "houseCandidateIds": [
+        "H4MT01041"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "512ee8a90b5981aad74ac54e918177fbee38cb486536830e74e39b0f7882626f"
+    },
+    {
+      "seatCycleId": "seat_house_mt_02_current",
+      "districtLabel": "MT-02",
+      "bioguideId": "D000634",
+      "incumbentName": "Troy Downing",
+      "houseCandidateIds": [
+        "H4MT02098"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ead0f8bee870aa44afc03a4dca5f6b8441b7e9a4ded8cd1fea223beef060883b"
+    },
+    {
+      "seatCycleId": "seat_house_nc_01_current",
+      "districtLabel": "NC-01",
+      "bioguideId": "D000230",
+      "incumbentName": "Donald G. Davis",
+      "houseCandidateIds": [
+        "H2NC02287"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "042c4f823a57b3a6d53cead5e54a74c1bc0e15d86672507c0d7639382961d0a7"
+    },
+    {
+      "seatCycleId": "seat_house_nc_02_current",
+      "districtLabel": "NC-02",
+      "bioguideId": "R000305",
+      "incumbentName": "Deborah K. Ross",
+      "houseCandidateIds": [
+        "H0NC02125"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ae80ffd6d0d3bdae80356c48790e5926dbdd7c13ae4c4f9409d3108bb6b2d657"
+    },
+    {
+      "seatCycleId": "seat_house_nc_03_current",
+      "districtLabel": "NC-03",
+      "bioguideId": "M001210",
+      "incumbentName": "Gregory F. Murphy",
+      "houseCandidateIds": [
+        "H0NC03172"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d4af460a22d20d9c76504dadbed84db2e6e1a5b1e6eeea689f882e2ac95ff7f3"
+    },
+    {
+      "seatCycleId": "seat_house_nc_04_current",
+      "districtLabel": "NC-04",
+      "bioguideId": "F000477",
+      "incumbentName": "Valerie P. Foushee",
+      "houseCandidateIds": [
+        "H2NC06114"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "35142d888aedbb3beccd4dc61360af32b3106ed7fefe6e77d1338f4c201ea052"
+    },
+    {
+      "seatCycleId": "seat_house_nc_05_current",
+      "districtLabel": "NC-05",
+      "bioguideId": "F000450",
+      "incumbentName": "Virginia Foxx",
+      "houseCandidateIds": [
+        "H4NC05146"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "10b18143362bec8cbcfd73901e6b079478bcf23ac055a6f4fac3bd8171ca17c9"
+    },
+    {
+      "seatCycleId": "seat_house_nc_06_current",
+      "districtLabel": "NC-06",
+      "bioguideId": "M001240",
+      "incumbentName": "Addison P. McDowell",
+      "houseCandidateIds": [
+        "H4NC06177"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "18e9787f4d0b4c2c65ff37a15e12c9fcd8b054566c99748d1ee6b4d9c8b4f023"
+    },
+    {
+      "seatCycleId": "seat_house_nc_07_current",
+      "districtLabel": "NC-07",
+      "bioguideId": "R000603",
+      "incumbentName": "David Rouzer",
+      "houseCandidateIds": [
+        "H2NC07096"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "f942f9c876980162a3def4a40a92fd8731dc28f572a8b51907014c53b6e46b9a"
+    },
+    {
+      "seatCycleId": "seat_house_nc_08_current",
+      "districtLabel": "NC-08",
+      "bioguideId": "H001102",
+      "incumbentName": "Mark Harris",
+      "houseCandidateIds": [
+        "H4NC08066",
+        "H6NC09200"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "85b7db43ab05c1c467af85e46ad6c6932b5e478ee8ff2ba60b54aed0a800e2a5"
+    },
+    {
+      "seatCycleId": "seat_house_nc_09_current",
+      "districtLabel": "NC-09",
+      "bioguideId": "H001067",
+      "incumbentName": "Richard Hudson",
+      "houseCandidateIds": [
+        "H2NC08185"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "46b41865aa3ff701c65436329b3fefc535dd842a6a792edda454ac84e2d01ed6"
+    },
+    {
+      "seatCycleId": "seat_house_nc_10_current",
+      "districtLabel": "NC-10",
+      "bioguideId": "H001101",
+      "incumbentName": "Pat Harrigan",
+      "houseCandidateIds": [
+        "H2NC13243"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4c3cafc156fb643b80fc3de36500e95d1b45a3b4ad52b56a8f96f0c1a22ae87a"
+    },
+    {
+      "seatCycleId": "seat_house_nc_11_current",
+      "districtLabel": "NC-11",
+      "bioguideId": "E000246",
+      "incumbentName": "Chuck Edwards",
+      "houseCandidateIds": [
+        "H2NC14050"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "f9298d3144a1f7d306d1de075b8a687b4cc6fe1159247303d054bd3637d9f20c"
+    },
+    {
+      "seatCycleId": "seat_house_nc_12_current",
+      "districtLabel": "NC-12",
+      "bioguideId": "A000370",
+      "incumbentName": "Alma S. Adams",
+      "houseCandidateIds": [
+        "H4NC12100"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "23370c27f5647ba83f83373c6f85b198194e9ec77636d1e381a188a135bbda52"
+    },
+    {
+      "seatCycleId": "seat_house_nc_13_current",
+      "districtLabel": "NC-13",
+      "bioguideId": "K000405",
+      "incumbentName": "Brad Knott",
+      "houseCandidateIds": [
+        "H4NC13116"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4df5de93c9dde8e2386899529b36b894a98deb6036fc77000caea1f1af1e3b63"
+    },
+    {
+      "seatCycleId": "seat_house_nc_14_current",
+      "districtLabel": "NC-14",
+      "bioguideId": "M001236",
+      "incumbentName": "Tim Moore",
+      "houseCandidateIds": [
+        "H4NC14015"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "3f09951dd5c979f69b6fceb7c8112cba064a475c7ca5d736ae265d56537c1c38"
+    },
+    {
+      "seatCycleId": "seat_house_nd_al_current",
+      "districtLabel": "ND-AL",
+      "bioguideId": "F000482",
+      "incumbentName": "Julie Fedorchak",
+      "houseCandidateIds": [
+        "H4ND00061"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ad9a2b80051728d087d6b3f46d0e38d0dc586f8106a131934c5e9f4b1c25294f"
+    },
+    {
+      "seatCycleId": "seat_house_ne_01_current",
+      "districtLabel": "NE-01",
+      "bioguideId": "F000474",
+      "incumbentName": "Mike Flood",
+      "houseCandidateIds": [
+        "H2NE01118"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "efcfbeee02075ea2e06de1c7363542818bdfd9c096b109b4f43c0823a7f35a3c"
+    },
+    {
+      "seatCycleId": "seat_house_ne_02_current",
+      "districtLabel": "NE-02",
+      "bioguideId": "B001298",
+      "incumbentName": "Don Bacon",
+      "houseCandidateIds": [
+        "H6NE02125"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a0cd6c32d5616a64e18869020d0b3303aa055addf04da6ef7f0fecae2d9a875d"
+    },
+    {
+      "seatCycleId": "seat_house_ne_03_current",
+      "districtLabel": "NE-03",
+      "bioguideId": "S001172",
+      "incumbentName": "Adrian Smith",
+      "houseCandidateIds": [
+        "H6NE03115"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "3920d52831ff472c4dc021e145a8cedfe6325a6bd49958e44a270c93194f85d6"
+    },
+    {
+      "seatCycleId": "seat_house_nh_01_current",
+      "districtLabel": "NH-01",
+      "bioguideId": "P000614",
+      "incumbentName": "Chris Pappas",
+      "houseCandidateIds": [
+        "H8NH01210"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6NH00141",
+          "candidateName": "PAPPAS, CHRIS",
+          "status": "C",
+          "incumbentChallengerStatus": "O",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "4a5a3c31772cebfd28a19ac664ad08d8fd9de1f66e74b89db6f375ec9cb318e8"
+    },
+    {
+      "seatCycleId": "seat_house_nh_02_current",
+      "districtLabel": "NH-02",
+      "bioguideId": "G000604",
+      "incumbentName": "Maggie Goodlander",
+      "houseCandidateIds": [
+        "H4NH02399"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "f4c45385caeca743617b04e0a21dc185fa47a631c679154b7b1cd37beb8a025e"
+    },
+    {
+      "seatCycleId": "seat_house_nj_01_current",
+      "districtLabel": "NJ-01",
+      "bioguideId": "N000188",
+      "incumbentName": "Donald Norcross",
+      "houseCandidateIds": [
+        "H4NJ01084"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c8477cadb5dbe84def287e6ed8d102de62ce48e03953e51c675be31c139e2e2b"
+    },
+    {
+      "seatCycleId": "seat_house_nj_02_current",
+      "districtLabel": "NJ-02",
+      "bioguideId": "V000133",
+      "incumbentName": "Jefferson Van Drew",
+      "houseCandidateIds": [
+        "H8NJ02166"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9fee5c5a24b040d565f9225b56aca61e7ae1a64ee8b71b35b617aa99f28a9075"
+    },
+    {
+      "seatCycleId": "seat_house_nj_03_current",
+      "districtLabel": "NJ-03",
+      "bioguideId": "C001136",
+      "incumbentName": "Herbert C. Conaway, Jr.",
+      "houseCandidateIds": [
+        "H4NJ03080"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e6c840e3d2ae6251806423c1ca9e3d2f7e6adcbcb4f4187885466bcbe5ce037f"
+    },
+    {
+      "seatCycleId": "seat_house_nj_04_current",
+      "districtLabel": "NJ-04",
+      "bioguideId": "S000522",
+      "incumbentName": "Christopher H. Smith",
+      "houseCandidateIds": [
+        "H8NJ04014"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4e54cbc14b9db3ead37ba19d43eedc82ca8706ae558cd5e987f34061834eaf42"
+    },
+    {
+      "seatCycleId": "seat_house_nj_05_current",
+      "districtLabel": "NJ-05",
+      "bioguideId": "G000583",
+      "incumbentName": "Josh Gottheimer",
+      "houseCandidateIds": [
+        "H6NJ05171"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "253d164f933c3365c15a6bd4724a2e00c48f61ff054c14bcae414855cdf5d206"
+    },
+    {
+      "seatCycleId": "seat_house_nj_06_current",
+      "districtLabel": "NJ-06",
+      "bioguideId": "P000034",
+      "incumbentName": "Frank Pallone, Jr.",
+      "houseCandidateIds": [
+        "H8NJ03073"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "06aefc452247d09e02439b2af04d9c0b84c61566ef18116e13dbabc5d65e8c51"
+    },
+    {
+      "seatCycleId": "seat_house_nj_07_current",
+      "districtLabel": "NJ-07",
+      "bioguideId": "K000398",
+      "incumbentName": "Thomas H. Kean, Jr.",
+      "houseCandidateIds": [
+        "H0NJ07261"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "412620377b690fd4116f4847c178e971ae45aa3e616629f657c60af45e7fb405"
+    },
+    {
+      "seatCycleId": "seat_house_nj_08_current",
+      "districtLabel": "NJ-08",
+      "bioguideId": "M001226",
+      "incumbentName": "Robert Menendez",
+      "houseCandidateIds": [
+        "H2NJ08232"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a4d8653666f6219b95c8b187633d5be0c40d84d67f5b974e251556bc8c031f06"
+    },
+    {
+      "seatCycleId": "seat_house_nj_09_current",
+      "districtLabel": "NJ-09",
+      "bioguideId": "P000621",
+      "incumbentName": "Nellie Pou",
+      "houseCandidateIds": [
+        "H4NJ09194"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c312daeb549098dace04f8ddc6ae682b53467b63ecf7dd2c1b4c08cc20692843"
+    },
+    {
+      "seatCycleId": "seat_house_nj_10_current",
+      "districtLabel": "NJ-10",
+      "bioguideId": "M001229",
+      "incumbentName": "LaMonica McIver",
+      "houseCandidateIds": [
+        "H4NJ10176"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "df6a367f5a52baa73f4f88e1d61684f2275992f3164ac40aa77e1e9b245664c3"
+    },
+    {
+      "seatCycleId": "seat_house_nj_11_current",
+      "districtLabel": "NJ-11",
+      "bioguideId": "M001246",
+      "incumbentName": "Analilia Mejia",
+      "houseCandidateIds": [
+        "H6NJ11286"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9a4d317c3f33839ff74b55e01cc2efff95f8c3102d9875fd416738bd2134842e"
+    },
+    {
+      "seatCycleId": "seat_house_nj_12_current",
+      "districtLabel": "NJ-12",
+      "bioguideId": "W000822",
+      "incumbentName": "Bonnie Watson Coleman",
+      "houseCandidateIds": [
+        "H4NJ12149"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9015dc6b7bc910d4dd20e8d227d4e1aac99df20b48b4b5007c7e240ea6e52499"
+    },
+    {
+      "seatCycleId": "seat_house_nm_01_current",
+      "districtLabel": "NM-01",
+      "bioguideId": "S001218",
+      "incumbentName": "Melanie A. Stansbury",
+      "houseCandidateIds": [
+        "H2NM01144"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "5865947879a1fb3e3662c447ac014efdf748d23e44d4e6195abc9deb2c7f7da6"
+    },
+    {
+      "seatCycleId": "seat_house_nm_02_current",
+      "districtLabel": "NM-02",
+      "bioguideId": "V000136",
+      "incumbentName": "Gabe Vasquez",
+      "houseCandidateIds": [
+        "H2NM02191"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "cfd43923f891520b09ed73be6000367f289b101fe9e6bf8fd70dd81c870a465f"
+    },
+    {
+      "seatCycleId": "seat_house_nm_03_current",
+      "districtLabel": "NM-03",
+      "bioguideId": "L000273",
+      "incumbentName": "Teresa Leger Fernandez",
+      "houseCandidateIds": [
+        "H0NM03102"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "42c657a235761b34bd046ff2e7fd4718539b03ee30ba82db74f94bdf3227be22"
+    },
+    {
+      "seatCycleId": "seat_house_nv_01_current",
+      "districtLabel": "NV-01",
+      "bioguideId": "T000468",
+      "incumbentName": "Dina Titus",
+      "houseCandidateIds": [
+        "H8NV03036"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "5f54418fd7489f8698547b7a3948c31bfb2f2c7473cf8d002bded2ccfc143f5e"
+    },
+    {
+      "seatCycleId": "seat_house_nv_02_current",
+      "districtLabel": "NV-02",
+      "bioguideId": "A000369",
+      "incumbentName": "Mark E. Amodei",
+      "houseCandidateIds": [
+        "H1NV02017",
+        "H2NV02395"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "880e16dda7fe64e9138f4847c12471c92f7a3b5d392a409d93aff9172c14562c"
+    },
+    {
+      "seatCycleId": "seat_house_nv_03_current",
+      "districtLabel": "NV-03",
+      "bioguideId": "L000590",
+      "incumbentName": "Susie Lee",
+      "houseCandidateIds": [
+        "H6NV04020"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c5187562d8ce4c129eb80f2b2af34dcaf0257f81d0d1df55d3b633242c1117aa"
+    },
+    {
+      "seatCycleId": "seat_house_nv_04_current",
+      "districtLabel": "NV-04",
+      "bioguideId": "H001066",
+      "incumbentName": "Steven Horsford",
+      "houseCandidateIds": [
+        "H2NV04011"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "543acd8e76ed8469d67e6710cb72fea86f126c0af7131a35b3f2a8fe8e9a2713"
+    },
+    {
+      "seatCycleId": "seat_house_ny_01_current",
+      "districtLabel": "NY-01",
+      "bioguideId": "L000598",
+      "incumbentName": "Nick LaLota",
+      "houseCandidateIds": [
+        "H2NY01190"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "6abd204af079e64b16cb536c8f3a0f7b696a8d72c680957347c7c14a195de623"
+    },
+    {
+      "seatCycleId": "seat_house_ny_02_current",
+      "districtLabel": "NY-02",
+      "bioguideId": "G000597",
+      "incumbentName": "Andrew R. Garbarino",
+      "houseCandidateIds": [
+        "H0NY02234"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ca8e188de80089d172982d6f49dba26fcd98153d8192f0c65fb24a186101a8ab"
+    },
+    {
+      "seatCycleId": "seat_house_ny_03_current",
+      "districtLabel": "NY-03",
+      "bioguideId": "S001201",
+      "incumbentName": "Thomas R. Suozzi",
+      "houseCandidateIds": [
+        "H6NY03247"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e9e71bf49142c8372a57e6eb3c50c34b3c08e533b816792a36d15bf1ec55be07"
+    },
+    {
+      "seatCycleId": "seat_house_ny_04_current",
+      "districtLabel": "NY-04",
+      "bioguideId": "G000602",
+      "incumbentName": "Laura Gillen",
+      "houseCandidateIds": [
+        "H4NY04158"
+      ],
+      "houseStatutoryCandidate2026": false,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a31457427c4573cfd1eff6de911a555b564d059a1501ade886c64b291ed7db65"
+    },
+    {
+      "seatCycleId": "seat_house_ny_05_current",
+      "districtLabel": "NY-05",
+      "bioguideId": "M001137",
+      "incumbentName": "Gregory W. Meeks",
+      "houseCandidateIds": [
+        "H8NY06048"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "068b52760bec4285c034237e5de98a8769bf97352861323c5156f361066b7052"
+    },
+    {
+      "seatCycleId": "seat_house_ny_06_current",
+      "districtLabel": "NY-06",
+      "bioguideId": "M001188",
+      "incumbentName": "Grace Meng",
+      "houseCandidateIds": [
+        "H2NY06116"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "663e2aec416a4e5f56a0930dbf5b2a69708b07bac355bf853b565ea4fd20a5f4"
+    },
+    {
+      "seatCycleId": "seat_house_ny_07_current",
+      "districtLabel": "NY-07",
+      "bioguideId": "V000081",
+      "incumbentName": "Nydia M. Velázquez",
+      "houseCandidateIds": [
+        "H2NY00010"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "7d9eeb180f06ca206a4c88ab49d6d979840b184eb9966e44ae2354cfa1495a9d"
+    },
+    {
+      "seatCycleId": "seat_house_ny_08_current",
+      "districtLabel": "NY-08",
+      "bioguideId": "J000294",
+      "incumbentName": "Hakeem S. Jeffries",
+      "houseCandidateIds": [
+        "H2NY10092"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ce8d9d7d76e6e2930b3534fb49b226441b7b3239b5f16abc83969cfb7c808bf5"
+    },
+    {
+      "seatCycleId": "seat_house_ny_09_current",
+      "districtLabel": "NY-09",
+      "bioguideId": "C001067",
+      "incumbentName": "Yvette D. Clarke",
+      "houseCandidateIds": [
+        "H4NY11138"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "5cdcdfd68251b7b0f8b66261876384510a1e7f7d896d2847ce837b430768c148"
+    },
+    {
+      "seatCycleId": "seat_house_ny_10_current",
+      "districtLabel": "NY-10",
+      "bioguideId": "G000599",
+      "incumbentName": "Daniel S. Goldman",
+      "houseCandidateIds": [
+        "H2NY10308"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ddf44032a2a73229dee44f6a6721c5d2058a8724764ddc4cb9427f0040f40d3d"
+    },
+    {
+      "seatCycleId": "seat_house_ny_11_current",
+      "districtLabel": "NY-11",
+      "bioguideId": "M000317",
+      "incumbentName": "Nicole Malliotakis",
+      "houseCandidateIds": [
+        "H0NY11078"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4c71e12a5e01ec135c8acd3fa1ba0a74786199473c663016b19e1c9223744f78"
+    },
+    {
+      "seatCycleId": "seat_house_ny_12_current",
+      "districtLabel": "NY-12",
+      "bioguideId": "N000002",
+      "incumbentName": "Jerrold Nadler",
+      "houseCandidateIds": [
+        "H2NY17071"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "79359cc50b2396d2382726454647affd5646bf29205adf84198d9e2da5766068"
+    },
+    {
+      "seatCycleId": "seat_house_ny_13_current",
+      "districtLabel": "NY-13",
+      "bioguideId": "E000297",
+      "incumbentName": "Adriano Espaillat",
+      "houseCandidateIds": [
+        "H2NY13096"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e77caa98dbe707e3e879ccb9c8ac9230f41b80046231d7db9dbb3cddf50cb350"
+    },
+    {
+      "seatCycleId": "seat_house_ny_14_current",
+      "districtLabel": "NY-14",
+      "bioguideId": "O000172",
+      "incumbentName": "Alexandria Ocasio-Cortez",
+      "houseCandidateIds": [
+        "H8NY15148"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "dd5eb8cd52648686bdf317eca4095318a2785eee6367d54960d4e090c651899f"
+    },
+    {
+      "seatCycleId": "seat_house_ny_15_current",
+      "districtLabel": "NY-15",
+      "bioguideId": "T000486",
+      "incumbentName": "Ritchie Torres",
+      "houseCandidateIds": [
+        "H0NY15160"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9d8aeb797bb8a1463d9c75c5f387ac13a2b35b39473514d895a35eef3890c07b"
+    },
+    {
+      "seatCycleId": "seat_house_ny_16_current",
+      "districtLabel": "NY-16",
+      "bioguideId": "L000606",
+      "incumbentName": "George Latimer",
+      "houseCandidateIds": [
+        "H4NY16087"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "68fd97748d1fa5a97a663f4d52d23d5d1ef50decdce7ac1b77223ba03c298213"
+    },
+    {
+      "seatCycleId": "seat_house_ny_17_current",
+      "districtLabel": "NY-17",
+      "bioguideId": "L000599",
+      "incumbentName": "Michael Lawler",
+      "houseCandidateIds": [
+        "H2NY17162"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4c3ed584703e8b4060c5191d2bd37fae3052193f7d62138eb21a1694dfd6425c"
+    },
+    {
+      "seatCycleId": "seat_house_ny_18_current",
+      "districtLabel": "NY-18",
+      "bioguideId": "R000579",
+      "incumbentName": "Patrick Ryan",
+      "houseCandidateIds": [
+        "H8NY19223"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "75b3d5f7e5b31f6fd523f11d9aaedec1f02a25c30524cb084d87c0bebfceb52e"
+    },
+    {
+      "seatCycleId": "seat_house_ny_19_current",
+      "districtLabel": "NY-19",
+      "bioguideId": "R000622",
+      "incumbentName": "Josh Riley",
+      "houseCandidateIds": [
+        "H8NY22177"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "74c8f2951a01c89f5fabc3d66679ca2ecd5c607950796f978a93e7f567537332"
+    },
+    {
+      "seatCycleId": "seat_house_ny_20_current",
+      "districtLabel": "NY-20",
+      "bioguideId": "T000469",
+      "incumbentName": "Paul Tonko",
+      "houseCandidateIds": [
+        "H8NY21203"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d9fc92a181957d40eca526bc28978b00e82ce04d22c03a4559ea2fe50b6d2bf7"
+    },
+    {
+      "seatCycleId": "seat_house_ny_21_current",
+      "districtLabel": "NY-21",
+      "bioguideId": "S001196",
+      "incumbentName": "Elise M. Stefanik",
+      "houseCandidateIds": [
+        "H4NY21079"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "066ccd7d163e26d4a3445fb8d63b5ac281a00f7bb0337e615eeaf0022cb3644d"
+    },
+    {
+      "seatCycleId": "seat_house_ny_22_current",
+      "districtLabel": "NY-22",
+      "bioguideId": "M001231",
+      "incumbentName": "John W. Mannion",
+      "houseCandidateIds": [
+        "H4NY22085"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "6eebb124f7e78d687f4c5423683e24a0df3510947ea32682288627c89da4717c"
+    },
+    {
+      "seatCycleId": "seat_house_ny_23_current",
+      "districtLabel": "NY-23",
+      "bioguideId": "L000600",
+      "incumbentName": "Nicholas A. Langworthy",
+      "houseCandidateIds": [
+        "H2NY23228"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "70d4b9e59e1bae9719291001ede0ffe44cfafd977c6f2a4e6d0c53f38141a90d"
+    },
+    {
+      "seatCycleId": "seat_house_ny_24_current",
+      "districtLabel": "NY-24",
+      "bioguideId": "T000478",
+      "incumbentName": "Claudia Tenney",
+      "houseCandidateIds": [
+        "H4NY22051"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "fb9be2ef447ea3e1443372a2d275123fe59d706c6eed9f2a2180723120e683ce"
+    },
+    {
+      "seatCycleId": "seat_house_ny_25_current",
+      "districtLabel": "NY-25",
+      "bioguideId": "M001206",
+      "incumbentName": "Joseph D. Morelle",
+      "houseCandidateIds": [
+        "H8NY25105"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "949a7a5d7001e8ac24f408adec9f265ec8be55633f7b012637cba07ece82015f"
+    },
+    {
+      "seatCycleId": "seat_house_ny_26_current",
+      "districtLabel": "NY-26",
+      "bioguideId": "K000402",
+      "incumbentName": "Timothy M. Kennedy",
+      "houseCandidateIds": [
+        "H4NY26078"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a303dbd7273b7461dc24f9d27aade329747f36ca1411e021614d0a84d88c6a65"
+    },
+    {
+      "seatCycleId": "seat_house_oh_01_current",
+      "districtLabel": "OH-01",
+      "bioguideId": "L000601",
+      "incumbentName": "Greg Landsman",
+      "houseCandidateIds": [
+        "H2OH01194"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "6ee51cb704053e60c6b8dc6d53d4631916f8316e34a0702e604ad19acb5ecca6"
+    },
+    {
+      "seatCycleId": "seat_house_oh_02_current",
+      "districtLabel": "OH-02",
+      "bioguideId": "T000490",
+      "incumbentName": "David J. Taylor",
+      "houseCandidateIds": [
+        "H4OH02248"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "fb5098143517f393b45a8be0bb41e2876f4f32821048678319230122838f8099"
+    },
+    {
+      "seatCycleId": "seat_house_oh_03_current",
+      "districtLabel": "OH-03",
+      "bioguideId": "B001281",
+      "incumbentName": "Joyce Beatty",
+      "houseCandidateIds": [
+        "H2OH03125"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ec7168fb5b0b9ad9d542fe6049c547f662cbeba439557a07a7c4c0b1a3f4892b"
+    },
+    {
+      "seatCycleId": "seat_house_oh_04_current",
+      "districtLabel": "OH-04",
+      "bioguideId": "J000289",
+      "incumbentName": "Jim Jordan",
+      "houseCandidateIds": [
+        "H6OH04082"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "24062fa9136c219f39bdfac4cfe452ac7ec97072e796c34ae6f9b1988a93b58a"
+    },
+    {
+      "seatCycleId": "seat_house_oh_05_current",
+      "districtLabel": "OH-05",
+      "bioguideId": "L000566",
+      "incumbentName": "Robert E. Latta",
+      "houseCandidateIds": [
+        "H8OH05036"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e97a314960ca7534667b174a7363b424a9130faaa40b16b20a383462cf27d270"
+    },
+    {
+      "seatCycleId": "seat_house_oh_06_current",
+      "districtLabel": "OH-06",
+      "bioguideId": "R000619",
+      "incumbentName": "Michael A. Rulli",
+      "houseCandidateIds": [
+        "H4OH06165"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "1ad196fae365ef6a38b8f2e616cba186b0e672501395816544160475c1e73945"
+    },
+    {
+      "seatCycleId": "seat_house_oh_07_current",
+      "districtLabel": "OH-07",
+      "bioguideId": "M001222",
+      "incumbentName": "Max L. Miller",
+      "houseCandidateIds": [
+        "H2OH16051"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4357ac18dda94549df5ed7f9ca480648304cbee31f5520232c8a806680ccd157"
+    },
+    {
+      "seatCycleId": "seat_house_oh_08_current",
+      "districtLabel": "OH-08",
+      "bioguideId": "D000626",
+      "incumbentName": "Warren Davidson",
+      "houseCandidateIds": [
+        "H6OH08315"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "fcd6099f652a88a6c2efed5dc9b063b88453e3939d0c5ef646ba9668a2292bdc"
+    },
+    {
+      "seatCycleId": "seat_house_oh_09_current",
+      "districtLabel": "OH-09",
+      "bioguideId": "K000009",
+      "incumbentName": "Marcy Kaptur",
+      "houseCandidateIds": [
+        "H2OH09031"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a03338bac6b59e1dfb12c2ca57edf59bdbda863d1ade46823140a2afe8a441de"
+    },
+    {
+      "seatCycleId": "seat_house_oh_10_current",
+      "districtLabel": "OH-10",
+      "bioguideId": "T000463",
+      "incumbentName": "Michael R. Turner",
+      "houseCandidateIds": [
+        "H2OH03067",
+        "H2OH03091"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d7e2507e77e8a624a560daa1ab3e64a4ce1db42a9eb54079a5462fd1f0ce2bdb"
+    },
+    {
+      "seatCycleId": "seat_house_oh_11_current",
+      "districtLabel": "OH-11",
+      "bioguideId": "B001313",
+      "incumbentName": "Shontel M. Brown",
+      "houseCandidateIds": [
+        "H2OH11169"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "516dd1265ee9cd1c6308f145c6fbaa390c5c1ac267861bd7c94add7f1a08ebe7"
+    },
+    {
+      "seatCycleId": "seat_house_oh_12_current",
+      "districtLabel": "OH-12",
+      "bioguideId": "B001306",
+      "incumbentName": "Troy Balderson",
+      "houseCandidateIds": [
+        "H8OH12180"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "14ac050c38af51180eb89f2af4a515729e0f03e772ac3cd2ec0ef7884165468a"
+    },
+    {
+      "seatCycleId": "seat_house_oh_13_current",
+      "districtLabel": "OH-13",
+      "bioguideId": "S001223",
+      "incumbentName": "Emilia Strong Sykes",
+      "houseCandidateIds": [
+        "H2OH13264"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d38cd448621a58e8f92ab6aef055e753ab268571ef9214b056a6482d29c51113"
+    },
+    {
+      "seatCycleId": "seat_house_oh_14_current",
+      "districtLabel": "OH-14",
+      "bioguideId": "J000295",
+      "incumbentName": "David P. Joyce",
+      "houseCandidateIds": [
+        "H2OH14064"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "96805cc9c5708f54b21cccac7133a322808b6fabd93a40d2c6b295b405017641"
+    },
+    {
+      "seatCycleId": "seat_house_oh_15_current",
+      "districtLabel": "OH-15",
+      "bioguideId": "C001126",
+      "incumbentName": "Mike Carey",
+      "houseCandidateIds": [
+        "H2OH15228"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e81881a0da4a5b8f7c8f845c49808e597b4125b7a0518d4e242a7824590c8f42"
+    },
+    {
+      "seatCycleId": "seat_house_ok_01_current",
+      "districtLabel": "OK-01",
+      "bioguideId": "H001082",
+      "incumbentName": "Kevin Hern",
+      "houseCandidateIds": [
+        "H8OK01157"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6OK04247",
+          "candidateName": "HERN, KEVIN",
+          "status": "C",
+          "incumbentChallengerStatus": "C",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "199f2db3dd77761e805d8639381aae1e68fd953c1ca560d100b6af5fed97bc08"
+    },
+    {
+      "seatCycleId": "seat_house_ok_02_current",
+      "districtLabel": "OK-02",
+      "bioguideId": "B001317",
+      "incumbentName": "Josh Brecheen",
+      "houseCandidateIds": [
+        "H2OK02315"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "83dff36193ec7504ce00dda25ee3816a340034d154ddf7465c2ea71ec54a5a9e"
+    },
+    {
+      "seatCycleId": "seat_house_ok_03_current",
+      "districtLabel": "OK-03",
+      "bioguideId": "L000491",
+      "incumbentName": "Frank D. Lucas",
+      "houseCandidateIds": [
+        "H4OK06056"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c4cdf16c32a6356a015d457094e70b97efb30fdabcf80de3e5f4443b47c127e1"
+    },
+    {
+      "seatCycleId": "seat_house_ok_04_current",
+      "districtLabel": "OK-04",
+      "bioguideId": "C001053",
+      "incumbentName": "Tom Cole",
+      "houseCandidateIds": [
+        "H2OK04055"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "10f5451ab12d48ea81d57fe2ad88c4b8cec23ecfbd7749bccfa9a96192dca962"
+    },
+    {
+      "seatCycleId": "seat_house_ok_05_current",
+      "districtLabel": "OK-05",
+      "bioguideId": "B000740",
+      "incumbentName": "Stephanie I. Bice",
+      "houseCandidateIds": [
+        "H0OK05205"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "5f3352e22e6582f8f2c17ff4982c74bac6e1aefa2a783d758483245960d1af03"
+    },
+    {
+      "seatCycleId": "seat_house_or_01_current",
+      "districtLabel": "OR-01",
+      "bioguideId": "B001278",
+      "incumbentName": "Suzanne Bonamici",
+      "houseCandidateIds": [
+        "H2OR01133"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "1a1ec86eb7c70c7755f386f310c9a95111bfbc25fe1b9590d37028509708fdf9"
+    },
+    {
+      "seatCycleId": "seat_house_or_02_current",
+      "districtLabel": "OR-02",
+      "bioguideId": "B000668",
+      "incumbentName": "Cliff Bentz",
+      "houseCandidateIds": [
+        "H0OR02127"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2559d1b224ad8a049ce0b890461112aa5eaa82259d795802186cf91521242fb6"
+    },
+    {
+      "seatCycleId": "seat_house_or_03_current",
+      "districtLabel": "OR-03",
+      "bioguideId": "D000635",
+      "incumbentName": "Maxine Dexter",
+      "houseCandidateIds": [
+        "H4OR03192"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b57ede55bb32ec4fccd416fe1fed87cf2b120c15f041146314f86c5eb95ad439"
+    },
+    {
+      "seatCycleId": "seat_house_or_04_current",
+      "districtLabel": "OR-04",
+      "bioguideId": "H001094",
+      "incumbentName": "Val T. Hoyle",
+      "houseCandidateIds": [
+        "H2OR04095"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "aee2e3cfa10deba2f01b79fbf09543db7f29094e0cdbb6aa3d4428a107629392"
+    },
+    {
+      "seatCycleId": "seat_house_or_05_current",
+      "districtLabel": "OR-05",
+      "bioguideId": "B001326",
+      "incumbentName": "Janelle S. Bynum",
+      "houseCandidateIds": [
+        "H4OR05304"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "65326e2d549012194788c432249afb68142103bf9ae362ec85a502041a3e4efc"
+    },
+    {
+      "seatCycleId": "seat_house_or_06_current",
+      "districtLabel": "OR-06",
+      "bioguideId": "S001226",
+      "incumbentName": "Andrea Salinas",
+      "houseCandidateIds": [
+        "H2OR06066"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "7322de37ae57dd3080088868fa91c36dc4f6b42bc7e1cd1a97acfd847e345ea8"
+    },
+    {
+      "seatCycleId": "seat_house_pa_01_current",
+      "districtLabel": "PA-01",
+      "bioguideId": "F000466",
+      "incumbentName": "Brian K. Fitzpatrick",
+      "houseCandidateIds": [
+        "H6PA08277"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "55fcb9ac80cacc58570d712fc4a2ca3367e37a828f18b93ea73550476641c7c3"
+    },
+    {
+      "seatCycleId": "seat_house_pa_02_current",
+      "districtLabel": "PA-02",
+      "bioguideId": "B001296",
+      "incumbentName": "Brendan F. Boyle",
+      "houseCandidateIds": [
+        "H4PA13199"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "283ac5a15f262aaa42c73aa29326d24e7d5e6e171d49fba6f47016969a0c7290"
+    },
+    {
+      "seatCycleId": "seat_house_pa_03_current",
+      "districtLabel": "PA-03",
+      "bioguideId": "E000296",
+      "incumbentName": "Dwight Evans",
+      "houseCandidateIds": [
+        "H6PA02171"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "5b0a7860f0b49ebe567c36046d84865fad7f03a4fce7c7c45ead0a58b04d2226"
+    },
+    {
+      "seatCycleId": "seat_house_pa_04_current",
+      "districtLabel": "PA-04",
+      "bioguideId": "D000631",
+      "incumbentName": "Madeleine Dean",
+      "houseCandidateIds": [
+        "H8PA04116"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "99a9d2f259ab4cc8aff6c4c00d9eb848a6f39190cd08801b588a13b8202915b7"
+    },
+    {
+      "seatCycleId": "seat_house_pa_05_current",
+      "districtLabel": "PA-05",
+      "bioguideId": "S001205",
+      "incumbentName": "Mary Gay Scanlon",
+      "houseCandidateIds": [
+        "H8PA07200"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ad8f7feefe92cd47c4f9860b05361ec184966e0e366efe56a8125fd0ff613278"
+    },
+    {
+      "seatCycleId": "seat_house_pa_06_current",
+      "districtLabel": "PA-06",
+      "bioguideId": "H001085",
+      "incumbentName": "Chrissy Houlahan",
+      "houseCandidateIds": [
+        "H8PA06087"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4217b077ab4d93764c20bc15ba10fdba88ba7e1ae783217ad3745f5dde5065ce"
+    },
+    {
+      "seatCycleId": "seat_house_pa_07_current",
+      "districtLabel": "PA-07",
+      "bioguideId": "M001230",
+      "incumbentName": "Ryan Mackenzie",
+      "houseCandidateIds": [
+        "H8PA15195"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0b033a9576bc3416b9e331a15e2a19a4e5c21756fa999cb2320ffe4f3f1fc460"
+    },
+    {
+      "seatCycleId": "seat_house_pa_08_current",
+      "districtLabel": "PA-08",
+      "bioguideId": "B001327",
+      "incumbentName": "Robert P. Bresnahan, Jr.",
+      "houseCandidateIds": [
+        "H4PA08124"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2bba1edffd4e0745e937fdc3299c208595d3e5b24ae238732d1978bec26057a5"
+    },
+    {
+      "seatCycleId": "seat_house_pa_09_current",
+      "districtLabel": "PA-09",
+      "bioguideId": "M001204",
+      "incumbentName": "Daniel Meuser",
+      "houseCandidateIds": [
+        "H8PA10147"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "06e3fef1278c6acfe2e7b756351715b4259d36f2cb07b93d69364e27b3405c34"
+    },
+    {
+      "seatCycleId": "seat_house_pa_10_current",
+      "districtLabel": "PA-10",
+      "bioguideId": "P000605",
+      "incumbentName": "Scott Perry",
+      "houseCandidateIds": [
+        "H2PA04135"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "bc19fa82d7456a42158eff2f40348fe5f7213c987093411140ae5a6e643dce46"
+    },
+    {
+      "seatCycleId": "seat_house_pa_11_current",
+      "districtLabel": "PA-11",
+      "bioguideId": "S001199",
+      "incumbentName": "Lloyd Smucker",
+      "houseCandidateIds": [
+        "H6PA16320"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "1e34ea6b1805c01296c5aceddf39f606d7ee3acee108c27e49c24ec5f58fae48"
+    },
+    {
+      "seatCycleId": "seat_house_pa_12_current",
+      "districtLabel": "PA-12",
+      "bioguideId": "L000602",
+      "incumbentName": "Summer L. Lee",
+      "houseCandidateIds": [
+        "H2PA18200"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ead697daaf296b76d0a0b4c558d5ea4696ba2e8cab7f888993384a0cf71e0662"
+    },
+    {
+      "seatCycleId": "seat_house_pa_13_current",
+      "districtLabel": "PA-13",
+      "bioguideId": "J000302",
+      "incumbentName": "John Joyce",
+      "houseCandidateIds": [
+        "H8PA13125"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "994af7eb03a61834225538a55aa39e3881cbf9b48a1da85087708684375274ca"
+    },
+    {
+      "seatCycleId": "seat_house_pa_14_current",
+      "districtLabel": "PA-14",
+      "bioguideId": "R000610",
+      "incumbentName": "Guy Reschenthaler",
+      "houseCandidateIds": [
+        "H8PA18199"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "93418ea5130bb164ae8e11f20e273217b7cd7a032bfb5ee4fa3a7767c12405fd"
+    },
+    {
+      "seatCycleId": "seat_house_pa_15_current",
+      "districtLabel": "PA-15",
+      "bioguideId": "T000467",
+      "incumbentName": "Glenn Thompson",
+      "houseCandidateIds": [
+        "H8PA05071"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2af61a446c63bc877cfc36ca404fa6fda268dc3784ac0531b81f8df47a24eab2"
+    },
+    {
+      "seatCycleId": "seat_house_pa_16_current",
+      "districtLabel": "PA-16",
+      "bioguideId": "K000376",
+      "incumbentName": "Mike Kelly",
+      "houseCandidateIds": [
+        "H0PA03271"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9ad65ef9e4f937118dd4516fea888c59d7b8ba5be2f8f37fee3ef32362a28e89"
+    },
+    {
+      "seatCycleId": "seat_house_pa_17_current",
+      "districtLabel": "PA-17",
+      "bioguideId": "D000530",
+      "incumbentName": "Christopher R. Deluzio",
+      "houseCandidateIds": [
+        "H2PA17103"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "d4fae2ce8b1e7ced197c47cc22e1b77703f248a3f4e9818da3fb6e85433a4fc9"
+    },
+    {
+      "seatCycleId": "seat_house_ri_01_current",
+      "districtLabel": "RI-01",
+      "bioguideId": "A000380",
+      "incumbentName": "Gabe Amo",
+      "houseCandidateIds": [
+        "H4RI01265"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0b903c398943711c52b90a2a0daefc123589f26b9924d98eeda924edb491a323"
+    },
+    {
+      "seatCycleId": "seat_house_ri_02_current",
+      "districtLabel": "RI-02",
+      "bioguideId": "M001223",
+      "incumbentName": "Seth Magaziner",
+      "houseCandidateIds": [
+        "H2RI02184"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2b2fe9e97f1dd507fc4beb030a1fddc8517afae04edc833392ae4c0dc0a28166"
+    },
+    {
+      "seatCycleId": "seat_house_sc_01_current",
+      "districtLabel": "SC-01",
+      "bioguideId": "M000194",
+      "incumbentName": "Nancy Mace",
+      "houseCandidateIds": [
+        "H0SC01394"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "03aa3efe1228b00ef3e4a365f3db8cc468776eda70154348d3c5ee4243d24ad8"
+    },
+    {
+      "seatCycleId": "seat_house_sc_02_current",
+      "districtLabel": "SC-02",
+      "bioguideId": "W000795",
+      "incumbentName": "Joe Wilson",
+      "houseCandidateIds": [
+        "H2SC02059"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ddb5a1d2391f1b49d7d79daf70abb2252c69f1a69b15af85a9b171916395adbb"
+    },
+    {
+      "seatCycleId": "seat_house_sc_03_current",
+      "districtLabel": "SC-03",
+      "bioguideId": "B001325",
+      "incumbentName": "Sheri Biggs",
+      "houseCandidateIds": [
+        "H4SC01313"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e4b64dee155e13da66d1a847775b3a90a52a999a3d30d984a965694d5d86d257"
+    },
+    {
+      "seatCycleId": "seat_house_sc_04_current",
+      "districtLabel": "SC-04",
+      "bioguideId": "T000480",
+      "incumbentName": "William R. Timmons IV",
+      "houseCandidateIds": [
+        "H8SC04250"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "3c08463a269c6d665eb3378e64f62b1ad00c82d2adf7a825469dacc76c496132"
+    },
+    {
+      "seatCycleId": "seat_house_sc_05_current",
+      "districtLabel": "SC-05",
+      "bioguideId": "N000190",
+      "incumbentName": "Ralph Norman",
+      "houseCandidateIds": [
+        "H8SC05158"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6SC04445",
+          "candidateName": "NORMAN, RALPH",
+          "status": "C",
+          "incumbentChallengerStatus": "C",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "95152aa825673ada8a503ba61e8ec6e5b7a1d93094272857c3e16cb53a34c304"
+    },
+    {
+      "seatCycleId": "seat_house_sc_06_current",
+      "districtLabel": "SC-06",
+      "bioguideId": "C000537",
+      "incumbentName": "James E. Clyburn",
+      "houseCandidateIds": [
+        "H2SC02042"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "76d998b89d315f8b2d8a867864e865071be20a87a7614864c37ab8b92ac54183"
+    },
+    {
+      "seatCycleId": "seat_house_sc_07_current",
+      "districtLabel": "SC-07",
+      "bioguideId": "F000478",
+      "incumbentName": "Russell Fry",
+      "houseCandidateIds": [
+        "H2SC07280"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6SC04403",
+          "candidateName": "FRY, RUSSELL",
+          "status": "C",
+          "incumbentChallengerStatus": "C",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "af29457957c63b25314cacce023a9c6a661a133f390ff8c95065f3221c2df084"
+    },
+    {
+      "seatCycleId": "seat_house_sd_al_current",
+      "districtLabel": "SD-AL",
+      "bioguideId": "J000301",
+      "incumbentName": "Dusty Johnson",
+      "houseCandidateIds": [
+        "H8SD01055"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b6360d3d62970369390bb777e6f9e166e0428f0f1586c3f4fa9797bc8a571135"
+    },
+    {
+      "seatCycleId": "seat_house_tn_01_current",
+      "districtLabel": "TN-01",
+      "bioguideId": "H001086",
+      "incumbentName": "Diana Harshbarger",
+      "houseCandidateIds": [
+        "H0TN01118"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b8a671801eea05c4e1f2db50619cd1c202d96b6ebf0ea3f8bd5b0b397f912ca8"
+    },
+    {
+      "seatCycleId": "seat_house_tn_02_current",
+      "districtLabel": "TN-02",
+      "bioguideId": "B001309",
+      "incumbentName": "Tim Burchett",
+      "houseCandidateIds": [
+        "H8TN02119"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "751fd1c94715aa2e2a31a5cbb86ecedf905010b5fc90bae3af3dd7f487664493"
+    },
+    {
+      "seatCycleId": "seat_house_tn_03_current",
+      "districtLabel": "TN-03",
+      "bioguideId": "F000459",
+      "incumbentName": "Charles J. \"Chuck\" Fleischmann",
+      "houseCandidateIds": [
+        "H0TN03254"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "f9025f524d6dafcce3790d9ecc035b981179fc98cfeafb83e00e05c5836ec608"
+    },
+    {
+      "seatCycleId": "seat_house_tn_04_current",
+      "districtLabel": "TN-04",
+      "bioguideId": "D000616",
+      "incumbentName": "Scott DesJarlais",
+      "houseCandidateIds": [
+        "H0TN04195"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "422e43b9b63641caf3b915c0089d1ad016592407574e962eb2e909f2b3e8f99e"
+    },
+    {
+      "seatCycleId": "seat_house_tn_05_current",
+      "districtLabel": "TN-05",
+      "bioguideId": "O000175",
+      "incumbentName": "Andrew Ogles",
+      "houseCandidateIds": [
+        "H2TN05446"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "372db52a1a65ae61c501a2c5b5d8d9069f0652c7943edba4b9b51ea8e128608d"
+    },
+    {
+      "seatCycleId": "seat_house_tn_06_current",
+      "districtLabel": "TN-06",
+      "bioguideId": "R000612",
+      "incumbentName": "John W. Rose",
+      "houseCandidateIds": [
+        "H8TN06094"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a717c36a7d5c7d749b269a057b14c84269f2d7b963b33a42fe5e9fd5bceb9989"
+    },
+    {
+      "seatCycleId": "seat_house_tn_07_current",
+      "districtLabel": "TN-07",
+      "bioguideId": "V000139",
+      "incumbentName": "Matt Van Epps",
+      "houseCandidateIds": [
+        "H6TN07161"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e4f666a127931554ba50ba5727136f7eb6f77403837b77577a14b45253d8deff"
+    },
+    {
+      "seatCycleId": "seat_house_tn_08_current",
+      "districtLabel": "TN-08",
+      "bioguideId": "K000392",
+      "incumbentName": "David Kustoff",
+      "houseCandidateIds": [
+        "H2TN07103"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "cb6c01c8c0701af99cc33d91b24fb8a7a47518fc98d550668d3113cd1f87faf9"
+    },
+    {
+      "seatCycleId": "seat_house_tn_09_current",
+      "districtLabel": "TN-09",
+      "bioguideId": "C001068",
+      "incumbentName": "Steve Cohen",
+      "houseCandidateIds": [
+        "H6TN09068"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9af39069d18d8a35d955b977541d7431c3f6e89f7fed5b5a78dc25b5ca712224"
+    },
+    {
+      "seatCycleId": "seat_house_tx_01_current",
+      "districtLabel": "TX-01",
+      "bioguideId": "M001224",
+      "incumbentName": "Nathaniel Moran",
+      "houseCandidateIds": [
+        "H2TX01112"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "6a96147de04326384dad89ddbf289b7ff8516cf419659074d1fca68623399eeb"
+    },
+    {
+      "seatCycleId": "seat_house_tx_02_current",
+      "districtLabel": "TX-02",
+      "bioguideId": "C001120",
+      "incumbentName": "Dan Crenshaw",
+      "houseCandidateIds": [
+        "H8TX02166"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "8a20ae7819926d1b5ca1a0a9ba9dc28df69d981a18fcfa4f6d67cde9e997b97b"
+    },
+    {
+      "seatCycleId": "seat_house_tx_03_current",
+      "districtLabel": "TX-03",
+      "bioguideId": "S001224",
+      "incumbentName": "Keith Self",
+      "houseCandidateIds": [
+        "H2TX03290"
+      ],
+      "houseStatutoryCandidate2026": false,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4c9c1f36dd2c9ab0c2fca55d6c9f739a791ea4a74e9fb84a12c198ee2e0c1f85"
+    },
+    {
+      "seatCycleId": "seat_house_tx_04_current",
+      "districtLabel": "TX-04",
+      "bioguideId": "F000246",
+      "incumbentName": "Pat Fallon",
+      "houseCandidateIds": [
+        "H0TX04219"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "acdb26ab88dd21a659a4c728e3fffaf94c4154344dd2f9b62496fd65d7eb8ed3"
+    },
+    {
+      "seatCycleId": "seat_house_tx_05_current",
+      "districtLabel": "TX-05",
+      "bioguideId": "G000589",
+      "incumbentName": "Lance Gooden",
+      "houseCandidateIds": [
+        "H8TX05144"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "28bc6540701748a5a1c8c470e0e8db8fb010616a0899825c7afa32fa80e6245a"
+    },
+    {
+      "seatCycleId": "seat_house_tx_06_current",
+      "districtLabel": "TX-06",
+      "bioguideId": "E000071",
+      "incumbentName": "Jake Ellzey",
+      "houseCandidateIds": [
+        "H8TX06266"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0eb153d655ff40605d11708a8d6ec5d291a2797b7fcd3dee8ea285b69cf0ebd1"
+    },
+    {
+      "seatCycleId": "seat_house_tx_07_current",
+      "districtLabel": "TX-07",
+      "bioguideId": "F000468",
+      "incumbentName": "Lizzie Fletcher",
+      "houseCandidateIds": [
+        "H8TX07140"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "6de355c2986ef8291a831f3ba978359c942d19ec4af6492bc702dd685b99b2a5"
+    },
+    {
+      "seatCycleId": "seat_house_tx_08_current",
+      "districtLabel": "TX-08",
+      "bioguideId": "L000603",
+      "incumbentName": "Morgan Luttrell",
+      "houseCandidateIds": [
+        "H2TX08182"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "56ad7b6b752f4271da490e642dde29832ebfac1f2c90c8759f5bb81fe157c097"
+    },
+    {
+      "seatCycleId": "seat_house_tx_09_current",
+      "districtLabel": "TX-09",
+      "bioguideId": "G000553",
+      "incumbentName": "Al Green",
+      "houseCandidateIds": [
+        "H4TX09095"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "169e96cc0378cc4d541f3a284b0185eeaeda4f6cd86e7f54b304b931d5932773"
+    },
+    {
+      "seatCycleId": "seat_house_tx_10_current",
+      "districtLabel": "TX-10",
+      "bioguideId": "M001157",
+      "incumbentName": "Michael T. McCaul",
+      "houseCandidateIds": [
+        "H4TX10093"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e1d4150aca5b76908890479865381d9347713b074d5c628735a678a4e464a202"
+    },
+    {
+      "seatCycleId": "seat_house_tx_11_current",
+      "districtLabel": "TX-11",
+      "bioguideId": "P000048",
+      "incumbentName": "August Pfluger",
+      "houseCandidateIds": [
+        "H0TX11230"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "344fbe9bb0e5f6b055761c1093534b6259d309e5ba7873b6e3d85639b8c9e8f3"
+    },
+    {
+      "seatCycleId": "seat_house_tx_12_current",
+      "districtLabel": "TX-12",
+      "bioguideId": "G000601",
+      "incumbentName": "Craig A. Goldman",
+      "houseCandidateIds": [
+        "H4TX12065"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9936b4dd4259ec64d835c3ae3ec19ddf8ee6f8a349d07fbcc071e3bc5150adca"
+    },
+    {
+      "seatCycleId": "seat_house_tx_13_current",
+      "districtLabel": "TX-13",
+      "bioguideId": "J000304",
+      "incumbentName": "Ronny Jackson",
+      "houseCandidateIds": [
+        "H0TX13228"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e0b80bed7169ea755f1773e905bb94fe672e096666a25c6e301126fb104adaca"
+    },
+    {
+      "seatCycleId": "seat_house_tx_14_current",
+      "districtLabel": "TX-14",
+      "bioguideId": "W000814",
+      "incumbentName": "Randy K. Weber, Sr.",
+      "houseCandidateIds": [
+        "H2TX14149"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "8d8d0d855e65c9d47336ff7275c0e0cf0b58c661ef9e35fad180610afdd88570"
+    },
+    {
+      "seatCycleId": "seat_house_tx_15_current",
+      "districtLabel": "TX-15",
+      "bioguideId": "D000594",
+      "incumbentName": "Monica De La Cruz",
+      "houseCandidateIds": [
+        "H0TX15124"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "71b54d56873398c065fc0f3ffd5abb65911603b5fb93e6354be19ceaf84dd294"
+    },
+    {
+      "seatCycleId": "seat_house_tx_16_current",
+      "districtLabel": "TX-16",
+      "bioguideId": "E000299",
+      "incumbentName": "Veronica Escobar",
+      "houseCandidateIds": [
+        "H8TX16109"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2051e807d761f6001d3d05d6fcaad1fd18c58393a36fe568dfb76395a821e965"
+    },
+    {
+      "seatCycleId": "seat_house_tx_17_current",
+      "districtLabel": "TX-17",
+      "bioguideId": "S000250",
+      "incumbentName": "Pete Sessions",
+      "houseCandidateIds": [
+        "H2TX03126"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9b2f736dcb96da0d759e9c108c5b28769ab1798d65a5eb2a8b74ac555276a616"
+    },
+    {
+      "seatCycleId": "seat_house_tx_18_current",
+      "districtLabel": "TX-18",
+      "bioguideId": "M001245",
+      "incumbentName": "Christian D. Menefee",
+      "houseCandidateIds": [
+        "H6TX18232"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c0e5b8fadd13e711a6d384b74f99e58010cf64478f57ecbe68f1c6dde287b2da"
+    },
+    {
+      "seatCycleId": "seat_house_tx_19_current",
+      "districtLabel": "TX-19",
+      "bioguideId": "A000375",
+      "incumbentName": "Jodey C. Arrington",
+      "houseCandidateIds": [
+        "H6TX19099"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ed5c631c17f3810343ebb168976c26239237457dbc7ee444dc90efedcd60cf22"
+    },
+    {
+      "seatCycleId": "seat_house_tx_20_current",
+      "districtLabel": "TX-20",
+      "bioguideId": "C001091",
+      "incumbentName": "Joaquin Castro",
+      "houseCandidateIds": [
+        "H2TX35011"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "906f0637df8b20ecae12e791277de9ba6c37b140ae8a4c670234d406c0059ecc"
+    },
+    {
+      "seatCycleId": "seat_house_tx_21_current",
+      "districtLabel": "TX-21",
+      "bioguideId": "R000614",
+      "incumbentName": "Chip Roy",
+      "houseCandidateIds": [
+        "H8TX21307"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b3e8e77289af9f9cb92f68c55a1a717ca3606e0f6f0fb22f898dcc66ea6fefdc"
+    },
+    {
+      "seatCycleId": "seat_house_tx_22_current",
+      "districtLabel": "TX-22",
+      "bioguideId": "N000026",
+      "incumbentName": "Troy E. Nehls",
+      "houseCandidateIds": [
+        "H0TX22302"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "eaab78f5b1ae07c8582bd84cc0fc0c54b661ea7b5c89fed3781e5b93ed0e117c"
+    },
+    {
+      "seatCycleId": "seat_house_tx_24_current",
+      "districtLabel": "TX-24",
+      "bioguideId": "V000134",
+      "incumbentName": "Beth Van Duyne",
+      "houseCandidateIds": [
+        "H0TX24209"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "77f3615112e4f80f0ebf95d7386a368ba2ff8fdeab8bea5fa6774751444e2598"
+    },
+    {
+      "seatCycleId": "seat_house_tx_25_current",
+      "districtLabel": "TX-25",
+      "bioguideId": "W000816",
+      "incumbentName": "Roger Williams",
+      "houseCandidateIds": [
+        "H2TX33040"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "09b9c0cd9b21fd5c0e87c175cf1188225d3ebec53ca7f5110d1b19acecca6ce0"
+    },
+    {
+      "seatCycleId": "seat_house_tx_26_current",
+      "districtLabel": "TX-26",
+      "bioguideId": "G000603",
+      "incumbentName": "Brandon Gill",
+      "houseCandidateIds": [
+        "H4TX26149"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ee13dbf61038ff669e708978342c6e44f0558456b0d5d594156e7ee2532b3158"
+    },
+    {
+      "seatCycleId": "seat_house_tx_27_current",
+      "districtLabel": "TX-27",
+      "bioguideId": "C001115",
+      "incumbentName": "Michael Cloud",
+      "houseCandidateIds": [
+        "H8TX27049"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c29eada579f3eb4d77203109f70c835fcbcca9b122c15636c4bf651f24ab4f55"
+    },
+    {
+      "seatCycleId": "seat_house_tx_28_current",
+      "districtLabel": "TX-28",
+      "bioguideId": "C001063",
+      "incumbentName": "Henry Cuellar",
+      "houseCandidateIds": [
+        "H2TX23082"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "3962780eee48378d2d92d51004e93a7411f3adeb409fc63176526250e800c26a"
+    },
+    {
+      "seatCycleId": "seat_house_tx_29_current",
+      "districtLabel": "TX-29",
+      "bioguideId": "G000587",
+      "incumbentName": "Sylvia R. Garcia",
+      "houseCandidateIds": [
+        "H8TX29052"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "bca9dd607ecf443307eaede12552cdfa64a100a57fe92d556e10ec190d5928ab"
+    },
+    {
+      "seatCycleId": "seat_house_tx_30_current",
+      "districtLabel": "TX-30",
+      "bioguideId": "C001130",
+      "incumbentName": "Jasmine Crockett",
+      "houseCandidateIds": [
+        "H2TX30178"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6TX00552",
+          "candidateName": "CROCKETT, JASMINE",
+          "status": "C",
+          "incumbentChallengerStatus": "C",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "4e9946cce9bf16ea400612f045cfc57c8f0ddb0cb2bd6c96e3f8fbc652515f42"
+    },
+    {
+      "seatCycleId": "seat_house_tx_31_current",
+      "districtLabel": "TX-31",
+      "bioguideId": "C001051",
+      "incumbentName": "John R. Carter",
+      "houseCandidateIds": [
+        "H2TX31044"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "fd555a92d95d2e21509562c818c0edb2c9560b16d431ce73aea73706ea462d9e"
+    },
+    {
+      "seatCycleId": "seat_house_tx_32_current",
+      "districtLabel": "TX-32",
+      "bioguideId": "J000310",
+      "incumbentName": "Julie Johnson",
+      "houseCandidateIds": [
+        "H4TX32089"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ef4fcb85c9b38ae259c7e91ab8ce1ecb57e240478bf5c911d1deba80d152cbcd"
+    },
+    {
+      "seatCycleId": "seat_house_tx_33_current",
+      "districtLabel": "TX-33",
+      "bioguideId": "V000131",
+      "incumbentName": "Marc A. Veasey",
+      "houseCandidateIds": [
+        "H2TX33073"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4550d22d231d0e8f60189b3ffbe6862eaa1373c3eee0b0deea18ee0c241ebdaa"
+    },
+    {
+      "seatCycleId": "seat_house_tx_34_current",
+      "districtLabel": "TX-34",
+      "bioguideId": "G000581",
+      "incumbentName": "Vicente Gonzalez",
+      "houseCandidateIds": [
+        "H6TX15162"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a0957c81b6a8dad2933fed66faa97779434f908bc0e6243de5f0d31639bc3a2a"
+    },
+    {
+      "seatCycleId": "seat_house_tx_35_current",
+      "districtLabel": "TX-35",
+      "bioguideId": "C001131",
+      "incumbentName": "Greg Casar",
+      "houseCandidateIds": [
+        "H2TX35144"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "1f077516b9941712e0c1e16341e6f924e1f4a88de49ee1b1a3259b985e55e1c8"
+    },
+    {
+      "seatCycleId": "seat_house_tx_36_current",
+      "districtLabel": "TX-36",
+      "bioguideId": "B001291",
+      "incumbentName": "Brian Babin",
+      "houseCandidateIds": [
+        "H6TX02079"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "cbcddc9b7ce3f9af5d7755188c0cb8faf18e2b4b93b8c62f87a1f74889fcbae9"
+    },
+    {
+      "seatCycleId": "seat_house_tx_37_current",
+      "districtLabel": "TX-37",
+      "bioguideId": "D000399",
+      "incumbentName": "Lloyd Doggett",
+      "houseCandidateIds": [
+        "H4TX10028"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "a27d13959433d5178f70abf0452ba510a8b06ad6ccb279ae0e3d9e8ce5ccc0d8"
+    },
+    {
+      "seatCycleId": "seat_house_tx_38_current",
+      "districtLabel": "TX-38",
+      "bioguideId": "H001095",
+      "incumbentName": "Wesley Hunt",
+      "houseCandidateIds": [
+        "H0TX07170"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6TX00511",
+          "candidateName": "HUNT, WESLEY",
+          "status": "C",
+          "incumbentChallengerStatus": "C",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "c7c39ea368a5c443d8e34e0d0df7a09f34f80948c80cb5aa09607ae7e7975bda"
+    },
+    {
+      "seatCycleId": "seat_house_ut_01_current",
+      "districtLabel": "UT-01",
+      "bioguideId": "M001213",
+      "incumbentName": "Blake D. Moore",
+      "houseCandidateIds": [
+        "H0UT01205"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "dd82e39852f86f9d3fb307e92547fcdd684763fa4799ce85cd6045d4c5adfc86"
+    },
+    {
+      "seatCycleId": "seat_house_ut_02_current",
+      "districtLabel": "UT-02",
+      "bioguideId": "M001228",
+      "incumbentName": "Celeste Maloy",
+      "houseCandidateIds": [
+        "H4UT02296"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "6fcfb755b4b42690ef2fa17c3fcc3a65b26de3984f0dbfccc8d8f98973b3f037"
+    },
+    {
+      "seatCycleId": "seat_house_ut_03_current",
+      "districtLabel": "UT-03",
+      "bioguideId": "K000403",
+      "incumbentName": "Mike Kennedy",
+      "houseCandidateIds": [
+        "H4UT03260"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "625ef8418834b969e997e069d3c85cbe957461a01c2a487efb12b05c263b54ba"
+    },
+    {
+      "seatCycleId": "seat_house_ut_04_current",
+      "districtLabel": "UT-04",
+      "bioguideId": "O000086",
+      "incumbentName": "Burgess Owens",
+      "houseCandidateIds": [
+        "H0UT04076"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "208d84e348ef5f8d346f70aaa2fb42c9cef2926d3a0478b2f15d271dd38094b4"
+    },
+    {
+      "seatCycleId": "seat_house_va_01_current",
+      "districtLabel": "VA-01",
+      "bioguideId": "W000804",
+      "incumbentName": "Robert J. Wittman",
+      "houseCandidateIds": [
+        "H8VA01147"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "bb9ca5874c0f3f9355c05e98c44924716eebb29d97172f4ab188c74e4fbe2b89"
+    },
+    {
+      "seatCycleId": "seat_house_va_02_current",
+      "districtLabel": "VA-02",
+      "bioguideId": "K000399",
+      "incumbentName": "Jennifer A. Kiggans",
+      "houseCandidateIds": [
+        "H2VA02064"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "3646134a4e058e1372f78f547d66eb39bc7737b183b089f7dc9f90553c5da1fa"
+    },
+    {
+      "seatCycleId": "seat_house_va_03_current",
+      "districtLabel": "VA-03",
+      "bioguideId": "S000185",
+      "incumbentName": "Robert C. \"Bobby\" Scott",
+      "houseCandidateIds": [
+        "H6VA01117"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9d12aaa9f74fbc98565f39d3fdb75c6f0cd24d591bca6608ad900f24ccf8abdf"
+    },
+    {
+      "seatCycleId": "seat_house_va_04_current",
+      "districtLabel": "VA-04",
+      "bioguideId": "M001227",
+      "incumbentName": "Jennifer L. McClellan",
+      "houseCandidateIds": [
+        "H4VA04066"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "3c7ee305586cf636c20bc0bd1201b3503b3a27e8b69b5712317a7d6378dbc85f"
+    },
+    {
+      "seatCycleId": "seat_house_va_05_current",
+      "districtLabel": "VA-05",
+      "bioguideId": "M001239",
+      "incumbentName": "John J. McGuire III",
+      "houseCandidateIds": [
+        "H0VA07133",
+        "H2VA07196"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e8ff5ec315cd4ed34aeaa71eafacbe28a0005a4a12a2b944346b943a860f8567"
+    },
+    {
+      "seatCycleId": "seat_house_va_06_current",
+      "districtLabel": "VA-06",
+      "bioguideId": "C001118",
+      "incumbentName": "Ben Cline",
+      "houseCandidateIds": [
+        "H8VA06104"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2adea9aac5da0d4220892968cf64c2a0b43779f74a087322a3ae0f41fb773625"
+    },
+    {
+      "seatCycleId": "seat_house_va_07_current",
+      "districtLabel": "VA-07",
+      "bioguideId": "V000138",
+      "incumbentName": "Eugene Simon Vindman",
+      "houseCandidateIds": [
+        "H4VA07234"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "1d4f3e898510146a223f04c578d126f4990ad8d846553d641bbe6dfc883a5361"
+    },
+    {
+      "seatCycleId": "seat_house_va_08_current",
+      "districtLabel": "VA-08",
+      "bioguideId": "B001292",
+      "incumbentName": "Donald S. Beyer, Jr.",
+      "houseCandidateIds": [
+        "H4VA08224"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "7259da9787c317994bb026f434808a34f10f6d565ced996f9706f832701fad23"
+    },
+    {
+      "seatCycleId": "seat_house_va_09_current",
+      "districtLabel": "VA-09",
+      "bioguideId": "G000568",
+      "incumbentName": "H. Morgan Griffith",
+      "houseCandidateIds": [
+        "H0VA09055"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "34bf0638207c7299bd5ec5d178c12275c75d46060c6b1cc7330d4090255a07cf"
+    },
+    {
+      "seatCycleId": "seat_house_va_10_current",
+      "districtLabel": "VA-10",
+      "bioguideId": "S001230",
+      "incumbentName": "Suhas Subramanyam",
+      "houseCandidateIds": [
+        "H4VA10279"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2fd5245d5076a6c26ff5953d8018ad9645baed81cfe8755aa8b474cd5457dcd3"
+    },
+    {
+      "seatCycleId": "seat_house_va_11_current",
+      "districtLabel": "VA-11",
+      "bioguideId": "W000831",
+      "incumbentName": "James R. Walkinshaw",
+      "houseCandidateIds": [
+        "H6VA11066"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "00f14c7b4dd2e6a180073d5e62b5d27526fe1972068f7d95e5a00223ff992337"
+    },
+    {
+      "seatCycleId": "seat_house_vt_al_current",
+      "districtLabel": "VT-AL",
+      "bioguideId": "B001318",
+      "incumbentName": "Becca Balint",
+      "houseCandidateIds": [
+        "H2VT01076"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "06486dc711f7744d06af5fff58046377b40431a3885d81b58c1e544838453510"
+    },
+    {
+      "seatCycleId": "seat_house_wa_01_current",
+      "districtLabel": "WA-01",
+      "bioguideId": "D000617",
+      "incumbentName": "Suzan K. DelBene",
+      "houseCandidateIds": [
+        "H0WA08046"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "0f2d854cd77c3f5adc53c2a0757366bf49eb1fce91107b0d143c2a2674194ae2"
+    },
+    {
+      "seatCycleId": "seat_house_wa_02_current",
+      "districtLabel": "WA-02",
+      "bioguideId": "L000560",
+      "incumbentName": "Rick Larsen",
+      "houseCandidateIds": [
+        "H0WA02080"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "4dea76d4ba48c80ad4ab46cb284daf5434901d7c3e894d4dfa82724d32a6dac6"
+    },
+    {
+      "seatCycleId": "seat_house_wa_03_current",
+      "districtLabel": "WA-03",
+      "bioguideId": "G000600",
+      "incumbentName": "Marie Gluesenkamp Perez",
+      "houseCandidateIds": [
+        "H2WA03217"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ec32d9e82b82a14da01c9cd866d43473bdd16a323cc091286fe5b56b6303cb9b"
+    },
+    {
+      "seatCycleId": "seat_house_wa_04_current",
+      "districtLabel": "WA-04",
+      "bioguideId": "N000189",
+      "incumbentName": "Dan Newhouse",
+      "houseCandidateIds": [
+        "H4WA04104"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "9906bc6aa11542f34dafed1e5a7192e7edc6630e4471510b44ac4b99b31a62a2"
+    },
+    {
+      "seatCycleId": "seat_house_wa_05_current",
+      "districtLabel": "WA-05",
+      "bioguideId": "B001322",
+      "incumbentName": "Michael Baumgartner",
+      "houseCandidateIds": [
+        "H4WA05234"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "bd4ef3a22f4eddbe808c6a1ecd1647eecf89edc1026d3c278332feeba0e55ab5"
+    },
+    {
+      "seatCycleId": "seat_house_wa_06_current",
+      "districtLabel": "WA-06",
+      "bioguideId": "R000621",
+      "incumbentName": "Emily Randall",
+      "houseCandidateIds": [
+        "H4WA06117"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2799f099a59e33ca3fba13e46a4ad55cb95da3302835c535359930dcee1be58c"
+    },
+    {
+      "seatCycleId": "seat_house_wa_07_current",
+      "districtLabel": "WA-07",
+      "bioguideId": "J000298",
+      "incumbentName": "Pramila Jayapal",
+      "houseCandidateIds": [
+        "H6WA07458"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "e5c3a2edd3b64f8d01cb2b38feae723e868ef18f339ecf1b91ab6ecc02f8dfae"
+    },
+    {
+      "seatCycleId": "seat_house_wa_08_current",
+      "districtLabel": "WA-08",
+      "bioguideId": "S001216",
+      "incumbentName": "Kim Schrier",
+      "houseCandidateIds": [
+        "H8WA08189"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "ba520771ed84a2ca5e8e248afc7a5b4b5a2d361131f448eb315785f5a8de1185"
+    },
+    {
+      "seatCycleId": "seat_house_wa_09_current",
+      "districtLabel": "WA-09",
+      "bioguideId": "S000510",
+      "incumbentName": "Adam Smith",
+      "houseCandidateIds": [
+        "H6WA09025"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "b0d5bfc31a772bb94071a71fb7f3165c8ecb31b5b589458454a9eefa56866aaa"
+    },
+    {
+      "seatCycleId": "seat_house_wa_10_current",
+      "districtLabel": "WA-10",
+      "bioguideId": "S001159",
+      "incumbentName": "Marilyn Strickland",
+      "houseCandidateIds": [
+        "H0WA10034"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2dc430bb540f60ab4fe383f29a7294e60e88e3316df2cb17d14ffaa19212f6dd"
+    },
+    {
+      "seatCycleId": "seat_house_wi_01_current",
+      "districtLabel": "WI-01",
+      "bioguideId": "S001213",
+      "incumbentName": "Bryan Steil",
+      "houseCandidateIds": [
+        "H8WI01156"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "fe50315a90a3bb31357d56259357130113499f5d3819a08d60bf2c8e31c0ecbe"
+    },
+    {
+      "seatCycleId": "seat_house_wi_02_current",
+      "districtLabel": "WI-02",
+      "bioguideId": "P000607",
+      "incumbentName": "Mark Pocan",
+      "houseCandidateIds": [
+        "H2WI02124"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "566f2d784cbb235930a8cad5f6270a04c9ee0564bc881dbdd7a113a58a793b2e"
+    },
+    {
+      "seatCycleId": "seat_house_wi_03_current",
+      "districtLabel": "WI-03",
+      "bioguideId": "V000135",
+      "incumbentName": "Derrick Van Orden",
+      "houseCandidateIds": [
+        "H0WI03175"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "7ac45b05ff0a5d42aa3991b4ce6a976407bb049ed89b5e2a6eea352b5e35c3cb"
+    },
+    {
+      "seatCycleId": "seat_house_wi_04_current",
+      "districtLabel": "WI-04",
+      "bioguideId": "M001160",
+      "incumbentName": "Gwen Moore",
+      "houseCandidateIds": [
+        "H4WI04183"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2ab3b3f501e8781bfbe791e1b79f201fb94ea4076f58790e315cb786b2cb9f90"
+    },
+    {
+      "seatCycleId": "seat_house_wi_05_current",
+      "districtLabel": "WI-05",
+      "bioguideId": "F000471",
+      "incumbentName": "Scott Fitzgerald",
+      "houseCandidateIds": [
+        "H0WI05113"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "c2c0b4e895e42e7fbb97780a3acd0b68d08b0f0bfa7c7e6f6c4bd7b086027182"
+    },
+    {
+      "seatCycleId": "seat_house_wi_06_current",
+      "districtLabel": "WI-06",
+      "bioguideId": "G000576",
+      "incumbentName": "Glenn Grothman",
+      "houseCandidateIds": [
+        "H4WI06048"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "85f40826d60637aae6f5c93b333c2cddb428f4b88af5854b22d336ef785587d3"
+    },
+    {
+      "seatCycleId": "seat_house_wi_07_current",
+      "districtLabel": "WI-07",
+      "bioguideId": "T000165",
+      "incumbentName": "Thomas P. Tiffany",
+      "houseCandidateIds": [
+        "H0WI07101"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "6465ec40dcb38a5dc51eb7474c04896c02d1acaf82bd6f64e63d8dfe8f0e42f2"
+    },
+    {
+      "seatCycleId": "seat_house_wi_08_current",
+      "districtLabel": "WI-08",
+      "bioguideId": "W000829",
+      "incumbentName": "Tony Wied",
+      "houseCandidateIds": [
+        "H4WI08119"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "2c912bacbd65872a3c0f5b11baf15e6936aa476467eba052aa815032db438713"
+    },
+    {
+      "seatCycleId": "seat_house_wv_01_current",
+      "districtLabel": "WV-01",
+      "bioguideId": "M001205",
+      "incumbentName": "Carol D. Miller",
+      "houseCandidateIds": [
+        "H8WV03097"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "7ad1f4cfcc2db29f5e19b2cdd4f18a3badf84b3bc09c7fbb1e56a9afab50a287"
+    },
+    {
+      "seatCycleId": "seat_house_wv_02_current",
+      "districtLabel": "WV-02",
+      "bioguideId": "M001235",
+      "incumbentName": "Riley M. Moore",
+      "houseCandidateIds": [
+        "H4WV02205"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [],
+      "openSeatSignal": null,
+      "rowSha256": "8b4b5bf40bfcd303c09375cd4cf75f6f00eb2313ef69e87644128ab4419ce6b4"
+    },
+    {
+      "seatCycleId": "seat_house_wy_al_current",
+      "districtLabel": "WY-AL",
+      "bioguideId": "H001096",
+      "incumbentName": "Harriet M. Hageman",
+      "houseCandidateIds": [
+        "H2WY00166"
+      ],
+      "houseStatutoryCandidate2026": true,
+      "senateFilings": [
+        {
+          "candidateId": "S6WY00209",
+          "candidateName": "HAGEMAN, HARRIET",
+          "status": "C",
+          "incumbentChallengerStatus": "O",
+          "matchBasis": "given_name_token"
+        }
+      ],
+      "openSeatSignal": "incumbent_filed_for_senate_2026",
+      "rowSha256": "1d3108edac6b59a5d9d4d984010fb082ac6b23bd218c727bc083b4fe93ca96ed"
+    }
+  ],
+  "summary": {
+    "seats": 430,
+    "houseStatutoryCandidates": 427,
+    "filedForSenate": 16,
+    "noHouseRow": 0
+  },
+  "rowSetSha256": "197c6530650edb878c7a43525802ed749aff5306639af5bf96dc989b65c335fc",
+  "packageSha256": "bfde20b699e4a804a8cb1a522da45531f22cfb28e16df79857bfc26b93f40540"
+}
