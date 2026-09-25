@@ -31,7 +31,7 @@ export default async function PriorityBrief({ params }: Props) {
         <header className="brief-hero">
           <div>
             <p className="eyebrow">
-              RANK {row.rank} / {briefs.length} · {row.districtLabel} · MODEL {model.version}
+              RANK {row.rank} / {briefs.length} · {row.districtLabel}{row.openSeatSignal ? " · OPEN SEAT" : ""} · MODEL {model.version}
             </p>
             <h1>{row.officialHouseName}</h1>
             <p className="lede">{row.scoreSummary}</p>

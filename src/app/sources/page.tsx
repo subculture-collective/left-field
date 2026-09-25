@@ -8,7 +8,7 @@ import {
   fmtDate,
   words,
 } from "@/components/presentational";
-import { housePriorityBriefsV10 } from "@/lib/house-priority-index";
+import { housePriorityBriefsV11 } from "@/lib/house-priority-index";
 import { loadRapidHousePrimaryCoverage } from "@/ui/rapid-house-primary-coverage";
 import { loadRapidLocalContextCoverage } from "@/ui/rapid-local-context-coverage";
 import { loadRapidExpansionStatus } from "@/ui/rapid-expansion-status";
@@ -26,7 +26,7 @@ export default async function Sources() {
     ]);
   if (!result.ok) return <RouteState code={result.code} />;
   const { value: page } = result;
-  const indexRows = housePriorityBriefsV10();
+  const indexRows = housePriorityBriefsV11();
   const driverCoverage = (key: string) =>
     indexRows.filter((row) => {
       const driver = row.scoreDrivers.find(

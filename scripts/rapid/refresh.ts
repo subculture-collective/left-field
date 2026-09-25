@@ -55,13 +55,15 @@ async function main(): Promise<void> {
   const yy = String(cycle).slice(2);
   const fecId = `fec-candidate-summary-${cycle}-${stamp}`;
   lock = await retain(lock, fecId, `data/source/rapid/fec/candidate-summary-${cycle}-${stamp}.zip`, `https://www.fec.gov/files/bulk-downloads/${cycle}/weball${yy}.zip`);
+  const masterId = `fec-candidate-master-${cycle}-${stamp}`;
+  lock = await retain(lock, masterId, `data/source/rapid/fec/candidate-master-${cycle}-${stamp}.zip`, `https://www.fec.gov/files/bulk-downloads/${cycle}/cn${yy}.zip`);
   const rosterIds: string[] = [];
   for (const code of Object.values(US_STATE_CODES).map((value) => value.toLowerCase()).sort()) {
     const id = `openstates-people-${code}-${stamp}`;
     lock = await retain(lock, id, `data/source/rapid/state-legislative-roster/${stamp}/${code}.csv`, `https://data.openstates.org/people/current/${code}.csv`);
     rosterIds.push(id);
   }
-  const inputs: RefreshInputs = { schema: "refresh-inputs-v1", version: 1, snapshotDate: date, fecCandidateSummaryId: fecId, fecCandidateSummaryCycle: cycle, stateLegislativeRosterIds: rosterIds };
+  const inputs: RefreshInputs = { schema: "refresh-inputs-v1", version: 1, snapshotDate: date, fecCandidateSummaryId: fecId, fecCandidateSummaryCycle: cycle, fecCandidateMasterId: masterId, stateLegislativeRosterIds: rosterIds };
   const bytes = Buffer.from(serializeRefreshInputs(inputs));
   writeFileSync(REFRESH_INPUTS.path, bytes);
   lock = upsertSourceLockEntry(lock, derivedArtifactEntry({ id: REFRESH_INPUTS.id, url: `urn:dsa-seats:refresh-inputs:v1`, retainedPath: REFRESH_INPUTS.path, bytes, kind: "editorial_ledger", parentIds: [] }));

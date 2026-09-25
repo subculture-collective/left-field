@@ -43,6 +43,7 @@ export function senatePriorityBrief(row: SenateScoreV01Row): PublicPriorityBrief
     seatCycleId: row.seatId,
     chamber: "senate",
     nextElectionYear: row.nextElectionYear,
+    openSeatSignal: null,
     districtLabel: row.seatLabel,
     stateCode: row.stateCode,
     districtCode: `S${row.senateClass}`,

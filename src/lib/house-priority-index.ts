@@ -3,6 +3,7 @@ import { readFileSync } from "node:fs";
 import { join } from "node:path";
 import { readHouseScoreV09ActiveProjection, type HouseScoreV09ActiveRow } from "@/rapid-acquisition/house-score-v09-active";
 import { readHouseScoreV10ActiveProjection, type HouseScoreV10ActiveRow } from "@/rapid-acquisition/house-score-v10-active";
+import { readHouseScoreV11ActiveProjection } from "@/rapid-acquisition/house-score-v11-active";
 
 import { priorityBriefs } from "./priority-briefs";
 
@@ -25,6 +26,8 @@ export type PublicPriorityBrief = Readonly<{
   chamber: PriorityChamber;
   /** Year of the seat's next regular or special election. */
   nextElectionYear: number;
+  /** Set when retained filings show the incumbent is leaving the seat; null when nothing is observed. */
+  openSeatSignal: string | null;
   districtLabel: string;
   stateCode: string;
   districtCode: string;
@@ -155,6 +158,7 @@ function republicanBriefs(finance: Map<string, FinanceRow>): PublicPriorityBrief
       seatCycleId,
       chamber: "house" as const,
       nextElectionYear: 2026,
+      openSeatSignal: null,
       districtLabel, stateCode, districtCode,
       incumbentName: officialHouseName, officialHouseName, bioguideId,
       birthYear: Number(person.bio.birthday.slice(0, 4)), incumbentParty: "Republican" as const,
@@ -194,6 +198,7 @@ export function housePriorityBriefsV03(): readonly PublicPriorityBrief[] {
         ...row,
         chamber: "house" as const,
         nextElectionYear: 2026,
+        openSeatSignal: null,
         incumbentParty: "Democratic" as const,
         provisionalTargetScore: score,
         formula: cashVulnerability === null ? "available 0.65 structural + 0.20 alignment weights renormalized (finance unavailable)" : "0.65 × structural baseline + 0.20 × incumbent alignment gap + 0.15 × cash vulnerability",
@@ -323,6 +328,41 @@ export function housePriorityBriefsV10(): readonly PublicPriorityBrief[] {
     }).sort((left, right) => right.provisionalTargetScore - left.provisionalTargetScore || left.seatCycleId.localeCompare(right.seatCycleId)).map((row, index) => ({ ...row, rank: index + 1 }));
   }
   return cacheV10;
+}
+
+/**
+ * v0.11 layer: incumbents who filed for the Senate in 2026 are treated as
+ * open seats. Incumbent-specific components are omitted and the score is
+ * renormalized; the brief says why. Applied on top of v0.10.
+ */
+let cacheV11: PublicPriorityBrief[] | undefined;
+export function housePriorityBriefsV11(): readonly PublicPriorityBrief[] {
+  if (!cacheV11) {
+    const v11 = new Map(readHouseScoreV11ActiveProjection().rows.map((row) => [row.seatCycleId, row]));
+    const base = housePriorityBriefsV10();
+    if (v11.size !== base.length) throw new Error("HOUSE_PRIORITY_V11_CLOSURE_INVALID");
+    cacheV11 = base.map((brief) => {
+      const row = v11.get(brief.seatCycleId);
+      if (!row || row.districtLabel !== brief.districtLabel || row.previousScoreVersion !== "v0.10" || row.previousScore !== brief.provisionalTargetScore || row.activeScoreVersion !== "v0.11" || row.movementFromV10 !== one(row.activeScore - brief.provisionalTargetScore)) throw new Error(`HOUSE_PRIORITY_V11_JOIN_INVALID:${brief.seatCycleId}`);
+      if (row.openSeatSignal === null) {
+        if (row.movementFromV10 !== 0) throw new Error(`HOUSE_PRIORITY_V11_UNCHANGED_INVALID:${brief.seatCycleId}`);
+        return brief;
+      }
+      const filings = row.senateCandidateIds.join(", ");
+      const omittedExplanation = (component: string) => `${component} is omitted: the FEC candidate master records the incumbent as a 2026 Senate candidate (${filings}), so this is an open House seat and the departing incumbent's ${component.toLowerCase()} is not a vulnerability signal. The remaining weights are renormalized.`;
+      const democratic = brief.incumbentParty === "Democratic";
+      return {
+        ...brief,
+        openSeatSignal: row.openSeatSignal,
+        provisionalTargetScore: row.activeScore,
+        formula: `${brief.formula}; v0.11 open seat: ${row.omittedComponents.join(" and ")} omitted and weights renormalized`,
+        scoreDrivers: brief.scoreDrivers.map((driver) => row.omittedComponents.includes(driver.key) ? { ...driver, score: null, coverage: 0, inferred: false, explanation: omittedExplanation(driver.label) } : driver),
+        scoreSummary: `${brief.districtLabel} is an open seat: the incumbent has filed for the 2026 Senate race. V0.11 scores it on ${democratic ? "the structural baseline alone" : "competitiveness and state context without incumbent cash"} at ${row.activeScore.toFixed(1)} (${row.movementFromV10 >= 0 ? "+" : ""}${row.movementFromV10.toFixed(1)} from v0.10).`,
+        limitations: `${brief.limitations} Open-seat status comes from federal Senate filings only; retirements and runs for state office are not observed.`,
+      };
+    }).sort((left, right) => right.provisionalTargetScore - left.provisionalTargetScore || left.seatCycleId.localeCompare(right.seatCycleId)).map((row, index) => ({ ...row, rank: index + 1 }));
+  }
+  return cacheV11;
 }
 
 let cache: PublicPriorityBrief[] | undefined;

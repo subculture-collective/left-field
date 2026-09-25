@@ -13,6 +13,8 @@ export interface RefreshInputs {
   readonly snapshotDate: string;
   readonly fecCandidateSummaryId: string;
   readonly fecCandidateSummaryCycle: number;
+  /** FEC candidate master (cnYY.zip) snapshot; optional for pointers written before v1.2. */
+  readonly fecCandidateMasterId?: string;
   readonly stateLegislativeRosterIds: readonly string[];
 }
 
@@ -25,6 +27,7 @@ export function validateRefreshInputs(value: unknown): RefreshInputs {
   if (!input || input.schema !== "refresh-inputs-v1" || input.version !== 1 || typeof input.snapshotDate !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(input.snapshotDate)) fail("SCHEMA_INVALID");
   if (typeof input!.fecCandidateSummaryId !== "string" || !Number.isSafeInteger(input!.fecCandidateSummaryCycle)) fail("FEC_POINTER_INVALID");
   if (!Array.isArray(input!.stateLegislativeRosterIds) || input!.stateLegislativeRosterIds.some((id) => typeof id !== "string")) fail("ROSTER_POINTER_INVALID");
+  if (input!.fecCandidateMasterId !== undefined && typeof input!.fecCandidateMasterId !== "string") fail("FEC_MASTER_POINTER_INVALID");
   return input as RefreshInputs;
 }
 
