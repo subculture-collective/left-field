@@ -63,12 +63,25 @@ async function main(): Promise<void> {
     lock = await retain(lock, id, `data/source/rapid/state-legislative-roster/${stamp}/${code}.csv`, `https://data.openstates.org/people/current/${code}.csv`);
     rosterIds.push(id);
   }
-  const inputs: RefreshInputs = { schema: "refresh-inputs-v1", version: 1, snapshotDate: date, fecCandidateSummaryId: fecId, fecCandidateSummaryCycle: cycle, fecCandidateMasterId: masterId, stateLegislativeRosterIds: rosterIds };
+  // Open States executive rosters: one YAML per statewide officer, listed through the GitHub contents API (CC0).
+  const executiveIds: string[] = [];
+  for (const code of Object.values(US_STATE_CODES).map((value) => value.toLowerCase()).sort()) {
+    const listing = await fetch(`https://api.github.com/repos/openstates/people/contents/data/${code}/executive`, { headers: { "User-Agent": "dsa-seats-intake" } });
+    if (!listing.ok) throw new Error(`REFRESH_EXECUTIVE_LISTING_FAILED:${listing.status}:${code}`);
+    const files = (await listing.json()) as { name: string; download_url: string }[];
+    for (const file of files.filter((entry) => entry.name.endsWith(".yml")).sort((left, right) => left.name.localeCompare(right.name))) {
+      const uuid = file.name.match(/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})\.yml$/)?.[1] ?? file.name.replace(/\.yml$/, "");
+      const id = `openstates-executive-${code}-${uuid}-${stamp}`;
+      lock = await retain(lock, id, `data/source/rapid/state-executives/${stamp}/${code}/${file.name}`, file.download_url);
+      executiveIds.push(id);
+    }
+  }
+  const inputs: RefreshInputs = { schema: "refresh-inputs-v1", version: 1, snapshotDate: date, fecCandidateSummaryId: fecId, fecCandidateSummaryCycle: cycle, fecCandidateMasterId: masterId, stateLegislativeRosterIds: rosterIds, stateExecutiveIds: executiveIds.sort() };
   const bytes = Buffer.from(serializeRefreshInputs(inputs));
   writeFileSync(REFRESH_INPUTS.path, bytes);
   lock = upsertSourceLockEntry(lock, derivedArtifactEntry({ id: REFRESH_INPUTS.id, url: `urn:dsa-seats:refresh-inputs:v1`, retainedPath: REFRESH_INPUTS.path, bytes, kind: "editorial_ledger", parentIds: [] }));
   writeSourceLock(lock);
-  out(`refresh pointer now ${date}: ${fecId}, ${rosterIds.length} rosters. Next: npm run rapid:publish -- --version <vX.Y>`);
+  out(`refresh pointer now ${date}: ${fecId}, ${masterId}, ${rosterIds.length} rosters, ${executiveIds.length} executive files. Next: npm run rapid:publish -- --bump`);
 }
 
 main().catch((error: unknown) => { process.stderr.write(`${error instanceof Error ? error.message : String(error)}\n`); process.exit(1); });

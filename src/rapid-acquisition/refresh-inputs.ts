@@ -16,6 +16,8 @@ export interface RefreshInputs {
   /** FEC candidate master (cnYY.zip) snapshot; optional for pointers written before v1.2. */
   readonly fecCandidateMasterId?: string;
   readonly stateLegislativeRosterIds: readonly string[];
+  /** Open States executive (governor and statewide officer) YAML files; optional for pointers written before v1.3. */
+  readonly stateExecutiveIds?: readonly string[];
 }
 
 export const REFRESH_INPUTS = { id: "refresh-inputs-v1", path: "data/metadata/refresh-inputs.json" } as const;
@@ -28,6 +30,7 @@ export function validateRefreshInputs(value: unknown): RefreshInputs {
   if (typeof input!.fecCandidateSummaryId !== "string" || !Number.isSafeInteger(input!.fecCandidateSummaryCycle)) fail("FEC_POINTER_INVALID");
   if (!Array.isArray(input!.stateLegislativeRosterIds) || input!.stateLegislativeRosterIds.some((id) => typeof id !== "string")) fail("ROSTER_POINTER_INVALID");
   if (input!.fecCandidateMasterId !== undefined && typeof input!.fecCandidateMasterId !== "string") fail("FEC_MASTER_POINTER_INVALID");
+  if (input!.stateExecutiveIds !== undefined && (!Array.isArray(input!.stateExecutiveIds) || input!.stateExecutiveIds.some((id) => typeof id !== "string"))) fail("EXECUTIVE_POINTER_INVALID");
   return input as RefreshInputs;
 }
 

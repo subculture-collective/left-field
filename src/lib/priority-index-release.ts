@@ -10,7 +10,7 @@ export interface PriorityIndexRelease {
   readonly modelVersion: string;
   readonly publishedAt: string;
   readonly sourceCutoff: string;
-  readonly chambers: Readonly<Record<"house" | "senate", Readonly<{ artifactId: string; modelVersion: string; sourceCutoff: string; financeAsOf?: string }>>>;
+  readonly chambers: Readonly<Record<"house" | "senate", Readonly<{ artifactId: string; modelVersion: string; sourceCutoff: string; financeAsOf?: string }>> & { governor?: Readonly<{ artifactId: string; modelVersion: string; sourceCutoff: string; financeAsOf?: string }> }>;
   readonly refreshInputsId: string;
 }
 
@@ -23,8 +23,9 @@ export function validatePriorityIndexRelease(value: unknown): PriorityIndexRelea
   const release = value as Partial<PriorityIndexRelease> | null;
   if (!release || release.schema !== "priority-index-release-v1" || release.version !== 1) fail("SCHEMA_INVALID");
   if (!/^v\d+\.\d+$/.test(release!.modelVersion ?? "") || !DATE.test(release!.publishedAt ?? "") || !DATE.test(release!.sourceCutoff ?? "")) fail("VERSION_INVALID");
-  for (const chamber of ["house", "senate"] as const) {
+  for (const chamber of ["house", "senate", "governor"] as const) {
     const entry = release!.chambers?.[chamber];
+    if (chamber === "governor" && entry === undefined) continue;
     if (!entry || typeof entry.artifactId !== "string" || !/^v\d+\.\d+$/.test(entry.modelVersion) || !DATE.test(entry.sourceCutoff) || (entry.financeAsOf !== undefined && !DATE.test(entry.financeAsOf))) fail(`CHAMBER_INVALID:${chamber}`);
   }
   if (typeof release!.refreshInputsId !== "string") fail("REFRESH_POINTER_INVALID");
