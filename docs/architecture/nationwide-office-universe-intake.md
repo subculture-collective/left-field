@@ -18,9 +18,17 @@ The seed intentionally configures only the two shared national discovery sources
 - `certified_winner` can feed a compatible certified formula program after its required factual inputs are complete.
 - A provisional primary or November winner creates `holder_pending_transition`; it never overwrites `current_holder` before the term's sourced effective date.
 
+## Manual shadow runs
+
+`runReviewedSource` in `src/office-universe/run-source.ts` is the only allowed way to run a source, and it is invoked by hand. It refuses, before writing anything, a source whose status is not `reviewed` or that fails `reviewSourceDefinition`, a `requestedCutoff` that is not an ISO 8601 UTC instant ending in `Z`, and a receipt that is not verified (`verified: true`, or re-verified through `verifyRetainedObject` when a `rawStoreRoot` is supplied).
+
+A run then retains every raw row through `retainRawIntake` under the source's `privacyPolicy`, aggregates the row decisions and the receipt with `assessSnapshot`, and appends, in order: the receipt plus one `intake_runs` row already carrying its terminal status (`succeeded` for `accepted` and `accepted_with_row_quarantine`, `failed` for `quarantined`) and `finished_at`; one `intake_snapshots` row; and one `snapshot_issues` row per systemic issue. `intake_runs` has `CHECK ((status='running') = (finished_at IS NULL))` and the ingest role has no UPDATE grant, so a run is never inserted as `running` and later updated. Run and snapshot ids are a SHA-256 of source id, cutoff, and receipt digest, so a replay names the same evidence and conflicts with `DO NOTHING` instead of rewriting it.
+
+The run's `IntakeRepository` exposes only `retainRawIntake`, `recordRun`, `recordSnapshot`, and `recordSnapshotIssues`. It has no graph projection, coverage, formula, holder, scheduler, or retry method, and `normalizedRecordCount` is always `0`: a shadow run produces evidence and a disposition, not domain rows.
+
 ## Refresh behavior
 
-Configured election sources are eligible for 15-minute polling during the election-night window. Normal discovery runs weekly; finance and officeholder slots run nightly/daily when configured. Unconfigured authority slots are revisited daily as backlog, but are not polled as though an endpoint existed.
+`refresh-policy.ts` is advisory only. It computes the interval a configured source would be eligible for (15-minute polling for election sources in the election-night window, weekly discovery, nightly/daily finance and officeholder slots, daily backlog revisits for unconfigured slots) but nothing reads it to start a run. Only manual reviewed runs are allowed; an eligible interval is not authorization to acquire or run.
 
 ## Current boundary
 

@@ -1,8 +1,10 @@
 import { describe, expect, it } from "vitest";
 
+import { verifiedReceipt } from "./fixtures/qualified-source";
 import type { RawIntakeRecord } from "./nationwide-intake";
 import { buildNationwideSourceRegistry } from "./nationwide-intake";
-import { retainRawIntake, seedSourceRegistry } from "./repository";
+import type { RunRecord } from "./repository";
+import { createIntakeRepository, receiptId, recordRun, recordSnapshot, recordSnapshotIssues, retainRawIntake, seedSourceRegistry } from "./repository";
 
 type Call = { text: string; values: unknown[] };
 
@@ -87,5 +89,51 @@ describe("office-universe repository", () => {
     await expect(retainRawIntake(pool, accepted)).rejects.toThrow("injected failure");
     expect(calls.map((call) => call.text)).toEqual(["BEGIN", expect.stringContaining("office_universe.raw_payloads"), "ROLLBACK"]);
     expect(released()).toBe(1);
+  });
+});
+
+describe("office-universe append-only run persistence", () => {
+  const receipt = verifiedReceipt();
+  const run: RunRecord = { id: "run_1", sourceDefinitionId: receipt.sourceId, receipt, requestedCutoff: "2026-08-21T00:00:00Z", status: "failed", startedAt: "2026-08-21T01:00:00.000Z", finishedAt: "2026-08-21T01:00:01.000Z" };
+
+  it("inserts the receipt and terminal run row in one transaction", async () => {
+    const { calls, pool, released } = fakePool();
+    await recordRun(pool, run);
+    const texts = calls.map((call) => call.text);
+    expect(texts).toEqual(["BEGIN", expect.stringContaining("INSERT INTO office_universe.retained_object_receipts"), expect.stringContaining("INSERT INTO office_universe.intake_runs"), "COMMIT"]);
+    expect(calls[2]?.values).toEqual(["run_1", receipt.sourceId, receiptId(receipt), run.requestedCutoff, "failed", run.startedAt, run.finishedAt]);
+    expect(texts.some((text) => /UPDATE|DELETE/.test(text))).toBe(false);
+    expect(released()).toBe(1);
+  });
+
+  it("refuses a non-terminal run and rolls back when the run insert fails", async () => {
+    await expect(recordRun(fakePool().pool, { ...run, status: "running" as never })).rejects.toThrow("OFFICE_UNIVERSE_RUN_STATUS_INVALID");
+    const { calls, pool, released } = fakePool({ failOn: "office_universe.intake_runs" });
+    await expect(recordRun(pool, run)).rejects.toThrow("injected failure");
+    expect(calls.map((call) => call.text).at(-1)).toBe("ROLLBACK");
+    expect(released()).toBe(1);
+  });
+
+  it("inserts snapshots and systemic issues without updates", async () => {
+    const { calls, db } = fakeDb();
+    await recordSnapshot(db, { id: "snapshot_1", runId: "run_1", disposition: "quarantined", rowCount: 2, acceptedRowCount: 0, quarantinedRowCount: 2 });
+    await recordSnapshotIssues(db, "snapshot_1", [{ code: "PARSER_DRIFT", diagnostic: "parser changed", systemic: true }, { code: "RECEIPT_INVALID", diagnostic: "malformed", systemic: true }]);
+    const texts = calls.map((call) => call.text);
+    expect(texts[0]).toContain("INSERT INTO office_universe.intake_snapshots");
+    expect(texts.slice(1).every((text) => text.includes("INSERT INTO office_universe.snapshot_issues"))).toBe(true);
+    expect(texts).toHaveLength(3);
+    expect(calls[1]?.values).toEqual([expect.stringMatching(/^snapshot_issue_/), "snapshot_1", "PARSER_DRIFT", "parser changed", true]);
+    expect(texts.some((text) => /UPDATE|DELETE/.test(text))).toBe(false);
+  });
+
+  it("passes the source privacy policy through to raw retention", async () => {
+    const { pool } = fakePool();
+    const finance: RawIntakeRecord = { ...accepted, kind: "finance", payload: { office: "HD01" } };
+    await expect(retainRawIntake(pool, finance, { privacyPolicy: "public_office_only" })).resolves.toMatchObject({ disposition: "accepted", issues: [] });
+    await expect(retainRawIntake(pool, finance)).resolves.toMatchObject({ disposition: "quarantined" });
+  });
+
+  it("exposes only the four append-only methods", () => {
+    expect(Object.keys(createIntakeRepository(fakePool().pool)).sort()).toEqual(["recordRun", "recordSnapshot", "recordSnapshotIssues", "retainRawIntake"]);
   });
 });
