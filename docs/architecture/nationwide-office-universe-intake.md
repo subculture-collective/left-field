@@ -30,6 +30,18 @@ The run's `IntakeRepository` exposes only `retainRawIntake`, `recordRun`, `recor
 
 `refresh-policy.ts` is advisory only. It computes the interval a configured source would be eligible for (15-minute polling for election sources in the election-night window, weekly discovery, nightly/daily finance and officeholder slots, daily backlog revisits for unconfigured slots) but nothing reads it to start a run. Only manual reviewed runs are allowed; an eligible interval is not authorization to acquire or run.
 
+## Opt-in readiness proof
+
+`src/office-universe/pilot-readiness.integration.test.ts` proves the pilot-readiness contract against one database that the operator names explicitly. It never infers a target: without `OFFICE_UNIVERSE_DATABASE_URL` the suite skips, and it refuses to start when the URL's database name does not end in `_test` or when `NODE_ENV` is `production`. Production and implicit targets are forbidden; the database must be disposable, because the proof migrates it, truncates every `office_universe` evidence table it writes before and after, and creates then drops a temporary LOGIN role.
+
+Run it against a local or staging database that you created for this purpose:
+
+```sh
+OFFICE_UNIVERSE_DATABASE_URL="postgresql://<user>:<password>@127.0.0.1:<port>/<name>_test" npm run test:run -- src/office-universe/pilot-readiness.integration.test.ts
+```
+
+With the URL set, the proof applies the `drizzle/` migrations, seeds the registry twice (250 inserted, then 0), inserts the synthetic reviewed source from `fixtures/qualified-source.ts`, verifies a synthetic retained object under a temporary raw-store root, runs `runReviewedSource` once accepted and once quarantined, and asserts the resulting `intake_runs`, `intake_snapshots`, `snapshot_issues`, and `retained_object_receipts` rows. It then connects as a LOGIN member of `dsa_seats_ingest` to show INSERT succeeds while UPDATE and DELETE on those four tables fail with `42501`, and it asserts that every `public`-schema table has the same row count before and after. The connecting user must be able to create roles (superuser or `CREATEROLE`).
+
 ## Current boundary
 
 This implementation supplies the nationwide platform, 50-state registry, persistence model, raw/quarantine semantics, holder lifecycle, and calculation isolation. It does **not** acquire, publish, certify, or claim complete state/local election coverage. State-specific official endpoints and any aggregator contracts must be retained and reviewed before those slots become `configured`.
