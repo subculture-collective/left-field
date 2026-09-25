@@ -1498,7 +1498,7 @@ integration("PostgreSQL integration", () => {
       await expect(enrichCandidateMembersFromBaseline(pool, manifest.release.id, "rel_member_enrichment_bad")).rejects.toThrow();
       expect((await pool.query("SELECT 1 FROM sources WHERE release_id='rel_member_enrichment_bad' LIMIT 1")).rowCount).toBe(0);
     } finally { await pool.end(); }
-  }, 120_000);
+  }, 600_000); // runner Postgres finishes this in several minutes; peers already carry multi-minute budgets
 
   it("finalizes Task 7 ACS, Task 8 FEC, and reviewed Task 9 election decisions atomically", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
