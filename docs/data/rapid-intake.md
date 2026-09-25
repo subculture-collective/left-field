@@ -70,7 +70,7 @@ npm run rapid:publish -- --version v1.1     # re-derive every registered artifac
 npm run rapid:publish -- --bump             # same, with the next minor version after the pinned descriptor (what the weekly workflow runs)
 ```
 
-The refresh pointer names dated snapshots; builders read the pointer. The release descriptor is what the store and pages show as model version, publication date, and cutoffs. `.github/workflows/refresh.yml` runs both weekly and opens a pull request for review. The House layer is frozen at v0.9 and is only re-derived and re-verified by publish.
+The refresh pointer names dated snapshots (FEC candidate summary and master, Open States legislator CSVs and executive YAML files); builders read the pointer. The release descriptor is what the store and pages show as model version, publication date, and cutoffs. `.github/workflows/refresh.yml` runs both weekly and opens a pull request for review. The House layer is frozen at v0.9 and is only re-derived and re-verified by publish.
 
 Derived artifacts registered in `scripts/rapid/derived-artifacts.ts` may name their parents as a function of the lock when a parent is a dated snapshot.
 

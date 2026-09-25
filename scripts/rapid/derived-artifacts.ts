@@ -1,5 +1,6 @@
 import { buildHousePrimaryIncumbentEvidenceV2, INCUMBENT_EVIDENCE_V2 } from "@/rapid-acquisition/house-primary-incumbent-evidence-v2";
 import { buildHouseScoreV09ActiveProjection, HOUSE_SCORE_V09 } from "@/rapid-acquisition/house-score-v09-active";
+import { buildGovernorScoreV01Projection, GOVERNOR_SCORE_V01 } from "@/rapid-acquisition/governor-score-v01";
 import { buildHouseIncumbentCandidacy, HOUSE_INCUMBENT_CANDIDACY } from "@/rapid-acquisition/house-incumbent-candidacy";
 import { buildHouseScoreV10ActiveProjection, HOUSE_SCORE_V10 } from "@/rapid-acquisition/house-score-v10-active";
 import { buildHouseScoreV11ActiveProjection, HOUSE_SCORE_V11 } from "@/rapid-acquisition/house-score-v11-active";
@@ -96,6 +97,15 @@ export const DERIVED_ARTIFACTS: readonly DerivedArtifact[] = [
     ...HOUSE_SCORE_V11,
     kind: "derived_artifact",
     build: (root, lock) => buildHouseScoreV11ActiveProjection(root, lock),
+    describe: summaryLine,
+  },
+  {
+    id: GOVERNOR_SCORE_V01.id,
+    path: GOVERNOR_SCORE_V01.path,
+    url: GOVERNOR_SCORE_V01.url,
+    kind: "derived_artifact",
+    parentIds: GOVERNOR_SCORE_V01.parentIds,
+    build: (root, lock) => buildGovernorScoreV01Projection(root, lock),
     describe: summaryLine,
   },
   {

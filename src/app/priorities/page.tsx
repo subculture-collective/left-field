@@ -45,6 +45,7 @@ export default async function Priorities({ searchParams }: Props) {
   const visible = showAll || anyFilter ? filtered : filtered.slice(0, 50);
   const houseSeats = briefs.filter((row) => row.chamber === "house").length;
   const senateSeats = briefs.filter((row) => row.chamber === "senate").length;
+  const governorSeats = briefs.filter((row) => row.chamber === "governor").length;
   const cycles = [...new Set(briefs.map((row) => row.nextElectionYear))].sort();
   const rank50Score = briefs[49]!.provisionalTargetScore;
   const seatsAtOrAbove60 = briefs.filter((row) => row.provisionalTargetScore >= 60).length;
@@ -57,8 +58,8 @@ export default async function Priorities({ searchParams }: Props) {
             <p className="eyebrow">{`PRIORITY INDEX · MODEL ${model.version} · PUBLISHED ${model.publishedAt} · HOUSE SOURCE CUTOFF ${model.cutoffDate}`}</p>
             <h1>Where the field bends.</h1>
             <p className="lede">
-              A ranked field guide to {houseSeats} occupied House seats and{" "}
-              {senateSeats} Senate seats. Democratic-held seats combine primary
+              A ranked field guide to {houseSeats} occupied House seats,{" "}
+              {senateSeats} Senate seats, and {governorSeats} governorships. Democratic-held seats combine primary
               opportunity, AIPAC evidence where retained, and incumbent
               alignment; Republican-held seats enter through a flip screen
               that combines general-election competitiveness, incumbent
@@ -117,6 +118,7 @@ export default async function Priorities({ searchParams }: Props) {
               <option value="">Both chambers</option>
               <option value="house">House</option>
               <option value="senate">Senate</option>
+              <option value="governor">Governor</option>
             </select>
           </label>
           <label>
@@ -134,7 +136,7 @@ export default async function Priorities({ searchParams }: Props) {
               <option value="">All routes</option>
               <option value="aipac_supported_blue">AIPAC-supported blue</option>
               <option value="deep_blue">Deep blue</option>
-              <option value="democratic_incumbent_primary">Democratic incumbent (Senate)</option>
+              <option value="democratic_incumbent_primary">Democratic incumbent (Senate, governor)</option>
               <option value="republican_fringe_general">Republican-held flip</option>
             </select>
           </label>
@@ -167,7 +169,7 @@ export default async function Priorities({ searchParams }: Props) {
                 <h2>{row.officialHouseName}</h2>
                 <p>
                   {row.incumbentParty} · {formatPartisanMargin(row.presidentialDemocraticMargin2024)} ·{" "}
-                  {row.cumulativeHouseServiceYears.toFixed(1)} years in {row.chamber === "senate" ? "Senate" : "House"} · next election {row.nextElectionYear}
+                  {row.chamber === "governor" ? `${row.cumulativeHouseServiceYears.toFixed(1)}-year term` : `${row.cumulativeHouseServiceYears.toFixed(1)} years in ${row.chamber === "senate" ? "Senate" : "House"}`} · next election {row.nextElectionYear}
                 </p>
               </div>
               <div className="driver-snapshot">

@@ -1,7 +1,7 @@
 {
   "schema": "priority-index-release-v1",
   "version": 1,
-  "modelVersion": "v1.2",
+  "modelVersion": "v1.3",
   "publishedAt": "2026-09-25",
   "sourceCutoff": "2026-08-04",
   "chambers": {
@@ -16,6 +16,11 @@
       "modelVersion": "v0.1",
       "sourceCutoff": "2026-09-24",
       "financeAsOf": "2026-09-24"
+    },
+    "governor": {
+      "artifactId": "governor-score-v01-projection-v1",
+      "modelVersion": "v0.1",
+      "sourceCutoff": "2026-09-24"
     }
   },
   "refreshInputsId": "refresh-inputs-v1"

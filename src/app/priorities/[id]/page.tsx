@@ -49,12 +49,12 @@ export default async function PriorityBrief({ params }: Props) {
             <h2>Record</h2>
             <p>{row.personSummary}</p>
             <dl className="brief-facts">
-              <dt>BioGuide</dt>
+              <dt>{row.chamber === "governor" ? "Open States id" : "BioGuide"}</dt>
               <dd>{row.bioguideId}</dd>
-              <dt>First {row.chamber === "senate" ? "Senate" : "House"} service</dt>
+              <dt>{row.chamber === "governor" ? "Term start" : `First ${row.chamber === "senate" ? "Senate" : "House"} service`}</dt>
               <dd>{row.firstHouseServiceDate}</dd>
-              <dt>{row.chamber === "senate" ? "Next election" : "District changes"}</dt>
-              <dd>{row.chamber === "senate" ? row.nextElectionYear : row.districtChangeCount}</dd>
+              <dt>{row.chamber === "house" ? "District changes" : "Next election"}</dt>
+              <dd>{row.chamber === "house" ? row.districtChangeCount : row.nextElectionYear}</dd>
               <dt>Alignment gap</dt>
               <dd>
                 {row.scoreDrivers.find((driver) => driver.key === "incumbent_alignment_gap")?.score?.toFixed(1) ?? "Not used"}
@@ -62,7 +62,7 @@ export default async function PriorityBrief({ params }: Props) {
             </dl>
           </article>
           <article>
-            <p className="eyebrow">{row.chamber === "senate" ? "THE STATE" : "THE DISTRICT"}</p>
+            <p className="eyebrow">{row.chamber === "house" ? "THE DISTRICT" : "THE STATE"}</p>
             <h2>{row.districtLabel}</h2>
             <p>{row.districtSummary}</p>
             <dl className="brief-facts">
@@ -116,7 +116,7 @@ export default async function PriorityBrief({ params }: Props) {
         </section>
 
         <section className="record-section">
-          <p className="eyebrow">{row.chamber === "senate" ? "SENATE TERM" : "HOUSE HISTORY"}</p>
+          <p className="eyebrow">{row.chamber === "senate" ? "SENATE TERM" : row.chamber === "governor" ? "GUBERNATORIAL TERM" : "HOUSE HISTORY"}</p>
           <h2>Recorded service</h2>
           <div className="service-timeline">
             {row.serviceHistory.map((term) => (
