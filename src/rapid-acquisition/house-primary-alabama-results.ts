@@ -1,8 +1,9 @@
-import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
-import { basename, join } from "node:path";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { unzipSync } from "fflate";
+
+import { readSourceLock } from "./intake/source-lock";
+import { readWorkbookCsvZipExtract, workbookExtractId } from "./intake/workbook-extract";
 import { byteCompare, hash, sha, exact } from "./shared";
 
 export interface AlabamaPrimaryResult {
@@ -59,27 +60,25 @@ function parseCsv(input: string): string[][] {
   for (let index = 0; index < input.length; index++) { const char = input[index]; if (quote) { if (char === '"' && input[index + 1] === '"') { field += '"'; index++; } else if (char === '"') quote = false; else field += char; } else if (char === '"') quote = true; else if (char === ",") { row.push(field); field = ""; } else if (char === "\n") { row.push(field.replace(/\r$/, "")); rows.push(row); row = []; field = ""; } else field += char; }
   if (quote) throw new Error("ALABAMA_CSV_UNTERMINATED_QUOTE"); if (field || row.length) { row.push(field); rows.push(row); } return rows;
 }
-function extract(bytes: Buffer, cycle: string): Record<string, readonly (readonly [string, number])[]> {
-  const workspace = mkdtempSync(join(tmpdir(), `dsa-seats-al-${cycle}-`)); const xlsDir = join(workspace, "xls"), csvDir = join(workspace, "csv");
-  try {
-    execFileSync("mkdir", ["-p", xlsDir, csvDir]); const archive = unzipSync(bytes); const members = Object.entries(archive).filter(([name]) => name.toLowerCase().endsWith(".xls"));
-    if (members.length !== (cycle === "2024-runoff" ? 28 : 67)) throw new Error(`ALABAMA_XLS_MEMBER_COUNT_INVALID:${cycle}`);
-    for (const [name, content] of members) writeFileSync(join(xlsDir, basename(name)), content);
-    execFileSync("libreoffice", [`-env:UserInstallation=file://${join(workspace, "profile")}`, "--headless", "--convert-to", "csv", "--outdir", csvDir, ...members.map(([name]) => join(xlsDir, basename(name)))], { stdio: "ignore" });
+function extract(bytes: Buffer, csvs: readonly (readonly [string, string])[], cycle: string): Record<string, readonly (readonly [string, number])[]> {
+  {
+    const members = Object.entries(unzipSync(bytes)).filter(([name]) => name.toLowerCase().endsWith(".xls"));
+    if (members.length !== (cycle === "2024-runoff" ? 28 : 67) || csvs.length !== members.length) throw new Error(`ALABAMA_XLS_MEMBER_COUNT_INVALID:${cycle}`);
+    // The CSVs are the pinned LibreOffice extracts of the retained zip's workbooks (see intake/workbook-extract.ts); no conversion runs here.
     const totals = new Map<string, Map<string, number>>();
-    for (const filename of readdirSync(csvDir).sort(byteCompare)) for (const row of parseCsv(readFileSync(join(csvDir, filename), "utf8"))) {
+    for (const [filename, text] of csvs) for (const row of parseCsv(text)) {
       const match = row[0]?.trim().match(/^UNITED STATES REPRESENTATIVE,\s+(2ND|7TH) CONGRESSIONAL DISTRICT$/); const party = row[1]?.trim(), rawName = row[2]?.trim(); if (!match || party !== "DEM" || !rawName || rawName === "Over Votes" || rawName === "Under Votes") continue;
       const district = match[1] === "2ND" ? "02" : "07", name = rawName === 'Juandalynn "Lele" Givan' ? 'Juandalynn "Le Le" Givan' : rawName; let votes = 0;
       for (const value of row.slice(3)) { const text = value.trim(); if (text && !/^\d+$/.test(text)) throw new Error(`ALABAMA_VOTE_INVALID:${cycle}:${filename}`); votes += text ? Number(text) : 0; }
       const candidates = totals.get(district) ?? new Map<string, number>(); candidates.set(name, (candidates.get(name) ?? 0) + votes); totals.set(district, candidates);
     }
     return Object.fromEntries([...totals].map(([district, candidates]) => [district, [...candidates].sort(([left], [right]) => byteCompare(left, right))]));
-  } finally { rmSync(workspace, { recursive: true, force: true }); }
+  }
 }
 
 export function buildAlabamaPrimaryResults(root = process.cwd()): AlabamaPrimaryResults {
   const lock = JSON.parse(readFileSync(join(root, "data/source-lock.json"), "utf8")) as { entries: readonly Record<string, unknown>[] }; const extracted: Record<string, Record<string, readonly (readonly [string, number])[]>> = {};
-  for (const source of SOURCES) { const bytes = readFileSync(join(root, source.path)), matches = lock.entries.filter((entry) => entry.id === source.id), expectedLock = { id: source.id, url: source.url, retainedPath: source.path, retainedStatus: "retained", byteSize: source.bytes, sha256: source.sha256, kind: "source", parentIds: [] }; if (bytes.length !== source.bytes || sha(bytes) !== source.sha256 || matches.length !== 1 || !exact(matches[0], expectedLock)) throw new Error(`ALABAMA_SOURCE_BINDING_INVALID:${source.id}`); extracted[source.cycle] = extract(bytes, source.cycle); }
+  for (const source of SOURCES) { const bytes = readFileSync(join(root, source.path)), matches = lock.entries.filter((entry) => entry.id === source.id), expectedLock = { id: source.id, url: source.url, retainedPath: source.path, retainedStatus: "retained", byteSize: source.bytes, sha256: source.sha256, kind: "source", parentIds: [] }; if (bytes.length !== source.bytes || sha(bytes) !== source.sha256 || matches.length !== 1 || !exact(matches[0], expectedLock)) throw new Error(`ALABAMA_SOURCE_BINDING_INVALID:${source.id}`); extracted[source.cycle] = extract(bytes, readWorkbookCsvZipExtract(readSourceLock(root), workbookExtractId(source.id), source.id, root), source.cycle); }
   if (!exact(extracted, EXPECTED)) throw new Error("ALABAMA_EXTRACTED_RESULTS_INVALID");
   const results: AlabamaPrimaryResult[] = [];
   const configurations: readonly Readonly<{ cycleYear: 2022 | 2024; district: "02" | "07"; candidates: readonly (readonly [string, number])[] }>[] = [{ cycleYear: 2022, district: "02", candidates: EXPECTED["2022"]["02"] }, { cycleYear: 2024, district: "02", candidates: EXPECTED["2024"]["02"] }, { cycleYear: 2024, district: "07", candidates: EXPECTED["2024"]["07"] }];

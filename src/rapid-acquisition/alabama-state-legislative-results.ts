@@ -1,8 +1,9 @@
-import { execFileSync } from "node:child_process";
-import { mkdtempSync, readFileSync, readdirSync, rmSync, writeFileSync } from "node:fs";
-import { tmpdir } from "node:os";
-import { basename, join } from "node:path";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { unzipSync } from "fflate";
+
+import { readSourceLock } from "./intake/source-lock";
+import { readWorkbookCsvZipExtract, workbookExtractId } from "./intake/workbook-extract";
 import { byteCompare, hash, sha, exact } from "./shared";
 
 export interface AlabamaStateLegislativeCandidate {
@@ -78,18 +79,14 @@ function parseCsv(input: string): string[][] {
   return rows;
 }
 
-function parseArchive(bytes: Buffer): AlabamaStateLegislativeContest[] {
-  const workspace = mkdtempSync(join(tmpdir(), "dsa-seats-al-state-leg-"));
-  const xlsDirectory = join(workspace, "xls"), csvDirectory = join(workspace, "csv");
-  try {
-    execFileSync("mkdir", ["-p", xlsDirectory, csvDirectory]);
+function parseArchive(bytes: Buffer, csvs: readonly (readonly [string, string])[]): AlabamaStateLegislativeContest[] {
+  {
     const members = Object.entries(unzipSync(bytes)).filter(([name]) => name.toLowerCase().endsWith(".xls"));
-    if (members.length !== 67) throw new Error("ALABAMA_STATE_LEGISLATIVE_WORKBOOK_COUNT_INVALID");
-    for (const [name, content] of members) writeFileSync(join(xlsDirectory, basename(name)), content);
-    execFileSync("libreoffice", [`-env:UserInstallation=file://${join(workspace, "profile")}`, "--headless", "--convert-to", "csv", "--outdir", csvDirectory, ...members.map(([name]) => join(xlsDirectory, basename(name)))], { stdio: "ignore" });
+    if (members.length !== 67 || csvs.length !== 67) throw new Error("ALABAMA_STATE_LEGISLATIVE_WORKBOOK_COUNT_INVALID");
+    // The CSVs are the pinned LibreOffice extracts of the retained zip's workbooks (see intake/workbook-extract.ts); no conversion runs here.
     const groups = new Map<string, { chamber: "upper" | "lower"; district: string; rawOfficeTitle: string; rawParty: "DEM" | "REP"; candidates: Map<string, number>; countyWorkbookRows: number; populatedVoteCells: number }>();
-    for (const filename of readdirSync(csvDirectory).sort(byteCompare)) {
-      const rows = parseCsv(readFileSync(join(csvDirectory, filename), "utf8"));
+    for (const [filename, text] of csvs) {
+      const rows = parseCsv(text);
       if (!exact(rows[0]?.slice(0, 3), ["Contest Title", "Party", "Candidate"])) throw new Error(`ALABAMA_STATE_LEGISLATIVE_HEADER_INVALID:${filename}`);
       for (const row of rows.slice(1)) {
         const title = row[0]?.trim() ?? "", match = title.match(/^STATE (SENATOR|REPRESENTATIVE), DISTRICT (\d+)$/);
@@ -121,7 +118,7 @@ function parseArchive(bytes: Buffer): AlabamaStateLegislativeContest[] {
     });
     contests.sort((left, right) => byteCompare(left.chamber, right.chamber) || byteCompare(left.district, right.district) || byteCompare(left.rawParty, right.rawParty));
     return contests;
-  } finally { rmSync(workspace, { recursive: true, force: true }); }
+  }
 }
 
 export function buildAlabamaStateLegislativeResults(root = process.cwd()): AlabamaStateLegislativeResults {
@@ -129,7 +126,7 @@ export function buildAlabamaStateLegislativeResults(root = process.cwd()): Alaba
   const lock = JSON.parse(readFileSync(join(root, "data/source-lock.json"), "utf8")) as { entries: readonly Record<string, unknown>[] };
   const expectedLock = { id: SOURCE.id, url: SOURCE.url, retainedPath: SOURCE.path, retainedStatus: "retained", byteSize: SOURCE.bytes, sha256: SOURCE.sha256, kind: "source", parentIds: [] };
   if (bytes.length !== SOURCE.bytes || sha(bytes) !== SOURCE.sha256 || lock.entries.filter((entry) => entry.id === SOURCE.id).length !== 1 || !exact(lock.entries.find((entry) => entry.id === SOURCE.id), expectedLock)) throw new Error("ALABAMA_STATE_LEGISLATIVE_SOURCE_INVALID");
-  const contests = parseArchive(bytes);
+  const contests = parseArchive(bytes, readWorkbookCsvZipExtract(readSourceLock(root), workbookExtractId(SOURCE.id), SOURCE.id, root));
   const summary = { sourceCountyWorkbooks: 67 as const, reportedPartyContests: 60 as const, upperChamberContests: 14 as const, lowerChamberContests: 46 as const, democraticContests: 17 as const, republicanContests: 43 as const, candidateRows: 148 as const, candidateVotes: 564383 as const, countyWorkbookCandidateRows: 310 as const, populatedVoteCells: 5516 as const, inferredNoContestRows: 0 as const, formulaEligibleContests: 0 as const };
   const actual = { sourceCountyWorkbooks: 67, reportedPartyContests: contests.length, upperChamberContests: contests.filter((row) => row.chamber === "upper").length, lowerChamberContests: contests.filter((row) => row.chamber === "lower").length, democraticContests: contests.filter((row) => row.rawParty === "DEM").length, republicanContests: contests.filter((row) => row.rawParty === "REP").length, candidateRows: contests.reduce((sum, row) => sum + row.candidates.length, 0), candidateVotes: contests.reduce((sum, row) => sum + row.totalVotes, 0), countyWorkbookCandidateRows: contests.reduce((sum, row) => sum + row.countyWorkbookRows, 0), populatedVoteCells: contests.reduce((sum, row) => sum + row.populatedVoteCells, 0), inferredNoContestRows: 0, formulaEligibleContests: contests.filter((row) => row.formulaEligible).length };
   if (!exact(actual, summary) || contests.some((row) => row.sourceWinnerStatus !== "not_marked_by_source" || row.winnerIdentity !== null || row.identity !== null)) throw new Error("ALABAMA_STATE_LEGISLATIVE_SUMMARY_INVALID");
