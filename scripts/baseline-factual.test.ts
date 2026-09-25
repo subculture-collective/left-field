@@ -78,9 +78,11 @@ describe("factual baseline operator CLI", () => {
   it("creates, baselines, and verifies a candidate without publication", async () => {
     const pool = fakePool();
     const baseline = vi.fn(async () => undefined);
+    const validate = vi.fn(async () => undefined);
     await expect(executeBaselineFactual(argv, {
       getPool: () => pool as never,
       baseline,
+      validate,
       now: () => new Date("2026-07-28T12:00:00Z"),
     })).resolves.toEqual({
       sourceReleaseId: "rel_member",
@@ -89,6 +91,7 @@ describe("factual baseline operator CLI", () => {
       digestDomains: 7,
     });
     expect(baseline).toHaveBeenCalledWith(pool, "rel_member", "rel_acs");
+    expect(validate).toHaveBeenCalledWith(pool, "rel_acs");
     expect(pool.queries.find(({ text }) => text.startsWith("INSERT INTO data_releases"))?.values)
       .toEqual(["rel_acs", "Factual ACS 2026-07-18", source.source_cutoff, "2026-07-28T12:00:00.000Z", "rel_member"]);
     expect(pool.queries.some(({ text }) => /status='published'/.test(text))).toBe(false);
@@ -96,19 +99,26 @@ describe("factual baseline operator CLI", () => {
 
   it("is restart-safe only for an exact validated seven-domain baseline", async () => {
     const baseline = vi.fn();
+    const validate = vi.fn(async () => undefined);
     await expect(executeBaselineFactual(argv, {
       getPool: () => fakePool({ existing: true }) as never,
       baseline,
+      validate,
     })).resolves.toMatchObject({ status: "already_baselined", digestDomains: 7 });
     expect(baseline).not.toHaveBeenCalled();
+    expect(validate).toHaveBeenCalledTimes(1);
     await expect(executeBaselineFactual(argv, {
       getPool: () => fakePool({ existing: true, parity: { mismatch_count: 1, domain_count: 7 } }) as never,
       baseline,
+      validate,
     })).rejects.toThrow("partial or differs");
+    const invalidValidate = vi.fn(async () => undefined);
     await expect(executeBaselineFactual(argv, {
       getPool: () => fakePool({ existing: true, candidate: { ...candidate, previous_release_id: "rel_other" } }) as never,
       baseline,
+      validate: invalidValidate,
     })).rejects.toThrow("does not match");
+    expect(invalidValidate).not.toHaveBeenCalled();
   });
 
   it("rejects nonpublished/non-v2 sources before creating a shell", async () => {
@@ -131,6 +141,7 @@ describe("factual baseline operator CLI", () => {
     const stdout = { write: vi.fn() };
     await main(argv, {
       getPool: () => fakePool({ existing: true }) as never,
+      validate: vi.fn(async () => undefined),
       stdout,
     });
     expect(stdout.write).toHaveBeenCalledWith(
