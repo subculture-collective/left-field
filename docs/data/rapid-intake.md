@@ -67,6 +67,7 @@ Two commands keep the Senate and state-legislative layers current without editin
 ```sh
 npm run rapid:refresh                       # retain today's FEC candidate summary and Open States rosters, pin them, rewrite data/metadata/refresh-inputs.json
 npm run rapid:publish -- --version v1.1     # re-derive every registered artifact, write and pin data/metadata/priority-index-release.json, write a review-note skeleton, verify the lock
+npm run rapid:publish -- --bump             # same, with the next minor version after the pinned descriptor (what the weekly workflow runs)
 ```
 
 The refresh pointer names dated snapshots; builders read the pointer. The release descriptor is what the store and pages show as model version, publication date, and cutoffs. `.github/workflows/refresh.yml` runs both weekly and opens a pull request for review. The House layer is frozen at v0.9 and is only re-derived and re-verified by publish.

@@ -12,9 +12,9 @@ on:
   workflow_dispatch:
     inputs:
       version:
-        description: "Model version to publish (vX.Y)"
-        required: true
-        default: "v1.1"
+        description: "Model version to publish (vX.Y); empty bumps the minor version"
+        required: false
+        default: ""
 
 jobs:
   refresh:
@@ -29,7 +29,8 @@ jobs:
       - name: Retain dated snapshots
         run: npm run rapid:refresh
       - name: Publish release descriptor and re-derive artifacts
-        run: npm run rapid:publish -- --version "${{ github.event.inputs.version || 'v1.1' }}"
+        run: |
+          if [ -n "${{ github.event.inputs.version }}" ]; then npm run rapid:publish -- --version "${{ github.event.inputs.version }}"; else npm run rapid:publish -- --bump; fi
       - run: npm run data:verify
       - run: npm run typecheck
       - run: npm run test:fast
