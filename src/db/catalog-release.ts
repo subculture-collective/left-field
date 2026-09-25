@@ -178,7 +178,6 @@ async function baselineCandidateReleaseWithClient(client: PoolClient, sourceRele
     await client.query("DELETE FROM nationwide_validation_gates WHERE release_id=$1", [candidateReleaseId]);
     await client.query("DELETE FROM release_content_digests WHERE release_id=$1",[candidateReleaseId]);
     for(const domain of Object.keys(contentDomains) as ContentDomain[]){const source=await computeReleaseDigest(client,sourceReleaseId,domain);const candidate=await computeReleaseDigest(client,candidateReleaseId,domain);if(source.rowCount!==candidate.rowCount||source.sha256!==candidate.sha256) throw new Error(`Baseline digest mismatch for ${domain}`);}
-    await validateNationwideCandidateReleaseWithClient(client, candidateReleaseId);
 }
 export async function baselineCandidateRelease(pool: Pool, sourceReleaseId: string, candidateReleaseId: string): Promise<void> {
   const client = await pool.connect(); try { await client.query("BEGIN"); await baselineCandidateReleaseWithClient(client, sourceReleaseId, candidateReleaseId); await client.query("COMMIT");

@@ -4,7 +4,7 @@
 
 Do not place connection strings, keys, addresses, or raw receipts in shell history, logs, tickets, or command lines. Inject secret values through the approved secret manager. Stop on any failed gate; do not retry a failed candidate by mutation. Preserve its receipts and quarantine/review the failed source or candidate before a new validated attempt.
 
-Use distinct least-privilege connections: migration owner `DATABASE_URL`; ingest `INGEST_DATABASE_URL`; read-only preflight `RELEASE_PREFLIGHT_DATABASE_URL`; lifecycle operator `RELEASE_OPERATOR_DATABASE_URL`; independent launch verifier `LAUNCH_VERIFIER_DATABASE_URL`; web `WEB_DATABASE_URL`; corrections `CORRECTION_DATABASE_URL`; address admission `ADDRESS_DATABASE_URL`. The launch verifier must have a distinct LOGIN principal. `release:health` accepts only the preflight URL and verifies the session's exclusive `dsa_seats_release_preflight` role membership inside PostgreSQL; username spelling is not authorization.
+Use distinct least-privilege connections: migration owner `DATABASE_URL`; ingest `INGEST_DATABASE_URL`; nationwide candidate validation `NATIONWIDE_FINALIZER_DATABASE_URL`; read-only preflight `RELEASE_PREFLIGHT_DATABASE_URL`; lifecycle operator `RELEASE_OPERATOR_DATABASE_URL`; independent launch verifier `LAUNCH_VERIFIER_DATABASE_URL`; web `WEB_DATABASE_URL`; corrections `CORRECTION_DATABASE_URL`; address admission `ADDRESS_DATABASE_URL`. The finalizer and launch verifier must have distinct LOGIN principals. `release:health` accepts only the preflight URL and verifies the session's exclusive `dsa_seats_release_preflight` role membership inside PostgreSQL; username spelling is not authorization.
 
 ## Local, disposable mechanism commands
 
@@ -46,7 +46,7 @@ a named human receiver owns the DSA Seats alert route and an end-to-end test
 receipt is retained; a technically configured receiver name alone is not
 delivery evidence.
 
-Run the lifecycle drill only on one loopback `*_test` database, with five distinct LOGIN users, nonproduction `NODE_ENV`, and `RELEASE_DRILL_OPT_IN=RUN_SYNTHETIC_RELEASE_DRILL` already supplied by the disposable test environment:
+Run the lifecycle drill only on one loopback `*_test` database, with six distinct LOGIN users, nonproduction `NODE_ENV`, and `RELEASE_DRILL_OPT_IN=RUN_SYNTHETIC_RELEASE_DRILL` already supplied by the disposable test environment:
 
 ```bash
 npm run release:drill

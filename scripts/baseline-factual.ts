@@ -1,7 +1,7 @@
 import { closeDb, getNationwideFinalizerPool } from "@/db/client";
-import { baselineCandidateRelease, contentDomains } from "@/db/catalog-release";
+import { baselineCandidateRelease, contentDomains, validateNationwideCandidateReleaseWithClient } from "@/db/catalog-release";
 import { releaseIdSchema } from "@/domain/contracts";
-import type { Pool } from "pg";
+import type { Pool, PoolClient } from "pg";
 
 const argumentError =
   "Require exactly --source-release rel_..., --candidate-release rel_..., and --label TEXT";
@@ -29,6 +29,8 @@ interface ReleaseRow {
   readonly previous_release_id: string | null;
   readonly schema_version: number;
 }
+
+type Queryable = Pick<PoolClient, "query">;
 
 export function parseBaselineFactualArguments(argv: readonly string[]): BaselineFactualArguments {
   const values = new Map<string, string>();
@@ -69,7 +71,7 @@ export function parseBaselineFactualArguments(argv: readonly string[]): Baseline
 
 const iso = (value: Date | string): string => new Date(value).toISOString();
 
-async function loadSource(pool: Pool, releaseId: string): Promise<ReleaseRow> {
+async function loadSource(pool: Queryable, releaseId: string): Promise<ReleaseRow> {
   const result = await pool.query<ReleaseRow>(
     `SELECT r.id,r.label,r.status,r.source_cutoff,r.published_at,r.previous_release_id,m.schema_version
        FROM data_releases r
@@ -89,8 +91,8 @@ async function loadSource(pool: Pool, releaseId: string): Promise<ReleaseRow> {
   return source;
 }
 
-async function verifyExistingCandidate(
-  pool: Pool,
+async function verifyCandidateIdentity(
+  pool: Queryable,
   args: BaselineFactualArguments,
   source: ReleaseRow,
 ): Promise<void> {
@@ -114,6 +116,14 @@ async function verifyExistingCandidate(
   ) {
     throw new Error("Existing factual candidate does not match the requested immutable baseline");
   }
+}
+
+async function verifyExistingCandidate(
+  pool: Queryable,
+  args: BaselineFactualArguments,
+  source: ReleaseRow,
+): Promise<void> {
+  await verifyCandidateIdentity(pool, args, source);
   const parity = await pool.query<{ mismatch_count: number | string; domain_count: number | string }>(
     `WITH source_digests AS (
        SELECT domain,row_count,sha256 FROM release_content_digests WHERE release_id=$1
@@ -127,11 +137,11 @@ async function verifyExistingCandidate(
      SELECT
        (SELECT count(*) FROM mismatches) mismatch_count,
        (SELECT count(*) FROM candidate_digests) domain_count`,
-    [source.id, candidate.id],
+    [source.id, args.candidateReleaseId],
   );
   const gate = await pool.query(
     "SELECT 1 FROM nationwide_validation_gates WHERE release_id=$1 AND schema_version=2",
-    [candidate.id],
+    [args.candidateReleaseId],
   );
   if (
     Number(parity.rows[0]?.mismatch_count) !== 0
@@ -142,8 +152,23 @@ async function verifyExistingCandidate(
   }
 }
 
+async function validateAndVerifyCandidate(pool: Pool, args: BaselineFactualArguments, source: ReleaseRow): Promise<void> {
+  const client = await pool.connect();
+  try {
+    await client.query("BEGIN");
+    await validateNationwideCandidateReleaseWithClient(client, args.candidateReleaseId);
+    await verifyExistingCandidate(client, args, source);
+    await client.query("COMMIT");
+  } catch (error) {
+    await client.query("ROLLBACK").catch(() => undefined);
+    throw error;
+  } finally {
+    client.release();
+  }
+}
+
 async function verifyExactEmptyShell(
-  pool: Pool,
+  pool: Queryable,
   args: BaselineFactualArguments,
   source: ReleaseRow,
 ): Promise<void> {
@@ -179,6 +204,7 @@ export async function executeBaselineFactual(
   dependencies: {
     readonly getPool: () => Pool;
     readonly baseline?: typeof baselineCandidateRelease;
+    readonly validate?: (pool: Pool, releaseId: string) => Promise<void>;
     readonly now?: () => Date;
   },
 ): Promise<BaselineFactualResult> {
@@ -191,7 +217,13 @@ export async function executeBaselineFactual(
   );
   if (existing.rowCount) {
     if (existing.rows[0]!.has_manifest) {
-      await verifyExistingCandidate(pool, args, source);
+      await verifyCandidateIdentity(pool, args, source);
+      if (dependencies.validate) {
+        await dependencies.validate(pool, args.candidateReleaseId);
+        await verifyExistingCandidate(pool, args, source);
+      } else {
+        await validateAndVerifyCandidate(pool, args, source);
+      }
       return {
         sourceReleaseId: source.id,
         candidateReleaseId: args.candidateReleaseId,
@@ -222,7 +254,12 @@ export async function executeBaselineFactual(
     source.id,
     args.candidateReleaseId,
   );
-  await verifyExistingCandidate(pool, args, source);
+  if (dependencies.validate) {
+    await dependencies.validate(pool, args.candidateReleaseId);
+    await verifyExistingCandidate(pool, args, source);
+  } else {
+    await validateAndVerifyCandidate(pool, args, source);
+  }
   return {
     sourceReleaseId: source.id,
     candidateReleaseId: args.candidateReleaseId,

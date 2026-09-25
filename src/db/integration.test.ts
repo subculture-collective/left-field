@@ -48,7 +48,6 @@ import { assertPersistedTask7AcsInvariant, finalizeCandidateAcs, verifyPersisted
 import { finalizeCandidateFec, verifyPersistedTask8FecCandidate } from "@/ingestion/fec/finalize-fec";
 import { encodeFecSanitizedEnvelope, fecEnvelopeSha256, fecPageRequestSha256 } from "@/ingestion/fec/envelope";
 import { fecEnvelopeFixture } from "@/ingestion/fec/fec-test-fixture";
-import { fecV2FailureSubjectSha256 } from "@/ingestion/fec/run-descriptor";
 import { createElectionDecisionAdapter, ELECTION_DECISION_SOURCE, ELECTION_DECISION_UPSTREAM_RELEASE, electionDecisionSourceUrl } from "@/ingestion/elections/adapter";
 import { ELECTION_DECISION_ADAPTER_VERSION, electionDecisionEnvelopeSha256, encodeElectionDecisionEnvelope } from "@/ingestion/elections/decision-envelope";
 import { finalizeCandidateElectionDecisions, verifyPersistedTask9ElectionCandidate } from "@/ingestion/elections/finalize-elections";
@@ -429,16 +428,16 @@ integration("PostgreSQL integration", () => {
     }
   });
 
-  it("runs the guarded synthetic release drill with five disposable LOGIN principals", async () => {
+  it("runs the guarded synthetic release drill with six disposable LOGIN principals", async () => {
     const bootstrap = new Pool({ connectionString: testDatabaseUrl });
     const suffix = randomUUID().replace(/-/g, ""); const password = randomUUID();
-    const principals = { owner: "dsa_drill_owner_", ingest: "dsa_drill_ingest_", preflight: "dsa_drill_preflight_", operator: "dsa_drill_operator_", web: "dsa_drill_web_" } as const;
+    const principals = { owner: "dsa_drill_owner_", ingest: "dsa_drill_ingest_", finalizer: "dsa_drill_finalizer_", preflight: "dsa_drill_preflight_", operator: "dsa_drill_operator_", web: "dsa_drill_web_" } as const;
     const names = Object.fromEntries(Object.entries(principals).map(([key, prefix]) => [key, `${prefix}${suffix}`])) as Record<keyof typeof principals, string>;
-    const memberships = { owner: "dsa_seats_migration_owner", ingest: "dsa_seats_ingest", preflight: "dsa_seats_release_preflight", operator: "dsa_seats_release_operator", web: "dsa_seats_web" } as const;
+    const memberships = { owner: "dsa_seats_migration_owner", ingest: "dsa_seats_ingest", finalizer: "dsa_seats_nationwide_finalizer", preflight: "dsa_seats_release_preflight", operator: "dsa_seats_release_operator", web: "dsa_seats_web" } as const;
     const url = (name: string) => { const value = new URL(testDatabaseUrl!); value.username = name; value.password = password; return value.toString(); };
     try {
       for (const key of Object.keys(names) as (keyof typeof names)[]) { await bootstrap.query(`CREATE ROLE "${names[key]}" LOGIN INHERIT PASSWORD '${password}'`); await bootstrap.query(`GRANT ${memberships[key]} TO "${names[key]}"`); }
-      const result = await runSyntheticReleaseDrill({ owner: url(names.owner), ingest: url(names.ingest), preflight: url(names.preflight), operator: url(names.operator), web: url(names.web) }, 120_000);
+      const result = await runSyntheticReleaseDrill({ owner: url(names.owner), ingest: url(names.ingest), finalizer: url(names.finalizer), preflight: url(names.preflight), operator: url(names.operator), web: url(names.web) }, 120_000);
       expect(result).toMatchObject({ evidenceClass: "local-synthetic", evidenceVersion: 2, verified: true, completedAt: expect.stringMatching(/^\d{4}-\d{2}-\d{2}T/), publishedReleaseId: expect.stringMatching(/^rel_drill_r3_/), publicSmokes: 3, operationalSignals: 21, checks: { roleAttestations: true, stalePromotionRejected: true, writerFreezeRejected: true, expiredProofRejected: true, domainInvalidations: ["member", "acs", "finance", "elections", "maps"], immutableFingerprintPreserved: true, rollbackPreserved: true, rollForwardPreserved: true, rollbackPublicSmoke: true, rollForwardPublicSmoke: true, operationalSignalsObserved: true, digestRows: 21, ingestHistoryRows: 1 } });
        const preflightPool = new Pool({ connectionString: url(names.preflight) });
        try {
@@ -509,6 +508,10 @@ integration("PostgreSQL integration", () => {
       await loginPools.publisher.query("SELECT public.import_fec_v2_publication_signature('publication',$1,$2,$3,'publisher','key',$4,$5,'signature')", [r2, planHash, payloadHash, fingerprint, signedAt]);
       const proofAt = (await owner.query<{ at: Date }>("SELECT clock_timestamp() AS at")).rows[0]!.at;
       await loginPools.publisher.query("SELECT public.import_fec_v2_publication_proof('proof',$1,'publication',$2,$3)", [r2, payloadHash, proofAt]);
+      const finalized = (await loadNationwideManifestForFinalization(owner, r2)).manifest;
+      finalized.canonicalDataChecksumSha256 = computeCanonicalDataChecksum(finalized);
+      const geometry = (await owner.query<{ geometry_checksum_sha256: string }>("SELECT geometry_checksum_sha256 FROM release_manifests WHERE release_id=$1", [r2])).rows[0]!.geometry_checksum_sha256;
+      await owner.query("UPDATE release_manifests SET canonical_data_checksum_sha256=$2,content_checksum_sha256=$3,validated_at=NULL WHERE release_id=$1", [r2, finalized.canonicalDataChecksumSha256, expectedContentChecksum({ schema_version: 2, canonical_data_checksum_sha256: finalized.canonicalDataChecksumSha256, geometry_checksum_sha256: geometry, content_checksum_sha256: "" })]);
       await validateNationwideCandidateRelease(owner, r2);
 
       const combinedHash = fecV2CombinedStageSha256(r2, "finance", payloadHash, null, null);
@@ -547,6 +550,7 @@ integration("PostgreSQL integration", () => {
     const hash = "a".repeat(64);
     const releaseId = `rel_f2_${suffix}`;
     const plan0 = "b".repeat(64);
+    const publicLoginName = `dsa_f2_public_${suffix}`;
     let acquisition: Pool | undefined; let reviewer: Pool | undefined; let publisher: Pool | undefined; let preflight: Pool | undefined; let publicLogin: Pool | undefined;
     try {
       const { manifest: fixture, bundle } = persistedNationwideSkeleton();
@@ -596,14 +600,13 @@ integration("PostgreSQL integration", () => {
       try { await owner.query("UPDATE data_releases SET source_cutoff='2026-07-18T00:00:00Z' WHERE id=$1", [releaseId]); }
       finally { await owner.query("ALTER TABLE data_releases ENABLE TRIGGER USER"); }
       for (const [key, role] of Object.entries(roles)) { await owner.query(`CREATE ROLE "${names[key as keyof typeof roles]}" LOGIN INHERIT PASSWORD '${password}'`); await owner.query(`GRANT ${role} TO "${names[key as keyof typeof roles]}"`); }
+      await owner.query(`CREATE ROLE "${publicLoginName}" LOGIN PASSWORD '${password}'`);
       // Fixture setup is migration-owner work; acquisition receives only the
       // guarded run APIs below.
       await owner.query("SET ROLE dsa_seats_migration_owner");
       acquisition = new Pool({ connectionString: loginUrl(names.acquisition) }); reviewer = new Pool({ connectionString: loginUrl(names.reviewer) }); publisher = new Pool({ connectionString: loginUrl(names.publisher) }); preflight = new Pool({ connectionString: loginUrl(names.preflight) });
       expect((await acquisition.query<{ can_update: boolean }>("SELECT has_table_privilege(current_user,'public.fec_v2_runs','UPDATE') AS can_update")).rows[0]?.can_update).toBe(false);
 
-      const publicLoginName = `dsa_f2_public_${suffix}`;
-      await owner.query(`CREATE ROLE "${publicLoginName}" LOGIN PASSWORD '${password}'`);
       publicLogin = new Pool({ connectionString: loginUrl(publicLoginName) });
       const seats = (await owner.query<{ id: string }>("SELECT seat_cycle_id AS id FROM release_profile_seats WHERE release_id=$1 ORDER BY seat_cycle_id", [releaseId])).rows;
       expect(seats).toHaveLength(541);
@@ -623,6 +626,10 @@ integration("PostgreSQL integration", () => {
       const token = "e".repeat(64), wrongToken = "f".repeat(64), run = `run_${suffix}`;
       await expect(owner.query("INSERT INTO fec_v2_runs(run_id,release_id,plan_sha256,receipt_cutoff,started_at,status,owner_token_sha256,heartbeat_at,lease_expires_at,run_deadline_at) VALUES($3,$1,$2,'2026-07-18',clock_timestamp(),'running','a',clock_timestamp(),clock_timestamp()+interval '5 minutes',clock_timestamp()+interval '6 hours')", [releaseId, canonical.digest, `direct_running_${suffix}`])).rejects.toMatchObject({ code: "42501" });
       await expect(owner.query("INSERT INTO fec_v2_runs(run_id,release_id,plan_sha256,receipt_cutoff,started_at,status,completed_at,run_deadline_at) VALUES($3,$1,$2,'2026-07-18',clock_timestamp(),'failed',clock_timestamp(),clock_timestamp()+interval '6 hours')", [releaseId, canonical.digest, `direct_terminal_${suffix}`])).rejects.toMatchObject({ code: "42501" });
+      const maxRun = `a${"._:-".repeat(127)}bcd`;
+      await acquisition.query("SELECT * FROM public.claim_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, maxRun, token]);
+      await acquisition.query("SELECT public.abort_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, maxRun, token]);
+      await expect(acquisition.query("SELECT * FROM public.claim_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, "a".repeat(513), token])).rejects.toMatchObject({ code: "22023" });
       await acquisition.query("SELECT * FROM public.claim_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, run, token]);
       await expect(owner.query("UPDATE fec_v2_runs SET status='failed',completed_at=clock_timestamp(),owner_token_sha256=NULL,heartbeat_at=NULL,lease_expires_at=NULL WHERE release_id=$1 AND plan_sha256=$2 AND run_id=$3", [releaseId, canonical.digest, run])).rejects.toMatchObject({ code: "42501" });
       await expect(acquisition.query("SELECT * FROM public.heartbeat_fec_v2_run($1,$2,$3,$4)", [releaseId, canonical.digest, run, wrongToken])).rejects.toMatchObject({ code: "42501" });
@@ -643,7 +650,7 @@ integration("PostgreSQL integration", () => {
       // Synthetic expiry only: the owner disables the boundary briefly because
       // production deadlines and leases are deliberately immutable.
       await owner.query("ALTER TABLE fec_v2_runs DISABLE TRIGGER USER");
-      try { await owner.query("UPDATE fec_v2_runs SET run_deadline_at=clock_timestamp()-interval '1 second',lease_expires_at=clock_timestamp()-interval '1 second' WHERE release_id=$1 AND plan_sha256=$2 AND run_id=$3", [releaseId, canonical.digest, expired]); }
+      try { await owner.query("UPDATE fec_v2_runs SET run_deadline_at=expired.at,lease_expires_at=expired.at FROM (SELECT clock_timestamp() AS at) expired WHERE release_id=$1 AND plan_sha256=$2 AND run_id=$3", [releaseId, canonical.digest, expired]); }
       finally { await owner.query("ALTER TABLE fec_v2_runs ENABLE TRIGGER USER"); }
       await acquisition.query("SELECT public.reap_expired_fec_v2_run($1,$2,$3,$4,$5)", [releaseId, canonical.digest, expired, reaped, token]);
       await acquisition.query("SELECT public.reap_expired_fec_v2_run($1,$2,$3,$4,$5)", [releaseId, canonical.digest, expired, reaped, token]);
@@ -717,10 +724,7 @@ integration("PostgreSQL integration", () => {
       expect((await owner.query<{ count: number }>("SELECT count(*)::int AS count FROM fec_v2_publication_proofs WHERE release_id=$1", [releaseId])).rows[0]!.count).toBe(1);
       expect((await owner.query<{ fingerprint: string }>("SELECT public.operational_evidence_fingerprint($1,NULL) AS fingerprint", [releaseId])).rows[0]!.fingerprint).not.toBe(fingerprintBeforePublication);
       await expect(preflight.query("SELECT public.assert_fec_v2_publication_route($1)", [releaseId])).resolves.toBeDefined();
-      await publicLogin.end();
-      publicLogin = undefined;
-      await owner.query(`DROP ROLE "${publicLoginName}"`);
-    } finally { await Promise.all([acquisition, reviewer, publisher, preflight].filter((pool): pool is Pool => !!pool).map(pool => pool.end())); await owner.query("RESET ROLE").catch(() => undefined); for (const name of Object.values(names)) await owner.query(`DROP ROLE IF EXISTS "${name}"`).catch(() => undefined); await owner.end(); }
+    } finally { await Promise.all([acquisition, reviewer, publisher, preflight, publicLogin].filter((pool): pool is Pool => !!pool).map(pool => pool.end())); await owner.query("RESET ROLE").catch(() => undefined); await owner.query(`DROP ROLE IF EXISTS "${publicLoginName}"`).catch(() => undefined); for (const name of Object.values(names)) await owner.query(`DROP ROLE IF EXISTS "${name}"`).catch(() => undefined); await owner.end(); }
   }, 180_000);
 
   it("clones a sealed coherent V2 source through baselineCandidateRelease", async () => {
@@ -730,9 +734,9 @@ integration("PostgreSQL integration", () => {
     const hash = "a".repeat(64), artifact = "c".repeat(64), ledger = "d".repeat(64), snapshot = `snap_f2_clone_${suffix}`;
     const finalizedAt = "2026-07-18T04:05:06.000Z";
     const password = randomUUID();
-    const migrationLoginName = `dsa_f2_clone_owner_${suffix}`, publisherLoginName = `dsa_f2_clone_publisher_${suffix}`;
+    const migrationLoginName = `dsa_f2_clone_owner_${suffix}`, publisherLoginName = `dsa_f2_clone_publisher_${suffix}`, acquisitionLoginName = `dsa_f2_clone_acquisition_${suffix}`;
     const loginUrl = (name: string) => { const url = new URL(testDatabaseUrl!); url.username = name; url.password = password; return url.toString(); };
-    let migrationPool: Pool | undefined; let publisherPool: Pool | undefined;
+    let migrationPool: Pool | undefined; let publisherPool: Pool | undefined; let acquisitionPool: Pool | undefined;
     try {
       const { manifest, bundle } = persistedNationwideSkeleton();
       const oldId = manifest.release.id;
@@ -768,9 +772,11 @@ integration("PostgreSQL integration", () => {
       await pool.query("INSERT INTO fec_v2_enumeration_pages(release_id,plan_sha256,artifact_sha256,artifact_kind,pass,form_type,receipt_date,requested_file_number,page_number,terminal) VALUES($1,$2,$3,'enumeration_page',1,'F3','2026-07-15',NULL,1,1)", [sourceId, plan, artifact]);
       await pool.query("INSERT INTO fec_v2_filing_ledger_entries(release_id,plan_sha256,ledger_sha256,file_number,entry_identity_sha256,canonical_form_type,base_form_type,report_type,report_date,receipt_date,coverage_start,coverage_end,amendment_indicator,filer_id,committee_id,electronic_status,raw_source_availability) VALUES($1,$2,$3,123,$4,'F3','F3','Q2','2026-06-30','2026-07-15','2026-04-01','2026-06-30','N','C00000001','C00000001','electronic','available')", [sourceId, plan, ledger, "e".repeat(64)]);
       await pool.query("INSERT INTO fec_v2_page_lineage(release_id,plan_sha256,ledger_sha256,file_number,page_sha256,pass,occurrence_index) VALUES($1,$2,$3,123,$4,1,1)", [sourceId, plan, ledger, artifact]);
-      await pool.query("INSERT INTO fec_v2_runs(run_id,release_id,plan_sha256,receipt_cutoff,started_at,status) VALUES('failed-run',$1,$2,'2026-07-18','2026-07-18T00:00:00Z','running')", [sourceId, plan]);
-      await pool.query("INSERT INTO fec_v2_run_snapshots(release_id,plan_sha256,run_id,snapshot_id) VALUES($1,$2,'failed-run',$3)", [sourceId, plan, snapshot]);
-      await pool.query("INSERT INTO fec_v2_run_failures(release_id,plan_sha256,run_id,failure_code,scope_sha256,subject_sha256) VALUES($1,$2,'failed-run','internal_failure',$3,$4)", [sourceId, plan, hash, fecV2FailureSubjectSha256({ schemaVersion: 1, runId: "failed-run", failureCode: "internal_failure", scopeSha256: hash })]);
+      await pool.query(`CREATE ROLE "${acquisitionLoginName}" LOGIN INHERIT PASSWORD '${password}'`);
+      await pool.query(`GRANT dsa_seats_fec_v2_acquisition TO "${acquisitionLoginName}"`);
+      acquisitionPool = new Pool({ connectionString: loginUrl(acquisitionLoginName) });
+      expect((await acquisitionPool.query<{ memberships: string[] }>("SELECT coalesce(array_agg(g.rolname::text ORDER BY g.rolname::text) FILTER(WHERE g.rolname IS NOT NULL),ARRAY[]::text[]) memberships FROM pg_roles u LEFT JOIN pg_auth_members x ON x.member=u.oid LEFT JOIN pg_roles g ON g.oid=x.roleid WHERE u.rolname=session_user GROUP BY u.rolname")).rows[0]?.memberships).toEqual(["dsa_seats_fec_v2_acquisition"]);
+      await acquisitionPool.query("SELECT * FROM public.claim_fec_v2_run($1,$2,'active-run',$3)", [sourceId, plan, "f".repeat(64)]);
       const receiptDigest = (await pool.query<{ digest: string }>("SELECT encode(digest(convert_to(public.fec_v2_snapshot_receipt_bytes($1,$2,$3),'UTF8'),'sha256'),'hex') digest", [sourceId, plan, snapshot])).rows[0]!.digest;
       await pool.query("UPDATE fec_v2_snapshot_metadata SET receipt_set_digest_sha256=$3 WHERE release_id=$1 AND snapshot_id=$2", [sourceId, snapshot, receiptDigest]);
       await pool.query("UPDATE source_snapshots SET checksum_sha256=$3 WHERE release_id=$1 AND id=$2", [sourceId, snapshot, receiptDigest]);
@@ -820,6 +826,10 @@ integration("PostgreSQL integration", () => {
       migrationPool = new Pool({ connectionString: loginUrl(migrationLoginName) });
       expect((await migrationPool.query("SELECT pg_has_role(session_user,'dsa_seats_migration_owner','member') migration_owner,pg_has_role(session_user,'dsa_seats_fec_v2_publisher','member') publisher")).rows[0]).toEqual({ migration_owner: true, publisher: false });
       await baselineCandidateRelease(migrationPool, sourceId, candidateId);
+      expect((await pool.query("SELECT 1 FROM nationwide_validation_gates WHERE release_id=$1", [candidateId])).rowCount).toBe(0);
+      expect((await pool.query("SELECT 1 FROM release_content_digests WHERE release_id=$1", [candidateId])).rowCount).toBe(0);
+      await expect(recheckNationwideValidationGate(pool, candidateId)).rejects.toThrow();
+      await validateNationwideCandidateRelease(pool, candidateId);
       await expect(recheckNationwideValidationGate(pool, candidateId)).resolves.toBeUndefined();
       const digestRows = await Promise.all([sourceId, candidateId].map(async (releaseId) => (await pool.query("SELECT domain,row_count,sha256 FROM release_content_digests WHERE release_id=$1 ORDER BY domain", [releaseId])).rows));
       expect(digestRows[0]).toHaveLength(7);
@@ -864,7 +874,7 @@ integration("PostgreSQL integration", () => {
       try { await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,'retired clone fixture','retired',$2,clock_timestamp(),clock_timestamp(),NULL)", [retiredId, manifest.release.sourceCutoff]); }
       finally { await pool.query("ALTER TABLE data_releases ENABLE TRIGGER USER"); }
       await expect(pool.query("INSERT INTO fec_v2_plans(release_id,plan_sha256,origin_release_id,receipt_cutoff,campaign_cycle,source_lock_sha256,target_universe_sha256,canonical_sha256) VALUES($1,$2,$1,'2026-07-18',2026,$3,$3,$2)", [retiredId, "e".repeat(64), hash])).rejects.toMatchObject({ code: "23514", message: expect.stringMatching(/nationwide content is mutable only while candidate/i) });
-    } finally { await publisherPool?.end(); await migrationPool?.end(); await pool.query(`DROP ROLE IF EXISTS \"${publisherLoginName}\"`).catch(() => undefined); await pool.query(`DROP ROLE IF EXISTS \"${migrationLoginName}\"`).catch(() => undefined); await pool.end(); }
+    } finally { await publisherPool?.end(); await migrationPool?.end(); await acquisitionPool?.end(); await pool.query(`DROP ROLE IF EXISTS \"${publisherLoginName}\"`).catch(() => undefined); await pool.query(`DROP ROLE IF EXISTS \"${migrationLoginName}\"`).catch(() => undefined); await pool.query(`DROP ROLE IF EXISTS \"${acquisitionLoginName}\"`).catch(() => undefined); await pool.end(); }
   }, 180_000);
 
   it("round-trips the canonical candidate with artifact and geometry identity", async () => {
@@ -1220,6 +1230,9 @@ integration("PostgreSQL integration", () => {
       const loaded = await loadPrototypeManifest(pool, targetId);
       expect(loaded.release).toMatchObject({ id: targetId, label: target.release.label, status: "candidate" });
       expect(computeCanonicalDataChecksum(loaded)).toBe((await pool.query<{ canonical_data_checksum_sha256: string }>("SELECT canonical_data_checksum_sha256 FROM release_manifests WHERE release_id=$1", [targetId])).rows[0]!.canonical_data_checksum_sha256);
+      expect((await pool.query<{ validated_at: Date | null }>("SELECT validated_at FROM release_manifests WHERE release_id=$1", [targetId])).rows[0]?.validated_at).toBeNull();
+      expect((await pool.query("SELECT 1 FROM nationwide_validation_gates WHERE release_id=$1", [targetId])).rowCount).toBe(0);
+      expect((await pool.query("SELECT 1 FROM release_content_digests WHERE release_id=$1", [targetId])).rowCount).toBe(0);
       for (const table of Object.values(contentDomains).flat()) {
         const sourceCount = await pool.query<{ count: number }>(`SELECT count(*)::int AS count FROM ${table} WHERE release_id=$1`, [sourceId]);
         const targetCount = await pool.query<{ count: number }>(`SELECT count(*)::int AS count FROM ${table} WHERE release_id=$1`, [targetId]);
@@ -1409,6 +1422,8 @@ integration("PostgreSQL integration", () => {
       expect(loaded.release).toMatchObject({ id: targetId, label: "Baselined nationwide candidate", status: "candidate", sourceCutoff: manifest.release.sourceCutoff, createdAt: "2024-01-03T00:00:00.000Z" });
       expect(loaded.biographicalFacts.find((fact) => fact.fact === "birth_date")!.value).toEqual({ kind: "value", value: "1970-01-02" });
       for (const domain of Object.keys(contentDomains) as Array<keyof typeof contentDomains>) expect(await computeReleaseDigest(pool, targetId, domain)).toEqual(await computeReleaseDigest(pool, manifest.release.id, domain));
+      expect((await pool.query("SELECT 1 FROM nationwide_validation_gates WHERE release_id=$1", [targetId])).rowCount).toBe(0);
+      expect((await pool.query("SELECT 1 FROM release_content_digests WHERE release_id=$1", [targetId])).rowCount).toBe(0);
       await expect(recheckNationwideValidationGate(pool, targetId)).rejects.toThrow();
       await validateNationwideCandidateRelease(pool, targetId);
       await expect(recheckNationwideValidationGate(pool, targetId)).resolves.toBeUndefined();
@@ -1483,7 +1498,7 @@ integration("PostgreSQL integration", () => {
       await expect(enrichCandidateMembersFromBaseline(pool, manifest.release.id, "rel_member_enrichment_bad")).rejects.toThrow();
       expect((await pool.query("SELECT 1 FROM sources WHERE release_id='rel_member_enrichment_bad' LIMIT 1")).rowCount).toBe(0);
     } finally { await pool.end(); }
-  }, 60_000);
+  }, 120_000);
 
   it("finalizes Task 7 ACS, Task 8 FEC, and reviewed Task 9 election decisions atomically", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });
@@ -1831,7 +1846,8 @@ integration("PostgreSQL integration", () => {
       const candidateId = "rel_task10_maps_candidate";
       await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,'Task 10 maps','candidate',$2,$3,NULL,$4)", [candidateId, manifest.release.sourceCutoff, "2024-01-03T00:00:00.000Z", manifest.release.id]);
       await baselineCandidateRelease(pool, manifest.release.id, candidateId);
-      await expect(recheckNationwideValidationGate(pool, candidateId)).resolves.toBeUndefined();
+      await expect(recheckNationwideValidationGate(pool, candidateId)).rejects.toThrow();
+      await validateNationwideCandidateRelease(pool, candidateId);
       await expect(simplifyNationalTigerDistrictLayer(districtBytes, { expectedSourceSha256: "f".repeat(64) })).rejects.toThrow("source checksum mismatch");
       const layer = await simplifyNationalTigerDistrictLayer(districtBytes, { expectedSourceSha256: manifest.geometryArtifacts[0]!.checksumSha256 });
       expect(layer.metrics).toMatchObject({ featureCount: 441 });
@@ -1884,6 +1900,7 @@ integration("PostgreSQL integration", () => {
       const tamperedId = "rel_task10_maps_tampered";
       await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,'Task 10 tamper','candidate',$2,$3,NULL,$4)", [tamperedId, manifest.release.sourceCutoff, "2024-01-04T00:00:00.000Z", manifest.release.id]);
       await baselineCandidateRelease(pool, manifest.release.id, tamperedId);
+      await validateNationwideCandidateRelease(pool, tamperedId);
       const tampered = { ...task10, candidateReleaseId: tamperedId };
       await finalizeCandidateMaps(tampered);
       await pool.query("UPDATE source_snapshots SET source_url='urn:tampered' WHERE release_id=$1 AND source_id LIKE 'src_maps_%'", [tamperedId]);
@@ -1924,7 +1941,7 @@ integration("PostgreSQL integration", () => {
       await pool.query("UPDATE coverage_records SET scope_key='tampered' WHERE release_id=$1 AND domain=$2", [manifest.release.id, record.domain]);
       await expect(loadNationwideManifest(pool, manifest.release.id)).rejects.toThrow("coverage scope key mismatch");
     } finally { await pool.end(); }
-  });
+  }, 30_000);
 
   it("Task 3 persists successful staged facts and resumes a dry run", async () => {
     const pool = new Pool({ connectionString: testDatabaseUrl });

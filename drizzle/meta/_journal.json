@@ -134,6 +134,27 @@
       "when": 1790000000000,
       "tag": "0018_office_universe_pilot_readiness",
       "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1787702400000,
+      "tag": "0019_fec_v2_acquisition_invalidation",
+      "breakpoints": true
+    },
+    {
+      "idx": 20,
+      "version": "7",
+      "when": 1787781584135,
+      "tag": "0020_launch_attestation_proof_kinds",
+      "breakpoints": true
+    },
+    {
+      "idx": 21,
+      "version": "7",
+      "when": 1787791587213,
+      "tag": "0021_sour_deathstrike",
+      "breakpoints": true
     }
   ]
 }
