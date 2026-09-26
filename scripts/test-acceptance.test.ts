@@ -31,7 +31,7 @@ describe("acceptance harness", () => {
   });
   it("runs the pinned lane order with lane-specific environments", () => {
     expect(acceptanceCommands.map(({ lane, command, args }) => `${lane}: ${command} ${args.join(" ")}`)).toEqual([
-      "integration: npm run db:migrate", "integration: npm run test:integration", "integration: npm run test:run -- --exclude src/db/integration.test.ts --maxWorkers=1 --no-file-parallelism --pool=forks --execArgv=--max-old-space-size=3072", "query: npm run db:migrate", "query: npm run measure:task5-queries", "browser: npm run test:e2e:task13", "static: npm run typecheck", "static: npm run lint", "static: npm run build", "static: npm run data:verify", "static: npm audit --audit-level=low", "static: docker compose config -q", "static: npm run db:generate", "static: git diff --exit-code -- drizzle",
+      "integration: npm run db:migrate", "integration: npm run test:integration", "integration: npm run test:run -- --exclude src/db/integration.test.ts --maxWorkers=1 --no-file-parallelism --pool=forks --execArgv=--max-old-space-size=2560", "query: npm run db:migrate", "query: npm run measure:task5-queries", "browser: npm run test:e2e:task13", "static: npm run typecheck", "static: npm run lint", "static: npm run build", "static: npm run data:verify", "static: npm audit --audit-level=low", "static: docker compose config -q", "static: npm run db:generate", "static: git diff --exit-code -- drizzle",
     ]);
     const environments = new Map<string, NodeJS.ProcessEnv>();
     vi.spyOn(process.stdout, "write").mockImplementation(() => true);
