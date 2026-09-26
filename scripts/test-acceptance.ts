@@ -54,7 +54,7 @@ export function assertAcceptanceEnvironment(env: Readonly<Record<string, string 
 export const acceptanceCommands: readonly AcceptanceCommand[] = [
   { lane: "integration", command: "npm", args: ["run", "db:migrate"] },
   { lane: "integration", command: "npm", args: ["run", "test:integration"] },
-  { lane: "integration", command: "npm", args: ["run", "test:run", "--", "--exclude", "src/db/integration.test.ts", "--maxWorkers=1", "--no-file-parallelism", "--pool=forks", "--execArgv=--max-old-space-size=3072"] },
+  { lane: "integration", command: "npm", args: ["run", "test:run", "--", "--exclude", "src/db/integration.test.ts", "--maxWorkers=1", "--no-file-parallelism", "--pool=forks", "--execArgv=--max-old-space-size=2560"] },
   { lane: "query", command: "npm", args: ["run", "db:migrate"] },
   { lane: "query", command: "npm", args: ["run", "measure:task5-queries"] },
   { lane: "browser", command: "npm", args: ["run", "test:e2e:task13"] },
