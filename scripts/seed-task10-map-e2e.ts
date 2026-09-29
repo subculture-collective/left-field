@@ -111,6 +111,8 @@ async function main(): Promise<void> {
     await promoteCandidateRelease(pool, SOURCE_RELEASE);
     await pool.query("INSERT INTO data_releases(id,label,status,source_cutoff,created_at,published_at,previous_release_id) VALUES($1,'Synthetic Task10 browser maps','candidate',$2,clock_timestamp(),NULL,$3)", [MAP_RELEASE, manifest.release.sourceCutoff, SOURCE_RELEASE]);
     await baselineCandidateRelease(pool, SOURCE_RELEASE, MAP_RELEASE);
+    // Baselining clears the candidate gate and digests; validation restores them before maps are finalized.
+    await validateNationwideCandidateRelease(pool, MAP_RELEASE);
     const layer = await simplifyNationalTigerDistrictLayer(districtBytes, { expectedSourceSha256: manifest.geometryArtifacts[0]!.checksumSha256 });
     await finalizeCandidateMaps({ pool, store: new LocalMapArtifactStore(mapRoot), candidateReleaseId: MAP_RELEASE, sourceReleaseId: SOURCE_RELEASE, layer });
     await publishForBrowserOnly(pool);

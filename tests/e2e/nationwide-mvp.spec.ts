@@ -16,18 +16,18 @@ test.beforeEach(() => {
 });
 
 test("browses the seeded nationwide record and public ledger routes", async ({ page }) => {
-  for (const [path, heading] of [["/", "Where the field bends."], [profilePath!, "Synthetic 0"], ["/sources", "Sources & snapshots"], ["/methodology", "How this release is described"]] as const) {
+  for (const [path, heading] of [["/", "Where the field bends."], ["/browse", "Browse the active record"], [profilePath!, "Synthetic 0"], ["/sources", "What we have, and what we do not."], ["/methodology", "How the Priority Index works"]] as const) {
     const response = await navigate(page, path);
     expect(response?.status(), path).toBeLessThan(500);
     await expect(page.getByRole("heading", { name: heading })).toBeVisible();
-    if (path === "/" || path === "/sources") await expect(page.getByRole("region", { name: /Scroll horizontally to view all columns/ }).first()).toBeVisible();
+    if (path === "/browse") await expect(page.getByRole("region", { name: /Scroll horizontally to view all columns/ }).first()).toBeVisible();
   }
 });
 
 test("shows empty, invalid, and missing-record states without server failures", async ({ page }) => {
-  await navigate(page, "/?stateCode=ZZ");
+  await navigate(page, "/browse?stateCode=ZZ");
   await expect(page.getByRole("heading", { name: "No records match these factual filters." })).toBeVisible();
-  await navigate(page, "/?stateCode=not-a-state");
+  await navigate(page, "/browse?stateCode=not-a-state");
   await expect(page.getByRole("heading", { name: "Request not available" })).toBeVisible();
   await navigate(page, "/seats/seat_missing");
   await expect(page.getByRole("heading", { name: "Seat not in this release" })).toBeVisible();
@@ -41,8 +41,7 @@ test("keeps default address lookup disabled and exposes the correction entry poi
   await expect(page.getByLabel("Street address")).toHaveCount(0);
   expect(addressRequests).toEqual([]);
   await navigate(page, "/corrections");
-  await expect(page.getByRole("heading", { name: "Submit a correction" })).toBeVisible();
-  await expect(page.getByRole("heading", { name: "Correction form unavailable" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Corrections are not enabled here" })).toBeVisible();
 });
 
 test("renders the seeded map and keyboard-accessible profile tables", async ({ page }) => {
@@ -59,7 +58,7 @@ test("renders the seeded map and keyboard-accessible profile tables", async ({ p
 });
 
 test("@a11y has no detectable WCAG A/AA violations across nationwide routes", async ({ page }) => {
-  for (const path of ["/", "/sources", "/methodology", "/lookup", profilePath!]) {
+  for (const path of ["/", "/browse", "/sources", "/methodology", "/lookup", profilePath!]) {
     await navigate(page, path);
     const results = await new AxeBuilder({ page }).withTags(["wcag2a", "wcag2aa", "wcag21a", "wcag21aa", "wcag22aa"]).analyze();
     expect(results.violations, path).toEqual([]);

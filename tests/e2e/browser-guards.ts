@@ -9,7 +9,9 @@ export function installBrowserGuards(page: Page): void {
   const diagnostics: BrowserDiagnostics = { consoleErrors: [], failedRequests: [], serverErrors: [] };
   diagnosticsByPage.set(page, diagnostics);
   page.on("console", message => { if (message.type() === "error") diagnostics.consoleErrors.push(message.text()); });
-  page.on("requestfailed", request => diagnostics.failedRequests.push(`${request.method()} ${request.url()}: ${request.failure()?.errorText ?? "failed"}`));
+  // net::ERR_ABORTED is a cancellation by the page itself (an effect cleanup aborting its fetch, or a
+  // navigation replacing the document), not a transport or server failure.
+  page.on("requestfailed", request => { const reason = request.failure()?.errorText ?? "failed"; if (reason !== "net::ERR_ABORTED") diagnostics.failedRequests.push(`${request.method()} ${request.url()}: ${reason}`); });
   page.on("response", response => { if (response.status() >= 500) diagnostics.serverErrors.push(`${response.status()} ${response.url()}`); });
 }
 
