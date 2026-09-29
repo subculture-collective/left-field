@@ -20099,6 +20099,2043 @@
       },
       "isRLSEnabled": false
     },
+    "office_universe.governing_bodies": {
+      "name": "governing_bodies",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "jurisdiction_id": {
+          "name": "jurisdiction_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_natural_key": {
+          "name": "source_natural_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_name": {
+          "name": "source_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "normalized_name": {
+          "name": "normalized_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "selection_method": {
+          "name": "selection_method",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_snapshot_id": {
+          "name": "source_snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "ou_bodies_source_key_uq": {
+          "name": "ou_bodies_source_key_uq",
+          "columns": [
+            {
+              "expression": "source_snapshot_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "source_natural_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "ou_bodies_jurisdiction_idx": {
+          "name": "ou_bodies_jurisdiction_idx",
+          "columns": [
+            {
+              "expression": "jurisdiction_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_bodies_selection_ck": {
+          "name": "ou_bodies_selection_ck",
+          "value": "\"office_universe\".\"governing_bodies\".\"selection_method\" IN ('elected','appointed','ex_officio','mixed','unknown')"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.calculation_runs": {
+      "name": "calculation_runs",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "formula_program_id": {
+          "name": "formula_program_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "formula_version": {
+          "name": "formula_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "workspace": {
+          "name": "workspace",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_cutoff": {
+          "name": "source_cutoff",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "calculated_at": {
+          "name": "calculated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "clock_timestamp()"
+        },
+        "excluded_count": {
+          "name": "excluded_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        },
+        "quarantined_count": {
+          "name": "quarantined_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true,
+          "default": 0
+        }
+      },
+      "indexes": {
+        "ou_calculation_runs_program_cutoff_idx": {
+          "name": "ou_calculation_runs_program_cutoff_idx",
+          "columns": [
+            {
+              "expression": "formula_program_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "source_cutoff",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_calculation_runs_workspace_ck": {
+          "name": "ou_calculation_runs_workspace_ck",
+          "value": "\"office_universe\".\"calculation_runs\".\"workspace\" IN ('provisional','certified')"
+        },
+        "ou_calculation_runs_counts_ck": {
+          "name": "ou_calculation_runs_counts_ck",
+          "value": "\"office_universe\".\"calculation_runs\".\"excluded_count\">=0 AND \"office_universe\".\"calculation_runs\".\"quarantined_count\">=0"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.contests": {
+      "name": "contests",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "office_id": {
+          "name": "office_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "jurisdiction_id": {
+          "name": "jurisdiction_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source_natural_key": {
+          "name": "source_natural_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "election_date": {
+          "name": "election_date",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "round": {
+          "name": "round",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_snapshot_id": {
+          "name": "source_snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "ou_contests_source_key_uq": {
+          "name": "ou_contests_source_key_uq",
+          "columns": [
+            {
+              "expression": "source_snapshot_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "source_natural_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "ou_contests_election_date_idx": {
+          "name": "ou_contests_election_date_idx",
+          "columns": [
+            {
+              "expression": "election_date",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_contests_attribution_ck": {
+          "name": "ou_contests_attribution_ck",
+          "value": "\"office_universe\".\"contests\".\"office_id\" IS NOT NULL OR \"office_universe\".\"contests\".\"jurisdiction_id\" IS NOT NULL"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.coverage": {
+      "name": "coverage",
+      "schema": "office_universe",
+      "columns": {
+        "state_code": {
+          "name": "state_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "office_family": {
+          "name": "office_family",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_family": {
+          "name": "source_family",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "expected_count": {
+          "name": "expected_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "observed_count": {
+          "name": "observed_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "raw_only_count": {
+          "name": "raw_only_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "provisional_count": {
+          "name": "provisional_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "certified_count": {
+          "name": "certified_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quarantined_count": {
+          "name": "quarantined_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "missingness": {
+          "name": "missingness",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "last_successful_refresh_at": {
+          "name": "last_successful_refresh_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "authority_tier": {
+          "name": "authority_tier",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "coverage_state_code_office_family_source_family_pk": {
+          "name": "coverage_state_code_office_family_source_family_pk",
+          "columns": [
+            "state_code",
+            "office_family",
+            "source_family"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_coverage_counts_ck": {
+          "name": "ou_coverage_counts_ck",
+          "value": "\"office_universe\".\"coverage\".\"expected_count\">=0 AND \"office_universe\".\"coverage\".\"observed_count\">=0 AND \"office_universe\".\"coverage\".\"raw_only_count\">=0 AND \"office_universe\".\"coverage\".\"provisional_count\">=0 AND \"office_universe\".\"coverage\".\"certified_count\">=0 AND \"office_universe\".\"coverage\".\"quarantined_count\">=0"
+        },
+        "ou_coverage_status_ck": {
+          "name": "ou_coverage_status_ck",
+          "value": "\"office_universe\".\"coverage\".\"status\" IN ('observed','partial','unavailable','not_collected','catalog_only','quarantined')"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.fact_observations": {
+      "name": "fact_observations",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "office_id": {
+          "name": "office_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "fact_key": {
+          "name": "fact_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "maturity": {
+          "name": "maturity",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "value": {
+          "name": "value",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "missing_reason": {
+          "name": "missing_reason",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "effective_at": {
+          "name": "effective_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source_snapshot_id": {
+          "name": "source_snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "ou_facts_office_key_idx": {
+          "name": "ou_facts_office_key_idx",
+          "columns": [
+            {
+              "expression": "office_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "fact_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "effective_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_facts_presence_ck": {
+          "name": "ou_facts_presence_ck",
+          "value": "(\"office_universe\".\"fact_observations\".\"value\" IS NULL) <> (\"office_universe\".\"fact_observations\".\"missing_reason\" IS NULL)"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.formula_programs": {
+      "name": "formula_programs",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "version": {
+          "name": "version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "workspace": {
+          "name": "workspace",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "required_fact_keys": {
+          "name": "required_fact_keys",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "eligibility": {
+          "name": "eligibility",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "clock_timestamp()"
+        }
+      },
+      "indexes": {
+        "ou_formula_programs_version_uq": {
+          "name": "ou_formula_programs_version_uq",
+          "columns": [
+            {
+              "expression": "id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "version",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_formula_programs_workspace_ck": {
+          "name": "ou_formula_programs_workspace_ck",
+          "value": "\"office_universe\".\"formula_programs\".\"workspace\" IN ('provisional','certified')"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.holder_observations": {
+      "name": "holder_observations",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "office_id": {
+          "name": "office_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "holder_id": {
+          "name": "holder_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "effective_at": {
+          "name": "effective_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_snapshot_id": {
+          "name": "source_snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "supersedes_id": {
+          "name": "supersedes_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "ou_holder_observations_office_effective_idx": {
+          "name": "ou_holder_observations_office_effective_idx",
+          "columns": [
+            {
+              "expression": "office_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "effective_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_holder_observations_status_ck": {
+          "name": "ou_holder_observations_status_ck",
+          "value": "\"office_universe\".\"holder_observations\".\"status\" IN ('holder_pending_transition','current_holder','vacant','unknown','superseded')"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.intake_issues": {
+      "name": "intake_issues",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "raw_payload_id": {
+          "name": "raw_payload_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_natural_key": {
+          "name": "source_natural_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "code": {
+          "name": "code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "diagnostic": {
+          "name": "diagnostic",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "retry_state": {
+          "name": "retry_state",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'pending'"
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "clock_timestamp()"
+        }
+      },
+      "indexes": {
+        "ou_intake_issues_payload_idx": {
+          "name": "ou_intake_issues_payload_idx",
+          "columns": [
+            {
+              "expression": "raw_payload_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_intake_issues_retry_ck": {
+          "name": "ou_intake_issues_retry_ck",
+          "value": "\"office_universe\".\"intake_issues\".\"retry_state\" IN ('pending','retried','resolved','ignored')"
+        },
+        "ou_intake_issues_diagnostic_ck": {
+          "name": "ou_intake_issues_diagnostic_ck",
+          "value": "\"office_universe\".\"intake_issues\".\"diagnostic\" !~* '(address|contributor)'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.intake_runs": {
+      "name": "intake_runs",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "source_definition_id": {
+          "name": "source_definition_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "receipt_id": {
+          "name": "receipt_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "requested_cutoff": {
+          "name": "requested_cutoff",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "'running'"
+        },
+        "started_at": {
+          "name": "started_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "clock_timestamp()"
+        },
+        "finished_at": {
+          "name": "finished_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "ou_intake_runs_source_cutoff_idx": {
+          "name": "ou_intake_runs_source_cutoff_idx",
+          "columns": [
+            {
+              "expression": "source_definition_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "requested_cutoff",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "intake_runs_source_definition_id_source_definitions_id_fk": {
+          "name": "intake_runs_source_definition_id_source_definitions_id_fk",
+          "tableFrom": "intake_runs",
+          "tableTo": "source_definitions",
+          "schemaTo": "office_universe",
+          "columnsFrom": [
+            "source_definition_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        },
+        "intake_runs_receipt_id_retained_object_receipts_id_fk": {
+          "name": "intake_runs_receipt_id_retained_object_receipts_id_fk",
+          "tableFrom": "intake_runs",
+          "tableTo": "retained_object_receipts",
+          "schemaTo": "office_universe",
+          "columnsFrom": [
+            "receipt_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_intake_runs_status_ck": {
+          "name": "ou_intake_runs_status_ck",
+          "value": "\"office_universe\".\"intake_runs\".\"status\" IN ('running','succeeded','failed','cancelled')"
+        },
+        "ou_intake_runs_finished_ck": {
+          "name": "ou_intake_runs_finished_ck",
+          "value": "(\"office_universe\".\"intake_runs\".\"finished_at\" IS NULL OR \"office_universe\".\"intake_runs\".\"finished_at\">=\"office_universe\".\"intake_runs\".\"started_at\") AND ((\"office_universe\".\"intake_runs\".\"status\"='running') = (\"office_universe\".\"intake_runs\".\"finished_at\" IS NULL))"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.intake_snapshots": {
+      "name": "intake_snapshots",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "run_id": {
+          "name": "run_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "disposition": {
+          "name": "disposition",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "row_count": {
+          "name": "row_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "accepted_row_count": {
+          "name": "accepted_row_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "quarantined_row_count": {
+          "name": "quarantined_row_count",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "clock_timestamp()"
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "intake_snapshots_run_id_intake_runs_id_fk": {
+          "name": "intake_snapshots_run_id_intake_runs_id_fk",
+          "tableFrom": "intake_snapshots",
+          "tableTo": "intake_runs",
+          "schemaTo": "office_universe",
+          "columnsFrom": [
+            "run_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "ou_intake_snapshots_run_uq": {
+          "name": "ou_intake_snapshots_run_uq",
+          "nullsNotDistinct": false,
+          "columns": [
+            "run_id"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "ou_intake_snapshots_disposition_ck": {
+          "name": "ou_intake_snapshots_disposition_ck",
+          "value": "\"office_universe\".\"intake_snapshots\".\"disposition\" IN ('accepted','accepted_with_row_quarantine','quarantined')"
+        },
+        "ou_intake_snapshots_counts_ck": {
+          "name": "ou_intake_snapshots_counts_ck",
+          "value": "\"office_universe\".\"intake_snapshots\".\"row_count\">=0 AND \"office_universe\".\"intake_snapshots\".\"accepted_row_count\">=0 AND \"office_universe\".\"intake_snapshots\".\"quarantined_row_count\">=0 AND \"office_universe\".\"intake_snapshots\".\"accepted_row_count\"+\"office_universe\".\"intake_snapshots\".\"quarantined_row_count\"=\"office_universe\".\"intake_snapshots\".\"row_count\" AND (\"office_universe\".\"intake_snapshots\".\"disposition\"<>'quarantined' OR \"office_universe\".\"intake_snapshots\".\"accepted_row_count\"=0) AND (\"office_universe\".\"intake_snapshots\".\"disposition\"<>'accepted' OR \"office_universe\".\"intake_snapshots\".\"quarantined_row_count\"=0)"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.jurisdictions": {
+      "name": "jurisdictions",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "parent_jurisdiction_id": {
+          "name": "parent_jurisdiction_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "state_code": {
+          "name": "state_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_natural_key": {
+          "name": "source_natural_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_name": {
+          "name": "source_name",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "effective_from": {
+          "name": "effective_from",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "effective_to": {
+          "name": "effective_to",
+          "type": "date",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source_snapshot_id": {
+          "name": "source_snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "ou_jurisdictions_source_key_uq": {
+          "name": "ou_jurisdictions_source_key_uq",
+          "columns": [
+            {
+              "expression": "source_snapshot_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "source_natural_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "ou_jurisdictions_parent_idx": {
+          "name": "ou_jurisdictions_parent_idx",
+          "columns": [
+            {
+              "expression": "parent_jurisdiction_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_jurisdictions_self_parent_ck": {
+          "name": "ou_jurisdictions_self_parent_ck",
+          "value": "\"office_universe\".\"jurisdictions\".\"parent_jurisdiction_id\" IS NULL OR \"office_universe\".\"jurisdictions\".\"parent_jurisdiction_id\"<>\"office_universe\".\"jurisdictions\".\"id\""
+        },
+        "ou_jurisdictions_range_ck": {
+          "name": "ou_jurisdictions_range_ck",
+          "value": "\"office_universe\".\"jurisdictions\".\"effective_to\" IS NULL OR \"office_universe\".\"jurisdictions\".\"effective_from\" IS NULL OR \"office_universe\".\"jurisdictions\".\"effective_to\">=\"office_universe\".\"jurisdictions\".\"effective_from\""
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.offices": {
+      "name": "offices",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "jurisdiction_id": {
+          "name": "jurisdiction_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "governing_body_id": {
+          "name": "governing_body_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "catalog_scope": {
+          "name": "catalog_scope",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "level": {
+          "name": "level",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "office_family": {
+          "name": "office_family",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_natural_key": {
+          "name": "source_natural_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_native_title": {
+          "name": "source_native_title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "normalized_title": {
+          "name": "normalized_title",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "selection_method": {
+          "name": "selection_method",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "partisan_status": {
+          "name": "partisan_status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "election_method": {
+          "name": "election_method",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "district_magnitude": {
+          "name": "district_magnitude",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source_snapshot_id": {
+          "name": "source_snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "ou_offices_source_key_uq": {
+          "name": "ou_offices_source_key_uq",
+          "columns": [
+            {
+              "expression": "source_snapshot_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "source_natural_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "ou_offices_jurisdiction_idx": {
+          "name": "ou_offices_jurisdiction_idx",
+          "columns": [
+            {
+              "expression": "jurisdiction_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_offices_magnitude_ck": {
+          "name": "ou_offices_magnitude_ck",
+          "value": "\"office_universe\".\"offices\".\"district_magnitude\" IS NULL OR \"office_universe\".\"offices\".\"district_magnitude\">0"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.raw_payloads": {
+      "name": "raw_payloads",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "source_key": {
+          "name": "source_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "snapshot_id": {
+          "name": "snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "payload_sha256": {
+          "name": "payload_sha256",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "payload_locator": {
+          "name": "payload_locator",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_natural_key": {
+          "name": "source_natural_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "kind": {
+          "name": "kind",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "observed_at": {
+          "name": "observed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "received_at": {
+          "name": "received_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "clock_timestamp()"
+        },
+        "disposition": {
+          "name": "disposition",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "payload": {
+          "name": "payload",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "ou_raw_payloads_receipt_uq": {
+          "name": "ou_raw_payloads_receipt_uq",
+          "columns": [
+            {
+              "expression": "source_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "snapshot_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "payload_sha256",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "source_natural_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "kind",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "ou_raw_payloads_source_observed_idx": {
+          "name": "ou_raw_payloads_source_observed_idx",
+          "columns": [
+            {
+              "expression": "source_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "observed_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_raw_payloads_sha_ck": {
+          "name": "ou_raw_payloads_sha_ck",
+          "value": "\"office_universe\".\"raw_payloads\".\"payload_sha256\" ~ '^[a-f0-9]{64}$'"
+        },
+        "ou_raw_payloads_locator_ck": {
+          "name": "ou_raw_payloads_locator_ck",
+          "value": "\"office_universe\".\"raw_payloads\".\"payload_locator\" !~ '^/' AND \"office_universe\".\"raw_payloads\".\"payload_locator\" !~ '\\\\' AND \"office_universe\".\"raw_payloads\".\"payload_locator\" !~ '(^|/)\\.\\.?(/|$)'"
+        },
+        "ou_raw_payloads_kind_ck": {
+          "name": "ou_raw_payloads_kind_ck",
+          "value": "\"office_universe\".\"raw_payloads\".\"kind\" IN ('jurisdiction','body','office','term','holder','contest','result','filing','calendar','finance','geography')"
+        },
+        "ou_raw_payloads_disposition_ck": {
+          "name": "ou_raw_payloads_disposition_ck",
+          "value": "\"office_universe\".\"raw_payloads\".\"disposition\" IN ('accepted','quarantined')"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.result_observations": {
+      "name": "result_observations",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "contest_id": {
+          "name": "contest_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_natural_key": {
+          "name": "source_natural_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "observed_at": {
+          "name": "observed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "maturity": {
+          "name": "maturity",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "winner_candidate_key": {
+          "name": "winner_candidate_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reporting_completeness_percent": {
+          "name": "reporting_completeness_percent",
+          "type": "numeric",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "source_snapshot_id": {
+          "name": "source_snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "supersedes_id": {
+          "name": "supersedes_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {
+        "ou_result_observations_contest_observed_idx": {
+          "name": "ou_result_observations_contest_observed_idx",
+          "columns": [
+            {
+              "expression": "contest_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "observed_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_result_observations_maturity_ck": {
+          "name": "ou_result_observations_maturity_ck",
+          "value": "\"office_universe\".\"result_observations\".\"maturity\" IN ('raw','normalized','reported_result','provisional_winner','certified_winner','superseded')"
+        },
+        "ou_result_observations_percent_ck": {
+          "name": "ou_result_observations_percent_ck",
+          "value": "\"office_universe\".\"result_observations\".\"reporting_completeness_percent\" IS NULL OR (\"office_universe\".\"result_observations\".\"reporting_completeness_percent\">=0 AND \"office_universe\".\"result_observations\".\"reporting_completeness_percent\"<=100)"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.retained_object_receipts": {
+      "name": "retained_object_receipts",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "source_definition_id": {
+          "name": "source_definition_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "locator": {
+          "name": "locator",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "byte_size": {
+          "name": "byte_size",
+          "type": "bigint",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "sha256": {
+          "name": "sha256",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "retrieved_at": {
+          "name": "retrieved_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "final_url": {
+          "name": "final_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "parser_version": {
+          "name": "parser_version",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "clock_timestamp()"
+        }
+      },
+      "indexes": {
+        "ou_retained_object_receipts_source_idx": {
+          "name": "ou_retained_object_receipts_source_idx",
+          "columns": [
+            {
+              "expression": "source_definition_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "retrieved_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "retained_object_receipts_source_definition_id_source_definitions_id_fk": {
+          "name": "retained_object_receipts_source_definition_id_source_definitions_id_fk",
+          "tableFrom": "retained_object_receipts",
+          "tableTo": "source_definitions",
+          "schemaTo": "office_universe",
+          "columnsFrom": [
+            "source_definition_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "ou_retained_object_receipts_uq": {
+          "name": "ou_retained_object_receipts_uq",
+          "nullsNotDistinct": false,
+          "columns": [
+            "source_definition_id",
+            "locator",
+            "sha256"
+          ]
+        }
+      },
+      "policies": {},
+      "checkConstraints": {
+        "ou_retained_object_receipts_locator_ck": {
+          "name": "ou_retained_object_receipts_locator_ck",
+          "value": "\"office_universe\".\"retained_object_receipts\".\"locator\" !~ '^/' AND \"office_universe\".\"retained_object_receipts\".\"locator\" !~ '\\' AND \"office_universe\".\"retained_object_receipts\".\"locator\" !~ '(^|/)..?(/|$)'"
+        },
+        "ou_retained_object_receipts_size_ck": {
+          "name": "ou_retained_object_receipts_size_ck",
+          "value": "\"office_universe\".\"retained_object_receipts\".\"byte_size\">=0"
+        },
+        "ou_retained_object_receipts_sha_ck": {
+          "name": "ou_retained_object_receipts_sha_ck",
+          "value": "\"office_universe\".\"retained_object_receipts\".\"sha256\" ~ '^[a-f0-9]{64}$'"
+        },
+        "ou_retained_object_receipts_url_ck": {
+          "name": "ou_retained_object_receipts_url_ck",
+          "value": "\"office_universe\".\"retained_object_receipts\".\"final_url\" ~ '^https://'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.snapshot_issues": {
+      "name": "snapshot_issues",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "snapshot_id": {
+          "name": "snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "code": {
+          "name": "code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "diagnostic": {
+          "name": "diagnostic",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "systemic": {
+          "name": "systemic",
+          "type": "boolean",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "clock_timestamp()"
+        }
+      },
+      "indexes": {
+        "ou_snapshot_issues_snapshot_idx": {
+          "name": "ou_snapshot_issues_snapshot_idx",
+          "columns": [
+            {
+              "expression": "snapshot_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "systemic",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {
+        "snapshot_issues_snapshot_id_intake_snapshots_id_fk": {
+          "name": "snapshot_issues_snapshot_id_intake_snapshots_id_fk",
+          "tableFrom": "snapshot_issues",
+          "tableTo": "intake_snapshots",
+          "schemaTo": "office_universe",
+          "columnsFrom": [
+            "snapshot_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_snapshot_issues_code_ck": {
+          "name": "ou_snapshot_issues_code_ck",
+          "value": "length(\"office_universe\".\"snapshot_issues\".\"code\")>0"
+        },
+        "ou_snapshot_issues_diagnostic_ck": {
+          "name": "ou_snapshot_issues_diagnostic_ck",
+          "value": "\"office_universe\".\"snapshot_issues\".\"diagnostic\" !~* '(address|contributor)'"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.source_definitions": {
+      "name": "source_definitions",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "state_code": {
+          "name": "state_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "family": {
+          "name": "family",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_key": {
+          "name": "source_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "authority_tier": {
+          "name": "authority_tier",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "authority_scope": {
+          "name": "authority_scope",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "precedence": {
+          "name": "precedence",
+          "type": "integer",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_url": {
+          "name": "source_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "retention_basis": {
+          "name": "retention_basis",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "allowed_kinds": {
+          "name": "allowed_kinds",
+          "type": "jsonb",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "privacy_policy": {
+          "name": "privacy_policy",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "reviewed_by": {
+          "name": "reviewed_by",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "reviewed_at": {
+          "name": "reviewed_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "clock_timestamp()"
+        }
+      },
+      "indexes": {
+        "ou_source_definitions_key_uq": {
+          "name": "ou_source_definitions_key_uq",
+          "columns": [
+            {
+              "expression": "source_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        },
+        "ou_source_definitions_state_family_idx": {
+          "name": "ou_source_definitions_state_family_idx",
+          "columns": [
+            {
+              "expression": "state_code",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "family",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "precedence",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_source_definitions_state_ck": {
+          "name": "ou_source_definitions_state_ck",
+          "value": "\"office_universe\".\"source_definitions\".\"state_code\" ~ '^[A-Z]{2}$'"
+        },
+        "ou_source_definitions_family_ck": {
+          "name": "ou_source_definitions_family_ck",
+          "value": "\"office_universe\".\"source_definitions\".\"family\" IN ('discovery','elections','finance','geography','officeholders')"
+        },
+        "ou_source_definitions_tier_ck": {
+          "name": "ou_source_definitions_tier_ck",
+          "value": "\"office_universe\".\"source_definitions\".\"authority_tier\" IN ('official','aggregator')"
+        },
+        "ou_source_definitions_scope_ck": {
+          "name": "ou_source_definitions_scope_ck",
+          "value": "jsonb_typeof(\"office_universe\".\"source_definitions\".\"authority_scope\")='array' AND jsonb_array_length(\"office_universe\".\"source_definitions\".\"authority_scope\")>0"
+        },
+        "ou_source_definitions_precedence_ck": {
+          "name": "ou_source_definitions_precedence_ck",
+          "value": "\"office_universe\".\"source_definitions\".\"precedence\">0"
+        },
+        "ou_source_definitions_url_ck": {
+          "name": "ou_source_definitions_url_ck",
+          "value": "\"office_universe\".\"source_definitions\".\"source_url\" ~ '^https://'"
+        },
+        "ou_source_definitions_kinds_ck": {
+          "name": "ou_source_definitions_kinds_ck",
+          "value": "jsonb_typeof(\"office_universe\".\"source_definitions\".\"allowed_kinds\")='array' AND jsonb_array_length(\"office_universe\".\"source_definitions\".\"allowed_kinds\")>0"
+        },
+        "ou_source_definitions_privacy_ck": {
+          "name": "ou_source_definitions_privacy_ck",
+          "value": "\"office_universe\".\"source_definitions\".\"privacy_policy\" IN ('public_office_only','finance_allowlist')"
+        },
+        "ou_source_definitions_status_ck": {
+          "name": "ou_source_definitions_status_ck",
+          "value": "\"office_universe\".\"source_definitions\".\"status\" IN ('draft','reviewed','rejected','retired')"
+        },
+        "ou_source_definitions_review_ck": {
+          "name": "ou_source_definitions_review_ck",
+          "value": "(\"office_universe\".\"source_definitions\".\"status\" IN ('reviewed','rejected','retired')) = (\"office_universe\".\"source_definitions\".\"reviewed_by\" IS NOT NULL AND \"office_universe\".\"source_definitions\".\"reviewed_at\" IS NOT NULL)"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.source_registrations": {
+      "name": "source_registrations",
+      "schema": "office_universe",
+      "columns": {
+        "state_code": {
+          "name": "state_code",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "family": {
+          "name": "family",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_key": {
+          "name": "source_key",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "authority_tier": {
+          "name": "authority_tier",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "status": {
+          "name": "status",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_url": {
+          "name": "source_url",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "refresh_profile": {
+          "name": "refresh_profile",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "updated_at": {
+          "name": "updated_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": true,
+          "default": "clock_timestamp()"
+        }
+      },
+      "indexes": {
+        "ou_source_registrations_key_uq": {
+          "name": "ou_source_registrations_key_uq",
+          "columns": [
+            {
+              "expression": "source_key",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": true,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {
+        "source_registrations_state_code_family_pk": {
+          "name": "source_registrations_state_code_family_pk",
+          "columns": [
+            "state_code",
+            "family"
+          ]
+        }
+      },
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_source_registrations_state_ck": {
+          "name": "ou_source_registrations_state_ck",
+          "value": "\"office_universe\".\"source_registrations\".\"state_code\" ~ '^[A-Z]{2}$'"
+        },
+        "ou_source_registrations_family_ck": {
+          "name": "ou_source_registrations_family_ck",
+          "value": "\"office_universe\".\"source_registrations\".\"family\" IN ('discovery','elections','finance','geography','officeholders')"
+        },
+        "ou_source_registrations_status_ck": {
+          "name": "ou_source_registrations_status_ck",
+          "value": "\"office_universe\".\"source_registrations\".\"status\" IN ('configured','authority_unavailable','contract_pending')"
+        }
+      },
+      "isRLSEnabled": false
+    },
+    "office_universe.terms": {
+      "name": "terms",
+      "schema": "office_universe",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "text",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "office_id": {
+          "name": "office_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "starts_at": {
+          "name": "starts_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "ends_at": {
+          "name": "ends_at",
+          "type": "timestamp with time zone",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "selection_method": {
+          "name": "selection_method",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        },
+        "source_snapshot_id": {
+          "name": "source_snapshot_id",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": true
+        }
+      },
+      "indexes": {
+        "ou_terms_office_idx": {
+          "name": "ou_terms_office_idx",
+          "columns": [
+            {
+              "expression": "office_id",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            },
+            {
+              "expression": "starts_at",
+              "isExpression": false,
+              "asc": true,
+              "nulls": "last"
+            }
+          ],
+          "isUnique": false,
+          "concurrently": false,
+          "method": "btree",
+          "with": {}
+        }
+      },
+      "foreignKeys": {},
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {},
+      "policies": {},
+      "checkConstraints": {
+        "ou_terms_range_ck": {
+          "name": "ou_terms_range_ck",
+          "value": "\"office_universe\".\"terms\".\"ends_at\" IS NULL OR \"office_universe\".\"terms\".\"starts_at\" IS NULL OR \"office_universe\".\"terms\".\"ends_at\">\"office_universe\".\"terms\".\"starts_at\""
+        }
+      },
+      "isRLSEnabled": false
+    },
     "public.vacancy_reviews": {
       "name": "vacancy_reviews",
       "schema": "",
@@ -20288,6 +22325,7 @@
     }
   },
   "schemas": {
+    "office_universe": "office_universe",
     "operations": "operations"
   },
   "sequences": {},
