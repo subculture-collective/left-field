@@ -1,4 +1,5 @@
 import "@testing-library/jest-dom/vitest";
+import { expect } from "vitest";
 
 // Vitest compares typed arrays element by element and formats a diff on
 // mismatch. Several tests compare retained multi-megabyte Buffers with

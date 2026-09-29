@@ -19,23 +19,23 @@
     "closureSqlSha256": "51169c6c7efa9a89f0de3cf69f2c2d68e8155415e69c357737983d6f5b792c0c"
   },
   "statementCounts": {
-    "getSeatProfile": 10
+    "getSeatProfile": 11
   },
   "closureSeedCount": 1,
-  "generatedAt": "2026-07-22T01:02:07.068Z",
+  "generatedAt": "2026-09-29T19:24:08.493Z",
   "postgresVersion": "16.4 (Debian 16.4-1.pgdg110+2)",
   "resultLimits": {
     "browseRootRows": 51,
     "denseProfileFacts": 5200
   },
   "fullProfileWarm": {
-    "p95Ms": 108.7838910000064,
+    "p95Ms": 110.9851639999979,
     "repetitions": 10
   },
   "plans": {
     "state-asc": {
-      "planningMs": 3.82,
-      "executionMs": 190.035,
+      "planningMs": 3.851,
+      "executionMs": 195.509,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -1026,11 +1026,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "54a927b774f7129557a53db48ec3de891ecccc8c51e91048491c817a0fad4037"
+      "sha256": "6ad470d6c9bbe6b97f6a5720be3306a1f7fdbf2fcafbe9f3a37313e24746be81"
     },
     "state-desc": {
-      "planningMs": 3.526,
-      "executionMs": 196.277,
+      "planningMs": 3.736,
+      "executionMs": 187.982,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -2021,11 +2021,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "9f23767ffb857419bd3c52f85935a810e26477f9fc50aa829993537e1d230d38"
+      "sha256": "b7c6a43256038f10effc44a792a53683eceb225be040431bf504a53c4d2afcb3"
     },
     "district-asc": {
-      "planningMs": 3.956,
-      "executionMs": 204.058,
+      "planningMs": 4.109,
+      "executionMs": 186.333,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -3016,11 +3016,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "238fee1759363b91c1b8d63531af46a290dc2780f35cbec8a16e0e29eaea694a"
+      "sha256": "2c63ab18d11a84c824fc5d9e4b872db4ea35677e66beebe5079aa085e223a58e"
     },
     "district-desc": {
-      "planningMs": 4.205,
-      "executionMs": 204.304,
+      "planningMs": 3.83,
+      "executionMs": 203.179,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -4011,11 +4011,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "65064535c0aeb8e36dfd5dceb56089ab148161a14a5929b326d01d09e87dbf7b"
+      "sha256": "a91d04b580227a30f4c304c88b0013059364a2ec91165c2f3f106d9dc24c8027"
     },
     "incumbent_name-asc": {
-      "planningMs": 3.617,
-      "executionMs": 203.146,
+      "planningMs": 3.714,
+      "executionMs": 198.102,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -5006,11 +5006,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "267d7bdfbecea9be74c5207c76599e352cd3e66aec6fc1aa96a9cd729450d2ce"
+      "sha256": "34e4e510256ec4f144d96d850c574064e6810b5cb8fd4104db07b676ea46bdd2"
     },
     "incumbent_name-desc": {
-      "planningMs": 4.058,
-      "executionMs": 224.247,
+      "planningMs": 3.85,
+      "executionMs": 190.461,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -6001,11 +6001,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "f406a99015badfd764d77efa6107e8ca470b51f05b33be353f333ecf42ceb59c"
+      "sha256": "5bceca03832e271109d2d760063967abc35b307652e274a4c205a1ca61f00e36"
     },
     "election_year-asc": {
-      "planningMs": 3.744,
-      "executionMs": 194.286,
+      "planningMs": 3.872,
+      "executionMs": 202.012,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -6996,11 +6996,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "422ad4f9ebccfe54a831191159bfc7717f0323cb777c447ccc0b848959d56039"
+      "sha256": "242cbf0643760f8531bb76b020a43a20b712fdce4d86db53f59227f07bd17d2d"
     },
     "election_year-desc": {
-      "planningMs": 3.603,
-      "executionMs": 192.579,
+      "planningMs": 3.716,
+      "executionMs": 202.289,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -7991,11 +7991,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "b6a63c6c339428756614b58cd0d404ff4515b202979000b5a186ac3e44cf33cf"
+      "sha256": "6c805564712dde970966544a0e6bba7cbf0ec9d24871edf9e5818a77ffa4812b"
     },
     "cash_on_hand-asc": {
-      "planningMs": 4.235,
-      "executionMs": 207.092,
+      "planningMs": 3.599,
+      "executionMs": 205.934,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -8986,11 +8986,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "1246b2d16aafa3db21a0a6487d81f6eaaa99b0af5e125598c9cdd5fc958cba69"
+      "sha256": "51f775d7e81332414de4f54ffdf35135a5b1c20ad5028d6beadd2b8b5da8acf2"
     },
     "cash_on_hand-desc": {
-      "planningMs": 3.801,
-      "executionMs": 200.981,
+      "planningMs": 3.725,
+      "executionMs": 198.197,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -9981,11 +9981,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "b03823cba51d9aff2c69d5144774272d8ba88095dd0992da4573a7089a795f20"
+      "sha256": "40a0e738b0436d767c921872158d5d2d76385fd80d3f63c7d3c37c9e87c25aab"
     },
     "presidential_margin_2024-asc": {
-      "planningMs": 4.275,
-      "executionMs": 212.929,
+      "planningMs": 4.877,
+      "executionMs": 195.451,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -10976,11 +10976,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "791803891a8b4fe671c38ac2d2ebef2cf141035dffcea0de455e4d4d432b7b68"
+      "sha256": "e66eec7ac742bce4e6f23d4292d19ada42eb4f4fb4b290bfd88e72b9378e341d"
     },
     "presidential_margin_2024-desc": {
-      "planningMs": 3.569,
-      "executionMs": 200.021,
+      "planningMs": 3.969,
+      "executionMs": 216.892,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -11971,11 +11971,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "d347c95c557741bc634b95432be3456f122f92b8b852226cd64b4f88e6edd02e"
+      "sha256": "2ec08d5c979158e5a134523ed84b5e4ed4fc8e923467deea3485005e8cdb98fd"
     },
     "next-cursor": {
-      "planningMs": 3.669,
-      "executionMs": 203.743,
+      "planningMs": 4.227,
+      "executionMs": 208.23,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -12967,11 +12967,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "c5043f76d18967bbfb5dbd283978340dc74e25c4e4526a2e45d92feaf5db3a04"
+      "sha256": "beb2de1f8efd5ba48dba4b9a72c31e036dba6eebea6b3e3ba5b981968728f7c4"
     },
     "chamber": {
-      "planningMs": 3.704,
-      "executionMs": 176.12,
+      "planningMs": 4.25,
+      "executionMs": 179.937,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -13962,11 +13962,11 @@
         "sharedHit": 570175,
         "sharedRead": 0
       },
-      "sha256": "91a08079b87828781567dda9bef9a50ab6b7fc7814122e95e35a690c68112b5b"
+      "sha256": "38c97b813d4ff61b9330f64196557305859272918df5f9f606ed6a97c799c98e"
     },
     "state": {
-      "planningMs": 3.571,
-      "executionMs": 13.275,
+      "planningMs": 3.949,
+      "executionMs": 13.518,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -14958,11 +14958,11 @@
         "sharedHit": 71528,
         "sharedRead": 0
       },
-      "sha256": "86258d5aae3b74cc3cd78ec9b5bfc0d3c8832b81cc7bb0a864909c204720489d"
+      "sha256": "6f09782e125310cc91eb542ccdc37ffe1af392a703f86ccfc2307fc5c2e3e0ea"
     },
     "party": {
-      "planningMs": 5.309,
-      "executionMs": 194.287,
+      "planningMs": 5.4,
+      "executionMs": 195.169,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -15960,11 +15960,11 @@
         "sharedHit": 702515,
         "sharedRead": 0
       },
-      "sha256": "8b62d76b63bb365fb219baceac9dd317d1aa95a3f0920f15672e18a4ec78d3c7"
+      "sha256": "85a6dd318fca58ec756fd43ed8dfd261cbfaa0872a670946673102ace5f75193"
     },
     "incumbency": {
-      "planningMs": 3.659,
-      "executionMs": 203.514,
+      "planningMs": 3.971,
+      "executionMs": 201.5,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -16955,11 +16955,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "9aef9831732bb1946dc5676a0a347b162345938e197feb214b3d3796e37e56ef"
+      "sha256": "2bc5e10c7253b58722692675b339fca46374e7b7e4fb2a0e202c6655679f6490"
     },
     "electionYear": {
-      "planningMs": 3.522,
-      "executionMs": 200.786,
+      "planningMs": 4.961,
+      "executionMs": 200.801,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 51,
@@ -17950,11 +17950,11 @@
         "sharedHit": 699269,
         "sharedRead": 0
       },
-      "sha256": "303ea67928890750734221133e8cf537cacbbe72ebd7aba6d81e98fedb028629"
+      "sha256": "67991ebf53a96dd1d88ff120e8e05aeb83d415d781e07554526d143e97c2e01b"
     },
     "literalIdentity": {
-      "planningMs": 3.533,
-      "executionMs": 3.703,
+      "planningMs": 4.2,
+      "executionMs": 3.892,
       "maxPlanRows": 541,
       "maxActualRows": 541,
       "rootActualRows": 1,
@@ -18946,11 +18946,11 @@
         "sharedHit": 36536,
         "sharedRead": 0
       },
-      "sha256": "9b7841f6af554cb4d4021d6f5b250e8d9e8e47801996edf2f5781dbf51525482"
+      "sha256": "89b15ac92e9779524aae5238ca9e924cf9e96a921106e5dbb528efaacde8fe8a"
     },
     "dense-profile": {
-      "planningMs": 2.641,
-      "executionMs": 65.883,
+      "planningMs": 2.716,
+      "executionMs": 68.188,
       "maxPlanRows": 3262,
       "maxActualRows": 5176,
       "rootActualRows": 1,
@@ -19794,11 +19794,11 @@
         "sharedHit": 18072,
         "sharedRead": 0
       },
-      "sha256": "40f6645af51c8a07eb53f8ccbf85bffe67f141cd5862b4385bac43bdc1ff1f01"
+      "sha256": "3bbe4676baf9cd6da58b6e50df5f073d12205d15ec980c9148105eb0b9a836fc"
     },
     "dense-closure": {
-      "planningMs": 0.168,
-      "executionMs": 0.063,
+      "planningMs": 0.19,
+      "executionMs": 0.071,
       "maxPlanRows": 11,
       "maxActualRows": 2,
       "rootActualRows": 1,
@@ -19911,92 +19911,92 @@
         "sharedHit": 16,
         "sharedRead": 0
       },
-      "sha256": "e10a5b3cc780b117a8b2944ff6c137949eeb18fa4ebea3a546ad585e1c1f4a71"
+      "sha256": "8b152da0e9eacd9162b7becc7fd8977dee2a82a3a9ff581cfb99952e277feb2a"
     }
   },
   "timings": {
     "state-asc": {
-      "p95Ms": 213.0311679999977,
+      "p95Ms": 210.57800700000007,
       "repetitions": 10
     },
     "state-desc": {
-      "p95Ms": 224.06947000000218,
+      "p95Ms": 233.13842999999906,
       "repetitions": 10
     },
     "district-asc": {
-      "p95Ms": 220.88325600000098,
+      "p95Ms": 208.2272840000005,
       "repetitions": 10
     },
     "district-desc": {
-      "p95Ms": 229.1152320000001,
+      "p95Ms": 217.5111969999998,
       "repetitions": 10
     },
     "incumbent_name-asc": {
-      "p95Ms": 214.94257500000094,
+      "p95Ms": 213.2165989999994,
       "repetitions": 10
     },
     "incumbent_name-desc": {
-      "p95Ms": 214.69153599999845,
+      "p95Ms": 223.7447179999981,
       "repetitions": 10
     },
     "election_year-asc": {
-      "p95Ms": 212.02448100000038,
+      "p95Ms": 208.46507399999973,
       "repetitions": 10
     },
     "election_year-desc": {
-      "p95Ms": 210.99481199999718,
+      "p95Ms": 197.55371600000217,
       "repetitions": 10
     },
     "cash_on_hand-asc": {
-      "p95Ms": 207.4152580000009,
+      "p95Ms": 204.10040899999876,
       "repetitions": 10
     },
     "cash_on_hand-desc": {
-      "p95Ms": 199.30593199999566,
+      "p95Ms": 206.06364200000098,
       "repetitions": 10
     },
     "presidential_margin_2024-asc": {
-      "p95Ms": 200.43426100000215,
+      "p95Ms": 201.56337400000484,
       "repetitions": 10
     },
     "presidential_margin_2024-desc": {
-      "p95Ms": 203.91496500000358,
+      "p95Ms": 210.44182900000305,
       "repetitions": 10
     },
     "next-cursor": {
-      "p95Ms": 211.0141930000027,
+      "p95Ms": 207.1546309999976,
       "repetitions": 10
     },
     "chamber": {
-      "p95Ms": 186.37075399999594,
+      "p95Ms": 189.64753999999812,
       "repetitions": 10
     },
     "state": {
-      "p95Ms": 20.453205999998318,
+      "p95Ms": 23.044686000001093,
       "repetitions": 10
     },
     "party": {
-      "p95Ms": 226.77707699999883,
+      "p95Ms": 216.9058389999991,
       "repetitions": 10
     },
     "incumbency": {
-      "p95Ms": 219.2498099999939,
+      "p95Ms": 198.01419399999577,
       "repetitions": 10
     },
     "electionYear": {
-      "p95Ms": 224.7318510000041,
+      "p95Ms": 211.72719099999813,
       "repetitions": 10
     },
     "literalIdentity": {
-      "p95Ms": 9.298924000002444,
+      "p95Ms": 10.349033999998937,
       "repetitions": 10
     },
     "dense-profile": {
-      "p95Ms": 85.41150000000198,
+      "p95Ms": 80.03506599999673,
       "repetitions": 10
     },
     "dense-closure": {
-      "p95Ms": 3.7996730000013486,
+      "p95Ms": 1.0217330000014044,
       "repetitions": 10
     }
   }
