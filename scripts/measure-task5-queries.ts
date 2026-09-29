@@ -192,7 +192,7 @@ async function main(): Promise<void> {
     const measuredProfile = await measureFullProfile(pool, releaseId, seatId);
     const completeProfile = measuredProfile.profile;
     if (!completeProfile) throw new Error("synthetic dense profile was not assembled");
-    if (measuredProfile.statementCount !== 10) throw new Error(`getSeatProfile issued ${measuredProfile.statementCount} statements, expected 10`);
+    if (measuredProfile.statementCount !== 11) throw new Error(`getSeatProfile issued ${measuredProfile.statementCount} statements, expected 11`);
     // This includes closure-derived IDs and legacy finance-summary lineage surfaced by
     // getSeatProfile; never substitute a seat-cycle scalar for CLOSURE_SQL's text[].
     const closureValues = closureMeasurementValues(releaseId, completeProfile);
