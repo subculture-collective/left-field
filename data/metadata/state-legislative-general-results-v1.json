@@ -20,8 +20,8 @@
     "ct-2024-general-state-representative-csv",
     "de-2024-general-results-csv",
     "de-2022-general-results-csv",
-    "fl-2024-general-results-extract-txt",
-    "fl-2022-general-results-extract-txt",
+    "florida-general-2024-results-extract-txt",
+    "florida-general-2022-results-extract-txt",
     "ga-2024-general-total-votes-workbook",
     "hi-2024-general-summary-txt",
     "id-2024-general-raw-races-workbook",
@@ -169,8 +169,8 @@
     {
       "stateCode": "FL",
       "sourceIds": [
-        "fl-2024-general-results-extract-txt",
-        "fl-2022-general-results-extract-txt"
+        "florida-general-2024-results-extract-txt",
+        "florida-general-2022-results-extract-txt"
       ],
       "cycles": [
         2022,
@@ -29484,8 +29484,8 @@
       "republicanVotes": 114022,
       "democraticMarginPercentagePoints": -8.9,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "b4dbd5dab5f27b1d37951ee8519cd1fd86a0908c59192952122cd2c2010e7351"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "6e2d4a356e9f720e0e6db80239b9ea15962b40dc2e78910ee5ea6e81c8497eb1"
     },
     {
       "contestId": "fl:state-leg-general:2022:upper:12",
@@ -29519,8 +29519,8 @@
       "republicanVotes": 102441,
       "democraticMarginPercentagePoints": -26.3,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "7e67b1f621563d0b5f1e24dab28da7021b53d3ffc180f2c1e9588fdd61fec863"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "b0f12caf0f2ba0db4018a8437574638c3c0ac0b97bb791130ea6487f0425e794"
     },
     {
       "contestId": "fl:state-leg-general:2022:upper:14",
@@ -29554,8 +29554,8 @@
       "republicanVotes": 104776,
       "democraticMarginPercentagePoints": -9.1,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "985db35b35f176eb98e26bb192e09500ad525f4441b4cdca40055bc1741ccb7b"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "d5f499b8537e1b0a1f7601bd817608d7f59c0639718b660efc6b35855ff5183d"
     },
     {
       "contestId": "fl:state-leg-general:2022:upper:16",
@@ -29589,8 +29589,8 @@
       "republicanVotes": 52927,
       "democraticMarginPercentagePoints": 27.9,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "0635838f71dfaaf6a2617db052fe41ce8ec88f0ed75336ac1841ea08bcd599f3"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "79289684583e2ea925c7331eca5c08b18be4b13035565063e64023d8284b2e68"
     },
     {
       "contestId": "fl:state-leg-general:2022:upper:18",
@@ -29624,8 +29624,8 @@
       "republicanVotes": 128983,
       "democraticMarginPercentagePoints": -13.8,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "8a65f0ff711efb9f74a80cc4630346f0bc4c114b3fbfb0d2c33b45e275a9848b"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "861a20352bfdb4b1960cb13243f0ed4aaa4b52b33e6e86a4165a78ddc8259c28"
     },
     {
       "contestId": "fl:state-leg-general:2022:upper:2",
@@ -29659,8 +29659,8 @@
       "republicanVotes": 159041,
       "democraticMarginPercentagePoints": -57,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "8203e0708872f4e6cf93d88faf444134346090b1a523a6c562aade17a1a73086"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "0273bae848a8146b7eafb7c3668bbc705c0c12e6d96bc91da0f1de4e1b1a44d6"
     },
     {
       "contestId": "fl:state-leg-general:2022:upper:24",
@@ -29694,8 +29694,8 @@
       "republicanVotes": 60958,
       "democraticMarginPercentagePoints": 11.4,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "ff8123d1f9f6ebd1f353620d7b78f0b9f8d1723ff84eaf1de1389edc3063e5ac"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "eea18866afd5f4337d863591997fd480c47ae36b4d3d3cf17e43e8ef7bb6a6c6"
     },
     {
       "contestId": "fl:state-leg-general:2022:upper:26",
@@ -29729,8 +29729,8 @@
       "republicanVotes": 101072,
       "democraticMarginPercentagePoints": 9.6,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "28125bc6abf87d75e044b58449cb5647ce725665d8428ad3290c18d6479374ec"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "67b991012be6df0414ad5f4d427003d1b2cd0fd28aaada1c493671c2fda24dc8"
     },
     {
       "contestId": "fl:state-leg-general:2022:upper:30",
@@ -29764,8 +29764,8 @@
       "republicanVotes": 74067,
       "democraticMarginPercentagePoints": 10.9,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "de2155c5eab24cf19ec933d282025eb7517268e29a72465486e59f8a0714bb72"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "acaed00d7737bb2a97c0ceaa4c958c4b37916b0caf2f41ef184f99631630b951"
     },
     {
       "contestId": "fl:state-leg-general:2022:upper:36",
@@ -29799,8 +29799,8 @@
       "republicanVotes": 75773,
       "democraticMarginPercentagePoints": -18.1,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "d1256690c293839bc2d6408eca23e30e8f3c7b4acd4f778a2ce2e4c01c4cb401"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "53bb9e00e6b966b1e4967e518cc0697cb1ac608af179656521daf141f09d2fbd"
     },
     {
       "contestId": "fl:state-leg-general:2022:upper:38",
@@ -29834,8 +29834,8 @@
       "republicanVotes": 93741,
       "democraticMarginPercentagePoints": -8.8,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "e063004dc11350adce315a192ed81635f0f7528d3ed96b458c85e75995188450"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "a1c5907570246a5ae42f41b0e7e4b943ec0429a4506e2e296fe137076e7d3630"
     },
     {
       "contestId": "fl:state-leg-general:2022:upper:4",
@@ -29869,8 +29869,8 @@
       "republicanVotes": 149177,
       "democraticMarginPercentagePoints": -35.2,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "f63098b8cbb8699f2a44890ccf0ad6dddca76e0dcaaaaa7100c2da8734128901"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "12cc9b48d06b9dbde92d95fc14f759a4048817231f50993712df85a1cc5926e1"
     },
     {
       "contestId": "fl:state-leg-general:2022:upper:8",
@@ -29904,8 +29904,8 @@
       "republicanVotes": 133012,
       "democraticMarginPercentagePoints": -26,
       "contested": true,
-      "sourceId": "fl-2022-general-results-extract-txt",
-      "contestSha256": "e777dc28f05515c156e6ec3597d8179e6a51629e276d239df81977e90c72be02"
+      "sourceId": "florida-general-2022-results-extract-txt",
+      "contestSha256": "33b8efd2ce5c479b9651424ac2ad0981ff6747f5661f83dcfa55e0b74b92c9aa"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:1",
@@ -29939,8 +29939,8 @@
       "republicanVotes": 58623,
       "democraticMarginPercentagePoints": -31.6,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "6f8796a3265a7c6cd2dec70c4dbbac9a9474633fcaf1552fe1db97089e9302ab"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "80c377e1b8677bec8cd3a98164ef2f484042106bc159e7988a77e2512b2c3065"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:10",
@@ -29974,8 +29974,8 @@
       "republicanVotes": 66208,
       "democraticMarginPercentagePoints": -48.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "423fb5ffb7db2202c2b922d5e653f486c2ab1f51e6517e99a030f2b5d9006677"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "7d8e54790d60d90ab3954daf5408e1215dac6c509da89acf61a6fe0b6c2b9872"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:100",
@@ -30009,8 +30009,8 @@
       "republicanVotes": 54597,
       "democraticMarginPercentagePoints": -14.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "b3e660680aec987e4f55aa6b5d516e73e7306745034cec7112cfffb1ca5ed04d"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "102c98375931ba2264d367ce54fe32581e75ac2aa214d0099a16ee49dd8d121a"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:102",
@@ -30044,8 +30044,8 @@
       "republicanVotes": 43197,
       "democraticMarginPercentagePoints": 7.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "d65d5932dbfa59a2ae56fd65cff6ee3e435853ba36a6121d2da34e33e8837f7e"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "71a5f057482ba61fb0e6ef98b19f4c9a0d6d4b75aa4dbf58cbc8ea14ec8046a2"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:103",
@@ -30079,8 +30079,8 @@
       "republicanVotes": 41837,
       "democraticMarginPercentagePoints": 8.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "94879ad117638ed18f8238b835ea29deba232e4b8e285c5a15dbebd93e1ead4f"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "8f82c41d6bdfcbc10acffda131cc020b8b698562eff5e577e58b407176d52c30"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:105",
@@ -30114,8 +30114,8 @@
       "republicanVotes": 0,
       "democraticMarginPercentagePoints": 79.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "2d7bb93a063dbcab4fa934bb89bd3ea39568d7ebe20d21412deaa6c6599f91ba"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "f94530c9ae488dfabbdf33710b1f44ae843398c3f8935d3d2909c284b1842c9e"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:106",
@@ -30156,8 +30156,8 @@
       "republicanVotes": 38386,
       "democraticMarginPercentagePoints": -4.2,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "f9c2871985e867211988c75aac02d28848f8ecb8cfdfe42047e6b44d7299ad86"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "a03bc4f7c5ec7d2def1e56f5a5ef3d918bd5d05e97b9bb8e1665a0e2ab88b19f"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:11",
@@ -30191,8 +30191,8 @@
       "republicanVotes": 67517,
       "democraticMarginPercentagePoints": -38.2,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "8924a23bdbe689e36a11c3148302a33d99ca515ef48c80126427a1dd889145f5"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "22f68fdc3c6168918f4d31095e4a2448b44c967b1181688e40eb1a90ecd4edc2"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:110",
@@ -30226,8 +30226,8 @@
       "republicanVotes": 49881,
       "democraticMarginPercentagePoints": -42.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "6b7d1823783d70e2bb5881dd0e892ec14dcb94c1affce9cd996e0a295bed8edc"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "7e2d39b164b88c9d0c5e031f15e2c1ed3bd509c0a5afd6f468ca9ca60f55d5f3"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:111",
@@ -30261,8 +30261,8 @@
       "republicanVotes": 45942,
       "democraticMarginPercentagePoints": -34.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "d3b3d2473340b40428857a9bdb3432fd32a32c555a8a8c45d1bb826e55e03778"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "965cc522e4c20c774e96c07071eec105a6eb6ba0555343eab6f2f71af511c530"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:112",
@@ -30296,8 +30296,8 @@
       "republicanVotes": 40199,
       "democraticMarginPercentagePoints": -45.9,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "cddc99927769e4a486d8bcd3e8cb9d68b8247577ae16f7bb89a49a3cc38e7cde"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "dcaf48a032b8a77d44c3f689de626581b12d459d827b421b939e29f358af40a1"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:113",
@@ -30331,8 +30331,8 @@
       "republicanVotes": 33461,
       "democraticMarginPercentagePoints": -9.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "0a2423a61468190e9f5ef2c109f8785dd12adbf8f4e627564f656072bae58248"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "c09ec618e06fb0c9ced000c6e5c638cf038d8055df92ed3d4ffbdbe7c0b11e6e"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:114",
@@ -30366,8 +30366,8 @@
       "republicanVotes": 46249,
       "democraticMarginPercentagePoints": -16.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "0551badd4ea6a5e60ccbaaf64e0a4db09b3dd7659e547e23c76e6b94c2cb4607"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "7cc9119cc8aac941eb78a1f46c8efd689dcb609b3d312e054a64a7c10133ee1f"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:115",
@@ -30401,8 +30401,8 @@
       "republicanVotes": 54952,
       "democraticMarginPercentagePoints": -18.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "135216c74c1eca7503e7ccab6651299016d515ec7a30e954a0d90d36c8753008"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "60cf578198fbac50828f6d64b3effb4643c93825ed447cde23d72031e167caa1"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:116",
@@ -30436,8 +30436,8 @@
       "republicanVotes": 52964,
       "democraticMarginPercentagePoints": -37.4,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "0435448dfe36f21746745787e1dc8ef3fb088f112d83d8aebdf30e4b976dc2b2"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "00872c5f1b2016516d989c20e6023a149ee27eafebebfc6f0c67de8d9051d1ae"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:117",
@@ -30471,8 +30471,8 @@
       "republicanVotes": 28823,
       "democraticMarginPercentagePoints": 5.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "41d5dcc986707d596999a306a5405a82489bd97b3c80c57f3dd8595792020815"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "629eead47fe4051c065bf480985099f9ba011ccfbd0b7b67d40e347cd268ff96"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:118",
@@ -30506,8 +30506,8 @@
       "republicanVotes": 58355,
       "democraticMarginPercentagePoints": -36.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "9019ce08ce249d524639cd07270b3e14dbec38bca7f7ff93680090d7a7e226b7"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "73d2de3ad4832469dfcb279f012027c70a2d67116276b22389ebcd61c544728a"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:119",
@@ -30541,8 +30541,8 @@
       "republicanVotes": 54735,
       "democraticMarginPercentagePoints": -29.2,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "da713fbce45a8ad9ceb539b8a1436a536f9e293abebad48f0d5ea9278ca6b6ef"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "4ebbff1e7d49280da47f7fd6209b7282cf8b3df2012de7f5193aebeef6a7bed5"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:12",
@@ -30576,8 +30576,8 @@
       "republicanVotes": 46441,
       "democraticMarginPercentagePoints": -14.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "7d73ddcafc18d303637e8475e3e4d50e946e9c77116981e70d707c04f4a72005"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "e4ff10e426a42d875e1b567c785ca861ca819f06457d2e0333f92e12c23acc1d"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:120",
@@ -30611,8 +30611,8 @@
       "republicanVotes": 47562,
       "democraticMarginPercentagePoints": -26.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "42204dc4de6367673ad315a93375b4cf1c2f003eb8bf66f51d458ab964cc3a94"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "a76e9d996724c797cc1bc430030669102350ab67d1e12243cd30441053ce260c"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:13",
@@ -30646,8 +30646,8 @@
       "republicanVotes": 0,
       "democraticMarginPercentagePoints": 99.7,
       "contested": false,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "4dd95a996d2146e17a8a19e8133c1f98166959e5e3626f491a98230609b262e4"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "2ec0b983f9fcebfb7b979768d21693cd8467a2eacbbc7737e230d2a1d151886b"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:14",
@@ -30681,8 +30681,8 @@
       "republicanVotes": 0,
       "democraticMarginPercentagePoints": 99.6,
       "contested": false,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "e9aeb0d65845fe0b58b1d37df50873461c70f7640f2f2c28210933f0a7bfa27e"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "7e8120980e759545601da6730af65e99fe123833b654ce6bb35182e31d057951"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:15",
@@ -30716,8 +30716,8 @@
       "republicanVotes": 75184,
       "democraticMarginPercentagePoints": -29.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "c68c767ec32243faf6ce30021ee7fe9de4d4d995105d75582ca2237e2b4d5395"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "4e2eef0b0622691ef8ca046ad57a950b3f44dde89bd6175cd469289960620dcf"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:16",
@@ -30751,8 +30751,8 @@
       "republicanVotes": 56171,
       "democraticMarginPercentagePoints": -21.4,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "c4ff17191004f178be5917ecfc4a96d9c24a6a6a378416731b7e1028bca5b2a4"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "5b52b6ce9141140d1cfc4281bcfda412a3e56028034825d7d3399b921aec4196"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:17",
@@ -30786,8 +30786,8 @@
       "republicanVotes": 51729,
       "democraticMarginPercentagePoints": -16.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "56ec7bedb5c0bc283e0c6cfde9ecccdc67e4f199181721bdd95c4dbdcf050919"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "d6e68b5ac3aadb77ccf60223f9d6b86b65743a21235a6337abdc8a8c38019664"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:18",
@@ -30821,8 +30821,8 @@
       "republicanVotes": 91289,
       "democraticMarginPercentagePoints": -39.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "d05ee2feadb9691f7498846bf2d0962e812373c1daa7bd91923a72bd5c1d5319"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "8ddc013f47f3cd557eba7daee7d1a7987c0f7507fe08e4151909ac43d273067a"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:19",
@@ -30856,8 +30856,8 @@
       "republicanVotes": 68622,
       "democraticMarginPercentagePoints": -21.9,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "2ceef27a2051bc5a9a7f326378d72d27e1fe7ee0905663e7fd6ec4cd634b76b7"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "65a0fedfc0a3adabbdcc2241f1d99a49f48ee4a329b91f451e71baa3b01f29c1"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:2",
@@ -30898,8 +30898,8 @@
       "republicanVotes": 54433,
       "democraticMarginPercentagePoints": -22.4,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "0878b8adc78e882626f0078185fd01124f0d012f27c3afc23857b51c1e6339f3"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "607daffd03fd0eb75a2aee00a6f9a74d2ee746f2833563508f53c3d7f9831083"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:20",
@@ -30933,8 +30933,8 @@
       "republicanVotes": 74164,
       "democraticMarginPercentagePoints": -50.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "bc024eec17ef124a8ae90ec18482b9fbc68a2ffc9ebc1fadde6d5124c5a5c9e7"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "81508323012e0cc68f2a1c9a742f7b7619e546bf5a05078fb92bdce62646e6e1"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:22",
@@ -30968,8 +30968,8 @@
       "republicanVotes": 56989,
       "democraticMarginPercentagePoints": -13.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "26225382a5ad4837c8f86f67ee511548ab5e5f719db8fff8fa34993213286ce5"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "fb56e4a94776e9bb0058f103ae8eb1208f1ab45143e12387f3004983cc67dda8"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:23",
@@ -31003,8 +31003,8 @@
       "republicanVotes": 80332,
       "democraticMarginPercentagePoints": -47.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "3220b6262f192fd8658bdf153ec5934596ab8d4e02d9b7350b28f3ebed790834"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "b879d5d03cd13806fd621ce3accee76c6f3519f79b0e067261c78a5ef1f35a37"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:24",
@@ -31038,8 +31038,8 @@
       "republicanVotes": 66082,
       "democraticMarginPercentagePoints": -28.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "6d4f3ea18d88202d2ee4bef5087867acc1342189cfb9aaa870671d53e968b00c"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "25550e689472a48eb9acfafe2078a4d1410ff318d90e8e191d340e7c91442740"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:25",
@@ -31073,8 +31073,8 @@
       "republicanVotes": 63094,
       "democraticMarginPercentagePoints": -20.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "91ba717f997c1d97c5558916962699304a3a01dc52aedba578fec91694c3d70b"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "e61f0a4f904a43268fab04206d549de3dfa566408b9b1b7d08a38b66018c0cfc"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:26",
@@ -31108,8 +31108,8 @@
       "republicanVotes": 62067,
       "democraticMarginPercentagePoints": -29.9,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "1a47791591865a5d1dcc0877a32bfd35b472ce2bb7529bbad5dcf8fa67ef6826"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "745c8938bf8a66d037a1d4c05cb16b9f7ac2ac4f212816cc847e047721479eb3"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:27",
@@ -31150,8 +31150,8 @@
       "republicanVotes": 69227,
       "democraticMarginPercentagePoints": -37.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "bf78b034dd8c8dcd45c3dcfff42e4890fe9b3e515ac1d6ede4c54748f7cab45f"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "22532403c09426e31c1e21c9b07f6de745e7a3c44ab6227330d19bb4ec1e26b3"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:28",
@@ -31192,8 +31192,8 @@
       "republicanVotes": 53490,
       "democraticMarginPercentagePoints": -17.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "c3989fa38943b5a53247b135d368c11332cb559928cda4a34183237f9801feb7"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "7e2bec7ba7a2c5cfa31485213f295c5e37a061a4164a53426691bd98e3d628aa"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:29",
@@ -31234,8 +31234,8 @@
       "republicanVotes": 49285,
       "democraticMarginPercentagePoints": -14.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "24e5a85b4fe8c60f7b7823f02b5739b3a6ed28d8f5caad5aa663841842843bc1"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "e640d8481f1281f0f573391bcc2107f7b461bfa31b87c339995490882105622b"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:3",
@@ -31269,8 +31269,8 @@
       "republicanVotes": 80019,
       "democraticMarginPercentagePoints": -56.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "05188cd9dfd8b48dc9e153353aa3df42cc35cd564cc02c47e2be3a1fc2ab1195"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "d64074687e244855cd3e076fddc6c2ca182b85c6ee0bba5e88ff0217b58b681c"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:30",
@@ -31304,8 +31304,8 @@
       "republicanVotes": 70142,
       "democraticMarginPercentagePoints": -31.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "c0a90f4edddefa7cef7b65ed1a9136c1906912d7ed1180d105b1cb03f883574c"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "7006f9367c1048309ca046ea801fbde2b61d34c39589229f2cdde10b66bb0720"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:31",
@@ -31339,8 +31339,8 @@
       "republicanVotes": 64480,
       "democraticMarginPercentagePoints": -27.4,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "5bef606896e1cf6d4bf19b54b7ccd44fa28f18c87d0e8f4f5f6b18bd9a5b8f8f"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "a376539f5ec3ca915a25777989d8f1826418f759909415d297fbf2bfa20e3a93"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:32",
@@ -31374,8 +31374,8 @@
       "republicanVotes": 70925,
       "democraticMarginPercentagePoints": -28.6,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "9175db75f67b300672090012133ba576cb75a4d9cb6eaec3082321376631ef83"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "71b017db09f0b8bff876ca51fcbfe27a12472196bfc10b9c2d9d2f776cdb1fbd"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:33",
@@ -31409,8 +31409,8 @@
       "republicanVotes": 54897,
       "democraticMarginPercentagePoints": -12.2,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "d3ca6f1745b819ae79bd9572c0f5b4c0f4003d0b5b132e98b5d150af66bf572f"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "5da22031ec24acffae8fc06ab02970e5499c3e18a14c2fe0b20d850758eb02c0"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:34",
@@ -31444,8 +31444,8 @@
       "republicanVotes": 72940,
       "democraticMarginPercentagePoints": -34.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "191c9c77d7a5262fa1b54ca5f35e060c7886fdbbc67d4dde538599ea82c225cd"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "98b8a012c722c6335645d7ffeaf6e3e62392758145046b5de6bd959ec97c23a1"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:35",
@@ -31479,8 +31479,8 @@
       "republicanVotes": 47863,
       "democraticMarginPercentagePoints": -4,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "f5ffa1b304bd4ca82e19c1657385bd3db925d701c078052b9abac221dd4cc177"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "5d5f2c916a729770012f6ab8a05796b3f2df198f117c8cb9b14a544a3473e4e0"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:36",
@@ -31514,8 +31514,8 @@
       "republicanVotes": 47256,
       "democraticMarginPercentagePoints": -7.2,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "3851e34077be74e746b17dde2cab5a805fb89a07041efac8d955517bc5d1330f"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "2947b1bac68399bd6d78b3c09e33b22167601a11d21f9e2bf776f54a290f0ef9"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:37",
@@ -31549,8 +31549,8 @@
       "republicanVotes": 37682,
       "democraticMarginPercentagePoints": -0.6,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "1ab66e34cfc623593d3d312f15938f5fc1b7a66b7d4b2183eb4b7877b8453dc7"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "57db830f31f28b04989de935c5c48a196d2bafe867c5be6c94496091ab8e1d03"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:38",
@@ -31584,8 +31584,8 @@
       "republicanVotes": 44972,
       "democraticMarginPercentagePoints": -0.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "e50a69d5287ed864e08551fdb994a70587d20298f8ffcb6a6364db45d9954ebd"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "f6c2fb6b3b10af7eaa30e25e9d9616c0e701dd819904865a59a44a0da1011b1d"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:39",
@@ -31619,8 +31619,8 @@
       "republicanVotes": 46177,
       "democraticMarginPercentagePoints": -5.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "724ca8c050ee53d5100074fe7ff04e12d4a87dc72a7c99fcf853233e506d1d91"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "c58e695c17a6c93250ebf15f387a874a14dc96b1f14b44450bf5a0d9651544e8"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:4",
@@ -31654,8 +31654,8 @@
       "republicanVotes": 67712,
       "democraticMarginPercentagePoints": -47,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "0d039fa813a2cec673a1a945b61a5d6ed3e1bc684c8fcb8349ce50e9a123cfa9"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "36bd8cbe57f80fd5d1e24fc3e3716f503253897119975028ae81f547a401798f"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:40",
@@ -31689,8 +31689,8 @@
       "republicanVotes": 20674,
       "democraticMarginPercentagePoints": 35,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "6740261850297dedc1350835ab07feb1cdccb747d4a94d4618989e55b8b8b7e6"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "57fb4297c54272fcdef4a1f6938f9c403a2003cec337d2b5ee0340e263afff40"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:42",
@@ -31724,8 +31724,8 @@
       "republicanVotes": 40571,
       "democraticMarginPercentagePoints": 17.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "e2feb97a6a884b7bc4a175a43c097c6020352d0d8b4c54b67e4c826758504d26"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "ba68bb267a64d30f8e79ec2156edf80705e4382cac16b2b79e60b4e8b7080ea7"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:43",
@@ -31759,8 +31759,8 @@
       "republicanVotes": 26413,
       "democraticMarginPercentagePoints": 14.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "9489934ca2baa9399d8721ab97a7d3174f16feb8fca160ef17d87125fef0e746"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "6d88d5916b9d2d576a14fa4d1455e2f92f25106bf87b53aef26863a8553bb135"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:45",
@@ -31794,8 +31794,8 @@
       "republicanVotes": 46809,
       "democraticMarginPercentagePoints": 1.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "b5a1f9769d9d926c40b4778ea56c276b9f07bcd8dbeb9af11749405c42672e74"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "df73e93c68479f28822fc2fb6e0a57cef911de926429d1f0c3bb6918c5708086"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:46",
@@ -31836,8 +31836,8 @@
       "republicanVotes": 23016,
       "democraticMarginPercentagePoints": 17.4,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "4aadfe1e149a84853a9ed1dc962a9667e46bfde4f7336a9978f2358cf8a54161"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "271d5fa4fdd2505850aaf47878601e81fa0a07864776686d7ec16f21bda0a35e"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:47",
@@ -31871,8 +31871,8 @@
       "republicanVotes": 39380,
       "democraticMarginPercentagePoints": -1.6,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "bb717ae9004b238e1bb1af201b4b8299340a8cea3dcb7100f502e936fe3fc058"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "d5403b2d11a39f0bf5dd8eabaf07ef844770b54618d4d001396ad783ed0b32ef"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:48",
@@ -31906,8 +31906,8 @@
       "republicanVotes": 49893,
       "democraticMarginPercentagePoints": -15.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "1e89579af2af86c45850ba1d705747ca7a33d3b0fb6d6f0165b0793defdb48af"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "457754f244a6c3e8bf96c03b24da7231516cfe270d003080967ceaa76c642acc"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:49",
@@ -31941,8 +31941,8 @@
       "republicanVotes": 53388,
       "democraticMarginPercentagePoints": -34.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "5e252ee4a586fd99ed0cc4266d2feb88f9bcbc8b21626729a51a2c81467568c7"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "828a0ca0f7c6fcd6cbec2b4c7b01fad018f9747932517d42521eeea51a5d1f1d"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:5",
@@ -31976,8 +31976,8 @@
       "republicanVotes": 77821,
       "democraticMarginPercentagePoints": -60.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "fa6ec4c6a590bce1d81c160504d484f9ca786a831b7f93520262950ef632cc4a"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "029322af4ff2e54008ea9dbd23564d44d395d98431d538ef8471a87124f55c9e"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:50",
@@ -32011,8 +32011,8 @@
       "republicanVotes": 49635,
       "democraticMarginPercentagePoints": -25.2,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "68f6dff9bd8d4354c4280d573eee89c6964fa4ba855713e300699e771418cafd"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "27718ea515b67c0e858d9595af5cd303cf670f8fb6003f5c392c7bfbe2c34da3"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:51",
@@ -32046,8 +32046,8 @@
       "republicanVotes": 51050,
       "democraticMarginPercentagePoints": -13.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "e2a3df7aee4f50cf0b17d5439958b479fcbcdae45f6a76a560f8eb096d12edd4"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "63cfbb3bf9bb327de39a2e29681a3d16f7bad5fd20ebec39f0577401c07a04b9"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:52",
@@ -32081,8 +32081,8 @@
       "republicanVotes": 92690,
       "democraticMarginPercentagePoints": -44.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "167b0d944c18e8a91c884b0931122ec8af1e367aed19415d3ca5394d80f1596f"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "0ba3706ef8edd88203e5ac8bd1a726008278c9ae34f3726f65ea07120011a25f"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:53",
@@ -32116,8 +32116,8 @@
       "republicanVotes": 66146,
       "democraticMarginPercentagePoints": -38.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "fcb0ae5ea89c85b0a00432537faa434b19548db330a2c9435b8be15417cb5101"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "a2945b139ccacb261abd70c015ee002c6025e88649370c68e2f5aafb827291ce"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:54",
@@ -32151,8 +32151,8 @@
       "republicanVotes": 60923,
       "democraticMarginPercentagePoints": -20.2,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "5d09c432966cd23c78537b7eb304e31e6ba0a2131eb56484b1704b56b922e793"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "637e67a2ba7a12943b09cc4f9637d4fe5f1fe423166a3db0f095939abc9e7ab5"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:55",
@@ -32193,8 +32193,8 @@
       "republicanVotes": 69763,
       "democraticMarginPercentagePoints": -28.4,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "8d41a615d0cdbe2eae8746a6cecaad6048a634bcbcbb694bdb1c85669f96c082"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "6c17efb3ea6974443f443c7a55319b2e49b37bb7ddcc8db644f04ef4bca20e5d"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:56",
@@ -32228,8 +32228,8 @@
       "republicanVotes": 50279,
       "democraticMarginPercentagePoints": -30.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "3c4029d8fc0a981480e2964411e6ad6f95b2684b51fb066179c897d51849f77b"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "928b7db7873c6553ebbb97abedfd0fbc0c849d7dc41fa6b3e76376b5aa046266"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:57",
@@ -32270,8 +32270,8 @@
       "republicanVotes": 61669,
       "democraticMarginPercentagePoints": -20.2,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "a0f183604663fe2066d3464279eb14872aecb0c31209bdf05bc3a51444fd5162"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "e9b3da24de7e4254ce7307ad224ad2b64fe517759777b7e30005bb6509ac641f"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:58",
@@ -32305,8 +32305,8 @@
       "republicanVotes": 52103,
       "democraticMarginPercentagePoints": -15.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "c58ceb14474c885ced59c557564794cded1e4c68ea0d352bcdd97b5c004adc91"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "1b88ec488532ddd63388ee33833d5181b38cba9cc9d46e4ed91cd76f1b61f21f"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:59",
@@ -32340,8 +32340,8 @@
       "republicanVotes": 50520,
       "democraticMarginPercentagePoints": -17.4,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "6f0b4512aed49ae70817c4e281504c1e51ebaec7785b7ecdf682d5ad94521293"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "637197cc0d788c23829b871d32acaf7f532eb5c5a20015e03113e1e53ba4e35b"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:6",
@@ -32375,8 +32375,8 @@
       "republicanVotes": 72797,
       "democraticMarginPercentagePoints": -51.9,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "fc23ec9e9623b9bf92201834d5a654d0b5df611f4602b3af1e2f4fde393c9712"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "d751328165ef7ddb89d2912a8805d2b4f16da08f6401881cb03f8270a78dbd97"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:60",
@@ -32410,8 +32410,8 @@
       "republicanVotes": 41209,
       "democraticMarginPercentagePoints": 7.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "843ec0df8129e4e540fe36978f760b90880b0eaea3595b0825df09321af1d345"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "62049248a22fd1e185cf60eff14e2c609be6d8e7add0a7b5fef08c49da08b95b"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:61",
@@ -32445,8 +32445,8 @@
       "republicanVotes": 53602,
       "democraticMarginPercentagePoints": -12.5,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "f9d0e572b9b13d1c7e880b46b112873edf1d53f0647ce61c8a5f2da27294b9c0"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "bb1446be807f3b3f00cb8f76a3426d00a6d2fa23e694f205a198f02a596575c8"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:62",
@@ -32480,8 +32480,8 @@
       "republicanVotes": 22009,
       "democraticMarginPercentagePoints": 37.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "8c2d891cb62736e5fbd5eb89b58c7a4e20d6701d7ce74bad0d5ff44398160ed4"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "f27e0ce8a1acda6dc5f8a54e5a2b1d779fa043bf36c495f95c8771d1d1533cee"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:63",
@@ -32515,8 +32515,8 @@
       "republicanVotes": 14883,
       "democraticMarginPercentagePoints": 45.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "5d57f47a3bae25b333761f17506ce10310aac93dc83daf1972a0737cad7fd37b"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "f41be1fe2c49c750c1c6c8b69b1092f7aeeaa21cb7b5d25d30c026b39dc16faf"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:64",
@@ -32550,8 +32550,8 @@
       "republicanVotes": 28636,
       "democraticMarginPercentagePoints": 4.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "2cb4435fc2bb06fba4f2864e215de170a7baa2f6883e175349ba3a4d176893b3"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "d559a8404291805c3d4a79c546f8dde6ab70cbf4b7f375593853ac0a7858210e"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:65",
@@ -32585,8 +32585,8 @@
       "republicanVotes": 53824,
       "democraticMarginPercentagePoints": -14.5,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "32efd969f96e4532b080112d532937da9a233d8c1747aa45a88272a827f46b6a"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "2a1c63b4c979136721ac3ff9f73385ad3a8389e6d3e6811d243f6d0bc20bb73a"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:66",
@@ -32620,8 +32620,8 @@
       "republicanVotes": 55211,
       "democraticMarginPercentagePoints": -16.5,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "7d080d6f16b1370ae898eeb588f7ab477f09c33d278e98e953fe76c0d3cd2528"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "f6d9a5d3288aa8ed4b2c60ef4a15ace13537f422815da704175435f649d5f45e"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:67",
@@ -32655,8 +32655,8 @@
       "republicanVotes": 30023,
       "democraticMarginPercentagePoints": 9.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "61a639ac5da944770e3c6896da19be5e49a70a245c2f7a844ce7473d02c075e5"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "46a6f7515e3f0fb2b6789d54baa502c4e8ef6121b78bf1fce5eba6352a679925"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:68",
@@ -32697,8 +32697,8 @@
       "republicanVotes": 50568,
       "democraticMarginPercentagePoints": -29.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "4852f796864b824a05b71bbe370207c82a9dfe2db323beb7b950dbef73c326f4"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "da70da604a41240e5b26831f16700789b1b9a4d77adbdde69be175b0264eb382"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:69",
@@ -32732,8 +32732,8 @@
       "republicanVotes": 50383,
       "democraticMarginPercentagePoints": -16.5,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "29c9bc05909300ff89157c4ff9c4b06945a43ddd20c978f45d7ac6796f25afa7"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "ce2e9af281bea33471e1317a86c095d62802d4254dbd57eafecd7c30fe1c80c0"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:7",
@@ -32767,8 +32767,8 @@
       "republicanVotes": 70440,
       "democraticMarginPercentagePoints": -54.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "3bdc09b1407b2cab47df6d41f7fad3fbffda0d6cfb5b82dce55170f1bce2ae05"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "86691b7325076ea253bf16173c39d124e8c14effb0cd1b12fc913aa9a4923ed7"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:70",
@@ -32802,8 +32802,8 @@
       "republicanVotes": 65037,
       "democraticMarginPercentagePoints": -17.5,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "35a18732a67582264251cf4b6e29e4a8bbb89898712e468cd8b9757a128011c3"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "7d605e7c5d5bc33485383fb1cfb5888f4f10f345bbc652c337baadaa927b9eb9"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:71",
@@ -32837,8 +32837,8 @@
       "republicanVotes": 44548,
       "democraticMarginPercentagePoints": -19.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "83ff333439b874744497ba09c20a747621aa2e289f7fc10a2a8f09f02e6e259d"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "08ae681528c94cc615d910510a881cf5a506832d31350e3d61679ac6702de2cc"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:72",
@@ -32872,8 +32872,8 @@
       "republicanVotes": 71463,
       "democraticMarginPercentagePoints": -29.4,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "1f95ec67a86ff63f89c720894962a8bf514201a41bea515359e47797dfdbe978"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "13dee0d83c67a47e5fa11e724f0c4cc964eaaa1f0ab56ad957746cb0ba67d3e9"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:73",
@@ -32907,8 +32907,8 @@
       "republicanVotes": 61212,
       "democraticMarginPercentagePoints": -12.6,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "d57cd7c1baf52549b0aef8995ae5b4401137aafc4f438ea6465d816d4bce05cb"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "a2339f16002076da6d3bd8c259d935fa1a541d36e43bbe95bcb4b1100cd05b1e"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:74",
@@ -32942,8 +32942,8 @@
       "republicanVotes": 74060,
       "democraticMarginPercentagePoints": -29.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "13acd1110f0bca38023c792045c7c244428f250bcbb9631cf3c95e0c507e2b89"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "c931d1e509146456229678f60932e551eda9a827b186b3de51525c3ce6369759"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:75",
@@ -32977,8 +32977,8 @@
       "republicanVotes": 77489,
       "democraticMarginPercentagePoints": -32.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "4db446feae02e3a7e24e2ed6b36c87452ec6649023a905795f20c4795be98b0c"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "e7c7e6504809d38e622d2f373b90c3f662d595d259277ad93c0b3a291922312a"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:76",
@@ -33012,8 +33012,8 @@
       "republicanVotes": 70510,
       "democraticMarginPercentagePoints": -41,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "cc104883b8974b9e868d7d9bf895ec2acab2fdfbf9e139078499d893b850e71d"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "e45adedca9f11343b5bcffde567cad1b5606bc5d57862c3dc597d6f01e0da678"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:77",
@@ -33054,8 +33054,8 @@
       "republicanVotes": 49355,
       "democraticMarginPercentagePoints": -30.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "a5d63ffe216365172eab2c5404ac7c8c026f43e935dea262c8ce33349c40f461"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "967bc07807ead9b6205b2d444c42e62190c0c1634c91a081e7425d01def4b53c"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:78",
@@ -33089,8 +33089,8 @@
       "republicanVotes": 49129,
       "democraticMarginPercentagePoints": -19.8,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "3f14c7459e3305317e6246c0fdd762f7374a4da21c31a610ddd6c408627c316d"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "956aa317938d6b8cefe1530c6df5bd1008882c79806b24dcbc10f26ed04e9f16"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:79",
@@ -33124,8 +33124,8 @@
       "republicanVotes": 66569,
       "democraticMarginPercentagePoints": -37.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "0abef4416999a34f6c098f2c8c08d6066409a7b7b8e737b54a199f4c60b3e148"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "5c1c0d740739da717dc11a3a93781042d3924262e73920c674913327fa189bde"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:8",
@@ -33159,8 +33159,8 @@
       "republicanVotes": 20973,
       "democraticMarginPercentagePoints": 44.4,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "6ad589b8b0d35d56c6b8523ef253719cf2d7dff02b2d8f9e77e84caa77bf9176"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "8876e3a82e22a295e8b1feff5901604f54f0d79e0a4196c0bb8f9833292694ac"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:80",
@@ -33201,8 +33201,8 @@
       "republicanVotes": 75850,
       "democraticMarginPercentagePoints": -38.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "b883dedf8b41ebb00a58059b001273309dc0407f7ae4bcbab84fa6149310bae9"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "284819d8ae26f8ed8dfbe965c9016889a0327262348a717368c681b26a4a415a"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:81",
@@ -33236,8 +33236,8 @@
       "republicanVotes": 73942,
       "democraticMarginPercentagePoints": -36.2,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "31655bb709a358404eb915545b9bb3cf4612c50d64fd6bb0bc68b2d005392a29"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "40f245a080978a5f19d03a5ba1d089275a48699eaa750bb640479778b6caefd7"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:82",
@@ -33271,8 +33271,8 @@
       "republicanVotes": 55819,
       "democraticMarginPercentagePoints": -39.5,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "ea5ec19a5d7f63e7bd4c96c18c51c71362e8eee389c631bf29c47b972382ee0e"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "5a48ea568950732b0720054534f1b0b7345527f1fd9523d5300c40e0273b83a1"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:83",
@@ -33306,8 +33306,8 @@
       "republicanVotes": 58982,
       "democraticMarginPercentagePoints": -49.2,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "a48f6117fda59ab67ae338e0d0b47e2f2c543ad3ad514dbb6c24d52c2297c0a8"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "30cf3360cb48727327e8e995f6ce3d260a493392bc95c6dc34464cdbf565feea"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:84",
@@ -33341,8 +33341,8 @@
       "republicanVotes": 53724,
       "democraticMarginPercentagePoints": -16.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "1520730bd3a8fe9d6c02df94c2ccb2cd058d06a26d89ca0dccc3e41496487f58"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "830db4f874cad05daa2e5e1d76c5404c55dfe42dd1d6afa4c28ecb6c90017c89"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:85",
@@ -33376,8 +33376,8 @@
       "republicanVotes": 63276,
       "democraticMarginPercentagePoints": -14.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "cc5d78aa7f620ca6132abc39465cc8f2e6e410da7e74ccf3b9e7f91befe9c330"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "5c278cfcb7c4f59ac1e148c42784a92569db70dfd15dd8881be203f712658548"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:86",
@@ -33411,8 +33411,8 @@
       "republicanVotes": 70398,
       "democraticMarginPercentagePoints": -36.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "63ec348f45b428fc731936860d381786108142e96cff54e59dab510f42a36b27"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "4cf42123aedcfefbe3d0c6fda8fe56a4b9e52ade2524ada4dddd769147081682"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:87",
@@ -33446,8 +33446,8 @@
       "republicanVotes": 57471,
       "democraticMarginPercentagePoints": -19,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "766ea3fbe54cb24e0935ab51217d57f7a56b7522d6f2752119d12aa64b6b4914"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "120cae116fbc94486b572ce299c01f7e2eecb20c2b0bffb581cc9cab396dfcda"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:89",
@@ -33481,8 +33481,8 @@
       "republicanVotes": 25421,
       "democraticMarginPercentagePoints": 2.6,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "7a494ecee5395d6f434c99ffba1fef57253831c325a1981b335f617c393b3837"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "5bbd002f846425e73ecb39e31a3e0783cfb8b3af1e7a93a0119e6e52594a2e13"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:9",
@@ -33516,8 +33516,8 @@
       "republicanVotes": 46750,
       "democraticMarginPercentagePoints": 14.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "0a2fe0d7bdd519ae6bf7b42547c8e875110dc220916604e295e9cf5169f5c39a"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "eb01449ffbc09f77b19d1c3924d8c88adfa4e72673ee1959e6e182d82dc2ccea"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:90",
@@ -33551,8 +33551,8 @@
       "republicanVotes": 37564,
       "democraticMarginPercentagePoints": 12.2,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "cdae9c11483de059fdc29988739657e43e5b51fa63c691987c45c7ceb78088cf"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "9114994959957834976bfa9ada509f268d73c77d7aea2cc205ed411252bb45d1"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:91",
@@ -33586,8 +33586,8 @@
       "republicanVotes": 52858,
       "democraticMarginPercentagePoints": -9.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "6a8c42428a62c4d7cd7391819b26afe9eeb320eff2073acb4ac147a4ecfecf2a"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "674177a736c36c800497fddbe5fdbaadcb87a01250a11ba6809775911a479cda"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:93",
@@ -33621,8 +33621,8 @@
       "republicanVotes": 45953,
       "democraticMarginPercentagePoints": -0.4,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "12a599681066e04a8072a3622639ec76385529bca4a493cccb4de839fadb94ad"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "cab4b8816766b86c417a298e11a0fa0cadebdde8fbad20b7b43e5dbdb05dc711"
     },
     {
       "contestId": "fl:state-leg-general:2024:lower:94",
@@ -33656,8 +33656,8 @@
       "republicanVotes": 53072,
       "democraticMarginPercentagePoints": -10.2,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "97d320e99ce50883133cac05439ca3aa58cbd5032cba26befce95ac2ffcc8bb9"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "d92a28f44b813dd3da95cb1f540e58274cd64cc3050cc25c1183df55be8ca4a3"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:1",
@@ -33691,8 +33691,8 @@
       "republicanVotes": 187431,
       "democraticMarginPercentagePoints": -29.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "460eced4e7442da9465d90c404a9617694a6c81b7b3bf6bbb2b3caa7a92e7acb"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "477824b94f40b88a96533622f948adb98a7312e48fb3fe00b9503f546077e4c9"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:11",
@@ -33726,8 +33726,8 @@
       "republicanVotes": 229609,
       "democraticMarginPercentagePoints": -38.6,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "3b5bfb2a81a2ef9013d9e9a411658cc3077a008ca967474894e8c6e2b513730b"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "c233432e3e0f3e58d98451049027ab243ca77ea115604fe784c9a83b5ee16d4d"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:13",
@@ -33761,8 +33761,8 @@
       "republicanVotes": 181074,
       "democraticMarginPercentagePoints": -20.6,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "510989b29bff4c97a7fda9b4a6ff15c8d358bc044a332ec4300ca05d95bd28e3"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "e314799f9b2db096b0e60b8c50daf12f3871f97c49c15de2465be621048b3921"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:19",
@@ -33796,8 +33796,8 @@
       "republicanVotes": 184731,
       "democraticMarginPercentagePoints": -18.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "db1e8a1a9c3174774308aa9e2c1044467003354693ba762087c52174a4b1f6f8"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "7bae04c0b4af404c460bf13079f1eb06e315ad4a4c88caeb370490fa354bc1ed"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:21",
@@ -33831,8 +33831,8 @@
       "republicanVotes": 175862,
       "democraticMarginPercentagePoints": -23.4,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "4278ad586587bc46a45c158fcab1cae885975a863778f4ea9b099501f99c9da2"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "dc1c460eb734b889643ff6007cc449869a19bd5537d312d2f689cc5639ca119c"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:23",
@@ -33873,8 +33873,8 @@
       "republicanVotes": 163859,
       "democraticMarginPercentagePoints": -21.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "d1292d2bf7ee1cad41a4ea6adc17980476b9c64b6460249460bd5ed4678dbc16"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "e6350316094b728acdd1f0e650eabc08b1781a7935d0ac1661f37f131cabb808"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:25",
@@ -33908,8 +33908,8 @@
       "republicanVotes": 106596,
       "democraticMarginPercentagePoints": 3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "503d033dfb4108b34c57df933179ae3255e68639263d3ec304034fcd153fe96e"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "6d95b377d9f06b392897a9afe76ef62876cbffaefb8bf68b2ea2144fccc5e46d"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:27",
@@ -33943,8 +33943,8 @@
       "republicanVotes": 189809,
       "democraticMarginPercentagePoints": -37.6,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "b34764b5defb256f147be3eca1233e42eab7ab62e576a6da6251c20e2b14dddd"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "678ab41e0f99aa327667d029fde8fb18805deecbda984a0d74205b300bdcf124"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:29",
@@ -33978,8 +33978,8 @@
       "republicanVotes": 177633,
       "democraticMarginPercentagePoints": -29.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "5ed97c048b7aaa57eddfae2fa45528bd07413170393ea1f8976451625fa33ddd"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "4466bf0482f7cb01932f7728c2cedc28475d6717a12dbe5914966ff5d14f1e3e"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:3",
@@ -34013,8 +34013,8 @@
       "republicanVotes": 154515,
       "democraticMarginPercentagePoints": -11.3,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "c8aa3ffbe45e78ae4eb58a159ec8a7964edde3214dbe14acfaa4b9ce34f92794"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "5b8449dcf2f5134cfa30360da30f0093ee0b2ce4c0eb09aa0a2ab95d933c8238"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:31",
@@ -34048,8 +34048,8 @@
       "republicanVotes": 199888,
       "democraticMarginPercentagePoints": -22.9,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "050ef9d427675b769437b920c221068ef975b0b70bb4c49b3f2a53b97e360e4f"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "6fd2781582f24a460d291d5f234f0d377684a82c1159caba51f68b7d642daff5"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:33",
@@ -34083,8 +34083,8 @@
       "republicanVotes": 175411,
       "democraticMarginPercentagePoints": -32.1,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "422786d285856ac358ce93727dfbe7f06566c6780096c5895266bb107a429725"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "b591f9ecd99e2108cc901eb95085f1c754cbe7c7e553e778d5722463d00ba6d9"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:35",
@@ -34118,8 +34118,8 @@
       "republicanVotes": 108777,
       "democraticMarginPercentagePoints": 12.7,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "844bb90ee593943dfc671d97714d517196d11547484a9d01eefb786b10885147"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "1be4b8fa4f39bdd3978f845f3cbedb91c763f18a5ff8ff08588c619bb551fd09"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:37",
@@ -34153,8 +34153,8 @@
       "republicanVotes": 93918,
       "democraticMarginPercentagePoints": 16.5,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "8854a837f8fb4518c9c50cc963dbbce4c55fed20027c0fbb37b0994807cd74f9"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "067991878a81fa9068eb41cad8633f839ab3c40ee0f301ed2113c3590a29a1c6"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:39",
@@ -34188,8 +34188,8 @@
       "republicanVotes": 133270,
       "democraticMarginPercentagePoints": -39.6,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "3e7c2eb71eaf6b8084fb3ba65531567dcdb533791e4ba791fec287e50173518d"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "c73e5997ca4bfd1d635a74981bd3f1a05654e9aa6abe428189a470014e44e009"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:5",
@@ -34223,8 +34223,8 @@
       "republicanVotes": 0,
       "democraticMarginPercentagePoints": 99.6,
       "contested": false,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "6eb2219ccba9a753e41db0740afe9d6e9902d219d7615ad1db67a1b332398871"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "0aa9d4b9c47c85321952cfee56aee96cc951545eeeec9c80ff6df5a419378414"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:7",
@@ -34258,8 +34258,8 @@
       "republicanVotes": 237377,
       "democraticMarginPercentagePoints": -36.5,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "cd4b796eff6e6b324d8d27bc97eedb5beb479024115d820e06b5bd0dc41f13bb"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "76bc874a3ac045d085e9fcbe104cf891289ec52b2ad175acc639252c5b5aed7c"
     },
     {
       "contestId": "fl:state-leg-general:2024:upper:9",
@@ -34293,8 +34293,8 @@
       "republicanVotes": 177937,
       "democraticMarginPercentagePoints": -26.6,
       "contested": true,
-      "sourceId": "fl-2024-general-results-extract-txt",
-      "contestSha256": "4ec43b55600938ec7971b62bbcc62eafba9eab13a11c35921d54d38c1503974a"
+      "sourceId": "florida-general-2024-results-extract-txt",
+      "contestSha256": "a9bdcc84e1dac1425e1b46cc9eb8d20df4d0c153605d8c6acd6758117c2da102"
     },
     {
       "contestId": "ga:state-leg-general:2024:lower:1",
@@ -223003,6 +223003,6 @@
     "candidateVotes": 248961422,
     "multiMemberContests": 131
   },
-  "rowSetSha256": "7c1ef70c642961ebb3d7144dc86b2709a41866405afc8293b9220e2e6de5db5c",
-  "packageSha256": "ae11e4bbe00a28eb0ec1346dc9760e9961fcfa91564bb18bfdecb466dbf234e5"
+  "rowSetSha256": "07442d7761aec71c5a3b3ff31720d6196e6d006f6aff9c5f26f07f731f10caec",
+  "packageSha256": "3d372850608f44592b2a4f2b0f4225c6b2e23495132bdadd6cc8fd56c7c6c592"
 }
