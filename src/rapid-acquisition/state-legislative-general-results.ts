@@ -43,7 +43,7 @@ export interface StateGeneralContest {
   readonly totalVotes: number;
   readonly democraticVotes: number;
   readonly republicanVotes: number;
-  /** (Democratic − Republican) ÷ all votes cast × 100; null when no votes were recorded. */
+  /** (Democratic − Republican) ÷ all votes cast × 100; null when no votes were recorded or no major-party candidate ran. */
   readonly democraticMarginPercentagePoints: number | null;
   readonly contested: boolean;
   readonly sourceId: string;
@@ -98,8 +98,10 @@ export interface StateGeneralSource {
   readonly electionDate: string;
   /** Human note for the review ledger, e.g. which chamber the file covers. */
   readonly note: string;
-  /** Form body when the publisher serves the file only in response to a POST; the retained bytes are that response. */
+  /** Request body when the publisher serves the file only in response to a POST; the retained bytes are that response. */
   readonly postBody?: string;
+  /** Content type of postBody; form encoding when absent. */
+  readonly postContentType?: string;
 }
 
 export interface StateGeneralAdapter {
@@ -145,9 +147,11 @@ function normalize(raw: RawGeneralContest, source: StateGeneralSource, stateCode
   // Contested means more named candidates than seats, whatever their parties: a top-two race between two
   // Democrats is contested even though its Democratic margin is 100.
   const contested = named.length > (raw.seats ?? 1);
-  const margin = totalVotes === 0
-    ? (contested ? null : democraticVotes >= republicanVotes && parties.has("Democratic") ? 100 : parties.has("Republican") ? -100 : null)
-    : one(((democraticVotes - republicanVotes) / totalVotes) * 100);
+  // A contest with no Democratic or Republican candidate carries no partisan signal: its margin is null, not a tie.
+  const margin = !parties.has("Democratic") && !parties.has("Republican") ? null
+    : totalVotes === 0
+      ? (contested ? null : democraticVotes >= republicanVotes && parties.has("Democratic") ? 100 : parties.has("Republican") ? -100 : null)
+      : one(((democraticVotes - republicanVotes) / totalVotes) * 100);
   const district = raw.district.trim();
   const unsigned = {
     contestId: `${stateCode.toLowerCase()}:state-leg-general:${source.cycleYear}:${raw.chamber}:${districtKey(district).replace(/ /g, "-")}${raw.position ? `:pos-${raw.position}` : ""}`,

@@ -45,6 +45,7 @@ export function stateLegislativePriorityBrief(row: StateLegislativeScoreV01Row):
   const democratic = row.route === "democratic_incumbent_primary";
   const pct = Math.round((row.availableWeight ?? 0) * 100);
   const uncontested = row.baselineContested === false ? " That race was uncontested, so the margin is the maximum." : "";
+  const mismatch = row.partyMismatch ? ` The Open States roster lists ${row.holderName} as ${row.incumbentParty}, but the ${row.baselineCycleYear} returns show this holder on the ${row.holderBaselineParty} line: either a party switch since that election or a roster error.` : "";
   return {
     rank: 0,
     seatCycleId: row.seatId,
@@ -76,7 +77,7 @@ export function stateLegislativePriorityBrief(row: StateLegislativeScoreV01Row):
     scoreSummary: democratic
       ? `${row.seatLabel} scores ${row.score.toFixed(1)} on the Democratic incumbent route with ${pct}% of the component weight available: the own-race ${margin} baseline${row.primaryFeasibility === null ? " alone" : " and retained primary evidence"}. No state finance or alignment evidence is retained.`
       : `${row.seatLabel} enters through the Republican-held flip route at ${row.score.toFixed(1)} with ${pct}% of the component weight available: own-race competitiveness${row.stateContestation === null ? "" : " and state-level Democratic primary contestation"}.`,
-    personSummary: `${row.holderName} holds ${row.stateCode} ${chamberLabel(row)} district ${row.district} as a ${row.incumbentParty}. The Open States roster is the identity source; the seat is next regularly contested in ${row.nextElectionYear} on a ${row.termYears}-year term.`,
+    personSummary: `${row.holderName} holds ${row.stateCode} ${chamberLabel(row)} district ${row.district} as a ${row.incumbentParty}. The Open States roster is the identity source; the seat is next regularly contested in ${row.nextElectionYear} on a ${row.termYears}-year term.${mismatch}`,
     districtSummary: `${baselineSentence(row)}${uncontested} The margin here is the seat's own race, not a presidential overlay; state campaign-finance filings are not retained.`,
     limitations: "Own-race margin and, where retained, primary evidence and state contestation only. Term lengths are chamber defaults and special elections are not modelled. This is a comparative research index, not a forecast or endorsement.",
   };

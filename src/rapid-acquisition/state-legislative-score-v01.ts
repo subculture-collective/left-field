@@ -22,7 +22,7 @@ import { readStateLegislativeRoster, STATE_LEGISLATIVE_ROSTER, type StateChamber
  * contest, and holders who are neither Democratic nor Republican are carried
  * unscored with the reason, never imputed.
  */
-export type StateLegislativeScoreStatus = "scored" | "state_not_covered" | "no_contest_for_district" | "holder_party_not_scored";
+export type StateLegislativeScoreStatus = "scored" | "state_not_covered" | "no_contest_for_district" | "no_major_party_in_contest" | "holder_party_not_scored";
 
 export interface StateLegislativeScoreV01Row {
   readonly seatId: string;
@@ -43,6 +43,10 @@ export interface StateLegislativeScoreV01Row {
   readonly baselineSeats: number | null;
   /** Own-race Democratic margin over Republican share of all votes cast, in percentage points. */
   readonly ownRaceDemocraticMargin: number | null;
+  /** Party the holder ran under in the baseline contest, when the holder is named in it; null otherwise. */
+  readonly holderBaselineParty: string | null;
+  /** The roster's caucus differs from the major party the holder ran under: a party switch since the election, or a roster error. */
+  readonly partyMismatch: boolean;
   readonly primaryFeasibility: number | null;
   readonly primaryEvidenceStatus: StateLegislativeRosterRow["primaryEvidence"]["status"];
   readonly stateContestation: number | null;
@@ -77,7 +81,7 @@ export interface StateLegislativeScoreV01Projection {
   readonly coveredStates: readonly string[];
   readonly rows: readonly StateLegislativeScoreV01Row[];
   readonly summary: Readonly<{
-    seats: number; coveredStates: number; scored: number; stateNotCovered: number; noContestForDistrict: number; holderPartyNotScored: number;
+    seats: number; coveredStates: number; scored: number; stateNotCovered: number; noContestForDistrict: number; noMajorPartyInContest: number; holderPartyNotScored: number; partyMismatches: number;
     democraticScored: number; republicanScored: number; primaryFeasibilityValues: number; uncontestedBaselines: number; democraticMaxScore: number | null; republicanMaxScore: number | null;
   }>;
   readonly rowSetSha256: string;
@@ -161,9 +165,20 @@ export function buildStateLegislativeScoreV01Projection(root = process.cwd(), lo
       holderName: seat.name, openStatesId: seat.openStatesId, incumbentParty: seat.rawParty,
       primaryFeasibility: seat.primaryEvidence.primaryFeasibility, primaryEvidenceStatus: seat.primaryEvidence.status, termYears,
     };
+    const holderLine = (contest: StateGeneralContest | null): StateGeneralContest["candidates"][number] | null => {
+      if (!contest) return null;
+      const family = familyToken(seat.familyName).split(" ").filter(Boolean), given = familyToken(seat.givenName).split(" ")[0] ?? "";
+      const named = contest.candidates.filter((candidate) => { const tokens = familyToken(candidate.name).split(" "); return !candidate.writeIn && family.length > 0 && family.every((part) => tokens.includes(part)) && (given === "" || tokens.includes(given) || tokens[0]?.[0] === given[0]); });
+      return named.length === 1 ? named[0]! : null;
+    };
+    const identity = (contest: StateGeneralContest | null, caucus: "Democratic" | "Republican" | null) => {
+      const line = holderLine(contest);
+      const ranAs = line && (line.party === "Democratic" || line.party === "Republican") ? line.party : null;
+      return { holderBaselineParty: line ? line.rawParty : null, partyMismatch: caucus !== null && ranAs !== null && ranAs !== caucus };
+    };
     const unscored = (status: Exclude<StateLegislativeScoreStatus, "scored">, contest: StateGeneralContest | null, caucus: "Democratic" | "Republican" | null) => {
       const unsigned = {
-        ...base, caucus, status,
+        ...base, caucus, status, ...identity(contest, caucus),
         baselineContestId: contest?.contestId ?? null, baselineCycleYear: contest?.cycleYear ?? null, baselineElectionDate: contest?.electionDate ?? null, baselineContested: contest?.contested ?? null, baselineSeats: contest?.seats ?? null,
         ownRaceDemocraticMargin: contest?.democraticMarginPercentagePoints ?? null, stateContestation: null, nextElectionYear: contest ? contest.cycleYear + termYears : null,
         route: null, score: null, blueBaseline: null, competitiveness: null, structuralBaseline: null, availableWeight: null, coverageMultiplier: null, drivers: [] as SeatScoreDriver[], formula: null,
@@ -173,12 +188,13 @@ export function buildStateLegislativeScoreV01Projection(root = process.cwd(), lo
     const caucus: "Democratic" | "Republican" | null = seat.party === "Democratic" ? "Democratic" : seat.party === "Republican" ? "Republican" : null;
     if (!covered.has(seat.stateCode)) return unscored("state_not_covered", null, caucus);
     const contest = contestFor(seat);
-    if (!contest || contest.democraticMarginPercentagePoints === null) return unscored("no_contest_for_district", null, caucus);
+    if (!contest) return unscored("no_contest_for_district", null, caucus);
+    if (contest.democraticMarginPercentagePoints === null) return unscored("no_major_party_in_contest", contest, caucus);
     if (caucus === null) return unscored("holder_party_not_scored", contest, null);
     const stateContestation = caucus === "Republican" ? contestation.get(seat.stateCode) ?? null : null;
     const scored = scoreSeat({ caucus, presidentialDemocraticMargin2024: contest.democraticMarginPercentagePoints, primaryFeasibility: caucus === "Democratic" ? seat.primaryEvidence.primaryFeasibility : null, alignmentGap: null, cashOnHand: null, localContext: null, stateContestation });
     const unsigned = {
-      ...base, caucus, status: "scored" as const,
+      ...base, caucus, status: "scored" as const, ...identity(contest, caucus),
       baselineContestId: contest.contestId, baselineCycleYear: contest.cycleYear, baselineElectionDate: contest.electionDate, baselineContested: contest.contested, baselineSeats: contest.seats,
       ownRaceDemocraticMargin: contest.democraticMarginPercentagePoints, stateContestation, nextElectionYear: contest.cycleYear + termYears,
       route: scored.route, score: scored.score, blueBaseline: scored.blueBaseline, competitiveness: scored.competitiveness, structuralBaseline: scored.structuralBaseline,
@@ -193,7 +209,7 @@ export function buildStateLegislativeScoreV01Projection(root = process.cwd(), lo
   const max = (list: readonly StateLegislativeScoreV01Row[]): number | null => list.length ? Math.max(...list.map((row) => row.score ?? 0)) : null;
   const summary = {
     seats: rows.length, coveredStates: covered.size, scored: scored.length,
-    stateNotCovered: rows.filter((row) => row.status === "state_not_covered").length, noContestForDistrict: rows.filter((row) => row.status === "no_contest_for_district").length, holderPartyNotScored: rows.filter((row) => row.status === "holder_party_not_scored").length,
+    stateNotCovered: rows.filter((row) => row.status === "state_not_covered").length, noContestForDistrict: rows.filter((row) => row.status === "no_contest_for_district").length, noMajorPartyInContest: rows.filter((row) => row.status === "no_major_party_in_contest").length, partyMismatches: rows.filter((row) => row.partyMismatch).length, holderPartyNotScored: rows.filter((row) => row.status === "holder_party_not_scored").length,
     democraticScored: democrats.length, republicanScored: republicans.length, primaryFeasibilityValues: democrats.filter((row) => row.primaryFeasibility !== null).length,
     uncontestedBaselines: scored.filter((row) => row.baselineContested === false).length, democraticMaxScore: max(democrats), republicanMaxScore: max(republicans),
   };

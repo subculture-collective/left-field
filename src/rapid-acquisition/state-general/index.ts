@@ -1,10 +1,13 @@
 import type { StateGeneralAdapter } from "../state-legislative-general-results";
+import { ALASKA_GENERAL } from "./alaska";
+import { ARKANSAS_GENERAL } from "./arkansas";
 import { CALIFORNIA_GENERAL } from "./california";
 import { COLORADO_GENERAL } from "./colorado";
 import { CONNECTICUT_GENERAL } from "./connecticut";
 import { DELAWARE_GENERAL } from "./delaware";
 import { FLORIDA_GENERAL } from "./florida";
 import { GEORGIA_GENERAL } from "./georgia";
+import { HAWAII_GENERAL } from "./hawaii";
 import { IDAHO_GENERAL } from "./idaho";
 import { ILLINOIS_GENERAL } from "./illinois";
 import { INDIANA_GENERAL } from "./indiana";
@@ -19,6 +22,7 @@ import { RHODE_ISLAND_GENERAL } from "./rhode-island";
 import { SOUTH_CAROLINA_GENERAL } from "./south-carolina";
 import { TENNESSEE_GENERAL } from "./tennessee";
 import { UTAH_GENERAL } from "./utah";
+import { VERMONT_GENERAL } from "./vermont";
 import { VIRGINIA_GENERAL } from "./virginia";
 import { WASHINGTON_GENERAL } from "./washington";
 import { WEST_VIRGINIA_GENERAL } from "./west-virginia";
@@ -29,4 +33,4 @@ import { WISCONSIN_GENERAL } from "./wisconsin";
  * general-election returns and reports raw contests; normalization, margins
  * and closure checks live in state-legislative-general-results.ts.
  */
-export const STATE_GENERAL_ADAPTERS: readonly StateGeneralAdapter[] = [CALIFORNIA_GENERAL, COLORADO_GENERAL, CONNECTICUT_GENERAL, DELAWARE_GENERAL, FLORIDA_GENERAL, GEORGIA_GENERAL, IDAHO_GENERAL, ILLINOIS_GENERAL, INDIANA_GENERAL, IOWA_GENERAL, MAINE_GENERAL, MARYLAND_GENERAL, MONTANA_GENERAL, NEW_YORK_GENERAL, NORTH_CAROLINA_GENERAL, PENNSYLVANIA_GENERAL, RHODE_ISLAND_GENERAL, SOUTH_CAROLINA_GENERAL, TENNESSEE_GENERAL, UTAH_GENERAL, VIRGINIA_GENERAL, WASHINGTON_GENERAL, WEST_VIRGINIA_GENERAL, WISCONSIN_GENERAL];
+export const STATE_GENERAL_ADAPTERS: readonly StateGeneralAdapter[] = [ALASKA_GENERAL, ARKANSAS_GENERAL, CALIFORNIA_GENERAL, COLORADO_GENERAL, CONNECTICUT_GENERAL, DELAWARE_GENERAL, FLORIDA_GENERAL, GEORGIA_GENERAL, HAWAII_GENERAL, IDAHO_GENERAL, ILLINOIS_GENERAL, INDIANA_GENERAL, IOWA_GENERAL, MAINE_GENERAL, MARYLAND_GENERAL, MONTANA_GENERAL, NEW_YORK_GENERAL, NORTH_CAROLINA_GENERAL, PENNSYLVANIA_GENERAL, RHODE_ISLAND_GENERAL, SOUTH_CAROLINA_GENERAL, TENNESSEE_GENERAL, UTAH_GENERAL, VERMONT_GENERAL, VIRGINIA_GENERAL, WASHINGTON_GENERAL, WEST_VIRGINIA_GENERAL, WISCONSIN_GENERAL];

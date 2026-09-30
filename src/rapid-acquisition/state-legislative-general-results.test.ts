@@ -8,6 +8,10 @@ import { ILLINOIS_GENERAL } from "./state-general/illinois";
 import { NEW_YORK_GENERAL } from "./state-general/new-york";
 import { PENNSYLVANIA_GENERAL } from "./state-general/pennsylvania";
 import { COLORADO_GENERAL } from "./state-general/colorado";
+import { ALASKA_GENERAL } from "./state-general/alaska";
+import { ARKANSAS_GENERAL } from "./state-general/arkansas";
+import { HAWAII_GENERAL } from "./state-general/hawaii";
+import { VERMONT_GENERAL } from "./state-general/vermont";
 import { DELAWARE_GENERAL } from "./state-general/delaware";
 import { INDIANA_GENERAL } from "./state-general/indiana";
 import { IDAHO_GENERAL } from "./state-general/idaho";
@@ -148,6 +152,15 @@ describe("state-legislative general results", () => {
     const idaho = value.contests.filter((contest) => contest.stateCode === "ID" && contest.chamber === "lower");
     expect(idaho.every((contest) => /^\d+[AB]$/.test(contest.district))).toBe(true);
     expect(value.contests.flatMap((contest) => contest.candidates).some((candidate) => ["Overvotes", "Undervotes"].includes(candidate.name))).toBe(false);
+  });
+
+  it("reads the seventh batch: Alaska first-choice totals, Arkansas, Hawaii contested races, Vermont multi-member districts", () => {
+    const value = buildStateLegislativeGeneralResults(process.cwd(), readSourceLock(), [ALASKA_GENERAL, ARKANSAS_GENERAL, HAWAII_GENERAL, VERMONT_GENERAL]);
+    expect(value.states.map((state) => [state.stateCode, state.contests, state.lowerContests, state.upperContests])).toEqual([["AK", 60, 40, 20], ["AR", 118, 100, 18], ["HI", 43, 35, 8], ["VT", 125, 109, 16]]);
+    expect(value.contests.find((contest) => contest.contestId === "ak:state-leg-general:2022:upper:a")?.candidates.map((candidate) => [candidate.name, candidate.votes])).toEqual([["Bert K. Stedman", 8902], ["Mike Sheldon", 3941], ["Write-in", 98]]);
+    expect(value.contests.find((contest) => contest.contestId === "hi:state-leg-general:2024:upper:3")?.candidates.map((candidate) => [candidate.name, candidate.party])).toEqual([["Dru Mamo Kanuha", "Democratic"], ["Kurt (Sulli) Sullivan", "Republican"]]);
+    expect(value.contests.find((contest) => contest.contestId === "vt:state-leg-general:2024:upper:addison")).toMatchObject({ seats: 2, democraticVotes: 22713, republicanVotes: 19856 });
+    expect(value.contests.filter((contest) => contest.stateCode === "VT").every((contest) => contest.electionDate === "2024-11-05")).toBe(true);
   });
 
   it("matches the pinned artifact", () => {
