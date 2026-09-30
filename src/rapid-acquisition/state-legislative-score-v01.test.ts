@@ -14,8 +14,8 @@ describe("state-legislative score v0.1", () => {
 
   it("scores every seat in a covered state and carries the rest unscored with a reason", () => {
     const value = buildStateLegislativeScoreV01Projection();
-    expect(value.coveredStates).toEqual(["CA", "CO", "CT", "FL", "GA", "IL", "MD", "ME", "NC", "NY", "PA", "VA", "WA", "WI"]);
-    expect(value.summary).toMatchObject({ seats: value.rows.length, coveredStates: 14, scored: 2368, noContestForDistrict: 26, holderPartyNotScored: 7, democraticScored: 1331, republicanScored: 1037 });
+    expect(value.coveredStates).toEqual(["CA", "CO", "CT", "DE", "FL", "GA", "IL", "IN", "MD", "ME", "NC", "NY", "PA", "RI", "SC", "TN", "VA", "WA", "WI", "WV"]);
+    expect(value.summary).toMatchObject({ seats: value.rows.length, coveredStates: 20, scored: 3125, noContestForDistrict: 26, holderPartyNotScored: 9, democraticScored: 1597, republicanScored: 1528 });
     expect(value.summary.stateNotCovered + value.summary.scored + value.summary.noContestForDistrict + value.summary.holderPartyNotScored).toBe(value.summary.seats);
     const ga = value.rows.filter((row) => row.stateCode === "GA");
     expect(ga.every((row) => row.status === "scored" && row.nextElectionYear === 2026 && row.baselineCycleYear === 2024)).toBe(true);
@@ -41,6 +41,12 @@ describe("state-legislative score v0.1", () => {
     expect(florida).toHaveLength(24);
     expect(value.rows.filter((row) => row.stateCode === "FL" && row.chamber === "upper" && row.status === "scored").every((row) => (Number(row.district) % 2 === 1) === (row.baselineCycleYear === 2024))).toBe(true);
     expect(value.rows.filter((row) => row.stateCode === "ME" && row.status === "no_contest_for_district").map((row) => row.district).sort()).toEqual(["Houlton Band of Maliseet Indians", "Passamaquoddy Tribe"]);
+    // West Virginia Senate districts elect two members in different years; each holder gets their own year's contest.
+    const wvSenate = value.rows.filter((row) => row.stateCode === "WV" && row.chamber === "upper");
+    expect(wvSenate.every((row) => row.status === "scored")).toBe(true);
+    const wvByDistrict = new Map<string, string[]>();
+    for (const row of wvSenate) wvByDistrict.set(row.district, [...(wvByDistrict.get(row.district) ?? []), row.baselineContestId!]);
+    expect([...wvByDistrict.values()].every((ids) => new Set(ids).size === ids.length)).toBe(true);
     const other = value.rows.find((row) => row.stateCode === "TX");
     expect(other).toMatchObject({ status: "state_not_covered", score: null, route: null, drivers: [] });
   });
