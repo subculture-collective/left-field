@@ -10,7 +10,7 @@ export interface PriorityIndexRelease {
   readonly modelVersion: string;
   readonly publishedAt: string;
   readonly sourceCutoff: string;
-  readonly chambers: Readonly<Record<"house" | "senate", Readonly<{ artifactId: string; modelVersion: string; sourceCutoff: string; financeAsOf?: string }>> & { governor?: Readonly<{ artifactId: string; modelVersion: string; sourceCutoff: string; financeAsOf?: string }> }>;
+  readonly chambers: Readonly<Record<"house" | "senate", Readonly<{ artifactId: string; modelVersion: string; sourceCutoff: string; financeAsOf?: string }>> & { governor?: Readonly<{ artifactId: string; modelVersion: string; sourceCutoff: string; financeAsOf?: string }>; stateLegislative?: Readonly<{ artifactId: string; modelVersion: string; sourceCutoff: string; coveredStates: readonly string[] }> }>;
   readonly refreshInputsId: string;
 }
 
@@ -28,6 +28,8 @@ export function validatePriorityIndexRelease(value: unknown): PriorityIndexRelea
     if (chamber === "governor" && entry === undefined) continue;
     if (!entry || typeof entry.artifactId !== "string" || !/^v\d+\.\d+$/.test(entry.modelVersion) || !DATE.test(entry.sourceCutoff) || (entry.financeAsOf !== undefined && !DATE.test(entry.financeAsOf))) fail(`CHAMBER_INVALID:${chamber}`);
   }
+  const stateLegislative = release!.chambers?.stateLegislative;
+  if (stateLegislative !== undefined && (typeof stateLegislative.artifactId !== "string" || !/^v\d+\.\d+$/.test(stateLegislative.modelVersion) || !DATE.test(stateLegislative.sourceCutoff) || !Array.isArray(stateLegislative.coveredStates) || stateLegislative.coveredStates.some((code) => !/^[A-Z]{2}$/.test(code)))) fail("CHAMBER_INVALID:stateLegislative");
   if (typeof release!.refreshInputsId !== "string") fail("REFRESH_POINTER_INVALID");
   return release as PriorityIndexRelease;
 }

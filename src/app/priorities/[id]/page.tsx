@@ -49,9 +49,9 @@ export default async function PriorityBrief({ params }: Props) {
             <h2>Record</h2>
             <p>{row.personSummary}</p>
             <dl className="brief-facts">
-              <dt>{row.chamber === "governor" ? "Open States id" : "BioGuide"}</dt>
+              <dt>{row.chamber === "governor" || row.chamber === "state_house" || row.chamber === "state_senate" ? "Open States id" : "BioGuide"}</dt>
               <dd>{row.bioguideId}</dd>
-              <dt>{row.chamber === "governor" ? "Term start" : `First ${row.chamber === "senate" ? "Senate" : "House"} service`}</dt>
+              <dt>{row.chamber === "governor" ? "Term start" : row.chamber === "state_house" || row.chamber === "state_senate" ? "Baseline election" : `First ${row.chamber === "senate" ? "Senate" : "House"} service`}</dt>
               <dd>{row.firstHouseServiceDate}</dd>
               <dt>{row.chamber === "house" ? "District changes" : "Next election"}</dt>
               <dd>{row.chamber === "house" ? row.districtChangeCount : row.nextElectionYear}</dd>
@@ -62,11 +62,11 @@ export default async function PriorityBrief({ params }: Props) {
             </dl>
           </article>
           <article>
-            <p className="eyebrow">{row.chamber === "house" ? "THE DISTRICT" : "THE STATE"}</p>
+            <p className="eyebrow">{row.chamber === "house" || row.chamber === "state_house" || row.chamber === "state_senate" ? "THE DISTRICT" : "THE STATE"}</p>
             <h2>{row.districtLabel}</h2>
             <p>{row.districtSummary}</p>
             <dl className="brief-facts">
-              <dt>2024 presidential margin</dt>
+              <dt>{row.chamber === "state_house" || row.chamber === "state_senate" ? "Own-race margin" : "2024 presidential margin"}</dt>
               <dd>{formatPartisanMargin(row.presidentialDemocraticMargin2024)}</dd>
               <dt>Cash on hand</dt>
               <dd>
@@ -116,7 +116,7 @@ export default async function PriorityBrief({ params }: Props) {
         </section>
 
         <section className="record-section">
-          <p className="eyebrow">{row.chamber === "senate" ? "SENATE TERM" : row.chamber === "governor" ? "GUBERNATORIAL TERM" : "HOUSE HISTORY"}</p>
+          <p className="eyebrow">{row.chamber === "senate" ? "SENATE TERM" : row.chamber === "governor" ? "GUBERNATORIAL TERM" : row.chamber === "state_house" || row.chamber === "state_senate" ? "CURRENT TERM" : "HOUSE HISTORY"}</p>
           <h2>Recorded service</h2>
           <div className="service-timeline">
             {row.serviceHistory.map((term) => (

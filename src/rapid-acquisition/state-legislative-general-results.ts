@@ -1,0 +1,193 @@
+import { readPinnedPackage, readRetainedSource, readSourceLock, type SourceLock } from "./intake/source-lock";
+import { byteCompare, hash } from "./shared";
+import { districtKey, type RosterParty, type StateChamber } from "./state-legislative-roster";
+import { STATE_GENERAL_ADAPTERS } from "./state-general";
+
+/**
+ * Official general-election returns for state-legislative districts, one
+ * state at a time, normalized to a single contract.
+ *
+ * Every state's election authority publishes its own returns; this layer
+ * reads the retained official file for each covered state through a small
+ * adapter and records, per contest: the chamber, the district, the cycle,
+ * every named candidate with party and votes, and the Democratic margin over
+ * the Republican share of all votes cast. That own-race margin is the
+ * district baseline the scorer uses for state-legislative seats, since no
+ * open nationwide presidential-by-legislative-district file exists.
+ *
+ * Nothing is inferred: a district with no retained contest is absent, not
+ * imputed, and the score layer says so per seat.
+ */
+export interface StateGeneralCandidate {
+  readonly name: string;
+  readonly rawParty: string;
+  readonly party: RosterParty;
+  readonly votes: number;
+  readonly writeIn: boolean;
+}
+
+export interface StateGeneralContest {
+  readonly contestId: string;
+  readonly stateCode: string;
+  readonly chamber: StateChamber;
+  readonly district: string;
+  readonly districtKey: string;
+  readonly cycleYear: number;
+  readonly electionDate: string;
+  readonly electionKind: "general" | "special_general";
+  /** Seats filled by this contest; margins for multi-member contests use party vote totals. */
+  readonly seats: number;
+  readonly candidates: readonly StateGeneralCandidate[];
+  readonly totalVotes: number;
+  readonly democraticVotes: number;
+  readonly republicanVotes: number;
+  /** (Democratic − Republican) ÷ all votes cast × 100; null when no votes were recorded. */
+  readonly democraticMarginPercentagePoints: number | null;
+  readonly contested: boolean;
+  readonly sourceId: string;
+  readonly contestSha256: string;
+}
+
+export interface StateGeneralStateSummary {
+  readonly stateCode: string;
+  readonly sourceIds: readonly string[];
+  readonly cycles: readonly number[];
+  readonly contests: number;
+  readonly lowerContests: number;
+  readonly upperContests: number;
+  readonly uncontested: number;
+  readonly candidateVotes: number;
+}
+
+export interface StateLegislativeGeneralResults {
+  readonly schema: "state-legislative-general-results-v1";
+  readonly version: 1;
+  readonly methodology: Readonly<{
+    source: "official_state_election_authority_returns_per_state";
+    margin: "democratic_minus_republican_votes_over_all_votes_cast_percentage_points";
+    multiMember: "party_vote_totals_across_all_candidates_in_the_contest";
+    uncontested: "named_candidates_do_not_exceed_seats";
+    winnerInference: false;
+  }>;
+  readonly sourceIds: readonly string[];
+  readonly states: readonly StateGeneralStateSummary[];
+  readonly contests: readonly StateGeneralContest[];
+  readonly summary: Readonly<{ states: number; contests: number; uncontested: number; candidateVotes: number; multiMemberContests: number }>;
+  readonly rowSetSha256: string;
+  readonly packageSha256: string;
+}
+
+/** A contest as an adapter reports it, before normalization. */
+export interface RawGeneralContest {
+  readonly chamber: StateChamber;
+  readonly district: string;
+  readonly electionDate?: string;
+  readonly electionKind?: "general" | "special_general";
+  readonly seats?: number;
+  readonly candidates: readonly Readonly<{ name: string; rawParty: string; party?: RosterParty; votes: number; writeIn?: boolean }>[];
+}
+
+export interface StateGeneralSource {
+  readonly id: string;
+  readonly url: string;
+  readonly path: string;
+  readonly cycleYear: number;
+  readonly electionDate: string;
+  /** Human note for the review ledger, e.g. which chamber the file covers. */
+  readonly note: string;
+}
+
+export interface StateGeneralAdapter {
+  readonly stateCode: string;
+  readonly authority: string;
+  readonly sources: readonly StateGeneralSource[];
+  /** Expected contest count per source, checked after parsing so a silently truncated file fails closed. */
+  readonly expectedContests: Readonly<Record<string, number>>;
+  readonly parse: (bytes: Buffer, source: StateGeneralSource) => readonly RawGeneralContest[];
+}
+
+export const STATE_LEGISLATIVE_GENERAL_RESULTS = {
+  id: "state-legislative-general-results-v1",
+  path: "data/metadata/state-legislative-general-results-v1.json",
+  url: "urn:dsa-seats:state-legislative-general-results:v1",
+  parentIds: (): string[] => STATE_GENERAL_ADAPTERS.flatMap((adapter) => adapter.sources.map((source) => source.id)),
+} as const;
+
+const fail = (code: string): never => { throw new Error(`STATE_LEG_GENERAL_${code}`); };
+const one = (value: number): number => Math.round(value * 10) / 10;
+
+/** Party from a source label: national parties and their state affiliates, everything else Independent or Other. */
+export const generalPartyOf = (raw: string): RosterParty => {
+  const key = raw.trim().toLowerCase();
+  if (key === "" ) return "Independent";
+  if (/^(d|dem|democrat|democratic)\b/.test(key) || key === "dfl" || key.startsWith("democratic")) return "Democratic";
+  if (/^(r|rep|gop|republican)\b/.test(key)) return "Republican";
+  if (/^(i|ind|independent|npa|no party|nonpartisan|unaffiliated|non-partisan)\b/.test(key)) return "Independent";
+  return "Other";
+};
+
+function normalize(raw: RawGeneralContest, source: StateGeneralSource, stateCode: string): StateGeneralContest {
+  const candidates = raw.candidates.map((candidate) => {
+    if (!Number.isSafeInteger(candidate.votes) || candidate.votes < 0) fail(`VOTES_INVALID:${stateCode}:${raw.chamber}:${raw.district}:${candidate.name}`);
+    return { name: candidate.name.trim(), rawParty: candidate.rawParty, party: candidate.party ?? generalPartyOf(candidate.rawParty), votes: candidate.votes, writeIn: candidate.writeIn ?? false };
+  }).sort((left, right) => right.votes - left.votes || byteCompare(left.name, right.name));
+  const named = candidates.filter((candidate) => !candidate.writeIn);
+  if (named.length === 0) fail(`NO_NAMED_CANDIDATE:${stateCode}:${raw.chamber}:${raw.district}`);
+  const totalVotes = candidates.reduce((sum, candidate) => sum + candidate.votes, 0);
+  const democraticVotes = candidates.filter((candidate) => candidate.party === "Democratic").reduce((sum, candidate) => sum + candidate.votes, 0);
+  const republicanVotes = candidates.filter((candidate) => candidate.party === "Republican").reduce((sum, candidate) => sum + candidate.votes, 0);
+  const parties = new Set(named.map((candidate) => candidate.party));
+  // Contested means more named candidates than seats, whatever their parties: a top-two race between two
+  // Democrats is contested even though its Democratic margin is 100.
+  const contested = named.length > (raw.seats ?? 1);
+  const margin = totalVotes === 0
+    ? (contested ? null : democraticVotes >= republicanVotes && parties.has("Democratic") ? 100 : parties.has("Republican") ? -100 : null)
+    : one(((democraticVotes - republicanVotes) / totalVotes) * 100);
+  const district = raw.district.trim();
+  const unsigned = {
+    contestId: `${stateCode.toLowerCase()}:state-leg-general:${source.cycleYear}:${raw.chamber}:${districtKey(district).replace(/ /g, "-")}`,
+    stateCode, chamber: raw.chamber, district, districtKey: districtKey(district), cycleYear: source.cycleYear,
+    electionDate: raw.electionDate ?? source.electionDate, electionKind: raw.electionKind ?? "general", seats: raw.seats ?? 1,
+    candidates, totalVotes, democraticVotes, republicanVotes, democraticMarginPercentagePoints: margin, contested, sourceId: source.id,
+  };
+  return { ...unsigned, contestSha256: hash("dsa-seats:state-legislative-general-contest:v1", unsigned) };
+}
+
+export function buildStateLegislativeGeneralResults(root = process.cwd(), lock: SourceLock = readSourceLock(root), adapters: readonly StateGeneralAdapter[] = STATE_GENERAL_ADAPTERS): StateLegislativeGeneralResults {
+  const contests: StateGeneralContest[] = [];
+  const states: StateGeneralStateSummary[] = [];
+  for (const adapter of [...adapters].sort((left, right) => byteCompare(left.stateCode, right.stateCode))) {
+    const stateContests: StateGeneralContest[] = [];
+    for (const source of adapter.sources) {
+      const { bytes } = readRetainedSource(lock, source.id, root);
+      const parsed = adapter.parse(bytes, source).map((raw) => normalize(raw, source, adapter.stateCode));
+      const expected = adapter.expectedContests[source.id];
+      if (expected === undefined) fail(`EXPECTED_COUNT_MISSING:${source.id}`);
+      if (parsed.length !== expected) fail(`CONTEST_COUNT:${source.id}:${parsed.length}:expected:${expected}`);
+      stateContests.push(...parsed);
+    }
+    const keys = stateContests.map((contest) => `${contest.cycleYear}|${contest.electionDate}|${contest.chamber}|${contest.districtKey}`);
+    if (new Set(keys).size !== keys.length) fail(`DUPLICATE_CONTEST:${adapter.stateCode}`);
+    states.push({
+      stateCode: adapter.stateCode, sourceIds: adapter.sources.map((source) => source.id), cycles: [...new Set(stateContests.map((contest) => contest.cycleYear))].sort(),
+      contests: stateContests.length, lowerContests: stateContests.filter((contest) => contest.chamber === "lower").length, upperContests: stateContests.filter((contest) => contest.chamber !== "lower").length,
+      uncontested: stateContests.filter((contest) => !contest.contested).length, candidateVotes: stateContests.reduce((sum, contest) => sum + contest.totalVotes, 0),
+    });
+    contests.push(...stateContests);
+  }
+  contests.sort((left, right) => byteCompare(left.contestId, right.contestId) || byteCompare(left.electionDate, right.electionDate));
+  const summary = { states: states.length, contests: contests.length, uncontested: contests.filter((contest) => !contest.contested).length, candidateVotes: contests.reduce((sum, contest) => sum + contest.totalVotes, 0), multiMemberContests: contests.filter((contest) => contest.seats > 1).length };
+  const unsigned = {
+    schema: "state-legislative-general-results-v1" as const, version: 1 as const,
+    methodology: { source: "official_state_election_authority_returns_per_state" as const, margin: "democratic_minus_republican_votes_over_all_votes_cast_percentage_points" as const, multiMember: "party_vote_totals_across_all_candidates_in_the_contest" as const, uncontested: "named_candidates_do_not_exceed_seats" as const, winnerInference: false as const },
+    sourceIds: adapters.flatMap((adapter) => adapter.sources.map((source) => source.id)), states, contests, summary,
+    rowSetSha256: hash("dsa-seats:state-legislative-general-contest-set:v1", contests),
+  };
+  return { ...unsigned, packageSha256: hash("dsa-seats:state-legislative-general-package:v1", unsigned) };
+}
+
+export function readStateLegislativeGeneralResults(root = process.cwd(), lock: SourceLock = readSourceLock(root)): StateLegislativeGeneralResults {
+  const { value } = readPinnedPackage<StateLegislativeGeneralResults>(lock, STATE_LEGISLATIVE_GENERAL_RESULTS.id, "dsa-seats:state-legislative-general-package:v1", root);
+  if (value.schema !== "state-legislative-general-results-v1" || value.version !== 1 || value.methodology.winnerInference !== false || value.contests.length !== value.summary.contests) fail("PINNED_INVALID");
+  return value;
+}

@@ -4,6 +4,7 @@ import { housePriorityBriefsV11 } from "./house-priority-index";
 import { readPriorityIndexRelease, type PriorityIndexRelease } from "./priority-index-release";
 import { senatePriorityBriefs } from "./senate-priority-index";
 import { governorPriorityBriefs } from "./governor-priority-index";
+import { stateLegislativePriorityBriefs } from "./state-legislative-priority-index";
 
 let _instance: FilesystemPriorityIndexRepository | undefined;
 
@@ -26,7 +27,10 @@ export class FilesystemPriorityIndexRepository implements PriorityIndexRepositor
   }
 
   getBriefs(): readonly PublicPriorityBrief[] {
-    if (!this._briefs) this._briefs = rankAcrossChambers([...housePriorityBriefsV11(), ...senatePriorityBriefs(), ...governorPriorityBriefs()]);
+    if (!this._briefs) {
+      const release = this.getRelease();
+      this._briefs = rankAcrossChambers([...housePriorityBriefsV11(), ...senatePriorityBriefs(), ...governorPriorityBriefs(), ...(release.chambers.stateLegislative ? stateLegislativePriorityBriefs() : [])]);
+    }
     return this._briefs;
   }
 

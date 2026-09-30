@@ -564,7 +564,10 @@ export default async function Sources() {
                   Open States roster snapshot {expansionStatus.stateLegislative.snapshotDate} (CC0).{" "}
                   {expansionStatus.stateLegislative.primaryMatched} Democratic holders in{" "}
                   {expansionStatus.stateLegislative.catalogStates} catalog states match a candidate in their latest retained Democratic primary;{" "}
-                  {expansionStatus.stateLegislative.holdersNotInLatestPrimary} do not. These seats are not ranked: no open nationwide file gives 2024 presidential results by legislative district, so no partisan baseline exists yet.
+                  {expansionStatus.stateLegislative.holdersNotInLatestPrimary} do not.{" "}
+                  {expansionStatus.stateLegislative.scored
+                    ? `${expansionStatus.stateLegislative.scored.seats} seats in ${expansionStatus.stateLegislative.scored.coveredStates.join(", ")} are ranked from ${expansionStatus.stateLegislative.scored.generalContests} official general-election contests retained from each state's election authority; the seat's own most recent margin is the district baseline. ${expansionStatus.stateLegislative.scored.stateNotCovered.toLocaleString("en-US")} seats in other states wait for their returns.`
+                    : "No state-legislative seats are ranked yet: no open nationwide file gives presidential results by legislative district, and no state returns are retained."}
                 </small>
               </article>
             </div>

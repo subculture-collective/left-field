@@ -16,7 +16,7 @@ export type PriorityDriver = Readonly<{
   explanation: string;
 }>;
 
-export type PriorityChamber = "house" | "senate" | "governor";
+export type PriorityChamber = "house" | "senate" | "governor" | "state_house" | "state_senate";
 export type PriorityRoute = "deep_blue" | "aipac_supported_blue" | "republican_fringe_general" | "democratic_incumbent_primary";
 
 export type PublicPriorityBrief = Readonly<{

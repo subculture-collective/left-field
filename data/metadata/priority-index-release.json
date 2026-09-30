@@ -1,8 +1,8 @@
 {
   "schema": "priority-index-release-v1",
   "version": 1,
-  "modelVersion": "v1.3",
-  "publishedAt": "2026-09-25",
+  "modelVersion": "v1.4",
+  "publishedAt": "2026-09-30",
   "sourceCutoff": "2026-08-04",
   "chambers": {
     "house": {
@@ -21,6 +21,17 @@
       "artifactId": "governor-score-v01-projection-v1",
       "modelVersion": "v0.1",
       "sourceCutoff": "2026-09-24"
+    },
+    "stateLegislative": {
+      "artifactId": "state-legislative-score-v01-projection-v1",
+      "modelVersion": "v0.1",
+      "sourceCutoff": "2026-09-24",
+      "coveredStates": [
+        "CA",
+        "GA",
+        "NY",
+        "VA"
+      ]
     }
   },
   "refreshInputsId": "refresh-inputs-v1"
