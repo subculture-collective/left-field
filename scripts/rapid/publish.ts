@@ -20,6 +20,7 @@ import { sha } from "@/rapid-acquisition/shared";
 import { GOVERNOR_SCORE_V01 } from "@/rapid-acquisition/governor-score-v01";
 import { HOUSE_SCORE_V11 } from "@/rapid-acquisition/house-score-v11-active";
 import { SENATE_SCORE_V01 } from "@/rapid-acquisition/senate-score-v01";
+import { buildStateLegislativeScoreV01Projection, STATE_LEGISLATIVE_SCORE_V01 } from "@/rapid-acquisition/state-legislative-score-v01";
 import { PRIORITY_INDEX_RELEASE, readPriorityIndexRelease, serializePriorityIndexRelease, type PriorityIndexRelease } from "@/lib/priority-index-release";
 
 import { DERIVED_ARTIFACTS, derivedParentIds } from "./derived-artifacts";
@@ -59,6 +60,7 @@ function main(): void {
       house: { ...previous.chambers.house, artifactId: HOUSE_SCORE_V11.id, modelVersion: "v0.11", financeAsOf: inputs.snapshotDate },
       senate: { artifactId: SENATE_SCORE_V01.id, modelVersion: previous.chambers.senate.modelVersion, sourceCutoff: inputs.snapshotDate, financeAsOf: inputs.snapshotDate },
       governor: { artifactId: GOVERNOR_SCORE_V01.id, modelVersion: previous.chambers.governor?.modelVersion ?? "v0.1", sourceCutoff: inputs.snapshotDate },
+      stateLegislative: { artifactId: STATE_LEGISLATIVE_SCORE_V01.id, modelVersion: previous.chambers.stateLegislative?.modelVersion ?? "v0.1", sourceCutoff: inputs.snapshotDate, coveredStates: buildStateLegislativeScoreV01Projection(root).coveredStates },
     },
   };
   const bytes = Buffer.from(serializePriorityIndexRelease(release));

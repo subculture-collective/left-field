@@ -74,6 +74,22 @@ The refresh pointer names dated snapshots (FEC candidate summary and master, Ope
 
 Derived artifacts registered in `scripts/rapid/derived-artifacts.ts` may name their parents as a function of the lock when a parent is a dated snapshot.
 
+## State-legislative general returns (added 2026-09-29)
+
+State-legislative seats are ranked one state at a time from that state's own official general-election returns. Each covered state has an adapter in `src/rapid-acquisition/state-general/` that declares its retained sources (id, HTTPS URL, path, cycle) and parses them into contests; `state-legislative-general-results.ts` normalizes every adapter's output to one contract, computes the Democratic-minus-Republican margin over all votes cast, and fails closed when a file yields a different contest count than the adapter declares.
+
+```sh
+npm run rapid:state-returns                          # download and pin every declared source not yet on disk
+npm run rapid:state-returns -- --state GA            # one state
+npm run rapid:state-returns -- --check               # verify retained bytes against the lock, download nothing
+npm run rapid:intake -- derive state-legislative-general-results-v1
+npm run rapid:intake -- derive state-legislative-score-v01-projection-v1
+```
+
+The score layer joins the Open States roster to the latest retained contest for each chamber and district, so a state becomes ranked the moment its adapter lands; seats elsewhere stay in the projection unscored with the reason. A publisher that re-issues a file under the same URL fails the byte check, and the adapter must declare a new source id rather than overwrite.
+
+Adding a state: write the adapter, run the three commands above, confirm the contest count and a few margins against the publisher's own summary page, then `npm run rapid:publish -- --bump`.
+
 ## Workbook extracts (added 2026-09-25)
 
 `.xls` and `.xlsx` sources are converted to CSV once with LibreOffice through the intake CLI and the CSV bytes are retained beside the workbook as a `derived_extract` whose parent is the workbook's lock id:

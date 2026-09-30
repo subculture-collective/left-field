@@ -46,6 +46,8 @@ export default async function Priorities({ searchParams }: Props) {
   const houseSeats = briefs.filter((row) => row.chamber === "house").length;
   const senateSeats = briefs.filter((row) => row.chamber === "senate").length;
   const governorSeats = briefs.filter((row) => row.chamber === "governor").length;
+  const stateSeats = briefs.filter((row) => row.chamber === "state_house" || row.chamber === "state_senate").length;
+  const stateCount = new Set(briefs.filter((row) => row.chamber === "state_house" || row.chamber === "state_senate").map((row) => row.stateCode)).size;
   const cycles = [...new Set(briefs.map((row) => row.nextElectionYear))].sort();
   const rank50Score = briefs[49]!.provisionalTargetScore;
   const seatsAtOrAbove60 = briefs.filter((row) => row.provisionalTargetScore >= 60).length;
@@ -59,7 +61,7 @@ export default async function Priorities({ searchParams }: Props) {
             <h1>Where the field bends.</h1>
             <p className="lede">
               A ranked field guide to {houseSeats} occupied House seats,{" "}
-              {senateSeats} Senate seats, and {governorSeats} governorships. Democratic-held seats combine primary
+              {senateSeats} Senate seats, {governorSeats} governorships{stateSeats > 0 ? `, and ${stateSeats} state-legislative seats in ${stateCount} ${stateCount === 1 ? "state" : "states"}` : ""}. Democratic-held seats combine primary
               opportunity, AIPAC evidence where retained, and incumbent
               alignment; Republican-held seats enter through a flip screen
               that combines general-election competitiveness, incumbent
@@ -115,10 +117,12 @@ export default async function Priorities({ searchParams }: Props) {
           <label>
             Chamber
             <select name="chamber" defaultValue={chamber}>
-              <option value="">Both chambers</option>
+              <option value="">All chambers</option>
               <option value="house">House</option>
               <option value="senate">Senate</option>
               <option value="governor">Governor</option>
+              <option value="state_senate">State Senate</option>
+              <option value="state_house">State House</option>
             </select>
           </label>
           <label>
@@ -136,7 +140,7 @@ export default async function Priorities({ searchParams }: Props) {
               <option value="">All routes</option>
               <option value="aipac_supported_blue">AIPAC-supported blue</option>
               <option value="deep_blue">Deep blue</option>
-              <option value="democratic_incumbent_primary">Democratic incumbent (Senate, governor)</option>
+              <option value="democratic_incumbent_primary">Democratic incumbent (Senate, governor, state)</option>
               <option value="republican_fringe_general">Republican-held flip</option>
             </select>
           </label>
@@ -168,8 +172,8 @@ export default async function Priorities({ searchParams }: Props) {
                 <span className="priority-seat">{row.districtLabel}{row.openSeatSignal ? " · open seat" : ""}</span>
                 <h2>{row.officialHouseName}</h2>
                 <p>
-                  {row.incumbentParty} · {formatPartisanMargin(row.presidentialDemocraticMargin2024)} ·{" "}
-                  {row.chamber === "governor" ? `${row.cumulativeHouseServiceYears.toFixed(1)}-year term` : `${row.cumulativeHouseServiceYears.toFixed(1)} years in ${row.chamber === "senate" ? "Senate" : "House"}`} · next election {row.nextElectionYear}
+                  {row.incumbentParty} · {formatPartisanMargin(row.presidentialDemocraticMargin2024)}{row.chamber === "state_house" || row.chamber === "state_senate" ? " own race" : ""} ·{" "}
+                  {row.chamber === "governor" || row.chamber === "state_house" || row.chamber === "state_senate" ? `${row.cumulativeHouseServiceYears.toFixed(1)}-year term` : `${row.cumulativeHouseServiceYears.toFixed(1)} years in ${row.chamber === "senate" ? "Senate" : "House"}`} · next election {row.nextElectionYear}
                 </p>
               </div>
               <div className="driver-snapshot">
