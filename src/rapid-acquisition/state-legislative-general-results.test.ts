@@ -4,8 +4,10 @@ import { readSourceLock } from "./intake/source-lock";
 import { buildStateLegislativeGeneralResults, generalPartyOf, readStateLegislativeGeneralResults, type StateGeneralAdapter } from "./state-legislative-general-results";
 import { CALIFORNIA_GENERAL } from "./state-general/california";
 import { GEORGIA_GENERAL } from "./state-general/georgia";
+import { ILLINOIS_GENERAL } from "./state-general/illinois";
 import { NEW_YORK_GENERAL } from "./state-general/new-york";
 import { VIRGINIA_GENERAL } from "./state-general/virginia";
+import { WISCONSIN_GENERAL } from "./state-general/wisconsin";
 
 describe("state-legislative general results", () => {
   it("maps source party labels to caucus families", () => {
@@ -67,6 +69,20 @@ describe("state-legislative general results", () => {
     const fused = value.contests.flatMap((contest) => contest.candidates).filter((candidate) => candidate.rawParty.includes("also"));
     expect(fused.map((candidate) => [candidate.name, candidate.party])).toEqual([["Kalman Yeger", "Democratic"], ["Jaime R. Williams", "Democratic"], ["Simcha Felder", "Republican"]]);
     expect(value.contests.flatMap((contest) => contest.candidates).some((candidate) => ["Blank", "Void", "Total Votes"].includes(candidate.name))).toBe(false);
+  });
+
+  it("reads Illinois totals and Wisconsin canvass sheets", () => {
+    const value = buildStateLegislativeGeneralResults(process.cwd(), readSourceLock(), [ILLINOIS_GENERAL, WISCONSIN_GENERAL]);
+    expect(value.states.map((state) => [state.stateCode, state.contests, state.lowerContests, state.upperContests, state.cycles])).toEqual([["IL", 319, 236, 83, [2022, 2024]], ["WI", 132, 99, 33, [2022, 2024]]]);
+    const il31 = value.contests.find((contest) => contest.contestId === "il:state-leg-general:2024:upper:31");
+    expect(il31?.candidates.map((candidate) => [candidate.name.toUpperCase(), candidate.party, candidate.votes])).toEqual([["MARY EDLY-ALLEN", "Democratic", 52654], ["ASHLEY JENSEN", "Republican", 37880]]);
+    expect(value.contests.filter((contest) => contest.stateCode === "IL").flatMap((contest) => contest.candidates).filter((candidate) => candidate.writeIn).every((candidate) => candidate.rawParty === "" && candidate.votes < 1000)).toBe(true);
+    const wi1 = value.contests.find((contest) => contest.contestId === "wi:state-leg-general:2024:lower:1");
+    expect(wi1).toMatchObject({ totalVotes: 38929, democraticVotes: 14801, republicanVotes: 24101, contested: true });
+    expect(wi1?.candidates.filter((candidate) => candidate.writeIn).map((candidate) => [candidate.name, candidate.votes])).toEqual([["Scattering", 22], ["Milt Swagel", 5]]);
+    const wiSenate = value.contests.filter((contest) => contest.stateCode === "WI" && contest.chamber === "upper");
+    expect(wiSenate.filter((contest) => contest.cycleYear === 2024).map((contest) => Number(contest.district) % 2)).toEqual(Array(16).fill(0));
+    expect(wiSenate.filter((contest) => contest.cycleYear === 2022)).toHaveLength(17);
   });
 
   it("matches the pinned artifact", () => {

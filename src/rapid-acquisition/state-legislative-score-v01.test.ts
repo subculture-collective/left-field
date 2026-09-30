@@ -14,8 +14,8 @@ describe("state-legislative score v0.1", () => {
 
   it("scores every seat in a covered state and carries the rest unscored with a reason", () => {
     const value = buildStateLegislativeScoreV01Projection();
-    expect(value.coveredStates).toEqual(["CA", "GA", "NY", "VA"]);
-    expect(value.summary).toMatchObject({ seats: value.rows.length, coveredStates: 4, scored: 704, noContestForDistrict: 0, holderPartyNotScored: 0, democraticScored: 419, republicanScored: 285 });
+    expect(value.coveredStates).toEqual(["CA", "GA", "IL", "NY", "VA", "WI"]);
+    expect(value.summary).toMatchObject({ seats: value.rows.length, coveredStates: 6, scored: 1013, noContestForDistrict: 0, holderPartyNotScored: 0, democraticScored: 597, republicanScored: 416 });
     expect(value.summary.stateNotCovered + value.summary.scored).toBe(value.summary.seats);
     const ga = value.rows.filter((row) => row.stateCode === "GA");
     expect(ga.every((row) => row.status === "scored" && row.nextElectionYear === 2026 && row.baselineCycleYear === 2024)).toBe(true);
@@ -27,6 +27,9 @@ describe("state-legislative score v0.1", () => {
     expect(new Set(caSenate.map((row) => `${row.baselineCycleYear}->${row.nextElectionYear}`))).toEqual(new Set(["2024->2028", "2022->2026"]));
     expect(caSenate.every((row) => (Number(row.district) % 2 === 1) === (row.baselineCycleYear === 2024))).toBe(true);
     expect(value.rows.filter((row) => row.stateCode === "NY").every((row) => row.status === "scored" && row.nextElectionYear === 2026)).toBe(true);
+    const wiSenate = value.rows.filter((row) => row.stateCode === "WI" && row.chamber === "upper");
+    expect(wiSenate.every((row) => (Number(row.district) % 2 === 0) === (row.baselineCycleYear === 2024))).toBe(true);
+    expect(value.rows.filter((row) => row.stateCode === "IL").every((row) => row.status === "scored")).toBe(true);
     const other = value.rows.find((row) => row.stateCode === "TX");
     expect(other).toMatchObject({ status: "state_not_covered", score: null, route: null, drivers: [] });
   });
