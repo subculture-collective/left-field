@@ -1,0 +1,404 @@
+{ "election_name" : "General Election", "election_date" : "November 05, 2024", "last_updated" : "November 22, 2024 05:00 PM", "contests" : [
+  { "name" : "Representative in General Assembly District 1", "contest_number" : "43", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Edith H. Ajello", "party_code" : "DEM", "votes" : "3395" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "67" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 2", "contest_number" : "44", "precinct_count" : "7", "precincts_reporting" : "7", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Christopher R. Blazejewski", "party_code" : "DEM", "votes" : "4298" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "117" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 3", "contest_number" : "45", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Nathan W. Biah", "party_code" : "DEM", "votes" : "2732" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "120" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 4", "contest_number" : "46", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Rebecca M. Kislak", "party_code" : "DEM", "votes" : "6705" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "168" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 5", "contest_number" : "47", "precinct_count" : "7", "precincts_reporting" : "7", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Anthony J. DeSimone", "party_code" : "DEM", "votes" : "3132" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "145" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 6", "contest_number" : "48", "precinct_count" : "7", "precincts_reporting" : "7", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Raymond A. Hull", "party_code" : "DEM", "votes" : "4585" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "181" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 7", "contest_number" : "49", "precinct_count" : "7", "precincts_reporting" : "7", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM David Morales", "party_code" : "DEM", "votes" : "3757" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "170" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 8", "contest_number" : "50", "precinct_count" : "7", "precincts_reporting" : "7", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM John J. Lombardi", "party_code" : "DEM", "votes" : "3615" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "95" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 9", "contest_number" : "51", "precinct_count" : "8", "precincts_reporting" : "8", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Enrique G. Sanchez", "party_code" : "DEM", "votes" : "2911" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "112" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 10", "contest_number" : "52", "precinct_count" : "7", "precincts_reporting" : "7", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Scott A. Slater", "party_code" : "DEM", "votes" : "2698" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "122" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 11", "contest_number" : "53", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Grace Diaz", "party_code" : "DEM", "votes" : "3027" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "133" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 12", "contest_number" : "54", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Jose F. Batista", "party_code" : "DEM", "votes" : "2789" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "107" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 13", "contest_number" : "55", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Ramon A. Perez", "party_code" : "DEM", "votes" : "2731" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "189" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 14", "contest_number" : "56", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Charlene Lima", "party_code" : "DEM", "votes" : "3528" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "198" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 15", "contest_number" : "57", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP Christopher G. Paplauskas", "party_code" : "REP", "votes" : "4341" }, 
+    { "name" : "DEM Maria A. Bucci", "party_code" : "DEM", "votes" : "4319" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "19" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 16", "contest_number" : "58", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Brandon C. Potter", "party_code" : "DEM", "votes" : "3865" }, 
+    { "name" : "REP Deborah J. Leong", "party_code" : "REP", "votes" : "2730" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "18" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 17", "contest_number" : "59", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Jacquelyn M. Baginski", "party_code" : "DEM", "votes" : "5122" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "283" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 18", "contest_number" : "60", "precinct_count" : "3", "precincts_reporting" : "3", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Arthur Handy", "party_code" : "DEM", "votes" : "4450" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "209" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 19", "contest_number" : "61", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Joseph McNamara", "party_code" : "DEM", "votes" : "7332" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "338" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 20", "contest_number" : "62", "precinct_count" : "7", "precincts_reporting" : "7", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM David A. Bennett", "party_code" : "DEM", "votes" : "5314" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "319" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 21", "contest_number" : "63", "precinct_count" : "4", "precincts_reporting" : "4", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP Marie A. Hopkins", "party_code" : "REP", "votes" : "3568" }, 
+    { "name" : "DEM James McElroy", "party_code" : "DEM", "votes" : "3483" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "10" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 22", "contest_number" : "64", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Joseph J. Solomon, Jr.", "party_code" : "DEM", "votes" : "4136" }, 
+    { "name" : "REP David Stone", "party_code" : "REP", "votes" : "3119" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "14" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 23", "contest_number" : "65", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM K. Joseph Shekarchi", "party_code" : "DEM", "votes" : "5684" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "363" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 24", "contest_number" : "66", "precinct_count" : "7", "precincts_reporting" : "7", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Evan Patrick Shanley", "party_code" : "DEM", "votes" : "6750" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "355" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 25", "contest_number" : "67", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Thomas E. Noret", "party_code" : "DEM", "votes" : "4118" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "334" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 26", "contest_number" : "68", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Earl A. Read, III", "party_code" : "DEM", "votes" : "3430" }, 
+    { "name" : "REP Jeffrey W. Fisher", "party_code" : "REP", "votes" : "2443" }, 
+    { "name" : "Ind Vincent Marzullo", "party_code" : "Ind", "votes" : "808" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "13" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 27", "contest_number" : "69", "precinct_count" : "4", "precincts_reporting" : "4", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Patricia A. Serpa", "party_code" : "DEM", "votes" : "4536" }, 
+    { "name" : "REP Andrew N. Kowalski", "party_code" : "REP", "votes" : "3011" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "11" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 28", "contest_number" : "70", "precinct_count" : "7", "precincts_reporting" : "7", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP George A. Nardone", "party_code" : "REP", "votes" : "4589" }, 
+    { "name" : "DEM Scott Guthrie", "party_code" : "DEM", "votes" : "3418" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "12" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 29", "contest_number" : "71", "precinct_count" : "7", "precincts_reporting" : "7", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP Sherry L. Roberts", "party_code" : "REP", "votes" : "5870" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "175" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 30", "contest_number" : "72", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Justine Caldwell", "party_code" : "DEM", "votes" : "5701" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "394" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 31", "contest_number" : "73", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Julie A. Casimiro", "party_code" : "DEM", "votes" : "5131" }, 
+    { "name" : "REP Lisa Marie Leavitt", "party_code" : "REP", "votes" : "3475" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "21" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 32", "contest_number" : "74", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Robert E. Craven", "party_code" : "DEM", "votes" : "6606" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "331" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 33", "contest_number" : "75", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Carol Hagan McEntee", "party_code" : "DEM", "votes" : "4894" }, 
+    { "name" : "REP Jessica Drew Day", "party_code" : "REP", "votes" : "3412" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "26" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 34", "contest_number" : "76", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Teresa Tanzi", "party_code" : "DEM", "votes" : "4734" }, 
+    { "name" : "REP Joanne R. Forti", "party_code" : "REP", "votes" : "2797" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "18" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 35", "contest_number" : "77", "precinct_count" : "3", "precincts_reporting" : "3", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Kathleen A. Fogarty", "party_code" : "DEM", "votes" : "3427" }, 
+    { "name" : "REP Jennifer P. Nerbonne", "party_code" : "REP", "votes" : "2081" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "11" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 36", "contest_number" : "78", "precinct_count" : "8", "precincts_reporting" : "8", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Tina L. Spears", "party_code" : "DEM", "votes" : "7010" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "246" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 37", "contest_number" : "79", "precinct_count" : "4", "precincts_reporting" : "4", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Samuel Angelo Azzinaro", "party_code" : "DEM", "votes" : "5978" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "226" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 38", "contest_number" : "80", "precinct_count" : "4", "precincts_reporting" : "4", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Brian Patrick Kennedy", "party_code" : "DEM", "votes" : "5385" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "227" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 39", "contest_number" : "81", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Megan L. Cotter", "party_code" : "DEM", "votes" : "4671" }, 
+    { "name" : "REP Justin K. Price", "party_code" : "REP", "votes" : "3973" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "7" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 40", "contest_number" : "82", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP Michael W. Chippendale", "party_code" : "REP", "votes" : "5964" }, 
+    { "name" : "DEM Linda A. Nichols", "party_code" : "DEM", "votes" : "2642" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "9" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 41", "contest_number" : "83", "precinct_count" : "4", "precincts_reporting" : "4", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP Robert Quattrocchi", "party_code" : "REP", "votes" : "5818" }, 
+    { "name" : "DEM Shaina N. Smith", "party_code" : "DEM", "votes" : "3123" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "9" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 42", "contest_number" : "84", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP Richard R. Fascia", "party_code" : "REP", "votes" : "3901" }, 
+    { "name" : "DEM Kelsey K. Coletta", "party_code" : "DEM", "votes" : "3225" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "17" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 43", "contest_number" : "85", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Deborah A. Fellela", "party_code" : "DEM", "votes" : "3864" }, 
+    { "name" : "REP Nicola A. Grasso", "party_code" : "REP", "votes" : "3347" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "31" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 44", "contest_number" : "86", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Gregory J. Costantino", "party_code" : "DEM", "votes" : "4833" }, 
+    { "name" : "REP Peter Trementozzi", "party_code" : "REP", "votes" : "4139" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "18" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 45", "contest_number" : "87", "precinct_count" : "7", "precincts_reporting" : "7", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Mia A. Ackerman", "party_code" : "DEM", "votes" : "5731" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "362" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 46", "contest_number" : "88", "precinct_count" : "8", "precincts_reporting" : "8", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Mary Ann Shallcross Smith", "party_code" : "DEM", "votes" : "4787" }, 
+    { "name" : "REP Angelo Kapsimalis", "party_code" : "REP", "votes" : "3048" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "20" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 47", "contest_number" : "89", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP David J. Place", "party_code" : "REP", "votes" : "4973" }, 
+    { "name" : "DEM Paul A. Roselli", "party_code" : "DEM", "votes" : "2168" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "10" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 48", "contest_number" : "90", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP Brian C. Newberry", "party_code" : "REP", "votes" : "6181" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "220" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 49", "contest_number" : "91", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "Ind Jon D. Brien", "party_code" : "Ind", "votes" : "2753" }, 
+    { "name" : "Ind Michael Disney", "party_code" : "Ind", "votes" : "735" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "34" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 50", "contest_number" : "92", "precinct_count" : "4", "precincts_reporting" : "4", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Stephen M. Casey", "party_code" : "DEM", "votes" : "3497" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "186" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 51", "contest_number" : "93", "precinct_count" : "4", "precincts_reporting" : "4", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Robert D. Phillips", "party_code" : "DEM", "votes" : "3680" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "174" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 52", "contest_number" : "94", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Alex Daniel Marszalkowski", "party_code" : "DEM", "votes" : "6652" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "302" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 53", "contest_number" : "95", "precinct_count" : "4", "precincts_reporting" : "4", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP Paul M. Santucci", "party_code" : "REP", "votes" : "3575" }, 
+    { "name" : "DEM Bernard Hawkins", "party_code" : "DEM", "votes" : "2898" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "18" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 54", "contest_number" : "96", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM William W. O&#39;Brien", "party_code" : "DEM", "votes" : "5325" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "230" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 55", "contest_number" : "97", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Arthur J. Corvese", "party_code" : "DEM", "votes" : "5771" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "210" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 56", "contest_number" : "98", "precinct_count" : "4", "precincts_reporting" : "4", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Joshua J. Giraldo", "party_code" : "DEM", "votes" : "1783" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "55" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 57", "contest_number" : "99", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Brandon T. Voas", "party_code" : "DEM", "votes" : "2525" }, 
+    { "name" : "Ind James N. McLaughlin", "party_code" : "Ind", "votes" : "2175" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "21" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 58", "contest_number" : "100", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Cherie L. Cruz", "party_code" : "DEM", "votes" : "3108" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "126" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 59", "contest_number" : "101", "precinct_count" : "3", "precincts_reporting" : "3", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Jennifer A. Stewart", "party_code" : "DEM", "votes" : "3703" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "91" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 60", "contest_number" : "102", "precinct_count" : "4", "precincts_reporting" : "4", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Karen Alzate", "party_code" : "DEM", "votes" : "2769" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "119" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 61", "contest_number" : "103", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Leonela Felix", "party_code" : "DEM", "votes" : "3256" }, 
+    { "name" : "REP Kevin J. Whalen", "party_code" : "REP", "votes" : "2407" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "20" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 62", "contest_number" : "104", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Mary Duffy Messier", "party_code" : "DEM", "votes" : "3733" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "186" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 63", "contest_number" : "105", "precinct_count" : "7", "precincts_reporting" : "7", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Katherine Sheena Kazarian", "party_code" : "DEM", "votes" : "5497" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "276" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 64", "contest_number" : "106", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Jenni Azanero Furtado", "party_code" : "DEM", "votes" : "3920" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "204" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 65", "contest_number" : "107", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Matthew S. Dawson", "party_code" : "DEM", "votes" : "5727" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "276" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 66", "contest_number" : "108", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Jennifer Smith Boylan", "party_code" : "DEM", "votes" : "5417" }, 
+    { "name" : "REP Janine A. Wolf", "party_code" : "REP", "votes" : "2959" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "18" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 67", "contest_number" : "109", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Jason P. Knight", "party_code" : "DEM", "votes" : "5946" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "340" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 68", "contest_number" : "110", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM June S. Speakman", "party_code" : "DEM", "votes" : "4414" }, 
+    { "name" : "Ind John W. Hanley", "party_code" : "Ind", "votes" : "3101" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "38" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 69", "contest_number" : "111", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Susan Ann Donovan", "party_code" : "DEM", "votes" : "3661" }, 
+    { "name" : "Ind Sergei M. Sharenko", "party_code" : "Ind", "votes" : "2075" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "22" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 70", "contest_number" : "112", "precinct_count" : "6", "precincts_reporting" : "6", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM John G. Edwards", "party_code" : "DEM", "votes" : "4131" }, 
+    { "name" : "REP Christopher M. Borden", "party_code" : "REP", "votes" : "3383" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "9" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 71", "contest_number" : "113", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Michelle E. McGaw", "party_code" : "DEM", "votes" : "5866" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "239" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 72", "contest_number" : "114", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Terri-Denise Cortvriend", "party_code" : "DEM", "votes" : "5862" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "234" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 73", "contest_number" : "115", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Marvin L. Abney", "party_code" : "DEM", "votes" : "4005" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "125" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 74", "contest_number" : "116", "precinct_count" : "4", "precincts_reporting" : "4", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Alex S. Finkelman", "party_code" : "DEM", "votes" : "5224" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "195" }
+  ]}
+, 
+  { "name" : "Representative in General Assembly District 75", "contest_number" : "117", "precinct_count" : "5", "precincts_reporting" : "5", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Lauren H. Carson", "party_code" : "DEM", "votes" : "4545" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "125" }
+  ]}
+]}

@@ -8,6 +8,12 @@ import { ILLINOIS_GENERAL } from "./state-general/illinois";
 import { NEW_YORK_GENERAL } from "./state-general/new-york";
 import { PENNSYLVANIA_GENERAL } from "./state-general/pennsylvania";
 import { COLORADO_GENERAL } from "./state-general/colorado";
+import { DELAWARE_GENERAL } from "./state-general/delaware";
+import { INDIANA_GENERAL } from "./state-general/indiana";
+import { RHODE_ISLAND_GENERAL } from "./state-general/rhode-island";
+import { SOUTH_CAROLINA_GENERAL } from "./state-general/south-carolina";
+import { TENNESSEE_GENERAL } from "./state-general/tennessee";
+import { WEST_VIRGINIA_GENERAL } from "./state-general/west-virginia";
 import { FLORIDA_GENERAL } from "./state-general/florida";
 import { MAINE_GENERAL } from "./state-general/maine";
 import { CONNECTICUT_GENERAL } from "./state-general/connecticut";
@@ -121,6 +127,15 @@ describe("state-legislative general results", () => {
     expect(value.states.map((state) => [state.stateCode, state.contests, state.lowerContests, state.upperContests, state.cycles])).toEqual([["FL", 136, 105, 31, [2022, 2024]], ["ME", 186, 151, 35, [2024]]]);
     expect(value.contests.filter((contest) => contest.stateCode === "FL" && contest.cycleYear === 2022).every((contest) => contest.chamber === "upper" && Number(contest.district) % 2 === 0)).toBe(true);
     expect(value.contests.find((contest) => contest.contestId === "me:state-leg-general:2024:upper:2")?.candidates.map((candidate) => [candidate.name, candidate.party, candidate.votes])).toEqual([["Harold L. Stewart III", "Republican", 13695], ["Matthew J. Rush", "Democratic", 6999]]);
+  });
+
+  it("reads the fifth batch: Delaware, Indiana, Rhode Island, South Carolina, Tennessee, West Virginia", () => {
+    const value = buildStateLegislativeGeneralResults(process.cwd(), readSourceLock(), [DELAWARE_GENERAL, INDIANA_GENERAL, RHODE_ISLAND_GENERAL, SOUTH_CAROLINA_GENERAL, TENNESSEE_GENERAL, WEST_VIRGINIA_GENERAL]);
+    expect(value.states.map((state) => [state.stateCode, state.contests, state.lowerContests, state.upperContests])).toEqual([["DE", 113, 82, 31], ["IN", 250, 200, 50], ["RI", 113, 75, 38], ["SC", 170, 124, 46], ["TN", 231, 198, 33], ["WV", 234, 200, 34]]);
+    expect(value.contests.find((contest) => contest.contestId === "sc:state-leg-general:2024:upper:35")?.candidates.map((candidate) => [candidate.name, candidate.party, candidate.votes])).toEqual([["Jeffrey R Graham", "Democratic", 25284], ["Mike Jones", "Republican", 23095], ["Write-In", "Independent", 77]]);
+    expect(value.contests.find((contest) => contest.contestId === "ri:state-leg-general:2024:upper:1")?.candidates[0]).toMatchObject({ name: "Jacob Bissaillon", party: "Democratic" });
+    expect(value.contests.filter((contest) => contest.stateCode === "WV" && contest.chamber === "upper").map((contest) => contest.position).sort()).toEqual([...Array(17).fill("2022"), ...Array(17).fill("2024")]);
+    expect(value.contests.find((contest) => contest.contestId === "tn:state-leg-general:2024:lower:1")).toMatchObject({ contested: false, democraticMarginPercentagePoints: -100 });
   });
 
   it("matches the pinned artifact", () => {

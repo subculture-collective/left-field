@@ -1,0 +1,207 @@
+{ "election_name" : "General Election", "election_date" : "November 05, 2024", "last_updated" : "November 22, 2024 05:00 PM", "contests" : [
+  { "name" : "Senator in General Assembly District 1", "contest_number" : "5", "precinct_count" : "13", "precincts_reporting" : "13", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Jacob Bissaillon", "party_code" : "DEM", "votes" : "5773" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "277" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 2", "contest_number" : "6", "precinct_count" : "12", "precincts_reporting" : "12", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Ana B. Quezada", "party_code" : "DEM", "votes" : "5096" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "224" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 3", "contest_number" : "7", "precinct_count" : "9", "precincts_reporting" : "9", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Samuel D. Zurier", "party_code" : "DEM", "votes" : "9141" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "198" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 4", "contest_number" : "8", "precinct_count" : "12", "precincts_reporting" : "12", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Dominick J. Ruggerio", "party_code" : "DEM", "votes" : "10736" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "580" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 5", "contest_number" : "9", "precinct_count" : "13", "precincts_reporting" : "13", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Samuel W. Bell", "party_code" : "DEM", "votes" : "7937" }, 
+    { "name" : "REP William D. Connell, Jr.", "party_code" : "REP", "votes" : "2105" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "57" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 6", "contest_number" : "10", "precinct_count" : "14", "precincts_reporting" : "14", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Tiara TyShae Mack", "party_code" : "DEM", "votes" : "6469" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "236" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 7", "contest_number" : "11", "precinct_count" : "13", "precincts_reporting" : "13", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Frank A. Ciccone", "party_code" : "DEM", "votes" : "5340" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "264" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 8", "contest_number" : "12", "precinct_count" : "11", "precincts_reporting" : "11", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Lori Urso", "party_code" : "DEM", "votes" : "5447" }, 
+    { "name" : "Ind Cathyann Palocsik", "party_code" : "Ind", "votes" : "2870" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "71" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 9", "contest_number" : "13", "precinct_count" : "9", "precincts_reporting" : "9", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM John P. Burke", "party_code" : "DEM", "votes" : "9337" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "703" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 10", "contest_number" : "14", "precinct_count" : "11", "precincts_reporting" : "11", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Walter S. Felag, Jr.", "party_code" : "DEM", "votes" : "8641" }, 
+    { "name" : "REP Allyn E. Meyers", "party_code" : "REP", "votes" : "6250" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "36" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 11", "contest_number" : "15", "precinct_count" : "10", "precincts_reporting" : "10", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Linda L. Ujifusa", "party_code" : "DEM", "votes" : "10250" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "448" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 12", "contest_number" : "16", "precinct_count" : "10", "precincts_reporting" : "10", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Louis DiPalma", "party_code" : "DEM", "votes" : "11140" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "408" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 13", "contest_number" : "17", "precinct_count" : "10", "precincts_reporting" : "10", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Dawn Euer", "party_code" : "DEM", "votes" : "8380" }, 
+    { "name" : "REP David A. Quiroa", "party_code" : "REP", "votes" : "3519" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "25" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 14", "contest_number" : "18", "precinct_count" : "8", "precincts_reporting" : "8", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Valarie J. Lawson", "party_code" : "DEM", "votes" : "8936" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "554" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 15", "contest_number" : "19", "precinct_count" : "10", "precincts_reporting" : "10", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Meghan E. Kallman", "party_code" : "DEM", "votes" : "8456" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "242" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 16", "contest_number" : "20", "precinct_count" : "9", "precincts_reporting" : "9", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Jonathon Acosta", "party_code" : "DEM", "votes" : "3846" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "140" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 17", "contest_number" : "21", "precinct_count" : "11", "precincts_reporting" : "11", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP Thomas J. Paolino", "party_code" : "REP", "votes" : "8726" }, 
+    { "name" : "DEM Cameron J. Deutsch", "party_code" : "DEM", "votes" : "6291" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "43" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 18", "contest_number" : "22", "precinct_count" : "13", "precincts_reporting" : "13", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Robert Britto", "party_code" : "DEM", "votes" : "9186" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "479" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 19", "contest_number" : "23", "precinct_count" : "11", "precincts_reporting" : "11", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Ryan W. Pearson", "party_code" : "DEM", "votes" : "8083" }, 
+    { "name" : "Ind Amanda J. Blais", "party_code" : "Ind", "votes" : "6070" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "58" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 20", "contest_number" : "24", "precinct_count" : "10", "precincts_reporting" : "10", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Brian J. Thompson", "party_code" : "DEM", "votes" : "8351" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "390" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 21", "contest_number" : "25", "precinct_count" : "12", "precincts_reporting" : "12", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP Gordon Rogers", "party_code" : "REP", "votes" : "12732" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "598" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 22", "contest_number" : "26", "precinct_count" : "10", "precincts_reporting" : "10", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM David P. Tikoian", "party_code" : "DEM", "votes" : "11523" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "574" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 23", "contest_number" : "27", "precinct_count" : "12", "precincts_reporting" : "12", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP Jessica de la Cruz", "party_code" : "REP", "votes" : "11054" }, 
+    { "name" : "DEM Lewis J. Pryeor", "party_code" : "DEM", "votes" : "5170" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "16" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 24", "contest_number" : "28", "precinct_count" : "9", "precincts_reporting" : "9", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Melissa Murray", "party_code" : "DEM", "votes" : "4476" }, 
+    { "name" : "REP Craig J. Lacouture", "party_code" : "REP", "votes" : "3259" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "24" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 25", "contest_number" : "29", "precinct_count" : "11", "precincts_reporting" : "11", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Andrew R. Dimitri", "party_code" : "DEM", "votes" : "8145" }, 
+    { "name" : "REP Karin N. Gorman", "party_code" : "REP", "votes" : "5833" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "37" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 26", "contest_number" : "30", "precinct_count" : "8", "precincts_reporting" : "8", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Todd M. Patalano", "party_code" : "DEM", "votes" : "7853" }, 
+    { "name" : "REP Jennifer L. Caputi", "party_code" : "REP", "votes" : "5744" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "33" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 27", "contest_number" : "31", "precinct_count" : "12", "precincts_reporting" : "12", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Hanna Gallo", "party_code" : "DEM", "votes" : "11554" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "715" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 28", "contest_number" : "32", "precinct_count" : "10", "precincts_reporting" : "10", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Lammis J. Vargas", "party_code" : "DEM", "votes" : "9242" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "451" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 29", "contest_number" : "33", "precinct_count" : "11", "precincts_reporting" : "11", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Peter A. Appollonio, Jr.", "party_code" : "DEM", "votes" : "6849" }, 
+    { "name" : "REP Anthony P. DeLuca, II", "party_code" : "REP", "votes" : "6784" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "34" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 30", "contest_number" : "34", "precinct_count" : "12", "precincts_reporting" : "12", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Mark P. McKenney", "party_code" : "DEM", "votes" : "12347" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "774" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 31", "contest_number" : "35", "precinct_count" : "12", "precincts_reporting" : "12", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Matthew L. LaMountain", "party_code" : "DEM", "votes" : "8871" }, 
+    { "name" : "REP Lisa Morse", "party_code" : "REP", "votes" : "5794" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "35" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 32", "contest_number" : "36", "precinct_count" : "11", "precincts_reporting" : "11", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Pamela J. Lauria", "party_code" : "DEM", "votes" : "13072" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "642" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 33", "contest_number" : "37", "precinct_count" : "13", "precincts_reporting" : "13", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Leonidas P. Raptakis", "party_code" : "DEM", "votes" : "8599" }, 
+    { "name" : "REP James P. Pierson", "party_code" : "REP", "votes" : "6133" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "43" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 34", "contest_number" : "38", "precinct_count" : "12", "precincts_reporting" : "12", "votes_allowed" : "1", "candidates" : [
+    { "name" : "REP Elaine J. Morgan", "party_code" : "REP", "votes" : "9040" }, 
+    { "name" : "DEM Stephen Moffitt", "party_code" : "DEM", "votes" : "7838" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "23" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 35", "contest_number" : "39", "precinct_count" : "12", "precincts_reporting" : "12", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Bridget G. Valverde", "party_code" : "DEM", "votes" : "12621" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "752" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 36", "contest_number" : "40", "precinct_count" : "10", "precincts_reporting" : "10", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Alana M. DiMario", "party_code" : "DEM", "votes" : "12757" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "602" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 37", "contest_number" : "41", "precinct_count" : "8", "precincts_reporting" : "8", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Virginia S. Sosnowski", "party_code" : "DEM", "votes" : "8517" }, 
+    { "name" : "REP Raymond E. Gardner", "party_code" : "REP", "votes" : "4356" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "31" }
+  ]}
+, 
+  { "name" : "Senator in General Assembly District 38", "contest_number" : "42", "precinct_count" : "10", "precincts_reporting" : "10", "votes_allowed" : "1", "candidates" : [
+    { "name" : "DEM Victoria Gu", "party_code" : "DEM", "votes" : "9326" }, 
+    { "name" : "REP Westin J. Place", "party_code" : "REP", "votes" : "6702" }, 
+    { "name" : "Write-in", "party_code" : "NON", "votes" : "14" }
+  ]}
+]}
