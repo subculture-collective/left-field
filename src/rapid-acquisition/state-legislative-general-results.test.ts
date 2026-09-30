@@ -18,6 +18,9 @@ import { KANSAS_GENERAL } from "./state-general/kansas";
 import { MISSOURI_GENERAL } from "./state-general/missouri";
 import { NEW_JERSEY_GENERAL, ordinalWord } from "./state-general/new-jersey";
 import { TEXAS_GENERAL } from "./state-general/texas";
+import { KENTUCKY_GENERAL } from "./state-general/kentucky";
+import { cells } from "./state-general/layout-columns";
+import { OREGON_GENERAL } from "./state-general/oregon";
 import { DELAWARE_GENERAL } from "./state-general/delaware";
 import { INDIANA_GENERAL } from "./state-general/indiana";
 import { IDAHO_GENERAL } from "./state-general/idaho";
@@ -186,6 +189,15 @@ describe("state-legislative general results", () => {
     expect(value.contests.find((contest) => contest.contestId === "nj:state-leg-general:2025:lower:2")).toMatchObject({ seats: 2, democraticVotes: 78775, republicanVotes: 78523, totalVotes: 157298 });
     expect(value.contests.find((contest) => contest.contestId === "tx:state-leg-general:2024:upper:6")?.candidates.map((candidate) => [candidate.name, candidate.votes])).toEqual([["CAROL ALVARADO", 119280], ["MARTHA FIERRO", 70013]]);
     expect(value.contests.filter((contest) => contest.stateCode === "TX" && contest.cycleYear === 2022).every((contest) => contest.chamber === "upper")).toBe(true);
+  });
+
+  it("reads the column-layout PDFs for Kentucky and Oregon", () => {
+    expect(cells(" Jackson        0        0        0").map((cell) => cell.text)).toEqual(["Jackson", "0", "0", "0"]);
+    const value = buildStateLegislativeGeneralResults(process.cwd(), readSourceLock(), [KENTUCKY_GENERAL, OREGON_GENERAL]);
+    expect(value.states.map((state) => [state.stateCode, state.contests, state.lowerContests, state.upperContests])).toEqual([["KY", 119, 100, 19], ["OR", 150, 120, 30]]);
+    expect(value.contests.find((contest) => contest.contestId === "ky:state-leg-general:2024:lower:66")?.candidates.map((candidate) => [candidate.name, candidate.party, candidate.votes])).toEqual([["T. J. ROBERTS", "Republican", 16368], ["Peggy HOUSTON-NIENABER", "Democratic", 6861]]);
+    expect(value.contests.find((contest) => contest.contestId === "or:state-leg-general:2024:lower:46")?.candidates.map((candidate) => [candidate.name, candidate.votes])).toEqual([["Willy Chotzen", 25542], ["John Mark Alexander", 4414], ["Kevin Levy", 1252], ["Austin Daniel", 1040], ["Misc.", 58]]);
+    expect(value.contests.filter((contest) => contest.stateCode === "OR" && contest.chamber === "upper").map((contest) => contest.district).length).toBe(30);
   });
 
   it("matches the pinned artifact", () => {
