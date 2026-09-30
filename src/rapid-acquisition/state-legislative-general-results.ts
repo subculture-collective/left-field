@@ -32,6 +32,8 @@ export interface StateGeneralContest {
   readonly chamber: StateChamber;
   readonly district: string;
   readonly districtKey: string;
+  /** Separately elected position within a district (Washington "Pos. 1"); null where a district has one contest. */
+  readonly position: string | null;
   readonly cycleYear: number;
   readonly electionDate: string;
   readonly electionKind: "general" | "special_general";
@@ -81,6 +83,7 @@ export interface StateLegislativeGeneralResults {
 export interface RawGeneralContest {
   readonly chamber: StateChamber;
   readonly district: string;
+  readonly position?: string;
   readonly electionDate?: string;
   readonly electionKind?: "general" | "special_general";
   readonly seats?: number;
@@ -145,8 +148,8 @@ function normalize(raw: RawGeneralContest, source: StateGeneralSource, stateCode
     : one(((democraticVotes - republicanVotes) / totalVotes) * 100);
   const district = raw.district.trim();
   const unsigned = {
-    contestId: `${stateCode.toLowerCase()}:state-leg-general:${source.cycleYear}:${raw.chamber}:${districtKey(district).replace(/ /g, "-")}`,
-    stateCode, chamber: raw.chamber, district, districtKey: districtKey(district), cycleYear: source.cycleYear,
+    contestId: `${stateCode.toLowerCase()}:state-leg-general:${source.cycleYear}:${raw.chamber}:${districtKey(district).replace(/ /g, "-")}${raw.position ? `:pos-${raw.position}` : ""}`,
+    stateCode, chamber: raw.chamber, district, districtKey: districtKey(district), position: raw.position ?? null, cycleYear: source.cycleYear,
     electionDate: raw.electionDate ?? source.electionDate, electionKind: raw.electionKind ?? "general", seats: raw.seats ?? 1,
     candidates, totalVotes, democraticVotes, republicanVotes, democraticMarginPercentagePoints: margin, contested, sourceId: source.id,
   };
@@ -166,7 +169,7 @@ export function buildStateLegislativeGeneralResults(root = process.cwd(), lock: 
       if (parsed.length !== expected) fail(`CONTEST_COUNT:${source.id}:${parsed.length}:expected:${expected}`);
       stateContests.push(...parsed);
     }
-    const keys = stateContests.map((contest) => `${contest.cycleYear}|${contest.electionDate}|${contest.chamber}|${contest.districtKey}`);
+    const keys = stateContests.map((contest) => `${contest.cycleYear}|${contest.electionDate}|${contest.chamber}|${contest.districtKey}|${contest.position ?? ""}`);
     if (new Set(keys).size !== keys.length) fail(`DUPLICATE_CONTEST:${adapter.stateCode}`);
     states.push({
       stateCode: adapter.stateCode, sourceIds: adapter.sources.map((source) => source.id), cycles: [...new Set(stateContests.map((contest) => contest.cycleYear))].sort(),

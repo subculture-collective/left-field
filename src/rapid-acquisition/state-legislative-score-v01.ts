@@ -109,12 +109,50 @@ export function buildStateLegislativeScoreV01Projection(root = process.cwd(), lo
   const contestation = new Map(context.stateContext.map((row) => [row.state, row.contestationScore]));
   const covered = new Set(general.states.map((state) => state.stateCode));
 
-  // Latest retained contest per state, chamber and district; a later special general supersedes the regular one.
+  // Latest retained contest per state, chamber, district and position; a later special general supersedes the regular one.
   const latest = new Map<string, StateGeneralContest>();
   for (const contest of general.contests) {
-    const key = `${contest.stateCode}|${contest.chamber}|${contest.districtKey}`, current = latest.get(key);
+    const key = `${contest.stateCode}|${contest.chamber}|${contest.districtKey}|${contest.position ?? ""}`, current = latest.get(key);
     if (!current || byteCompare(contest.electionDate, current.electionDate) > 0) latest.set(key, contest);
   }
+  const byDistrict = new Map<string, StateGeneralContest[]>();
+  for (const contest of latest.values()) {
+    const key = `${contest.stateCode}|${contest.chamber}|${contest.districtKey}`;
+    byDistrict.set(key, [...(byDistrict.get(key) ?? []), contest]);
+  }
+  const familyToken = (value: string): string => value.toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z ]/g, " ").replace(/\s+/g, " ").trim();
+  const namesHolder = (contest: StateGeneralContest, seat: StateLegislativeRosterRow): boolean => {
+    const family = familyToken(seat.familyName).split(" ").filter(Boolean), given = familyToken(seat.givenName).split(" ")[0] ?? "";
+    return family.length > 0 && contest.candidates.some((candidate) => {
+      const tokens = familyToken(candidate.name).split(" ");
+      return !candidate.writeIn && family.every((part) => tokens.includes(part)) && (given === "" || tokens.includes(given) || tokens[0]?.[0] === given[0]);
+    });
+  };
+  const directMatch = (seat: StateLegislativeRosterRow, contests: readonly StateGeneralContest[]): StateGeneralContest | null => {
+    const named = contests.filter((contest) => namesHolder(contest, seat));
+    return named.length === 1 ? named[0]! : null;
+  };
+  const districtSeats = new Map<string, StateLegislativeRosterRow[]>();
+  for (const seat of roster.rows) {
+    const key = `${seat.stateCode}|${seat.chamber}|${seat.districtKey}`;
+    districtSeats.set(key, [...(districtSeats.get(key) ?? []), seat]);
+  }
+  /**
+   * Where a district elects several positions separately, the holder's contest is the one naming them.
+   * A holder named in none (an appointee since the election) takes the one position no colleague matched.
+   */
+  const contestFor = (seat: StateLegislativeRosterRow): StateGeneralContest | null => {
+    const key = `${seat.stateCode}|${seat.chamber}|${seat.districtKey}`;
+    const contests = byDistrict.get(key) ?? [];
+    if (contests.length <= 1) return contests[0] ?? null;
+    const direct = directMatch(seat, contests);
+    if (direct) return direct;
+    if (contests.some((contest) => namesHolder(contest, seat))) return null;
+    const colleagues = (districtSeats.get(key) ?? []).filter((other) => other.seatId !== seat.seatId);
+    const claimed = new Set(colleagues.map((other) => directMatch(other, contests)?.contestId).filter((id): id is string => id !== undefined));
+    const open = contests.filter((contest) => !claimed.has(contest.contestId));
+    return open.length === 1 && colleagues.length === contests.length - 1 ? open[0]! : null;
+  };
 
   const rows = roster.rows.map((seat): StateLegislativeScoreV01Row => {
     const termYears = termYearsFor(seat.stateCode, seat.chamber);
@@ -134,7 +172,7 @@ export function buildStateLegislativeScoreV01Projection(root = process.cwd(), lo
     };
     const caucus: "Democratic" | "Republican" | null = seat.party === "Democratic" ? "Democratic" : seat.party === "Republican" ? "Republican" : null;
     if (!covered.has(seat.stateCode)) return unscored("state_not_covered", null, caucus);
-    const contest = latest.get(`${seat.stateCode}|${seat.chamber}|${seat.districtKey}`) ?? null;
+    const contest = contestFor(seat);
     if (!contest || contest.democraticMarginPercentagePoints === null) return unscored("no_contest_for_district", null, caucus);
     if (caucus === null) return unscored("holder_party_not_scored", contest, null);
     const stateContestation = caucus === "Republican" ? contestation.get(seat.stateCode) ?? null : null;
