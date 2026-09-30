@@ -16,7 +16,7 @@ import type { RawGeneralContest, StateGeneralAdapter, StateGeneralSource } from 
  */
 const SOURCES: readonly (StateGeneralSource & { postBody: string; include: (office: string, district: number) => boolean })[] = [
   {
-    id: "fl-2024-general-results-extract-txt",
+    id: "florida-general-2024-results-extract-txt",
     url: "https://results.elections.myflorida.com/ResultsExtract.Asp",
     postBody: "ElectionDate=11/5/2024&OfficialResults=Y&PartyRaces=N&DataMode=&FormsButton2=Download",
     path: "data/source/rapid/state-general/fl/2024-general-results-extract.txt",
@@ -26,7 +26,7 @@ const SOURCES: readonly (StateGeneralSource & { postBody: string; include: (offi
     include: (office) => office === "STR" || office === "STS",
   },
   {
-    id: "fl-2022-general-results-extract-txt",
+    id: "florida-general-2022-results-extract-txt",
     url: "https://results.elections.myflorida.com/ResultsExtract.Asp",
     postBody: "ElectionDate=11/8/2022&OfficialResults=Y&PartyRaces=N&DataMode=&FormsButton2=Download",
     path: "data/source/rapid/state-general/fl/2022-general-results-extract.txt",
@@ -69,6 +69,6 @@ export const FLORIDA_GENERAL: StateGeneralAdapter = {
   stateCode: "FL",
   authority: "Florida Division of Elections, official results extract",
   sources: SOURCES.map(({ id, url, path, cycleYear, electionDate, note, postBody }) => ({ id, url, path, cycleYear, electionDate, note, postBody })),
-  expectedContests: { "fl-2024-general-results-extract-txt": 123, "fl-2022-general-results-extract-txt": 13 },
+  expectedContests: { "florida-general-2024-results-extract-txt": 123, "florida-general-2022-results-extract-txt": 13 },
   parse,
 };

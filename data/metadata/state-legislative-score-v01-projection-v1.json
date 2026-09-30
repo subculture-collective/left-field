@@ -17,7 +17,7 @@
     },
     {
       "id": "state-legislative-general-results-v1",
-      "packageSha256": "ae11e4bbe00a28eb0ec1346dc9760e9961fcfa91564bb18bfdecb466dbf234e5"
+      "packageSha256": "3d372850608f44592b2a4f2b0f4225c6b2e23495132bdadd6cc8fd56c7c6c592"
     },
     {
       "id": "rapid-state-legislative-primary-context-v1",
@@ -387923,5 +387923,5 @@
     "republicanMaxScore": 86
   },
   "rowSetSha256": "8a42f21939dad07711980dffb896165fc0839210f985cdbe5201574d4a20293a",
-  "packageSha256": "2dc0ec63e1618494e2697d550c2c74db7ad4ba50f7d8ff1bc8b0bb5463a77416"
+  "packageSha256": "70d3856c705321028e51909669c56e4106793d85dc7158dba779fce68adeaf6f"
 }

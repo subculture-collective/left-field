@@ -6,7 +6,7 @@ import { FilesystemPriorityIndexRepository, rankAcrossChambers } from "./priorit
 describe("priority index release and cross-chamber ranking", () => {
   it("reads the pinned release descriptor", () => {
     const release = readPriorityIndexRelease();
-    expect(release).toMatchObject({ modelVersion: "v1.12", publishedAt: "2026-09-30", sourceCutoff: "2026-08-04", chambers: { house: { modelVersion: "v0.11", financeAsOf: "2026-09-24" }, senate: { modelVersion: "v0.1", sourceCutoff: "2026-09-24" }, stateLegislative: { modelVersion: "v0.1", coveredStates: ["AK", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "MA", "MD", "ME", "MO", "MT", "NC", "NJ", "NY", "PA", "RI", "SC", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"] }, governor: { modelVersion: "v0.1" } } });
+    expect(release).toMatchObject({ modelVersion: "v1.13", publishedAt: "2026-09-30", sourceCutoff: "2026-08-04", chambers: { house: { modelVersion: "v0.11", financeAsOf: "2026-09-24" }, senate: { modelVersion: "v0.1", sourceCutoff: "2026-09-24" }, stateLegislative: { modelVersion: "v0.1", coveredStates: ["AK", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "MA", "MD", "ME", "MO", "MT", "NC", "NJ", "NY", "PA", "RI", "SC", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"] }, governor: { modelVersion: "v0.1" } } });
     expect(() => validatePriorityIndexRelease({ ...release, modelVersion: "1.0" })).toThrow("PRIORITY_INDEX_RELEASE_VERSION_INVALID");
   });
 
@@ -19,7 +19,7 @@ describe("priority index release and cross-chamber ranking", () => {
     expect(briefs.filter((row) => row.chamber === "senate")).toHaveLength(100);
     expect(briefs.filter((row) => row.chamber === "governor")).toHaveLength(50);
     expect(briefs.every((row) => Number.isInteger(row.nextElectionYear))).toBe(true);
-    expect(repo.getModelRelease()).toEqual({ version: "v1.12", publishedAt: "2026-09-30", cutoffDate: "2026-08-04" });
+    expect(repo.getModelRelease()).toEqual({ version: "v1.13", publishedAt: "2026-09-30", cutoffDate: "2026-08-04" });
     const senate = briefs.filter((row) => row.chamber === "senate");
     expect(senate.find((row) => row.districtLabel === "VT-S1")).toMatchObject({ incumbentParty: "Democratic", qualifyingRoute: "democratic_incumbent_primary", nextElectionYear: 2030 });
     expect(rankAcrossChambers(briefs.slice(0, 3).reverse()).map((row) => row.rank)).toEqual([1, 2, 3]);
