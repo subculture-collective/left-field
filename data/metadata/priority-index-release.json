@@ -1,7 +1,7 @@
 {
   "schema": "priority-index-release-v1",
   "version": 1,
-  "modelVersion": "v1.10",
+  "modelVersion": "v1.11",
   "publishedAt": "2026-09-30",
   "sourceCutoff": "2026-08-04",
   "chambers": {
@@ -40,6 +40,7 @@
         "ID",
         "IL",
         "IN",
+        "MA",
         "MD",
         "ME",
         "MT",
@@ -54,7 +55,8 @@
         "VT",
         "WA",
         "WI",
-        "WV"
+        "WV",
+        "WY"
       ]
     }
   },
