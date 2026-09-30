@@ -14,8 +14,8 @@ describe("state-legislative score v0.1", () => {
 
   it("scores every seat in a covered state and carries the rest unscored with a reason", () => {
     const value = buildStateLegislativeScoreV01Projection();
-    expect(value.coveredStates).toEqual(["AK", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "MD", "ME", "MT", "NC", "NY", "PA", "RI", "SC", "TN", "UT", "VA", "VT", "WA", "WI", "WV"]);
-    expect(value.summary).toMatchObject({ seats: value.rows.length, coveredStates: 28, scored: 4002, noContestForDistrict: 97, noMajorPartyInContest: 7, partyMismatches: 4, holderPartyNotScored: 11, democraticScored: 1921, republicanScored: 2081 });
+    expect(value.coveredStates).toEqual(["AK", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "MA", "MD", "ME", "MT", "NC", "NY", "PA", "RI", "SC", "TN", "UT", "VA", "VT", "WA", "WI", "WV", "WY"]);
+    expect(value.summary).toMatchObject({ seats: value.rows.length, coveredStates: 30, scored: 4291, noContestForDistrict: 97, noMajorPartyInContest: 7, partyMismatches: 4, holderPartyNotScored: 12, democraticScored: 2095, republicanScored: 2196 });
     expect(value.summary.stateNotCovered + value.summary.scored + value.summary.noContestForDistrict + value.summary.noMajorPartyInContest + value.summary.holderPartyNotScored).toBe(value.summary.seats);
     const ga = value.rows.filter((row) => row.stateCode === "GA");
     expect(ga.every((row) => row.status === "scored" && row.nextElectionYear === 2026 && row.baselineCycleYear === 2024)).toBe(true);

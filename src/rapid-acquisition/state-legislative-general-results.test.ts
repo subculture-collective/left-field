@@ -12,6 +12,8 @@ import { ALASKA_GENERAL } from "./state-general/alaska";
 import { ARKANSAS_GENERAL } from "./state-general/arkansas";
 import { HAWAII_GENERAL } from "./state-general/hawaii";
 import { VERMONT_GENERAL } from "./state-general/vermont";
+import { MASSACHUSETTS_GENERAL } from "./state-general/massachusetts";
+import { WYOMING_GENERAL } from "./state-general/wyoming";
 import { DELAWARE_GENERAL } from "./state-general/delaware";
 import { INDIANA_GENERAL } from "./state-general/indiana";
 import { IDAHO_GENERAL } from "./state-general/idaho";
@@ -161,6 +163,14 @@ describe("state-legislative general results", () => {
     expect(value.contests.find((contest) => contest.contestId === "hi:state-leg-general:2024:upper:3")?.candidates.map((candidate) => [candidate.name, candidate.party])).toEqual([["Dru Mamo Kanuha", "Democratic"], ["Kurt (Sulli) Sullivan", "Republican"]]);
     expect(value.contests.find((contest) => contest.contestId === "vt:state-leg-general:2024:upper:addison")).toMatchObject({ seats: 2, democraticVotes: 22713, republicanVotes: 19856 });
     expect(value.contests.filter((contest) => contest.stateCode === "VT").every((contest) => contest.electionDate === "2024-11-05")).toBe(true);
+  });
+
+  it("reads Massachusetts search pages and Wyoming summary blocks", () => {
+    const value = buildStateLegislativeGeneralResults(process.cwd(), readSourceLock(), [MASSACHUSETTS_GENERAL, WYOMING_GENERAL]);
+    expect(value.states.map((state) => [state.stateCode, state.contests, state.lowerContests, state.upperContests])).toEqual([["MA", 200, 160, 40], ["WY", 93, 62, 31]]);
+    expect(value.contests.find((contest) => contest.contestId === "ma:state-leg-general:2024:lower:1st-barnstable")).toMatchObject({ democraticVotes: 15607, republicanVotes: 11996, totalVotes: 27638 });
+    expect(value.contests.filter((contest) => contest.stateCode === "MA" && contest.chamber === "upper").every((contest) => !/^\d/.test(contest.district) && !contest.district.includes("&"))).toBe(true);
+    expect(value.contests.find((contest) => contest.contestId === "wy:state-leg-general:2024:lower:1")?.candidates.map((candidate) => [candidate.name, candidate.votes])).toEqual([["Chip Neiman", 5096], ["Write-Ins", 124]]);
   });
 
   it("matches the pinned artifact", () => {
