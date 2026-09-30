@@ -10,6 +10,10 @@ import { PENNSYLVANIA_GENERAL } from "./state-general/pennsylvania";
 import { COLORADO_GENERAL } from "./state-general/colorado";
 import { DELAWARE_GENERAL } from "./state-general/delaware";
 import { INDIANA_GENERAL } from "./state-general/indiana";
+import { IDAHO_GENERAL } from "./state-general/idaho";
+import { IOWA_GENERAL } from "./state-general/iowa";
+import { MONTANA_GENERAL } from "./state-general/montana";
+import { UTAH_GENERAL } from "./state-general/utah";
 import { RHODE_ISLAND_GENERAL } from "./state-general/rhode-island";
 import { SOUTH_CAROLINA_GENERAL } from "./state-general/south-carolina";
 import { TENNESSEE_GENERAL } from "./state-general/tennessee";
@@ -136,6 +140,14 @@ describe("state-legislative general results", () => {
     expect(value.contests.find((contest) => contest.contestId === "ri:state-leg-general:2024:upper:1")?.candidates[0]).toMatchObject({ name: "Jacob Bissaillon", party: "Democratic" });
     expect(value.contests.filter((contest) => contest.stateCode === "WV" && contest.chamber === "upper").map((contest) => contest.position).sort()).toEqual([...Array(17).fill("2022"), ...Array(17).fill("2024")]);
     expect(value.contests.find((contest) => contest.contestId === "tn:state-leg-general:2024:lower:1")).toMatchObject({ contested: false, democraticMarginPercentagePoints: -100 });
+  });
+
+  it("reads the sixth batch: Idaho seats, Iowa, Montana and Utah", () => {
+    const value = buildStateLegislativeGeneralResults(process.cwd(), readSourceLock(), [IDAHO_GENERAL, IOWA_GENERAL, MONTANA_GENERAL, UTAH_GENERAL]);
+    expect(value.states.map((state) => [state.stateCode, state.contests, state.lowerContests, state.upperContests])).toEqual([["IA", 259, 200, 59], ["ID", 105, 70, 35], ["MT", 252, 200, 52], ["UT", 90, 75, 15]]);
+    const idaho = value.contests.filter((contest) => contest.stateCode === "ID" && contest.chamber === "lower");
+    expect(idaho.every((contest) => /^\d+[AB]$/.test(contest.district))).toBe(true);
+    expect(value.contests.flatMap((contest) => contest.candidates).some((candidate) => ["Overvotes", "Undervotes"].includes(candidate.name))).toBe(false);
   });
 
   it("matches the pinned artifact", () => {
