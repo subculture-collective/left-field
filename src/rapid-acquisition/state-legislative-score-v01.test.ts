@@ -14,8 +14,8 @@ describe("state-legislative score v0.1", () => {
 
   it("scores every seat in a covered state and carries the rest unscored with a reason", () => {
     const value = buildStateLegislativeScoreV01Projection();
-    expect(value.coveredStates).toEqual(["AK", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "MA", "MD", "ME", "MT", "NC", "NY", "PA", "RI", "SC", "TN", "UT", "VA", "VT", "WA", "WI", "WV", "WY"]);
-    expect(value.summary).toMatchObject({ seats: value.rows.length, coveredStates: 30, scored: 4291, noContestForDistrict: 97, noMajorPartyInContest: 7, partyMismatches: 4, holderPartyNotScored: 12, democraticScored: 2095, republicanScored: 2196 });
+    expect(value.coveredStates).toEqual(["AK", "AR", "CA", "CO", "CT", "DE", "FL", "GA", "HI", "IA", "ID", "IL", "IN", "KS", "MA", "MD", "ME", "MO", "MT", "NC", "NJ", "NY", "PA", "RI", "SC", "TN", "TX", "UT", "VA", "VT", "WA", "WI", "WV", "WY"]);
+    expect(value.summary).toMatchObject({ seats: value.rows.length, coveredStates: 34, scored: 4938, noContestForDistrict: 102, noMajorPartyInContest: 7, partyMismatches: 4, holderPartyNotScored: 12, democraticScored: 2356, republicanScored: 2582 });
     expect(value.summary.stateNotCovered + value.summary.scored + value.summary.noContestForDistrict + value.summary.noMajorPartyInContest + value.summary.holderPartyNotScored).toBe(value.summary.seats);
     const ga = value.rows.filter((row) => row.stateCode === "GA");
     expect(ga.every((row) => row.status === "scored" && row.nextElectionYear === 2026 && row.baselineCycleYear === 2024)).toBe(true);
@@ -54,7 +54,10 @@ describe("state-legislative score v0.1", () => {
     expect(value.rows.filter((row) => row.partyMismatch).map((row) => [row.stateCode, row.district, row.incumbentParty, row.holderBaselineParty]).sort()).toEqual([["CA", "4", "Republican", "Democratic"], ["FL", "64", "Republican", "DEM"], ["HI", "14", "Republican", "D"], ["SC", "57", "Republican", "DEM"]]);
     // A contest with no Democratic or Republican candidate has no margin.
     expect(value.rows.filter((row) => row.status === "no_major_party_in_contest").every((row) => row.ownRaceDemocraticMargin === null)).toBe(true);
-    const other = value.rows.find((row) => row.stateCode === "TX");
+    // New Jersey Assembly districts elect two members from one contest; both holders share it.
+    const njAssembly = value.rows.filter((row) => row.stateCode === "NJ" && row.chamber === "lower");
+    expect(njAssembly.every((row) => row.status === "scored" && row.baselineSeats === 2 && row.nextElectionYear === 2027)).toBe(true);
+    const other = value.rows.find((row) => row.stateCode === "OR");
     expect(other).toMatchObject({ status: "state_not_covered", score: null, route: null, drivers: [] });
   });
 

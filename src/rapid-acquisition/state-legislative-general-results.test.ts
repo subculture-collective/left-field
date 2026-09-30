@@ -14,6 +14,10 @@ import { HAWAII_GENERAL } from "./state-general/hawaii";
 import { VERMONT_GENERAL } from "./state-general/vermont";
 import { MASSACHUSETTS_GENERAL } from "./state-general/massachusetts";
 import { WYOMING_GENERAL } from "./state-general/wyoming";
+import { KANSAS_GENERAL } from "./state-general/kansas";
+import { MISSOURI_GENERAL } from "./state-general/missouri";
+import { NEW_JERSEY_GENERAL, ordinalWord } from "./state-general/new-jersey";
+import { TEXAS_GENERAL } from "./state-general/texas";
 import { DELAWARE_GENERAL } from "./state-general/delaware";
 import { INDIANA_GENERAL } from "./state-general/indiana";
 import { IDAHO_GENERAL } from "./state-general/idaho";
@@ -171,6 +175,17 @@ describe("state-legislative general results", () => {
     expect(value.contests.find((contest) => contest.contestId === "ma:state-leg-general:2024:lower:1st-barnstable")).toMatchObject({ democraticVotes: 15607, republicanVotes: 11996, totalVotes: 27638 });
     expect(value.contests.filter((contest) => contest.stateCode === "MA" && contest.chamber === "upper").every((contest) => !/^\d/.test(contest.district) && !contest.district.includes("&"))).toBe(true);
     expect(value.contests.find((contest) => contest.contestId === "wy:state-leg-general:2024:lower:1")?.candidates.map((candidate) => [candidate.name, candidate.votes])).toEqual([["Chip Neiman", 5096], ["Write-Ins", 124]]);
+  });
+
+  it("reads Texas, and the PDF-extract states Kansas, Missouri and New Jersey", () => {
+    expect(["First", "Twelfth", "Twentieth", "Thirty-Fifth", "Fortieth"].map(ordinalWord)).toEqual([1, 12, 20, 35, 40]);
+    const value = buildStateLegislativeGeneralResults(process.cwd(), readSourceLock(), [KANSAS_GENERAL, MISSOURI_GENERAL, NEW_JERSEY_GENERAL, TEXAS_GENERAL]);
+    expect(value.states.map((state) => [state.stateCode, state.contests, state.lowerContests, state.upperContests])).toEqual([["KS", 165, 125, 40], ["MO", 360, 326, 34], ["NJ", 80, 40, 40], ["TX", 186, 150, 36]]);
+    expect(value.contests.find((contest) => contest.contestId === "ks:state-leg-general:2024:upper:5")).toMatchObject({ democraticVotes: 15701, republicanVotes: 15732 });
+    expect(value.contests.find((contest) => contest.contestId === "mo:state-leg-general:2024:lower:4")).toMatchObject({ democraticVotes: 2916, republicanVotes: 14066 });
+    expect(value.contests.find((contest) => contest.contestId === "nj:state-leg-general:2025:lower:2")).toMatchObject({ seats: 2, democraticVotes: 78775, republicanVotes: 78523, totalVotes: 157298 });
+    expect(value.contests.find((contest) => contest.contestId === "tx:state-leg-general:2024:upper:6")?.candidates.map((candidate) => [candidate.name, candidate.votes])).toEqual([["CAROL ALVARADO", 119280], ["MARTHA FIERRO", 70013]]);
+    expect(value.contests.filter((contest) => contest.stateCode === "TX" && contest.cycleYear === 2022).every((contest) => contest.chamber === "upper")).toBe(true);
   });
 
   it("matches the pinned artifact", () => {

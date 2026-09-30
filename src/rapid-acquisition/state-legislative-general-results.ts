@@ -102,6 +102,13 @@ export interface StateGeneralSource {
   readonly postBody?: string;
   /** Content type of postBody; form encoding when absent. */
   readonly postContentType?: string;
+  /** User agent to send when the publisher's bot filter refuses the project's own. */
+  readonly userAgent?: string;
+  /**
+   * For PDF sources: parse the pinned `pdftotext -layout` extract instead of the PDF, so no build needs
+   * pdftotext. The extract is retained beside the PDF with id `${id}-pdftotext-layout`.
+   */
+  readonly pdfLayoutExtract?: boolean;
 }
 
 export interface StateGeneralAdapter {
@@ -117,10 +124,12 @@ export const STATE_LEGISLATIVE_GENERAL_RESULTS = {
   id: "state-legislative-general-results-v1",
   path: "data/metadata/state-legislative-general-results-v1.json",
   url: "urn:dsa-seats:state-legislative-general-results:v1",
-  parentIds: (): string[] => STATE_GENERAL_ADAPTERS.flatMap((adapter) => adapter.sources.map((source) => source.id)),
+  parentIds: (): string[] => STATE_GENERAL_ADAPTERS.flatMap((adapter) => adapter.sources.flatMap((source) => source.pdfLayoutExtract ? [source.id, pdfLayoutExtractId(source.id)] : [source.id])),
 } as const;
 
 const fail = (code: string): never => { throw new Error(`STATE_LEG_GENERAL_${code}`); };
+export const pdfLayoutExtractId = (sourceId: string): string => `${sourceId}-pdftotext-layout`;
+export const pdfLayoutExtractPath = (pdfPath: string): string => `${pdfPath.replace(/\.pdf$/i, "")}-layout.txt`;
 const one = (value: number): number => Math.round(value * 10) / 10;
 
 /** Party from a source label: national parties and their state affiliates, everything else Independent or Other. */
@@ -168,7 +177,8 @@ export function buildStateLegislativeGeneralResults(root = process.cwd(), lock: 
   for (const adapter of [...adapters].sort((left, right) => byteCompare(left.stateCode, right.stateCode))) {
     const stateContests: StateGeneralContest[] = [];
     for (const source of adapter.sources) {
-      const { bytes } = readRetainedSource(lock, source.id, root);
+      readRetainedSource(lock, source.id, root);
+      const { bytes } = readRetainedSource(lock, source.pdfLayoutExtract ? pdfLayoutExtractId(source.id) : source.id, root);
       const parsed = adapter.parse(bytes, source).map((raw) => normalize(raw, source, adapter.stateCode));
       const expected = adapter.expectedContests[source.id];
       if (expected === undefined) fail(`EXPECTED_COUNT_MISSING:${source.id}`);
