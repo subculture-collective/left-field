@@ -14,8 +14,8 @@ describe("state-legislative score v0.1", () => {
 
   it("scores every seat in a covered state and carries the rest unscored with a reason", () => {
     const value = buildStateLegislativeScoreV01Projection();
-    expect(value.coveredStates).toEqual(["CA", "CO", "CT", "DE", "FL", "GA", "IL", "IN", "MD", "ME", "NC", "NY", "PA", "RI", "SC", "TN", "VA", "WA", "WI", "WV"]);
-    expect(value.summary).toMatchObject({ seats: value.rows.length, coveredStates: 20, scored: 3125, noContestForDistrict: 26, holderPartyNotScored: 9, democraticScored: 1597, republicanScored: 1528 });
+    expect(value.coveredStates).toEqual(["CA", "CO", "CT", "DE", "FL", "GA", "IA", "ID", "IL", "IN", "MD", "ME", "MT", "NC", "NY", "PA", "RI", "SC", "TN", "UT", "VA", "WA", "WI", "WV"]);
+    expect(value.summary).toMatchObject({ seats: value.rows.length, coveredStates: 24, scored: 3612, noContestForDistrict: 47, holderPartyNotScored: 9, democraticScored: 1737, republicanScored: 1875 });
     expect(value.summary.stateNotCovered + value.summary.scored + value.summary.noContestForDistrict + value.summary.holderPartyNotScored).toBe(value.summary.seats);
     const ga = value.rows.filter((row) => row.stateCode === "GA");
     expect(ga.every((row) => row.status === "scored" && row.nextElectionYear === 2026 && row.baselineCycleYear === 2024)).toBe(true);
@@ -47,6 +47,9 @@ describe("state-legislative score v0.1", () => {
     const wvByDistrict = new Map<string, string[]>();
     for (const row of wvSenate) wvByDistrict.set(row.district, [...(wvByDistrict.get(row.district) ?? []), row.baselineContestId!]);
     expect([...wvByDistrict.values()].every((ids) => new Set(ids).size === ids.length)).toBe(true);
+    // Utah's 2022 Senate canvass is a scanned PDF, so senators elected that year have no contest.
+    expect(value.rows.filter((row) => row.stateCode === "UT" && row.status === "no_contest_for_district").every((row) => row.chamber === "upper")).toBe(true);
+    expect(value.rows.filter((row) => row.stateCode === "ID" && row.chamber === "lower").every((row) => row.status === "scored" && /^\d+[AB]$/.test(row.district))).toBe(true);
     const other = value.rows.find((row) => row.stateCode === "TX");
     expect(other).toMatchObject({ status: "state_not_covered", score: null, route: null, drivers: [] });
   });
