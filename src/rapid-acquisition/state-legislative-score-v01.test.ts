@@ -14,8 +14,8 @@ describe("state-legislative score v0.1", () => {
 
   it("scores every seat in a covered state and carries the rest unscored with a reason", () => {
     const value = buildStateLegislativeScoreV01Projection();
-    expect(value.coveredStates).toEqual(["CA", "CO", "CT", "GA", "IL", "MD", "NC", "NY", "PA", "VA", "WA", "WI"]);
-    expect(value.summary).toMatchObject({ seats: value.rows.length, coveredStates: 12, scored: 2056, noContestForDistrict: 0, holderPartyNotScored: 2, democraticScored: 1208, republicanScored: 848 });
+    expect(value.coveredStates).toEqual(["CA", "CO", "CT", "FL", "GA", "IL", "MD", "ME", "NC", "NY", "PA", "VA", "WA", "WI"]);
+    expect(value.summary).toMatchObject({ seats: value.rows.length, coveredStates: 14, scored: 2368, noContestForDistrict: 26, holderPartyNotScored: 7, democraticScored: 1331, republicanScored: 1037 });
     expect(value.summary.stateNotCovered + value.summary.scored + value.summary.noContestForDistrict + value.summary.holderPartyNotScored).toBe(value.summary.seats);
     const ga = value.rows.filter((row) => row.stateCode === "GA");
     expect(ga.every((row) => row.status === "scored" && row.nextElectionYear === 2026 && row.baselineCycleYear === 2024)).toBe(true);
@@ -35,7 +35,12 @@ describe("state-legislative score v0.1", () => {
     const positions = new Map<string, string[]>();
     for (const row of waHouse) positions.set(row.district, [...(positions.get(row.district) ?? []), row.baselineContestId!]);
     expect([...positions.values()].every((ids) => ids.length === 2 && new Set(ids).size === 2)).toBe(true);
-    expect(value.rows.filter((row) => row.status === "holder_party_not_scored").map((row) => [row.stateCode, row.incumbentParty])).toEqual([["NC", "Independent"], ["NC", "Independent"]]);
+    expect(value.rows.filter((row) => row.status === "holder_party_not_scored" && row.stateCode === "NC").map((row) => row.incumbentParty)).toEqual(["Independent", "Independent"]);
+    // Florida leaves unopposed races off the ballot: those seats have no contest and stay unscored rather than inferred.
+    const florida = value.rows.filter((row) => row.stateCode === "FL" && row.status === "no_contest_for_district");
+    expect(florida).toHaveLength(24);
+    expect(value.rows.filter((row) => row.stateCode === "FL" && row.chamber === "upper" && row.status === "scored").every((row) => (Number(row.district) % 2 === 1) === (row.baselineCycleYear === 2024))).toBe(true);
+    expect(value.rows.filter((row) => row.stateCode === "ME" && row.status === "no_contest_for_district").map((row) => row.district).sort()).toEqual(["Houlton Band of Maliseet Indians", "Passamaquoddy Tribe"]);
     const other = value.rows.find((row) => row.stateCode === "TX");
     expect(other).toMatchObject({ status: "state_not_covered", score: null, route: null, drivers: [] });
   });

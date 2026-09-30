@@ -24,14 +24,16 @@ const checkOnly = args.includes("--check");
 const only = option("state")?.toUpperCase();
 const out = (line: string) => process.stdout.write(`${line}\n`);
 
-async function download(url: string): Promise<Buffer> {
+async function download(url: string, postBody?: string): Promise<Buffer> {
   if (!url.startsWith("https://")) throw new Error(`STATE_RETURNS_URL_NOT_HTTPS:${url}`);
-  const response = await fetch(url, { redirect: "follow", headers: { "User-Agent": "dsa-seats-intake (+https://git.subcult.tv/subculture-collective/dsa-seats)" } });
+  const headers: Record<string, string> = { "User-Agent": "dsa-seats-intake (+https://git.subcult.tv/subculture-collective/dsa-seats)" };
+  if (postBody !== undefined) headers["Content-Type"] = "application/x-www-form-urlencoded";
+  const response = await fetch(url.replace(/#post:.*$/, ""), { redirect: "follow", headers, ...(postBody !== undefined ? { method: "POST", body: postBody } : {}) });
   if (!response.ok) throw new Error(`STATE_RETURNS_DOWNLOAD_FAILED:${response.status}:${url}`);
   return Buffer.from(await response.arrayBuffer());
 }
 
-async function retain(lock: SourceLock, id: string, path: string, url: string): Promise<SourceLock> {
+async function retain(lock: SourceLock, id: string, path: string, url: string, postBody?: string): Promise<SourceLock> {
   const existing = findSourceLockEntry(lock, id);
   if (existsSync(path)) {
     const bytes = readFileSync(path);
@@ -40,7 +42,7 @@ async function retain(lock: SourceLock, id: string, path: string, url: string): 
     return existing ? lock : upsertSourceLockEntry(lock, derivedArtifactEntry({ id, url, retainedPath: path, bytes, kind: "official_state_returns", parentIds: [] }));
   }
   if (checkOnly) throw new Error(`STATE_RETURNS_MISSING:${id}`);
-  const bytes = await download(url);
+  const bytes = await download(url, postBody);
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(path, bytes);
   out(`${id}: downloaded ${bytes.length} bytes sha256 ${sha(bytes)}`);
@@ -51,7 +53,8 @@ async function main(): Promise<void> {
   let lock = readSourceLock();
   const adapters = STATE_GENERAL_ADAPTERS.filter((adapter) => !only || adapter.stateCode === only);
   if (adapters.length === 0) throw new Error(`STATE_RETURNS_NO_ADAPTER:${only ?? "any"}`);
-  for (const adapter of adapters) for (const source of adapter.sources) lock = await retain(lock, source.id, source.path, source.url);
+  // A POST-served file is pinned under a URL that records its form body, so the lock says exactly what was requested.
+  for (const adapter of adapters) for (const source of adapter.sources) lock = await retain(lock, source.id, source.path, source.postBody === undefined ? source.url : `${source.url}#post:${source.postBody}`, source.postBody);
   writeSourceLock(lock);
   out(`${adapters.length} state(s), ${adapters.reduce((sum, adapter) => sum + adapter.sources.length, 0)} source(s) retained. Next: npm run rapid:intake -- derive state-legislative-general-results-v1`);
 }

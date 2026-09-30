@@ -98,6 +98,8 @@ export interface StateGeneralSource {
   readonly electionDate: string;
   /** Human note for the review ledger, e.g. which chamber the file covers. */
   readonly note: string;
+  /** Form body when the publisher serves the file only in response to a POST; the retained bytes are that response. */
+  readonly postBody?: string;
 }
 
 export interface StateGeneralAdapter {
