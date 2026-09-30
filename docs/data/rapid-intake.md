@@ -88,6 +88,10 @@ npm run rapid:intake -- derive state-legislative-score-v01-projection-v1
 
 The score layer joins the Open States roster to the latest retained contest for each chamber and district, so a state becomes ranked the moment its adapter lands; seats elsewhere stay in the projection unscored with the reason. A publisher that re-issues a file under the same URL fails the byte check, and the adapter must declare a new source id rather than overwrite.
 
+Sources can declare four optional fields when a publisher needs them: `postBody` and `postContentType` for files served only in response to a POST (Florida's form, Vermont's GraphQL pages; the lock URL records the body), `userAgent` for sites whose bot filter refuses the project's own (Texas), and `pdfLayoutExtract` for PDFs. With `pdfLayoutExtract`, the retention script runs `pdftotext -layout` once and pins the text beside the PDF as a `derived_extract`; the results builder parses the extract, so no build or test needs pdftotext.
+
+Some publishers block the project's VPN egress. Files for those states were retained through a residential route: an existing network namespace on Kvant that reaches the ISP router over Ethernet, entered only for the retention command (`sudo -n ip netns exec discord_isp runuser -u onnwee -- npm run rapid:state-returns -- --state TX`). Host routing is not changed. Re-running retention for those states needs the same route.
+
 Adding a state: write the adapter, run the three commands above, confirm the contest count and a few margins against the publisher's own summary page, then `npm run rapid:publish -- --bump`.
 
 ## Workbook extracts (added 2026-09-25)
