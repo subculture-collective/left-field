@@ -8,6 +8,8 @@ import { ILLINOIS_GENERAL } from "./state-general/illinois";
 import { NEW_YORK_GENERAL } from "./state-general/new-york";
 import { PENNSYLVANIA_GENERAL } from "./state-general/pennsylvania";
 import { COLORADO_GENERAL } from "./state-general/colorado";
+import { FLORIDA_GENERAL } from "./state-general/florida";
+import { MAINE_GENERAL } from "./state-general/maine";
 import { CONNECTICUT_GENERAL } from "./state-general/connecticut";
 import { MARYLAND_GENERAL } from "./state-general/maryland";
 import { NORTH_CAROLINA_GENERAL } from "./state-general/north-carolina";
@@ -112,6 +114,13 @@ describe("state-legislative general results", () => {
     expect(value.contests.find((contest) => contest.contestId === "ct:state-leg-general:2024:upper:1")).toMatchObject({ totalVotes: 21208, democraticVotes: 18512 });
     expect(value.contests.find((contest) => contest.contestId === "co:state-leg-general:2024:upper:2")).toMatchObject({ democraticMarginPercentagePoints: -23.9 });
     expect(value.contests.find((contest) => contest.contestId === "nc:state-leg-general:2024:lower:1")).toMatchObject({ democraticVotes: 17160, republicanVotes: 31950 });
+  });
+
+  it("reads Florida contested races only and Maine stacked district blocks", () => {
+    const value = buildStateLegislativeGeneralResults(process.cwd(), readSourceLock(), [FLORIDA_GENERAL, MAINE_GENERAL]);
+    expect(value.states.map((state) => [state.stateCode, state.contests, state.lowerContests, state.upperContests, state.cycles])).toEqual([["FL", 136, 105, 31, [2022, 2024]], ["ME", 186, 151, 35, [2024]]]);
+    expect(value.contests.filter((contest) => contest.stateCode === "FL" && contest.cycleYear === 2022).every((contest) => contest.chamber === "upper" && Number(contest.district) % 2 === 0)).toBe(true);
+    expect(value.contests.find((contest) => contest.contestId === "me:state-leg-general:2024:upper:2")?.candidates.map((candidate) => [candidate.name, candidate.party, candidate.votes])).toEqual([["Harold L. Stewart III", "Republican", 13695], ["Matthew J. Rush", "Democratic", 6999]]);
   });
 
   it("matches the pinned artifact", () => {

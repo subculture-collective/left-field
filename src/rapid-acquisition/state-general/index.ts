@@ -2,8 +2,10 @@ import type { StateGeneralAdapter } from "../state-legislative-general-results";
 import { CALIFORNIA_GENERAL } from "./california";
 import { COLORADO_GENERAL } from "./colorado";
 import { CONNECTICUT_GENERAL } from "./connecticut";
+import { FLORIDA_GENERAL } from "./florida";
 import { GEORGIA_GENERAL } from "./georgia";
 import { ILLINOIS_GENERAL } from "./illinois";
+import { MAINE_GENERAL } from "./maine";
 import { MARYLAND_GENERAL } from "./maryland";
 import { NEW_YORK_GENERAL } from "./new-york";
 import { NORTH_CAROLINA_GENERAL } from "./north-carolina";
@@ -17,4 +19,4 @@ import { WISCONSIN_GENERAL } from "./wisconsin";
  * general-election returns and reports raw contests; normalization, margins
  * and closure checks live in state-legislative-general-results.ts.
  */
-export const STATE_GENERAL_ADAPTERS: readonly StateGeneralAdapter[] = [CALIFORNIA_GENERAL, COLORADO_GENERAL, CONNECTICUT_GENERAL, GEORGIA_GENERAL, ILLINOIS_GENERAL, MARYLAND_GENERAL, NEW_YORK_GENERAL, NORTH_CAROLINA_GENERAL, PENNSYLVANIA_GENERAL, VIRGINIA_GENERAL, WASHINGTON_GENERAL, WISCONSIN_GENERAL];
+export const STATE_GENERAL_ADAPTERS: readonly StateGeneralAdapter[] = [CALIFORNIA_GENERAL, COLORADO_GENERAL, CONNECTICUT_GENERAL, FLORIDA_GENERAL, GEORGIA_GENERAL, ILLINOIS_GENERAL, MAINE_GENERAL, MARYLAND_GENERAL, NEW_YORK_GENERAL, NORTH_CAROLINA_GENERAL, PENNSYLVANIA_GENERAL, VIRGINIA_GENERAL, WASHINGTON_GENERAL, WISCONSIN_GENERAL];
