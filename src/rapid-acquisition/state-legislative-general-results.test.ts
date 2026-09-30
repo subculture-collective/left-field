@@ -6,6 +6,12 @@ import { CALIFORNIA_GENERAL } from "./state-general/california";
 import { GEORGIA_GENERAL } from "./state-general/georgia";
 import { ILLINOIS_GENERAL } from "./state-general/illinois";
 import { NEW_YORK_GENERAL } from "./state-general/new-york";
+import { PENNSYLVANIA_GENERAL } from "./state-general/pennsylvania";
+import { COLORADO_GENERAL } from "./state-general/colorado";
+import { CONNECTICUT_GENERAL } from "./state-general/connecticut";
+import { MARYLAND_GENERAL } from "./state-general/maryland";
+import { NORTH_CAROLINA_GENERAL } from "./state-general/north-carolina";
+import { WASHINGTON_GENERAL, washingtonPreference } from "./state-general/washington";
 import { VIRGINIA_GENERAL } from "./state-general/virginia";
 import { WISCONSIN_GENERAL } from "./state-general/wisconsin";
 
@@ -83,6 +89,29 @@ describe("state-legislative general results", () => {
     const wiSenate = value.contests.filter((contest) => contest.stateCode === "WI" && contest.chamber === "upper");
     expect(wiSenate.filter((contest) => contest.cycleYear === 2024).map((contest) => Number(contest.district) % 2)).toEqual(Array(16).fill(0));
     expect(wiSenate.filter((contest) => contest.cycleYear === 2022)).toHaveLength(17);
+  });
+
+  it("sums Pennsylvania precinct returns and resolves the listed cross-filed candidate", () => {
+    const value = buildStateLegislativeGeneralResults(process.cwd(), readSourceLock(), [PENNSYLVANIA_GENERAL]);
+    expect(value.states.map((state) => [state.stateCode, state.contests, state.lowerContests, state.upperContests, state.cycles])).toEqual([["PA", 456, 406, 50, [2022, 2024]]]);
+    expect(value.contests.find((contest) => contest.contestId === "pa:state-leg-general:2024:upper:1")?.candidates).toEqual([{ name: "Nikil Saval", rawParty: "DEM", party: "Democratic", votes: 109193, writeIn: false }]);
+    expect(value.contests.find((contest) => contest.contestId === "pa:state-leg-general:2024:lower:32")).toMatchObject({ contested: false, democraticMarginPercentagePoints: 100, candidates: [{ rawParty: "D/R", party: "Democratic", votes: 31207 }] });
+    const senate2024 = value.contests.filter((contest) => contest.chamber === "upper" && contest.cycleYear === 2024).map((contest) => Number(contest.district) % 2);
+    expect(senate2024).toEqual(Array(25).fill(1));
+  });
+
+  it("reads Washington positions, Maryland multi-member districts, Connecticut fusion, Colorado and North Carolina", () => {
+    expect(["(Prefers Democratic Party)", "(Prefers GOP Party)", "(States No Party Preference)", "(Prefers Culture Republican Party)"].map(washingtonPreference)).toEqual(["Democratic", "GOP", "No Party Preference", "Culture Republican"]);
+    const value = buildStateLegislativeGeneralResults(process.cwd(), readSourceLock(), [COLORADO_GENERAL, CONNECTICUT_GENERAL, MARYLAND_GENERAL, NORTH_CAROLINA_GENERAL, WASHINGTON_GENERAL]);
+    expect(value.states.map((state) => [state.stateCode, state.contests, state.lowerContests, state.upperContests])).toEqual([["CO", 165, 130, 35], ["CT", 187, 151, 36], ["MD", 118, 71, 47], ["NC", 170, 120, 50], ["WA", 246, 196, 50]]);
+    const wa = value.contests.find((contest) => contest.contestId === "wa:state-leg-general:2024:lower:1:pos-1");
+    expect(wa).toMatchObject({ position: "1", democraticVotes: 55168, republicanVotes: 24467, totalVotes: 79741 });
+    const md = value.contests.filter((contest) => contest.stateCode === "MD" && contest.chamber === "lower");
+    expect(md.reduce((sum, contest) => sum + contest.seats, 0)).toBe(141);
+    expect(md.find((contest) => contest.districtKey === "1a")).toMatchObject({ seats: 1, democraticVotes: 2829, republicanVotes: 11971 });
+    expect(value.contests.find((contest) => contest.contestId === "ct:state-leg-general:2024:upper:1")).toMatchObject({ totalVotes: 21208, democraticVotes: 18512 });
+    expect(value.contests.find((contest) => contest.contestId === "co:state-leg-general:2024:upper:2")).toMatchObject({ democraticMarginPercentagePoints: -23.9 });
+    expect(value.contests.find((contest) => contest.contestId === "nc:state-leg-general:2024:lower:1")).toMatchObject({ democraticVotes: 17160, republicanVotes: 31950 });
   });
 
   it("matches the pinned artifact", () => {
