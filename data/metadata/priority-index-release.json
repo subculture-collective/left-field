@@ -1,7 +1,7 @@
 {
   "schema": "priority-index-release-v1",
   "version": 1,
-  "modelVersion": "v1.9",
+  "modelVersion": "v1.10",
   "publishedAt": "2026-09-30",
   "sourceCutoff": "2026-08-04",
   "chambers": {
@@ -27,12 +27,15 @@
       "modelVersion": "v0.1",
       "sourceCutoff": "2026-09-24",
       "coveredStates": [
+        "AK",
+        "AR",
         "CA",
         "CO",
         "CT",
         "DE",
         "FL",
         "GA",
+        "HI",
         "IA",
         "ID",
         "IL",
@@ -48,6 +51,7 @@
         "TN",
         "UT",
         "VA",
+        "VT",
         "WA",
         "WI",
         "WV"
