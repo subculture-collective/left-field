@@ -79,6 +79,15 @@ export function Lineage({
     </p>
   );
 }
+/** The approved LF mark from the Studio pack (logos/mark-primary.svg), drawn in the page's own ink and rust. */
+export function LeftFieldMark({ size = 28 }: { size?: number }) {
+  return (
+    <svg className="mark" width={size} height={size} viewBox="18 18 126 126" aria-hidden="true" focusable="false">
+      <path d="M18 18h26v100h50v26H18z M68 18h74v26H94v24h40v26H94v50H68z" fill="currentColor" />
+      <rect x="68" y="118" width="26" height="26" fill="var(--signal)" />
+    </svg>
+  );
+}
 export function ReleaseStrip({
   release,
 }: {
@@ -120,6 +129,7 @@ export function Shell({
       </a>
       <header className="masthead">
         <Link prefetch={false} className="wordmark" href="/">
+          <LeftFieldMark />
           LEFT FIELD
         </Link>
         <nav aria-label="Primary navigation">
