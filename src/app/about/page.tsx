@@ -127,7 +127,8 @@ export default function About() {
         <section className="record-section">
           <h2>Contact</h2>
           <p>
-            Reach the publisher through{" "}
+            Write to <a href="mailto:info@subcult.tv">info@subcult.tv</a>, or
+            reach the publisher through{" "}
             <a href="https://subcult.tv">subcult.tv</a>. To report an error in
             a published record, use the correction link on that seat record.
           </p>
