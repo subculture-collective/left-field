@@ -92,9 +92,15 @@ export default function About() {
           <dl>
             <dt>Accounts and tracking</dt>
             <dd>
-              There are no accounts. The pages load no analytics, advertising,
-              or other third-party scripts, and the site does not profile
-              voters.
+              There are no accounts, no advertising, and no third-party
+              scripts. The site does not profile voters.
+            </dd>
+            <dt>Page-view counts</dt>
+            <dd>
+              The edge adds a self-hosted Umami counter served from this
+              domain. It records the page path and the referring site, not the
+              query string, and stays off when a browser sends Do Not Track or
+              Global Privacy Control.
             </dd>
             <dt>Address lookup</dt>
             <dd>

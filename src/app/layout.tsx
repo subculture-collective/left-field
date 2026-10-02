@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 import "./globals.css";
 
 // Share-card and icon URLs resolve against the public address.
-const siteUrl = "https://seats.dsaslate.com";
+const siteUrl = "https://left-field.subcult.tv";
 
 export const viewport: Viewport = { themeColor: "#f4f0e6" };
 export const metadata: Metadata = {
