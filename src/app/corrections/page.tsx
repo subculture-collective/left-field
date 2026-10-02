@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { Notice, Shell } from "@/components/presentational";
 import { correctionReleaseIdSchema, correctionSeatCycleIdSchema } from "@/domain/corrections";
 import { readFeatureGates } from "@/features/gates";
@@ -10,9 +11,10 @@ const one = (value: string | string[] | undefined) => typeof value === "string" 
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
+export const metadata: Metadata = { title: "Corrections" };
 
 function DisabledCorrections() {
-  return <Shell><main className="page prose correction-page">
+  return <Shell><main id="content" className="page prose correction-page">
     <p className="eyebrow">RELEASE CORRECTION / DEPLOYMENT STATUS</p>
     <h1>Corrections are not enabled here</h1>
     <Notice title="Private collection is privacy-gated"><p>This shared deployment does not collect correction reports. No report details, source links, or submission controls are available until the approved privacy review enables this feature.</p></Notice>
@@ -32,7 +34,7 @@ export default async function CorrectionsPage({ searchParams }: Props) {
   const query = await searchParams;
   const release = one(query.release);
   const seat = one(query.seat);
-  return <Shell><main className="page correction-page">
+  return <Shell><main id="content" className="page correction-page">
     <p className="eyebrow">RELEASE CORRECTION / REVIEW QUEUE</p>
     <h1>Submit a correction</h1>
     <p className="lede">Point us to a specific published record and explain what needs review.</p>

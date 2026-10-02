@@ -4,7 +4,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: { default: "Left Field", template: "%s | Left Field" },
-  description: "Federal seat rankings, strategic briefs, and source-specific factual records.",
+  description: "Ranked research briefs for Congress, governorships, and state legislatures, with the source record behind each score.",
 };
 
 export default function RootLayout({

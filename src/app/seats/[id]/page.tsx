@@ -1,5 +1,7 @@
+import type { Metadata } from "next";
+import { cache } from "react";
 import { loadProfilePage } from "@/ui/server-data";
-import { Shell, RouteState, Status, Lineage, fact, fmtDate, fmtMoney, fmtNumber, words } from "@/components/presentational";
+import { Shell, RouteState, Status, Lineage, fact, fmtDate, fmtMoney, fmtNumber, incumbencyLabel, partyLabel, words } from "@/components/presentational";
 import { SeatMap } from "@/components/seat-map";
 import { ElectionAvailability } from "@/components/election-availability";
 import { FinanceAvailability } from "@/components/finance-availability";
@@ -8,24 +10,34 @@ export const dynamic = "force-dynamic";
 
 type Props = { params: Promise<{ id: string }> };
 
+// One profile read serves both the document title and the page.
+const loadProfile = cache((id: string) => loadProfilePage({ id }));
+
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const result = await loadProfile((await params).id);
+  if (!result.ok) return { title: "Seat record" };
+  const { identity } = result.value;
+  return { title: `${identity.geographyLabel} · seat record`, description: `Factual seat record for ${identity.geographyLabel}${identity.currentHolder ? `, held by ${identity.currentHolder}` : ""}.` };
+}
+
 export default async function SeatProfile({ params }: Props) {
-  const result = await loadProfilePage(await params);
+  const result = await loadProfile((await params).id);
   if (!result.ok) return <RouteState code={result.code} />;
 
   const { value: page } = result;
   const p = page.headlineFacts;
   const biography = page.biography;
 
-  return <Shell release={page.release}><main className="page">
+  return <Shell release={page.release}><main id="content" className="page">
     <p className="eyebrow">SEAT RECORD / {page.identity.geographyVintage}</p>
     <div className="identity">
       <div>
         <h1>{page.identity.geographyLabel}</h1>
-        <p>{officeLabel(page.identity.officeKind)} · {page.identity.stateCode}{page.identity.districtCode ? `-${page.identity.districtCode}` : ""} · {words(page.identity.incumbencyStatus)}</p>
+        <p>{officeLabel(page.identity.officeKind)} · {page.identity.stateCode}{page.identity.districtCode ? `-${page.identity.districtCode}` : ""} · {incumbencyLabel(page.identity.incumbencyStatus)}</p>
       </div>
       <dl>
         <dt>Current holder</dt>
-        <dd>{page.identity.currentHolder ?? "No current holder recorded"}{page.identity.currentHolderParty ? ` · ${words(page.identity.currentHolderParty)}` : ""}</dd>
+        <dd>{page.identity.currentHolder ?? "No current holder recorded"}{page.identity.currentHolderParty ? ` · ${partyLabel(page.identity.currentHolderParty)}` : ""}</dd>
         <dt>Occupancy</dt>
         <dd>{page.identity.occupancyStatus === "vacant" ? "Vacant" : words(page.identity.occupancyStatus)} as of {fmtDate(page.identity.occupancyAsOf)}</dd>
         <dt>Senate representation</dt>
