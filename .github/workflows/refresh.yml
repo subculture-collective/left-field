@@ -20,7 +20,15 @@ jobs:
   refresh:
     runs-on: ubuntu-latest
     steps:
+      - name: Ensure Git LFS is available
+        run: |
+          if ! command -v git-lfs >/dev/null 2>&1; then
+            apt-get update
+            apt-get install --yes --no-install-recommends git-lfs
+          fi
       - uses: actions/checkout@v4
+        with:
+          lfs: true
       - uses: actions/setup-node@v4
         with:
           node-version: 22
