@@ -18,7 +18,7 @@ function DisabledCorrections() {
     <p className="eyebrow">RELEASE CORRECTION / DEPLOYMENT STATUS</p>
     <h1>Corrections are not enabled here</h1>
     <Notice title="Private collection is privacy-gated"><p>This shared deployment does not collect correction reports. No report details, source links, or submission controls are available until the approved privacy review enables this feature.</p></Notice>
-    <section className="record-section"><h2>Privacy boundary</h2><p>This status page has no correction form, client-side collection code, or correction-service request. A record link may still lead here so the publication path remains legible without opening collection.</p></section>
+    <section className="record-section"><h2>Privacy boundary</h2><p>This status page has no correction form, client-side collection code, or correction-service request. A seat record may still link here. The link shows where corrections will go; it does not open collection.</p></section>
     <section className="record-section"><h2>Activation status</h2><dl><dt>Collection</dt><dd>Disabled by the checked-in feature gate.</dd><dt>Review</dt><dd>Not available in this shared deployment.</dd></dl></section>
   </main></Shell>;
 }
