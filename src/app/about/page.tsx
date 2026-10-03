@@ -23,7 +23,7 @@ export default function About() {
             height={1000}
             unoptimized
             priority
-            alt="Left Field, by SUBCULT. Read the field. Trace the evidence. Seat research and source context."
+            alt="Left Field, by SUBCULT. Where the field bends. Seat research and source context."
           />
         </figure>
         <p className="eyebrow">ABOUT</p>

@@ -311,7 +311,7 @@ export default async function Sources() {
           <div className="section-heading-pair">
             <div>
               <p className="eyebrow">LOCAL CONTEXT INTAKE</p>
-              <h2>Broad intake with a narrow active adapter</h2>
+              <h2>Retained widely, scored in two places</h2>
             </div>
             <p>
               These retained county and state-legislative inputs are
@@ -614,7 +614,7 @@ export default async function Sources() {
                   </p>
                   {snapshots.length === 0 ? (
                     <p className="empty-copy">
-                      No snapshots fall within this page closure.
+                      This source has no snapshots in the active release.
                     </p>
                   ) : (
                     <div
