@@ -1,84 +1,45 @@
 # Left Field
 
-Left Field is a research site for seats in the U.S. House and Senate,
-governorships, and state legislatures, published at
-<https://left-field.subcult.tv>. It scores each seat from public election,
-geography, and campaign-finance records, shows the inputs behind every score,
-and says which inputs it does not have. Scores are provisional and versioned.
-They are research priorities, not forecasts or endorsements.
+![Left Field: Where the field bends. Editorial field-ledger artwork with the LF monogram.](docs/assets/readme/banner.png)
 
-The site also publishes factual House and Senate seat records with their
-sources. An address lookup resolves an address to its federal districts without
-retaining it; it stays off unless a deployment has passed privacy review.
+**Where the field bends.**
 
-`PRD.md` and `ARCHITECTURE.md` still carry the earlier working title, Federal
-Seat Research.
+A score here is a research note with a version number. It is not a forecast or
+an endorsement. Left Field puts seat-level public election, geography and
+campaign-finance records beside their sources, then tells you what is missing.
 
-## Product boundary
+[Read the research](https://left-field.subcult.tv/) · [Review the scope](PRD.md) · [Report a source or method issue](https://git.subcult.tv/subculture-collective/left-field/issues)
 
-The application organizes public election, geography, campaign-finance, and
-incumbent evidence. It is a research tool. It is not a voter-profiling,
-persuasion, fundraising, or election-prediction system.
+## Start with a seat
 
-The repository keeps source material, candidate records, reviewed evidence, and
-publishable datasets separate. Missing information stays missing; it is not
-converted into a zero or an inferred fact. See
-[`PRD.md`](PRD.md) for product scope and [`ARCHITECTURE.md`](ARCHITECTURE.md) for
-the system and data-contract boundaries.
+The research covers seats in the U.S. House and Senate, governorships and state
+legislatures. Each provisional score shows its inputs. Factual House and Senate
+seat records carry their sources too.
 
-## Status
+Missing information stays missing. It is not converted into a zero or filled
+with an inferred fact. A ranking should be read with its version, coverage and
+limitations, not as a prediction of who will win.
 
-Active development. The repository includes the Next.js application, Postgres
-and PostGIS persistence, versioned migrations, source-lock verification,
-reproducible acquisition and generation scripts, unit and integration tests,
-and production-environment contract checks. Repository evidence is not itself a
-claim that every proposed dataset or public release has been approved.
+## What's outside the score
 
-## Local development
+Left Field works with public records at seat level. Individual voter files,
+inferred ideology and demographic targeting are outside its scope. The site
+does not imply DSA endorsement.
 
-Requirements: Node.js, npm, Docker with Compose, and Chromium for browser tests.
+Address lookup, where separately enabled after privacy review, resolves federal
+districts without retaining the submitted address. It is not a prerequisite
+for reading the research.
 
-```bash
-make install
-make browser-install
-make dev
-```
+## Read the methods
 
-`make dev` starts the local Postgres service, rebuilds a disposable synthetic
-fixture database, and runs the Next.js development server. It does not use or
-approve unpublished review data.
+The research site is in active development. Proposed datasets, reviewed
+evidence and published outputs are separate states; source code alone does not
+approve a dataset for release.
 
-Run `make help` for the complete command list.
+[Product scope](PRD.md) and [architecture](ARCHITECTURE.md) explain the evidence
+boundaries. [DEVELOPMENT.md](DEVELOPMENT.md) covers local setup, synthetic
+fixtures, verification and the original repository overview.
 
-## Verification
-
-```bash
-make check
-make e2e
-```
-
-`make check` runs type checking, lint, non-database unit tests, the production
-environment contract, and source-lock verification. `make e2e` provisions its
-own disposable browser-test database and runs the seeded desktop, mobile, and
-accessibility gate.
-
-Acceptance testing has additional isolated-database and restricted-login
-requirements; follow the guardrails printed by `make acceptance` rather than
-pointing tests at an existing database.
-
-## Privacy and evidence
-
-- Submitted addresses are intended for transient district resolution and must
-  not be retained.
-- Individual voter files, inferred ideology, and demographic targeting are out
-  of scope.
-- Material published facts require sources, retrieval context, and an explicit
-  review state.
-- Synthetic fixtures, proposals, reviewer decisions, and published outputs are
-  different evidence classes and must remain distinguishable.
-
-## License
-
-No project-wide license has been declared. The repository also contains public
-source data and derived artifacts whose reuse may be governed by their original
-providers; consult the recorded source metadata before redistribution.
+Published by [SUBCULT](https://subcult.tv). No project-wide license has been
+declared. Public source data and derived artifacts retain their recorded
+provider conditions; check those before redistribution.
