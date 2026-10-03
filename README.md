@@ -1,6 +1,6 @@
 # Left Field
 
-![Left Field: Where the field bends. Editorial field-ledger artwork with the LF monogram.](docs/assets/readme/banner.png)
+![Left Field: Where the field bends. Editorial field-ledger artwork with the LF monogram.](https://git.subcult.tv/api/v1/repos/subculture-collective/left-field/raw/docs/assets/readme/banner.png?ref=1b5e393af9a1b35fa5212b6dc8370bb19b8a80ca)
 
 **Where the field bends.**
 
