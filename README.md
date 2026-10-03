@@ -1,18 +1,28 @@
-# Federal Seat Research
+# Left Field
 
-An evidence-based research application for exploring United States House and
-Senate seats, resolving an address to its current federal districts without
-retaining it, and tracing important claims back to source records.
+Left Field is a research site for seats in the U.S. House and Senate,
+governorships, and state legislatures, published at
+<https://left-field.subcult.tv>. It scores each seat from public election,
+geography, and campaign-finance records, shows the inputs behind every score,
+and says which inputs it does not have. Scores are provisional and versioned.
+They are research priorities, not forecasts or endorsements.
+
+The site also publishes factual House and Senate seat records with their
+sources. An address lookup resolves an address to its federal districts without
+retaining it; it stays off unless a deployment has passed privacy review.
+
+`PRD.md` and `ARCHITECTURE.md` still carry the earlier working title, Federal
+Seat Research.
 
 ## Product boundary
 
 The application organizes public election, geography, campaign-finance, and
-incumbent evidence. It is a research tool—not a voter-profiling, persuasion,
-fundraising, or election-prediction system.
+incumbent evidence. It is a research tool. It is not a voter-profiling,
+persuasion, fundraising, or election-prediction system.
 
-The repository deliberately distinguishes source material, candidate records,
-reviewed evidence, and publishable datasets. Missing information is preserved as
-missing and is not converted into a zero or an inferred fact. See
+The repository keeps source material, candidate records, reviewed evidence, and
+publishable datasets separate. Missing information stays missing; it is not
+converted into a zero or an inferred fact. See
 [`PRD.md`](PRD.md) for product scope and [`ARCHITECTURE.md`](ARCHITECTURE.md) for
 the system and data-contract boundaries.
 
