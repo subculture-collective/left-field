@@ -1,13 +1,30 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
+# Snapshot recovery restores an already-published backup. It does not authorize
+# publication or satisfy the separate rollback/roll-forward contract.
+recovery_mode=lifecycle
+case "${1:-}" in
+  '') [[ $# == 0 ]] || exit 64 ;;
+  --snapshot-only) [[ $# == 1 ]] || exit 64; recovery_mode=snapshot ;;
+  *) printf 'Usage: %s [--snapshot-only]\n' "$0" >&2; exit 64 ;;
+esac
+readonly recovery_mode
+metric_prefix=dsa_seats_restore_drill
+metric_basename=dsa_seats_restore.prom
+if [[ "$recovery_mode" == snapshot ]]; then
+  metric_prefix=dsa_seats_snapshot_restore
+  metric_basename=dsa_seats_snapshot_restore.prom
+fi
+readonly metric_prefix metric_basename
+
 readonly RESTIC_REPOSITORY="${RESTIC_REPOSITORY:-sftp:onnwee@10.0.0.50:/mnt/data2/backups/nuc/restic}"
 readonly RESTIC_PASSWORD_FILE="${RESTIC_PASSWORD_FILE:-/etc/nuc-router-backup/restic-password}"
 readonly ROUTER_BACKUP_SSH_KEY="${ROUTER_BACKUP_SSH_KEY:-/home/onnwee/.ssh/id_ed25519}"
 readonly RESTORE_PARENT="${RESTORE_PARENT:-/srv/server/restore-tests}"
 readonly RESTORE_SUBNET="${RESTORE_SUBNET:-10.253.0.0/24}"
 readonly EVIDENCE_ROOT="${EVIDENCE_ROOT:-/srv/server/restore-evidence/dsa-seats}"
-readonly METRIC_FILE="${METRIC_FILE:-/srv/server/monitoring/data/node-exporter-textfile/dsa_seats_restore.prom}"
+readonly METRIC_FILE="${METRIC_FILE:-/srv/server/monitoring/data/node-exporter-textfile/${metric_basename}}"
 readonly FEC_V2_TLS_DIR="${FEC_V2_TLS_DIR:-/srv/server/projects/dsa-seats-r1/runtime/fec-v2-tls}"
 # The pinned MinIO client must be loaded from the independent recovery image
 # archive before this drill; do not silently pull a different client version.
@@ -44,15 +61,15 @@ write_metrics() {
   install -d -m 0755 "$(dirname "$METRIC_FILE")"
   temporary="${METRIC_FILE}.tmp.$$"
   {
-    printf '# HELP dsa_seats_restore_drill_success Whether the latest isolated factual restore drill passed.\n'
-    printf '# TYPE dsa_seats_restore_drill_success gauge\n'
-    printf 'dsa_seats_restore_drill_success{project="dsa-seats",environment="factual-r1"} %s\n' "$success"
-    printf '# HELP dsa_seats_restore_drill_last_success_unixtime Unix time of the latest successful factual restore drill.\n'
-    printf '# TYPE dsa_seats_restore_drill_last_success_unixtime gauge\n'
-    printf 'dsa_seats_restore_drill_last_success_unixtime{project="dsa-seats",environment="factual-r1"} %s\n' "$completed_at"
-    printf '# HELP dsa_seats_restore_drill_duration_seconds Duration of the latest factual restore drill.\n'
-    printf '# TYPE dsa_seats_restore_drill_duration_seconds gauge\n'
-    printf 'dsa_seats_restore_drill_duration_seconds{project="dsa-seats",environment="factual-r1"} %s\n' "$duration"
+    printf '# HELP %s_success Whether the selected isolated recovery contract passed.\n' "$metric_prefix"
+    printf '# TYPE %s_success gauge\n' "$metric_prefix"
+    printf '%s_success{project="dsa-seats",environment="factual-r1"} %s\n' "$metric_prefix" "$success"
+    printf '# HELP %s_last_success_unixtime Unix time of the latest successful selected recovery contract.\n' "$metric_prefix"
+    printf '# TYPE %s_last_success_unixtime gauge\n' "$metric_prefix"
+    printf '%s_last_success_unixtime{project="dsa-seats",environment="factual-r1"} %s\n' "$metric_prefix" "$completed_at"
+    printf '# HELP %s_duration_seconds Duration of the selected recovery contract.\n' "$metric_prefix"
+    printf '# TYPE %s_duration_seconds gauge\n' "$metric_prefix"
+    printf '%s_duration_seconds{project="dsa-seats",environment="factual-r1"} %s\n' "$metric_prefix" "$duration"
   } > "$temporary"
   chmod 0644 "$temporary"
   mv -f -- "$temporary" "$METRIC_FILE"
@@ -157,9 +174,16 @@ main() {
   git_revision="$(awk -F, '$1=="git_revision"{print $2}' "$restored_backup/deployment.csv")"
   app_image_id="$(awk -F, '$1=="app_image_id"{print $2}' "$restored_backup/deployment.csv")"
   [[ "$source_tree_sha" =~ ^[a-f0-9]{64}$ && "$source_lock_sha" =~ ^[a-f0-9]{64}$ ]] || fatal "deployment checksums are malformed"
-  [[ "$(sha256sum "$restored_backup/source.tar" | cut -d' ' -f1)" == "$source_tree_sha" ]] || fatal "restored source archive does not match deployment identity"
+  # SHA256SUMS verifies the archive bytes; source_tree_sha identifies the image
+  # build input, not a newly packed backup tarball. Match its embedded lock too.
+  [[ "$(tar -xOf "$restored_backup/source.tar" ./data/source-lock.json | sha256sum | cut -d' ' -f1)" == "$source_lock_sha" ]] \
+    || fatal "restored source archive does not contain the deployed source lock"
   [[ "$(sha256sum "$restored_backup/source-lock.json" | cut -d' ' -f1)" == "$source_lock_sha" ]] || fatal "restored source lock does not match deployment identity"
-  app_image="dsa-seats-r1:${source_tree_sha:0:12}"
+  if docker image inspect "dsa-seats-r1:${source_tree_sha}" >/dev/null 2>&1; then
+    app_image="dsa-seats-r1:${source_tree_sha}"
+  else
+    app_image="dsa-seats-r1:${source_tree_sha:0:12}"
+  fi
   [[ "$(docker image inspect "$app_image" --format '{{.Id}}')" == "$app_image_id" ]] || fatal "local recovery image does not match the backed-up image ID"
   append_evidence "source_tree_sha256=$source_tree_sha"
   append_evidence "source_lock_sha256=$source_lock_sha"
@@ -430,6 +454,25 @@ main() {
   "
   append_evidence "web_browse_profile_sources_methodology=pass"
   append_evidence "map_missing_artifact_contract=pass"
+
+  if [[ "$recovery_mode" == snapshot ]]; then
+    local snapshot_health
+    snapshot_health="$(docker run --cpus=1 --memory=1536m --pids-limit=256 --rm --network "$network" \
+      -e RELEASE_PREFLIGHT_DATABASE_URL="postgresql://dsa_restore_preflight@${postgres_container}:5432/dsa_seats_restore" \
+      "$app_image" npm run --silent release:health -- --release "$published_release_id")"
+    printf '%s\n' "$snapshot_health" > "${evidence_file%.txt}.health.json"
+    jq -e --arg release "$published_release_id" '
+      .releaseId == $release and .repositoryStatus == "pass" and
+      ([.checks[] | select(.name == "validation_gate" and .status == "pass")] | length) == 1
+    ' "${evidence_file%.txt}.health.json" >/dev/null
+    [[ "$(docker exec "$postgres_container" psql -X --username dsa_restore_admin --dbname dsa_seats_restore -Atqc "SELECT id FROM data_releases WHERE status='published'")" == "$published_release_id" ]] || fatal "snapshot validation changed the published pointer"
+    append_evidence "recovery_contract=published_snapshot"
+    append_evidence "repository_health=pass"
+    append_evidence "publication_lifecycle=not_run"
+    drill_success=1
+    log "isolated published-snapshot recovery passed; lifecycle qualification is separate"
+    return
+  fi
 
   local ingest_url="postgresql://dsa_restore_ingest@${postgres_container}:5432/dsa_seats_restore"
   local preflight_url="postgresql://dsa_restore_preflight@${postgres_container}:5432/dsa_seats_restore"
