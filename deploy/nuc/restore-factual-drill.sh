@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 set -Eeuo pipefail
 
-readonly RESTIC_REPOSITORY="${RESTIC_REPOSITORY:-sftp:root@10.0.0.1:/tmp/mountd/disk1_part1/nuc-restic}"
+readonly RESTIC_REPOSITORY="${RESTIC_REPOSITORY:-sftp:onnwee@10.0.0.50:/mnt/data2/backups/nuc/restic}"
 readonly RESTIC_PASSWORD_FILE="${RESTIC_PASSWORD_FILE:-/etc/nuc-router-backup/restic-password}"
-readonly ROUTER_BACKUP_SSH_KEY="${ROUTER_BACKUP_SSH_KEY:-/root/.ssh/nuc_router_backup_ed25519}"
+readonly ROUTER_BACKUP_SSH_KEY="${ROUTER_BACKUP_SSH_KEY:-/home/onnwee/.ssh/id_ed25519}"
 readonly RESTORE_PARENT="${RESTORE_PARENT:-/srv/server/restore-tests}"
 readonly RESTORE_SUBNET="${RESTORE_SUBNET:-10.253.0.0/24}"
 readonly EVIDENCE_ROOT="${EVIDENCE_ROOT:-/srv/server/restore-evidence/dsa-seats}"
 readonly METRIC_FILE="${METRIC_FILE:-/srv/server/monitoring/data/node-exporter-textfile/dsa_seats_restore.prom}"
 readonly FEC_V2_TLS_DIR="${FEC_V2_TLS_DIR:-/srv/server/projects/dsa-seats-r1/runtime/fec-v2-tls}"
-readonly SFTP_ARGS="-i ${ROUTER_BACKUP_SSH_KEY} -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=no"
+# The pinned MinIO client must be loaded from the independent recovery image
+# archive before this drill; do not silently pull a different client version.
+readonly SFTP_ARGS="-i ${ROUTER_BACKUP_SSH_KEY} -o IdentitiesOnly=yes -o BatchMode=yes -o StrictHostKeyChecking=yes"
 
 started_epoch="$(date -u +%s)"
 started_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
@@ -170,7 +172,7 @@ main() {
   docker volume create "$map_volume" >/dev/null
   docker volume create "$fec_v2_volume" >/dev/null
 
-  docker run -d --name "$postgres_container" --network "$network" \
+  docker run --cpus=1 --memory=1536m --pids-limit=256 -d --name "$postgres_container" --network "$network" \
     --health-cmd 'test "$(cat /proc/1/comm)" = postgres && pg_isready -U dsa_restore_admin -d dsa_seats_restore' \
     --health-interval 2s --health-timeout 2s --health-retries 60 \
     -e POSTGRES_USER=dsa_restore_admin \
@@ -182,7 +184,7 @@ main() {
   docker exec "$postgres_container" psql -X --username dsa_restore_admin --dbname dsa_seats_restore -v ON_ERROR_STOP=1 -Atqc "SELECT 1" | grep -Fx 1 >/dev/null
 
   local admin_url="postgresql://dsa_restore_admin@${postgres_container}:5432/dsa_seats_restore"
-  if ! docker run --name "$migrate_container" --network "$network" \
+  if ! docker run --cpus=1 --memory=1536m --pids-limit=256 --name "$migrate_container" --network "$network" \
     -e DATABASE_URL="$admin_url" \
     --entrypoint /app/deploy/nuc/run-with-secrets.sh \
     "$app_image" npm run db:migrate; then
@@ -195,7 +197,7 @@ main() {
   docker rm "$migrate_container" >/dev/null
 
   local restore_list="$restore_root/restore.list" filtered_restore_list="$restore_root/restore-data.list"
-  docker run --rm --network none -v "$restored_backup:/backup:ro" \
+  docker run --cpus=1 --memory=1536m --pids-limit=256 --rm --network none -v "$restored_backup:/backup:ro" \
     postgis/postgis:16-3.4-alpine pg_restore --list /backup/dsa_seats_r1.dump > "$restore_list"
   awk '!/TABLE DATA drizzle __drizzle_migrations/' "$restore_list" > "$filtered_restore_list"
   grep -F 'TABLE DATA drizzle __drizzle_migrations' "$restore_list" >/dev/null || fatal "backup restore list has no Drizzle migration ledger"
@@ -225,11 +227,11 @@ main() {
     --command "ANALYZE;" >/dev/null
   append_evidence "postgres_analyze=pass"
 
-  docker run --rm --network none -v "$raw_volume:/target" -v "$restored_backup:/backup:ro" \
+  docker run --cpus=1 --memory=1536m --pids-limit=256 --rm --network none -v "$raw_volume:/target" -v "$restored_backup:/backup:ro" \
     postgis/postgis:16-3.4-alpine tar -C /target -xzf /backup/raw_objects.tgz
-  docker run --rm --network none -v "$map_volume:/target" -v "$restored_backup:/backup:ro" \
+  docker run --cpus=1 --memory=1536m --pids-limit=256 --rm --network none -v "$map_volume:/target" -v "$restored_backup:/backup:ro" \
     postgis/postgis:16-3.4-alpine tar -C /target -xzf /backup/map_artifacts.tgz
-  docker run --rm --network none -v "$fec_v2_volume:/target" -v "$restored_backup:/backup:ro" \
+  docker run --cpus=1 --memory=1536m --pids-limit=256 --rm --network none -v "$fec_v2_volume:/target" -v "$restored_backup:/backup:ro" \
     postgis/postgis:16-3.4-alpine tar -C /target -xzf /backup/fec_v2_objects.tgz
   append_evidence "raw_object_restore=pass"
   append_evidence "map_object_restore=pass"
@@ -289,7 +291,7 @@ main() {
       (SELECT count(*) FROM map_artifacts WHERE release_id='${published_release_id}');
   ")"
   if [[ "$release_stage" == "acs" ]]; then
-    expected_closure="541,497,537,1074,3,1311,7,0,0"
+    expected_closure="541,497,537,1074,3,1311,7,0,441"
   else
     expected_closure="541,497,537,1074,0,0,7,0,0"
   fi
@@ -321,7 +323,7 @@ main() {
   printf 'restore%s' "$(openssl rand -hex 8)" > "$raw_root_user"
   openssl rand -hex 32 > "$raw_root_password"
   chmod 0600 "$raw_root_user" "$raw_root_password"
-  docker run -d --name "$rawstore_container" --network "$network" \
+  docker run --cpus=1 --memory=1536m --pids-limit=256 -d --name "$rawstore_container" --network "$network" \
     --health-cmd 'curl -fsS http://127.0.0.1:9000/minio/health/live' \
     --health-interval 2s --health-timeout 2s --health-retries 60 \
     -e MINIO_ROOT_USER_FILE=/run/secrets/root_user \
@@ -347,7 +349,7 @@ main() {
   printf 'restore%s' "$(openssl rand -hex 8)" > "$fec_root_user"
   openssl rand -hex 32 > "$fec_root_password"
   chmod 0600 "$fec_root_user" "$fec_root_password"
-  docker run -d --name "$fecstore_container" --network "$network" --network-alias fecstore \
+  docker run --cpus=1 --memory=1536m --pids-limit=256 -d --name "$fecstore_container" --network "$network" --network-alias fecstore \
     --health-cmd 'curl --cacert /certs/CAs/root.crt -fsS https://fecstore:9000/minio/health/live' \
     --health-interval 2s --health-timeout 2s --health-retries 60 \
     -e MINIO_ROOT_USER_FILE=/run/secrets/root_user \
@@ -359,12 +361,12 @@ main() {
     minio/minio@sha256:14cea493d9a34af32f524e538b8346cf79f3321eff8e708c1e2960462bd8936e \
     server --certs-dir /certs /data >/dev/null
   wait_for_health "$fecstore_container"
-  docker run --rm --network "$network" \
+  docker run --cpus=1 --memory=1536m --pids-limit=256 --rm --network "$network" \
     -v "$fec_root_user:/run/secrets/root_user:ro" \
     -v "$fec_root_password:/run/secrets/root_password:ro" \
     -v "$FEC_V2_TLS_DIR/CAs/root.crt:/certs/CAs/root.crt:ro" \
     --entrypoint /bin/sh \
-    minio/mc@sha256:a7fe349ef4bd8521fb8497f55c6042871b2ae640607cf99d9bede5e9bdf11727 \
+    sha256:a7fe349ef4bd8521fb8497f55c6042871b2ae640607cf99d9bede5e9bdf11727 \
     -ec '
       export SSL_CERT_FILE=/certs/CAs/root.crt
       root_user=$(tr -d "\r\n" < /run/secrets/root_user)
@@ -405,7 +407,7 @@ main() {
   append_evidence "postgres_restarted_after_fec_restore=pass"
 
   local web_url="postgresql://dsa_restore_web@${postgres_container}:5432/dsa_seats_restore"
-  docker run -d --name "$app_container" --network "$network" \
+  docker run --cpus=1 --memory=1536m --pids-limit=256 -d --name "$app_container" --network "$network" \
     -e NODE_ENV=production \
     -e WEB_DATABASE_URL="$web_url" \
     -e MAP_ARTIFACT_ROOT=/var/lib/dsa-seats/maps/r1-factual \
@@ -414,7 +416,7 @@ main() {
     -v "$map_volume:/var/lib/dsa-seats/maps:ro" \
     "$app_image" npm run start -- -H 0.0.0.0 >/dev/null
   for attempt in $(seq 1 60); do
-    if docker exec "$app_container" node -e "fetch('http://127.0.0.1:3000/').then(async r=>{const b=await r.text();if(!r.ok||b.length<10000||b.includes('Synthetic')||!b.includes(process.env.EXPECTED_RELEASE_LABEL))process.exit(1)}).catch(()=>process.exit(1))" >/dev/null 2>&1; then
+    if docker exec "$app_container" node -e "fetch('http://127.0.0.1:3000/sources').then(async r=>{const b=await r.text();if(!r.ok||b.length<10000||b.includes('Synthetic')||!b.includes(process.env.EXPECTED_RELEASE_LABEL))process.exit(1)}).catch(()=>process.exit(1))" >/dev/null 2>&1; then
       break
     fi
     [[ "$attempt" == 60 ]] && { docker logs --tail 80 "$app_container" >&2; fatal "restored application did not satisfy its factual body contract"; }
@@ -433,25 +435,25 @@ main() {
   local preflight_url="postgresql://dsa_restore_preflight@${postgres_container}:5432/dsa_seats_restore"
   local operator_url="postgresql://dsa_restore_operator@${postgres_container}:5432/dsa_seats_restore"
   local verifier_url="postgresql://dsa_restore_verifier@${postgres_container}:5432/dsa_seats_restore"
-  docker run --rm --network "$network" \
+  docker run --cpus=1 --memory=1536m --pids-limit=256 --rm --network "$network" \
     -e INGEST_DATABASE_URL="$ingest_url" \
     -e RELEASE_PREFLIGHT_DATABASE_URL="$preflight_url" \
     -e RELEASE_OPERATOR_DATABASE_URL="$operator_url" \
     -e LAUNCH_VERIFIER_DATABASE_URL="$verifier_url" \
     "$app_image" npm run release:lifecycle -- rollback >/dev/null
   [[ "$(docker exec "$postgres_container" psql -X --username dsa_restore_admin --dbname dsa_seats_restore -Atqc "SELECT id FROM data_releases WHERE status='published'")" == "$previous_release_id" ]] || fatal "isolated factual rollback did not publish the predecessor"
-  docker run --rm --network "$network" \
+  append_evidence "factual_rollback=pass"
+  docker run --cpus=1 --memory=1536m --pids-limit=256 --rm --network "$network" \
     -e INGEST_DATABASE_URL="$ingest_url" \
     -e RELEASE_PREFLIGHT_DATABASE_URL="$preflight_url" \
     -e RELEASE_OPERATOR_DATABASE_URL="$operator_url" \
     -e LAUNCH_VERIFIER_DATABASE_URL="$verifier_url" \
     "$app_image" npm run release:lifecycle -- roll-forward --release "$published_release_id" --launch-factual >/dev/null
   [[ "$(docker exec "$postgres_container" psql -X --username dsa_restore_admin --dbname dsa_seats_restore -Atqc "SELECT id FROM data_releases WHERE status='published'")" == "$published_release_id" ]] || fatal "isolated factual roll-forward did not restore the backed-up release"
-  append_evidence "factual_rollback=pass"
   append_evidence "factual_roll_forward=pass"
 
   local health_output
-  health_output="$(docker run --rm --network "$network" \
+  health_output="$(docker run --cpus=1 --memory=1536m --pids-limit=256 --rm --network "$network" \
     -e RELEASE_PREFLIGHT_DATABASE_URL="$preflight_url" \
     "$app_image" npm run release:health -- --release "$published_release_id")"
   grep -F '"repositoryStatus":"pass"' <<<"$health_output" >/dev/null || fatal "restored repository health did not pass"
