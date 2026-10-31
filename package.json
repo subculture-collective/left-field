@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "node --test scripts/next-eslint-glob.check.mjs && eslint .",
+    "lint": "node --test scripts/next-eslint-glob.check.mjs scripts/minimatch-compat.check.mjs && eslint .",
     "typecheck": "tsc --noEmit",
     "test": "vitest",
     "test:run": "vitest run",
@@ -421,7 +421,8 @@
     "mapshaper": "0.6.113",
     "tailwindcss": "^4.1.18",
     "typescript": "^5.9.3",
-    "vitest": "^4.1.12"
+    "vitest": "^4.1.12",
+    "minimatch": "file:tools/minimatch-compat"
   },
   "overrides": {
     "@esbuild-kit/core-utils": {
@@ -431,16 +432,11 @@
       "adm-zip": "0.6.1",
       "fflate": "0.8.3"
     },
-    "minimatch@3.1.5": {
-      "brace-expansion": "1.1.21"
-    },
-    "minimatch@10.2.5": {
-      "brace-expansion": "5.0.12"
-    },
     "postcss": "^8.5.23",
     "sharp": "$sharp",
     "@next/eslint-plugin-next": {
       "fast-glob": "npm:tinyglobby@0.2.17"
-    }
+    },
+    "minimatch": "$minimatch"
   }
 }

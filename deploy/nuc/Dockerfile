@@ -13,6 +13,7 @@ WORKDIR /app
 ENV NEXT_TELEMETRY_DISABLED=1
 
 COPY package.json package-lock.json ./
+COPY tools/minimatch-compat/ ./tools/minimatch-compat/
 RUN npm ci
 
 COPY . .
