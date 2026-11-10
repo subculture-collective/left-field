@@ -125,10 +125,13 @@ use the earlier working title, Federal Seat Research.
 
 ## Contributing
 
-Open a pull request on GitHub against `main`. CI runs type checking, lint,
-source-data verification, unit tests, a production build, browser acceptance
-tests against a disposable database and a web image build on every pull
-request. Run `make check` and `make e2e` before you push.
+- Bugs and feature requests: [GitHub issues](https://github.com/subculture-collective/left-field/issues).
+- Questions and ideas: [GitHub Discussions](https://github.com/subculture-collective/left-field/discussions).
+- Code: open a pull request on GitHub against `main`.
+
+CI runs type checking, lint, source-data verification, unit tests, a production
+build, browser acceptance tests against a disposable database and a web image
+build on every pull request. Run `make check` and `make e2e` before you push.
 
 ## License
 
