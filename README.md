@@ -131,7 +131,8 @@ use the earlier working title, Federal Seat Research.
 
 CI runs type checking, lint, source-data verification, unit tests, a production
 build, browser acceptance tests against a disposable database and a web image
-build on every pull request. Run `make check` and `make e2e` before you push.
+build for branches pushed to this repository. CI does not run on pull requests
+from forks, so run `make check` and `make e2e` before you open one.
 
 ## License
 
